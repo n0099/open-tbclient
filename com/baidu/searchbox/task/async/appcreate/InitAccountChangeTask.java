@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.async.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.uv4;
+import com.baidu.tieba.kw4;
 /* loaded from: classes2.dex */
 public class InitAccountChangeTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -16,6 +16,6 @@ public class InitAccountChangeTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        uv4.t().A();
+        kw4.t().A();
     }
 }

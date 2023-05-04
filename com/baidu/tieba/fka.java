@@ -1,43 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.media.MediaMetadataRetriever;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.yalog.LoggerManager;
 /* loaded from: classes4.dex */
-public class fka {
+public class fka extends MediaMetadataRetriever {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile LoggerManager.c a;
-    public static gka b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947768397, "Lcom/baidu/tieba/fka;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947768397, "Lcom/baidu/tieba/fka;");
-                return;
-            }
-        }
-        b = new gka();
-    }
-
-    public static LoggerManager.c a() {
-        InterceptResult invokeV;
+    public static long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                a = b.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                mediaMetadataRetriever.setDataSource(str);
+                return Integer.parseInt(mediaMetadataRetriever.extractMetadata(9));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0L;
             }
-            return a;
         }
-        return (LoggerManager.c) invokeV.objValue;
+        return invokeL.longValue;
     }
 }

@@ -72,7 +72,7 @@ public class AndroidFragmentApplication extends Fragment implements q1 {
         t6.a();
     }
 
-    public n0 E1() {
+    public n0 F1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -81,7 +81,7 @@ public class AndroidFragmentApplication extends Fragment implements q1 {
         return (n0) invokeV.objValue;
     }
 
-    public Files F1() {
+    public Files G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -90,7 +90,7 @@ public class AndroidFragmentApplication extends Fragment implements q1 {
         return (Files) invokeV.objValue;
     }
 
-    public Net G1() {
+    public Net H1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -99,7 +99,7 @@ public class AndroidFragmentApplication extends Fragment implements q1 {
         return (Net) invokeV.objValue;
     }
 
-    public final boolean H1() {
+    public final boolean I1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -253,7 +253,7 @@ public class AndroidFragmentApplication extends Fragment implements q1 {
             this.a.u(true);
             this.a.r();
             this.b.onPause();
-            if (isRemoving() || H1() || getActivity().isFinishing()) {
+            if (isRemoving() || I1() || getActivity().isFinishing()) {
                 this.a.h();
                 this.a.j();
             }
@@ -335,7 +335,7 @@ public class AndroidFragmentApplication extends Fragment implements q1 {
             if (configuration.hardKeyboardHidden != 1) {
                 z = false;
             }
-            this.b.r(z);
+            this.b.s(z);
         }
     }
 
@@ -356,10 +356,10 @@ public class AndroidFragmentApplication extends Fragment implements q1 {
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             o0.a = this;
             mo6getInput();
-            o0.c = E1();
-            o0.d = F1();
+            o0.c = F1();
+            o0.d = G1();
             o0.b = getGraphics();
-            G1();
+            H1();
             this.b.onResume();
             a2 a2Var = this.a;
             if (a2Var != null) {

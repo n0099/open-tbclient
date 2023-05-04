@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class TbClipImageView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean w0;
+    public boolean x0;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public TbClipImageView(Context context) {
@@ -75,7 +75,7 @@ public class TbClipImageView extends TbImageView {
                 return;
             }
         }
-        this.w0 = false;
+        this.x0 = false;
         T(context, attributeSet, i);
     }
 
@@ -119,9 +119,9 @@ public class TbClipImageView extends TbImageView {
                 z2 = false;
             }
             if (!z2 && !z) {
-                this.w0 = true;
+                this.x0 = true;
             } else {
-                this.w0 = false;
+                this.x0 = false;
             }
         }
     }
@@ -134,7 +134,7 @@ public class TbClipImageView extends TbImageView {
             if (i == 0) {
                 super.setDrawerType(i);
             } else if (i == 1) {
-                if (this.w0) {
+                if (this.x0) {
                     i2 = 4;
                 } else {
                     i2 = 5;

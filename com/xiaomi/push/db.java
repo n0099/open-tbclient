@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public /* synthetic */ class db {
     public static final /* synthetic */ int[] a;
 

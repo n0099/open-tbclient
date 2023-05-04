@@ -1,170 +1,134 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.YYLiveUtil;
+import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
+import com.baidu.tbadk.data.LiveRemindRecommendData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class z95 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static Map<String, String> b;
-    public static boolean c;
-    public static boolean d;
-    public static int e;
-    public static int f;
-    public static boolean g;
-    public static String h;
-    public static Map<String, String> i;
-    public static int j;
-    public static int k;
-    public static boolean l;
+    public static int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948314803, "Lcom/baidu/tieba/z95;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948314803, "Lcom/baidu/tieba/z95;");
-        }
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
+    public static String a(String str, int i) {
+        InterceptResult invokeLI;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (!c) {
-                return q45.m().n("video_report_config_upload_number", 5);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (i == 1) {
+                str2 = "index";
+            } else if (i == 2) {
+                str2 = "pb_live";
+            } else if (i == 3) {
+                int i2 = a;
+                if (i2 == 1) {
+                    str2 = "video_bar_live";
+                } else {
+                    if (i2 == 2) {
+                        str2 = "video_immer_live";
+                    }
+                    str2 = "";
+                }
+            } else {
+                if (i == 4) {
+                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
+                }
+                str2 = "";
             }
-            return f;
+            return str + "?source=" + str2;
         }
-        return invokeV.intValue;
+        return (String) invokeLI.objValue;
     }
 
-    public static int b() {
+    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
+            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
+                b = liveRemindRecommendData.getShowPage();
+                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
+                if (liveRemindRecommendData.getShowPage() == 3) {
+                    String c = c();
+                    if (liveIconScheme.contains("closeLink")) {
+                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
+                    }
+                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
+                }
+                return liveIconScheme;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (!c) {
-                return q45.m().n("video_report_config_upload_type", 0);
+            int i = a;
+            if (i == 1) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
             }
-            return e;
-        }
-        return invokeV.intValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!c) {
-                return q45.m().i("video_report_config_switch", true);
+            if (i == 2) {
+                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
             }
-            return d;
+            int i2 = b;
+            if (i2 == 1) {
+                return "index_gz";
+            }
+            if (i2 == 2) {
+                return AddFriendActivityConfig.TYPE_PB_HEAD;
+            }
+            return YYLiveUtil.SOURCE_NOT_DEFINE;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void d(JSONObject jSONObject) throws JSONException {
-        boolean z;
-        boolean z2;
+    public static void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        boolean z3 = true;
-        c = true;
-        if (jSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 1) == 0) {
-            z = false;
-        } else {
-            z = true;
-        }
-        d = z;
-        q45.m().w("video_report_config_switch", d);
-        e = jSONObject.optInt("upload_type", 0);
-        q45.m().z("video_report_config_upload_type", e);
-        f = jSONObject.optInt("upload_number", 5);
-        q45.m().z("video_report_config_upload_number", f);
-        j = jSONObject.optInt("prepare_max_wait_time", 10000);
-        q45.m().z("video_report_prepare_max_wait_time", j);
-        k = jSONObject.optInt("prepare_max_loading_time", 3000);
-        q45.m().z("video_report_prepare_max_loading_time", k);
-        if (jSONObject.optInt("is_open_prepare_time", 0) == 1) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        l = z2;
-        q45.m().w("video_report_is_open_prepare_time", l);
-        if (jSONObject.optInt("moov_check", 0) == 0) {
-            z3 = false;
-        }
-        g = z3;
-        q45.m().w("video_report_config_moov_check", g);
-        String optString = jSONObject.optString("android_debug_type");
-        h = optString;
-        if (!StringUtils.isNull(optString)) {
-            q45.m().B("video_report_config_debug_type", h);
-            e(h);
-        }
-        String optString2 = jSONObject.optString("step_cache_strategy");
-        a = optString2;
-        if (!StringUtils.isNull(optString2)) {
-            q45.m().B("video_report_config_step_cache_strategy", a);
-            f(a);
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
         }
     }
 
-    public static void e(String str) {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (i == null) {
-            i = new HashMap();
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            i.put("debug_avformat_open_input", jSONObject.optString("debug_avformat_open_input"));
-            i.put("debug_dns_strategy", jSONObject.optString("debug_dns_strategy"));
-            i.put("debug_url_null_strategy", jSONObject.optString("debug_url_null_strategy"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
         }
     }
 
-    public static void f(String str) {
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            Uri parse = Uri.parse(str);
+            if (parse == null) {
+                return "";
+            }
+            String queryParameter = parse.getQueryParameter("source");
+            if (StringUtils.isNull(queryParameter)) {
+                return "";
+            }
+            return queryParameter;
         }
-        if (b == null) {
-            b = new HashMap();
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            b.put("step_cache_force_use_proxy", jSONObject.optString("step_cache_force_use_proxy"));
-            b.put("step_cache_switch", jSONObject.optString("step_cache_switch"));
-            b.put("step_cache_rush_hour", jSONObject.optString("step_cache_rush_hour"));
-            b.put("step_cache_rush_hour_cache_duration", jSONObject.optString("step_cache_rush_hour_cache_duration"));
-            b.put("step_cache_normol_cache_duration", jSONObject.optString("step_cache_normol_cache_duration"));
-        } catch (JSONException e2) {
-            e2.printStackTrace();
+        return (String) invokeL.objValue;
+    }
+
+    public static void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
+            a = i;
         }
     }
 }

@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.HandlerThread;
+import android.os.Looper;
+import android.os.Message;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,9 +18,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class d31 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d31 b;
+    public static volatile d31 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public HandlerThread a;
+    public Handler b;
+    public b31 c;
+    public c31 d;
+    public a31 e;
+    public e31 f;
 
     static {
         InterceptResult invokeClinit;
@@ -32,6 +42,107 @@ public class d31 {
         }
     }
 
+    /* loaded from: classes4.dex */
+    public class a extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ d31 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(d31 d31Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d31Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = d31Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(@NonNull Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                switch (message.what) {
+                    case 1:
+                        Object obj = message.obj;
+                        if (obj instanceof b) {
+                            b bVar = (b) obj;
+                            this.a.e.d(bVar.a, bVar.b, bVar.c);
+                        }
+                        this.a.r();
+                        return;
+                    case 2:
+                        this.a.r();
+                        return;
+                    case 3:
+                        if (this.a.d.a() > 0) {
+                            this.a.r();
+                            return;
+                        }
+                        return;
+                    case 4:
+                        Object obj2 = message.obj;
+                        if (obj2 instanceof b) {
+                            b bVar2 = (b) obj2;
+                            this.a.f.b(bVar2.a, bVar2.b, bVar2.c);
+                            this.a.t();
+                            return;
+                        }
+                        return;
+                    case 5:
+                        this.a.t();
+                        return;
+                    case 6:
+                        this.a.f.a();
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Runnable a;
+        public String b;
+        public int c;
+
+        public b(Runnable runnable, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {runnable, str, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = runnable;
+            this.b = str;
+            this.c = i;
+        }
+    }
+
     public d31() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -45,40 +156,162 @@ public class d31 {
                 return;
             }
         }
-        this.a = 0L;
+        synchronized (o21.b()) {
+            h();
+        }
     }
 
-    public static d31 b() {
+    public static d31 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (g == null) {
                 synchronized (d31.class) {
-                    if (b == null) {
-                        b = new d31();
+                    if (g == null) {
+                        g = new d31();
                     }
                 }
             }
-            return b;
+            return g;
         }
         return (d31) invokeV.objValue;
     }
 
-    public ElasticTask a(@NonNull Runnable runnable, @NonNull String str, int i) {
-        InterceptResult invokeLLI;
-        ElasticTask elasticTask;
+    public a31 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
-            if (runnable != null && !TextUtils.isEmpty(str)) {
-                synchronized (this) {
-                    long j = this.a + 1;
-                    this.a = j;
-                    elasticTask = new ElasticTask(runnable, str, j, i);
-                }
-                return elasticTask;
-            }
-            throw new IllegalArgumentException("illegal params");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (ElasticTask) invokeLLI.objValue;
+        return (a31) invokeV.objValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            j(0L);
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            l(0L);
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            p(0L);
+        }
+    }
+
+    public final void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            do {
+            } while (s());
+            i();
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            this.f.c();
+        }
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 3;
+            this.b.sendMessageDelayed(obtain, j);
+        }
+    }
+
+    public void l(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 2;
+            this.b.sendMessageDelayed(obtain, j);
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 6;
+            this.b.sendMessageDelayed(obtain, j);
+        }
+    }
+
+    public void p(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 5;
+            this.b.sendMessageDelayed(obtain, j);
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new b31();
+            this.d = new c31();
+            this.e = new a31();
+            this.f = new e31();
+            HandlerThread handlerThread = new HandlerThread("ElasticSchedulerThread");
+            this.a = handlerThread;
+            handlerThread.start();
+            this.a.setPriority(10);
+            this.b = new a(this, this.a.getLooper());
+        }
+    }
+
+    public void m(Runnable runnable, String str, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 1;
+            obtain.obj = new b(runnable, str, i);
+            this.b.sendMessageDelayed(obtain, j);
+        }
+    }
+
+    public void q(Runnable runnable, String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            Message obtain = Message.obtain();
+            obtain.what = 4;
+            obtain.obj = new b(runnable, str, 4);
+            this.b.sendMessageDelayed(obtain, j);
+        }
+    }
+
+    public final boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            ElasticTask b2 = this.e.b();
+            if (b2 == null) {
+                return false;
+            }
+            if (this.c.a(b2)) {
+                this.e.e(b2);
+                return true;
+            } else if (!this.d.c(b2)) {
+                return false;
+            } else {
+                this.e.e(b2);
+                return true;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

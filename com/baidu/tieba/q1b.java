@@ -1,100 +1,56 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.content.pm.PackageManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.TimeUnit;
-import rx.internal.schedulers.SchedulerWhen;
 /* loaded from: classes6.dex */
-public abstract class q1b {
-    public static /* synthetic */ Interceptable $ic;
+public class q1b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "h";
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract a createWorker();
-
-    /* loaded from: classes6.dex */
-    public static abstract class a implements u1b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public abstract u1b b(a2b a2bVar);
-
-        public abstract u1b c(a2b a2bVar, long j, TimeUnit timeUnit);
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public long a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return System.currentTimeMillis();
-            }
-            return invokeV.longValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040391, "Lcom/baidu/tieba/q1b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948040391, "Lcom/baidu/tieba/q1b;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948040391, "Lcom/baidu/tieba/q1b;")) == null) {
+            return;
         }
-        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
-    }
-
-    public q1b() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948040391, "Lcom/baidu/tieba/q1b;");
         }
     }
 
-    public long now() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return System.currentTimeMillis();
-        }
-        return invokeV.longValue;
-    }
-
-    public <S extends q1b & u1b> S when(f2b<n1b<n1b<l1b>>, l1b> f2bVar) {
+    public static String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f2bVar)) == null) {
-            return new SchedulerWhen(f2bVar, this);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Context a2 = m1b.a();
+            if (a2 == null) {
+                return "";
+            }
+            try {
+                return a2.getPackageManager().getPackageInfo(str, 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                String str2 = a;
+                p1b.d(str2, "getVersion NameNotFoundException : " + e.getMessage());
+                return "";
+            } catch (Exception e2) {
+                String str3 = a;
+                p1b.d(str3, "getVersion: " + e2.getMessage());
+                return "";
+            } catch (Throwable unused) {
+                p1b.d(a, "throwable");
+                return "";
+            }
         }
-        return (S) ((q1b) invokeL.objValue);
+        return (String) invokeL.objValue;
     }
 }

@@ -1,53 +1,43 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.AdSlot;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunAdSlot;
-import com.fun.ad.sdk.FunAdType;
-import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.baidu.yalog.LoggerManager;
 /* loaded from: classes3.dex */
-public class boa extends wna {
+public class boa {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile LoggerManager.c a;
+    public static coa b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public boa(Ssp.Pid pid) {
-        super(FunAdType.obtainType(pid, FunAdType.AdType.INTERSTITIAL), pid);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947653077, "Lcom/baidu/tieba/boa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947653077, "Lcom/baidu/tieba/boa;");
                 return;
             }
         }
+        b = new coa();
     }
 
-    @Override // com.baidu.tieba.wna
-    public AdSlot e(FunAdSlot funAdSlot) {
-        InterceptResult invokeL;
+    public static LoggerManager.c a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, funAdSlot)) == null) {
-            int expressWidth = funAdSlot.getExpressWidth();
-            int expressHeight = funAdSlot.getExpressHeight();
-            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
-                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
             }
-            return new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setExpressViewAcceptedSize(expressWidth, expressHeight).setOrientation(this.mPid.isHorizontal ? 2 : 1).build();
+            return a;
         }
-        return (AdSlot) invokeL.objValue;
+        return (LoggerManager.c) invokeV.objValue;
     }
 }

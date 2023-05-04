@@ -19,10 +19,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.ax4;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.iy4;
-import com.baidu.tieba.kw4;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
+import com.baidu.tieba.yy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ import tbclient.User;
 import tbclient.VideoInfo;
 import tbclient.Voice;
 /* loaded from: classes3.dex */
-public class CardPersonDynamicThreadData extends kw4 {
+public class CardPersonDynamicThreadData extends ax4 {
     public static /* synthetic */ Interceptable $ic;
     public static final BdUniqueId I;
     public transient /* synthetic */ FieldHolder $fh;
@@ -101,14 +101,14 @@ public class CardPersonDynamicThreadData extends kw4 {
         return invokeIII.intValue;
     }
 
-    @Override // com.baidu.tieba.kw4
-    public iy4 getNegFeedBackData() {
+    @Override // com.baidu.tieba.ax4
+    public yy4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return null;
         }
-        return (iy4) invokeV.objValue;
+        return (yy4) invokeV.objValue;
     }
 
     /* loaded from: classes3.dex */
@@ -620,7 +620,7 @@ public class CardPersonDynamicThreadData extends kw4 {
                     }
                 }
             }
-            CardPersonDynamicThreadData.h(this.labelList, this.showExpressionViewIndex);
+            CardPersonDynamicThreadData.g(this.labelList, this.showExpressionViewIndex);
         }
     }
 
@@ -640,7 +640,7 @@ public class CardPersonDynamicThreadData extends kw4 {
         I = BdUniqueId.gen();
     }
 
-    @Override // com.baidu.tieba.kw4
+    @Override // com.baidu.tieba.ax4
     public ThreadData getThreadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -699,7 +699,7 @@ public class CardPersonDynamicThreadData extends kw4 {
         return invokeII.intValue;
     }
 
-    public static void h(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
+    public static void g(LabelInfo[] labelInfoArr, ArrayList<Integer> arrayList) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, labelInfoArr, arrayList) != null) || labelInfoArr == null) {
             return;

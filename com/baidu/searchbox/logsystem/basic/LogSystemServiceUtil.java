@@ -14,7 +14,7 @@ import com.baidu.searchbox.logsystem.logsys.LogType;
 import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
 import com.baidu.searchbox.logsystem.util.LLog;
 import com.baidu.searchbox.logsystem.util.Utility;
-import com.baidu.tieba.gj1;
+import com.baidu.tieba.ij1;
 import java.io.File;
 /* loaded from: classes2.dex */
 public class LogSystemServiceUtil {
@@ -93,7 +93,7 @@ public class LogSystemServiceUtil {
     }
 
     public static void tranLogHandlerAction(@NonNull Context context, @NonNull LogType logType, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
-        File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(gj1.b());
+        File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(ij1.b());
         if (!obtainFileDirWithProcessName.exists()) {
             obtainFileDirWithProcessName.mkdirs();
         }
@@ -114,7 +114,7 @@ public class LogSystemServiceUtil {
         }
         Intent intent = new Intent();
         intent.setClass(context, LokiService.class);
-        intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, gj1.b());
+        intent.putExtra(LokiService.Constant.LOG_PROCESS_NAME, ij1.b());
         intent.putExtra("logtype", logType);
         if (str != null) {
             intent.putExtra(LokiService.Constant.LOG_BASIC_DATA, str);

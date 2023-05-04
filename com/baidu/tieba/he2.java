@@ -1,68 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.Nullable;
-import androidx.core.app.NotificationCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.tq2;
+import com.baidu.tieba.us2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
-import java.util.TreeMap;
-import org.json.JSONArray;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class he2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
+    public static Boolean b;
+    public static int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<wh2> a;
-
-    /* loaded from: classes4.dex */
-    public static class a extends wh2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String d;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@Nullable Map<String, String> map) {
-            super("TopPages", map);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((String) objArr2[0], (Map) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.vh2
-        public String c(t62 t62Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, t62Var)) == null) {
-                if (this.d == null) {
-                    this.d = super.c(t62Var);
-                }
-                return this.d;
-            }
-            return (String) invokeL.objValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -77,68 +33,150 @@ public class he2 {
                 return;
             }
         }
-        b = fo1.a;
+        a = ho1.a;
+        er2.g0().getSwitch("swan_naview_slave_preload_type", 0);
+        c = 0;
     }
 
-    public he2() {
+    public static boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            Boolean bool = b;
+            if (bool != null) {
+                return bool.booleanValue();
+            }
+            Boolean valueOf = Boolean.valueOf(a());
+            b = valueOf;
+            return valueOf.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (c == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (c == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (c == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            boolean z = false;
+            if (!re2.U().r0()) {
+                Log.w("NASlaveConfig", "v8 is not enabled");
+                return false;
+            } else if (!er2.F0().j(1)) {
+                return false;
+            } else {
+                String c0 = re2.U().c0();
+                if (TextUtils.isEmpty(c0)) {
+                    Log.w("NASlaveConfig", "base path is not exists");
+                    return false;
+                } else if (!new File(c0, "slave-talos/index.js").isFile()) {
+                    Log.w("NASlaveConfig", "talos-js file is not exists");
+                    return false;
+                } else if (a && w33.Y()) {
+                    return true;
+                } else {
+                    if (c != 0) {
+                        z = true;
+                    }
+                    if (a) {
+                        Log.d("NASlaveConfig", "isNARenderEnabled canUseNA: " + z);
+                    }
+                    return z;
+                }
             }
         }
-        this.a = new ArrayList();
+        return invokeV.booleanValue;
     }
 
-    public he2 a(wh2 wh2Var) {
+    public static int b(@Nullable m83 m83Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wh2Var)) == null) {
-            if (wh2Var != null) {
-                this.a.add(wh2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, m83Var)) == null) {
+            if (m83Var == null || !d()) {
+                return 0;
             }
-            return this;
+            return "na".equals(m83Var.r) ? 1 : 0;
         }
-        return (he2) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public a b() {
-        InterceptResult invokeV;
-        long j;
+    public static int c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (b) {
-                j = System.currentTimeMillis();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (str == null) {
+                return 0;
+            }
+            if (str.contains("?")) {
+                str = str.substring(0, str.indexOf("?"));
+            }
+            int b2 = b(kt2.U().f(str));
+            if (a) {
+                Log.d("NASlaveConfig", "getSlaveType pageUrl: " + str + " slaveType:" + b2);
+            }
+            return b2;
+        }
+        return invokeL.intValue;
+    }
+
+    public static boolean h(x73 x73Var) {
+        InterceptResult invokeL;
+        us2.a W;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, x73Var)) == null) {
+            if (x73Var == null || !x73Var.E()) {
+                return false;
+            }
+            if (w33.B(x73Var.W())) {
+                str = tq2.b.g().getPath() + File.separator;
             } else {
-                j = 0;
+                str = tq2.e.i(W.H(), W.v1()).getPath() + File.separator;
             }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(NotificationCompat.WearableExtender.KEY_PAGES, c().toString());
-            if (b) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("TopPageEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
+            if (a) {
+                Log.d("NASlaveConfig", "手动解析的basePath: " + str);
             }
-            return new a(treeMap);
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            kt2.U().K(str);
+            return true;
         }
-        return (a) invokeV.objValue;
-    }
-
-    public final JSONArray c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            for (wh2 wh2Var : this.a) {
-                jSONArray.put(wh2Var.s());
-            }
-            return jSONArray;
-        }
-        return (JSONArray) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 }

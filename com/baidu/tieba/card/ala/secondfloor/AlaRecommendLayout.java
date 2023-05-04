@@ -28,9 +28,9 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bh6;
-import com.baidu.tieba.ch6;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.mi6;
+import com.baidu.tieba.ni6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -190,11 +190,11 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         }
     }
 
-    public void setData(ch6 ch6Var) {
+    public void setData(ni6 ni6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, ch6Var) == null) && ch6Var != null && !ListUtils.isEmpty(ch6Var.c())) {
-            this.g = ch6Var.c();
-            this.h = ch6Var.d();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, ni6Var) == null) && ni6Var != null && !ListUtils.isEmpty(ni6Var.c())) {
+            this.g = ni6Var.c();
+            this.h = ni6Var.d();
             e();
         }
     }
@@ -233,7 +233,7 @@ public class AlaRecommendLayout extends RelativeLayout implements View.OnClickLi
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yyExtData) == null) && ViewHelper.checkUpIsLogin(this.a)) {
             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AlaLiveTabMyConcernActivityConfig(this.a, this.h)));
-            TiebaStatic.log(bh6.d("c13624", bh6.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
+            TiebaStatic.log(mi6.d("c13624", mi6.f(this.h), YYLiveUtil.calculateLiveType(yyExtData), TiebaStatic.YYValues.YY_LIVE, this.i));
         }
     }
 

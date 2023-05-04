@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.swan.game.ad.entity.AdElementInfo;
 /* loaded from: classes5.dex */
 public interface jw3 {
-    void d(String str, String str2);
+    void a(String str);
 
-    void f(View view2);
+    void c(AdElementInfo adElementInfo);
 }

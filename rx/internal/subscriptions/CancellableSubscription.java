@@ -1,19 +1,19 @@
 package rx.internal.subscriptions;
 
-import com.baidu.tieba.d2b;
-import com.baidu.tieba.u1b;
-import com.baidu.tieba.u5b;
-import com.baidu.tieba.z1b;
+import com.baidu.tieba.q5b;
+import com.baidu.tieba.s9b;
+import com.baidu.tieba.v5b;
+import com.baidu.tieba.z5b;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class CancellableSubscription extends AtomicReference<d2b> implements u1b {
+public final class CancellableSubscription extends AtomicReference<z5b> implements q5b {
     public static final long serialVersionUID = 5718521705281392066L;
 
-    public CancellableSubscription(d2b d2bVar) {
-        super(d2bVar);
+    public CancellableSubscription(z5b z5bVar) {
+        super(z5bVar);
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.q5b
     public boolean isUnsubscribed() {
         if (get() == null) {
             return true;
@@ -21,15 +21,15 @@ public final class CancellableSubscription extends AtomicReference<d2b> implemen
         return false;
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.q5b
     public void unsubscribe() {
-        d2b andSet;
+        z5b andSet;
         if (get() != null && (andSet = getAndSet(null)) != null) {
             try {
                 andSet.cancel();
             } catch (Exception e) {
-                z1b.e(e);
-                u5b.j(e);
+                v5b.e(e);
+                s9b.j(e);
             }
         }
     }

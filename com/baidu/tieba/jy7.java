@@ -1,90 +1,95 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.db.TableDefine;
-import com.baidu.tbadk.core.atomData.MissonDetailsActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.TopicList.DataRes;
+import tbclient.TopicList.NewTopicList;
+import tbclient.TopicList.TabList;
+import tbclient.TopicList.TopicList;
+import tbclient.TopicList.TopicListModule;
 /* loaded from: classes5.dex */
 public class jy7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public List<ny7> b;
+    public my7 c;
+    public List<cy7> d;
+    public List<by7> e;
+    public List<TopicList> f;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public long d;
-        public String e;
-        public long f;
-        public String g;
-        public long h;
-        public int i;
-        public int j;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public jy7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.f = 0L;
-            this.g = null;
-            this.h = 0L;
-            this.i = 0;
-            this.j = 0;
         }
     }
 
-    public static a a(String str) {
-        InterceptResult invokeL;
+    public List<TopicList> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            a aVar = new a();
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(0);
-                    aVar.a = optJSONObject.optString(TableDefine.UserInfoColumns.COLUMN_HEAD_URL);
-                    aVar.b = optJSONObject.optString("user_id");
-                    aVar.c = optJSONObject.optString("nick_name");
-                    aVar.d = optJSONObject.optLong("caller_time");
-                    aVar.e = optJSONObject.optString("caller_content");
-                    aVar.f = optJSONObject.optLong("thread_id");
-                    aVar.g = optJSONObject.optString(MissonDetailsActivityConfig.THREAD_TITLE);
-                    optJSONObject.optString("forum_name");
-                    aVar.h = optJSONObject.optLong("post_id");
-                    aVar.i = optJSONObject.optInt("msg_type");
-                    aVar.j = optJSONObject.optInt("remind_count");
-                }
-                return aVar;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void b(DataRes dataRes) {
+        List<TopicList> list;
+        List<TopicList> list2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        List<TabList> list3 = dataRes.tab_list;
+        if (list3 != null && !ListUtils.isEmpty(list3)) {
+            this.b = new ArrayList();
+            for (TabList tabList : dataRes.tab_list) {
+                ny7 ny7Var = new ny7();
+                ny7Var.a(tabList);
+                this.b.add(ny7Var);
             }
         }
-        return (a) invokeL.objValue;
+        if (dataRes.media_topic != null) {
+            my7 my7Var = new my7();
+            this.c = my7Var;
+            my7Var.a(dataRes.media_topic);
+        }
+        TopicListModule topicListModule = dataRes.topic_manual;
+        if (topicListModule != null && (list2 = topicListModule.topic_list) != null && list2.size() > 0) {
+            this.e = new ArrayList();
+            for (int i = 0; i < dataRes.topic_manual.topic_list.size(); i++) {
+                by7 by7Var = new by7();
+                by7Var.b(dataRes.topic_manual);
+                by7Var.a(dataRes.topic_manual.topic_list.get(i));
+                this.e.add(by7Var);
+            }
+        }
+        TopicListModule topicListModule2 = dataRes.topic_bang;
+        if (topicListModule2 != null && (list = topicListModule2.topic_list) != null && list.size() > 0) {
+            this.d = new ArrayList();
+            for (int i2 = 0; i2 < dataRes.topic_bang.topic_list.size(); i2++) {
+                cy7 cy7Var = new cy7();
+                cy7Var.b(dataRes.topic_bang);
+                cy7Var.a(dataRes.topic_bang.topic_list.get(i2));
+                this.d.add(cy7Var);
+            }
+        }
+        this.f = dataRes.frs_tab_topic;
+        List<NewTopicList> list4 = dataRes.topic_list;
     }
 }

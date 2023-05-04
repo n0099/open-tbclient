@@ -1,28 +1,28 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
+import android.webkit.JsPromptResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
+import com.baidu.tieba.payment.PayVcodeActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class mu8<D extends IBaseDialogData> implements ru8<D> {
+public class mu8 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public ViewGroup b;
+    public PayVcodeActivity a;
+    public eq9 b;
 
-    public mu8(TbPageContext<?> tbPageContext) {
+    public mu8(PayVcodeActivity payVcodeActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {payVcodeActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,27 +32,28 @@ public abstract class mu8<D extends IBaseDialogData> implements ru8<D> {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = (ViewGroup) LayoutInflater.from(tbPageContext.getPageActivity()).inflate(a(), (ViewGroup) null, false);
-        b();
+        this.a = payVcodeActivity;
     }
 
-    public TbPageContext<?> d() {
-        InterceptResult invokeV;
+    public void a(eq9 eq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, eq9Var) == null) {
+            this.b = eq9Var;
         }
-        return (TbPageContext) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ru8
-    public ViewGroup getViewGroup() {
-        InterceptResult invokeV;
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        PayVcodeActivity payVcodeActivity;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            eq9 eq9Var = this.b;
+            if ((eq9Var != null && eq9Var.onJsPrompt(str2, jsPromptResult)) || (payVcodeActivity = this.a) == null || !lg.f(payVcodeActivity.getPageContext())) {
+                return true;
+            }
+            return super.onJsPrompt(webView, str, str2, str3, jsPromptResult);
         }
-        return (ViewGroup) invokeV.objValue;
+        return invokeLLLLL.booleanValue;
     }
 }

@@ -4,7 +4,7 @@ import android.graphics.Matrix;
 import android.util.Property;
 import android.widget.ImageView;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ImageMatrixProperty extends Property<ImageView, Matrix> {
     public final Matrix matrix;
 

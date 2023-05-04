@@ -1,40 +1,57 @@
 package com.baidu.tieba;
 
+import androidx.annotation.CallSuper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public interface gn6 {
-    int a();
+public abstract class gn6 extends a0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final dn6 d;
 
-    float b();
+    public abstract void j();
 
-    int c();
-
-    float d();
-
-    float e();
-
-    int getHeight();
-
-    int getWidth();
-
-    void setHeight(int i);
-
-    void setWidth(int i);
-
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static float a(gn6 gn6Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, gn6Var)) == null) {
-                return 1 / (gn6Var.b() - 0.6f);
+    public gn6(dn6 danmakuContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {danmakuContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return invokeL.floatValue;
         }
+        Intrinsics.checkNotNullParameter(danmakuContext, "danmakuContext");
+        this.d = danmakuContext;
+    }
+
+    @Override // com.baidu.tieba.a0
+    @CallSuper
+    public void g(x engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+            super.g(engine);
+            j();
+        }
+    }
+
+    public final dn6 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (dn6) invokeV.objValue;
     }
 }

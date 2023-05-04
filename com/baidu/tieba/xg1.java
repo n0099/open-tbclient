@@ -1,75 +1,53 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.content.Intent;
+import android.content.pm.ActivityInfo;
+import android.content.pm.ComponentInfo;
+import android.content.pm.ResolveInfo;
 import android.os.Build;
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class xg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Bundle a(Map<String, String> map) {
+    public static Intent a(Context context) {
         InterceptResult invokeL;
+        List<ResolveInfo> queryIntentActivities;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
-            Bundle bundle = new Bundle();
-            for (String str : map.keySet()) {
-                bundle.putString(str, map.get(str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (context == null) {
+                return null;
             }
-            return bundle;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    public static JSONObject b(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            for (String str : map.keySet()) {
-                jSONObject.put(str, map.get(str));
+            try {
+                queryIntentActivities = context.getPackageManager().queryIntentActivities(new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER"), 32);
+            } catch (Throwable th) {
+                yg1.d(th);
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static Map<String, String> d(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            Map<String, String> c = c();
-            if (jSONObject != null) {
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    if (!TextUtils.isEmpty(next)) {
-                        c.put(next, jSONObject.optString(next));
+            if (queryIntentActivities != null && queryIntentActivities.size() != 0) {
+                for (ResolveInfo resolveInfo : queryIntentActivities) {
+                    String str = resolveInfo.activityInfo.permission;
+                    ActivityInfo activityInfo = resolveInfo.activityInfo;
+                    Intent intent = new Intent("baidu.intent.action.account.AUTH_WIDGET_FOR_CASHIER");
+                    intent.setClassName(((ComponentInfo) activityInfo).packageName, ((ComponentInfo) activityInfo).name);
+                    if (Build.VERSION.SDK_INT > 11) {
+                        intent.addFlags(32);
+                    }
+                    if (TextUtils.isEmpty(str) || context.checkCallingOrSelfPermission(str) == 0) {
+                        if (intent.getComponent() != null && context.getPackageName().equals(intent.getComponent().getPackageName())) {
+                            return intent;
+                        }
                     }
                 }
+                return null;
             }
-            return c;
+            return null;
         }
-        return (Map) invokeL.objValue;
-    }
-
-    public static <K, V> Map<K, V> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return new ArrayMap();
-            }
-            return new HashMap();
-        }
-        return (Map) invokeV.objValue;
+        return (Intent) invokeL.objValue;
     }
 }

@@ -8,7 +8,7 @@ import com.xiaomi.push.service.XMPushService;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.NoSuchElementException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fg {
     public int a;
 
@@ -27,7 +27,7 @@ public class fg {
     /* renamed from: a  reason: collision with other field name */
     public bk f367a = bk.a();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static final fg a = new fg();
     }

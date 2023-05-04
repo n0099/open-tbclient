@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ys3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,47 +9,95 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class at3 extends ys3.a {
-    public static /* synthetic */ Interceptable $ic;
-    public static final at3 b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface at3 {
+    String a(Context context);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947626665, "Lcom/baidu/tieba/at3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    String b(Context context);
+
+    String c(Context context);
+
+    String d(Context context);
+
+    String getDeviceId(Context context);
+
+    /* loaded from: classes3.dex */
+    public static class a implements at3 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final at3 a;
+
+        @Override // com.baidu.tieba.at3
+        public String a(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.a(context);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.at3
+        public String b(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.b(context);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.at3
+        public String c(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.c(context);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.at3
+        public String d(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.d(context);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.at3
+        public String getDeviceId(Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+                Intrinsics.checkNotNullParameter(context, "context");
+                return this.a.getDeviceId(context);
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public a(at3 delegation) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {delegation};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947626665, "Lcom/baidu/tieba/at3;");
-                return;
-            }
+            Intrinsics.checkNotNullParameter(delegation, "delegation");
+            this.a = delegation;
         }
-        b = new at3();
-    }
-
-    /* JADX WARN: Illegal instructions before constructor call */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public at3() {
-        super(r0);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((ys3) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        ys3 a = zs3.a();
-        Intrinsics.checkNotNullExpressionValue(a, "Ioc.impl()");
     }
 }

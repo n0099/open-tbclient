@@ -22,16 +22,16 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dg5;
-import com.baidu.tieba.eg5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.rf5;
+import com.baidu.tieba.kg5;
+import com.baidu.tieba.ng5;
+import com.baidu.tieba.pq5;
+import com.baidu.tieba.q7a;
 import com.baidu.tieba.tm;
-import com.baidu.tieba.u3a;
-import com.baidu.tieba.uf5;
-import com.baidu.tieba.wp5;
+import com.baidu.tieba.uaa;
+import com.baidu.tieba.wg5;
 import com.baidu.tieba.write.write.sticker.view.StickerLayout;
-import com.baidu.tieba.y6a;
+import com.baidu.tieba.xg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,7 +55,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     public LinkedList<ImageFileInfo> i;
     public int j;
     public int k;
-    public u3a l;
+    public q7a l;
     public Bitmap m;
     public boolean n;
 
@@ -99,19 +99,19 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
 
         /* renamed from: com.baidu.tieba.write.write.MultiImagePagerAdapter$a$a  reason: collision with other inner class name */
         /* loaded from: classes6.dex */
-        public class C0464a implements y6a {
+        public class C0479a implements uaa {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            @Override // com.baidu.tieba.y6a
+            @Override // com.baidu.tieba.uaa
             public void b() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
                 }
             }
 
-            @Override // com.baidu.tieba.y6a
+            @Override // com.baidu.tieba.uaa
             public boolean c(Bitmap bitmap) {
                 InterceptResult invokeL;
                 Interceptable interceptable = $ic;
@@ -121,14 +121,14 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 return invokeL.booleanValue;
             }
 
-            @Override // com.baidu.tieba.y6a
+            @Override // com.baidu.tieba.uaa
             public void d() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
                 }
             }
 
-            public C0464a(a aVar) {
+            public C0479a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -146,7 +146,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.y6a
+            @Override // com.baidu.tieba.uaa
             public void a() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -177,7 +177,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.l.f.f(new C0464a(this));
+                this.a.l.f.f(new C0479a(this));
                 MultiImagePagerAdapter multiImagePagerAdapter = this.a;
                 multiImagePagerAdapter.i(multiImagePagerAdapter.h, false);
             }
@@ -191,7 +191,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         public FrameLayout a;
         public TbImageView b;
         public ProgressBar c;
-        public uf5 d;
+        public ng5 d;
         public final /* synthetic */ MultiImagePagerAdapter e;
 
         /* loaded from: classes6.dex */
@@ -228,7 +228,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         }
 
         /* loaded from: classes6.dex */
-        public class b implements rf5 {
+        public class b implements kg5 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ ImageFileInfo a;
@@ -253,7 +253,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 this.a = imageFileInfo;
             }
 
-            @Override // com.baidu.tieba.rf5
+            @Override // com.baidu.tieba.kg5
             public void a(tm tmVar, String str, boolean z) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null && interceptable.invokeLLZ(1048576, this, tmVar, str, z) != null) {
@@ -284,18 +284,18 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             }
             this.e = multiImagePagerAdapter;
             this.c = null;
-            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(multiImagePagerAdapter.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d07a9, (ViewGroup) null);
+            FrameLayout frameLayout = (FrameLayout) LayoutInflater.from(multiImagePagerAdapter.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d07b5, (ViewGroup) null);
             this.a = frameLayout;
-            TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091c45);
+            TbImageView tbImageView = (TbImageView) frameLayout.findViewById(R.id.obfuscated_res_0x7f091c55);
             this.b = tbImageView;
             tbImageView.setClickable(true);
             this.b.setDefaultResource(0);
             this.b.setDefaultBgResource(0);
             this.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
             this.b.setPadding(0, 0, 0, 0);
-            this.d = new uf5();
+            this.d = new ng5();
             this.b.setOnClickListener(new a(this, multiImagePagerAdapter));
-            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091c46);
+            ProgressBar progressBar = (ProgressBar) this.a.findViewById(R.id.obfuscated_res_0x7f091c56);
             this.c = progressBar;
             progressBar.setVisibility(8);
         }
@@ -324,10 +324,10 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         }
 
         public void d() {
-            uf5 uf5Var;
+            ng5 ng5Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (uf5Var = this.d) != null) {
-                uf5Var.b();
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ng5Var = this.d) != null) {
+                ng5Var.b();
             }
         }
 
@@ -369,12 +369,12 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         }
     }
 
-    public MultiImagePagerAdapter(WriteMultiImgsActivity writeMultiImgsActivity, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, b bVar, u3a u3aVar, boolean z) {
+    public MultiImagePagerAdapter(WriteMultiImgsActivity writeMultiImgsActivity, ViewPager viewPager, LinkedList<ImageFileInfo> linkedList, int i, b bVar, q7a q7aVar, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {writeMultiImgsActivity, viewPager, linkedList, Integer.valueOf(i), bVar, u3aVar, Boolean.valueOf(z)};
+            Object[] objArr = {writeMultiImgsActivity, viewPager, linkedList, Integer.valueOf(i), bVar, q7aVar, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -396,7 +396,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         this.k = 120;
         this.n = z;
         this.a = writeMultiImgsActivity;
-        this.l = u3aVar;
+        this.l = q7aVar;
         this.j = (int) writeMultiImgsActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f0702fb);
         this.k = (int) writeMultiImgsActivity.getResources().getDimension(R.dimen.obfuscated_res_0x7f070241);
         this.f = n(linkedList, i);
@@ -406,7 +406,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         this.g = new c[size];
         for (int i4 = 0; i4 < this.e; i4++) {
             this.b[i4] = this.i.get(i4).cloneWithoutFilterAction(true);
-            this.b[i4].addPageAction(dg5.g(this.j, this.k));
+            this.b[i4].addPageAction(wg5.g(this.j, this.k));
             linkedList.set(linkedList.indexOf(this.i.get(i4)), this.b[i4]);
             this.b[i4].mCount = 0;
         }
@@ -434,7 +434,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
     }
 
     public void g(boolean z) {
-        u3a u3aVar;
+        q7a q7aVar;
         StickerLayout stickerLayout;
         Bitmap bitmap;
         Bitmap bitmap2;
@@ -463,7 +463,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
             return;
         }
         b bVar = this.d;
-        if (bVar != null && bVar.c() && (u3aVar = this.l) != null && (stickerLayout = u3aVar.f) != null) {
+        if (bVar != null && bVar.c() && (q7aVar = this.l) != null && (stickerLayout = q7aVar.f) != null) {
             stickerLayout.e();
             TbImageView tbImageView = this.g[this.f].b;
             try {
@@ -475,7 +475,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 return;
             }
             try {
-                bitmap2 = wp5.c(tbImageView);
+                bitmap2 = pq5.c(tbImageView);
             } catch (OutOfMemoryError unused2) {
                 TbadkCoreApplication.getInst().onAppMemoryLow();
                 bitmap2 = null;
@@ -484,7 +484,7 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 }
                 return;
             }
-            if (bitmap != null || bitmap2 == null || (f = wp5.f(bitmap2, bitmap, bitmap2.getWidth(), bitmap2.getHeight())) == null) {
+            if (bitmap != null || bitmap2 == null || (f = pq5.f(bitmap2, bitmap, bitmap2.getWidth(), bitmap2.getHeight())) == null) {
                 return;
             }
             this.b[this.f].setFilePath(FileHelper.saveFileAsPNG(FileHelper.getCacheDir(), String.valueOf(System.currentTimeMillis() + "_sticker.png"), f, 100));
@@ -560,8 +560,8 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
                 int i2 = this.f;
                 c cVar = cVarArr[i2];
                 if (cVar != null && (imageFileInfo = this.b[i2]) != null && cVar.h()) {
-                    imageFileInfo.addPageAction(eg5.e(i));
-                    this.a.z1();
+                    imageFileInfo.addPageAction(xg5.e(i));
+                    this.a.y1();
                     cVar.g(imageFileInfo);
                 }
             }
@@ -692,9 +692,9 @@ public class MultiImagePagerAdapter extends PagerAdapter implements ViewPager.On
         if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.h = i;
             TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a);
-            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0f5b);
-            tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f10f2);
-            tBAlertBuilder.u(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f038d), TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a(this.a.getString(R.string.alert_yes_button), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
+            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0f73);
+            tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f110b);
+            tBAlertBuilder.u(new TBAlertConfig.a(this.a.getString(R.string.obfuscated_res_0x7f0f038b), TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a(this.a.getString(R.string.alert_yes_button), TBAlertConfig.OperateBtnStyle.MAIN, new a(this)));
             tBAlertBuilder.i();
             tBAlertBuilder.z();
         }

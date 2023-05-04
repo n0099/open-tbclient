@@ -1,161 +1,129 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.facebook.common.internal.Sets;
-import java.util.List;
-import java.util.Set;
-import okhttp3.Headers;
-import okhttp3.HttpUrl;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kx1 {
+public class kx1 extends dx1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final Set<String> b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947928357, "Lcom/baidu/tieba/kx1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.aw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "NetworkApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x73 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ kx1 c;
+
+        public a(kx1 kx1Var, x73 x73Var, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kx1Var, x73Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947928357, "Lcom/baidu/tieba/kx1;");
+            this.c = kx1Var;
+            this.a = x73Var;
+            this.b = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.a0().b(this.c.a().f(), this.b);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kx1(@NonNull yv1 yv1Var) {
+        super(yv1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yv1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((yv1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fo1.a;
-        b = Sets.newHashSet("localhost", "127.0.0.1");
     }
 
-    public static String d() {
+    public xz1 x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return cl3.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return str + "_" + System.currentTimeMillis();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static JSONObject c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getNetworkType", false);
+            String e = SwanAppNetworkUtils.e();
+            if (TextUtils.isEmpty(e)) {
+                e = "unknown";
+            } else if ("no".equals(e)) {
+                e = "none";
+            }
             JSONObject jSONObject = new JSONObject();
             try {
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("cancelTag", str);
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+                jSONObject.put("networkType", e);
+                return new xz1(0, jSONObject);
+            } catch (JSONException unused) {
+                return new xz1(202);
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        return (xz1) invokeV.objValue;
     }
 
-    @Nullable
-    public static String e(@Nullable String str) {
-        InterceptResult invokeL;
-        HttpUrl parse;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (parse = HttpUrl.parse(str)) != null) {
-                return parse.host();
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean b(@Nullable HttpUrl httpUrl) {
+    public xz1 y(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, httpUrl)) == null) {
-            boolean i = m83.i();
-            if (!cr2.g0().D()) {
-                i = false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#networkStatusChange", false);
+            x73 b0 = x73.b0();
+            if (b0 == null) {
+                return new xz1(202, "swan app is null");
             }
-            if (httpUrl == null) {
-                return false;
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
             }
-            if ((i && HttpUrl.defaultPort(httpUrl.scheme()) != httpUrl.port()) || b.contains(httpUrl.host().toLowerCase())) {
-                return false;
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new xz1(1001, "cb is empty");
             }
-            return true;
+            w73.M().post(new a(this, b0, optString));
+            return xz1.f();
         }
-        return invokeL.booleanValue;
-    }
-
-    public static HttpUrl f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            HttpUrl parse = HttpUrl.parse(str);
-            if (u73.K().w() == null) {
-                if (!b(parse)) {
-                    return null;
-                }
-                return parse;
-            } else if (u33.o()) {
-                return parse;
-            } else {
-                if (!b(parse)) {
-                    return null;
-                }
-                return parse;
-            }
-        }
-        return (HttpUrl) invokeL.objValue;
-    }
-
-    public static JSONObject g(Headers headers) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, headers)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (headers == null) {
-                return jSONObject;
-            }
-            for (String str : headers.names()) {
-                if (!TextUtils.isEmpty(str)) {
-                    List<String> values = headers.values(str);
-                    StringBuilder sb = new StringBuilder();
-                    int size = values.size();
-                    for (int i = 0; i < size; i++) {
-                        sb.append(values.get(i));
-                        if (i == size - 1) {
-                            break;
-                        }
-                        sb.append(",");
-                    }
-                    jSONObject.put(str, sb.toString());
-                }
-            }
-            return jSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
+        return (xz1) invokeL.objValue;
     }
 }

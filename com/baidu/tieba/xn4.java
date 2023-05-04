@@ -1,30 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import androidx.annotation.NonNull;
-import java.io.File;
-import java.util.Map;
-import java.util.Set;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface xn4 extends SharedPreferences, SharedPreferences.Editor {
-    Set<String> a();
+public class xn4 {
+    public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306123, "Lcom/baidu/tieba/xn4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948306123, "Lcom/baidu/tieba/xn4;");
+                return;
+            }
+        }
+        a = vn4.f().getString("openstat_switch", "1");
+    }
 
-    long c();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    Map<String, ?> getAll();
-
-    @NonNull
-    File getFile();
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void registerOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
-
-    @Override // android.content.SharedPreferences
-    @Deprecated
-    void unregisterOnSharedPreferenceChangeListener(SharedPreferences.OnSharedPreferenceChangeListener onSharedPreferenceChangeListener);
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return TextUtils.equals(a, "1");
+        }
+        return invokeV.booleanValue;
+    }
 }

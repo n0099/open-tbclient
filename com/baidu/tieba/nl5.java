@@ -1,89 +1,104 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.cache.BdCacheService;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.mvc.message.WriteCacheMessage;
+import com.baidu.tbadk.mvc.message.WriteCacheRespMsg;
+import com.baidu.tieba.zk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class nl5 {
+public class nl5<T extends zk5> extends kl5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    public abstract int b();
-
-    public abstract boolean c();
-
-    public nl5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nl5(int i, String str, Class<T> cls) {
+        super(i, str, cls);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = q45.m().i("page_stay_duration_switch", false);
     }
 
-    public boolean a(pl5 pl5Var) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
         InterceptResult invokeL;
-        int b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pl5Var)) == null) {
-            if (pl5Var != null && !pl5Var.p()) {
-                if (pl5Var.a) {
-                    pl5Var.x(ol5.b(pl5Var.h(), 6));
-                } else {
-                    if (b() > ql5.b().c()) {
-                        b = ql5.b().c();
-                    } else {
-                        b = b();
-                    }
-                    if (b > 5) {
-                        b = 5;
-                    }
-                    pl5Var.x(ol5.b(pl5Var.h(), b));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof WriteCacheMessage)) {
+                WriteCacheRespMsg writeCacheRespMsg = new WriteCacheRespMsg(this.a);
+                WriteCacheMessage writeCacheMessage = (WriteCacheMessage) customMessage;
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                if (currentAccount == null) {
+                    currentAccount = "";
                 }
-                return true;
+                zk5 zk5Var = (zk5) a();
+                if (zk5Var != null) {
+                    if (zk5Var instanceof yk5) {
+                        t05.d();
+                        me<byte[]> c = t05.c(this.b, currentAccount);
+                        if (writeCacheMessage.isClear()) {
+                            zk5 zk5Var2 = (zk5) writeCacheMessage.getData();
+                            if (zk5Var2 == null) {
+                                BdCacheService.n().l(c);
+                            } else {
+                                c.remove(zk5Var2.getCacheKey());
+                            }
+                            writeCacheRespMsg.setSuccess(true);
+                        } else {
+                            zk5 zk5Var3 = (zk5) writeCacheMessage.getData();
+                            if (zk5Var3 == null) {
+                                return writeCacheRespMsg;
+                            }
+                            c.g(zk5Var3.getCacheKey(), ((yk5) zk5Var3).toCacheByteArray());
+                            writeCacheRespMsg.setSuccess(true);
+                        }
+                    } else if (zk5Var instanceof bl5) {
+                        t05.d();
+                        me<String> f = t05.f(this.b, currentAccount);
+                        if (writeCacheMessage.isClear()) {
+                            zk5 zk5Var4 = (zk5) writeCacheMessage.getData();
+                            if (zk5Var4 == null) {
+                                BdCacheService.n().l(f);
+                            } else {
+                                f.remove(zk5Var4.getCacheKey());
+                            }
+                            writeCacheRespMsg.setSuccess(true);
+                        } else {
+                            zk5 zk5Var5 = (zk5) writeCacheMessage.getData();
+                            if (zk5Var5 == null) {
+                                return writeCacheRespMsg;
+                            }
+                            String u = ((bl5) zk5Var5).u();
+                            if (u != null) {
+                                f.g(zk5Var5.getCacheKey(), u);
+                                writeCacheRespMsg.setSuccess(true);
+                            }
+                        }
+                    }
+                }
+                return writeCacheRespMsg;
             }
-            return false;
+            return null;
         }
-        return invokeL.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!TbadkCoreApplication.getInst().isMainProcess(true)) {
-                return this.a;
-            }
-            if (!TbadkCoreApplication.getInst().isPageStayOpen()) {
-                e(false);
-                return false;
-            } else if (!ql5.b().f()) {
-                e(false);
-                return false;
-            } else {
-                e(true);
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && this.a != z) {
-            q45.m().w("page_stay_duration_switch", true);
-            this.a = z;
-        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

@@ -1,24 +1,26 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.text.TextUtils;
+import android.util.Base64;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunAdSdk;
+import java.util.UUID;
 import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ql1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ql1 b;
+    public static volatile ql1 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public String a;
+    public final SharedPreferences b;
+    public SharedPreferences.Editor c;
 
     public ql1(Context context) {
         Interceptable interceptable = $ic;
@@ -35,280 +37,619 @@ public class ql1 {
                 return;
             }
         }
-        this.a = context;
+        this.b = context.getSharedPreferences("once_login_config", 0);
+        context.getSharedPreferences("leroadcfg", 0);
+        this.c = this.b.edit();
+        context.getApplicationContext();
     }
 
-    public static ql1 a(Context context) {
+    public static ql1 g(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (b == null) {
+            if (d == null) {
                 synchronized (ql1.class) {
-                    if (b == null) {
-                        b = new ql1(context);
+                    if (d == null) {
+                        d = new ql1(context);
                     }
                 }
             }
-            return b;
+            return d;
         }
         return (ql1) invokeL.objValue;
     }
 
-    public String b(JSONObject jSONObject, long j) {
+    public void A(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || i <= 4) {
+            return;
+        }
+        D("k_mask_num", i);
+    }
+
+    public void B(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            u("k_lt_crash_ts", j);
+        }
+    }
+
+    public void C(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            I("last_Rp_d", str);
+        }
+    }
+
+    public void E(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            w("k_sdk_cu_s", z);
+        }
+    }
+
+    public void G(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+            u("ky_llt", j);
+        }
+    }
+
+    public void H(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            I("ky_n_ltc", str);
+        }
+    }
+
+    public void J(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            w("k_is_ig_env", z);
+        }
+    }
+
+    public void L(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            u("rp_last_off_ti", j);
+        }
+    }
+
+    public void M(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048588, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        I("k_ma_code", str);
+    }
+
+    public void N(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048589, this, z) == null) {
+            w("k_crash_ck", z);
+        }
+    }
+
+    public void P(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+            u("ky_lvt", j);
+        }
+    }
+
+    public void Q(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048592, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        I("k_sdk_ra_k", str);
+    }
+
+    public void R(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
+            w("k_retry_switch", z);
+        }
+    }
+
+    public void T(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048595, this, j) == null) {
+            u("ky_cfs_t", j);
+        }
+    }
+
+    public void U(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            I("ky_sg", str);
+        }
+    }
+
+    public void V(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
+            w("k_sdk_s", z);
+        }
+    }
+
+    public void X(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048599, this, j) == null) {
+            u("t_con_3g", j);
+        }
+    }
+
+    public void Y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
+            I("ky_n_ydc", str);
+        }
+    }
+
+    public void Z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
+            w("k_u_a_pr", z);
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048617, this, i) == null) {
+            D("ky_lls", i);
+        }
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048619, this, j) == null) {
+            u("ky_cfo_t", j);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048621, this, str) == null) {
+            I("ky_n_dxc", str);
+        }
+    }
+
+    public void m(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
+            w("k_sdk_cm_s", z);
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048635, this, i) == null) {
+            D("ky_lvs", i);
+        }
+    }
+
+    public void s(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048637, this, j) == null) {
+            u("k_last_a_ts", j);
+        }
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048638, this, str) == null) {
+            I("last_al_rp_d", str);
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048642, this, z) == null) {
+            w("k_sdk_ct_s", z);
+        }
+    }
+
+    public final void D(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
+            this.c.putInt(str, i);
+            this.c.commit();
+        }
+    }
+
+    public final void I(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            this.c.putString(str, str2);
+            this.c.commit();
+        }
+    }
+
+    public final long f(String str, long j) {
         InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, jSONObject, j)) == null) {
-            if (jSONObject != null) {
-                try {
-                    if (jSONObject.length() != 0) {
-                        String d = new mm1(this.a, null).d(jSONObject, j);
-                        if (!TextUtils.isEmpty(d)) {
-                            return d;
-                        }
-                    }
-                } catch (Throwable th) {
-                    en1.d(th);
-                }
-            }
-            return "";
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048612, this, str, j)) == null) {
+            return this.b.getLong(str, j);
         }
-        return (String) invokeLJ.objValue;
+        return invokeLJ.longValue;
     }
 
-    public String f(JSONObject jSONObject, long j) {
-        InterceptResult invokeLJ;
+    public void l(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048580, this, jSONObject, j)) == null) {
-            if (jSONObject != null) {
-                try {
-                    if (jSONObject.length() != 0) {
-                        String i = new mm1(this.a, null).i(jSONObject, j);
-                        if (!TextUtils.isEmpty(i)) {
-                            return i;
-                        }
-                    }
-                } catch (Throwable th) {
-                    en1.d(th);
-                }
-            }
-            return "";
+        if ((interceptable != null && interceptable.invokeLL(1048623, this, str, str2) != null) || str2 == null) {
+            return;
         }
-        return (String) invokeLJ.objValue;
+        if (!TextUtils.isEmpty(str2)) {
+            str2 = Base64.encodeToString(str2.getBytes(), 0);
+        }
+        I(str, str2);
     }
 
-    public final void c(JSONObject jSONObject) {
+    public final boolean o(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            if (jSONObject != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("1");
-                if (optJSONArray != null && optJSONArray.length() > 0) {
-                    ol1.g(this.a).l("k_retry_code_cm", optJSONArray.toString());
-                } else {
-                    ol1.g(this.a).l("k_retry_code_cm", "");
-                }
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("2");
-                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                    ol1.g(this.a).l("k_retry_code_cu", optJSONArray2.toString());
-                } else {
-                    ol1.g(this.a).l("k_retry_code_cu", "");
-                }
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("3");
-                if (optJSONArray3 != null && optJSONArray3.length() > 0) {
-                    ol1.g(this.a).l("k_retry_code_ct", optJSONArray3.toString());
-                    return;
-                } else {
-                    ol1.g(this.a).l("k_retry_code_ct", "");
-                    return;
-                }
-            }
-            ol1.g(this.a).l("k_retry_code_cm", "");
-            ol1.g(this.a).l("k_retry_code_cu", "");
-            ol1.g(this.a).l("k_retry_code_ct", "");
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048629, this, str, z)) == null) {
+            return this.b.getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
+    }
+
+    public final int p(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048631, this, str, i)) == null) {
+            return this.b.getInt(str, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public final void u(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048639, this, str, j) == null) {
+            this.c.putLong(str, j);
+            this.c.commit();
         }
     }
 
-    public final boolean d() {
+    public void v(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048640, this, str, str2) == null) {
+            I("k_sdk_a_s", str + "_" + str2);
+        }
+    }
+
+    public final void w(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048641, this, str, z) == null) {
+            this.c.putBoolean(str, z);
+            this.c.commit();
+        }
+    }
+
+    public final String z(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048644, this, str, str2)) == null) {
+            return this.b.getString(str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String F() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                if (System.currentTimeMillis() - ol1.g(this.a).k0() > ol1.g(this.a).y()) {
-                    return false;
-                }
-                String p0 = ol1.g(this.a).p0();
-                String K = ol1.g(this.a).K();
-                String g0 = ol1.g(this.a).g0();
-                if (TextUtils.isEmpty(p0) && TextUtils.isEmpty(K) && TextUtils.isEmpty(g0)) {
-                    return false;
-                }
-                if (!TextUtils.isEmpty(p0)) {
-                    JSONObject jSONObject = new JSONObject(p0);
-                    String string = jSONObject.getString("app_id");
-                    String string2 = jSONObject.getString(GameGuideConfigInfo.KEY_APP_KEY);
-                    if (!TextUtils.isEmpty(string) && !TextUtils.isEmpty(string2)) {
-                        zl1.k(FunAdSdk.PLATFORM_CM, string, string2);
-                    }
-                }
-                if (!TextUtils.isEmpty(K)) {
-                    JSONObject jSONObject2 = new JSONObject(K);
-                    String string3 = jSONObject2.getString("app_id");
-                    String string4 = jSONObject2.getString(GameGuideConfigInfo.KEY_APP_KEY);
-                    if (!TextUtils.isEmpty(string3) && !TextUtils.isEmpty(string4)) {
-                        zl1.k(Config.EXCEPTION_CRASH_TYPE, string3, string4);
-                    }
-                }
-                if (!TextUtils.isEmpty(g0)) {
-                    JSONObject jSONObject3 = new JSONObject(g0);
-                    String optString = jSONObject3.optString("app_id");
-                    String optString2 = jSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                        zl1.k("cu", optString, optString2);
-                        return true;
-                    }
-                    return true;
-                }
-                return true;
-            } catch (Throwable th) {
-                en1.d(th);
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!TextUtils.isEmpty(this.a)) {
+                return this.a;
             }
+            String z = z("xyus", "");
+            this.a = z;
+            if (TextUtils.isEmpty(z)) {
+                String b = ln1.b(UUID.randomUUID().toString());
+                this.a = b;
+                I("xyus", b);
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String K() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return z("ky_n_dxc", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long O() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return f("k_last_a_ts", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String S() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return z("last_al_rp_d", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long W() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return f("k_lt_crash_ts", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
+            return o("k_sdk_cu_s", true);
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:20:0x004a  */
-    /* JADX WARN: Removed duplicated region for block: B:28:0x0061 A[DONT_GENERATE] */
-    /* JADX WARN: Removed duplicated region for block: B:30:0x0063 A[Catch: all -> 0x0029, TRY_ENTER, TryCatch #1 {all -> 0x0029, blocks: (B:7:0x0009, B:9:0x0022, B:14:0x002f, B:18:0x0037, B:22:0x004d, B:25:0x0058, B:26:0x005b, B:30:0x0063, B:32:0x0072, B:37:0x008b, B:41:0x0095, B:43:0x009e, B:45:0x00b0, B:47:0x00b6, B:48:0x00bb, B:50:0x00c4, B:53:0x00d9, B:52:0x00d0, B:54:0x00e6, B:56:0x00ee, B:58:0x0100, B:60:0x0106, B:61:0x010b, B:63:0x0114, B:66:0x0129, B:65:0x0120, B:67:0x0136, B:69:0x013e, B:71:0x0150, B:73:0x0156, B:74:0x015b, B:76:0x0164, B:79:0x0179, B:78:0x0170, B:80:0x0186, B:82:0x018e, B:84:0x01a5, B:86:0x01ab, B:87:0x01b8, B:89:0x01d1, B:90:0x022e, B:33:0x007c), top: B:107:0x0009 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized boolean e(boolean z) {
-        InterceptResult invokeZ;
-        boolean z2;
-        String b2;
+    public int a0() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            synchronized (this) {
-                if (z) {
-                    try {
-                        if (System.currentTimeMillis() - ol1.g(this.a).W() < dn1.c * 5) {
-                            in1.b("pullConfig->force pull");
-                            z2 = true;
-                            if (z2 && d()) {
-                                return true;
-                            }
-                            mm1 mm1Var = new mm1(this.a, null);
-                            b2 = mm1Var.b();
-                            if (TextUtils.isEmpty(b2)) {
-                                for (int i = 0; i < 3; i++) {
-                                    b2 = mm1Var.b();
-                                    if (!TextUtils.isEmpty(b2)) {
-                                        break;
-                                    }
-                                }
-                            }
-                            if (!TextUtils.isEmpty(b2)) {
-                                return false;
-                            }
-                            JSONObject jSONObject = new JSONObject(b2);
-                            int optInt = jSONObject.optInt("0", -1);
-                            if (optInt == 2) {
-                                ol1.g(this.a).V(false);
-                            } else {
-                                ol1.g(this.a).V(true);
-                            }
-                            if (optInt != 1 && optInt != 3) {
-                                JSONObject optJSONObject = jSONObject.optJSONObject("1");
-                                if (optJSONObject == null) {
-                                    return false;
-                                }
-                                JSONObject optJSONObject2 = optJSONObject.optJSONObject("yd_config");
-                                if (optJSONObject2 != null) {
-                                    String optString = optJSONObject2.optString("app_id");
-                                    String optString2 = optJSONObject2.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                                    if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                                        zl1.k(FunAdSdk.PLATFORM_CM, optString, optString2);
-                                    }
-                                    int optInt2 = optJSONObject2.optInt("status", -1);
-                                    if (optInt2 == 1) {
-                                        ol1.g(this.a).m(true);
-                                    } else if (optInt2 == 2) {
-                                        ol1.g(this.a).m(false);
-                                    }
-                                    ol1.g(this.a).Y(optJSONObject2.toString());
-                                }
-                                JSONObject optJSONObject3 = optJSONObject.optJSONObject("dx_config");
-                                if (optJSONObject3 != null) {
-                                    String optString3 = optJSONObject3.optString("app_id");
-                                    String optString4 = optJSONObject3.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                                    if (!TextUtils.isEmpty(optString3) && !TextUtils.isEmpty(optString4)) {
-                                        zl1.k(Config.EXCEPTION_CRASH_TYPE, optString3, optString4);
-                                    }
-                                    int optInt3 = optJSONObject3.optInt("status", -1);
-                                    if (optInt3 == 1) {
-                                        ol1.g(this.a).x(true);
-                                    } else if (optInt3 == 2) {
-                                        ol1.g(this.a).x(false);
-                                    }
-                                    ol1.g(this.a).k(optJSONObject3.toString());
-                                }
-                                JSONObject optJSONObject4 = optJSONObject.optJSONObject("lt_config");
-                                if (optJSONObject4 != null) {
-                                    String optString5 = optJSONObject4.optString("app_id");
-                                    String optString6 = optJSONObject4.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                                    if (!TextUtils.isEmpty(optString5) && !TextUtils.isEmpty(optString6)) {
-                                        zl1.k("cu", optString5, optString6);
-                                    }
-                                    int optInt4 = optJSONObject4.optInt("status", -1);
-                                    if (optInt4 == 1) {
-                                        ol1.g(this.a).E(true);
-                                    } else if (optInt4 == 2) {
-                                        ol1.g(this.a).E(false);
-                                    }
-                                    ol1.g(this.a).H(optJSONObject4.toString());
-                                }
-                                JSONObject optJSONObject5 = optJSONObject.optJSONObject("auto_config");
-                                if (optJSONObject5 != null) {
-                                    String optString7 = optJSONObject5.optString(GameGuideConfigInfo.KEY_APP_KEY, "");
-                                    String optString8 = optJSONObject5.optString("secret_key", "");
-                                    if (!TextUtils.isEmpty(optString7) && !TextUtils.isEmpty(optString8)) {
-                                        nl1.b = optString7;
-                                        nl1.c = optString8;
-                                        ol1.g(this.a).v(optString7, optString8);
-                                    }
-                                }
-                                ol1.g(this.a).Q(optJSONObject.optString("encrypt_key", ""));
-                                JSONObject optJSONObject6 = jSONObject.optJSONObject("a_setting");
-                                if (optJSONObject6 != null) {
-                                    ol1.g(this.a).J("1".equals(optJSONObject6.optString("1", "1")));
-                                    ol1.g(this.a).A(optJSONObject6.optInt("2"));
-                                    ol1.g(this.a).R("1".equals(optJSONObject6.optString("3", "0")));
-                                    c(optJSONObject6.optJSONObject("4"));
-                                    ol1.g(this.a).N("1".equals(optJSONObject6.optString("5", "1")));
-                                }
-                                ol1.g(this.a).j(jSONObject.optLong("3", 300L) * 1000);
-                                ol1.g(this.a).T(System.currentTimeMillis());
-                                return true;
-                            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return p("ky_lls", -1);
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
+            return o("k_crash_ck", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
+            return f("ky_llt", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
+            return o("k_retry_switch", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String c0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048607, this)) == null) {
+            return z("last_Rp_d", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
+            return o("k_sdk_s", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long d0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048609, this)) == null) {
+            return f("rp_last_off_ti", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
+            return o("k_u_a_pr", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
+            return p("ky_lvs", -1);
+        }
+        return invokeV.intValue;
+    }
+
+    public long f0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
+            return f("ky_lvt", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String g0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
+            return z("ky_n_ltc", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048615, this) == null) {
+            I("k_sdk_a_s", "");
+        }
+    }
+
+    public String h0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
+            return z("k_ma_code", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int i0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
+            int p = p("k_mask_num", 4);
+            if (p <= 4) {
+                return 4;
+            }
+            if (p >= 8) {
+                return 8;
+            }
+            return p;
+        }
+        return invokeV.intValue;
+    }
+
+    public int j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
+            return p("one_d_3g_con", 50);
+        }
+        return invokeV.intValue;
+    }
+
+    public long k0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
+            return f("ky_cfs_t", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public int l0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
+            return p("rp_off_gap", 3);
+        }
+        return invokeV.intValue;
+    }
+
+    public String m0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048626, this)) == null) {
+            return z("k_sdk_a_s", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String n0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048628, this)) == null) {
+            return z("ky_sg", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long o0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048630, this)) == null) {
+            return f("t_con_3g", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String p0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
+            return z("ky_n_ydc", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public long q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            return f("k_a_itl", fn1.b * 24);
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean q0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048634, this)) == null) {
+            return o("k_sdk_cm_s", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean r0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+            return o("k_sdk_ct_s", true);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+            return f("ky_cfo_t", gn1.d);
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean n(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048627, this, str, i)) == null) {
+            String z = z(str, "");
+            if (!TextUtils.isEmpty(z)) {
+                try {
+                    JSONArray jSONArray = new JSONArray(new String(Base64.decode(z, 0)));
+                    for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                        if (jSONArray.getString(i2).equals(String.valueOf(i))) {
                             return true;
                         }
-                    } catch (Throwable th) {
-                        en1.d(th);
-                        return false;
                     }
-                }
-                z2 = false;
-                if (z2) {
-                }
-                mm1 mm1Var2 = new mm1(this.a, null);
-                b2 = mm1Var2.b();
-                if (TextUtils.isEmpty(b2)) {
-                }
-                if (!TextUtils.isEmpty(b2)) {
+                } catch (Throwable th) {
+                    gn1.d(th);
                 }
             }
-        } else {
-            return invokeZ.booleanValue;
+            return false;
         }
+        return invokeLI.booleanValue;
     }
 }

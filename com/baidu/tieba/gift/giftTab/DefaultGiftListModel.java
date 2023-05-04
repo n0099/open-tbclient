@@ -6,11 +6,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.al7;
-import com.baidu.tieba.il9;
-import com.baidu.tieba.vx4;
-import com.baidu.tieba.wk7;
-import com.baidu.tieba.wx4;
+import com.baidu.tieba.ly4;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.rm7;
+import com.baidu.tieba.vm7;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,9 +22,9 @@ import java.util.ArrayList;
 public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<wk7> a;
-    public ArrayList<vx4> b;
-    public ArrayList<al7> c;
+    public ArrayList<rm7> a;
+    public ArrayList<ly4> b;
+    public ArrayList<vm7> c;
     public String d;
     public int e;
     public b f;
@@ -32,14 +32,14 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(int i, String str, int i2, String str2, int i3, wx4 wx4Var, ArrayList<wk7> arrayList, ArrayList<vx4> arrayList2, ArrayList<al7> arrayList3);
+        void a(int i, String str, int i2, String str2, int i3, my4 my4Var, ArrayList<rm7> arrayList, ArrayList<ly4> arrayList2, ArrayList<vm7> arrayList3);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -90,10 +90,10 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
             Code decompiled incorrectly, please refer to instructions dump.
         */
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            wx4 wx4Var;
+            my4 my4Var;
             int i;
             int i2;
-            wx4 wx4Var2;
+            my4 my4Var2;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
@@ -110,7 +110,7 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListHttpResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListHttpResponseMessage.getFreeChance();
                 i2 = defaultGiftListHttpResponseMessage.currencyType;
-                wx4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
+                my4Var2 = defaultGiftListHttpResponseMessage.urlTitleData;
             } else if (responsedMessage instanceof DefaultGiftListSocketResponseMessage) {
                 DefaultGiftListSocketResponseMessage defaultGiftListSocketResponseMessage = (DefaultGiftListSocketResponseMessage) responsedMessage;
                 this.a.a = defaultGiftListSocketResponseMessage.getCategoryList();
@@ -119,18 +119,18 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
                 this.a.d = defaultGiftListSocketResponseMessage.getAddFreeUrl();
                 this.a.e = defaultGiftListSocketResponseMessage.getFreeChance();
                 i2 = defaultGiftListSocketResponseMessage.currencyType;
-                wx4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
+                my4Var2 = defaultGiftListSocketResponseMessage.urlTitleData;
             } else {
-                wx4Var = null;
+                my4Var = null;
                 i = 0;
                 if (this.a.f == null) {
-                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, wx4Var, this.a.a, this.a.b, this.a.c);
+                    this.a.f.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.e, this.a.d, i, my4Var, this.a.a, this.a.b, this.a.c);
                     return;
                 }
                 return;
             }
             i = i2;
-            wx4Var = wx4Var2;
+            my4Var = my4Var2;
             if (this.a.f == null) {
             }
         }
@@ -159,16 +159,16 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
         registerListener();
     }
 
-    public void c0(b bVar) {
+    public void h0(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.f = bVar;
         }
     }
 
-    public void b0(String str, long j) {
+    public void g0(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
             DefaultGiftListRequest defaultGiftListRequest = new DefaultGiftListRequest();
             defaultGiftListRequest.setFrom(str);
             defaultGiftListRequest.setToUserId(j);
@@ -186,8 +186,8 @@ public class DefaultGiftListModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            il9.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
-            il9.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
+            xo9.h(309054, DefaultGiftListSocketResponseMessage.class, false, false);
+            xo9.c(309054, CmdConfigHttp.CMD_DEFAULT_GIFT_LIST, TbConfig.GET_DEFAULT_GIFT_LIST, DefaultGiftListHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

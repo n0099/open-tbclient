@@ -1,91 +1,46 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
-import tbclient.FrsPage.DataRes;
 /* loaded from: classes4.dex */
 public class d95 {
     public static /* synthetic */ Interceptable $ic;
-    public static final d95 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947659401, "Lcom/baidu/tieba/d95;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947659401, "Lcom/baidu/tieba/d95;");
-                return;
-            }
-        }
-        a = new d95(false);
-    }
-
-    public d95(boolean z) {
+    public d95() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = 0;
+        this.b = 0;
+        this.c = 0;
+        this.d = 0;
     }
 
-    @NonNull
-    public static d95 a(@Nullable JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int i;
+    public void a(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            boolean z = false;
-            if (jSONObject != null) {
-                i = jSONObject.optInt("voice_room_config");
-            } else {
-                i = 0;
-            }
-            if (i == 1) {
-                z = true;
-            }
-            return new d95(z);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (d95) invokeL.objValue;
-    }
-
-    @NonNull
-    public static d95 b(@Nullable DataRes dataRes) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, dataRes)) == null) {
-            boolean z = false;
-            if (dataRes != null) {
-                i = dataRes.voice_room_config.intValue();
-            } else {
-                i = 0;
-            }
-            if (i == 1) {
-                z = true;
-            }
-            return new d95(z);
-        }
-        return (d95) invokeL.objValue;
+        this.a = jSONObject.optInt("days_new_user", 0);
+        this.b = jSONObject.optInt("days_low_active", 0);
+        this.c = jSONObject.optInt("limit_day", 0);
+        this.d = jSONObject.optInt("limit_count", 0);
     }
 }

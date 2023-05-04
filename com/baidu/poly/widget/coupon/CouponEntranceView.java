@@ -9,7 +9,7 @@ import android.widget.FrameLayout;
 import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ph1;
+import com.baidu.tieba.rh1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,8 +25,8 @@ public class CouponEntranceView extends FrameLayout {
     public TextView a;
     public TextView b;
     public View c;
-    public ph1 d;
-    public ph1.a e;
+    public rh1 d;
+    public rh1.a e;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
     public CouponEntranceView(Context context) {
@@ -52,10 +52,10 @@ public class CouponEntranceView extends FrameLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d020f, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0907b9);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907b8);
-            this.c = findViewById(R.id.obfuscated_res_0x7f090f76);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0212, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f0907bc);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0907bb);
+            this.c = findViewById(R.id.obfuscated_res_0x7f090f85);
         }
     }
 
@@ -111,22 +111,22 @@ public class CouponEntranceView extends FrameLayout {
         return (String) invokeJ.objValue;
     }
 
-    public void update(ph1 ph1Var) {
+    public void update(rh1 rh1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ph1Var) == null) {
-            this.d = ph1Var;
+        if (interceptable == null || interceptable.invokeL(1048580, this, rh1Var) == null) {
+            this.d = rh1Var;
             c();
         }
     }
 
     public void c() {
         boolean z;
-        List<ph1.a> list;
+        List<rh1.a> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.e = null;
-            ph1 ph1Var = this.d;
-            if (ph1Var != null && (list = ph1Var.b) != null && list.size() > 0) {
+            rh1 rh1Var = this.d;
+            if (rh1Var != null && (list = rh1Var.b) != null && list.size() > 0) {
                 z = true;
             } else {
                 z = false;
@@ -135,12 +135,12 @@ public class CouponEntranceView extends FrameLayout {
                 setVisibility(8);
                 return;
             }
-            Iterator<ph1.a> it = this.d.b.iterator();
+            Iterator<rh1.a> it = this.d.b.iterator();
             while (true) {
                 if (!it.hasNext()) {
                     break;
                 }
-                ph1.a next = it.next();
+                rh1.a next = it.next();
                 if (next.h == 1) {
                     this.e = next;
                     break;
@@ -152,7 +152,7 @@ public class CouponEntranceView extends FrameLayout {
             }
             setVisibility(0);
             this.a.setText(this.e.c);
-            ph1.a aVar = this.e;
+            rh1.a aVar = this.e;
             if (aVar.b == -1) {
                 String str = aVar.d;
                 this.b.setVisibility(8);
@@ -171,12 +171,12 @@ public class CouponEntranceView extends FrameLayout {
         }
     }
 
-    public ph1.a getSelectedItem() {
+    public rh1.a getSelectedItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.e;
         }
-        return (ph1.a) invokeV.objValue;
+        return (rh1.a) invokeV.objValue;
     }
 }

@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
+import android.content.res.Resources;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.ISignatureVerifier;
-import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
+import com.baidu.nps.interfa.IResourcesFetcher;
+import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,14 +19,14 @@ public class fd1 {
     public static fd1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ej1<ISignatureVerifier> a;
+    public gj1<IResourcesFetcher> a;
 
-    public void c() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cj1 b2 = cj1.b();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ej1 b2 = ej1.b();
             this.a = b2;
-            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
+            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
         }
     }
 
@@ -57,10 +59,10 @@ public class fd1 {
                 return;
             }
         }
-        c();
+        e();
     }
 
-    public static fd1 a() {
+    public static fd1 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -69,12 +71,33 @@ public class fd1 {
         return (fd1) invokeV.objValue;
     }
 
-    public ISignatureVerifier b() {
+    public Resources b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.get().getGlobalResources();
+        }
+        return (Resources) invokeV.objValue;
+    }
+
+    public Resources[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.get().getWrapperResources();
+        }
+        return (Resources[]) invokeV.objValue;
+    }
+
+    public Resources a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+            if (de1.a()) {
+                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
+            }
+            return this.a.get().getBaseContextResources();
         }
-        return (ISignatureVerifier) invokeV.objValue;
+        return (Resources) invokeV.objValue;
     }
 }

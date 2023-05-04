@@ -2,7 +2,7 @@ package com.baidu.tieba.ala.alasquare.live_tab.view;
 
 import android.view.View;
 import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.tieba.k56;
+import com.baidu.tieba.l66;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -11,16 +11,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class SdkDoubleLiveViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k56 a;
+    public l66 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SdkDoubleLiveViewHolder(k56 k56Var) {
-        super(k56Var.h());
+    public SdkDoubleLiveViewHolder(l66 l66Var) {
+        super(l66Var.h());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {k56Var};
+            Object[] objArr = {l66Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,6 +31,6 @@ public class SdkDoubleLiveViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        this.a = k56Var;
+        this.a = l66Var;
     }
 }

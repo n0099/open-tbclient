@@ -16,11 +16,11 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f73;
-import com.baidu.tieba.g73;
+import com.baidu.tieba.h73;
+import com.baidu.tieba.i73;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SwanContextMenuView extends FrameLayout implements f73.g {
+public class SwanContextMenuView extends FrameLayout implements h73.g {
     public final Context a;
     public boolean b;
     public ListView c;
@@ -30,7 +30,7 @@ public class SwanContextMenuView extends FrameLayout implements f73.g {
     /* loaded from: classes3.dex */
     public class b extends BaseAdapter {
         public final Context a;
-        public List<g73> b;
+        public List<i73> b;
 
         @Override // android.widget.Adapter
         public long getItemId(int i) {
@@ -46,20 +46,20 @@ public class SwanContextMenuView extends FrameLayout implements f73.g {
             }
         }
 
-        public b(Context context, List<g73> list) {
+        public b(Context context, List<i73> list) {
             this.b = list;
             this.a = context;
         }
 
         public void a(int i) {
-            g73 g73Var = this.b.get(i);
-            g73.a d = g73Var.d();
+            i73 i73Var = this.b.get(i);
+            i73.a d = i73Var.d();
             if (d != null) {
-                d.a(g73Var);
+                d.a(i73Var);
             }
         }
 
-        public void c(List<g73> list) {
+        public void c(List<i73> list) {
             this.b = list;
             notifyDataSetChanged();
         }
@@ -71,13 +71,13 @@ public class SwanContextMenuView extends FrameLayout implements f73.g {
 
         public final void b(View view2, int i) {
             if (getCount() == 1) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811dc));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120d));
             } else if (i == 0) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811dd));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120e));
             } else if (i == getCount() - 1) {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811da));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120b));
             } else {
-                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811db));
+                view2.setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120c));
             }
         }
 
@@ -91,7 +91,7 @@ public class SwanContextMenuView extends FrameLayout implements f73.g {
         public View getView(int i, View view2, ViewGroup viewGroup) {
             a aVar;
             if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0882, (ViewGroup) null);
+                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d088e, (ViewGroup) null);
                 aVar = new a(this);
                 aVar.a = (ImageView) view2.findViewById(R.id.item_icon);
                 aVar.b = (TextView) view2.findViewById(R.id.item_title);
@@ -100,13 +100,13 @@ public class SwanContextMenuView extends FrameLayout implements f73.g {
             } else {
                 aVar = (a) view2.getTag();
             }
-            g73 g73Var = this.b.get(i);
-            aVar.b.setText(g73Var.e());
+            i73 i73Var = this.b.get(i);
+            aVar.b.setText(i73Var.e());
             LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) aVar.b.getLayoutParams();
             LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) aVar.a.getLayoutParams();
-            if (g73Var.b() != null) {
+            if (i73Var.b() != null) {
                 aVar.a.setVisibility(0);
-                aVar.a.setImageDrawable(g73Var.b());
+                aVar.a.setImageDrawable(i73Var.b());
                 layoutParams.setMarginStart(this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070679));
             } else {
                 aVar.a.setVisibility(8);
@@ -116,7 +116,7 @@ public class SwanContextMenuView extends FrameLayout implements f73.g {
             if (SwanContextMenuView.this.e) {
                 ((LinearLayout) view2).setGravity(17);
                 layoutParams.width = -2;
-                if (g73Var.b() != null) {
+                if (i73Var.b() != null) {
                     layoutParams2.setMarginStart(0);
                     aVar.a.setLayoutParams(layoutParams2);
                 } else {
@@ -146,7 +146,7 @@ public class SwanContextMenuView extends FrameLayout implements f73.g {
         b();
     }
 
-    public void c(List<g73> list) {
+    public void c(List<i73> list) {
         if (!this.b) {
             b bVar = this.d;
             if (bVar == null) {
@@ -180,11 +180,11 @@ public class SwanContextMenuView extends FrameLayout implements f73.g {
 
     public final void b() {
         setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
-        setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811d9));
+        setBackground(this.a.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08120a));
         ListView listView = new ListView(this.a);
         this.c = listView;
         listView.setCacheColorHint(0);
-        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f060937));
+        this.c.setDivider(getResources().getDrawable(R.color.obfuscated_res_0x7f06093b));
         this.c.setDividerHeight(1);
         this.c.setSelector(new ColorDrawable(0));
         addView(this.c, new FrameLayout.LayoutParams(-1, -1));

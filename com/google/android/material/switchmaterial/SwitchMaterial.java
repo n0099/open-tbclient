@@ -41,7 +41,7 @@ public class SwitchMaterial extends SwitchCompat {
     }
 
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04068a);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040693);
     }
 
     public SwitchMaterial(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

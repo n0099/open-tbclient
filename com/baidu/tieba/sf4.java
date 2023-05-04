@@ -1,75 +1,196 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.WorkerThread;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ri4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class sf4 {
+public abstract class sf4 implements pf4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile sf4 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract boolean a(ug4 ug4Var, PMSAppInfo pMSAppInfo);
+    public of4<xg4> A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (of4) invokeV.objValue;
+    }
 
-    public abstract boolean b(ug4 ug4Var, List<vg4> list, sg4 sg4Var, qg4 qg4Var, PMSAppInfo pMSAppInfo);
+    public Map<String, String> B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
 
-    public abstract void c(String str);
+    public void C(rg4 rg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, rg4Var) == null) {
+        }
+    }
 
-    public abstract void d(String str, String str2);
+    public void D() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
 
-    public abstract <T extends tg4> boolean e(Class<T> cls, String str);
+    public void E() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
 
-    public abstract boolean f(wg4 wg4Var);
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        }
+    }
 
-    public abstract boolean g(List<wg4> list);
+    public void G(fl4 fl4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fl4Var) == null) {
+        }
+    }
 
-    public abstract boolean h(String str);
+    public void H(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) {
+        }
+    }
 
-    @WorkerThread
-    public abstract int j(@NonNull String str);
+    public void I(String str, String str2, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, jSONObject) == null) {
+        }
+    }
 
-    @NonNull
-    @WorkerThread
-    public abstract List<vg4> k(@NonNull String str, int i);
+    @Override // com.baidu.tieba.pf4
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        }
+    }
 
-    public abstract boolean l(PMSAppInfo pMSAppInfo);
+    @Override // com.baidu.tieba.pf4
+    public void n(@Nullable String str, @Nullable String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, str, str2) == null) {
+        }
+    }
 
-    public abstract <T extends tg4> boolean m(T t);
+    public rf4 p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return null;
+        }
+        return (rf4) invokeV.objValue;
+    }
 
-    public abstract boolean n(String str, String str2, String str3);
+    public of4<yg4> q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return null;
+        }
+        return (of4) invokeV.objValue;
+    }
 
-    public abstract <T extends tg4> T o(Class<T> cls, String str);
+    public of4<sg4> r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return null;
+        }
+        return (of4) invokeV.objValue;
+    }
 
-    public abstract Map<String, ug4> p();
+    public of4<ug4> s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return null;
+        }
+        return (of4) invokeV.objValue;
+    }
 
-    public abstract wg4 q(String str, long j, long j2);
+    public Map<String, String> t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
 
-    public abstract List<wg4> r(String str, String[] strArr);
+    public of4<wg4> u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return null;
+        }
+        return (of4) invokeV.objValue;
+    }
 
-    public abstract List<wg4> s(String str, long j, long j2);
+    public kf4<ri4.a> v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            return null;
+        }
+        return (kf4) invokeV.objValue;
+    }
 
-    @Nullable
-    public abstract xg4 t(String str);
+    public rk4 w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            return null;
+        }
+        return (rk4) invokeL.objValue;
+    }
 
-    public abstract PMSAppInfo u(String str);
+    public of4<yg4> x() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
+            return null;
+        }
+        return (of4) invokeV.objValue;
+    }
 
-    public abstract Map<String, PMSAppInfo> v();
+    public Map<String, String> y() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
+            return null;
+        }
+        return (Map) invokeV.objValue;
+    }
 
-    public abstract List<wg4> w(String str);
-
-    public abstract boolean x(wg4 wg4Var);
-
-    public abstract boolean y(PMSAppInfo pMSAppInfo);
-
-    public abstract boolean z(String str, int i);
+    public of4<zg4> z() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            return null;
+        }
+        return (of4) invokeV.objValue;
+    }
 
     public sf4() {
         Interceptable interceptable = $ic;
@@ -85,19 +206,19 @@ public abstract class sf4 {
         }
     }
 
-    public static sf4 i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.qf4
+    @NonNull
+    public Bundle m(@NonNull Bundle bundle, Set<String> set) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (sf4.class) {
-                    if (a == null) {
-                        a = new tf4();
-                    }
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, bundle, set)) == null) {
+            Bundle bundle2 = new Bundle();
+            if (set.contains("event_performance_ubc")) {
+                n(bundle.getString("performance_ubc_event_id"), bundle.getString("performance_ubc_extra_key_for_event"));
+                set.remove("event_performance_ubc");
             }
-            return a;
+            return bundle2;
         }
-        return (sf4) invokeV.objValue;
+        return (Bundle) invokeLL.objValue;
     }
 }

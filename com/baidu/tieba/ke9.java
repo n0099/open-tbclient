@@ -1,140 +1,84 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Locale;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ke9 extends Thread {
+public class ke9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public final String b;
-    public Process c;
-    public BufferedReader d;
-    public FileOutputStream e;
-    public a f;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void a();
+    public static int a(int i, je9 je9Var) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, je9Var)) == null) {
+            if (i <= 0) {
+                return je9Var.a();
+            }
+            if (je9Var.c()) {
+                return i + je9Var.b();
+            }
+            return i + je9Var.b() + 1;
+        }
+        return invokeIL.intValue;
     }
 
-    public ke9(String str, String str2, boolean z) {
+    public static <T> boolean b(@NonNull List<T> list, int i, @NonNull je9 je9Var, int i2, @Nullable T t, @Nullable le9 le9Var, @Nullable me9 me9Var) {
+        InterceptResult invokeCommon;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = true;
-        this.d = null;
-        this.e = null;
-        try {
-            SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd-HH-mm-ss", Locale.ENGLISH);
-            this.e = new FileOutputStream(new File(str, str2 + "-" + simpleDateFormat.format(new Date()) + DownloadDataConstants.DEFAULT_DL_TEXT_EXTENSION), true);
-        } catch (FileNotFoundException e) {
-            BdLog.e(Log.getStackTraceString(e));
-        }
-        if (z) {
-            this.b = "logcat -v threadtime *:v -d";
-        } else {
-            this.b = "logcat -v threadtime *:v";
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Process process = this.c;
-            if (process != null) {
-                process.destroy();
-                this.c = null;
-            }
-            BufferedReader bufferedReader = this.d;
-            if (bufferedReader != null) {
-                try {
-                    bufferedReader.close();
-                    this.d = null;
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
-                }
-            }
-            FileOutputStream fileOutputStream = this.e;
-            if (fileOutputStream != null) {
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e2) {
-                    BdLog.e(Log.getStackTraceString(e2));
-                }
-                this.e = null;
-            }
-            a aVar = this.f;
-            if (aVar != null) {
-                aVar.a();
-            }
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.f = aVar;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = false;
-            a();
-            interrupt();
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        String readLine;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            try {
-                try {
-                    this.c = Runtime.getRuntime().exec(this.b);
-                    this.d = new BufferedReader(new InputStreamReader(this.c.getInputStream()), 1024);
-                    while (this.a && (readLine = this.d.readLine()) != null && this.a) {
-                        if (readLine.length() != 0 && this.e != null) {
-                            FileOutputStream fileOutputStream = this.e;
-                            fileOutputStream.write((readLine + "\n").getBytes());
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{list, Integer.valueOf(i), je9Var, Integer.valueOf(i2), t, le9Var, me9Var})) == null) {
+            if (je9Var.a() != -1 && je9Var.b() != -1) {
+                int a = a(i2, je9Var);
+                if (le9Var != null && t != null) {
+                    if (i <= i2) {
+                        if (me9Var != 0) {
+                            me9Var.a(i, a);
                         }
+                        return false;
                     }
-                    BdLog.d("collector complete.");
-                } catch (IOException e) {
-                    BdLog.e(Log.getStackTraceString(e));
+                    int i4 = i + 1;
+                    if (i4 < a) {
+                        if (me9Var != 0) {
+                            me9Var.a(i, a);
+                        }
+                        return false;
+                    }
+                    if (i > a) {
+                        i3 = i4;
+                    } else {
+                        i3 = a;
+                    }
+                    int i5 = ch8.i(list);
+                    if (i3 >= i5 && (le9Var.b() || i3 > i5)) {
+                        if (me9Var != 0) {
+                            me9Var.d(i, i3, i5, le9Var, t);
+                        }
+                        return false;
+                    }
+                    le9Var.a(i3);
+                    if (!le9Var.b()) {
+                        ch8.b(list, t, i3);
+                        if (me9Var != 0) {
+                            me9Var.c(i, i3, le9Var, t);
+                            return true;
+                        }
+                        return true;
+                    } else if (me9Var != 0) {
+                        me9Var.e(i, i3, ch8.d(list, i3), le9Var, t);
+                        return true;
+                    } else {
+                        return true;
+                    }
+                } else if (me9Var != 0) {
+                    me9Var.a(i, a);
                 }
-            } finally {
-                a();
             }
+            return false;
         }
+        return invokeCommon.booleanValue;
     }
 }

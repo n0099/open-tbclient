@@ -1,68 +1,78 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class lza {
     public static /* synthetic */ Interceptable $ic;
+    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
 
-    public lza(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947961558, "Lcom/baidu/tieba/lza;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947961558, "Lcom/baidu/tieba/lza;");
                 return;
             }
         }
-        this.a = i;
-        if (i != 0) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        this.b = "未知错误";
-                        return;
-                    } else {
-                        this.b = "App配置错误，请在AndroidManifest.xml加上BridgeActivity声明";
-                        return;
-                    }
-                }
-                this.b = "授权APP版本太低，请先升级";
-                return;
-            }
-            this.b = "未能找到可用的授权APP";
-            return;
-        }
-        this.b = "成功";
+        a = "0123456789ABCDEF".toCharArray();
     }
 
-    public lza(int i, String str) {
+    public static byte[] a(char[] cArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
+            if ((cArr.length & 1) == 0) {
+                byte[] bArr = new byte[cArr.length >> 1];
+                int i = 0;
+                int i2 = 0;
+                while (i < cArr.length) {
+                    int digit = Character.digit(cArr[i], 16);
+                    if (digit == -1) {
+                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i);
+                    }
+                    int i3 = i + 1;
+                    int digit2 = Character.digit(cArr[i3], 16);
+                    if (digit2 == -1) {
+                        throw new IllegalArgumentException("Illegal hexadecimal character at index " + i3);
+                    }
+                    i = i3 + 1;
+                    bArr[i2] = (byte) (((digit << 4) | digit2) & 255);
+                    i2++;
+                }
+                return bArr;
             }
+            throw new IllegalArgumentException("Odd number of characters.");
         }
-        this.a = i;
-        this.b = str;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static byte[] b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) ? a(str.toCharArray()) : (byte[]) invokeL.objValue;
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuilder sb = new StringBuilder(bArr.length * 2);
+            for (byte b : bArr) {
+                sb.append(a[(b >> 4) & 15]);
+                sb.append(a[b & 15]);
+            }
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

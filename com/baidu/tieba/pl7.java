@@ -1,69 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import androidx.recyclerview.widget.DiffUtil;
+import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class pl7 extends CustomMessageTask {
+public final class pl7 extends DiffUtil.ItemCallback<VoiceRoomWrapper> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements CustomMessageTask.CustomRunnable<wn7> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<wn7> customMessage) {
-            InterceptResult invokeL;
-            sf8 c;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof wn7)) {
-                    wn7 data = customMessage.getData();
-                    if (data.c() == null && (c = rf8.d().c(data.b(), data.f())) != null) {
-                        c.b(new ql7(data.e()));
-                        data.i(c);
-                    }
-                }
-                return null;
-            }
-            return (CustomResponsedMessage) invokeL.objValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public pl7() {
-        super(2001406, new b(null));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -71,13 +21,40 @@ public class pl7 extends CustomMessageTask {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super(((Integer) objArr[0]).intValue(), (CustomMessageTask.CustomRunnable) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
+    /* renamed from: a */
+    public boolean areContentsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oldItem, newItem)) == null) {
+            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
+            Intrinsics.checkNotNullParameter(newItem, "newItem");
+            if (Intrinsics.areEqual(oldItem.getVoiceRoom().status, newItem.getVoiceRoom().status) && Intrinsics.areEqual(oldItem.getVoiceRoom().joined_num, newItem.getVoiceRoom().joined_num)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // androidx.recyclerview.widget.DiffUtil.ItemCallback
+    /* renamed from: b */
+    public boolean areItemsTheSame(VoiceRoomWrapper oldItem, VoiceRoomWrapper newItem) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, oldItem, newItem)) == null) {
+            Intrinsics.checkNotNullParameter(oldItem, "oldItem");
+            Intrinsics.checkNotNullParameter(newItem, "newItem");
+            return Intrinsics.areEqual(oldItem.getVoiceRoom().room_id, newItem.getVoiceRoom().room_id);
+        }
+        return invokeLL.booleanValue;
     }
 }

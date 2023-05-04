@@ -4,7 +4,7 @@ import android.view.View;
 import com.badlogic.gdx.Input;
 /* loaded from: classes3.dex */
 public interface c2 extends Input, View.OnTouchListener, View.OnKeyListener, View.OnGenericMotionListener {
-    void Q0();
+    void R0();
 
     void c1();
 
@@ -14,5 +14,5 @@ public interface c2 extends Input, View.OnTouchListener, View.OnKeyListener, Vie
 
     void onResume();
 
-    void r(boolean z);
+    void s(boolean z);
 }

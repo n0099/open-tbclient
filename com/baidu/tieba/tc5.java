@@ -1,40 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tc5 extends bd5 {
+public class tc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TiePlusStat.StatType a;
+    public TiePlusStat.RichTextType b;
+    public String c;
+    public String d;
+    public boolean e;
+    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tc5(Context context, int i) {
-        super(context, TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f043f), 33, i);
+    public tc5(TiePlusStat.StatType statType, TiePlusStat.RichTextType richTextType, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
+            Object[] objArr = {statType, richTextType, str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = R.drawable.icon_pure_post_more_goods64;
-        this.h = R.drawable.icon_pure_post_more_goods64;
-        this.k = false;
-        this.i = false;
-        this.j = false;
-        this.p = new int[]{59};
+        this.a = statType;
+        this.b = richTextType;
+        this.c = str;
+        this.d = str2;
+        this.f = str3;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "TiePlusStaticData{statType=" + this.a + ", richTextType=" + this.b + ", tid='" + this.c + "', orderId='" + this.d + "', hasDownload=" + this.e + ", packageName='" + this.f + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

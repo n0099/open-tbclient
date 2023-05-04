@@ -1,19 +1,52 @@
 package com.baidu.tieba;
 
+import androidx.annotation.MainThread;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.BannerImage;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class xw4 implements v25 {
+public class xw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
+    public final LinkedList<yw4> a;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xw4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-275264170, "Lcom/baidu/tieba/xw4$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-275264170, "Lcom/baidu/tieba/xw4$b;");
+                    return;
+                }
+            }
+            a = new xw4(null);
+        }
+    }
 
     public xw4() {
         Interceptable interceptable = $ic;
@@ -25,71 +58,57 @@ public class xw4 implements v25 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new LinkedList<>();
     }
 
-    public String a() {
+    public static xw4 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (String) invokeV.objValue;
+        return (xw4) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
+    public /* synthetic */ xw4(a aVar) {
+        this();
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    public final yw4 a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            Iterator<yw4> it = this.a.iterator();
+            while (it.hasNext()) {
+                yw4 next = it.next();
+                if (next.b() == i) {
+                    return next;
+                }
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (yw4) invokeI.objValue;
     }
 
-    @Override // com.baidu.tieba.v25
-    public String getPicLinkUrl() {
-        InterceptResult invokeV;
+    @MainThread
+    public void b(int i) {
+        yw4 a2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (a2 = a(i)) != null) {
+            a2.run();
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.v25
-    public String getPicUrl() {
-        InterceptResult invokeV;
+    public void d(@Nullable BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void d(BannerImage bannerImage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bannerImage) != null) || bannerImage == null) {
-            return;
-        }
-        this.a = bannerImage.img_url;
-        this.b = bannerImage.ahead_url;
-        this.c = bannerImage.title;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.b = str;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
+            Iterator<yw4> it = this.a.iterator();
+            while (it.hasNext()) {
+                it.next().a(bdUniqueId);
+            }
         }
     }
 }

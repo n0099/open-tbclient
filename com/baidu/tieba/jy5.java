@@ -1,108 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.security.PublicKey;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jy5 {
+public class jy5<ViewGroup, Object> extends vm {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext mPageContext;
 
-    public static boolean a(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, file)) == null) {
-            if (!TextUtils.isEmpty(str) && file != null && file.exists()) {
-                try {
-                    PublicKey e = qi.e(ai.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDGKmjUQl+RAVovXDJpDU/V8IEWm0Mejnq1yFD8V7mbTT0iD3XvoZNGQ46xiawGYv/f3MlYrttv2kectaH9HjQHsZI2mM6NbxOm+3lv6oRfAIH+2LQvopr1GRZIyueCCfdzBk+w6twrQFfWrAOAl+8g4+k1eic0oPMyT2EknFv2xwIDAQAB"));
-                    if (e == null) {
-                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "publicKeyCode is null").param("obj_source", file.getName()));
-                        return false;
-                    }
-                    byte[] b = b(str);
-                    if (b != null && b.length > 0) {
-                        byte[] b2 = qi.b(e, b);
-                        if (b2 != null && b2.length > 0) {
-                            String trim = new String(b2, "UTF-8").trim();
-                            String b3 = pi.b(new FileInputStream(file));
-                            if (b3 != null) {
-                                b3 = b3.trim();
-                            }
-                            if (!TextUtils.isEmpty(b3) && !TextUtils.isEmpty(trim)) {
-                                if (b3.equalsIgnoreCase(trim)) {
-                                    return true;
-                                }
-                                TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 != serverMD5").param("obj_source", file.getName()));
-                                BdLog.e("download MD5 RSA ERROR; file:" + file.getName());
-                                return false;
-                            }
-                            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "apkMd5 or serverMD5 is null").param("obj_source", file.getName()));
-                            return false;
-                        }
-                        TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "des is null").param("obj_source", file.getName()));
-                        return false;
-                    }
-                    TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "server_data is null").param("obj_source", file.getName()));
-                    return false;
-                } catch (Exception e2) {
-                    StatisticItem statisticItem = new StatisticItem("c10836");
-                    TiebaStatic.log(statisticItem.param("obj_type", "exception:" + e2.getMessage()).param("obj_source", file.getName()));
-                    BdLog.e("download MD5 RSA ERROR！Exception:" + e2.getMessage() + " ; file:" + file.getName());
-                    return false;
-                }
-            }
-            TiebaStatic.log(new StatisticItem("c10836").param("obj_type", "checkRSA input args is null"));
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static byte[] b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null) {
-                char[] charArray = str.toCharArray();
-                int length = charArray.length / 2;
-                byte[] bArr = new byte[length];
-                if (charArray.length % 2 != 0) {
-                    return null;
-                }
-                int i = 0;
-                int i2 = 0;
-                while (true) {
-                    int i3 = i + 1;
-                    if (i3 >= charArray.length || i2 >= length) {
-                        break;
-                    }
-                    bArr[i2] = (byte) ((c(charArray[i]) << 4) | c(charArray[i3]));
-                    i2++;
-                    i = i3 + 1;
-                }
-                return bArr;
-            }
-            throw new IllegalArgumentException("binary string is null");
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static int c(char c) {
+    @Override // com.baidu.tieba.vm
+    public View getView(int i, View view2, ViewGroup viewGroup, Object obj) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Character.valueOf(c)})) == null) {
-            int digit = Character.digit(c, 16);
-            if (digit != -1) {
-                return digit;
-            }
-            throw new RuntimeException("Illegal hexadecimal character " + c);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj})) == null) {
+            return null;
         }
-        return invokeCommon.intValue;
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.vm
+    public TypeAdapter.ViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            return null;
+        }
+        return (TypeAdapter.ViewHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.vm
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, obj, viewHolder})) == null) {
+            return null;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jy5(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public void setPageContext(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, tbPageContext) == null) {
+            this.mPageContext = tbPageContext;
+        }
     }
 }

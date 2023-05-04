@@ -1,135 +1,143 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.ScheduleStrategy;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import android.os.Handler;
+import android.os.Looper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import tbclient.CommonReq;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class rq5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
+    public long g;
+    public b h;
+    public Runnable i;
 
-    public static void a(Object obj, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
-            b(obj, z, false);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void onCountDown(long j, long j2);
+
+        void onCountDownFinish(long j);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ rq5 a;
+
+        public a(rq5 rq5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {rq5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = rq5Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                if (this.a.g > this.a.f) {
+                    rq5 rq5Var = this.a;
+                    rq5Var.f = currentTimeMillis - rq5Var.d;
+                    rq5 rq5Var2 = this.a;
+                    rq5Var2.g = rq5Var2.f;
+                }
+                long j = currentTimeMillis - this.a.f;
+                this.a.c += this.a.d;
+                if (this.a.c >= this.a.b) {
+                    rq5 rq5Var3 = this.a;
+                    rq5Var3.c = rq5Var3.b;
+                    this.a.m();
+                } else {
+                    this.a.a.postDelayed(this.a.i, (this.a.d * 2) - j);
+                    if (this.a.h != null) {
+                        this.a.h.onCountDown(this.a.b, this.a.b - this.a.c);
+                    }
+                }
+                this.a.f = currentTimeMillis;
+            }
         }
     }
 
-    public static void b(Object obj, boolean z, boolean z2) {
+    public rq5(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            c(obj, z, z2, false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new Handler(Looper.getMainLooper());
+        this.i = new a(this);
+        this.b = j;
+        this.d = j2;
+    }
+
+    public void n(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            this.h = bVar;
         }
     }
 
-    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+    public final void m() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || obj == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.h) != null) {
+            bVar.onCountDownFinish(this.b);
         }
-        try {
-            Field field = obj.getClass().getField("common");
-            int i = 1;
-            if (!field.isAccessible()) {
-                field.setAccessible(true);
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            this.e = currentTimeMillis;
+            this.f = currentTimeMillis;
+            b bVar = this.h;
+            if (bVar != null) {
+                long j = this.b;
+                bVar.onCountDown(j, j - this.c);
             }
-            CommonReq.Builder builder = new CommonReq.Builder();
-            builder._client_type = 2;
-            builder._client_version = TbConfig.getVersion();
-            builder._client_id = TbadkCoreApplication.getClientId();
-            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
-                builder.subapp_type = TbConfig.getSubappType();
-            }
-            if (!TbadkCoreApplication.getInst().isOfficial()) {
-                builder.apid = TbConfig.SW_APID;
-            }
-            builder._phone_imei = TbadkCoreApplication.getInst().getImei();
-            builder.from = TbadkCoreApplication.getFrom();
-            builder.cuid = TbadkCoreApplication.getInst().getCuid();
-            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
-            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
-            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
-            builder._timestamp = Long.valueOf(System.currentTimeMillis());
-            builder.model = ki.g();
-            builder._os_version = ki.k();
-            builder.brand = Build.BRAND;
-            builder.user_agent = vr5.b();
-            if (z) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.BDUSS = aj5.b();
-                    if (!StringUtils.isNull(aj5.e())) {
-                        builder.stoken = aj5.e();
-                    }
-                } else {
-                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-                    if (currentAccountInfo != null) {
-                        builder.BDUSS = currentAccountInfo.getBDUSS();
-                        String a = wv4.a(currentAccountInfo);
-                        if (!StringUtils.isNull(a)) {
-                            builder.stoken = a;
-                        }
-                    }
-                }
-            }
-            if (z2) {
-                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
-                    builder.tbs = aj5.f();
-                } else {
-                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
-                }
-            }
-            if (z3) {
-                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
-            }
-            builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
-            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
-            builder.lego_lib_version = TbConfig.getLegoLibVersion();
-            if (q45.m().n("android_safe_sdk_open", 0) == 1) {
-                builder.z_id = TbadkCoreApplication.getInst().getZid();
-            }
-            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
-            builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-            builder.sample_id = TbSingleton.getInstance().getSampleId();
-            builder.is_teenager = 0;
-            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
-            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
-            builder.naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
-            builder.q_type = Integer.valueOf(sv4.c().e());
-            builder.scr_h = Integer.valueOf(ii.j(TbadkCoreApplication.getInst()));
-            builder.scr_w = Integer.valueOf(ii.l(TbadkCoreApplication.getInst()));
-            builder.scr_dip = Double.valueOf(ii.i(TbadkCoreApplication.getInst()));
-            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
-            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
-            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
-            builder.event_day = TbSingleton.getInstance().getData();
-            builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
-            if (!PermissionUtil.isAgreePrivacyPolicy()) {
-                i = 2;
-            }
-            builder.cmode = Integer.valueOf(i);
-            builder.start_type = Integer.valueOf(f35.f);
-            builder.start_scheme = f35.e();
-            builder.extra = q45.m().s("key_sync_extra_field", "");
-            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
-            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
-            field.set(obj, builder.build(false));
-        } catch (Throwable th) {
-            if (BdLog.isDebugMode()) {
-                th.printStackTrace();
-            }
+            this.a.postDelayed(this.i, this.d);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long j = this.e;
+            this.f = j;
+            this.g = j;
+            this.a.removeCallbacks(this.i);
         }
     }
 }

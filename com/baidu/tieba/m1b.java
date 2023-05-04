@@ -1,9 +1,28 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface m1b {
-    void onCompleted();
+public class m1b {
+    public static /* synthetic */ Interceptable $ic;
+    public static Context a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onError(Throwable th);
+    public static Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
+        }
+        return (Context) invokeV.objValue;
+    }
 
-    void onSubscribe(u1b u1bVar);
+    public static void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && context != null && a == null) {
+            a = context.getApplicationContext();
+        }
+    }
 }

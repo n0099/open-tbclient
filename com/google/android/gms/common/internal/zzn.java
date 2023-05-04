@@ -7,7 +7,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import androidx.annotation.Nullable;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzn {
     public static final Uri zza = new Uri.Builder().scheme("content").authority("com.google.android.gms.chimera").build();
     @Nullable

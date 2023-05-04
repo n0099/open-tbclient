@@ -9,18 +9,18 @@ import com.baidu.nadcore.model.AdBaseModel;
 import com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView;
 import com.baidu.nadcore.widget.uitemplate.NadRewardVolumeView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fc1;
-import com.baidu.tieba.g01;
-import com.baidu.tieba.hs0;
-import com.baidu.tieba.is0;
-import com.baidu.tieba.ls0;
-import com.baidu.tieba.rz0;
-import com.baidu.tieba.xp0;
+import com.baidu.tieba.bq0;
+import com.baidu.tieba.hc1;
+import com.baidu.tieba.i01;
+import com.baidu.tieba.js0;
+import com.baidu.tieba.ks0;
+import com.baidu.tieba.ns0;
+import com.baidu.tieba.tz0;
 import com.baidu.tieba.zp0;
 /* loaded from: classes2.dex */
 public abstract class NadRewardVideoView extends NadRewardBaseView {
-    public final ls0 q;
-    public hs0 r;
+    public final ns0 q;
+    public js0 r;
     public ViewGroup s;
     public NadRewardVolumeView t;
 
@@ -29,7 +29,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
     public abstract void J();
 
     @Override // com.baidu.nadcore.widget.view.NadRewardBaseView
-    public void m(LayoutInflater layoutInflater, zp0 zp0Var) {
+    public void m(LayoutInflater layoutInflater, bq0 bq0Var) {
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardBaseView
@@ -43,24 +43,24 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardVolumeView.b
         public void a(boolean z) {
-            hs0 hs0Var = NadRewardVideoView.this.r;
-            if (hs0Var != null) {
-                hs0Var.mute(z);
+            js0 js0Var = NadRewardVideoView.this.r;
+            if (js0Var != null) {
+                js0Var.mute(z);
             }
         }
     }
 
     /* loaded from: classes2.dex */
-    public class b extends ls0 {
+    public class b extends ns0 {
         public b() {
         }
 
-        @Override // com.baidu.tieba.ls0, com.baidu.tieba.es0
+        @Override // com.baidu.tieba.ns0, com.baidu.tieba.gs0
         public void a(int i) {
             boolean z;
             if (NadRewardVideoView.this.t != null) {
                 NadRewardVolumeView nadRewardVolumeView = NadRewardVideoView.this.t;
-                if (g01.c(NadRewardVideoView.this.getContext()) <= 0) {
+                if (i01.c(NadRewardVideoView.this.getContext()) <= 0) {
                     z = true;
                 } else {
                     z = false;
@@ -69,7 +69,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.ls0, com.baidu.tieba.es0
+        @Override // com.baidu.tieba.ns0, com.baidu.tieba.gs0
         public void onEnd(int i) {
             if (NadRewardVideoView.this.b != null && (NadRewardVideoView.this.getTag() instanceof AdBaseModel)) {
                 NadRewardVideoView.this.b.f((AdBaseModel) NadRewardVideoView.this.getTag());
@@ -94,7 +94,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.ls0, com.baidu.tieba.es0
+        @Override // com.baidu.tieba.ns0, com.baidu.tieba.gs0
         public void onError(int i, int i2, String str) {
             if (NadRewardVideoView.this.b != null && (NadRewardVideoView.this.getTag() instanceof AdBaseModel)) {
                 NadRewardVideoView.this.b.e((AdBaseModel) NadRewardVideoView.this.getTag(), str);
@@ -109,7 +109,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.ls0, com.baidu.tieba.es0
+        @Override // com.baidu.tieba.ns0, com.baidu.tieba.gs0
         public void onPause() {
             if (NadRewardVideoView.this.b != null && (NadRewardVideoView.this.getTag() instanceof AdBaseModel)) {
                 NadRewardVideoView.this.b.c((AdBaseModel) NadRewardVideoView.this.getTag());
@@ -121,7 +121,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.ls0, com.baidu.tieba.es0
+        @Override // com.baidu.tieba.ns0, com.baidu.tieba.gs0
         public void onPrepared() {
             if (NadRewardVideoView.this.b != null && (NadRewardVideoView.this.getTag() instanceof AdBaseModel)) {
                 NadRewardVideoView.this.b.d((AdBaseModel) NadRewardVideoView.this.getTag());
@@ -133,7 +133,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.ls0, com.baidu.tieba.es0
+        @Override // com.baidu.tieba.ns0, com.baidu.tieba.gs0
         public void onResume() {
             if (NadRewardVideoView.this.b != null && (NadRewardVideoView.this.getTag() instanceof AdBaseModel)) {
                 NadRewardVideoView.this.b.a((AdBaseModel) NadRewardVideoView.this.getTag());
@@ -145,7 +145,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
             }
         }
 
-        @Override // com.baidu.tieba.ls0, com.baidu.tieba.es0
+        @Override // com.baidu.tieba.ns0, com.baidu.tieba.gs0
         public void onStart() {
             if (NadRewardVideoView.this.b != null && (NadRewardVideoView.this.getTag() instanceof AdBaseModel)) {
                 NadRewardVideoView.this.b.b((AdBaseModel) NadRewardVideoView.this.getTag());
@@ -160,7 +160,7 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
                 if (adBaseModel.p != null) {
                     NadRewardVideoView.this.t.setVolumeState(adBaseModel.p.h);
                 }
-                if (g01.c(NadRewardVideoView.this.getContext()) <= 0) {
+                if (i01.c(NadRewardVideoView.this.getContext()) <= 0) {
                     NadRewardVideoView.this.t.setVolumeState(true);
                 }
                 NadRewardVideoView.this.t.setVisibility(0);
@@ -183,34 +183,34 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView.g
         public void a() {
-            hs0 hs0Var = NadRewardVideoView.this.r;
-            if (hs0Var != null) {
-                hs0Var.resume();
+            js0 js0Var = NadRewardVideoView.this.r;
+            if (js0Var != null) {
+                js0Var.resume();
             }
         }
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView.g
         public void b() {
-            hs0 hs0Var = NadRewardVideoView.this.r;
-            if (hs0Var != null) {
-                hs0Var.pause();
+            js0 js0Var = NadRewardVideoView.this.r;
+            if (js0Var != null) {
+                js0Var.pause();
             }
         }
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView.g
         public void c() {
-            fc1 fc1Var = NadRewardVideoView.this.o;
-            if (fc1Var != null) {
-                fc1Var.h(this.a);
+            hc1 hc1Var = NadRewardVideoView.this.o;
+            if (hc1Var != null) {
+                hc1Var.h(this.a);
             }
             NadRewardVideoView.this.j();
         }
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView.g
         public void e() {
-            fc1 fc1Var = NadRewardVideoView.this.o;
-            if (fc1Var != null) {
-                fc1Var.g(true, this.a);
+            hc1 hc1Var = NadRewardVideoView.this.o;
+            if (hc1Var != null) {
+                hc1Var.g(true, this.a);
             }
             NadRewardVideoView.this.j();
         }
@@ -224,8 +224,8 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
 
         @Override // com.baidu.nadcore.widget.uitemplate.NadRewardCountDownView.g
         public void g() {
-            hs0 hs0Var = NadRewardVideoView.this.r;
-            if (hs0Var != null && hs0Var.isPause()) {
+            js0 js0Var = NadRewardVideoView.this.r;
+            if (js0Var != null && js0Var.isPause()) {
                 NadRewardVideoView.this.r.resume();
             }
         }
@@ -274,8 +274,8 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
         this(context, attributeSet, i, null);
     }
 
-    public NadRewardVideoView(Context context, AttributeSet attributeSet, int i, zp0 zp0Var) {
-        super(context, attributeSet, i, zp0Var);
+    public NadRewardVideoView(Context context, AttributeSet attributeSet, int i, bq0 bq0Var) {
+        super(context, attributeSet, i, bq0Var);
         NadRewardVolumeView nadRewardVolumeView = (NadRewardVolumeView) findViewById(R.id.nad_reward_volumn_icon);
         this.t = nadRewardVolumeView;
         nadRewardVolumeView.setVolumeListener(new a());
@@ -285,33 +285,33 @@ public abstract class NadRewardVideoView extends NadRewardBaseView {
     @Override // com.baidu.nadcore.widget.view.NadRewardBaseView
     public void j() {
         super.j();
-        hs0 hs0Var = this.r;
-        if (hs0Var != null) {
-            hs0Var.release();
+        js0 js0Var = this.r;
+        if (js0Var != null) {
+            js0Var.release();
             this.r = null;
         }
     }
 
     @Override // com.baidu.nadcore.widget.view.NadRewardBaseView
     public void r(AdBaseModel adBaseModel) {
-        if ((adBaseModel instanceof xp0) && adBaseModel.j != null) {
+        if ((adBaseModel instanceof zp0) && adBaseModel.j != null) {
             if (this.s != null) {
-                is0 is0Var = new is0();
-                is0Var.a = 2;
+                ks0 ks0Var = new ks0();
+                ks0Var.a = 2;
                 if (this.r == null) {
-                    this.r = hs0.a.b(getContext(), 0, is0Var);
+                    this.r = js0.a.b(getContext(), 0, ks0Var);
                 }
-                rz0 rz0Var = new rz0();
-                rz0Var.j(2);
-                rz0Var.l(false);
-                rz0Var.n(true);
-                this.r.d(rz0Var);
+                tz0 tz0Var = new tz0();
+                tz0Var.j(2);
+                tz0Var.l(false);
+                tz0Var.n(true);
+                this.r.d(tz0Var);
                 this.r.attachToContainer(this.s);
                 this.r.c(adBaseModel.j);
                 this.r.a(this.q);
-                zp0 zp0Var = adBaseModel.p;
-                if (zp0Var != null) {
-                    this.r.mute(zp0Var.h);
+                bq0 bq0Var = adBaseModel.p;
+                if (bq0Var != null) {
+                    this.r.mute(bq0Var.h);
                 }
                 this.r.start();
             }

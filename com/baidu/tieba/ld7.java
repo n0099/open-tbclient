@@ -1,164 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import tbclient.ApkDetail;
-import tbclient.ItemInfo;
 /* loaded from: classes5.dex */
-public class ld7 extends kw4 {
+public class ld7 extends vm<np6, CardViewHolder<qh6>> {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<qd7> a;
+    public TbPageContext<?> a;
+    public qh6 b;
+    public String c;
 
-    @Override // com.baidu.tieba.kw4
-    public iy4 getNegFeedBackData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (iy4) invokeV.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a extends ji6<np6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ld7 b;
 
-    @Override // com.baidu.tieba.kw4
-    public ThreadData getThreadData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return null;
-        }
-        return (ThreadData) invokeV.objValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947939114, "Lcom/baidu/tieba/ld7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(ld7 ld7Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ld7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947939114, "Lcom/baidu/tieba/ld7;");
-                return;
+            this.b = ld7Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ji6
+        /* renamed from: d */
+        public void a(View view2, np6 np6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, np6Var) == null) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.b.c));
+                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(view2.getContext()), new String[]{np6Var.c().score_url}, true);
             }
         }
-        b = BdUniqueId.gen();
     }
 
-    public ld7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ld7(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), np6.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        setSupportType(BaseCardInfo.SupportType.FULL);
+        this.a = tbPageContext;
+        this.c = str;
     }
 
-    public ArrayList<qd7> c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public CardViewHolder<qh6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            this.b = new qh6(this.a);
+            return new CardViewHolder<>(this.b);
         }
-        return (ArrayList) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    public boolean d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, np6 np6Var, CardViewHolder<qh6> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !ListUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return b;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void e(ItemInfo itemInfo) {
-        ApkDetail apkDetail;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, itemInfo) == null) {
-            if (this.a == null) {
-                this.a = new ArrayList<>();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, np6Var, cardViewHolder})) == null) {
+            if (cardViewHolder.a() == null) {
+                return null;
             }
-            this.a.clear();
-            if (itemInfo != null && (apkDetail = itemInfo.apk_detail) != null) {
-                if (!hi.isEmpty(apkDetail.developer)) {
-                    this.a.add(new qd7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0517), itemInfo.apk_detail.developer, null));
-                }
-                if (!hi.isEmpty(itemInfo.apk_detail.publisher)) {
-                    this.a.add(new qd7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1017), itemInfo.apk_detail.publisher, null));
-                }
-                if (!hi.isEmpty(itemInfo.apk_detail.version)) {
-                    this.a.add(new qd7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f04ae), itemInfo.apk_detail.version, null));
-                }
-                if (!hi.isEmpty(itemInfo.apk_detail.update_time)) {
-                    this.a.add(new qd7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1601), itemInfo.apk_detail.update_time, null));
-                }
-                if (gg.g(itemInfo.apk_detail.size, 0L) > 0) {
-                    this.a.add(new qd7(TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f066e), StringHelper.getFormatSize(gg.g(itemInfo.apk_detail.size, 0L)), null));
-                }
-                int intValue = itemInfo.apk_detail.need_network.intValue();
-                int i2 = R.string.editor_dialog_yes;
-                if (intValue > 0) {
-                    ArrayList<qd7> arrayList = this.a;
-                    String string = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0a3f);
-                    Resources resources = TbadkCoreApplication.getInst().getResources();
-                    if (itemInfo.apk_detail.need_network.intValue() == 1) {
-                        i = R.string.editor_dialog_yes;
-                    } else {
-                        i = R.string.editor_dialog_no;
-                    }
-                    arrayList.add(new qd7(string, resources.getString(i), null));
-                }
-                if (itemInfo.apk_detail.need_inner_buy.intValue() > 0) {
-                    ArrayList<qd7> arrayList2 = this.a;
-                    String string2 = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f08d6);
-                    Resources resources2 = TbadkCoreApplication.getInst().getResources();
-                    if (itemInfo.apk_detail.need_inner_buy.intValue() != 1) {
-                        i2 = R.string.editor_dialog_no;
-                    }
-                    arrayList2.add(new qd7(string2, resources2.getString(i2), null));
-                }
-                if (!hi.isEmpty(itemInfo.apk_detail.authority_url)) {
-                    this.a.add(new qd7(TbadkCoreApplication.getInst().getResources().getString(R.string.permission_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.authority_url));
-                }
-                if (!hi.isEmpty(itemInfo.apk_detail.privacy_url)) {
-                    this.a.add(new qd7(TbadkCoreApplication.getInst().getResources().getString(R.string.privacy_info), TbadkCoreApplication.getInst().getResources().getString(R.string.item_browse), itemInfo.apk_detail.privacy_url));
-                }
-            }
+            cardViewHolder.a().i(np6Var);
+            cardViewHolder.a().k(new a(this));
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.a().h();
         }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.huawei.hms.hatool;
 
 import android.text.TextUtils;
-import com.baidu.tieba.zwa;
+import com.baidu.tieba.v0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -83,13 +83,13 @@ public class r0 {
             if ("maint".equals(str2)) {
                 o = b.n();
                 if (TextUtils.isEmpty(o)) {
-                    o = zwa.d("HiAnalytics_Sdk_Public_Sp_Key", g0.a(b.i(), "Privacy_MY", "public_key_maint", ""));
+                    o = v0b.d("HiAnalytics_Sdk_Public_Sp_Key", g0.a(b.i(), "Privacy_MY", "public_key_maint", ""));
                     b.d(o);
                 }
             } else {
                 o = b.o();
                 if (TextUtils.isEmpty(o)) {
-                    o = zwa.d("HiAnalytics_Sdk_Public_Sp_Key", g0.a(b.i(), "Privacy_MY", "public_key_oper", ""));
+                    o = v0b.d("HiAnalytics_Sdk_Public_Sp_Key", g0.a(b.i(), "Privacy_MY", "public_key_oper", ""));
                     b.e(o);
                 }
             }
@@ -112,8 +112,8 @@ public class r0 {
                 String optString3 = jSONObject.optString("pubkey_version");
                 String str3 = System.currentTimeMillis() + "";
                 String optString4 = jSONObject.optString("timeInterval");
-                g0.b(b.i(), "Privacy_MY", "public_key_oper", zwa.g("HiAnalytics_Sdk_Public_Sp_Key", optString));
-                g0.b(b.i(), "Privacy_MY", "public_key_maint", zwa.g("HiAnalytics_Sdk_Public_Sp_Key", optString2));
+                g0.b(b.i(), "Privacy_MY", "public_key_oper", v0b.g("HiAnalytics_Sdk_Public_Sp_Key", optString));
+                g0.b(b.i(), "Privacy_MY", "public_key_maint", v0b.g("HiAnalytics_Sdk_Public_Sp_Key", optString2));
                 g0.b(b.i(), "Privacy_MY", "public_key_time_interval", optString4);
                 g0.b(b.i(), "Privacy_MY", "public_key_version", optString3);
                 g0.b(b.i(), "Privacy_MY", "public_key_time_last", str3);

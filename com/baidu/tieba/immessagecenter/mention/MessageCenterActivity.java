@@ -35,7 +35,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -69,11 +69,11 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager x0() {
+    public VoiceManager y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b.x0();
+            return this.b.y0();
         }
         return (VoiceManager) invokeV.objValue;
     }
@@ -119,7 +119,7 @@ public class MessageCenterActivity extends BaseFragmentActivity implements Voice
             super.onNewIntent(intent);
             MessageCenterFragment messageCenterFragment = this.b;
             if (messageCenterFragment != null) {
-                messageCenterFragment.L1(intent);
+                messageCenterFragment.M1(intent);
             }
         }
     }

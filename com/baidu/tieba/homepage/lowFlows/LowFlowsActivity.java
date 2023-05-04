@@ -6,9 +6,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.atomData.LowFlowsActivityConfig;
-import com.baidu.tieba.eq7;
-import com.baidu.tieba.hq7;
-import com.baidu.tieba.rp7;
+import com.baidu.tieba.cs7;
+import com.baidu.tieba.mr7;
+import com.baidu.tieba.zr7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,9 +18,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public rp7 a;
+    public mr7 a;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -43,10 +43,10 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        rp7 rp7Var;
+        mr7 mr7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (rp7Var = this.a) != null) {
-            rp7Var.a();
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (mr7Var = this.a) != null) {
+            mr7Var.a();
         }
     }
 
@@ -55,9 +55,9 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            rp7 rp7Var = this.a;
-            if (rp7Var != null) {
-                rp7Var.onChangeSkinType(i);
+            mr7 mr7Var = this.a;
+            if (mr7Var != null) {
+                mr7Var.onChangeSkinType(i);
             }
         }
     }
@@ -67,9 +67,9 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            hq7 hq7Var = new hq7(getPageContext());
-            this.a = hq7Var;
-            hq7Var.a();
+            cs7 cs7Var = new cs7(getPageContext());
+            this.a = cs7Var;
+            cs7Var.a();
         }
     }
 
@@ -79,9 +79,9 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            rp7 rp7Var = this.a;
-            if (rp7Var != null) {
-                rp7Var.a();
+            mr7 mr7Var = this.a;
+            if (mr7Var != null) {
+                mr7Var.a();
             }
             if (getIntent() != null) {
                 String stringExtra = getIntent().getStringExtra("tab_code");
@@ -90,7 +90,7 @@ public class LowFlowsActivity extends BaseActivity<LowFlowsActivity> {
                 } else {
                     lFUserTaskId = TbSingleton.getInstance().getLFUserTaskId();
                 }
-                eq7.a("c14083", lFUserTaskId, stringExtra);
+                zr7.a("c14083", lFUserTaskId, stringExtra);
             }
         }
     }

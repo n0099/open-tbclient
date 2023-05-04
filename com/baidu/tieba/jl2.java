@@ -1,53 +1,84 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Arrays;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class jl2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public long e;
+    public int f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947887065, "Lcom/baidu/tieba/jl2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947887065, "Lcom/baidu/tieba/jl2;");
-                return;
+    public jl2() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        boolean z = fo1.a;
     }
 
-    public static String a(String str) {
+    @NonNull
+    public static jl2 a(@NonNull us2 us2Var) {
         InterceptResult invokeL;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            String[] b = vj4.a().b();
-            v42.b("SwanHistoryQueryHelper", "no history app list: " + Arrays.toString(b));
-            if (b != null && b.length != 0 && (str == null || !str.equals("sync_state=?"))) {
-                if (str != null && str.trim().length() > 0) {
-                    str2 = String.format("(%s) AND ", str.trim());
-                } else {
-                    str2 = "";
-                }
-                String format = String.format("%s %s NOT IN ('%s')", str2, String.format("%s.%s", "ai_apps_history", "app_id"), TextUtils.join("','", b));
-                v42.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + format);
-                return format;
-            }
-            v42.b("SwanHistoryQueryHelper", "origin Selection: " + str + ", created selection: " + str);
-            return str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, us2Var)) == null) {
+            jl2 jl2Var = new jl2();
+            jl2Var.a = us2Var.H();
+            jl2Var.c = us2Var.K();
+            jl2Var.d = us2Var.Q();
+            jl2Var.f = us2Var.G();
+            jl2Var.i = us2Var.T();
+            jl2Var.h = us2Var.p1();
+            jl2Var.e = System.currentTimeMillis();
+            jl2Var.g = String.valueOf(us2Var.getType());
+            jl2Var.b = us2Var.I();
+            jl2Var.j = us2Var.v1();
+            return jl2Var;
         }
-        return (String) invokeL.objValue;
+        return (jl2) invokeL.objValue;
+    }
+
+    public static jl2 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
+            }
+            jl2 jl2Var = new jl2();
+            jl2Var.a = jSONObject.optString("bundle_id");
+            jl2Var.e = jSONObject.optLong("time");
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject != null) {
+                jl2Var.b = optJSONObject.optString("appkey");
+                jl2Var.g = optJSONObject.optString("pkg_type");
+                jl2Var.c = optJSONObject.optString("app_name");
+                jl2Var.d = optJSONObject.optString("app_icon");
+                jl2Var.j = optJSONObject.optString("version_code");
+                jl2Var.f = optJSONObject.optInt("frame_type");
+                jl2Var.h = optJSONObject.optInt("pay_protected");
+            }
+            return jl2Var;
+        }
+        return (jl2) invokeL.objValue;
     }
 }

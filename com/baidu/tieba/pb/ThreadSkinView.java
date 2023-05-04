@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.gm9;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.vp9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -24,9 +24,9 @@ import tbclient.SkinInfo;
 public class ThreadSkinView extends TbImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext w0;
-    public SkinInfo x0;
-    public gm9.b y0;
+    public TbPageContext x0;
+    public SkinInfo y0;
+    public vp9.b z0;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ThreadSkinView(Context context) {
@@ -53,14 +53,14 @@ public class ThreadSkinView extends TbImageView {
     public void onClick(View view2) {
         SkinInfo skinInfo;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (skinInfo = this.x0) != null && !StringUtils.isNull(skinInfo.url)) {
-            gm9.b bVar = this.y0;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (skinInfo = this.y0) != null && !StringUtils.isNull(skinInfo.url)) {
+            vp9.b bVar = this.z0;
             if (bVar != null) {
                 bVar.delete("action_type");
-                this.y0.d("action_type", "CLICK");
-                this.y0.e();
+                this.z0.d("action_type", "CLICK");
+                this.z0.e();
             }
-            UrlManager.getInstance().dealOneLink(this.w0, new String[]{this.x0.url});
+            UrlManager.getInstance().dealOneLink(this.x0, new String[]{this.y0.url});
         }
     }
 
@@ -108,21 +108,21 @@ public class ThreadSkinView extends TbImageView {
         x();
     }
 
-    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, gm9.b bVar) {
+    public void setData(TbPageContext tbPageContext, SkinInfo skinInfo, vp9.b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, skinInfo, bVar) == null) {
             if (tbPageContext != null && skinInfo != null && !StringUtils.isNull(skinInfo.skin)) {
-                this.w0 = tbPageContext;
-                if (this.x0 != skinInfo && bVar != null) {
-                    this.y0 = bVar;
+                this.x0 = tbPageContext;
+                if (this.y0 != skinInfo && bVar != null) {
+                    this.z0 = bVar;
                     bVar.delete("action_type");
-                    this.y0.d("obj_id", skinInfo.obj_id);
-                    this.y0.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
-                    this.y0.d("obj_name", skinInfo.monitor_id);
-                    this.y0.d("action_type", "VIEW_TRUE");
-                    this.y0.e();
+                    this.z0.d("obj_id", skinInfo.obj_id);
+                    this.z0.d(TiebaStatic.Params.OBJ_URL, skinInfo.url);
+                    this.z0.d("obj_name", skinInfo.monitor_id);
+                    this.z0.d("action_type", "VIEW_TRUE");
+                    this.z0.e();
                 }
-                this.x0 = skinInfo;
+                this.y0 = skinInfo;
                 int l = ii.l(tbPageContext.getPageActivity());
                 ViewGroup.LayoutParams layoutParams = getLayoutParams();
                 layoutParams.width = l;

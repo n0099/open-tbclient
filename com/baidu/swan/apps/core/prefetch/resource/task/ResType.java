@@ -2,7 +2,7 @@ package com.baidu.swan.apps.core.prefetch.resource.task;
 
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.tieba.fo1;
+import com.baidu.tieba.ho1;
 /* loaded from: classes3.dex */
 public enum ResType {
     NONE,
@@ -31,7 +31,7 @@ public enum ResType {
             }
             i++;
         }
-        if (fo1.a) {
+        if (ho1.a) {
             Log.d("ResType", "res type - " + resType.name());
         }
         return resType;

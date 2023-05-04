@@ -1,85 +1,144 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
+import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
+import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class f29 extends vm<c39, CardViewHolder<m39>> {
+public class f29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public m39 b;
+    public j29 a;
+    public SubPbReplyAdapter b;
+    public NewSubPbActivity c;
+    public BdTypeListView d;
+    public List<vm> e;
+    public View.OnClickListener f;
+    public boolean g;
+    public boolean h;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public f29(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    public f29(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {newSubPbActivity, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = tbPageContext;
+        this.e = new ArrayList();
+        this.f = null;
+        this.g = false;
+        this.h = true;
+        this.c = newSubPbActivity;
+        this.d = bdTypeListView;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public CardViewHolder<m39> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            this.b = new m39(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void u(boolean z) {
-        m39 m39Var;
+    public void c() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (m39Var = this.b) != null) {
-            m39Var.x(z);
-        }
-    }
-
-    public void onPause() {
-        m39 m39Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (m39Var = this.b) != null) {
-            m39Var.u();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
+            this.d.getAdapter2().notifyDataSetChanged();
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, c39 c39Var, CardViewHolder<m39> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, c39Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(c39Var);
-            return cardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            j29 j29Var = new j29(this.c, pp9.S0);
+            this.a = j29Var;
+            j29Var.e(this.f);
+            this.a.setFromCDN(this.h);
+            this.e.add(this.a);
+            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, m29.b);
+            this.b = subPbReplyAdapter;
+            this.e.add(subPbReplyAdapter);
+            this.e.add(new k29(this.c, l29.a));
+            this.d.addAdapters(this.e);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void d(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
+            this.f = onClickListener;
+        }
+    }
+
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.g = z;
+        }
+    }
+
+    public void h(View.OnLongClickListener onLongClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
+            this.a.d(onLongClickListener);
+        }
+    }
+
+    public void i(boolean z) {
+        j29 j29Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (j29Var = this.a) != null) {
+            j29Var.H(z);
+        }
+    }
+
+    public void j(TbRichTextView.a0 a0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, a0Var) == null) {
+            this.a.n(a0Var);
+        }
+    }
+
+    public void e(ThreadData threadData, List<in> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
+            this.a.J(threadData);
+            if (!hi.isEmpty(this.c.L3().M0())) {
+                this.a.I(this.c.L3().M0());
+            }
+            NewSubPbActivity newSubPbActivity = this.c;
+            if (newSubPbActivity != null && newSubPbActivity.L3() != null) {
+                this.a.G(this.c.L3().j1());
+            }
+            this.d.setData(list);
+            this.d.getAdapter2().notifyDataSetChanged();
+        }
     }
 }

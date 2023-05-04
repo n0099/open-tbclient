@@ -11,8 +11,8 @@ import androidx.appcompat.view.ContextThemeWrapper;
 import com.baidu.tieba.R;
 /* loaded from: classes8.dex */
 public class MaterialThemeOverlay {
-    public static final int[] ANDROID_THEME_OVERLAY_ATTRS = {16842752, R.attr.obfuscated_res_0x7f040713};
-    public static final int[] MATERIAL_THEME_OVERLAY_ATTR = {R.attr.obfuscated_res_0x7f0404bb};
+    public static final int[] ANDROID_THEME_OVERLAY_ATTRS = {16842752, R.attr.obfuscated_res_0x7f04071c};
+    public static final int[] MATERIAL_THEME_OVERLAY_ATTR = {R.attr.obfuscated_res_0x7f0404c4};
 
     @StyleRes
     public static int obtainAndroidThemeOverlayId(@NonNull Context context, AttributeSet attributeSet) {

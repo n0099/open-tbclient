@@ -5,8 +5,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.rq5;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.jr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -58,9 +58,9 @@ public class TabFeedListRequestMessage extends NetMessage {
                 builder.scr_h = Integer.valueOf(ii.j(TbadkCoreApplication.getInst()));
                 builder.scr_w = Integer.valueOf(ii.l(TbadkCoreApplication.getInst()));
                 builder.scr_dip = Integer.valueOf((int) ii.i(TbadkCoreApplication.getInst()));
-                builder.q_type = Integer.valueOf(sv4.c().e());
+                builder.q_type = Integer.valueOf(iw4.c().e());
                 if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                    rq5.a(builder, true);
+                    jr5.a(builder, true);
                 }
                 ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
                 builder2.data = builder.build(false);

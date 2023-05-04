@@ -1,34 +1,21 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.MangaBrowserActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.CartoonThread;
 /* loaded from: classes6.dex */
 public class vx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public long c;
-    public String d;
-    public String e;
-    public int f;
-    public String g;
-    public long h;
-    public long i;
-    public long j;
-    public int k;
-    public int l;
-    public long m;
-    public long n;
-    public String o;
-    public long p;
-    public int q;
-    public int r;
-    public int s;
+    public long a;
+    public int b;
 
     public vx4() {
         Interceptable interceptable = $ic;
@@ -48,17 +35,39 @@ public class vx4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.j;
+            return this.a;
         }
         return invokeV.longValue;
     }
 
-    public long b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return this.b;
         }
-        return invokeV.longValue;
+        return invokeV.intValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        try {
+            this.a = jSONObject.optLong(MangaBrowserActivityConfig.CARTOON_ID);
+            this.b = jSONObject.optInt(MangaBrowserActivityConfig.CHAPTER_ID);
+        } catch (Exception e) {
+            BdLog.e(e.toString());
+        }
+    }
+
+    public void d(CartoonThread cartoonThread) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, cartoonThread) != null) || cartoonThread == null) {
+            return;
+        }
+        this.a = cartoonThread.cartoon_id.longValue();
+        this.b = cartoonThread.chapter_id.intValue();
     }
 }

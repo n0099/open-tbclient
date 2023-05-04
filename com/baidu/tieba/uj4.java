@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,10 +49,7 @@ public class uj4 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (gf4.b() == null) {
-                return "0";
-            }
-            return gf4.b().i().getString("local_debug_version", "0");
+            return if4.b().i().getString("get_pkg_retry_version", "0");
         }
         return (String) invokeV.objValue;
     }
@@ -63,11 +61,11 @@ public class uj4 {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && gf4.b() != null) {
-            gf4.b().i().putString("local_debug_version", optString);
-            gf4.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
-            gf4.b().i().putString("error_url", optJSONObject.optString("error_url"));
-            gf4.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has(SetImageWatermarkTypeReqMsg.SWITCH)) {
+            return;
         }
+        int optInt = optJSONObject.optInt(SetImageWatermarkTypeReqMsg.SWITCH, 0);
+        if4.b().i().putString("get_pkg_retry_version", optString);
+        if4.b().i().putInt("get_pkg_retry_switch", optInt);
     }
 }

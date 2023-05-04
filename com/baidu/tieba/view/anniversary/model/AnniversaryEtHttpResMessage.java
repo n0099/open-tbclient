@@ -3,7 +3,7 @@ package com.baidu.tieba.view.anniversary.model;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.xy9;
+import com.baidu.tieba.t2a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.VideoTemplate.VideoTemplateResIdl;
 public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xy9 resultData;
+    public t2a resultData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public AnniversaryEtHttpResMessage() {
@@ -38,13 +38,13 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.adp.framework.message.ResponsedMessage
-    public xy9 getResultData() {
+    public t2a getResultData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.resultData;
         }
-        return (xy9) invokeV.objValue;
+        return (t2a) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public class AnniversaryEtHttpResMessage extends HttpResponsedMessage {
                 setErrorString(videoTemplateResIdl.error.usermsg);
             }
             if (videoTemplateResIdl.data != null) {
-                xy9 xy9Var = new xy9();
-                this.resultData = xy9Var;
-                xy9Var.g(videoTemplateResIdl.data);
+                t2a t2aVar = new t2a();
+                this.resultData = t2aVar;
+                t2aVar.g(videoTemplateResIdl.data);
             }
         }
     }

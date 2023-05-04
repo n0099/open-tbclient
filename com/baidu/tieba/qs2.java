@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.LruCache;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -8,17 +11,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class qs2 {
+public final class qs2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int b;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Integer> a;
+    public final LruCache<String, Object> a;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public static final qs2 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -26,17 +33,17 @@ public class qs2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-479421924, "Lcom/baidu/tieba/qs2$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-479421893, "Lcom/baidu/tieba/qs2$b;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-479421924, "Lcom/baidu/tieba/qs2$a;");
+                    classClinitInterceptable.invokePostClinit(-479421893, "Lcom/baidu/tieba/qs2$b;");
                     return;
                 }
             }
-            a = new qs2();
+            a = new qs2(null);
         }
     }
 
@@ -53,9 +60,7 @@ public class qs2 {
                 return;
             }
         }
-        boolean z = fo1.a;
-        cr2.g0().getSwitch("swan_pms_request_retry_count", 1);
-        b = 1;
+        b = ho1.a;
     }
 
     public qs2() {
@@ -71,77 +76,90 @@ public class qs2 {
                 return;
             }
         }
-        this.a = new ConcurrentHashMap();
+        this.a = new LruCache<>(10);
     }
 
-    public static qs2 b() {
+    public static qs2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
         return (qs2) invokeV.objValue;
     }
 
-    public void a(String str) {
+    public synchronized void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            this.a.put(str, Integer.valueOf(c(str) + 1));
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this) {
+                if (this.a != null) {
+                    this.a.evictAll();
+                }
+            }
         }
     }
 
-    public final int c(String str) {
+    public /* synthetic */ qs2(a aVar) {
+        this();
+    }
+
+    public synchronized <RESULT> RESULT b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            Integer num = this.a.get(str);
-            if (num == null) {
-                return 0;
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return null;
+                }
+                RESULT result = (RESULT) this.a.get(str);
+                if (result == null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "doesn't hit the cache result, key = " + str);
+                    }
+                    return null;
+                }
+                try {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "hit the cache result, key = " + str);
+                    }
+                    return result;
+                } catch (Exception e) {
+                    if (b) {
+                        Log.e("SwanAppLaunchCache", Log.getStackTraceString(e));
+                    }
+                    return null;
+                }
             }
-            return num.intValue();
         }
-        return invokeL.intValue;
+        return (RESULT) invokeL.objValue;
     }
 
-    public boolean f(String str) {
-        InterceptResult invokeL;
+    public synchronized <RESULT> void d(String str, RESULT result) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            if (d() && c(str) < b) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, result) == null) {
+            synchronized (this) {
+                if (!TextUtils.isEmpty(str) && result != null) {
+                    if (b) {
+                        Log.d("SwanAppLaunchCache", "putConfig key: " + str);
+                    }
+                    this.a.put(str, result);
+                }
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.a.remove(str);
         }
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public synchronized void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            int i = gf4.b().i().getInt("get_pkg_retry_switch", 0);
-            v42.i("GetPkgRetryController", "getServerRetrySwitch:" + i);
-            if (i != 1) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            synchronized (this) {
+                if (TextUtils.isEmpty(str)) {
+                    return;
+                }
+                if (b) {
+                    Log.d("SwanAppLaunchCache", "removeConfig key: " + str);
+                }
+                this.a.remove(str);
             }
-            return true;
         }
-        return invokeV.booleanValue;
-    }
-
-    public String e(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            return str + "_" + str2;
-        }
-        return (String) invokeLL.objValue;
     }
 }

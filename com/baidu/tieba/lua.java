@@ -1,62 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Looper;
-import android.os.Message;
-import android.text.TextUtils;
-import android.util.Log;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pua;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.DataBuffer;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.framework.aidl.MessageCodec;
-import com.hihonor.push.framework.aidl.entity.RequestHeader;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import com.hihonor.push.sdk.ipc.HonorApiAvailability;
-import com.huawei.hms.api.IPCTransport;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.Queue;
-import java.util.concurrent.ConcurrentHashMap;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import com.fun.ad.sdk.internal.api.utils.PxUtils;
+import com.kwad.sdk.api.KsAdSDK;
+import com.kwad.sdk.api.KsLoadManager;
+import com.kwad.sdk.api.KsNativeAd;
+import com.kwad.sdk.api.KsScene;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class lua implements Handler.Callback {
+public class lua extends ReporterPidLoader<KsNativeAd> {
     public static /* synthetic */ Interceptable $ic;
-    public static final lua c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Handler a;
-    public final Map<gua, a> b;
+    public final FunNativeAdListenerHelper<KsNativeAd, KsNativeAd.AdInteractionListener> e;
 
     /* loaded from: classes5.dex */
-    public class a implements pua.a {
+    public class a implements KsLoadManager.NativeAdListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Queue<wua<?>> a;
-        public final Queue<wua<?>> b;
-        public final pua c;
-        public HonorPushErrorEnum d;
-        public final gua e;
-        public final /* synthetic */ lua f;
+        public final /* synthetic */ lua a;
 
-        public a(lua luaVar, gua guaVar) {
+        public a(lua luaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {luaVar, guaVar};
+                Object[] objArr = {luaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,302 +60,237 @@ public class lua implements Handler.Callback {
                     return;
                 }
             }
-            this.f = luaVar;
-            this.a = new LinkedList();
-            this.b = new LinkedList();
-            this.c = new sua(this);
-            this.d = null;
-            this.e = guaVar;
+            this.a = luaVar;
         }
 
-        public void a() {
+        @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
+        public void onError(int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                tta.g(this.f.a);
-                sua suaVar = (sua) this.c;
-                int i = suaVar.a.get();
-                Log.i("PushConnectionClient", "enter disconnect, connection Status: " + i);
-                if (i != 3) {
-                    if (i == 5) {
-                        suaVar.a.set(4);
-                        return;
-                    }
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.kwad.sdk.api.KsLoadManager.NativeAdListener
+        public void onNativeAdLoad(@Nullable List<KsNativeAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d();
+                if (list != null && !list.isEmpty()) {
+                    this.a.onAdLoaded((List) list);
                     return;
                 }
-                vua vuaVar = suaVar.d;
-                if (vuaVar != null) {
-                    vuaVar.c();
-                }
-                suaVar.a.set(1);
-            }
-        }
-
-        public final synchronized void b(HonorPushErrorEnum honorPushErrorEnum) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, honorPushErrorEnum) == null) {
-                synchronized (this) {
-                    Log.i("HonorApiManager", "onConnectionFailed");
-                    tta.g(this.f.a);
-                    for (wua<?> wuaVar : this.a) {
-                        wuaVar.b(honorPushErrorEnum.toApiException(), null);
-                    }
-                    this.a.clear();
-                    this.d = honorPushErrorEnum;
-                    a();
-                    this.f.b.remove(this.e);
-                }
-            }
-        }
-
-        public final synchronized void c(wua<?> wuaVar) {
-            Class cls;
-            Type type;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wuaVar) == null) {
-                synchronized (this) {
-                    this.b.add(wuaVar);
-                    pua puaVar = this.c;
-                    b bVar = new b(wuaVar);
-                    wuaVar.getClass();
-                    Object obj = null;
-                    try {
-                        Type genericSuperclass = wuaVar.getClass().getGenericSuperclass();
-                        if (genericSuperclass != null && (type = ((ParameterizedType) genericSuperclass).getActualTypeArguments()[0]) != null) {
-                            cls = (Class) type;
-                        } else {
-                            cls = null;
-                        }
-                        if (cls != null && !cls.isPrimitive()) {
-                            obj = cls.newInstance();
-                        }
-                    } catch (Exception e) {
-                        vta.a("In newResponseInstance, instancing exception." + e.getMessage());
-                    }
-                    com.hihonor.push.sdk.r rVar = new com.hihonor.push.sdk.r(obj, bVar);
-                    Log.i(IPCTransport.TAG, "start transport parse. " + wuaVar.a);
-                    IPushInvoke iPushInvoke = ((sua) puaVar).b;
-                    String str = wuaVar.a;
-                    RequestHeader requestHeader = wuaVar.d;
-                    IMessageEntity iMessageEntity = wuaVar.b;
-                    Bundle bundle = new Bundle();
-                    Bundle bundle2 = new Bundle();
-                    MessageCodec.formMessageEntity(requestHeader, bundle);
-                    MessageCodec.formMessageEntity(iMessageEntity, bundle2);
-                    DataBuffer dataBuffer = new DataBuffer(str, bundle, bundle2);
-                    if (iPushInvoke != null) {
-                        try {
-                            iPushInvoke.call(dataBuffer, rVar);
-                        } catch (Exception e2) {
-                            String str2 = "transport remote error. " + e2;
-                        }
-                    }
-                    Log.i(IPCTransport.TAG, "end transport parse.");
-                }
-            }
-        }
-
-        public final synchronized void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-                synchronized (this) {
-                    Log.i("HonorApiManager", "onConnected");
-                    tta.g(this.f.a);
-                    this.d = null;
-                    for (wua<?> wuaVar : this.a) {
-                        c(wuaVar);
-                    }
-                    this.a.clear();
-                }
+                LogPrinter.e("error: adList is null or empty", new Object[0]);
+                this.a.onError(0, "NoFill");
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements zua {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public wua<?> a;
-
-        public b(wua<?> wuaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wuaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wuaVar;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947956753, "Lcom/baidu/tieba/lua;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947956753, "Lcom/baidu/tieba/lua;");
-                return;
-            }
-        }
-        c = new lua();
-    }
-
-    public lua() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lua(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, true, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ConcurrentHashMap(5, 0.75f, 1);
-        HandlerThread handlerThread = new HandlerThread("HonorApiManager");
-        handlerThread.start();
-        this.a = new Handler(handlerThread.getLooper(), this);
+        this.e = new FunNativeAdListenerHelper<>(this);
     }
 
-    public <TResult> mua<TResult> a(wua<TResult> wuaVar) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wuaVar)) == null) {
-            eva<TResult> evaVar = new eva<>();
-            wuaVar.e = evaVar;
-            Log.i("HonorApiManager", "sendRequest start");
-            Handler handler = this.a;
-            handler.sendMessage(handler.obtainMessage(1, wuaVar));
-            return evaVar.a;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new yua(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    public final com.fun.module.ks.x e(Context context, KsNativeAd ksNativeAd) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, ksNativeAd)) == null) {
+            int materialType = ksNativeAd.getMaterialType();
+            int i = R.layout.fun_ks_ad_native_single_img_h5_open_view;
+            if (materialType == 1) {
+                int interactionType = ksNativeAd.getInteractionType();
+                if (interactionType == 1) {
+                    i = R.layout.fun_ks_ad_native_video_app_download_view;
+                } else if (interactionType == 2) {
+                    i = R.layout.fun_ks_ad_native_video_h5_open_view;
+                }
+            } else if (materialType != 2) {
+                if (materialType == 3) {
+                    int interactionType2 = ksNativeAd.getInteractionType();
+                    if (interactionType2 == 1) {
+                        i = R.layout.fun_ks_ad_native_group_img_app_download_view;
+                    } else if (interactionType2 == 2) {
+                        i = R.layout.fun_ks_ad_native_group_img_h5_open_view;
+                    }
+                }
+            } else if (ksNativeAd.getInteractionType() == 1) {
+                i = R.layout.fun_ks_ad_native_single_img_app_download_view;
+            }
+            com.fun.module.ks.x xVar = (com.fun.module.ks.x) LayoutInflater.from(context).inflate(i, (ViewGroup) null, false);
+            xVar.a(ksNativeAd);
+            return xVar;
         }
-        return (mua) invokeL.objValue;
+        return (com.fun.module.ks.x) invokeLL.objValue;
     }
 
-    @Override // android.os.Handler.Callback
-    public boolean handleMessage(Message message) {
-        InterceptResult invokeL;
-        a aVar;
+    /* JADX DEBUG: Incorrect args count in method signature: (Landroid/content/Context;Lcom/kwad/sdk/api/KsNativeAd;Ljava/lang/String;Landroid/view/ViewGroup;Ljava/util/List<Landroid/view/View;>;Lcom/baidu/tieba/lua$b;Lcom/fun/ad/sdk/FunAdInteractionListener;)V */
+    public void i(KsNativeAd ksNativeAd, String str, ViewGroup viewGroup, List list, b bVar, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, message)) == null) {
-            int i = message.what;
-            boolean z = false;
-            if (i == 1) {
-                wua<?> wuaVar = (wua) message.obj;
-                gua guaVar = wuaVar.c;
-                a aVar2 = this.b.get(guaVar);
-                if (aVar2 == null) {
-                    Log.i("HonorApiManager", "connect and send request, create new connection manager.");
-                    aVar2 = new a(this, guaVar);
-                    this.b.put(guaVar, aVar2);
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{ksNativeAd, str, viewGroup, list, bVar, funAdInteractionListener}) == null) {
+            this.e.startShow(ksNativeAd, str, this.mPid, bVar, funAdInteractionListener);
+            if (viewGroup instanceof FunNativeView) {
+                viewGroup = ((FunNativeView) viewGroup).getRoot();
+            }
+            ksNativeAd.registerViewForInteraction(viewGroup, list, bVar);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
+            KsScene build = new KsScene.Builder(Long.parseLong(this.mPid.pid)).adNum(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 5)).build();
+            if (funAdSlot.getExpressWidth() != 0 && funAdSlot.getExpressHeight() != 0) {
+                build.setWidth(PxUtils.dp2px(funAdSlot.getExpressWidth()));
+                build.setHeight(PxUtils.dp2px(funAdSlot.getExpressHeight()));
+            }
+            onLoadStart(funAdSlot);
+            KsAdSDK.getLoadManager().loadNativeAd(build, new a(this));
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends sua {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final KsNativeAd a;
+        public final /* synthetic */ lua b;
+
+        public b(lua luaVar, KsNativeAd ksNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {luaVar, ksNativeAd};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                synchronized (aVar2) {
-                    tta.g(aVar2.f.a);
-                    String str = "sendRequest " + wuaVar.a;
-                    if (((sua) aVar2.c).b()) {
-                        aVar2.c(wuaVar);
-                    } else {
-                        aVar2.a.add(wuaVar);
-                        HonorPushErrorEnum honorPushErrorEnum = aVar2.d;
-                        if (honorPushErrorEnum != null && honorPushErrorEnum.getErrorCode() != 0) {
-                            aVar2.b(aVar2.d);
-                        } else {
-                            synchronized (aVar2) {
-                                tta.g(aVar2.f.a);
-                                if (((sua) aVar2.c).b()) {
-                                    Log.i("HonorApiManager", "client is connected");
-                                } else {
-                                    if (((sua) aVar2.c).a.get() == 5) {
-                                        z = true;
-                                    }
-                                    if (z) {
-                                        Log.i("HonorApiManager", "client is isConnecting");
-                                    } else {
-                                        sua suaVar = (sua) aVar2.c;
-                                        suaVar.getClass();
-                                        Log.i("PushConnectionClient", "  ====  PUSHSDK VERSION 70001103 ====");
-                                        int i2 = suaVar.a.get();
-                                        Log.i("PushConnectionClient", "enter connect, connection Status: " + i2);
-                                        if (i2 != 3 && i2 != 5 && i2 != 4) {
-                                            aua auaVar = aua.e;
-                                            int b2 = HonorApiAvailability.b(auaVar.a());
-                                            if (b2 == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
-                                                suaVar.a.set(5);
-                                                wta a2 = HonorApiAvailability.a(auaVar.a());
-                                                Log.i("PushConnectionClient", "enter bindCoreService.");
-                                                vua vuaVar = new vua(a2);
-                                                suaVar.d = vuaVar;
-                                                vuaVar.b = new rua(suaVar);
-                                                if (!a2.a()) {
-                                                    String str2 = "bind core is null : " + vuaVar.a;
-                                                    vuaVar.b(8002004);
-                                                } else {
-                                                    Intent intent = new Intent();
-                                                    String c2 = vuaVar.a.c();
-                                                    String b3 = vuaVar.a.b();
-                                                    String d = vuaVar.a.d();
-                                                    if (!TextUtils.isEmpty(d)) {
-                                                        intent.setComponent(new ComponentName(c2, d));
-                                                    } else {
-                                                        intent.setAction(b3);
-                                                        intent.setPackage(c2);
-                                                    }
-                                                    synchronized (vua.e) {
-                                                        if (auaVar.a().bindService(intent, vuaVar, 1)) {
-                                                            Handler handler = vuaVar.c;
-                                                            if (handler != null) {
-                                                                handler.removeMessages(1001);
-                                                            } else {
-                                                                vuaVar.c = new Handler(Looper.getMainLooper(), new uua(vuaVar));
-                                                            }
-                                                            vuaVar.c.sendEmptyMessageDelayed(1001, 10000L);
-                                                        } else {
-                                                            vuaVar.d = true;
-                                                            vuaVar.b(8002001);
-                                                        }
-                                                    }
-                                                }
-                                            } else {
-                                                suaVar.a(b2);
-                                            }
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                return true;
-            } else if (i != 2) {
+            }
+            this.b = luaVar;
+            this.a = ksNativeAd;
+        }
+
+        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+        public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
                 return false;
-            } else {
-                wua wuaVar2 = (wua) message.obj;
-                gua guaVar2 = wuaVar2.c;
-                if (guaVar2 != null && this.b.containsKey(guaVar2) && (aVar = this.b.get(guaVar2)) != null) {
-                    synchronized (aVar) {
-                        String str3 = "resolveResult apiCall " + wuaVar2.a;
-                        aVar.b.remove(wuaVar2);
-                        if (aVar.a.peek() == null || aVar.b.peek() == null) {
-                            aVar.a();
-                            aVar.f.b.remove(aVar.e);
-                        }
-                    }
-                }
-                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+        public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
+                this.b.e.onAdClick(this.a);
             }
         }
-        return invokeL.booleanValue;
+
+        @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+        public void onAdShow(KsNativeAd ksNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
+                this.b.e.onAdShow(this.a);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        KsNativeAd ksNativeAd;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) && (ksNativeAd = (KsNativeAd) obj) != null) {
+            this.e.destroy(ksNativeAd);
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public double getAdBiddingPrices(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            return ((KsNativeAd) obj).getECPM() / 100.0d;
+        }
+        return invokeL.doubleValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
+            return new wua(context, (KsNativeAd) obj, str, this.mPid, this);
+        }
+        return (FunNativeAd) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, context, str, obj)) == null) {
+            KsNativeAd ksNativeAd = (KsNativeAd) obj;
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, ksNativeAd, new wua(context, ksNativeAd, str, this.mPid, this), new nua(this, this, ksNativeAd, context));
+        }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void setAdBiddingResult(Object obj, double d, double d2, boolean z, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{obj, Double.valueOf(d), Double.valueOf(d2), Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+            KsNativeAd ksNativeAd = (KsNativeAd) obj;
+            if (z) {
+                ksNativeAd.setBidEcpm((int) (d2 * 100.0d));
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048585, this, activity, viewGroup, str, obj)) == null) {
+            KsNativeAd ksNativeAd = (KsNativeAd) obj;
+            onShowStart(ksNativeAd);
+            com.fun.module.ks.x e = e(activity, ksNativeAd);
+            ksNativeAd.registerViewForInteraction(e, e.getClickViews(), new mua(this, ksNativeAd));
+            viewGroup.removeAllViews();
+            viewGroup.addView(e);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

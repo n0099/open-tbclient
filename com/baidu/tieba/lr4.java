@@ -1,77 +1,74 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 /* loaded from: classes5.dex */
 public class lr4 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
-    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final mr4 a;
 
-    public static void a(String str) {
+    public lr4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            addParam.eventStat();
         }
+        this.a = new mr4();
     }
 
-    public static void d(String str) {
+    public kr4 a(String str) {
+        InterceptResult invokeL;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 1).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str3 = null;
+            if (hi.isEmpty(str)) {
+                return null;
             }
-            a = str;
-            addParam.eventStat();
+            Matcher matcher = Pattern.compile("\\$[0-9A-Za-z@_]{5,300}[#$]", 2).matcher(str);
+            if (!matcher.find()) {
+                return null;
+            }
+            String group = matcher.group();
+            Matcher matcher2 = Pattern.compile("\\$[0-9A-Za-z@_]{1,100}[!]", 2).matcher(str);
+            if (matcher2.find()) {
+                str2 = or4.d(matcher2.group());
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && str2.startsWith("Y")) {
+                nr4.a(str2);
+                str3 = b(group);
+            }
+            return new kr4(group, str3, str2);
         }
+        return (kr4) invokeL.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public final String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 2).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam(TiebaStatic.Params.OBJ_PARAM3, str2);
-            if (!StringUtils.isNull(str)) {
-                addParam.addParam("obj_locate", str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
-            addParam.eventStat();
+            return this.a.a(or4.f(str.replaceAll("\\$", "")));
         }
-    }
-
-    public static void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65538, null, i, i2) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).addParam("obj_source", 3).addParam("obj_param1", i).addParam(TiebaStatic.Params.OBJ_PARAM2, i2);
-            if (!StringUtils.isNull(b)) {
-                addParam.addParam(TiebaStatic.Params.OBJ_PARAM3, b);
-            }
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
-            }
-            addParam.eventStat();
-            b = null;
-        }
-    }
-
-    public static void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            StatisticItem addParam = new StatisticItem("c14570").addParam("obj_type", 1).addParam("obj_source", 2).addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            if (!StringUtils.isNull(a)) {
-                addParam.addParam("obj_locate", a);
-            }
-            a = null;
-            addParam.eventStat();
-        }
+        return (String) invokeL.objValue;
     }
 }

@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ft6;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.vu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class SearchEmotionModel extends BdBaseModel {
 
     /* loaded from: classes4.dex */
     public interface b {
-        void a(String str, ft6 ft6Var);
+        void a(String str, vu6 vu6Var);
 
         void onFail(int i, String str);
     }
@@ -114,7 +114,7 @@ public class SearchEmotionModel extends BdBaseModel {
         registerListener(this.b);
     }
 
-    public void R(String str, int i, int i2, b bVar) {
+    public void W(String str, int i, int i2, b bVar) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), bVar}) == null) && bVar != null && !TextUtils.isEmpty(str)) {
             this.a = bVar;

@@ -3,26 +3,26 @@ package com.baidu.tieba.myCollection.baseHistory;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.io8;
+import com.baidu.tieba.rq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbHistoryCacheModel extends CacheModel<io8, TbPageContext> {
+public class PbHistoryCacheModel extends CacheModel<rq8, TbPageContext> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String P() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tb.pb_history" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int c0() {
+    public int h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -32,7 +32,7 @@ public class PbHistoryCacheModel extends CacheModel<io8, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int d0() {
+    public int i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -62,11 +62,11 @@ public class PbHistoryCacheModel extends CacheModel<io8, TbPageContext> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<io8> b0() {
+    public Class<rq8> g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return io8.class;
+            return rq8.class;
         }
         return (Class) invokeV.objValue;
     }

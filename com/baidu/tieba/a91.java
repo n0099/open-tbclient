@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.nadcore.webview.view.AbsNadBrowserView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -8,6 +9,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class a91 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract void a(AbsNadBrowserView absNadBrowserView, int i);
+
+    public abstract void b(AbsNadBrowserView absNadBrowserView, String str);
+
+    public abstract void c(AbsNadBrowserView absNadBrowserView);
 
     public a91() {
         Interceptable interceptable = $ic;

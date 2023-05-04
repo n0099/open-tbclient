@@ -1,111 +1,85 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.searchbox.v8engine.JSExceptionType;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidubce.AbstractBceClient;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.internal.monitor.SessionMonitorEngine;
 /* loaded from: classes5.dex */
 public class ja4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            }
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) && 200 == i) {
-                try {
-                    if (!TextUtils.isEmpty(str)) {
-                        JSONObject jSONObject = new JSONObject(str);
-                        if (ja4.a && jSONObject.optInt("errno") != 0) {
-                            Log.e("SwanGameNowUtils", "report game history error");
-                        }
-                    }
-                } catch (JSONException unused) {
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947876556, "Lcom/baidu/tieba/ja4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947876556, "Lcom/baidu/tieba/ja4;");
-                return;
-            }
-        }
-        a = fo1.a;
-    }
-
-    public static void b() {
-        v73 M;
-        String str;
+    public static String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65538, null) != null) || (M = v73.M()) == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return "boolean";
+                case 2:
+                case 3:
+                case 5:
+                    return com.baidu.sapi2.views.logindialog.view.a.k;
+                case 4:
+                case 9:
+                case 10:
+                default:
+                    return "object";
+                case 6:
+                    return "array object";
+                case 7:
+                    return EMABTest.TYPE_STRING;
+                case 8:
+                    return "function object";
+                case 11:
+                    return StringUtil.NULL_STRING;
+                case 12:
+                    return SessionMonitorEngine.PUBLIC_DATA_UNDIFNED;
+            }
         }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("cuid", cr2.h0().i(cr2.c()));
-            JSONObject jSONObject2 = new JSONObject();
-            jSONObject2.put("game", M.O());
-            jSONObject2.put("type", 0);
-            jSONObject2.put("upload_time", System.currentTimeMillis() / 1000);
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(jSONObject2);
-            jSONObject.put("app_infos", jSONArray);
-            str = jSONObject.toString();
-        } catch (Exception unused) {
-            str = "";
+        return (String) invokeI.objValue;
+    }
+
+    public static String a(@NonNull String str, @NonNull JSTypeMismatchException jSTypeMismatchException) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSTypeMismatchException)) == null) {
+            return String.format("%s:fail parameter error: parameter.%s should be %s instead of %s", str, jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType));
         }
-        ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) M.i0().postRequest().cookieManager(cr2.q().a())).url(m44.b().l())).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), str)).requestFrom(16)).requestFrom(1606)).build().executeAsync(new a());
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(hf2 hf2Var, JSTypeMismatchException jSTypeMismatchException) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, hf2Var, jSTypeMismatchException) == null) {
+            hf2Var.throwJSException(JSExceptionType.TypeError, String.format("The \"%s\" argument must be %s. Received type %s", jSTypeMismatchException.name, c(jSTypeMismatchException.requiredType), c(jSTypeMismatchException.actualType)));
+        }
+    }
+
+    public static String b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return String.format("%s: %s", str, str2);
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void call(e02 e02Var, boolean z, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{e02Var, Boolean.valueOf(z), obj}) == null) {
+            f24 e = f24.e(e02Var);
+            if (z) {
+                e.d(obj);
+            } else {
+                e.b(obj);
+            }
+        }
     }
 }

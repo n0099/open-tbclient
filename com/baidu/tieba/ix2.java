@@ -2,7 +2,6 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
@@ -18,12 +17,9 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public abstract class ix2 {
+public class ix2 extends kx2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract boolean a(dx2 dx2Var, fx2 fx2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var);
 
     static {
         InterceptResult invokeClinit;
@@ -38,10 +34,12 @@ public abstract class ix2 {
                 return;
             }
         }
-        a = fo1.a;
+        boolean z = ho1.a;
     }
 
-    public ix2(@NonNull String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ix2(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,53 +49,51 @@ public abstract class ix2 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
     }
 
-    @Nullable
-    public dx2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
+    @Override // com.baidu.tieba.kx2
+    public boolean a(fx2 fx2Var, hx2 hx2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{fx2Var, hx2Var, context, unitedSchemeEntity, callbackHandler, x73Var})) == null) {
+            x42.i("vrvideo", "open, video id:" + hx2Var.j + " slave id: " + hx2Var.c);
+            d(fx2Var, hx2Var, unitedSchemeEntity, callbackHandler);
+            return true;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.kx2
+    public fx2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
         InterceptResult invokeLLLLL;
-        tu2 f;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3) || (f = uu2.f(str, str2, str3)) == null || !(f.i() instanceof dx2)) {
+            if (TextUtils.isEmpty(str3)) {
                 return null;
             }
-            return (dx2) f.i();
+            vu2 f = wu2.f(str, str2, str3);
+            if (f == null) {
+                return new fx2(context, hx2.h(jSONObject, new hx2()));
+            }
+            if (!(f.i() instanceof fx2)) {
+                return null;
+            }
+            return (fx2) f.i();
         }
-        return (dx2) invokeLLLLL.objValue;
+        return (fx2) invokeLLLLL.objValue;
     }
 
-    public boolean c(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    public final void d(fx2 fx2Var, hx2 hx2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (a) {
-                Log.d("VideoPlayerAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                v42.c("vrvideo", "param is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            dx2 b = b(context, optParamsAsJo.optString("slaveId"), optParamsAsJo.optString("sanId"), optParamsAsJo.optString("videoId"), optParamsAsJo);
-            if (b != null && context != null) {
-                fx2 h = fx2.h(optParamsAsJo, b.d());
-                if (!h.isValid()) {
-                    v42.c("vrvideo", "param is invalid");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                return a(b, h, context, unitedSchemeEntity, callbackHandler, v73Var);
-            }
-            v42.c("vrvideo", "player id is invalid or context is null");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-            return false;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, fx2Var, hx2Var, unitedSchemeEntity, callbackHandler) == null) {
+            fx2Var.g(hx2Var);
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
-        return invokeLLLL.booleanValue;
     }
 }

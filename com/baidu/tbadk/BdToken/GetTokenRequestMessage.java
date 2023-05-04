@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.rq5;
+import com.baidu.tieba.jr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,7 +47,7 @@ public class GetTokenRequestMessage extends NetMessage {
             builder.token = this.mToken;
             builder.shoubaicuid = this.mBaiduCuid;
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rq5.a(builder, true);
+                jr5.a(builder, true);
             }
             GetTokenReqIdl.Builder builder2 = new GetTokenReqIdl.Builder();
             builder2.data = builder.build(false);

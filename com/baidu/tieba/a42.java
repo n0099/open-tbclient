@@ -1,42 +1,50 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.drawable.Animatable;
+import android.text.TextUtils;
+import android.util.Log;
+import android.view.View;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class a42 extends d32<SimpleDraweeView, b42> {
+public class a42 extends w83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public z32 i;
-    public SwanAppComponentContainerView j;
-    public SimpleDraweeView k;
+
+    @Override // com.baidu.tieba.w83
+    @NonNull
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/coverimage" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes3.dex */
-    public class a extends BaseControllerListener<ImageInfo> {
+    public class a implements b42 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ SimpleDraweeView b;
+        public final /* synthetic */ c42 a;
+        public final /* synthetic */ CallbackHandler b;
         public final /* synthetic */ a42 c;
 
-        public a(a42 a42Var, boolean z, SimpleDraweeView simpleDraweeView) {
+        public a(a42 a42Var, c42 c42Var, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {a42Var, Boolean.valueOf(z), simpleDraweeView};
+                Object[] objArr = {a42Var, c42Var, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,143 +55,185 @@ public final class a42 extends d32<SimpleDraweeView, b42> {
                 }
             }
             this.c = a42Var;
-            this.a = z;
-            this.b = simpleDraweeView;
+            this.a = c42Var;
+            this.b = callbackHandler;
         }
 
-        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
-        public void onFailure(String str, Throwable th) {
+        @Override // com.baidu.tieba.b42
+        public void a(int i, View view2, @Nullable Object obj) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, th) == null) {
-                super.onFailure(str, th);
-                if (this.a && this.c.i != null) {
-                    this.c.i.a(0, this.b, null);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.facebook.drawee.controller.BaseControllerListener, com.facebook.drawee.controller.ControllerListener
-        public void onFinalImageSet(String str, ImageInfo imageInfo, Animatable animatable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, imageInfo, animatable) == null) {
-                super.onFinalImageSet(str, (String) imageInfo, animatable);
-                if (this.a && this.c.i != null) {
-                    this.c.i.a(1, this.b, null);
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, view2, obj) == null) {
+                d42 d42Var = (d42) this.a.n();
+                if (i == 0 || i == 1) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("type", "loadState");
+                        jSONObject.put("parentId", d42Var.d);
+                        jSONObject.put("viewId", d42Var.b);
+                        if (i == 1) {
+                            str = "finish";
+                        } else {
+                            str = "error";
+                        }
+                        jSONObject.put("loadState", str);
+                    } catch (JSONException e) {
+                        x42.d("Component-Action-ImageCover", "loadState callback error", e);
+                    }
+                    this.c.s(this.b, jSONObject, d42Var.e);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a42(@NonNull Context context, @NonNull b42 b42Var) {
-        super(context, b42Var);
+    public a42(u83 u83Var) {
+        super(u83Var, "/swanAPI/coverimage");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, b42Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (e32) objArr2[1]);
+                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(4);
-        this.j = new SwanAppComponentContainerView(context);
-        this.k = new SimpleDraweeView(context);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k32
-    @NonNull
-    /* renamed from: a0 */
-    public SimpleDraweeView v(@NonNull Context context) {
+    @Nullable
+    public final d42 r(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            return this.k;
-        }
-        return (SimpleDraweeView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k32
-    /* renamed from: b0 */
-    public void A(@NonNull SimpleDraweeView simpleDraweeView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, simpleDraweeView) == null) {
-            super.A(simpleDraweeView);
-            simpleDraweeView.getHierarchy().setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
-        }
-    }
-
-    public void e0(z32 z32Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, z32Var) == null) {
-            this.i = z32Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.k32
-    @NonNull
-    public SwanAppComponentContainerView u(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
-            return this.j;
-        }
-        return (SwanAppComponentContainerView) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d32
-    /* renamed from: c0 */
-    public void T(@NonNull SimpleDraweeView simpleDraweeView, @NonNull b42 b42Var, @NonNull n42 n42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048587, this, simpleDraweeView, b42Var, n42Var) == null) {
-            super.O(simpleDraweeView, b42Var, n42Var);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d32, com.baidu.tieba.i32, com.baidu.tieba.k32
-    @NonNull
-    /* renamed from: Y */
-    public n42 k(@NonNull b42 b42Var, @NonNull b42 b42Var2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, b42Var, b42Var2)) == null) {
-            n42 k = super.k(b42Var, b42Var2);
-            if (b42Var.u != b42Var2.u) {
-                k.b(9);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
             }
-            return k;
+            JSONObject k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                x42.c("Component-Action-ImageCover", "params is null");
+                return null;
+            }
+            d42 d42Var = new d42();
+            try {
+                d42Var.a(k);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                x42.d("Component-Action-ImageCover", "model parse exception:", e);
+            }
+            return d42Var;
         }
-        return (n42) invokeLL.objValue;
+        return (d42) invokeL.objValue;
     }
 
-    public final BaseControllerListener<ImageInfo> Z(@NonNull SimpleDraweeView simpleDraweeView, @NonNull b42 b42Var) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.w83
+    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, simpleDraweeView, b42Var)) == null) {
-            return new a(this, b42Var.u, simpleDraweeView);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("Component-Action-ImageCover", "insert");
+            }
+            d42 r = r(unitedSchemeEntity);
+            if (r == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                x42.c("Component-Action-ImageCover", "model is null");
+                return false;
+            }
+            c42 c42Var = new c42(context, r);
+            c42Var.e0(new a(this, c42Var, callbackHandler));
+            o32 insert = c42Var.insert();
+            boolean a2 = insert.a();
+            if (a2) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+            }
+            return a2;
         }
-        return (BaseControllerListener) invokeLL.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.d32
-    /* renamed from: d0 */
-    public void U(@NonNull SimpleDraweeView simpleDraweeView, @NonNull b42 b42Var) {
+    @Override // com.baidu.tieba.w83
+    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048588, this, simpleDraweeView, b42Var) == null) {
-            super.V(simpleDraweeView, b42Var, Z(simpleDraweeView, b42Var));
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("Component-Action-ImageCover", "remove");
+            }
+            d42 r = r(unitedSchemeEntity);
+            if (r == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                x42.c("Component-Action-ImageCover", "model is null");
+                return false;
+            }
+            c42 c42Var = (c42) k42.a(r);
+            if (c42Var == null) {
+                String str2 = "can't find imageCoverView component:#" + r.b;
+                x42.c("Component-Action-ImageCover", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            o32 B = c42Var.B();
+            boolean a2 = B.a();
+            if (a2) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
+            }
+            return a2;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.w83
+    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("Component-Action-ImageCover", StickerDataChangeType.UPDATE);
+            }
+            d42 r = r(unitedSchemeEntity);
+            if (r == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                x42.c("Component-Action-ImageCover", "model is null");
+                return false;
+            }
+            c42 c42Var = (c42) k42.a(r);
+            if (c42Var == null) {
+                String str2 = "can't find imageCoverView component:#" + r.b;
+                x42.c("Component-Action-ImageCover", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            o32 update = c42Var.update((c42) r);
+            boolean a2 = update.a();
+            if (a2) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
+            }
+            return a2;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final void s(@NonNull CallbackHandler callbackHandler, JSONObject jSONObject, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, callbackHandler, jSONObject, str) == null) {
+            x42.i("Component-Action-ImageCover", "sendAsyncCallback info: " + jSONObject);
+            if (!TextUtils.isEmpty(str)) {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+            }
         }
     }
 }

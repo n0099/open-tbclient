@@ -1,9 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 /* loaded from: classes4.dex */
 public interface er0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "net");
+    <T> void a(@NonNull tr0 tr0Var, @Nullable lr0<T> lr0Var);
 
-    cr0 a();
+    void b(@NonNull tr0 tr0Var, @Nullable kr0 kr0Var);
 }

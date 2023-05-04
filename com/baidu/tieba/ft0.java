@@ -1,29 +1,11 @@
 package com.baidu.tieba;
+
+import com.baidu.nadcore.player.widget.BdThumbSeekBarView;
 /* loaded from: classes4.dex */
 public interface ft0 {
-    void a(int i);
+    void a(BdThumbSeekBarView bdThumbSeekBarView);
 
-    void onBufferEnd();
+    void b(BdThumbSeekBarView bdThumbSeekBarView, int i, boolean z);
 
-    void onBufferStart();
-
-    void onEnd(int i);
-
-    void onError(int i, int i2, String str);
-
-    void onInfo(int i, int i2);
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onSeekEnd();
-
-    void onStart();
-
-    void onUpdateProgress(int i, int i2, int i3);
-
-    void onVideoSizeChanged(int i, int i2);
+    void c(BdThumbSeekBarView bdThumbSeekBarView);
 }

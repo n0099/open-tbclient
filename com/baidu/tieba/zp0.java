@@ -2,54 +2,56 @@ package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.model.AdBaseModel;
-import com.baidu.nadcore.model.AdOperator;
+import com.baidu.nadcore.model.ParseError;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zp0 {
+public class zp0 extends AdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final HashMap<AdBaseModel.STYLE, Integer> a;
-    public boolean b;
-    public boolean c;
-    public boolean d;
-    public int e;
-    public b f;
-    public float g;
-    public boolean h;
-    public String i;
-    public a j;
-    public boolean k;
-    public boolean l;
-    public boolean m;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-        public int g;
-        public int h;
-        public int i;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zp0(@NonNull rp0 rp0Var, @NonNull JSONObject jSONObject) throws ParseError {
+        super(rp0Var, jSONObject);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rp0Var, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((rp0) objArr2[0], (JSONObject) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
     }
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zp0(@NonNull rp0 rp0Var, @NonNull JSONObject jSONObject, boolean z) throws ParseError {
+        super(rp0Var, jSONObject, z);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {rp0Var, jSONObject, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((rp0) objArr2[0], (JSONObject) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
     }
-
-    public abstract int a(AdBaseModel.STYLE style);
-
-    public abstract int b(AdOperator.TYPE type);
 }

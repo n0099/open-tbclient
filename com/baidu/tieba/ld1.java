@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.nps.pm.IBundleInfo;
 /* loaded from: classes5.dex */
 public interface ld1 {
-    void checkAuthorization(IBundleInfo iBundleInfo, int i, md1 md1Var);
+    void onProgress(long j, long j2);
+
+    void onResult(int i, String str);
 }

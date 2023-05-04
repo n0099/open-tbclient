@@ -17,11 +17,11 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ez8;
+import com.baidu.tieba.fz4;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iv4;
-import com.baidu.tieba.py4;
-import com.baidu.tieba.rw8;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -42,18 +42,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
     public LinearLayout j;
     public ImageView k;
     public TextView l;
-    public py4 m;
-    public py4 n;
-    public py4 o;
+    public fz4 m;
+    public fz4 n;
+    public fz4 o;
     public TbPageContext p;
     public int q;
-    public rw8 r;
+    public ez8 r;
     public b s;
     public View.OnClickListener t;
 
     /* loaded from: classes5.dex */
     public interface b {
-        void a(rw8 rw8Var);
+        void a(ez8 ez8Var);
     }
 
     /* loaded from: classes5.dex */
@@ -130,18 +130,18 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         this.t = new a(this);
         this.p = tbPageContext;
         this.s = bVar;
-        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919e9);
-        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a15);
+        this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0919f6);
+        this.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a22);
         this.c = (TbImageView) view2.findViewById(R.id.top_code_img);
-        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092473);
+        this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09248c);
         this.e = (TextView) view2.findViewById(R.id.top_code_detail_summary_text);
-        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092470);
-        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091836);
+        this.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092489);
+        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091844);
         this.h = (ImageView) view2.findViewById(R.id.news_info_img);
         this.i = (TextView) view2.findViewById(R.id.news_info_text);
-        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d79);
-        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d7a);
-        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d7b);
+        this.j = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090d81);
+        this.k = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090d82);
+        this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090d83);
         i(this.t);
     }
 
@@ -149,7 +149,7 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         boolean z;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.q != i) {
-            iv4 layoutMode = this.p.getLayoutMode();
+            yv4 layoutMode = this.p.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -170,44 +170,44 @@ public class PbPageNewsInfoHolder extends TypeAdapter.ViewHolder {
         }
     }
 
-    public void g(rw8 rw8Var) {
+    public void g(ez8 ez8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, rw8Var) != null) || rw8Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, ez8Var) != null) || ez8Var == null) {
             return;
         }
-        this.r = rw8Var;
-        py4 py4Var = rw8Var.a1;
-        this.m = py4Var;
-        this.n = rw8Var.b1;
-        this.o = rw8Var.c1;
-        if (py4Var != null) {
-            this.c.N(py4Var.d, 10, false);
+        this.r = ez8Var;
+        fz4 fz4Var = ez8Var.b1;
+        this.m = fz4Var;
+        this.n = ez8Var.c1;
+        this.o = ez8Var.d1;
+        if (fz4Var != null) {
+            this.c.N(fz4Var.d, 10, false);
             this.e.setText(this.m.b);
             this.f.setText(this.m.e);
             this.d.setText(this.m.f);
-            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f08115b);
-            SkinManager.setViewTextColor(this.d, (int) R.drawable.obfuscated_res_0x7f080ed9);
+            SkinManager.setBackgroundResource(this.d, R.drawable.obfuscated_res_0x7f08118b);
+            SkinManager.setViewTextColor(this.d, (int) R.drawable.obfuscated_res_0x7f080f08);
         } else {
             this.b.setVisibility(8);
         }
-        py4 py4Var2 = this.n;
-        if (py4Var2 != null) {
-            this.i.setText(py4Var2.b);
+        fz4 fz4Var2 = this.n;
+        if (fz4Var2 != null) {
+            this.i.setText(fz4Var2.b);
             SkinManager.setBackgroundResource(this.h, R.drawable.icon_frs_news);
         } else {
             this.g.setVisibility(8);
             this.i.setVisibility(8);
             this.h.setVisibility(8);
         }
-        py4 py4Var3 = this.o;
-        if (py4Var3 != null) {
-            this.l.setText(py4Var3.b);
+        fz4 fz4Var3 = this.o;
+        if (fz4Var3 != null) {
+            this.l.setText(fz4Var3.b);
             SkinManager.setBackgroundResource(this.k, R.drawable.icon_frs_game);
         } else {
             this.j.setVisibility(8);
             this.l.setVisibility(8);
             this.l.setVisibility(8);
         }
-        this.a.setTag(rw8Var);
+        this.a.setTag(ez8Var);
     }
 }

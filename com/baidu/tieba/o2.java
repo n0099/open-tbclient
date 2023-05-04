@@ -73,7 +73,7 @@ public class o2 extends k0 implements c2 {
     public final j2 z;
 
     @Override // com.baidu.tieba.c2
-    public void r(boolean z) {
+    public void s(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
         }
@@ -443,7 +443,7 @@ public class o2 extends k0 implements c2 {
     }
 
     @Override // com.baidu.tieba.c2
-    public void Q0() {
+    public void R0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             g();

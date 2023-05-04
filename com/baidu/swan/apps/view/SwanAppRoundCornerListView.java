@@ -11,12 +11,12 @@ import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.widget.ListView;
 import androidx.annotation.NonNull;
-import com.baidu.tieba.fo1;
-import com.baidu.tieba.ml3;
+import com.baidu.tieba.ho1;
+import com.baidu.tieba.ol3;
 /* loaded from: classes3.dex */
 public class SwanAppRoundCornerListView extends ListView {
-    public static final boolean f = fo1.a;
-    public static final float g = ml3.h(11.0f);
+    public static final boolean f = ho1.a;
+    public static final float g = ol3.h(11.0f);
     public final Path a;
     public final Paint b;
     public final RectF c;

@@ -1,61 +1,69 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.os.Build;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lga;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.TbMd5;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class ez9 implements lga.b {
+public class ez9 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ez9 k;
+    public static volatile ez9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public lga.b b;
-    public lga.b c;
-    public lga.b d;
-    public boolean e;
-    public lga.f f;
-    public SurfaceTexture g;
-    public int h;
-    public boolean i;
-    public lga.a j;
+    public HashMap<String, String> a;
+    public DownloadData b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947751781, "Lcom/baidu/tieba/ez9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947751781, "Lcom/baidu/tieba/ez9;");
-        }
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(String str);
+
+        void b();
+
+        void c(String str, String str2);
     }
 
     /* loaded from: classes4.dex */
-    public class a implements lga.a {
+    public class a implements ed5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ez9 a;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ez9 c;
 
-        public a(ez9 ez9Var) {
+        @Override // com.baidu.tieba.ed5
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ed5
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        public a(ez9 ez9Var, b bVar, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ez9Var};
+                Object[] objArr = {ez9Var, bVar, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,390 +73,160 @@ public class ez9 implements lga.b {
                     return;
                 }
             }
-            this.a = ez9Var;
+            this.c = ez9Var;
+            this.a = bVar;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.lga.a
-        public void a(Object obj) {
+        @Override // com.baidu.tieba.ed5
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof String) {
-                    String str = (String) obj;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
                 }
-                this.a.C();
-                this.a.d.k(this.a.g, this.a.f);
-                if (!this.a.i) {
-                    return;
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
                 }
-                this.a.i = false;
-                this.a.d.n();
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.a(str);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ed5
+        public void onFileDownloadSucceed(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) && downloadData != null && !StringUtils.isNull(downloadData.getPath())) {
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                if (this.a != null) {
+                    this.c.a.put(downloadData.getPath().substring(ky9.a.length(), downloadData.getPath().lastIndexOf(".")), downloadData.getPath());
+                    this.a.c(this.b, downloadData.getPath());
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ed5
+        public void onFileUpdateProgress(DownloadData downloadData) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) && downloadData.getStatus() == 4) {
+                File file = new File(downloadData.getPath());
+                if (file.exists()) {
+                    file.delete();
+                }
+                if (this.c.b != null && downloadData.getUrl().equals(this.c.b.getUrl())) {
+                    this.c.b = null;
+                }
+                b bVar = this.a;
+                if (bVar != null) {
+                    bVar.b();
+                }
             }
         }
     }
 
-    public ez9(TbPageContext tbPageContext) {
+    public ez9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.i = false;
-        this.j = new a(this);
-        if (Build.VERSION.SDK_INT >= 21) {
-            if (System.currentTimeMillis() - cz9.b.c() >= cz9.a) {
-                cz9.b.k(0);
-            }
-            if (1 != cz9.b.d().intValue()) {
-                this.c = bz9.U(tbPageContext);
-            }
-        }
-        dz9 B = dz9.B(tbPageContext);
-        this.b = B;
-        this.d = B;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void d(byte[] bArr) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, bArr) == null) && (bVar = this.d) == this.b && bVar != null) {
-            bVar.d(bArr);
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void h(boolean z) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.e = z;
-            if (z && (bVar = this.c) != null) {
-                bVar.s(this.j);
-                this.d = this.c;
-                return;
-            }
-            lga.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            this.d = this.b;
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void i(boolean z) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048585, this, z) == null) && (bVar = this.d) != null) {
-            bVar.i(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void j(boolean z) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048586, this, z) == null) && (bVar = this.d) != null) {
-            bVar.j(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void l(int i) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048588, this, i) == null) && (bVar = this.d) != null) {
-            bVar.l(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void m(boolean z) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048589, this, z) == null) && (bVar = this.d) != null) {
-            bVar.m(z);
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void s(lga.a aVar) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, aVar) == null) && (bVar = this.c) != null) {
-            bVar.s(aVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void u(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048598, this, i) == null) {
-            this.h = i;
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                bVar.u(i);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static ez9 D(TbPageContext tbPageContext) {
-        InterceptResult invokeL;
+    public static ez9 g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
-            if (k == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (c == null) {
                 synchronized (ez9.class) {
-                    if (k == null) {
-                        k = new ez9(tbPageContext);
-                    } else if (tbPageContext != null) {
-                        k.a = tbPageContext;
+                    if (c == null) {
+                        c = new ez9();
                     }
                 }
             }
-            return k;
+            return c;
         }
-        return (ez9) invokeL.objValue;
+        return (ez9) invokeV.objValue;
     }
 
-    public final void C() {
+    public void d() {
+        File[] listFiles;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c != null) {
-            this.b.u(this.h);
-            this.b.i(this.c.o());
-            this.b.m(this.c.a());
-            this.b.j(this.c.p());
-            this.c.q();
-            this.c.release();
-            this.d = this.b;
-            this.e = false;
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.a();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+            } else {
+                hashMap.clear();
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.b();
+            File file = new File(ky9.a);
+            if (!file.exists() || (listFiles = file.listFiles()) == null) {
+                return;
             }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.e();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.f();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.i = true;
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                bVar.n();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.o();
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.p();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void q() {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (bVar = this.d) != null) {
-            bVar.q();
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.r();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            q();
-            this.d = null;
-            lga.b bVar = this.b;
-            if (bVar != null) {
-                bVar.release();
-            }
-            lga.b bVar2 = this.c;
-            if (bVar2 != null) {
-                bVar2.release();
-            }
-            k = null;
-            this.f = null;
-            this.g = null;
-            this.j = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            lga.b bVar = this.d;
-            if (bVar != null) {
-                return bVar.v();
-            }
-            return -1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void c(int i, int i2, int i3, int i4) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048579, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
-            bVar.c(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void t(int i, int i2, int i3, int i4) {
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIII(1048597, this, i, i2, i3, i4) == null) && (bVar = this.d) != null) {
-            bVar.t(i, i2, i3, i4);
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public void g(int i, int i2, int i3, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
-            this.b.g(i, i2, i3, z);
-            lga.b bVar = this.c;
-            if (bVar != null) {
-                bVar.g(i, i2, i3, z);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lga.b
-    public boolean k(SurfaceTexture surfaceTexture, lga.f fVar) {
-        InterceptResult invokeLL;
-        lga.b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, surfaceTexture, fVar)) == null) {
-            this.g = surfaceTexture;
-            this.f = fVar;
-            if (this.e && (bVar = this.c) != null) {
-                if (bVar.k(surfaceTexture, fVar)) {
-                    return true;
+            for (File file2 : listFiles) {
+                if (file2 != null && file2.isFile()) {
+                    this.a.put(file2.getName().substring(0, file2.getName().lastIndexOf(".")), file2.getAbsolutePath());
                 }
-                C();
-                lga.b bVar2 = this.d;
-                if (bVar2 == null) {
-                    return false;
-                }
-                boolean k2 = bVar2.k(surfaceTexture, fVar);
-                if (this.i) {
-                    this.i = false;
-                    this.d.n();
-                }
-                return k2;
             }
-            lga.b bVar3 = this.b;
-            this.d = bVar3;
-            if (bVar3 == null) {
-                return false;
-            }
-            return bVar3.k(surfaceTexture, fVar);
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void e(String str, String str2, b bVar) {
+        String nameMd5FromUrl;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, bVar) != null) || TextUtils.isEmpty(str2) || (nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str2)) == null) {
+            return;
+        }
+        DownloadData downloadData = this.b;
+        if (downloadData != null) {
+            if (str2.equals(downloadData.getUrl())) {
+                return;
+            }
+            fd5.k().h(this.b.getUrl(), true);
+        }
+        File file = new File(ky9.a);
+        if (!file.exists()) {
+            file.mkdirs();
+        }
+        DownloadData downloadData2 = new DownloadData();
+        downloadData2.setType(17);
+        downloadData2.setId(str);
+        downloadData2.setUrl(str2);
+        downloadData2.setPath(ky9.a + nameMd5FromUrl + ("." + str2.substring(str2.lastIndexOf(".") + 1)));
+        downloadData2.setCallback(new a(this, bVar, str2));
+        this.b = downloadData2;
+        fd5.k().l(downloadData2);
+    }
+
+    public String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            String nameMd5FromUrl = TbMd5.getNameMd5FromUrl(str);
+            if (nameMd5FromUrl == null) {
+                return null;
+            }
+            HashMap<String, String> hashMap = this.a;
+            if (hashMap == null) {
+                this.a = new HashMap<>();
+                d();
+                if (this.a.size() <= 0) {
+                    return null;
+                }
+                return this.a.get(nameMd5FromUrl);
+            }
+            return hashMap.get(nameMd5FromUrl);
+        }
+        return (String) invokeL.objValue;
     }
 }

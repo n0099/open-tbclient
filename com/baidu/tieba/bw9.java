@@ -1,79 +1,44 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaExtractor;
-import android.media.MediaFormat;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.themeCenter.bubble.all.BubbleItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.extractor.ogg.OpusReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.nio.ByteOrder;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bw9 {
+public class bw9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<List<DressItemData>> a;
+    public TbPageContext<?> b;
+    public xv9 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947659525, "Lcom/baidu/tieba/bw9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947659525, "Lcom/baidu/tieba/bw9;");
-        }
-    }
-
-    public static byte[] e(short s, boolean z) {
-        InterceptResult invokeCommon;
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{Short.valueOf(s), Boolean.valueOf(z)})) == null) {
-            byte[] bArr = new byte[2];
-            if (z) {
-                bArr[1] = (byte) (s & 255);
-                bArr[0] = (byte) (((short) (s >> 8)) & 255);
-            } else {
-                bArr[0] = (byte) (s & 255);
-                bArr[1] = (byte) (((short) (s >> 8)) & 255);
-            }
-            return bArr;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
         }
-        return (byte[]) invokeCommon.objValue;
-    }
-
-    public static short f(byte b, byte b2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Boolean.valueOf(z)})) == null) {
-            return (short) (z ? ((short) (((short) ((b & 255) | 0)) << 8)) | (b2 & 255) : (b & 255) | ((short) (((short) ((b2 & 255) | 0)) << 8)));
-        }
-        return invokeCommon.shortValue;
+        return invokeI.longValue;
     }
 
     /* loaded from: classes3.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
+        public View a;
+        public BubbleItemView b;
+        public BubbleItemView c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -85,284 +50,104 @@ public class bw9 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = OpusReader.SAMPLE_RATE;
-            this.b = 1;
-            this.c = 16;
-            this.d = 0;
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                int i = this.d;
-                if (i != 5 && i != 6 && i != 8 && i != 9) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                int i = this.d;
-                if (i != 3 && i != 4 && i != 8 && i != 9) {
-                    return false;
-                }
-                return true;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                int i = this.d;
-                if (i == 1 || i == 4 || i == 6 || i == 9) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
         }
     }
 
-    public static byte[] a(byte b, byte b2, byte b3, byte b4, boolean z) {
-        InterceptResult invokeCommon;
+    public bw9(TbPageContext<?> tbPageContext, xv9 xv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Byte.valueOf(b), Byte.valueOf(b2), Byte.valueOf(b3), Byte.valueOf(b4), Boolean.valueOf(z)})) == null) {
-            return e((short) ((f(b, b2, z) / 2) + (f(b3, b4, z) / 2)), z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, xv9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (byte[]) invokeCommon.objValue;
+        this.b = tbPageContext;
+        this.c = xv9Var;
     }
 
-    public static byte[] b(int i, int i2, byte[] bArr) {
-        InterceptResult invokeIIL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public List<DressItemData> getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, bArr)) == null) {
-            BdLog.e("convertChannelCount sourceByteWidth = " + i + " outputByteWidth = " + i2);
-            if (i == i2) {
-                return bArr;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
-            int length = bArr.length;
-            if (i != 1) {
-                if (i == 2 && i2 == 1) {
-                    int i3 = length / 2;
-                    byte[] bArr2 = new byte[i3];
-                    for (int i4 = 0; i4 < i3; i4++) {
-                        int i5 = i4 * 2;
-                        bArr2[i4] = (byte) (f(bArr[i5], bArr[i5 + 1], a) / 256);
-                    }
-                    return bArr2;
-                }
-            } else if (i2 == 2) {
-                byte[] bArr3 = new byte[length * 2];
-                for (int i6 = 0; i6 < length; i6++) {
-                    byte[] e = e((short) (bArr[i6] * 256), a);
-                    int i7 = i6 * 2;
-                    bArr3[i7] = e[0];
-                    bArr3[i7 + 1] = e[1];
-                }
-                return bArr3;
-            }
-            return bArr;
+            return null;
         }
-        return (byte[]) invokeIIL.objValue;
+        return (List) invokeI.objValue;
     }
 
-    public static byte[] c(int i, int i2, int i3, byte[] bArr) {
-        InterceptResult invokeCommon;
+    public void b(List<List<DressItemData>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bArr})) == null) {
-            BdLog.e("convertChannelCount sourceChannelCount = " + i + " outputChannelCount = " + i2);
-            if (i == i2) {
-                return bArr;
-            }
-            if (i3 != 1 && i3 != 2) {
-                return bArr;
-            }
-            int length = bArr.length;
-            int i4 = 0;
-            if (i != 1) {
-                if (i == 2 && i2 == 1) {
-                    int i5 = length / 2;
-                    byte[] bArr2 = new byte[i5];
-                    if (i3 != 1) {
-                        if (i3 == 2) {
-                            for (int i6 = 0; i6 < i5; i6 += 2) {
-                                int i7 = i6 * 2;
-                                byte[] a2 = a(bArr[i7], bArr[i7 + 1], bArr[i7 + 2], bArr[i7 + 3], a);
-                                bArr2[i6] = a2[0];
-                                bArr2[i6 + 1] = a2[1];
-                            }
-                        }
-                    } else {
-                        while (i4 < i5) {
-                            int i8 = i4 * 2;
-                            bArr2[i4] = (byte) (((short) (bArr[i8] + bArr[i8 + 1])) >> 1);
-                            i4 += 2;
-                        }
-                    }
-                    return bArr2;
-                }
-            } else if (i2 == 2) {
-                byte[] bArr3 = new byte[length * 2];
-                if (i3 != 1) {
-                    if (i3 == 2) {
-                        while (i4 < length) {
-                            byte b = bArr[i4];
-                            byte b2 = bArr[i4 + 1];
-                            int i9 = i4 * 2;
-                            bArr3[i9] = b;
-                            bArr3[i9 + 1] = b2;
-                            bArr3[i9 + 2] = b;
-                            bArr3[i9 + 3] = b2;
-                            i4 += 2;
-                        }
-                    }
-                } else {
-                    while (i4 < length) {
-                        byte b3 = bArr[i4];
-                        int i10 = i4 * 2;
-                        bArr3[i10] = b3;
-                        bArr3[i10 + 1] = b3;
-                        i4++;
-                    }
-                }
-                return bArr3;
-            }
-            return bArr;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
-        return (byte[]) invokeCommon.objValue;
     }
 
-    @TargetApi(16)
-    public static a d(String str) {
-        InterceptResult invokeL;
-        MediaFormat mediaFormat;
-        int i;
-        int i2;
-        int i3;
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            MediaExtractor mediaExtractor = new MediaExtractor();
-            try {
-                mediaExtractor.setDataSource(str);
-                int i4 = 0;
-                while (true) {
-                    if (i4 < mediaExtractor.getTrackCount()) {
-                        mediaFormat = mediaExtractor.getTrackFormat(i4);
-                        if (mediaFormat.getString("mime").startsWith("audio/")) {
-                            mediaExtractor.selectTrack(i4);
-                            break;
-                        }
-                        i4++;
-                    } else {
-                        mediaFormat = null;
-                        break;
-                    }
-                }
-                if (mediaFormat == null) {
-                    mediaExtractor.release();
-                    return null;
-                }
-                a aVar = new a();
-                if (mediaFormat.containsKey("sample-rate")) {
-                    i = mediaFormat.getInteger("sample-rate");
-                } else {
-                    i = OpusReader.SAMPLE_RATE;
-                }
-                aVar.a = i;
-                if (mediaFormat.containsKey("channel-count")) {
-                    i2 = mediaFormat.getInteger("channel-count");
-                } else {
-                    i2 = 1;
-                }
-                aVar.b = i2;
-                if (mediaFormat.containsKey("bit-width")) {
-                    i3 = mediaFormat.getInteger("bit-width");
-                } else {
-                    i3 = 16;
-                }
-                aVar.c = i3;
-                mediaExtractor.release();
-                return aVar;
-            } catch (IOException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<List<DressItemData>> list = this.a;
+            if (list != null) {
+                return list.size();
             }
+            return 0;
         }
-        return (a) invokeL.objValue;
+        return invokeV.intValue;
     }
 
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            if (ByteOrder.nativeOrder() == ByteOrder.BIG_ENDIAN) {
-                a = true;
-            } else {
-                a = false;
-            }
-        }
-    }
-
-    public static boolean h(a... aVarArr) {
-        InterceptResult invokeL;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, aVarArr)) == null) {
-            if (aVarArr == null || aVarArr.length < 2 || (aVar = aVarArr[0]) == null) {
-                return false;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            List<DressItemData> item = getItem(i);
+            if (view2 != null) {
+                aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d017e, viewGroup, false);
+                aVar = new a();
+                aVar.a = view2.findViewById(R.id.obfuscated_res_0x7f0924b3);
+                aVar.b = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903cb);
+                aVar.c = (BubbleItemView) view2.findViewById(R.id.obfuscated_res_0x7f0903cc);
+                view2.setTag(aVar);
             }
-            boolean z = true;
-            for (int i = 1; i < aVarArr.length; i++) {
-                if (aVar.a != aVarArr[i].a) {
-                    aVarArr[i].d++;
-                    z = false;
+            if (item != null) {
+                if (i == 0) {
+                    aVar.a.setVisibility(0);
+                } else {
+                    aVar.a.setVisibility(8);
                 }
-                if (aVar.b != aVarArr[i].b) {
-                    aVarArr[i].d += 3;
-                    z = false;
-                }
-                if (aVar.c != aVarArr[i].c) {
-                    aVarArr[i].d += 5;
-                    z = false;
+                aVar.b.d(item.get(0));
+                aVar.b.setController(this.c);
+                aVar.b.setFromBubbleGroup(false);
+                if (item.size() > 1) {
+                    aVar.c.d(item.get(1));
+                    aVar.c.setController(this.c);
+                    aVar.c.setFromBubbleGroup(false);
+                } else {
+                    aVar.c.e();
                 }
             }
-            return z;
+            this.b.getLayoutMode().k(view2);
+            return view2;
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean i(String str, String str2, int i, int i2) {
-        InterceptResult invokeLLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65545, null, str, str2, i, i2)) == null) {
-            BdLog.e("resampling sampleRate = " + i + " resampleRate = " + i2);
-            if (i2 == i) {
-                return false;
-            }
-            File file = new File(str);
-            File file2 = new File(str2);
-            try {
-                FileInputStream fileInputStream = new FileInputStream(file);
-                FileOutputStream fileOutputStream = new FileOutputStream(file2);
-                new ew9(fileInputStream, fileOutputStream, i, i2, 2, 2, 1, Integer.MAX_VALUE, 0.0d, 0, true);
-                fileInputStream.close();
-                fileOutputStream.close();
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLLII.booleanValue;
+        return (View) invokeILL.objValue;
     }
 }

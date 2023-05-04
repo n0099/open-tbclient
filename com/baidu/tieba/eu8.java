@@ -1,7 +1,13 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
+import android.view.ViewGroup;
+import com.baidu.tieba.passaccount.app.LoginDialogActivity;
 /* loaded from: classes4.dex */
 public interface eu8 {
-    void onStart();
+    void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup);
 
-    void onStop();
+    Intent getResultIntent();
+
+    void q(int i);
 }

@@ -1,7 +1,23 @@
 package com.baidu.tieba;
 
-import java.util.concurrent.TimeUnit;
+import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface f43 {
-    public static final long o0 = TimeUnit.SECONDS.toMillis(5);
+public class f43 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public static boolean a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return true;
+            }
+            return TextUtils.equals(str, "");
+        }
+        return invokeL.booleanValue;
+    }
 }

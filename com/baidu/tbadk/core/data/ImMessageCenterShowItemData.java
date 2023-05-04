@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.AbstractImageProvider;
 import com.baidu.tieba.im.pushNotify.ChatSetting;
-import com.baidu.tieba.zx4;
+import com.baidu.tieba.py4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,7 +23,7 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
     public static final int recForumTitleType = 3;
     public static final long serialVersionUID = 3133087680118197014L;
     public transient /* synthetic */ FieldHolder $fh;
-    public zx4 atInfoData;
+    public py4 atInfoData;
     public String avatar;
     public String cacheGroupMsgContent;
     public int dataType;
@@ -93,13 +93,13 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return (ImMessageCenterShowItemData) invokeV.objValue;
     }
 
-    public zx4 getAtInfoData() {
+    public py4 getAtInfoData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.atInfoData;
         }
-        return (zx4) invokeV.objValue;
+        return (py4) invokeV.objValue;
     }
 
     public String getAvatar() {
@@ -417,10 +417,10 @@ public class ImMessageCenterShowItemData extends AbstractImageProvider implement
         return invokeL.booleanValue;
     }
 
-    public void setAtInfoData(zx4 zx4Var) {
+    public void setAtInfoData(py4 py4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, zx4Var) == null) {
-            this.atInfoData = zx4Var;
+        if (interceptable == null || interceptable.invokeL(1048613, this, py4Var) == null) {
+            this.atInfoData = py4Var;
         }
     }
 

@@ -1,93 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Set;
+import kotlin.collections.SetsKt__SetsJVMKt;
+import kotlin.collections.SetsKt__SetsKt;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class c78 extends y78 {
+public abstract class c78 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AbilityItem a;
-    public BaseMsg b;
+    public a78 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627781, "Lcom/baidu/tieba/c78;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947627781, "Lcom/baidu/tieba/c78;");
-                return;
-            }
+    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj);
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return false;
         }
-        c = BdUniqueId.gen().getId();
+        return invokeV.booleanValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
     public c78() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.y78
-    public int a() {
+    public Set<String> e() {
         InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            String d = d();
+            if (d.length() == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                return SetsKt__SetsKt.emptySet();
+            }
+            return SetsKt__SetsJVMKt.setOf(d);
         }
-        return invokeV.intValue;
+        return (Set) invokeV.objValue;
     }
 
-    public AbilityItem b() {
-        InterceptResult invokeV;
+    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (AbilityItem) invokeV.objValue;
-    }
-
-    public BaseMsg c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (BaseMsg) invokeV.objValue;
-    }
-
-    public void d(AbilityItem abilityItem) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, abilityItem) == null) {
-            this.a = abilityItem;
-        }
-    }
-
-    public void e(BaseMsg baseMsg) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, baseMsg) == null) {
-            this.b = baseMsg;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
+            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
+            a78 a78Var = this.a;
+            if (a78Var != null) {
+                a78Var.b(abilityItem, baseMsg);
+            }
         }
     }
 }

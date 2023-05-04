@@ -64,9 +64,9 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
                 TextView textView = this.e;
                 Context context = this.a;
                 if (z) {
-                    i2 = R.style.obfuscated_res_0x7f100401;
+                    i2 = R.style.obfuscated_res_0x7f100402;
                 } else {
-                    i2 = R.style.obfuscated_res_0x7f100400;
+                    i2 = R.style.obfuscated_res_0x7f100401;
                 }
                 textView.setTextAppearance(context, i2);
                 SkinManager.setBackgroundResource(this.e, R.drawable.icon_news_text_prompt);
@@ -81,9 +81,9 @@ public final class SettingTextTestNewView extends TbSettingTextTipView {
             TextView textView2 = this.e;
             Context context2 = this.a;
             if (z) {
-                i = R.style.obfuscated_res_0x7f100403;
+                i = R.style.obfuscated_res_0x7f100404;
             } else {
-                i = R.style.obfuscated_res_0x7f100402;
+                i = R.style.obfuscated_res_0x7f100403;
             }
             textView2.setTextAppearance(context2, i);
         }

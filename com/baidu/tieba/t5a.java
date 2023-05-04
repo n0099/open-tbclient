@@ -1,43 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.coreExtra.data.WriteData;
-import com.baidu.tbadk.editortools.EditorTools;
-import com.baidu.tieba.u5a;
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.img.ImageFileInfo;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class t5a {
+public class t5a extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final TbPageContext<?> a;
-    @NonNull
-    public final u4a b;
-    @NonNull
-    public final EditorTools c;
-    @NonNull
-    public final n3a d;
-    @NonNull
-    public final f6a e;
-    @NonNull
-    public final j6a f;
-    @NonNull
-    public final WriteData g;
+    public List<rs4> a;
+    public String b;
+    public BaseFragmentActivity c;
+    public int d;
+    public LayoutInflater e;
 
-    public t5a(@NonNull TbPageContext<?> tbPageContext, @NonNull u4a u4aVar, @NonNull EditorTools editorTools, @NonNull n3a n3aVar, @NonNull f6a f6aVar, @NonNull j6a j6aVar, @NonNull WriteData writeData) {
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public TbImageView a;
+        public TextView b;
+        public ImageView c;
+
+        public b(t5a t5aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t5aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(t5a t5aVar, a aVar) {
+            this(t5aVar);
+        }
+    }
+
+    public t5a(BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, u4aVar, editorTools, n3aVar, f6aVar, j6aVar, writeData};
+            Object[] objArr = {baseFragmentActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,180 +90,88 @@ public class t5a {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = u4aVar;
-        this.c = editorTools;
-        this.d = n3aVar;
-        this.e = f6aVar;
-        this.f = j6aVar;
-        this.g = writeData;
+        this.c = baseFragmentActivity;
+        this.e = LayoutInflater.from(baseFragmentActivity.getPageContext().getPageActivity());
+        this.d = ii.l(this.c.getPageContext().getPageActivity()) / 2;
     }
 
-    public List<y4a<?>> a(List<u5a.a> list) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public rs4 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (u5a.a aVar : list) {
-                y4a<?> b = b(aVar);
-                if (b != null) {
-                    b.h(aVar.b, this.g);
-                    arrayList.add(b);
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return (rs4) ListUtils.getItem(this.a, i);
         }
-        return (List) invokeL.objValue;
+        return (rs4) invokeI.objValue;
     }
 
-    public y4a<?> b(u5a.a aVar) {
-        InterceptResult invokeL;
+    public void b(List<rs4> list, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            if (aVar == null) {
-                return null;
-            }
-            String str = aVar.a;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            switch (hashCode) {
-                case 3118:
-                    if (str.equals("c1")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 3119:
-                    if (str.equals("c2")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 3120:
-                    if (str.equals("c3")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case 3121:
-                    if (str.equals("c4")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 3122:
-                    if (str.equals("c5")) {
-                        c = '\r';
-                        break;
-                    }
-                    break;
-                case 3123:
-                    if (str.equals("c6")) {
-                        c = '\f';
-                        break;
-                    }
-                    break;
-                case 3124:
-                    if (str.equals("c7")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 3125:
-                    if (str.equals("c8")) {
-                        c = 11;
-                        break;
-                    }
-                    break;
-                case 3126:
-                    if (str.equals("c9")) {
-                        c = 14;
-                        break;
-                    }
-                    break;
-                default:
-                    switch (hashCode) {
-                        case 96706:
-                            if (str.equals("c10")) {
-                                c = 15;
-                                break;
-                            }
-                            break;
-                        case 96707:
-                            if (str.equals("c11")) {
-                                c = 6;
-                                break;
-                            }
-                            break;
-                        case 96708:
-                            if (str.equals("c12")) {
-                                c = '\t';
-                                break;
-                            }
-                            break;
-                        case 96709:
-                            if (str.equals("c13")) {
-                                c = '\n';
-                                break;
-                            }
-                            break;
-                        case 96710:
-                            if (str.equals("c14")) {
-                                c = 0;
-                                break;
-                            }
-                            break;
-                        case 96711:
-                            if (str.equals("c15")) {
-                                c = 1;
-                                break;
-                            }
-                            break;
-                        case 96712:
-                            if (str.equals("c16")) {
-                                c = '\b';
-                                break;
-                            }
-                            break;
-                    }
-            }
-            switch (c) {
-                case 0:
-                    return b6a.a(this.a);
-                case 1:
-                    return b6a.b(this.a);
-                case 2:
-                    return b6a.c(this.a, this.b, this.c, this.d, this.e);
-                case 3:
-                    return b6a.e(this.a);
-                case 4:
-                    return b6a.f(this.a);
-                case 5:
-                    return b6a.g(this.a);
-                case 6:
-                    return b6a.h(this.a, this.f);
-                case 7:
-                    return b6a.i(this.a);
-                case '\b':
-                    return b6a.j(this.a);
-                case '\t':
-                    return b6a.k(this.a);
-                case '\n':
-                    return b6a.l(this.a);
-                case 11:
-                    return b6a.m(this.a, this.b, this.c, this.f, this.d, this.e);
-                case '\f':
-                    return b6a.n(this.a, this.b, this.d, this.e);
-                case '\r':
-                    return b6a.o(this.a);
-                case 14:
-                    return b6a.p(this.a);
-                case 15:
-                    return b6a.q(this.a);
-                default:
-                    return null;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, str) == null) {
+            this.a = list;
+            this.b = str;
         }
-        return (y4a) invokeL.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ListUtils.getCount(this.a);
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        b bVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            if (view2 != null && (view2.getTag() instanceof b)) {
+                bVar = (b) view2.getTag();
+            } else {
+                view2 = this.e.inflate(R.layout.obfuscated_res_0x7f0d011e, viewGroup, false);
+                bVar = new b(this, null);
+                bVar.a = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091121);
+                bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091132);
+                bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09110e);
+                bVar.a.setGifIconSupport(false);
+                bVar.a.setLongIconSupport(false);
+                view2.setTag(bVar);
+            }
+            rs4 item = getItem(i);
+            if (item == null) {
+                view2.setVisibility(4);
+                return view2;
+            }
+            view2.setVisibility(0);
+            if (!TextUtils.isEmpty(item.g())) {
+                String v = ii.v(bVar.b.getPaint(), item.g(), this.d);
+                bVar.b.setText(v + "(" + item.c() + SmallTailInfo.EMOTION_SUFFIX);
+            } else {
+                bVar.b.setText("");
+            }
+            String b2 = item.b();
+            if (!TextUtils.isEmpty(b2) && b2.equals(this.b)) {
+                bVar.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_strok324_select, SkinManager.getColor(R.color.CAM_X0302), WebPManager.ResourceStateType.NORMAL));
+                bVar.c.setVisibility(0);
+            } else {
+                bVar.c.setVisibility(8);
+            }
+            MediaFileInfo f = item.f();
+            if (f instanceof VideoFileInfo) {
+                bVar.a.N(((VideoFileInfo) f).videoPath, 37, false);
+            } else if (f instanceof ImageFileInfo) {
+                bVar.a.N(((ImageFileInfo) f).getFilePath(), 35, false);
+            }
+            SkinManager.setViewTextColor(bVar.b, (int) R.color.CAM_X0105);
+            SkinManager.setBackgroundResource(view2, R.drawable.addresslist_item_bg);
+            return view2;
+        }
+        return (View) invokeILL.objValue;
     }
 }

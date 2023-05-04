@@ -5,7 +5,7 @@ import com.xiaomi.push.dw;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fk {
 
     /* renamed from: a  reason: collision with other field name */

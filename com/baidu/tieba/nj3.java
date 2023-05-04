@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -11,20 +10,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nj3 extends s93 {
+public class nj3 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nj3(s83 s83Var) {
-        super(s83Var, "/swanAPI/updateTextarea");
+    public nj3(u83 u83Var) {
+        super(u83Var, "/swanAPI/closeTextarea");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,38 +38,37 @@ public class nj3 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("UpdateTextAreaAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
                 return false;
             }
-            v42.i("UpdateTextAreaAction", "UpdateTextAreaAction updateParams: " + optParamsAsJo);
-            String optString = optParamsAsJo.optString("slaveId");
-            String optString2 = optParamsAsJo.optString("componentId");
-            g42 g42Var = (g42) i42.b(optString, optString2);
-            if (g42Var == null) {
-                String str = "can't find textarea component:#" + optString2;
-                v42.c("UpdateTextAreaAction", str);
+            x42.i("CloseTextAreaAction", "closeTextAreaAction paramsJson: " + optParamsAsJo);
+            j42 j42Var = new j42();
+            try {
+                j42Var.a(optParamsAsJo);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                x42.d("CloseTextAreaAction", "model parse exception:", e);
+            }
+            i42 i42Var = (i42) k42.a(j42Var);
+            if (i42Var == null) {
+                String str = "can't find textarea component:#" + j42Var.b;
+                x42.c("CloseTextAreaAction", str);
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str);
                 return false;
             }
-            h42 h42Var = (h42) g42Var.l();
-            h42Var.g(optParamsAsJo);
-            m32 update = g42Var.update((g42) h42Var);
-            if (!update.a()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
+            o32 B = i42Var.B();
+            if (!B.a()) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
                 return false;
             }
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            g42Var.U0(optString2);
             return true;
         }
         return invokeLLLL.booleanValue;

@@ -4,9 +4,9 @@ import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.message.websockt.TbSocketReponsedMessage;
-import com.baidu.tieba.c05;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.me;
+import com.baidu.tieba.t05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,8 +91,8 @@ public class ResponseHistoryMessage extends TbSocketReponsedMessage {
                 }
             }
             if (!this.msg.isEmpty()) {
-                c05.d();
-                me<byte[]> b = c05.b("tb.im_official_history");
+                t05.d();
+                me<byte[]> b = t05.b("tb.im_official_history");
                 RequestHistoryMessage requestHistoryMessage = (RequestHistoryMessage) getOrginalMessage();
                 if (requestHistoryMessage != null && requestHistoryMessage.getRequestId() == 0) {
                     b.g(TbadkCoreApplication.getCurrentAccount() + "@" + String.valueOf(requestHistoryMessage.getFid()), bArr);

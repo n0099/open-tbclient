@@ -1,65 +1,89 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
-import android.media.AudioManager;
+import android.content.Intent;
+import android.text.TextUtils;
 import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.Calendar;
 /* loaded from: classes4.dex */
 public class g01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
-    public static AudioManager a(@Nullable Context context) {
-        InterceptResult invokeL;
+    public static boolean a(@Nullable String str, @Nullable String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                String[] split = str.split(":");
+                String[] split2 = str2.split(":");
+                if (split.length != 0 && split2.length != 0) {
+                    try {
+                        Calendar calendar = Calendar.getInstance();
+                        long timeInMillis = calendar.getTimeInMillis();
+                        calendar.set(11, b01.c(split[0]));
+                        calendar.set(12, b01.c(split[1]));
+                        long timeInMillis2 = calendar.getTimeInMillis();
+                        calendar.set(11, b01.c(split2[0]));
+                        calendar.set(12, b01.c(split2[1]));
+                        long timeInMillis3 = calendar.getTimeInMillis();
+                        if (timeInMillis < timeInMillis2 || timeInMillis > timeInMillis3) {
+                            return false;
+                        }
+                        return true;
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            try {
-                return (AudioManager) context.getSystemService("audio");
-            } catch (Exception e) {
-                e.printStackTrace();
-                return null;
-            }
+            return false;
         }
-        return (AudioManager) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static int b(Context context) {
-        InterceptResult invokeL;
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void b(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamMaxVolume(3);
+        if ((interceptable == null || interceptable.invokeLZ(65537, null, activity, z) == null) && activity != null) {
+            f01.b("BdVideoSys", "SCREEN_ORIENTATION_LANDSCAPE");
+            if (z) {
+                activity.setRequestedOrientation(8);
+            } else {
+                activity.setRequestedOrientation(0);
             }
-            return -1;
+            activity.getWindow().setFlags(1024, 1024);
         }
-        return invokeL.intValue;
     }
 
-    public static int c(Context context) {
-        InterceptResult invokeL;
+    public static void c(Activity activity, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            AudioManager a = a(context);
-            if (a != null) {
-                return a.getStreamVolume(3);
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.getWindow().addFlags(128);
+            } else {
+                activity.getWindow().clearFlags(128);
             }
-            return -1;
         }
-        return invokeL.intValue;
     }
 
-    public static void d(Context context, int i) {
-        AudioManager a;
+    public static void startActivity(Context context, ComponentName componentName) throws Exception {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65539, null, context, i) == null) && (a = a(context)) != null) {
-            a.setStreamVolume(3, i, 8);
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, componentName) == null) {
+            new Intent().setComponent(componentName);
+        }
+    }
+
+    public static void startActivity(Context context, String str, String str2, String str3) throws Exception {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2, str3) == null) {
+            new Intent().setComponent(new ComponentName(str, str2 + str3));
         }
     }
 }

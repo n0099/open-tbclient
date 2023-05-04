@@ -13,13 +13,13 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv5;
-import com.baidu.tieba.dy4;
-import com.baidu.tieba.fq5;
-import com.baidu.tieba.jv5;
-import com.baidu.tieba.ny4;
+import com.baidu.tieba.bw5;
+import com.baidu.tieba.dz4;
+import com.baidu.tieba.jw5;
+import com.baidu.tieba.o05;
+import com.baidu.tieba.ty4;
 import com.baidu.tieba.video.ActivityItemData;
-import com.baidu.tieba.xz4;
+import com.baidu.tieba.yq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class OriginalThreadInfo {
     public final List<PbContent> t;
     public SpannableString u;
     @Nullable
-    public List<jv5> v;
+    public List<jw5> v;
     @Nullable
     public ThreadData w;
     public boolean x;
@@ -179,7 +179,7 @@ public class OriginalThreadInfo {
     }
 
     @Nullable
-    public List<jv5> h() {
+    public List<jw5> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
@@ -259,7 +259,7 @@ public class OriginalThreadInfo {
             if (this.v == null) {
                 this.v = new ArrayList();
             }
-            this.u = new SpannableString(bv5.J(this.s, this.E, true, this.w, this.v));
+            this.u = new SpannableString(bw5.J(this.s, this.E, true, this.w, this.v));
         }
     }
 
@@ -315,12 +315,12 @@ public class OriginalThreadInfo {
             originalThreadInfo2.h = arrayList2;
             originalThreadInfo2.r = threadData.getThreadVideoInfo();
             if (threadData.isLinkThread() && threadData.getLinkThreadData() != null) {
-                dy4 linkThreadData = threadData.getLinkThreadData();
+                ty4 linkThreadData = threadData.getLinkThreadData();
                 originalThreadInfo2.g = linkThreadData.d();
                 abstractData.text = linkThreadData.a();
                 mediaData.setPic(linkThreadData.b());
             } else if (threadData.isInterviewLiveStyle() && threadData.getTaskInfoData() != null) {
-                mediaData.setPic(threadData.getTaskInfoData().k());
+                mediaData.setPic(threadData.getTaskInfoData().m());
             } else if (ListUtils.getCount(threadData.getMedias()) > 0) {
                 originalThreadInfo2.h = threadData.getMedias();
             } else if (threadData.getThreadVideoInfo() != null && !StringUtils.isNull(threadData.getThreadVideoInfo().thumbnail_url)) {
@@ -394,7 +394,7 @@ public class OriginalThreadInfo {
                     PbContent pbContent = this.s.get(i);
                     if (pbContent != null && !TextUtils.isEmpty(pbContent.text) && 18 == pbContent.type.intValue() && m() && (str = pbContent.text) != null && str.length() >= 3) {
                         ActivityItemData activityItemData = new ActivityItemData();
-                        activityItemData.link_url = fq5.d(pbContent.text);
+                        activityItemData.link_url = yq5.d(pbContent.text);
                         String str2 = pbContent.text;
                         activityItemData.activity_name = str2.substring(1, str2.length() - 2);
                         return activityItemData;
@@ -556,7 +556,7 @@ public class OriginalThreadInfo {
                 this.f = jSONObject.optString("tid");
                 this.g = jSONObject.optString("title");
                 this.k = jSONObject.optInt("thread_type");
-                this.s = ny4.a(jSONObject.optJSONArray("content"));
+                this.s = dz4.a(jSONObject.optJSONArray("content"));
                 JSONObject optJSONObject = jSONObject.optJSONObject("ala_info");
                 if (optJSONObject != null) {
                     AlaInfoData alaInfoData = new AlaInfoData();
@@ -610,7 +610,7 @@ public class OriginalThreadInfo {
                     this.p = baijiahaoData;
                     baijiahaoData.parseJson(optJSONObject2);
                 }
-                this.r = xz4.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
+                this.r = o05.a(jSONObject.optJSONObject(WriteActivityConfig.VIDEO_INFO));
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("voice_info");
                 if (optJSONArray3 != null && optJSONArray3.length() > 0) {
                     this.q = new ArrayList<>();

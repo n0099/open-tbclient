@@ -12,70 +12,70 @@ import com.baidu.nadcore.appframework.BaseActivity;
 import com.baidu.nadcore.webviewx.container.base.AbsContainer;
 import com.baidu.nadcore.widget.SlideInterceptor;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dm0;
-import com.baidu.tieba.f91;
-import com.baidu.tieba.k91;
-import com.baidu.tieba.l91;
-import com.baidu.tieba.o91;
-import com.baidu.tieba.p91;
+import com.baidu.tieba.fm0;
+import com.baidu.tieba.h91;
+import com.baidu.tieba.m91;
+import com.baidu.tieba.n91;
+import com.baidu.tieba.q91;
+import com.baidu.tieba.r91;
 /* loaded from: classes2.dex */
-public class AdWebActivity extends BaseActivity implements SlideInterceptor, k91, l91 {
-    public final AbsContainer u = f91.a.b(this, this, dm0.b().a().a("key_webview_core_type", 0));
+public class AdWebActivity extends BaseActivity implements SlideInterceptor, m91, n91 {
+    public final AbsContainer u = h91.a.b(this, this, fm0.b().a().a("key_webview_core_type", 0));
 
-    @Override // com.baidu.tieba.k91
-    public boolean f() {
-        return false;
-    }
-
-    @Override // com.baidu.tieba.l91
+    @Override // com.baidu.tieba.m91
     public boolean g() {
         return false;
     }
 
-    @Override // com.baidu.tieba.k91
+    @Override // com.baidu.tieba.m91
     @NonNull
     public Activity getActivity() {
         return this;
     }
 
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void C1() {
-        super.C1();
-        this.u.p();
+    @Override // com.baidu.tieba.n91
+    public boolean i() {
+        return false;
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
     public void F1() {
         super.F1();
+        this.u.p();
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void H1() {
+        super.H1();
         this.u.q();
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void I1() {
-        super.I1();
-        this.u.s();
-    }
-
-    @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void J1() {
-        super.J1();
-        this.u.t();
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
     public void K1() {
         super.K1();
+        this.u.s();
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void L1() {
+        super.L1();
+        this.u.t();
+    }
+
+    @Override // com.baidu.nadcore.appframework.BaseActivity
+    public void M1() {
+        super.M1();
         this.u.u();
     }
 
-    @Override // com.baidu.tieba.k91
-    public void d() {
+    @Override // com.baidu.tieba.m91
+    public void e() {
         finish();
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void B1(Bundle bundle) {
-        super.B1(bundle);
+    public void D1(Bundle bundle) {
+        super.D1(bundle);
         if (!this.u.b()) {
             if (!isFinishing()) {
                 finish();
@@ -85,12 +85,12 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, k91
         }
         this.u.x("1");
         this.u.o();
-        o91.f().a(getActivity());
+        q91.f().a(getActivity());
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void G1(@Nullable Bundle bundle) {
-        super.G1(bundle);
+    public void I1(@Nullable Bundle bundle) {
+        super.I1(bundle);
         this.u.r(bundle);
     }
 
@@ -103,23 +103,23 @@ public class AdWebActivity extends BaseActivity implements SlideInterceptor, k91
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public boolean L1(Bundle bundle) {
-        if (!super.L1(bundle)) {
+    public boolean N1(Bundle bundle) {
+        if (!super.N1(bundle)) {
             return false;
         }
         requestWindowFeature(1);
-        if (p91.b.a().a(getIntent())) {
-            R1(0, 0, 0, 0);
+        if (r91.b.a().a(getIntent())) {
+            T1(0, 0, 0, 0);
             forceActivityTransparent(true);
         } else {
-            R1(R.anim.nad_slide_in_from_right, R.anim.nad_slide_out_to_left, R.anim.nad_slide_in_from_left, R.anim.nad_slide_out_to_right);
+            T1(R.anim.nad_slide_in_from_right, R.anim.nad_slide_out_to_left, R.anim.nad_slide_in_from_left, R.anim.nad_slide_out_to_right);
         }
         if (Build.VERSION.SDK_INT == 26) {
             setEnableSliding(false);
             setCurrentActivityNoTransparent();
         } else {
-            O1(true, this);
-            U1(true);
+            Q1(true, this);
+            W1(true);
         }
         return true;
     }

@@ -1,111 +1,120 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
-import android.util.Log;
+import android.opengl.Matrix;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
-import java.nio.ByteOrder;
-import java.nio.FloatBuffer;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vc0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "vc0";
+public class vc0 implements Cloneable {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public float[] a;
+    public float[] b;
+    public boolean c;
+    public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948235846, "Lcom/baidu/tieba/vc0;")) == null) {
-            return;
+    public void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    public vc0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948235846, "Lcom/baidu/tieba/vc0;");
+        float[] fArr = new float[16];
+        this.a = fArr;
+        Matrix.setIdentityM(fArr, 0);
+        float[] fArr2 = new float[16];
+        this.b = fArr2;
+        Matrix.setIdentityM(fArr2, 0);
+        this.c = false;
+        this.d = false;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public vc0 clone() {
+        vc0 vc0Var;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                vc0Var = (vc0) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                vc0Var = null;
+            }
+            if (vc0Var != null) {
+                vc0Var.f((float[]) this.a.clone());
+                vc0Var.g((float[]) this.b.clone());
+            }
+            return vc0Var;
+        }
+        return (vc0) invokeV.objValue;
+    }
+
+    public float[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    public float[] c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (float[]) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f(float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, fArr) == null) {
+            this.a = fArr;
         }
     }
 
-    public static void a(String str) {
-        int glGetError;
+    public void g(float[] fArr) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && (glGetError = GLES20.glGetError()) != 0) {
-            Log.e(a, str + ": glError 0x" + Integer.toHexString(glGetError));
+        if (interceptable == null || interceptable.invokeL(1048583, this, fArr) == null) {
+            this.b = fArr;
         }
-    }
-
-    public static FloatBuffer b(float[] fArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, fArr)) == null) {
-            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(fArr.length * 4);
-            allocateDirect.order(ByteOrder.nativeOrder());
-            FloatBuffer asFloatBuffer = allocateDirect.asFloatBuffer();
-            asFloatBuffer.put(fArr);
-            asFloatBuffer.position(0);
-            return asFloatBuffer;
-        }
-        return (FloatBuffer) invokeL.objValue;
-    }
-
-    public static int c(String str, String str2) {
-        InterceptResult invokeLL;
-        int d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            int d2 = d(35633, str);
-            if (d2 == 0 || (d = d(35632, str2)) == 0) {
-                return -1;
-            }
-            int glCreateProgram = GLES20.glCreateProgram();
-            a("glCreateProgram");
-            if (glCreateProgram == 0) {
-                Log.e(a, "Could not create program");
-            }
-            GLES20.glAttachShader(glCreateProgram, d2);
-            a("glAttachShader");
-            GLES20.glAttachShader(glCreateProgram, d);
-            a("glAttachShader");
-            GLES20.glLinkProgram(glCreateProgram);
-            int[] iArr = new int[1];
-            GLES20.glGetProgramiv(glCreateProgram, 35714, iArr, 0);
-            if (iArr[0] != 1) {
-                Log.e(a, "Could not link program: ");
-                Log.e(a, GLES20.glGetProgramInfoLog(glCreateProgram));
-                GLES20.glDeleteProgram(glCreateProgram);
-                return -1;
-            }
-            return glCreateProgram;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static int d(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, str)) == null) {
-            int glCreateShader = GLES20.glCreateShader(i);
-            a("glCreateShader type=" + i);
-            GLES20.glShaderSource(glCreateShader, str);
-            GLES20.glCompileShader(glCreateShader);
-            int[] iArr = new int[1];
-            GLES20.glGetShaderiv(glCreateShader, 35713, iArr, 0);
-            if (iArr[0] == 0) {
-                String str2 = a;
-                Log.e(str2, "Could not compile shader " + i + ":");
-                String str3 = a;
-                Log.e(str3, " " + GLES20.glGetShaderInfoLog(glCreateShader));
-                GLES20.glDeleteShader(glCreateShader);
-                return 0;
-            }
-            return glCreateShader;
-        }
-        return invokeIL.intValue;
     }
 }

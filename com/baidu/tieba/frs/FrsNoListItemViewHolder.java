@@ -3,9 +3,7 @@ package com.baidu.tieba.frs;
 import android.graphics.Rect;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.TextView;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -13,7 +11,8 @@ import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tieba.R;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -25,17 +24,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId j;
+    public static BdUniqueId i;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
     public View b;
     public LinearLayout c;
-    public TextView d;
-    public ImageView e;
-    public int f;
-    public Rect g;
-    public int h;
-    public CustomMessageListener i;
+    public NoDataView d;
+    public int e;
+    public Rect f;
+    public int g;
+    public CustomMessageListener h;
 
     /* loaded from: classes4.dex */
     public class a extends CustomMessageListener {
@@ -123,7 +121,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
                 return;
             }
         }
-        j = BdUniqueId.gen();
+        i = BdUniqueId.gen();
     }
 
     public final void d() {
@@ -144,66 +142,67 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
             newInitContext.initArgs = r2;
             Object[] objArr = {view2, viewGroup};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.g = new Rect();
-        this.i = new a(this, 2921397);
+        this.f = new Rect();
+        this.h = new a(this, 2921397);
         this.b = view2;
         this.a = viewGroup;
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090772);
-        this.e = (ImageView) view2.findViewById(R.id.emotion_view);
-        this.d = (TextView) view2.findViewById(R.id.no_data_tips);
-        SkinManager.setImageResource(this.e, R.drawable.new_pic_emotion_06);
-        this.i.setTag(j);
-        MessageManager.getInstance().registerListener(this.i);
+        NoDataViewFactory.d b2 = NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, 0);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090775);
+        NoDataView a2 = NoDataViewFactory.a(view2.getContext(), this.c, b2, null, null);
+        this.d = a2;
+        a2.setVisibility(0);
+        this.h.setTag(i);
+        MessageManager.getInstance().registerListener(this.h);
         d();
     }
 
-    public final void c(int i) {
+    public final void c(int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || this.b == null || this.a == null) {
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i2) != null) || this.b == null || this.a == null) {
             return;
         }
-        if (this.f <= 0) {
-            this.f = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
+        if (this.e <= 0) {
+            this.e = TbadkCoreApplication.getInst().getResources().getDimensionPixelOffset(R.dimen.tbds156);
         }
-        if (i == Integer.MAX_VALUE && this.h == Integer.MAX_VALUE) {
+        if (i2 == Integer.MAX_VALUE && this.g == Integer.MAX_VALUE) {
             return;
         }
-        this.h = i;
-        if (!this.a.getLocalVisibleRect(this.g)) {
+        this.g = i2;
+        if (!this.a.getLocalVisibleRect(this.f)) {
             return;
         }
-        int i2 = this.g.bottom;
+        int i3 = this.f.bottom;
         int abs = Math.abs(this.c.getTop());
-        int abs2 = i2 - Math.abs(this.c.getBottom());
+        int abs2 = i3 - Math.abs(this.c.getBottom());
         ViewGroup.LayoutParams layoutParams = this.c.getLayoutParams();
         if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
             return;
         }
         ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) layoutParams;
-        int i3 = this.f;
-        if (abs < i3) {
-            marginLayoutParams.topMargin = i3;
+        int i4 = this.e;
+        if (abs < i4) {
+            marginLayoutParams.topMargin = i4;
             this.c.setLayoutParams(marginLayoutParams);
-        } else if (abs == i3) {
-            if (abs2 > i3) {
-                marginLayoutParams.topMargin = i3 + ((abs2 - i3) / 2);
+        } else if (abs == i4) {
+            if (abs2 > i4) {
+                marginLayoutParams.topMargin = i4 + ((abs2 - i4) / 2);
                 this.c.setLayoutParams(marginLayoutParams);
             }
-        } else if (abs > i3) {
-            if (abs2 < i3) {
-                marginLayoutParams.topMargin = i3;
-            } else if (abs2 == i3) {
-                marginLayoutParams.topMargin = i3;
-            } else if (abs2 > i3) {
+        } else if (abs > i4) {
+            if (abs2 < i4) {
+                marginLayoutParams.topMargin = i4;
+            } else if (abs2 == i4) {
+                marginLayoutParams.topMargin = i4;
+            } else if (abs2 > i4) {
                 marginLayoutParams.topMargin = (abs + abs2) / 2;
             }
             this.c.setLayoutParams(marginLayoutParams);
@@ -217,7 +216,7 @@ public class FrsNoListItemViewHolder extends TypeAdapter.ViewHolder {
             if (view2 == null) {
                 return false;
             }
-            return view2.getGlobalVisibleRect(this.g);
+            return view2.getGlobalVisibleRect(this.f);
         }
         return invokeL.booleanValue;
     }

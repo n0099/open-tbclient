@@ -1,97 +1,36 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.TextView;
+import android.content.ContentResolver;
+import android.content.Context;
+import android.database.Cursor;
+import android.media.MediaMetadataRetriever;
+import android.provider.MediaStore;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.cloudmusic.data.CloudMusicData;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.down.statistic.ConfigSpeedStat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import com.google.android.exoplayer2.util.MimeTypes;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class pz9 extends BaseAdapter {
+public class pz9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a9 a;
-    public List<CloudMusicData.MusicTagList.MusicList> b;
-    public c c;
-    public String d;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void u1(View view2, String str, int i);
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public static final class a implements Comparator<oz9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CloudMusicData.MusicTagList.MusicList a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ pz9 c;
 
-        public a(pz9 pz9Var, CloudMusicData.MusicTagList.MusicList musicList, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {pz9Var, musicList, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = pz9Var;
-            this.a = musicList;
-            this.b = i;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.c.c != null) {
-                this.c.c.u1(view2, this.a.resource, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public TbImageView b;
-        public View c;
-        public TextView d;
-        public TextView e;
-        public TextView f;
-        public TextView g;
-        public View h;
-
-        public b() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -105,159 +44,287 @@ public class pz9 extends BaseAdapter {
             }
         }
 
-        public void b(int i) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(oz9 oz9Var, oz9 oz9Var2) {
+            InterceptResult invokeLL;
+            int i;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0105);
-                SkinManager.setViewTextColor(this.e, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.f, (int) R.color.CAM_X0107);
-                SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0302);
-                SkinManager.setBackgroundResource(this.g, R.drawable.obfuscated_res_0x7f0802c5);
-                SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
-                SkinManager.setImageResource(this.b, R.drawable.btn_icon_play_video_n);
-            }
-        }
-    }
-
-    public pz9(a9 a9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.d = "";
-        this.a = a9Var;
-        this.b = new ArrayList();
-    }
-
-    public void b(List<CloudMusicData.MusicTagList.MusicList> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
-            return;
-        }
-        for (CloudMusicData.MusicTagList.MusicList musicList : list) {
-            if (!this.b.contains(musicList)) {
-                this.b.add(musicList);
-            }
-        }
-        notifyDataSetChanged();
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: c */
-    public CloudMusicData.MusicTagList.MusicList getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            return this.b.get(i);
-        }
-        return (CloudMusicData.MusicTagList.MusicList) invokeI.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void e(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
-            this.c = cVar;
-        }
-    }
-
-    public void f(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            getItem(i).isLoading = z;
-            notifyDataSetChanged();
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b.size();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d01f2, viewGroup, false);
-                bVar = new b();
-                bVar.b = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091736);
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091733);
-                bVar.a = tbImageView;
-                tbImageView.setDrawerType(1);
-                bVar.a.setIsRound(true);
-                bVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080315);
-                bVar.a.setDefaultBgResource(R.color.transparent);
-                bVar.a.setBorderWidth(ii.g(this.a.getPageActivity(), R.dimen.obfuscated_res_0x7f070224));
-                bVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-                bVar.a.setConrers(15);
-                bVar.c = view2.findViewById(R.id.obfuscated_res_0x7f091734);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091737);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091730);
-                bVar.f = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091732);
-                bVar.g = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091731);
-                bVar.h = view2.findViewById(R.id.obfuscated_res_0x7f091476);
-                view2.setTag(bVar);
-            } else {
-                bVar = (b) view2.getTag();
-            }
-            bVar.b(TbadkCoreApplication.getInst().getSkinType());
-            CloudMusicData.MusicTagList.MusicList musicList = this.b.get(i);
-            if (musicList != null) {
-                bVar.d.setText(musicList.name);
-                bVar.a.N(musicList.image, 10, false);
-                bVar.e.setText(musicList.author);
-                bVar.f.setText(StringHelper.stringForVideoTime(musicList.duration * 1000));
-                if (musicList.isLoading) {
-                    bVar.c.setVisibility(0);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, oz9Var, oz9Var2)) == null) {
+                if (oz9Var.b() < oz9Var2.b()) {
+                    i = 1;
                 } else {
-                    bVar.c.setVisibility(4);
+                    i = 0;
                 }
-                if (musicList.equals(qz9.b().a())) {
-                    bVar.b.setImageResource(R.drawable.obfuscated_res_0x7f0803ad);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(0);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                    bVar.g.setOnClickListener(new a(this, musicList, i));
-                } else if (qz9.b().a() == null && getItem(i) != null && !TextUtils.isEmpty(this.d) && this.d.equals(String.valueOf(getItem(i).music_id))) {
-                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
-                    bVar.a.setDrawBorder(true);
-                    bVar.g.setVisibility(8);
-                    bVar.c.setVisibility(4);
-                    musicList.isLoading = false;
-                } else {
-                    bVar.b.setImageResource(R.drawable.btn_icon_play_video_n);
-                    bVar.a.setDrawBorder(false);
-                    bVar.g.setVisibility(8);
+                if (oz9Var.b() > oz9Var2.b()) {
+                    return -1;
+                }
+                return i;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:25:0x00d3, code lost:
+        if (r2 != null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:26:0x00d5, code lost:
+        r2.close();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:36:0x00ec, code lost:
+        if (r2 != null) goto L21;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:38:0x00ef, code lost:
+        r15.moveToNext();
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:39:0x00f6, code lost:
+        if (r8.d() == null) goto L47;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:41:0x0100, code lost:
+        if (r8.a() == 0) goto L46;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:43:0x010a, code lost:
+        if (c(r8.c()) == false) goto L45;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:45:0x0114, code lost:
+        if (r8.a() < 1000) goto L44;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:46:0x0116, code lost:
+        r0 = r8.d();
+        r2 = r0.substring(r9, r0.lastIndexOf("/"));
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:47:0x012a, code lost:
+        if (r0.contains("/DCIM/") != false) goto L43;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:48:0x012c, code lost:
+        if (r2 == null) goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:50:0x0132, code lost:
+        if (r2.equals("/sdcard") == false) goto L38;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:53:0x013e, code lost:
+        if (new java.io.File(r0).exists() == false) goto L42;
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:54:0x0140, code lost:
+        r1.add(r8);
+     */
+    /* JADX WARN: Code restructure failed: missing block: B:55:0x0143, code lost:
+        r5 = r21 + 1;
+        r7 = r17;
+        r9 = r18;
+        r8 = r22;
+        r6 = 0;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:77:0x0173  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static List<oz9> a(Context context) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        Cursor cursor2;
+        int i;
+        ContentResolver contentResolver;
+        String str;
+        int i2;
+        oz9 oz9Var;
+        Cursor cursor3;
+        ContentResolver contentResolver2;
+        String string;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            ArrayList arrayList = new ArrayList();
+            ContentResolver contentResolver3 = context.getContentResolver();
+            String str2 = "_id";
+            try {
+                Cursor query = contentResolver3.query(MediaStore.Video.Media.EXTERNAL_CONTENT_URI, new String[]{"_id", "_data", "duration", "mime_type", "date_modified"}, null, null, "title");
+                try {
+                    String[] strArr = {"video_id", "_data"};
+                    query.moveToFirst();
+                    int count = query.getCount();
+                    int i3 = 0;
+                    int i4 = 0;
+                    while (i4 < count) {
+                        oz9 oz9Var2 = new oz9();
+                        String string2 = query.getString(query.getColumnIndex(str2));
+                        oz9Var2.i(string2);
+                        String string3 = query.getString(query.getColumnIndex("_data"));
+                        if (string3 != null) {
+                            oz9Var2.j(string3.replace("/storage/emulated/0", "/sdcard"));
+                        }
+                        int i5 = count;
+                        oz9Var2.e(gg.e(query.getString(query.getColumnIndex("duration")), i3));
+                        oz9Var2.g(query.getString(query.getColumnIndex("mime_type")));
+                        oz9Var2.f(Long.parseLong(query.getString(query.getColumnIndex("date_modified"))));
+                        try {
+                            try {
+                                contentResolver2 = contentResolver3;
+                                i = i4;
+                                contentResolver = contentResolver3;
+                                str = str2;
+                                i2 = 0;
+                                oz9Var = oz9Var2;
+                            } catch (Exception e) {
+                                e = e;
+                                i = i4;
+                                contentResolver = contentResolver3;
+                                str = str2;
+                                i2 = 0;
+                                oz9Var = oz9Var2;
+                            }
+                            try {
+                                cursor3 = contentResolver2.query(MediaStore.Video.Thumbnails.EXTERNAL_CONTENT_URI, strArr, "video_id=" + string2, null, null);
+                                if (cursor3 != null) {
+                                    try {
+                                        try {
+                                            if (cursor3.moveToFirst() && (string = cursor3.getString(cursor3.getColumnIndex("_data"))) != null) {
+                                                oz9Var.h(string.replace("/storage/emulated/0", "/sdcard"));
+                                            }
+                                        } catch (Throwable th) {
+                                            th = th;
+                                            cursor2 = cursor3;
+                                            if (cursor2 != null) {
+                                                cursor2.close();
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception e2) {
+                                        e = e2;
+                                        e.printStackTrace();
+                                    }
+                                }
+                            } catch (Exception e3) {
+                                e = e3;
+                                cursor3 = null;
+                                e.printStackTrace();
+                            }
+                        } catch (Throwable th2) {
+                            th = th2;
+                            cursor2 = null;
+                        }
+                    }
+                    if (query != null) {
+                        query.close();
+                    }
+                } catch (Exception e4) {
+                    e = e4;
+                    cursor = query;
+                    try {
+                        e.printStackTrace();
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        return arrayList;
+                    } catch (Throwable th3) {
+                        th = th3;
+                        if (cursor != null) {
+                            cursor.close();
+                        }
+                        throw th;
+                    }
+                } catch (Throwable th4) {
+                    th = th4;
+                    cursor = query;
+                    if (cursor != null) {
+                    }
+                    throw th;
+                }
+            } catch (Exception e5) {
+                e = e5;
+                cursor = null;
+            } catch (Throwable th5) {
+                th = th5;
+                cursor = null;
+            }
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
+    public static oz9 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                oz9 oz9Var = new oz9();
+                oz9Var.j(str);
+                oz9Var.f(file.lastModified());
+                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+                try {
+                    try {
+                        try {
+                            mediaMetadataRetriever.setDataSource(str);
+                            String extractMetadata = mediaMetadataRetriever.extractMetadata(9);
+                            if (extractMetadata != null) {
+                                oz9Var.e(Integer.parseInt(extractMetadata));
+                            }
+                            oz9Var.g(mediaMetadataRetriever.extractMetadata(12));
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            mediaMetadataRetriever.release();
+                        }
+                    } catch (Throwable th) {
+                        try {
+                            mediaMetadataRetriever.release();
+                        } catch (Exception e2) {
+                            e2.printStackTrace();
+                        }
+                        throw th;
+                    }
+                } catch (Exception e3) {
+                    e3.printStackTrace();
+                }
+                return oz9Var;
+            }
+            return null;
+        }
+        return (oz9) invokeL.objValue;
+    }
+
+    public static boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (!MimeTypes.VIDEO_MP4.equals(str) && !"video/ext-mp4".equals(str)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(List<oz9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) {
+            Collections.sort(list, new a());
+        }
+    }
+
+    public static void d(String str, List<oz9> list, boolean z) {
+        File[] listFiles;
+        oz9 b;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLZ(65539, null, str, list, z) == null) && list != null && !StringUtils.isNull(str) && (listFiles = new File(str).listFiles()) != null && listFiles.length != 0) {
+            for (File file : listFiles) {
+                if (file != null && !StringUtils.isNull(file.getPath())) {
+                    String path = file.getPath();
+                    if (file.isFile()) {
+                        if (path.contains("_tiebaconverting.mp4")) {
+                            if (file.exists()) {
+                                file.delete();
+                            }
+                        } else if (path.contains(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) && DefaultHlsExtractorFactory.MP4_FILE_EXTENSION.equals(path.substring(path.lastIndexOf(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION))) && (b = b(file.getPath())) != null && file.length() > ConfigSpeedStat.CFG_MIN_SIZE_DEFAULT && b.a() >= 1000 && c(b.c())) {
+                            list.add(b);
+                        }
+                    } else if (file.isDirectory() && !path.contains(com.kuaishou.weapon.p0.i1.j) && z) {
+                        d(path, list, z);
+                    }
                 }
             }
-            return view2;
         }
-        return (View) invokeILL.objValue;
     }
 }

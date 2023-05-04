@@ -10,69 +10,78 @@ import java.util.TimerTask;
 public final class q63 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public final WheelView3d d;
+    public float a;
+    public final float b;
+    public final WheelView3d c;
 
-    public q63(WheelView3d wheelView3d, int i) {
+    public q63(WheelView3d wheelView3d, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wheelView3d, Integer.valueOf(i)};
+            Object[] objArr = {wheelView3d, Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = wheelView3d;
-        this.c = i;
-        this.a = Integer.MAX_VALUE;
-        this.b = 0;
+        this.c = wheelView3d;
+        this.b = f;
+        this.a = 2.1474836E9f;
     }
 
     @Override // java.util.TimerTask, java.lang.Runnable
     public final void run() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.a == Integer.MAX_VALUE) {
-                this.a = this.c;
-            }
-            int i = this.a;
-            int i2 = (int) (i * 0.1f);
-            this.b = i2;
-            if (i2 == 0) {
-                if (i < 0) {
-                    this.b = -1;
+            if (this.a == 2.1474836E9f) {
+                float f = 2000.0f;
+                if (Math.abs(this.b) > 2000.0f) {
+                    if (this.b <= 0.0f) {
+                        f = -2000.0f;
+                    }
+                    this.a = f;
                 } else {
-                    this.b = 1;
+                    this.a = this.b;
                 }
             }
-            if (Math.abs(this.a) <= 1) {
-                this.d.b();
-                this.d.getHandler().sendEmptyMessage(3000);
+            if (Math.abs(this.a) >= 0.0f && Math.abs(this.a) <= 20.0f) {
+                this.c.b();
+                this.c.getHandler().sendEmptyMessage(2000);
                 return;
             }
-            WheelView3d wheelView3d = this.d;
-            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() + this.b);
-            if (!this.d.i()) {
-                float itemHeight = this.d.getItemHeight();
-                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
-                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
-                    WheelView3d wheelView3d2 = this.d;
-                    wheelView3d2.setTotalScrollY(wheelView3d2.getTotalScrollY() - this.b);
-                    this.d.b();
-                    this.d.getHandler().sendEmptyMessage(3000);
-                    return;
+            WheelView3d wheelView3d = this.c;
+            float f2 = (int) (this.a / 100.0f);
+            wheelView3d.setTotalScrollY(wheelView3d.getTotalScrollY() - f2);
+            if (!this.c.i()) {
+                float itemHeight = this.c.getItemHeight();
+                float f3 = (-this.c.getInitPosition()) * itemHeight;
+                float itemsCount = ((this.c.getItemsCount() - 1) - this.c.getInitPosition()) * itemHeight;
+                double d = itemHeight * 0.25d;
+                if (this.c.getTotalScrollY() - d < f3) {
+                    f3 = this.c.getTotalScrollY() + f2;
+                } else if (this.c.getTotalScrollY() + d > itemsCount) {
+                    itemsCount = this.c.getTotalScrollY() + f2;
+                }
+                if (this.c.getTotalScrollY() <= f3) {
+                    this.a = 40.0f;
+                    this.c.setTotalScrollY((int) f3);
+                } else if (this.c.getTotalScrollY() >= itemsCount) {
+                    this.c.setTotalScrollY((int) itemsCount);
+                    this.a = -40.0f;
                 }
             }
-            this.d.getHandler().sendEmptyMessage(1000);
-            this.a -= this.b;
+            float f4 = this.a;
+            if (f4 < 0.0f) {
+                this.a = f4 + 20.0f;
+            } else {
+                this.a = f4 - 20.0f;
+            }
+            this.c.getHandler().sendEmptyMessage(1000);
         }
     }
 }

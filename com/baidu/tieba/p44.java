@@ -1,61 +1,20 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class p44 implements g54 {
+public class p44 implements qw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.g54
-    public boolean a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, @NonNull al2 al2Var) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, str3, Boolean.valueOf(z), al2Var})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.g54
-    public void b(String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4, str5) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.g54
-    public void c(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.g54
-    public void d(@NonNull String str, @NonNull String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.g54
-    public void e(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.g54
-    public void f(@NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-        }
-    }
 
     public p44() {
         Interceptable interceptable = $ic;
@@ -68,6 +27,140 @@ public class p44 implements g54 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ka4.A().n();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return ka4.A().C();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return ka4.A().B();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return ka4.A().v();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public long f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ka4.A().o();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return ka4.A().z();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public long h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return ka4.A().p();
+        }
+        return invokeV.longValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public Long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return ka4.A().w();
+        }
+        return (Long) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return ka4.A().q();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return ka4.A().u();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return ka4.A().x();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return ka4.A().y();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.qw3
+    public void b(boolean z) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                str = "gdtvideo";
+            } else {
+                str = "video";
+            }
+            v04.b(str, null);
         }
     }
 }

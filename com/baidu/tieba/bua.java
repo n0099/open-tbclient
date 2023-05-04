@@ -2,45 +2,45 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.channel.ModuleConfigKs;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.kwad.sdk.api.KsVideoPlayConfig;
 /* loaded from: classes3.dex */
-public class bua implements Runnable {
+public abstract class bua<A> extends ReporterPidLoader<A> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ mua a;
-    public final /* synthetic */ dua b;
+    public final ModuleConfigKs e;
 
-    public bua(dua duaVar, mua muaVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bua(FunAdType funAdType, Ssp.Pid pid, ModuleConfigKs moduleConfigKs) {
+        super(funAdType, pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {duaVar, muaVar};
+            Object[] objArr = {funAdType, pid, moduleConfigKs};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = duaVar;
-        this.a = muaVar;
+        this.e = moduleConfigKs;
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
+    public KsVideoPlayConfig e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.b.c) {
-                cva cvaVar = this.b.a;
-                if (cvaVar != null) {
-                    this.a.c();
-                    ((qua) cvaVar).a.countDown();
-                }
-            }
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new KsVideoPlayConfig.Builder().showLandscape(this.mPid.isHorizontal).videoSoundEnable(this.e.ksVideoSoundEnable).build() : (KsVideoPlayConfig) invokeV.objValue;
     }
 }

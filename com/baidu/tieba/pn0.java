@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 /* loaded from: classes5.dex */
 public interface pn0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "getPublicParamsUrl");
-
-    String a(String str);
+    boolean a(String str, ClogBuilder.LogType logType, String str2);
 }

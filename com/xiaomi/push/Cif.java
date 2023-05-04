@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* renamed from: com.xiaomi.push.if  reason: invalid class name */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Cif implements is<Cif, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */

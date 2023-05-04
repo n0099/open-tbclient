@@ -3,9 +3,9 @@ package com.baidu.tbadk.core.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.db9;
+import com.baidu.tieba.ae9;
+import com.baidu.tieba.cj6;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.rh6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class BannerListData implements Serializable {
     public transient /* synthetic */ FieldHolder $fh;
     public ArrayList<AdvertAppInfo> advertAppList;
     public ArrayList<FeedForumData> feedForumList;
-    public rh6 recomTopicData;
+    public cj6 recomTopicData;
 
     /* loaded from: classes3.dex */
     public class a implements Comparator<AdvertAppInfo> {
@@ -110,13 +110,13 @@ public class BannerListData implements Serializable {
         return (List) invokeV.objValue;
     }
 
-    public rh6 getRecomTopicData() {
+    public cj6 getRecomTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.recomTopicData;
         }
-        return (rh6) invokeV.objValue;
+        return (cj6) invokeV.objValue;
     }
 
     public String getLastIds() {
@@ -172,7 +172,7 @@ public class BannerListData implements Serializable {
     public void parserProtobuf(BannerList bannerList) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bannerList) == null) {
-            List<AdvertAppInfo> f = db9.l().f();
+            List<AdvertAppInfo> f = ae9.l().f();
             if (f != null) {
                 f.clear();
             }
@@ -184,7 +184,7 @@ public class BannerListData implements Serializable {
                 for (int i = 0; i < list.size(); i++) {
                     if (list.get(i) != null) {
                         AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-                        advertAppInfo.l(list.get(i));
+                        advertAppInfo.k(list.get(i));
                         this.advertAppList.add(advertAppInfo);
                         if (f != null) {
                             f.add(advertAppInfo);
@@ -192,7 +192,7 @@ public class BannerListData implements Serializable {
                     }
                 }
             }
-            db9.l().e();
+            ae9.l().e();
             Collections.sort(this.advertAppList, new a(this));
             List<FeedForumInfo> list2 = bannerList.feed_forum;
             if (list2 != null && list2.size() > 0) {

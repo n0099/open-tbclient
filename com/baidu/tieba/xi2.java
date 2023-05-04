@@ -1,38 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ad3;
+import com.baidu.tieba.cd3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xi2 extends s93 {
+public class xi2 extends u93 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String j;
+    public static final String k;
+    public static final String l;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean c;
+    public boolean d;
+    public boolean e;
+    public String f;
+    public String g;
+    public String h;
+    public JSONObject i;
 
     /* loaded from: classes7.dex */
-    public class a implements om3<yc3<ad3.e>> {
+    public class a implements qm3<ad3<cd3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ JSONObject c;
-        public final /* synthetic */ Context d;
+        public final /* synthetic */ JSONObject b;
+        public final /* synthetic */ Context c;
+        public final /* synthetic */ x73 d;
+        public final /* synthetic */ xi2 e;
 
-        public a(xi2 xi2Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, JSONObject jSONObject, Context context) {
+        public a(xi2 xi2Var, CallbackHandler callbackHandler, JSONObject jSONObject, Context context, x73 x73Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xi2Var, callbackHandler, unitedSchemeEntity, jSONObject, context};
+                Object[] objArr = {xi2Var, callbackHandler, jSONObject, context, x73Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,83 +64,359 @@ public class xi2 extends s93 {
                     return;
                 }
             }
+            this.e = xi2Var;
             this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = jSONObject;
-            this.d = context;
+            this.b = jSONObject;
+            this.c = context;
+            this.d = x73Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
+        @Override // com.baidu.tieba.qm3
         /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
+        public void a(ad3<cd3.e> ad3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (!tc3.h(yc3Var)) {
-                    tc3.p(yc3Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad3Var) == null) {
+                if (!vc3.h(ad3Var)) {
+                    vc3.q(ad3Var, this.a, this.e.h);
                     return;
                 }
-                if (ji2.b(this.c.optInt("emitReplaceDynamicLib"))) {
-                    if (li2.n().isEmpty()) {
-                        Context context = this.d;
-                        if (context == null) {
-                            context = cr2.c();
-                        }
-                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0144);
-                        n73.g(context, string).G();
-                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
-                        return;
-                    }
-                    li2.p();
-                } else {
-                    li2.f();
+                this.e.i = new JSONObject();
+                lg3.a().edit().putInt("aiapps_web_mode_cts_use_key", this.b.optInt("loadCts")).apply();
+                if (this.b.optInt("loadCts") == 1) {
+                    this.e.u(this.c);
+                    xi2 xi2Var = this.e;
+                    xi2Var.w(this.d, xi2Var.f, this.a, "master");
+                    xi2 xi2Var2 = this.e;
+                    xi2Var2.w(this.d, xi2Var2.g, this.a, "slave");
+                    this.e.e = true;
+                    return;
                 }
-                UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                u33.Z();
+                this.e.e = false;
+                w33.R(false);
+                w33.Z();
+                this.a.handleSchemeDispatchCallback(this.e.h, UnitedSchemeUtility.wrapCallbackParams(0).toString());
             }
         }
     }
 
+    /* loaded from: classes7.dex */
+    public class b extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ x73 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ xi2 d;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        public b(xi2 xi2Var, x73 x73Var, String str, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xi2Var, x73Var, str, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = xi2Var;
+            this.a = x73Var;
+            this.b = str;
+            this.c = callbackHandler;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                x42.c("SwanAppAction", "request Cts Server Address onFailure: " + exc.getMessage());
+                this.c.handleSchemeDispatchCallback(this.d.h, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                if (response.code() != 200 || response.body() == null) {
+                    x42.c("setCtsConfig", "request Cts Server Address fail,code is " + response.code());
+                    this.c.handleSchemeDispatchCallback(this.d.h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                } else {
+                    this.d.s(this.a, response, this.b, this.c);
+                }
+                return response;
+            }
+            return invokeLI.objValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends ResponseCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ xi2 c;
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(Object obj, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
+            }
+        }
+
+        public c(xi2 xi2Var, String str, CallbackHandler callbackHandler) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xi2Var, str, callbackHandler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = xi2Var;
+            this.a = str;
+            this.b = callbackHandler;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                x42.c("setCtsConfig", "download cts file fail");
+                this.b.handleSchemeDispatchCallback(this.c.h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public Object parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
+                xi2 xi2Var = this.c;
+                xi2Var.v(response, this.a, xi2Var.h, this.b);
+                return response;
+            }
+            return invokeLI.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948301256, "Lcom/baidu/tieba/xi2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948301256, "Lcom/baidu/tieba/xi2;");
+                return;
+            }
+        }
+        j = String.format("?swanjs_version=%s", ch3.h(0));
+        k = "https://smartprogram.baidu.com/batapi/engine" + j + "&type=1";
+        l = "https://smartprogram.baidu.com/batapi/engine" + j + "&type=2";
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xi2(s83 s83Var) {
-        super(s83Var, "/swanAPI/debug/setReplaceDynamicLibConfig");
+    public xi2(u83 u83Var) {
+        super(u83Var, "/swanAPI/debug/setCtsConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {u83Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.c = false;
+        this.d = false;
+        this.e = false;
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            JSONObject a2 = s93.a(unitedSchemeEntity, "params");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            JSONObject a2 = u93.a(unitedSchemeEntity, "params");
             if (a2 == null) {
-                v42.c("setReplaceDynamicLibConfig", "'params' is null");
+                x42.c("setCtsConfig", "params is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!a2.has("emitReplaceDynamicLib")) {
-                v42.c("setReplaceDynamicLibConfig", "'emitReplaceSwanCore's is null");
+            } else if (x73Var == null) {
+                x42.c("setCtsConfig", "swanApp is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                v73Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                this.h = a2.optString("cb");
+                if (!a2.has("loadCts")) {
+                    x42.c("setCtsConfig", "loadCts is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                x73Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, a2, context, x73Var));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
                 return true;
             }
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final void s(x73 x73Var, Response response, String str, CallbackHandler callbackHandler) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x73Var, response, str, callbackHandler) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(response.body().string());
+                if (jSONObject.has("code") && jSONObject.optInt("code") == 0) {
+                    t(jSONObject.optJSONArray("data").optString(0), str, x73Var, callbackHandler);
+                } else {
+                    callbackHandler.handleSchemeDispatchCallback(this.h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+                callbackHandler.handleSchemeDispatchCallback(this.h, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+            }
+        }
+    }
+
+    public final void t(String str, String str2, x73 x73Var, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, x73Var, callbackHandler) == null) {
+            af4 af4Var = new af4(er2.o().m(str), new c(this, str2, callbackHandler));
+            af4Var.f = true;
+            af4Var.g = false;
+            af4Var.h = true;
+            bf4.g().d(af4Var);
+        }
+    }
+
+    public final void w(x73 x73Var, String str, CallbackHandler callbackHandler, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, x73Var, str, callbackHandler, str2) == null) {
+            af4 af4Var = new af4(str, new b(this, x73Var, str2, callbackHandler));
+            af4Var.f = true;
+            af4Var.g = false;
+            af4Var.h = true;
+            bf4.g().d(af4Var);
+        }
+    }
+
+    public final void u(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+            if (ik3.a(context, "aiapps/debug_cts_url.json")) {
+                try {
+                    JSONObject jSONObject = new JSONObject(ik3.b(context, "aiapps/debug_cts_url.json"));
+                    this.f = jSONObject.optString("master");
+                    this.g = jSONObject.optString("slave");
+                    if (TextUtils.isEmpty(this.f)) {
+                        this.f = k;
+                    }
+                    if (TextUtils.isEmpty(this.g)) {
+                        this.g = l;
+                        return;
+                    }
+                    return;
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    this.f = k;
+                    this.g = l;
+                    return;
+                }
+            }
+            this.f = k;
+            this.g = l;
+        }
+    }
+
+    public final void v(Response response, String str, String str2, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, response, str, str2, callbackHandler) == null) {
+            if (response.code() == 200 && response.body() != null) {
+                try {
+                    InputStream byteStream = response.body().byteStream();
+                    File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_cts");
+                    File file2 = new File(file, str + ".js");
+                    if (eo4.a(byteStream, file2)) {
+                        JSONArray jSONArray = new JSONArray();
+                        jSONArray.put(file2);
+                        char c2 = 65535;
+                        int hashCode = str.hashCode();
+                        if (hashCode != -1081267614) {
+                            if (hashCode == 109519319 && str.equals("slave")) {
+                                c2 = 1;
+                            }
+                        } else if (str.equals("master")) {
+                            c2 = 0;
+                        }
+                        if (c2 != 0) {
+                            if (c2 != 1) {
+                                callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                                x42.c("setCtsConfig", "error type, get cts url failed");
+                                return;
+                            }
+                            this.i.put("slave", jSONArray);
+                            this.d = true;
+                            x(this.i, callbackHandler, str2);
+                            return;
+                        }
+                        this.i.put("master", jSONArray);
+                        this.c = true;
+                        x(this.i, callbackHandler, str2);
+                        return;
+                    }
+                    x42.c("setCtsConfig", "save cts file fail");
+                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    return;
+                } catch (Exception unused) {
+                    x42.c("setCtsConfig", "save cts file fail");
+                    callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+                    return;
+                }
+            }
+            x42.c("setCtsConfig", "download cts file fail,code is " + response.code());
+            callbackHandler.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
+        }
+    }
+
+    public final void x(JSONObject jSONObject, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(1048582, this, jSONObject, callbackHandler, str) == null) && this.c && this.d && this.e) {
+            w33.R(true);
+            lg3.a().putString("ctsUrl", jSONObject.toString());
+            callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+            this.d = false;
+            this.c = false;
+            w33.Z();
+        }
     }
 }

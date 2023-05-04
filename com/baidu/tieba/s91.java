@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -13,12 +12,22 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public interface s91 {
     public static final s91 a = new a();
 
-    void a(Activity activity);
+    boolean a(int i);
 
     /* loaded from: classes6.dex */
     public static class a implements s91 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.s91
+        public boolean a(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                return false;
+            }
+            return invokeI.booleanValue;
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -31,14 +40,6 @@ public interface s91 {
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
-            }
-        }
-
-        @Override // com.baidu.tieba.s91
-        public void a(Activity activity) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, activity) == null) && activity != null) {
-                activity.finish();
             }
         }
     }
@@ -62,7 +63,7 @@ public interface s91 {
                     return;
                 }
             }
-            a = o91.c();
+            a = q91.e();
         }
 
         @NonNull

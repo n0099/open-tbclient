@@ -1,5 +1,7 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
 public interface ec2 {
-    public static final boolean a = fo1.a;
+    String a(@NonNull String str);
 }

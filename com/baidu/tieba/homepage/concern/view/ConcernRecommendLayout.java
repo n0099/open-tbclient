@@ -24,19 +24,19 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av4;
 import com.baidu.tieba.en;
-import com.baidu.tieba.ez4;
 import com.baidu.tieba.gn;
 import com.baidu.tieba.homepage.concern.adapter.ConcernRecommendListAdapter;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jx;
+import com.baidu.tieba.lx;
+import com.baidu.tieba.qv4;
+import com.baidu.tieba.uz4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ConcernRecommendLayout extends LinearLayout implements jx {
+public class ConcernRecommendLayout extends LinearLayout implements lx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Context a;
@@ -146,10 +146,10 @@ public class ConcernRecommendLayout extends LinearLayout implements jx {
         }
     }
 
-    public void setOnItemCoverListener(av4<MetaData> av4Var) {
+    public void setOnItemCoverListener(qv4<MetaData> qv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, av4Var) == null) {
-            this.e.s(av4Var);
+        if (interceptable == null || interceptable.invokeL(1048581, this, qv4Var) == null) {
+            this.e.s(qv4Var);
         }
     }
 
@@ -169,7 +169,7 @@ public class ConcernRecommendLayout extends LinearLayout implements jx {
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.lx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
@@ -192,10 +192,10 @@ public class ConcernRecommendLayout extends LinearLayout implements jx {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0205, (ViewGroup) this, true);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0208, (ViewGroup) this, true);
             setOrientation(1);
             setLayoutParams(new ViewGroup.LayoutParams(-1, -2));
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0923f2);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09240b);
             this.d = (RecyclerView) findViewById(R.id.thread_card_list);
             ConcernRecommendListAdapter concernRecommendListAdapter = new ConcernRecommendListAdapter(this.a);
             this.e = concernRecommendListAdapter;
@@ -219,27 +219,27 @@ public class ConcernRecommendLayout extends LinearLayout implements jx {
         }
     }
 
-    public void setData(ez4 ez4Var) {
+    public void setData(uz4 uz4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ez4Var) == null) {
-            if (ez4Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, uz4Var) == null) {
+            if (uz4Var == null) {
                 setVisibility(8);
                 return;
             }
             setVisibility(0);
-            if (!TextUtils.isEmpty(ez4Var.a) && ez4Var.b != 0) {
+            if (!TextUtils.isEmpty(uz4Var.a) && uz4Var.b != 0) {
                 this.c.setTextSize(0, ii.g(this.a, R.dimen.tbds37));
-                this.c.setText(ez4Var.a);
+                this.c.setText(uz4Var.a);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
-                this.g = ez4Var.b;
+                this.g = uz4Var.b;
             } else {
                 this.c.setTextSize(0, ii.g(this.a, R.dimen.tbds37));
-                this.c.setText(R.string.obfuscated_res_0x7f0f0459);
+                this.c.setText(R.string.obfuscated_res_0x7f0f0461);
                 this.c.setTypeface(Typeface.DEFAULT_BOLD);
                 this.g = R.color.CAM_X0105;
             }
             this.e.o(TbadkCoreApplication.getInst().getSkinType());
-            this.e.setData(ez4Var.c());
+            this.e.setData(uz4Var.c());
             this.e.notifyDataSetChanged();
         }
     }

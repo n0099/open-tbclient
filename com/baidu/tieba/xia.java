@@ -1,37 +1,129 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class xia {
+public class xia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
+    public int g;
+    public String h;
 
-    public static byte[] a(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
+    public xia() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(2, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (byte[]) invokeLLL.objValue;
+        this.a = "";
+        this.b = "";
+        this.c = "";
+        this.d = "";
+        this.f = "";
+        this.g = 0;
     }
 
-    public static byte[] b(String str, String str2, byte[] bArr) throws Exception {
-        InterceptResult invokeLLL;
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, str, str2, bArr)) == null) {
-            SecretKeySpec secretKeySpec = new SecretKeySpec(str2.getBytes(), "AES");
-            Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-            cipher.init(1, secretKeySpec, new IvParameterSpec(str.getBytes()));
-            return cipher.doFinal(bArr);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (byte[]) invokeLLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                this.a = jSONObject.optString("name");
+                this.b = jSONObject.optString("id");
+                this.c = jSONObject.optString("image");
+                this.d = jSONObject.optString("url");
+                this.e = jSONObject.optInt("progress");
+                this.f = jSONObject.optString("downloadPerSize");
+                this.g = jSONObject.optInt("status");
+                this.h = jSONObject.optString("savePath");
+                return true;
+            } catch (JSONException unused) {
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.h = str;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("name", this.a);
+                jSONObject.put("id", this.b);
+                jSONObject.put("image", this.c);
+                jSONObject.put("url", this.d);
+                jSONObject.put("progress", this.e);
+                jSONObject.put("downloadPerSize", this.f);
+                jSONObject.put("status", this.g);
+                jSONObject.put("savePath", this.h);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -1,111 +1,78 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes4.dex */
 public class cya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static Object a;
-        public static Class<?> b;
-        public static Method c;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-873288735, "Lcom/baidu/tieba/cya$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-873288735, "Lcom/baidu/tieba/cya$a;");
-                    return;
-                }
-            }
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                b = cls;
-                a = cls.newInstance();
-                b.getMethod("getUDID", Context.class);
-                c = b.getMethod("getOAID", Context.class);
-                b.getMethod("getVAID", Context.class);
-                b.getMethod("getAAID", Context.class);
-            } catch (Throwable th) {
-                Log.e("XiaomiId", "xiaomi init error", th);
+    public cya(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-
-        public static String a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-                return b(context, c);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        public static String b(Context context, Method method) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, method)) == null) {
-                Object obj = a;
-                if (obj != null && method != null) {
-                    try {
-                        Object invoke = method.invoke(obj, context);
-                        if (invoke != null) {
-                            return (String) invoke;
-                        }
-                        return null;
-                    } catch (Exception e) {
-                        Log.e("XiaomiId", "invoke method error", e);
-                        return null;
-                    }
-                }
-                return null;
-            }
-            return (String) invokeLL.objValue;
-        }
-
-        public static boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-                if (b != null && a != null) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
+        this.a = str;
+        this.b = a(str);
     }
 
-    public static String a(Context context) {
+    public static int a(Object... objArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            return a.a(context.getApplicationContext());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, objArr)) == null) {
+            return Arrays.hashCode(objArr);
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static boolean b() {
+    public static cya b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new cya(str);
+        }
+        return (cya) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj != null && cya.class == obj.getClass()) {
+                return TextUtils.equals(this.a, ((cya) obj).a);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.c();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 }

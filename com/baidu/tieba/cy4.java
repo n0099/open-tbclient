@@ -1,21 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.HotTopicBussinessData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class cy4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public void a(List<HotTopicBussinessData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-        }
-    }
+    public int a;
+    public String b;
 
     public cy4() {
         Interceptable interceptable = $ic;

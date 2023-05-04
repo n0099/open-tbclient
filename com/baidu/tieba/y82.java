@@ -1,43 +1,60 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y82 extends w82<JSONObject, vz1> {
+public abstract class y82<T, R> implements c92<T, R> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948283958, "Lcom/baidu/tieba/y82;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948283958, "Lcom/baidu/tieba/y82;");
+                return;
+            }
+        }
+        a = x73.v;
+    }
 
     public y82() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a92
-    @NonNull
-    /* renamed from: c */
-    public vz1 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public boolean b() {
+        InterceptResult invokeV;
+        f72 o;
+        du1 r3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            new r82().c();
-            return new vz1(0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            g72 V = kt2.U().V();
+            if (V == null || (o = V.o()) == null || (r3 = o.r3()) == null) {
+                return false;
+            }
+            return r3.i0();
         }
-        return (vz1) invokeL.objValue;
+        return invokeV.booleanValue;
     }
 }

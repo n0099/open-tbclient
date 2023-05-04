@@ -1,52 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.view.View;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.jl5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ol5 {
+public abstract class ol5<D, S extends jl5> extends rl5<D, S> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int e;
 
-    public static String a(List<String> list) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ol5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
+        super(tbPageContext, view2, viewEventCenter);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (ListUtils.getCount(list) <= 0) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, viewEventCenter};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            boolean z = false;
-            for (String str : list) {
-                if (!StringUtils.isNull(str)) {
-                    if (!z && !StringUtils.isNull(sb.toString())) {
-                        z = true;
-                    }
-                    if (z) {
-                        sb.append("_");
-                    }
-                    sb.append(str);
-                }
-            }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
     }
 
-    public static List<String> b(List<String> list, int i) {
-        InterceptResult invokeLI;
+    public int i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            int count = ListUtils.getCount(list);
-            if (count > 0 && i >= 0 && count > i) {
-                return new ArrayList(ListUtils.subList(list, count - i, count));
-            }
-            return list;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
-        return (List) invokeLI.objValue;
+        return invokeV.intValue;
     }
 }

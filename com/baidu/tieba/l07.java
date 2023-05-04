@@ -1,60 +1,45 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardAbstractView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class l07 extends mz6<CardAbstractView, vv6> {
+public class l07 {
     public static /* synthetic */ Interceptable $ic;
+    public static HashMap<String, Class> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l07(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947889142, "Lcom/baidu/tieba/l07;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947889142, "Lcom/baidu/tieba/l07;");
                 return;
             }
         }
+        HashMap<String, Class> hashMap = new HashMap<>();
+        a = hashMap;
+        hashMap.put("common_text", n07.class);
+        a.put("text_with_bg", q07.class);
+        a.put("common_icon", m07.class);
+        a.put("emoji", o07.class);
+        a.put("tie_plus", r07.class);
     }
 
-    @Override // com.baidu.tieba.mz6, com.baidu.tieba.b07
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public static HashMap<String, Class> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            j17.l(a, null, 0);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             return a;
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b07
-    /* renamed from: e */
-    public void b(@NonNull CardAbstractView cardAbstractView, @NonNull vv6 vv6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardAbstractView, vv6Var) == null) {
-            cardAbstractView.f(vv6Var);
-        }
+        return (HashMap) invokeV.objValue;
     }
 }

@@ -1,81 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.yun.YunDialogDataManager;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class m25 {
+public class m25 extends b25 {
     public static /* synthetic */ Interceptable $ic;
-    public static final m25 a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947920793, "Lcom/baidu/tieba/m25;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947920793, "Lcom/baidu/tieba/m25;");
-                return;
-            }
-        }
-        a = new m25();
-    }
 
     public m25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void a(String json) {
-        boolean z;
-        List entityList;
+    @Override // com.baidu.tieba.b25
+    public void a(@NonNull Context context, @NonNull t15 t15Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, json) == null) {
-            Intrinsics.checkNotNullParameter(json, "json");
-            String k = YunDialogDataManager.k();
-            me<String> g = c05.g("tb.dialog_strategies_data", TbadkCoreApplication.getCurrentAccount(), k);
-            if (g != null) {
-                String str = g.get(k);
-                if (str != null) {
-                    if (str.length() > 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (!z) {
-                        str = null;
-                    }
-                    if (str != null && (entityList = DataExt.toEntityList(str, DialogStrategiesData.class)) != null) {
-                        List entityList2 = DataExt.toEntityList(json, DialogStrategiesData.class);
-                        Intrinsics.checkNotNullExpressionValue(entityList2, "toEntityList(json, Dialo…rategiesData::class.java)");
-                        n25.b(entityList, entityList2);
-                    }
-                }
-                g.a(k, json);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, t15Var) == null) {
+            String a = t15Var.a("yun_dialogName");
+            String a2 = t15Var.a("yun_dialogUrl");
+            if (!TextUtils.isEmpty(a) && !TextUtils.isEmpty(a2)) {
+                b(context, a2, a);
             }
+        }
+    }
+
+    public final void b(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putString(WebViewActivityConfig.TAG_PAGE_TRANSLUCENT, TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
+            bundle.putString(WebViewActivityConfig.TAG_WEB_DIALOG_NAME, str2);
+            bundle.putBoolean(WebViewActivityConfig.TAG_TRANSLUCENT_AUTO_CLOSE, true);
+            pt4.y(context, "", str + TbWebViewActivityConfig.JUMP_PARAMS_PAGE_TYPE, false, true, true, bundle);
         }
     }
 }

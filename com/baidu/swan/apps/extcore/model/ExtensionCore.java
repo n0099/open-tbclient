@@ -3,7 +3,7 @@ package com.baidu.swan.apps.extcore.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.baidu.swan.apps.process.SwanAppIPCData;
-import com.baidu.tieba.kl3;
+import com.baidu.tieba.ml3;
 /* loaded from: classes3.dex */
 public class ExtensionCore extends SwanAppIPCData {
     public static final Parcelable.Creator<ExtensionCore> CREATOR = new a();
@@ -24,7 +24,7 @@ public class ExtensionCore extends SwanAppIPCData {
     }
 
     public boolean isAvailable() {
-        return kl3.e(this.extensionCorePath);
+        return ml3.e(this.extensionCorePath);
     }
 
     /* loaded from: classes3.dex */

@@ -3,190 +3,170 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorThrowable;
-import rx.internal.operators.NotificationLite;
 /* loaded from: classes5.dex */
-public class p5b<T> implements o1b<T> {
+public abstract class p5b<T> implements k5b<T>, q5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o1b<? super T> a;
-    public boolean b;
-    public volatile boolean c;
-    public a d;
+    public final w7b a;
+    public final p5b<?> b;
+    public l5b c;
+    public long d;
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Object[] a;
-        public int b;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                int i = this.b;
-                Object[] objArr = this.a;
-                if (objArr == null) {
-                    objArr = new Object[16];
-                    this.a = objArr;
-                } else if (i == objArr.length) {
-                    Object[] objArr2 = new Object[(i >> 2) + i];
-                    System.arraycopy(objArr, 0, objArr2, 0, i);
-                    this.a = objArr2;
-                    objArr = objArr2;
-                }
-                objArr[i] = obj;
-                this.b = i + 1;
-            }
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
         }
     }
 
-    public p5b(o1b<? super T> o1bVar) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public p5b() {
+        this(null, false);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o1bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this((p5b) objArr[0], ((Boolean) objArr[1]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = o1bVar;
     }
 
-    @Override // com.baidu.tieba.o1b
-    public void onCompleted() {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public p5b(p5b<?> p5bVar) {
+        this(p5bVar, true);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
-            return;
-        }
-        synchronized (this) {
-            if (this.c) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p5bVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((p5b) objArr2[0], ((Boolean) objArr2[1]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            this.c = true;
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
+        }
+    }
+
+    public final void e(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            if (j >= 0) {
+                synchronized (this) {
+                    if (this.c != null) {
+                        this.c.request(j);
+                        return;
+                    }
+                    c(j);
+                    return;
                 }
-                aVar.a(NotificationLite.b());
-                return;
             }
-            this.b = true;
-            this.a.onCompleted();
+            throw new IllegalArgumentException("number requested cannot be negative: " + j);
         }
     }
 
-    @Override // com.baidu.tieba.o1b
-    public void onError(Throwable th) {
+    public void f(l5b l5bVar) {
+        long j;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            z1b.e(th);
-            if (this.c) {
-                return;
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, l5bVar) == null) {
             synchronized (this) {
-                if (this.c) {
-                    return;
+                j = this.d;
+                this.c = l5bVar;
+                if (this.b != null && j == Long.MIN_VALUE) {
+                    z = true;
+                } else {
+                    z = false;
                 }
-                this.c = true;
-                if (this.b) {
-                    a aVar = this.d;
-                    if (aVar == null) {
-                        aVar = new a();
-                        this.d = aVar;
-                    }
-                    aVar.a(NotificationLite.c(th));
-                    return;
-                }
-                this.b = true;
-                this.a.onError(th);
+            }
+            if (z) {
+                this.b.f(this.c);
+            } else if (j == Long.MIN_VALUE) {
+                this.c.request(Long.MAX_VALUE);
+            } else {
+                this.c.request(j);
             }
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
-        continue;
-     */
-    @Override // com.baidu.tieba.o1b
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void onNext(T t) {
-        Object[] objArr;
+    public p5b(p5b<?> p5bVar, boolean z) {
+        w7b w7bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.c) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p5bVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
         }
-        synchronized (this) {
-            if (this.c) {
+        this.d = Long.MIN_VALUE;
+        this.b = p5bVar;
+        if (z && p5bVar != null) {
+            w7bVar = p5bVar.a;
+        } else {
+            w7bVar = new w7b();
+        }
+        this.a = w7bVar;
+    }
+
+    public final void b(q5b q5bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, q5bVar) == null) {
+            this.a.a(q5bVar);
+        }
+    }
+
+    public final void c(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+            long j2 = this.d;
+            if (j2 == Long.MIN_VALUE) {
+                this.d = j;
                 return;
             }
-            if (this.b) {
-                a aVar = this.d;
-                if (aVar == null) {
-                    aVar = new a();
-                    this.d = aVar;
-                }
-                aVar.a(NotificationLite.h(t));
-                return;
+            long j3 = j2 + j;
+            if (j3 < 0) {
+                this.d = Long.MAX_VALUE;
+            } else {
+                this.d = j3;
             }
-            this.b = true;
-            try {
-                this.a.onNext(t);
-                while (true) {
-                    synchronized (this) {
-                        a aVar2 = this.d;
-                        if (aVar2 == null) {
-                            this.b = false;
-                            return;
-                        }
-                        this.d = null;
-                        for (Object obj : aVar2.a) {
-                            if (obj == null) {
-                                break;
-                            }
-                            try {
-                                if (NotificationLite.a(this.a, obj)) {
-                                    this.c = true;
-                                    return;
-                                }
-                            } catch (Throwable th) {
-                                this.c = true;
-                                z1b.e(th);
-                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
-                                return;
-                            }
-                        }
-                    }
-                }
-            } catch (Throwable th2) {
-                this.c = true;
-                z1b.g(th2, this.a, t);
-            }
+        }
+    }
+
+    @Override // com.baidu.tieba.q5b
+    public final boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a.isUnsubscribed();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.q5b
+    public final void unsubscribe() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a.unsubscribe();
         }
     }
 }

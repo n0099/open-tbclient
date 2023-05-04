@@ -6,9 +6,9 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv7;
-import com.baidu.tieba.ev7;
 import com.baidu.tieba.in;
+import com.baidu.tieba.xw7;
+import com.baidu.tieba.zw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -69,19 +69,19 @@ public class ResponseHttpGetTopicListMessage extends TbHttpResponsedMessage {
             int i2 = 1;
             for (NewTopicList newTopicList : newTopicListResIdl.data.topic_list) {
                 if (newTopicList != null && !StringUtils.isNull(newTopicList.topic_name) && !StringUtils.isNull(newTopicList.topic_desc)) {
-                    cv7 cv7Var = new cv7();
-                    cv7Var.R = i2;
-                    cv7Var.M(newTopicList);
-                    this.mTopicDataList.add(cv7Var);
-                    ev7 ev7Var = new ev7();
-                    ev7Var.a = R.dimen.tbds1;
-                    ev7Var.b = R.color.CAM_X0203;
-                    this.mTopicDataList.add(ev7Var);
+                    xw7 xw7Var = new xw7();
+                    xw7Var.R = i2;
+                    xw7Var.K(newTopicList);
+                    this.mTopicDataList.add(xw7Var);
+                    zw7 zw7Var = new zw7();
+                    zw7Var.a = R.dimen.tbds1;
+                    zw7Var.b = R.color.CAM_X0203;
+                    this.mTopicDataList.add(zw7Var);
                     i2++;
                 }
             }
             List<in> list = this.mTopicDataList;
-            ((ev7) ListUtils.getItem(list, list.size() - 1)).a = 0;
+            ((zw7) ListUtils.getItem(list, list.size() - 1)).a = 0;
         }
     }
 }

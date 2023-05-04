@@ -3,7 +3,7 @@ package com.baidu.tieba.screenlocknotify.loadmore;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.md9;
+import com.baidu.tieba.lg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.GetMoreMsg.GetMoreMsgResIdl;
 public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public md9 loadMoreData;
+    public lg9 loadMoreData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ScreenLockLoadMoreHttpResponseMessage() {
@@ -37,13 +37,13 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
     }
 
-    public md9 getData() {
+    public lg9 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.loadMoreData;
         }
-        return (md9) invokeV.objValue;
+        return (lg9) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,9 +61,9 @@ public class ScreenLockLoadMoreHttpResponseMessage extends TbHttpResponsedMessag
         }
         DataRes dataRes = getMoreMsgResIdl.data;
         if (dataRes != null && dataRes != null) {
-            md9 md9Var = new md9();
-            this.loadMoreData = md9Var;
-            md9Var.c(getMoreMsgResIdl.data);
+            lg9 lg9Var = new lg9();
+            this.loadMoreData = lg9Var;
+            lg9Var.c(getMoreMsgResIdl.data);
         }
     }
 }

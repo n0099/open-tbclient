@@ -1,21 +1,14 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ProgressBar;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.video.editvideo.data.MusicData;
-import com.baidu.tieba.video.record.VideoEffectLayout;
+import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -23,49 +16,35 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class iw9 extends BaseAdapter implements View.OnClickListener {
+public class iw9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<jw9> a;
-    public String b;
-    public int c;
-    public VideoEffectLayout.h d;
+    public List<kw9> a;
+    public TbPageContext<?> b;
 
     @Override // android.widget.Adapter
     public long getItemId(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
             return 0L;
         }
         return invokeI.longValue;
     }
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
-    }
-
     /* loaded from: classes5.dex */
-    public class a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-        public ProgressBar b;
-        public TextView c;
-        public int d;
+        public HeadImageView a;
+        public TextView b;
+        public View c;
+        public View d;
 
-        public a(iw9 iw9Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iw9Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -77,10 +56,12 @@ public class iw9 extends BaseAdapter implements View.OnClickListener {
         }
     }
 
-    public iw9() {
+    public iw9(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,14 +71,29 @@ public class iw9 extends BaseAdapter implements View.OnClickListener {
                 return;
             }
         }
-        this.c = -1;
+        this.b = tbPageContext;
     }
 
-    public void c() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public kw9 getItem(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
-            this.c = 0;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bf3);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            List<kw9> list = this.a;
+            if (list != null && list.size() > 0 && i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
+            }
+            return null;
+        }
+        return (kw9) invokeI.objValue;
+    }
+
+    public void b(List<kw9> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
         }
     }
 
@@ -105,8 +101,8 @@ public class iw9 extends BaseAdapter implements View.OnClickListener {
     public int getCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            List<jw9> list = this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<kw9> list = this.a;
             if (list != null) {
                 return list.size();
             }
@@ -115,199 +111,45 @@ public class iw9 extends BaseAdapter implements View.OnClickListener {
         return invokeV.intValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: a */
-    public jw9 getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            List<jw9> list = this.a;
-            if (list == null || i < 0 || i >= list.size()) {
-                return null;
-            }
-            return this.a.get(i);
-        }
-        return (jw9) invokeI.objValue;
-    }
-
-    public void f(VideoEffectLayout.h hVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, hVar) == null) {
-            this.d = hVar;
-        }
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            jw9 item = getItem(i);
-            if (item == null) {
-                return 0;
-            }
-            int type = item.getType();
-            if (type != 1) {
-                if (type != 3) {
-                    return 0;
-                }
-                return 1;
-            }
-            return 2;
-        }
-        return invokeI.intValue;
-    }
-
-    public final void b(a aVar, View view2, ViewGroup viewGroup) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, view2, viewGroup) == null) {
-            TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091172);
-            aVar.a = tbImageView;
-            tbImageView.setIsRound(true);
-            aVar.a.setDrawerType(1);
-            aVar.a.setDefaultBgResource(R.color.transparent);
-            aVar.a.setBorderWidth(ii.g(viewGroup.getContext(), R.dimen.obfuscated_res_0x7f070224));
-            aVar.a.setConrers(15);
-            aVar.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0302));
-            aVar.c = (TextView) view2.findViewById(R.id.tv_name);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getItem(0) != null && getItem(0).getType() == 3) {
-            this.c = 1;
-            this.b = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bf1);
-            notifyDataSetChanged();
-        }
-    }
-
-    public void e(List<jw9> list, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, list, str) == null) {
-            this.a = list;
-            this.b = str;
-        }
-    }
-
     @Override // android.widget.Adapter
     public View getView(int i, View view2, ViewGroup viewGroup) {
         InterceptResult invokeILL;
         a aVar;
-        jw9 jw9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048586, this, i, view2, viewGroup)) == null) {
-            if (view2 == null) {
-                aVar = new a(this);
-                int itemViewType = getItemViewType(i);
-                if (itemViewType != 0) {
-                    if (itemViewType != 1) {
-                        if (itemViewType == 2) {
-                            view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0568, (ViewGroup) null);
-                            b(aVar, view2, viewGroup);
-                            SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
-                        }
-                    } else {
-                        view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0569, (ViewGroup) null);
-                        b(aVar, view2, viewGroup);
-                        aVar.b = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091180);
-                        aVar.a.setDefaultResource(R.drawable.obfuscated_res_0x7f080315);
-                        SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
-                    }
-                } else {
-                    view2 = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0569, (ViewGroup) null);
-                    b(aVar, view2, viewGroup);
-                    ProgressBar progressBar = (ProgressBar) view2.findViewById(R.id.obfuscated_res_0x7f091180);
-                    aVar.b = progressBar;
-                    progressBar.setVisibility(4);
-                    SkinManager.setViewTextColor(aVar.c, (int) R.color.CAM_X0101);
-                }
-                view2.setTag(aVar);
-            } else {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            kw9 item = getItem(i);
+            if (view2 != null) {
                 aVar = (a) view2.getTag();
+            } else {
+                view2 = LayoutInflater.from(this.b.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d025a, viewGroup, false);
+                aVar = new a();
+                HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f090918);
+                aVar.a = headImageView;
+                headImageView.setDefaultResource(R.drawable.img_default_100);
+                aVar.a.setDefaultBgResource(R.color.CAM_X0204);
+                aVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090917);
+                aVar.c = view2.findViewById(R.id.obfuscated_res_0x7f092407);
+                aVar.d = view2.findViewById(R.id.obfuscated_res_0x7f0908c6);
+                view2.setTag(aVar);
             }
-            List<jw9> list = this.a;
-            if (list != null && i >= 0 && i <= list.size() - 1 && (jw9Var = this.a.get(i)) != null) {
-                int itemViewType2 = getItemViewType(i);
-                if (itemViewType2 != 0) {
-                    if (itemViewType2 != 1) {
-                        if (itemViewType2 == 2) {
-                            if (!TextUtils.isEmpty(jw9Var.b()) && jw9Var.b().equals(this.b)) {
-                                aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080252);
-                            } else {
-                                aVar.a.setBackgroundResource(R.drawable.obfuscated_res_0x7f080251);
-                            }
-                        }
-                    } else {
-                        MusicData musicData = (MusicData) jw9Var.c();
-                        if (musicData.editMusicType == 0) {
-                            aVar.a.N(musicData.img, 10, false);
-                        } else {
-                            aVar.a.N(String.valueOf(jw9Var.a()), 24, false);
-                        }
-                        if (this.c != i) {
-                            aVar.b.setVisibility(4);
-                        } else if (aVar.b.getVisibility() == 0) {
-                            aVar.a.setDrawBorder(false);
-                        }
-                        if (!TextUtils.isEmpty(jw9Var.b()) && jw9Var.b().equals(this.b)) {
-                            aVar.a.setDrawBorder(true);
-                        } else {
-                            aVar.a.setDrawBorder(false);
-                        }
-                    }
+            if (item != null) {
+                aVar.a.N(item.a(), 10, false);
+                aVar.b.setText(item.b());
+                f55 m = f55.m();
+                if (item.c() - m.o("dressup_center_red_tip_" + TbadkCoreApplication.getCurrentAccount() + "_" + item.getType(), 0L) > 0) {
+                    aVar.c.setVisibility(0);
                 } else {
-                    aVar.a.N(String.valueOf(jw9Var.a()), 24, false);
-                    if (!TextUtils.isEmpty(jw9Var.b()) && jw9Var.b().equals(this.b)) {
-                        aVar.a.setDrawBorder(true);
-                    } else {
-                        aVar.a.setDrawBorder(false);
-                    }
+                    aVar.c.setVisibility(4);
                 }
-                aVar.a.setTag(jw9Var);
-                aVar.a.setTag(R.id.obfuscated_res_0x7f091d49, aVar);
-                aVar.a.setOnClickListener(this);
-                aVar.c.setText(jw9Var.b());
-                aVar.d = i;
+                if (i == getCount() - 1) {
+                    aVar.d.setVisibility(8);
+                } else {
+                    aVar.d.setVisibility(0);
+                }
             }
+            this.b.getLayoutMode().k(view2);
             return view2;
         }
         return (View) invokeILL.objValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        VideoEffectLayout.h hVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048588, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091172 && (view2.getTag() instanceof jw9)) {
-            jw9 jw9Var = (jw9) view2.getTag();
-            if (jw9Var.getType() == 3 && (jw9Var.c() instanceof MusicData)) {
-                StatisticItem statisticItem = new StatisticItem("c12423");
-                statisticItem.param("obj_id", ((MusicData) jw9Var.c()).id);
-                statisticItem.param("obj_locate", this.a.indexOf(jw9Var) + 1);
-                statisticItem.param("obj_source", 1);
-                TiebaStatic.log(statisticItem);
-                if (view2.getResources().getString(R.string.obfuscated_res_0x7f0f0bf1).equals(jw9Var.b()) && (hVar = this.d) != null) {
-                    hVar.h1(jw9Var, view2.getTag(R.id.obfuscated_res_0x7f091d49));
-                    this.c = this.a.indexOf(jw9Var);
-                    this.b = jw9Var.b();
-                }
-                if (!TextUtils.isEmpty(jw9Var.b()) && jw9Var.b().equals(this.b)) {
-                    return;
-                }
-                if (!jw9Var.b().equals(view2.getResources().getString(R.string.obfuscated_res_0x7f0f0bf1))) {
-                    this.c = this.a.indexOf(jw9Var);
-                }
-            } else {
-                this.c = this.a.indexOf(jw9Var);
-            }
-            this.b = jw9Var.b();
-            notifyDataSetChanged();
-            VideoEffectLayout.h hVar2 = this.d;
-            if (hVar2 != null) {
-                hVar2.h1(jw9Var, view2.getTag(R.id.obfuscated_res_0x7f091d49));
-            }
-        }
     }
 }

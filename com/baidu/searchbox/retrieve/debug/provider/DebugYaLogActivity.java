@@ -22,9 +22,9 @@ import com.baidu.searchbox.retrieve.inter.upload.IActiveUploadListener;
 import com.baidu.searchbox.retrieve.inter.upload.IUploadTask;
 import com.baidu.tbadk.core.data.WorkPostNotifyFlutterData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aka;
-import com.baidu.tieba.ika;
+import com.baidu.tieba.eoa;
 import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tieba.wna;
 import com.baidu.yalog.Logger;
 import com.baidu.yalog.LoggerManager;
 import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
@@ -680,9 +680,9 @@ public class DebugYaLogActivity extends Activity {
             if (jSONObject2.length() > 0) {
                 jSONObject.put("set", jSONObject2);
             }
-            ika ikaVar = (ika) ServiceManager.getService(ika.a);
-            if (ikaVar != null) {
-                ikaVar.a(jSONObject);
+            eoa eoaVar = (eoa) ServiceManager.getService(eoa.a);
+            if (eoaVar != null) {
+                eoaVar.a(jSONObject);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }
@@ -838,9 +838,9 @@ public class DebugYaLogActivity extends Activity {
             jSONObject4.put("only_wifi", str2);
             jSONObject2.put(str20, jSONObject4);
             jSONObject.put("set", jSONObject2);
-            aka akaVar = (aka) ServiceManager.getService(aka.a);
-            if (akaVar != null) {
-                akaVar.d(jSONObject);
+            wna wnaVar = (wna) ServiceManager.getService(wna.a);
+            if (wnaVar != null) {
+                wnaVar.d(jSONObject);
                 Toast.makeText(this, "voyager配置成功！\n" + jSONObject.toString(), 1).show();
             } else {
                 Toast.makeText(this, "无法获取service！请正确配置easybox服务框架！", 0).show();
@@ -907,9 +907,9 @@ public class DebugYaLogActivity extends Activity {
                 Toast.makeText(this, "无id配置", 0).show();
                 return;
             }
-            ika ikaVar = (ika) ServiceManager.getService(ika.a);
-            if (ikaVar != null) {
-                ikaVar.b(jSONObject, true);
+            eoa eoaVar = (eoa) ServiceManager.getService(eoa.a);
+            if (eoaVar != null) {
+                eoaVar.b(jSONObject, true);
                 Toast.makeText(this, "配置成功！\n" + jSONObject.toString(), 1).show();
                 return;
             }

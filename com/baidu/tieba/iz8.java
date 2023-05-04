@@ -1,34 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.pb.pb.report.UEGReportResponsedMessage;
+import com.baidu.tieba.pb.pb.main.PbFragment;
+import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class iz8 implements zs9 {
+public class iz8 extends jy8<gz4, PbRecommendNovelHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public BdUniqueId b;
-    public jz8 c;
-    public t45 d;
-    public v45 e;
-    public HttpMessageListener f;
+    public qv8 g;
+    public PbRecommendNovelHolder.b h;
 
     /* loaded from: classes5.dex */
-    public class a implements DialogInterface.OnCancelListener {
+    public class a implements PbRecommendNovelHolder.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ iz8 a;
@@ -51,150 +44,75 @@ public class iz8 implements zs9 {
             this.a = iz8Var;
         }
 
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
+        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
+        public void a(gz4 gz4Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                MessageManager.getInstance().removeMessage(this.a.b);
+            if ((interceptable == null || interceptable.invokeL(1048576, this, gz4Var) == null) && gz4Var != null) {
+                v29.a(this.a.g, gz4Var, gz4Var.d0, 6);
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iz8 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(iz8 iz8Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iz8Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iz8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof UEGReportResponsedMessage)) {
-                return;
-            }
-            if (this.a.d != null) {
-                this.a.d.h(false);
-            }
-            UEGReportResponsedMessage uEGReportResponsedMessage = (UEGReportResponsedMessage) httpResponsedMessage;
-            String url = uEGReportResponsedMessage.getUrl();
-            if (StringUtils.isNull(url)) {
-                String errorString = uEGReportResponsedMessage.getErrorString();
-                if (StringUtils.isNull(errorString)) {
-                    errorString = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d1b);
-                }
-                this.a.e.c(errorString);
-                return;
-            }
-            this.a.h(url);
-        }
-    }
-
-    public iz8(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iz8(PbFragment pbFragment, BdUniqueId bdUniqueId) {
+        super(pbFragment, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {pbFragment, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((z29) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new b(this, CmdConfigHttp.CMD_UEG_REPORT);
-        this.a = context;
-        this.c = new jz8();
-        v45 v45Var = new v45();
-        this.e = v45Var;
-        v45Var.a = 1000L;
+        this.h = new a(this);
     }
 
-    @Override // com.baidu.tieba.zs9
-    public void a(String str) {
+    public void r(qv8 qv8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            j();
-            this.c.a(str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, qv8Var) == null) {
+            this.g = qv8Var;
         }
     }
 
-    @Override // com.baidu.tieba.zs9
-    public void b(BdUniqueId bdUniqueId) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: x */
+    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bdUniqueId) == null) {
-            this.b = bdUniqueId;
-            this.c.c(bdUniqueId);
-            this.f.setTag(bdUniqueId);
-            this.f.setSelfListener(true);
-            MessageManager.getInstance().registerListener(this.f);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0743, viewGroup, false), this.h);
         }
+        return (PbRecommendNovelHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zs9
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            j();
-            this.c.b(str);
-        }
+    @Override // com.baidu.tieba.jy8, com.baidu.tieba.vm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        y(i, view2, viewGroup, (gz4) obj, (PbRecommendNovelHolder) viewHolder);
+        return view2;
     }
 
-    public final void h(String str) {
+    public View y(int i, View view2, ViewGroup viewGroup, gz4 gz4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            jt4.v(TbadkCoreApplication.getInst(), TbadkCoreApplication.getInst().getString(R.string.pb_web_view_report_title), str, true);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.d == null) {
-                TbPageContext tbPageContext = null;
-                a9<?> a2 = g9.a(this.a);
-                if (a2 instanceof TbPageContext) {
-                    tbPageContext = (TbPageContext) a2;
-                }
-                if (tbPageContext == null) {
-                    return;
-                }
-                t45 t45Var = new t45(tbPageContext);
-                this.d = t45Var;
-                t45Var.e(new a(this));
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, gz4Var, pbRecommendNovelHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) gz4Var, (gz4) pbRecommendNovelHolder);
+            if (gz4Var == null) {
+                return view2;
             }
-            this.d.h(true);
+            gz4Var.d0 = i + 1;
+            v29.d(this.b.getUniqueId(), this.g, gz4Var, gz4Var.d0, 6);
+            pbRecommendNovelHolder.d(gz4Var);
+            return view2;
         }
+        return (View) invokeCommon.objValue;
     }
 }

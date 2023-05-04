@@ -1,296 +1,233 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.os.Environment;
+import android.os.Process;
+import android.os.StatFs;
 import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
-import com.baidubce.http.Headers;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
-import java.io.OutputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import org.apache.http.protocol.HTTP;
 /* loaded from: classes7.dex */
-public final class yd0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static yd0 c;
+public class yd0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile int a = -1;
+    public static volatile String b;
     public transient /* synthetic */ FieldHolder $fh;
-    public zd0 a;
-    public zd0 b;
 
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ yd0 d;
-
-        public a(yd0 yd0Var, int i, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yd0Var, Integer.valueOf(i), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = yd0Var;
-            this.a = i;
-            this.b = str;
-            this.c = str2;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948326180, "Lcom/baidu/tieba/yd0;")) == null) {
+            return;
         }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a == 24) {
-                    this.d.b(this.b, this.c, 24);
-                }
-                this.d.b(this.b, this.c, 1);
-            }
-        }
-    }
-
-    public yd0() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = new zd0();
-        this.b = new zd0("live_show_session");
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948326180, "Lcom/baidu/tieba/yd0;");
+        }
     }
 
-    public static byte[] e(byte[] bArr, boolean z) {
-        InterceptResult invokeLZ;
+    public static long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, bArr, z)) == null) {
-            if (z) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                if ("mounted".equals(Environment.getExternalStorageState())) {
+                    String path = Environment.getExternalStorageDirectory().getPath();
+                    if (path == null || path.length() <= 0) {
+                        vd0.d("sdk_Utils", "External path is null, so SDCard no free space");
+                        return -1L;
+                    }
+                    StatFs statFs = new StatFs(path);
+                    return statFs.getBlockSize() * statFs.getAvailableBlocks();
+                }
+                return -1L;
+            } catch (Exception unused) {
+                vd0.d("sdk_Utils", "SDCard no free space");
+                return -1L;
+            }
+        }
+        return invokeV.longValue;
+    }
+
+    public static String b(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+            String str = null;
+            try {
+                if (e(context)) {
+                    str = Environment.getExternalStorageDirectory().getAbsolutePath();
+                } else if ("mounted".equals(Environment.getExternalStorageState()) || !Environment.isExternalStorageRemovable()) {
+                    str = context.getExternalCacheDir().getPath();
+                }
+            } catch (Exception unused) {
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            String str = null;
+            if (context == null) {
+                vd0.e("sdk_Utils", "getVideoStatisticsPath ctx = null");
+                return null;
+            }
+            String b2 = b(context);
+            if (!TextUtils.isEmpty(b2)) {
+                str = b2 + File.separator + "baidu" + File.separator + "flyflow" + File.separator + "video_statistic" + File.separator + "duplayer" + File.separator + context.getPackageName();
+            }
+            String str2 = context.getFilesDir().getAbsolutePath() + File.separator + ".video_statistic" + File.separator + "duplayer";
+            vd0.c("sdk_Utils", "Utils.getExternalStorageSpace():" + a());
+            if (a() < Config.FULL_TRACE_LOG_LIMIT || str == null) {
+                str = str2;
+            }
+            new File(str).mkdirs();
+            if (!f()) {
+                str = str + File.separator + "remote";
+            }
+            vd0.c("sdk_Utils", "getVideoStatisticsPath folder:" + str);
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                b = g();
+                if (TextUtils.isEmpty(b)) {
+                    b = h();
+                }
+                return b;
+            }
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e(Context context) {
+        InterceptResult invokeL;
+        PackageManager packageManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
+            if (context != null && (packageManager = context.getPackageManager()) != null) {
                 try {
-                    return vd0.b(bArr);
-                } catch (IOException e) {
+                    if (packageManager.checkPermission(com.kuaishou.weapon.p0.h.i, context.getPackageName()) == 0) {
+                        return packageManager.checkPermission("android.permission.WRITE_EXTERNAL_STORAGE", context.getPackageName()) == 0;
+                    }
+                    return false;
+                } catch (Exception e) {
                     e.printStackTrace();
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (a < 0) {
+                Context a2 = td0.a();
+                if (a2 == null || a2.getPackageName().equals(d())) {
+                    a = 1;
+                } else {
+                    a = 0;
+                }
+            }
+            return a == 1;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            int myPid = Process.myPid();
+            try {
+                ActivityManager activityManager = (ActivityManager) td0.a().getSystemService("activity");
+                if (activityManager != null) {
+                    for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : activityManager.getRunningAppProcesses()) {
+                        if (runningAppProcessInfo.pid == myPid) {
+                            return runningAppProcessInfo.processName;
+                        }
+                    }
                     return null;
                 }
+                return null;
+            } catch (Exception unused) {
+                return null;
             }
-            return Base64.encode(bArr, 2);
         }
-        return (byte[]) invokeLZ.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static synchronized yd0 g() {
+    public static String h() {
         InterceptResult invokeV;
-        yd0 yd0Var;
+        BufferedReader bufferedReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (yd0.class) {
-                if (c == null) {
-                    c = new yd0();
-                }
-                yd0Var = c;
-            }
-            return yd0Var;
+        if (interceptable != null && (invokeV = interceptable.invokeV(65544, null)) != null) {
+            return (String) invokeV.objValue;
         }
-        return (yd0) invokeV.objValue;
-    }
-
-    public final void b(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, str, str2, i) == null) {
-            String str3 = WebSettingsGlobalBlink.SESSION_UPLOAD_URL + str2;
-            boolean z = true;
-            byte[] e = e(str.getBytes(), true);
-            if (e == null) {
-                e = e(str.getBytes(), false);
-                z = false;
-            }
-            if (d(vd0.a(e), str3, z)) {
-                f();
-            } else {
-                c(Base64.encode(vd0.a(e(str.getBytes(), false)), 2), i);
-            }
-        }
-    }
-
-    public final void c(byte[] bArr, int i) {
-        zd0 zd0Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr, i) == null) {
-            if (i == 24) {
-                zd0Var = this.b;
-                if (zd0Var == null) {
-                    return;
-                }
-            } else {
-                zd0Var = this.a;
-                if (zd0Var == null) {
-                    return;
-                }
-            }
-            zd0Var.e(bArr);
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:54:0x00b2 */
-    /* JADX WARN: Code restructure failed: missing block: B:36:0x0084, code lost:
-        if (r9 == null) goto L35;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:37:0x0086, code lost:
-        r9.disconnect();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x00a8, code lost:
-        if (r9 == null) goto L35;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x00ab, code lost:
-        r8 = -1;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x00b0 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x00b1 A[RETURN] */
-    /* JADX WARN: Removed duplicated region for block: B:76:0x00b5 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:82:0x00bf A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.CharSequence, java.lang.Object, java.lang.String] */
-    /* JADX WARN: Type inference failed for: r9v1 */
-    /* JADX WARN: Type inference failed for: r9v4, types: [java.net.HttpURLConnection] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean d(byte[] bArr, String str, boolean z) {
-        InterceptResult invokeLLZ;
-        HttpURLConnection httpURLConnection;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_SEND_USER_MSG, this, bArr, str, z)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            OutputStream outputStream = null;
+        BufferedReader bufferedReader2 = null;
+        try {
+            bufferedReader = new BufferedReader(new FileReader("/proc/" + Process.myPid() + "/cmdline"));
             try {
+                String readLine = bufferedReader.readLine();
+                if (!TextUtils.isEmpty(readLine)) {
+                    readLine = readLine.trim();
+                }
                 try {
-                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
+                    bufferedReader.close();
+                } catch (IOException unused) {
+                }
+                return readLine;
+            } catch (Exception unused2) {
+                if (bufferedReader != null) {
                     try {
-                        httpURLConnection.setUseCaches(false);
-                        httpURLConnection.setDoOutput(true);
-                        httpURLConnection.setRequestMethod("POST");
-                        httpURLConnection.setRequestProperty(HTTP.CONN_DIRECTIVE, HTTP.CONN_KEEP_ALIVE);
-                        httpURLConnection.setRequestProperty(Headers.CACHE_CONTROL, "no-cache");
-                        if (z) {
-                            httpURLConnection.setRequestProperty("Content-Type", "application/x-gzip");
-                        }
-                        outputStream = httpURLConnection.getOutputStream();
-                        outputStream.write(bArr);
-                        outputStream.flush();
-                        i = httpURLConnection.getResponseCode();
-                        if (outputStream != null) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        if (httpURLConnection != null) {
-                            try {
-                                httpURLConnection.disconnect();
-                            } catch (Exception unused) {
-                            }
-                        }
-                    } catch (Error e2) {
-                        e = e2;
-                        td0.e("DpSessionDatasUploader", "[sendStatisticsDataToServer()] upload error " + e);
-                        if (outputStream != null) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception e3) {
-                                e3.printStackTrace();
-                            }
-                        }
-                    } catch (Exception e4) {
-                        e = e4;
-                        td0.e("DpSessionDatasUploader", "[sendStatisticsDataToServer()] upload error " + e);
-                        if (outputStream != null) {
-                            try {
-                                outputStream.close();
-                            } catch (Exception e5) {
-                                e5.printStackTrace();
-                            }
-                        }
+                        bufferedReader.close();
+                    } catch (IOException unused3) {
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    if (0 != 0) {
-                        try {
-                            outputStream.close();
-                        } catch (Exception e6) {
-                            e6.printStackTrace();
-                        }
-                    }
-                    if (str != 0) {
-                        try {
-                            str.disconnect();
-                        } catch (Exception unused2) {
-                        }
-                    }
-                    throw th;
                 }
-            } catch (Error e7) {
-                e = e7;
-                httpURLConnection = null;
-            } catch (Exception e8) {
-                e = e8;
-                httpURLConnection = null;
-            } catch (Throwable th2) {
-                th = th2;
-                str = 0;
-                if (0 != 0) {
-                }
-                if (str != 0) {
+                return null;
+            } catch (Throwable th) {
+                th = th;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != null) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException unused4) {
+                    }
                 }
                 throw th;
             }
-            return i != 200;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            zd0 zd0Var = this.a;
-            if (zd0Var != null) {
-                zd0Var.a();
-            }
-            zd0 zd0Var2 = this.b;
-            if (zd0Var2 != null) {
-                zd0Var2.a();
-            }
-        }
-    }
-
-    public void h(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048580, this, str, str2, i) == null) {
-            pd0.b().a(new a(this, i, str, str2));
+        } catch (Exception unused5) {
+            bufferedReader = null;
+        } catch (Throwable th2) {
+            th = th2;
         }
     }
 }

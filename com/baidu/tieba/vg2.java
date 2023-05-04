@@ -1,17 +1,16 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.collection.ArraySet;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vg2 implements ug2 {
+public class vg2 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile vg2 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String[] a;
 
     public vg2() {
         Interceptable interceptable = $ic;
@@ -23,27 +22,42 @@ public class vg2 implements ug2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new String[]{cr2.c().getDatabasePath("ai_apps.db").getAbsolutePath(), cr2.c().getDatabasePath("ai_apps_pms.db").getAbsolutePath()};
     }
 
-    @Override // com.baidu.tieba.ug2
-    public ArraySet<String> a() {
+    public static vg2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArraySet<String> arraySet = new ArraySet<>();
-            for (String str : this.a) {
-                String K = zn4.K(str);
-                if (!TextUtils.isEmpty(K)) {
-                    arraySet.add(K);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (vg2.class) {
+                    if (a == null) {
+                        a = new vg2();
+                    }
                 }
             }
-            v42.k("SwanDatabaseCollector", "recovery renameAllFiles:" + arraySet.toString());
-            return arraySet;
+            return a;
         }
-        return (ArraySet) invokeV.objValue;
+        return (vg2) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            x42.k("SwanRecoveryManager", "RecoverPlatform");
+            dh2 dh2Var = new dh2();
+            dh2Var.a = 1;
+            tg2.c(dh2Var);
+        }
+    }
+
+    public int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return bh2.c(i);
+        }
+        return invokeI.intValue;
     }
 }

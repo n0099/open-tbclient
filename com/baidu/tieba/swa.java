@@ -1,64 +1,23 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.google.ar.core.InstallActivity;
 /* loaded from: classes6.dex */
-public final class swa<TResult> implements iwa<TResult> {
+public final class swa implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kwa a;
-    public Executor b;
-    public final Object c;
+    public final /* synthetic */ InstallActivity a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mwa a;
-        public final /* synthetic */ swa b;
-
-        public a(swa swaVar, mwa mwaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {swaVar, mwaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = swaVar;
-            this.a = mwaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onFailure(this.a.d());
-                    }
-                }
-            }
-        }
-    }
-
-    public swa(Executor executor, kwa kwaVar) {
+    public swa(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, kwaVar};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,27 +27,16 @@ public final class swa<TResult> implements iwa<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = kwaVar;
-        this.b = executor;
+        this.a = installActivity;
     }
 
-    @Override // com.baidu.tieba.iwa
-    public final void cancel() {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.iwa
-    public final void onComplete(mwa<TResult> mwaVar) {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mwaVar) == null) || mwaVar.h() || mwaVar.f()) {
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
             return;
         }
-        this.b.execute(new a(this, mwaVar));
+        this.a.h();
+        this.a.n();
     }
 }

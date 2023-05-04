@@ -1,158 +1,84 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.graphics.drawable.Drawable;
 import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import android.widget.AbsoluteLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.browser.sailor.BdSailorWebView;
+import com.baidu.browser.sailor.util.BdZeusUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@SuppressLint({"ObsoleteSdkInt"})
+import java.lang.reflect.Field;
+import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public final class ck3 {
+public class ck3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947677598, "Lcom/baidu/tieba/ck3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947677598, "Lcom/baidu/tieba/ck3;");
+                return;
+            }
+        }
+        a = ho1.a;
+    }
+
+    public static void a(@NonNull BdSailorWebView bdSailorWebView) {
+        AbsoluteLayout webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, bdSailorWebView) == null) {
+            Drawable d = am4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081209);
+            Drawable d2 = am4.d(bdSailorWebView.getContext(), R.drawable.obfuscated_res_0x7f081208);
+            if (BdZeusUtil.isWebkitLoaded()) {
+                webView = bdSailorWebView.getCurrentWebView();
+            } else {
+                webView = bdSailorWebView.getCurrentWebView().getWebView();
+            }
             if (Build.VERSION.SDK_INT >= 29) {
-                return true;
+                webView.setVerticalScrollbarThumbDrawable(d);
+                webView.setHorizontalScrollbarThumbDrawable(d2);
+                return;
             }
-            return false;
+            b(webView, d, d2);
         }
-        return invokeV.booleanValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static void b(@Nullable View view2, Drawable drawable, Drawable drawable2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 9) {
-                return true;
-            }
-            return false;
+        if ((interceptable != null && interceptable.invokeLLL(65538, null, view2, drawable, drawable2) != null) || view2 == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 11) {
-                return true;
+        try {
+            Field declaredField = View.class.getDeclaredField("mScrollCache");
+            declaredField.setAccessible(true);
+            Object obj = declaredField.get(view2);
+            Field declaredField2 = obj.getClass().getDeclaredField("scrollBar");
+            declaredField2.setAccessible(true);
+            Object obj2 = declaredField2.get(obj);
+            Method declaredMethod = obj2.getClass().getDeclaredMethod("setVerticalThumbDrawable", Drawable.class);
+            declaredMethod.setAccessible(true);
+            declaredMethod.invoke(obj2, drawable);
+            Method declaredMethod2 = obj2.getClass().getDeclaredMethod("setHorizontalThumbDrawable", Drawable.class);
+            declaredMethod2.setAccessible(true);
+            declaredMethod2.invoke(obj2, drawable2);
+        } catch (Throwable th) {
+            if (a) {
+                th.printStackTrace();
             }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 18) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 22) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            if (Build.VERSION.SDK_INT >= 26) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            if (Build.VERSION.SDK_INT == 9) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            if (Build.VERSION.SDK_INT == 10) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

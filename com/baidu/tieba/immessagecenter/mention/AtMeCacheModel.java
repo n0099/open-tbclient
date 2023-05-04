@@ -3,26 +3,26 @@ package com.baidu.tieba.immessagecenter.mention;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.w88;
+import com.baidu.tieba.ab8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class AtMeCacheModel extends CacheModel<w88, AtMessageFragment> {
+public class AtMeCacheModel extends CacheModel<ab8, AtMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String P() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tb_user_atme" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int c0() {
+    public int h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -32,7 +32,7 @@ public class AtMeCacheModel extends CacheModel<w88, AtMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int d0() {
+    public int i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -62,11 +62,11 @@ public class AtMeCacheModel extends CacheModel<w88, AtMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<w88> b0() {
+    public Class<ab8> g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return w88.class;
+            return ab8.class;
         }
         return (Class) invokeV.objValue;
     }

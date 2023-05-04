@@ -9,8 +9,8 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.il9;
 import com.baidu.tieba.personCenter.controller.ResponseHttpPersonMessage;
+import com.baidu.tieba.xo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,17 +59,17 @@ public class PersonCreatorModel extends BdBaseModel {
                 return;
             }
         }
-        Q();
+        V();
     }
 
-    public final void Q() {
+    public final void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            il9.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpPersonMessage.class, true, true, true, true);
+            xo9.e(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE, TbConfig.URL_WORK_VIDEO_GUIDE, ResponseHttpPersonMessage.class, true, true, true, true);
         }
     }
 
-    public void R(boolean z) {
+    public void W(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_WORK_VIDEO_GUIDE_UPDATE);

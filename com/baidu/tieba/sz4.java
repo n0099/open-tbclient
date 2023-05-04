@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +10,16 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.FrsPage.TopNews;
+import java.util.ArrayList;
+import tbclient.RecommendInfo;
+import tbclient.SchoolRecomUserInfo;
 /* loaded from: classes6.dex */
-public class sz4 extends am9 {
+public class sz4 extends ThreadData {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c1;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a1;
-    public String b1;
+    public String a;
+    public ArrayList<tz4> b;
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +34,7 @@ public class sz4 extends am9 {
                 return;
             }
         }
-        c1 = BdUniqueId.gen();
+        c = BdUniqueId.gen();
     }
 
     public sz4() {
@@ -47,58 +47,54 @@ public class sz4 extends am9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = new ArrayList<>();
     }
 
-    @Override // com.baidu.tieba.am9, com.baidu.tieba.in
-    public BdUniqueId getType() {
+    public ArrayList<tz4> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c1;
+            return this.b;
+        }
+        return (ArrayList) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.data.ThreadData
+    public String getTitle() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tbadk.core.data.ThreadData, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public String q1() {
-        InterceptResult invokeV;
+    public void d(RecommendInfo recommendInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a1;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String r1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b1;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void s1(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recommendInfo) != null) || recommendInfo == null) {
             return;
         }
-        try {
-            this.a1 = jSONObject.optString("news_link");
-            this.b1 = jSONObject.optString("summary");
-            jSONObject.optInt(CriusAttrConstants.POSITION, 0);
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
+        this.a = recommendInfo.title;
+        for (SchoolRecomUserInfo schoolRecomUserInfo : recommendInfo.user_list) {
+            if (schoolRecomUserInfo != null) {
+                tz4 tz4Var = new tz4();
+                tz4Var.f(schoolRecomUserInfo);
+                this.b.add(tz4Var);
+            }
         }
-    }
-
-    public void t1(TopNews topNews) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, topNews) != null) || topNews == null) {
-            return;
-        }
-        this.a1 = topNews.news_link;
-        this.b1 = topNews.summary;
     }
 }

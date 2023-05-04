@@ -9,10 +9,10 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.tm4;
-import com.baidu.tieba.um4;
 import com.baidu.tieba.vm4;
 import com.baidu.tieba.wm4;
+import com.baidu.tieba.xm4;
+import com.baidu.tieba.ym4;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
@@ -21,7 +21,7 @@ import java.util.Set;
 public class TraceInfoActivity extends Activity implements View.OnClickListener {
     public TextView a;
     public Button b;
-    public List<tm4> c;
+    public List<vm4> c;
     public Set<String> d;
     public int e;
 
@@ -58,14 +58,14 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
     }
 
     public final void e() {
-        for (tm4 tm4Var : this.c) {
-            this.d.add(tm4Var.f());
+        for (vm4 vm4Var : this.c) {
+            this.d.add(vm4Var.f());
         }
     }
 
     public final void g() {
-        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092507);
-        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0921d2);
+        this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f092520);
+        Button button = (Button) findViewById(R.id.obfuscated_res_0x7f0921e7);
         this.b = button;
         button.setOnClickListener(this);
         this.d = new HashSet();
@@ -77,8 +77,8 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
 
     @Override // android.view.View.OnClickListener
     public void onClick(View view2) {
-        List<tm4> list;
-        if (view2.getId() == R.id.obfuscated_res_0x7f0921d2 && (list = this.c) != null && list.size() > 0) {
+        List<vm4> list;
+        if (view2.getId() == R.id.obfuscated_res_0x7f0921e7 && (list = this.c) != null && list.size() > 0) {
             d();
         }
     }
@@ -97,21 +97,21 @@ public class TraceInfoActivity extends Activity implements View.OnClickListener 
         this.e = i + 1;
         String str = (String) arrayList.get(i % arrayList.size());
         ArrayList arrayList2 = new ArrayList();
-        for (tm4 tm4Var : this.c) {
-            if (TextUtils.equals(tm4Var.f(), str)) {
-                arrayList2.add(tm4Var);
+        for (vm4 vm4Var : this.c) {
+            if (TextUtils.equals(vm4Var.f(), str)) {
+                arrayList2.add(vm4Var);
             }
         }
-        return wm4.c(arrayList2, null);
+        return ym4.c(arrayList2, null);
     }
 
     public final void i() {
-        vm4<List<tm4>> c = um4.b().c();
+        xm4<List<vm4>> c = wm4.b().c();
         if (c == null) {
             this.a.setText("NO DATA");
             return;
         }
-        List<tm4> a2 = c.a();
+        List<vm4> a2 = c.a();
         if (a2 != null && a2.size() > 0) {
             this.c = a2;
             this.e = 0;

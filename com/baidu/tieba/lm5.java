@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.stats.BdStatisticsManager;
+import android.os.Bundle;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,7 +11,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class lm5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public BdUniqueId a;
+    public int b;
+    public String c;
+    public Bundle d;
 
     public lm5() {
         Interceptable interceptable = $ic;
@@ -22,18 +26,16 @@ public class lm5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = null;
     }
 
-    public static og a() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return BdStatisticsManager.getInstance().getStatsItem("pfmonitor");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "AliAuthResult{tag=" + this.a + ", resultCode=" + this.b + ", message='" + this.c + "', bundle=" + this.d + '}';
         }
-        return (og) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 }

@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class mz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public mw4 b;
-    public String c;
+    public HashMap<Integer, Integer> a;
 
     public mz5() {
         Interceptable interceptable = $ic;
@@ -24,23 +23,31 @@ public class mz5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap<>();
     }
 
-    public static mz5 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public int a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            HashMap<Integer, Integer> hashMap = this.a;
+            if (hashMap == null || !hashMap.containsKey(Integer.valueOf(i))) {
+                return 0;
             }
-            mz5 mz5Var = new mz5();
-            mz5Var.a = jSONObject.optInt("download_state");
-            mz5Var.b = mw4.b(jSONObject.optJSONObject("app_info"));
-            mz5Var.c = jSONObject.optString("download_hint");
-            return mz5Var;
+            return this.a.get(Integer.valueOf(i)).intValue();
         }
-        return (mz5) invokeL.objValue;
+        return invokeI.intValue;
+    }
+
+    public void b(int i, int i2) {
+        HashMap<Integer, Integer> hashMap;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) != null) || (hashMap = this.a) == null) {
+            return;
+        }
+        hashMap.put(Integer.valueOf(i), Integer.valueOf(i2));
     }
 }

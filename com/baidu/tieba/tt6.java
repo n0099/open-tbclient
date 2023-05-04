@@ -1,47 +1,45 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class tt6 extends BaseAdapter {
+public class tt6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public ArrayList<String> b;
+    public TbPageContext<?> a;
+    public View b;
+    public RoundRelativeLayout c;
+    public ImageView d;
+    public ImageView e;
+    public ImageView f;
+    public TextView g;
+    public TextView h;
+    public int i;
+    public int j;
+    public boolean k;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ tt6 a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView a;
-
-        public b(tt6 tt6Var) {
+        public a(tt6 tt6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -53,21 +51,43 @@ public class tt6 extends BaseAdapter {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = tt6Var;
         }
 
-        public /* synthetic */ b(tt6 tt6Var, a aVar) {
-            this(tt6Var);
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                cr6.b(this.a.a, null);
+                StatisticItem statisticItem = new StatisticItem("c13645");
+                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                int i2 = 1;
+                statisticItem.param("obj_locate", 1);
+                if (this.a.k) {
+                    i = 5;
+                } else {
+                    i = 1;
+                }
+                statisticItem.param("obj_type", i);
+                if (!this.a.k) {
+                    i2 = 3;
+                }
+                statisticItem.param("obj_source", i2);
+                TiebaStatic.log(statisticItem);
+            }
         }
     }
 
-    public tt6(Context context, ArrayList<String> arrayList) {
+    public tt6(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, arrayList};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -77,68 +97,67 @@ public class tt6 extends BaseAdapter {
                 return;
             }
         }
-        this.a = context;
-        this.b = arrayList;
+        this.a = tbPageContext;
+        View inflate = tbPageContext.getPageActivity().getLayoutInflater().inflate(R.layout.obfuscated_res_0x7f0d02ec, (ViewGroup) null);
+        this.b = inflate;
+        this.c = (RoundRelativeLayout) inflate.findViewById(R.id.obfuscated_res_0x7f092122);
+        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092138);
+        this.e = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09213e);
+        this.g = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092140);
+        this.h = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092124);
+        this.f = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0911a4);
+        this.g.setText(R.string.forum_square_title);
+        this.h.setText(R.string.forum_square_desc);
+        this.b.setOnClickListener(new a(this));
+        this.i = ii.g(this.a.getPageActivity(), R.dimen.tbds90);
+        this.j = ii.g(this.a.getPageActivity(), R.dimen.tbds58);
+        RoundRelativeLayout roundRelativeLayout = this.c;
+        int i3 = this.i;
+        roundRelativeLayout.setRoundLayoutRadius(new float[]{i3, i3, i3, i3, i3, i3, i3, i3});
     }
 
-    public void a(ArrayList<String> arrayList) {
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.k = z;
         }
     }
 
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
+    public void c(fr6 fr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null || arrayList.size() <= 0 || i < 0 || i >= this.b.size()) {
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fr6Var) == null) {
+            if (fr6Var.isTop()) {
+                if (this.c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                    ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
+                    int i = marginLayoutParams.bottomMargin;
+                    int i2 = this.j;
+                    if (i != i2) {
+                        marginLayoutParams.bottomMargin = i2;
+                        this.c.requestLayout();
+                    }
+                }
+            } else if (this.c.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
+                ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) this.c.getLayoutParams();
+                if (marginLayoutParams2.bottomMargin != 0) {
+                    marginLayoutParams2.bottomMargin = 0;
+                    this.c.requestLayout();
+                }
             }
-            return this.b.get(i);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0206);
+            SvgManager.getInstance().setMaskDrawableWithDayNightModeAutoChange(this.d, R.drawable.obfuscated_res_0x7f08068a, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setImageResource(this.e, R.drawable.pic_mask_square_circle);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.f, R.drawable.ic_icon_mybar_pure_list_arrow16_right, R.color.CAM_X0108, SvgManager.SvgResourceStateType.NORMAL);
+            SkinManager.setViewTextColor(this.g, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.h, (int) R.color.CAM_X0108);
         }
-        return invokeI.objValue;
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
+    public View d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.b;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+            return this.b;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            int l = (ii.l(this.a) - ii.g(this.a, R.dimen.obfuscated_res_0x7f07027a)) / 4;
-            if (view2 == null) {
-                b bVar = new b(this, null);
-                View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d029f, (ViewGroup) null);
-                bVar.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090fed);
-                inflate.setTag(bVar);
-                inflate.setLayoutParams(new AbsListView.LayoutParams(l, l));
-                view2 = inflate;
-            }
-            b bVar2 = (b) view2.getTag();
-            String obj = getItem(i).toString();
-            SkinManager.setBackgroundResource(bVar2.a, R.drawable.btn_choose_face_selector);
-            bVar2.a.J(obj, 10, l, l, false);
-            if (i == getCount() - 1) {
-                viewGroup.invalidate();
-            }
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (View) invokeV.objValue;
     }
 }

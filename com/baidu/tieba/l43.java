@@ -1,13 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,81 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes5.dex */
-public final class l43 {
+public class l43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final Map<String, ProviderDelegation> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public c a;
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a();
-
-        void b(@NonNull n43 n43Var);
-
-        void c(String str);
-
-        void d(String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n43 a;
-        public final /* synthetic */ l43 b;
-
-        public a(l43 l43Var, n43 n43Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l43Var, n43Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = l43Var;
-            this.a = n43Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.g(this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static l43 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-680719680, "Lcom/baidu/tieba/l43$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-680719680, "Lcom/baidu/tieba/l43$b;");
-                    return;
-                }
-            }
-            a = new l43();
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -104,7 +32,9 @@ public final class l43 {
                 return;
             }
         }
-        b = fo1.a;
+        a = new ConcurrentHashMap();
+        c(wv1.a());
+        c(er2.s().d());
     }
 
     public l43() {
@@ -121,85 +51,37 @@ public final class l43 {
         }
     }
 
-    public static l43 e() {
-        InterceptResult invokeV;
+    @Nullable
+    public static ProviderDelegation a(@NonNull Class<? extends ProviderDelegation> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, cls)) == null) {
+            return a.get(cls.getName());
         }
-        return (l43) invokeV.objValue;
+        return (ProviderDelegation) invokeL.objValue;
     }
 
-    public void c() {
-        c cVar;
+    @Nullable
+    public static ProviderDelegation b(@NonNull String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cVar = this.a) != null) {
-            cVar.a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return a.get(str);
         }
+        return (ProviderDelegation) invokeL.objValue;
     }
 
-    public static void f(String str) {
+    public static void c(@Nullable Map<Class, Object> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && b) {
-            Log.i("SwanAppMessenger", str);
-        }
-    }
-
-    public void b(String str) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (cVar = this.a) != null) {
-            cVar.d(str);
-        }
-    }
-
-    public void d(String str) {
-        c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (cVar = this.a) != null) {
-            cVar.c(str);
-        }
-    }
-
-    public final void g(@NonNull n43 n43Var) {
-        c r43Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, n43Var) == null) {
-            boolean isMainProcess = ProcessUtils.isMainProcess();
-            if (!isMainProcess && !SwanAppProcessInfo.isInited()) {
-                f("send: return by process check");
-                return;
-            }
-            if (this.a == null) {
-                if (isMainProcess) {
-                    r43Var = new v43();
-                } else {
-                    r43Var = new r43();
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && map != null) {
+            for (Class cls : map.keySet()) {
+                if (cls != null) {
+                    Object obj = map.get(cls);
+                    if (obj instanceof ProviderDelegation) {
+                        a.put(cls.getName(), (ProviderDelegation) obj);
+                    }
                 }
-                this.a = r43Var;
             }
-            f("send: sender=" + this.a);
-            this.a.a();
-            this.a.b(n43Var);
-            this.a.a();
-        }
-    }
-
-    public void h(@NonNull n43 n43Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, n43Var) == null) {
-            long i = n43Var.i();
-            int i2 = (i > 0L ? 1 : (i == 0L ? 0 : -1));
-            if (i2 <= 0 && Looper.getMainLooper() == Looper.myLooper()) {
-                g(n43Var);
-                return;
-            }
-            Handler M = u73.M();
-            a aVar = new a(this, n43Var);
-            if (i2 < 0) {
-                i = 0;
-            }
-            M.postDelayed(aVar, i);
         }
     }
 }

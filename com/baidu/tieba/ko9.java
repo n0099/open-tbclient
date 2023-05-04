@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.FrsPage.GconAccount;
 /* loaded from: classes5.dex */
-public class ko9 implements k45 {
+public class ko9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jo9 a;
+    public boolean a;
+    public String b;
 
     public ko9() {
         Interceptable interceptable = $ic;
@@ -32,81 +28,34 @@ public class ko9 implements k45 {
         }
     }
 
-    @Override // com.baidu.tieba.k45
-    public Class<?> d() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return MainTabActivity.class;
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.k45
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return MainTabActivity.class.getName();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.k45
-    public int getCurrentTabType() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            jo9 jo9Var = this.a;
-            if (jo9Var != null) {
-                return jo9Var.getCurrentTabType();
-            }
-            return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.k45
-    public void a(Context context) {
+    public void c(GconAccount gconAccount) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (currentAccount != null && currentAccount.length() > 0) {
-                b(context, 1);
-            } else {
-                b(context, 0);
-            }
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, gconAccount) != null) || gconAccount == null) {
+            return;
         }
-    }
-
-    public void g(jo9 jo9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, jo9Var) == null) {
-            this.a = jo9Var;
+        boolean z = true;
+        if (gconAccount.has_account.intValue() != 1) {
+            z = false;
         }
-    }
-
-    @Override // com.baidu.tieba.k45
-    public void b(Context context, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
-        }
-    }
-
-    @Override // com.baidu.tieba.k45
-    public void c(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
-        }
-    }
-
-    @Override // com.baidu.tieba.k45
-    public void e(Context context, int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
-        }
+        this.a = z;
+        this.b = gconAccount.menu_name;
     }
 }

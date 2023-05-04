@@ -1,79 +1,85 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.tq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public class q52 implements x42 {
+public class q52 {
     public static /* synthetic */ Interceptable $ic;
-    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public q52() {
+    public static tq2.g a(us2 us2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, us2Var)) == null) {
+            File e = e();
+            tq2.M(b(), e, us2Var);
+            tq2.g gVar = new tq2.g();
+            File file = new File(e, "app.json");
+            SwanAppConfigData b = j83.b(e.getAbsolutePath());
+            gVar.a = e.getPath() + File.separator;
+            gVar.b = b;
+            x42.k("WirelessDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
+        return (tq2.g) invokeL.objValue;
     }
 
-    public static void d() {
-        v73 M;
+    public static File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (M = v73.M()) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new File(c(), "wireless_debug.aiapps");
         }
-        ek3.j(M.getActivity());
-        System.exit(0);
+        return (File) invokeV.objValue;
     }
 
-    public static String e() {
+    public static File c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
         }
-        return (String) invokeV.objValue;
+        return (File) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x42
-    public String c() {
+    public static File e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return o52.e().getPath();
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "aiapps_wireless_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug_zip";
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x42
-    public void a(Bundle bundle) {
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = uk3.i(bundle, "extraWSUrl");
-            y42.i(uk3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            y42.j(uk3.i(bundle, "slavePreload"));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return AppRuntime.getAppContext().getFilesDir() + File.separator + "aiapps_wireless_debug";
         }
-    }
-
-    @Override // com.baidu.tieba.x42
-    public void b(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("extraWSUrl", a);
-            bundle.putString("slavePreload", y42.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, y42.a());
-        }
+        return (String) invokeV.objValue;
     }
 }

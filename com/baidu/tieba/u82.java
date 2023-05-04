@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
 import com.baidu.swan.apps.core.launchtips.monitor.network.NetworkStatus;
-import com.baidu.swan.apps.core.launchtips.monitor.request.RequestStatus;
-import com.baidu.swan.apps.core.launchtips.scene.SceneType;
-import com.baidu.tieba.d82;
+import com.baidu.tieba.f82;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,74 +14,27 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes6.dex */
 public class u82 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final d82 a;
-    public final m82 b;
-    public final a82 c;
-    public String d;
+    public final f82 a;
+    public final o82 b;
+    public final c82 c;
+    public long d;
+    public String e;
+    public Timer f;
 
     /* loaded from: classes6.dex */
-    public class a implements d82.b {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SceneType a;
-        public final /* synthetic */ o82 b;
-        public final /* synthetic */ c82 c;
-        public final /* synthetic */ u82 d;
+        public final /* synthetic */ u82 a;
 
-        public a(u82 u82Var, SceneType sceneType, o82 o82Var, c82 c82Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u82Var, sceneType, o82Var, c82Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = u82Var;
-            this.a = sceneType;
-            this.b = o82Var;
-            this.c = c82Var;
-        }
-
-        @Override // com.baidu.tieba.d82.b
-        public void a(NetworkStatus networkStatus) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                u72.b(this.d.d);
-                x72.i(1);
-                w72.e(this.a.getType(), networkStatus.getStatus(), this.b.e().getStatus(), this.b.g(), this.b.b(), this.b.f(), this.b.a());
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.a.getScene());
-                sb.append(this.c.a());
-                sb.append(this.b.d());
-                sb.append(networkStatus.getDesc());
-                sb.append(this.b.c());
-                x72.g(sb.toString());
-                if (u82.e) {
-                    Log.d("SceneSkeletonTips", ">> " + sb.toString());
-                }
-                this.d.h(networkStatus, this.c, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements d82.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(u82 u82Var) {
+        public a(u82 u82Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,19 +46,68 @@ public class u82 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = u82Var;
         }
 
-        @Override // com.baidu.tieba.d82.b
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.e(null);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements f82.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ e82 a;
+        public final /* synthetic */ q82 b;
+        public final /* synthetic */ qm3 c;
+        public final /* synthetic */ u82 d;
+
+        public b(u82 u82Var, e82 e82Var, q82 q82Var, qm3 qm3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u82Var, e82Var, q82Var, qm3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = u82Var;
+            this.a = e82Var;
+            this.b = q82Var;
+            this.c = qm3Var;
+        }
+
+        @Override // com.baidu.tieba.f82.b
         public void a(NetworkStatus networkStatus) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, networkStatus) == null) {
-                m82.d().j();
-                a82.d().j();
-                u72.c();
-                x72.i(0);
-                w72.c("exit_skeleton", networkStatus.getStatus());
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.a.a());
+                sb.append(this.b.d());
+                sb.append(networkStatus.getDesc());
+                sb.append(this.b.c());
+                if (u82.g) {
+                    Log.d("SceneLaunchDefaultTips", ">> " + sb.toString());
+                }
+                this.d.e = sb.toString();
+                qm3 qm3Var = this.c;
+                if (qm3Var != null) {
+                    qm3Var.a(this.d.e);
+                }
             }
         }
     }
@@ -123,23 +125,56 @@ public class u82 {
                 return;
             }
         }
-        e = fo1.a;
+        g = ho1.a;
     }
 
-    public void d() {
+    public final boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (e) {
-                Log.d("SceneSkeletonTips", ">> trigger skeleton error event.");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (System.currentTimeMillis() - this.d > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
+                return true;
             }
-            this.a.a(new b(this));
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void g() {
+        Timer timer;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (timer = this.f) != null) {
+            timer.cancel();
+            this.f = null;
         }
     }
 
-    public void e() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            f(SceneType.SCENE_SKELETON_TIMEOUT);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (g) {
+                Log.d("SceneLaunchDefaultTips", ">> start to collect default launch info.");
+            }
+            g();
+            Timer timer = new Timer();
+            this.f = timer;
+            timer.schedule(new a(this), LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            g();
         }
     }
 
@@ -156,52 +191,24 @@ public class u82 {
                 return;
             }
         }
-        this.c = a82.d();
-        this.a = new d82();
-        this.b = m82.d();
+        this.d = System.currentTimeMillis();
+        this.e = "";
+        this.a = new f82();
+        this.b = o82.d();
+        this.c = c82.d();
     }
 
-    public void g(String str) {
+    public void e(@Nullable qm3<String> qm3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    public void f(SceneType sceneType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sceneType) == null) {
-            if (pl3.I(this.d) && pl3.H()) {
-                if (e) {
-                    Log.d("SceneSkeletonTips", ">> trigger skeleton remove event.");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qm3Var) == null) {
+            if (d() && !TextUtils.isEmpty(this.e)) {
+                if (qm3Var != null) {
+                    qm3Var.a(this.e);
+                    return;
                 }
-                m82.d().j();
-                a82.d().j();
-                c82 f = this.c.f();
-                this.a.a(new a(this, sceneType, this.b.f(), f));
-            } else if (e) {
-                Log.d("SceneSkeletonTips", "path is not first page: " + this.d);
+                return;
             }
-        }
-    }
-
-    public final void h(@NonNull NetworkStatus networkStatus, @NonNull c82 c82Var, @NonNull o82 o82Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, networkStatus, c82Var, o82Var) == null) {
-            boolean b2 = c82Var.b();
-            int i = R.string.obfuscated_res_0x7f0f13fc;
-            if (b2) {
-                i = R.string.obfuscated_res_0x7f0f1401;
-            } else if (o82Var.e() == RequestStatus.STATUS_SERVER_FAILED) {
-                i = R.string.obfuscated_res_0x7f0f13ff;
-            } else if (o82Var.e() != RequestStatus.STATUS_FAILED) {
-                if (o82Var.e() == RequestStatus.STATUS_SLOW) {
-                    i = (networkStatus == NetworkStatus.NETWORK_BAD || networkStatus == NetworkStatus.NETWORK_OFFLINE) ? R.string.obfuscated_res_0x7f0f1400 : R.string.obfuscated_res_0x7f0f13fd;
-                } else if (o82Var.e() != RequestStatus.STATUS_CORE_FAILED) {
-                    i = R.string.obfuscated_res_0x7f0f13fe;
-                }
-            }
-            v72.f(i);
+            this.a.a(new b(this, this.c.f(), this.b.f(), qm3Var));
         }
     }
 }

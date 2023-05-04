@@ -1,794 +1,492 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
+import android.os.Message;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.data.GamePlayOrderMsgData;
-import com.baidu.tieba.im.data.MsgCacheData;
-import com.baidu.tieba.im.data.ShareChatroomMsgData;
-import com.baidu.tieba.im.data.ShareForumMsgData;
-import com.baidu.tieba.im.data.ShareThreadMsgData;
-import com.baidu.tieba.im.data.VoiceMsgData;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
 import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.tieba.im.util.MessageUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import protobuf.ImShareChatroomInfo;
-import protobuf.MsgInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import java.util.Vector;
+import java.util.concurrent.ConcurrentHashMap;
+import protobuf.NewpushGroupRepair;
 /* loaded from: classes4.dex */
 public class f28 {
     public static /* synthetic */ Interceptable $ic;
+    public static f28 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public Handler b;
+    public ConcurrentHashMap<Long, GroupMsgData> c;
+    public ConcurrentHashMap<Long, NewpushGroupRepair> d;
+    public ConcurrentHashMap<Long, Runnable> e;
+    public Vector<Long> f;
+    public final CustomMessageListener g;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712349, "Lcom/baidu/tieba/f28;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947712349, "Lcom/baidu/tieba/f28;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947712349, "Lcom/baidu/tieba/f28;");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f28 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(f28 f28Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f28Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947712349, "Lcom/baidu/tieba/f28;");
+            this.a = f28Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
+                this.a.h();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ f28 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(f28 f28Var, Looper looper) {
+            super(looper);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f28Var, looper};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Looper) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = f28Var;
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                switch (message.what) {
+                    case 10001:
+                        MessageUtils.updateGroupNotExist(message.getData());
+                        return;
+                    case 10002:
+                        MessageManager.getInstance().registerListener(this.a.g);
+                        return;
+                    case 10003:
+                        if (message.getData() != null && message.getData().containsKey(TbEnum.SystemMessage.KEY_GROUP_ID)) {
+                            this.a.f.remove(Long.valueOf(message.getData().getLong(TbEnum.SystemMessage.KEY_GROUP_ID)));
+                            return;
+                        }
+                        return;
+                    default:
+                        return;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ long b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ long d;
+        public final /* synthetic */ f28 e;
+
+        public c(f28 f28Var, long j, long j2, int i, long j3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f28Var, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = f28Var;
+            this.a = j;
+            this.b = j2;
+            this.c = i;
+            this.d = j3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                GroupMsgData groupMsgData = (GroupMsgData) this.e.c.get(Long.valueOf(this.a));
+                if (groupMsgData != null) {
+                    LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
+                    long j = -1;
+                    if (listMessage != null && listMessage.size() > 0) {
+                        for (int i = 0; i < listMessage.size(); i++) {
+                            if (j < listMessage.get(i).getSid()) {
+                                j = listMessage.get(i).getSid();
+                            }
+                        }
+                        listMessage.clear();
+                    }
+                    long j2 = j;
+                    this.e.q(this.a);
+                    if (j2 > this.b) {
+                        this.e.d.put(Long.valueOf(this.a), MessageUtils.makeNewpushGroupRepair(this.a, this.c, this.b, j2, this.d));
+                        c28.n().v(this.a, 1L, 0L, true);
+                        this.e.f.add(Long.valueOf(this.a));
+                        this.e.o(this.a);
+                        return;
+                    }
+                    return;
+                }
+                this.e.q(this.a);
+            }
+        }
+    }
+
+    public f28() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        Pattern.compile("(#\\([^#\\)\\(]+\\))");
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        this.g = new a(this, 2005016);
+        this.a = new b(this, Looper.getMainLooper());
+        this.b = new Handler(Looper.myLooper());
+        this.c = new ConcurrentHashMap<>();
+        this.d = new ConcurrentHashMap<>();
+        this.e = new ConcurrentHashMap<>();
+        this.f = new Vector<>();
+        this.a.sendEmptyMessage(10002);
     }
 
-    public static boolean A(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public NewpushGroupRepair j(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String C(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return "";
-            }
-            return B(chatMessage.getMsgType(), chatMessage.getContent());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static MsgCacheData l(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, chatMessage)) == null) {
-            try {
-                MsgCacheData msgCacheData = new MsgCacheData();
-                msgCacheData.setRich_content(null);
-                return msgCacheData;
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (MsgCacheData) invokeL.objValue;
-    }
-
-    public static yy7 m(CommonMsgPojo commonMsgPojo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, commonMsgPojo)) == null) {
-            if (commonMsgPojo == null || commonMsgPojo.getMsg_type() != 7) {
-                return null;
-            }
-            return o(commonMsgPojo.getContent());
-        }
-        return (yy7) invokeL.objValue;
-    }
-
-    public static long p(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65555, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return -1L;
-            }
-            if (gg.g(TbadkCoreApplication.getCurrentAccount(), -1L) == chatMessage.getUserId()) {
-                return chatMessage.getToUserId();
-            }
-            return chatMessage.getUserId();
-        }
-        return invokeL.longValue;
-    }
-
-    public static boolean x(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65563, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 4) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean y(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65564, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 6) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean z(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static String B(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, str)) == null) {
-            ShareChatroomMsgData shareChatroomMsgData = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            int i3 = 0;
-            if (i != 1 && i != 30) {
-                if (i == 2) {
-                    if (DataExt.toMapList(str).get(0).get("meme_id") != null) {
-                        i3 = 1;
-                    }
-                    Application app = TbadkCoreApplication.getInst().getApp();
-                    if (i3 != 0) {
-                        i2 = R.string.last_msg_emotion;
-                    } else {
-                        i2 = R.string.last_msg_pic;
-                    }
-                    return app.getString(i2);
-                } else if (i == 3) {
-                    return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_voice);
-                } else {
-                    if (i == 32) {
-                        return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_thread_share);
-                    }
-                    if (i == 33) {
-                        return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_forum_share);
-                    }
-                    if (i == 37) {
-                        if (!StringUtils.isNull(str)) {
-                            try {
-                                shareChatroomMsgData = (ShareChatroomMsgData) DataExt.toEntity(str, ShareChatroomMsgData.class);
-                            } catch (Exception e) {
-                                e.printStackTrace();
-                            }
-                        }
-                        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_chatroom_share);
-                        if (shareChatroomMsgData != null) {
-                            return string + shareChatroomMsgData.getName();
-                        }
-                        return string;
-                    } else if (i == 11) {
-                        return a(str);
-                    } else {
-                        if (i == 23) {
-                            return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_reply_card);
-                        }
-                        if (i == 4) {
-                            try {
-                                JSONArray jSONArray = new JSONArray(str);
-                                if (jSONArray.length() > 0) {
-                                    String optString = jSONArray.getJSONObject(0).optString("face_name");
-                                    if (optString != null && optString.startsWith(SmallTailInfo.EMOTION_PREFIX) && optString.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
-                                        return PreferencesUtil.LEFT_MOUNT + optString.substring(2, optString.length() - 1) + PreferencesUtil.RIGHT_MOUNT;
-                                    }
-                                    return optString;
-                                }
-                                return null;
-                            } catch (JSONException e2) {
-                                e2.printStackTrace();
-                                try {
-                                    String optString2 = new JSONObject(str).optString("face_name");
-                                    if (optString2 != null && optString2.startsWith(SmallTailInfo.EMOTION_PREFIX) && optString2.endsWith(SmallTailInfo.EMOTION_SUFFIX)) {
-                                        return PreferencesUtil.LEFT_MOUNT + optString2.substring(2, optString2.length() - 1) + PreferencesUtil.RIGHT_MOUNT;
-                                    }
-                                    return optString2;
-                                } catch (JSONException e3) {
-                                    e3.printStackTrace();
-                                }
-                            }
-                        } else if (i == 5) {
-                            return TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_invite);
-                        } else {
-                            if (i == 6) {
-                                try {
-                                    return new JSONObject(str).optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                                } catch (JSONException e4) {
-                                    e4.printStackTrace();
-                                    return "";
-                                }
-                            } else if (i == 7) {
-                                String string2 = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic_text);
-                                if (TextUtils.isEmpty(str)) {
-                                    return string2;
-                                }
-                                try {
-                                    JSONArray jSONArray2 = new JSONArray(str);
-                                    if (jSONArray2.length() > 0) {
-                                        while (i3 < jSONArray2.length()) {
-                                            String string3 = ((JSONObject) jSONArray2.get(i3)).getString("text");
-                                            if (!TextUtils.isEmpty(string3)) {
-                                                return string3;
-                                            }
-                                            i3++;
-                                        }
-                                    }
-                                    return string2;
-                                } catch (JSONException e5) {
-                                    e5.printStackTrace();
-                                    return string2;
-                                }
-                            } else if (i == 35) {
-                                String string4 = TbadkCoreApplication.getInst().getApp().getString(R.string.last_msg_pic_text);
-                                if (TextUtils.isEmpty(str)) {
-                                    return string4;
-                                }
-                                try {
-                                    JSONArray jSONArray3 = new JSONArray(str);
-                                    if (jSONArray3.length() > 0) {
-                                        while (i3 < jSONArray3.length()) {
-                                            String string5 = ((JSONObject) jSONArray3.get(i3)).getString("title");
-                                            if (!TextUtils.isEmpty(string5)) {
-                                                return string5;
-                                            }
-                                            i3++;
-                                        }
-                                    }
-                                    return string4;
-                                } catch (JSONException e6) {
-                                    e6.printStackTrace();
-                                    return string4;
-                                }
-                            } else if (i == 25) {
-                                if (TextUtils.isEmpty(str)) {
-                                    return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
-                                }
-                                try {
-                                    JSONArray jSONArray4 = new JSONArray(str);
-                                    if (jSONArray4.length() <= 0) {
-                                        return "";
-                                    }
-                                    JSONObject optJSONObject = jSONArray4.optJSONObject(0);
-                                    String optString3 = optJSONObject.optString("nick_name");
-                                    String optString4 = optJSONObject.optString("caller_content");
-                                    int optInt = optJSONObject.optInt("remind_count");
-                                    int optInt2 = optJSONObject.optInt("msg_type");
-                                    if (optInt2 == 1) {
-                                        return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_msg), optString3, optString4);
-                                    }
-                                    if (optInt2 == 3) {
-                                        return String.format(TbadkCoreApplication.getInst().getApp().getString(R.string.urge_times_notify_default), Integer.valueOf(optInt));
-                                    }
-                                    return optString4;
-                                } catch (JSONException e7) {
-                                    e7.printStackTrace();
-                                    return TbadkCoreApplication.getInst().getApp().getString(R.string.great_call_notify_default);
-                                }
-                            } else if (i == 9) {
-                                return i(str);
-                            } else {
-                                if (i != 34) {
-                                    return null;
-                                }
-                                GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(str, GamePlayOrderMsgData.class);
-                                if (gamePlayOrderMsgData != null && !StringUtils.isNull(gamePlayOrderMsgData.getTitle())) {
-                                    return gamePlayOrderMsgData.getTitle();
-                                }
-                                return "[游戏组队消息]";
-                            }
-                        }
-                    }
-                }
-            } else {
-                if (str.length() > 1 && str.charAt(0) == '[') {
-                    str2 = f(str);
-                } else {
-                    str2 = null;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                if (str == null) {
-                    return null;
-                }
-                return str;
-            }
-        } else {
-            return (String) invokeIL.objValue;
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                String optString = jSONObject.optString("eventId");
-                String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_FAKE)) {
-                    return optString2;
-                }
-                if (optJSONObject == null) {
-                    return null;
-                }
-                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_COMMON)) {
-                    return optString2;
-                }
-                if (optString.equals(TbEnum.SystemMessage.EVENT_ID_STRANGER_FIRST_MSG)) {
-                }
-                return optString2;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Nullable
-    public static GamePlayOrderMsgData b(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 34) {
-                if (chatMessage.getObjContent() != null) {
-                    return (GamePlayOrderMsgData) chatMessage.getObjContent();
-                }
-                GamePlayOrderMsgData gamePlayOrderMsgData = (GamePlayOrderMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), GamePlayOrderMsgData.class);
-                if (gamePlayOrderMsgData != null) {
-                    gamePlayOrderMsgData.setLast(!"expired".equals(chatMessage.getExtra()));
-                    chatMessage.setEncodeContent(gamePlayOrderMsgData.toEncodeContent());
-                }
-                chatMessage.setObjContent(gamePlayOrderMsgData);
-                return gamePlayOrderMsgData;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            if (this.d.containsKey(Long.valueOf(j))) {
+                return this.d.remove(Long.valueOf(j));
             }
             return null;
         }
-        return (GamePlayOrderMsgData) invokeL.objValue;
+        return (NewpushGroupRepair) invokeJ.objValue;
     }
 
-    @Nullable
-    public static ShareChatroomMsgData c(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public final void o(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, chatMessage)) == null) {
-            ShareChatroomMsgData shareChatroomMsgData = null;
-            if (chatMessage != null && chatMessage.getMsgType() == 37) {
-                if (chatMessage.getObjContent() instanceof ShareChatroomMsgData) {
-                    return (ShareChatroomMsgData) chatMessage.getObjContent();
-                }
-                try {
-                    shareChatroomMsgData = (ShareChatroomMsgData) DataExt.toEntity(chatMessage.getContent(), ShareChatroomMsgData.class);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (shareChatroomMsgData != null) {
-                    chatMessage.setEncodeContent(shareChatroomMsgData.toEncodeContent());
-                }
-                chatMessage.setObjContent(shareChatroomMsgData);
-            }
-            return shareChatroomMsgData;
+        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
+            Message message = new Message();
+            message.what = 10003;
+            Bundle bundle = new Bundle();
+            bundle.putLong(TbEnum.SystemMessage.KEY_GROUP_ID, j);
+            message.setData(bundle);
+            this.a.sendMessageDelayed(message, 3000L);
         }
-        return (ShareChatroomMsgData) invokeL.objValue;
     }
 
-    @Nullable
-    public static ShareForumMsgData d(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public final void q(long j) {
+        Runnable remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 33) {
-                if (chatMessage.getObjContent() != null) {
-                    return (ShareForumMsgData) chatMessage.getObjContent();
-                }
-                ShareForumMsgData shareForumMsgData = (ShareForumMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareForumMsgData.class);
-                if (shareForumMsgData != null) {
-                    chatMessage.setEncodeContent(shareForumMsgData.toEncodeContent());
-                }
-                chatMessage.setObjContent(shareForumMsgData);
-                return shareForumMsgData;
-            }
-            return null;
+        if ((interceptable == null || interceptable.invokeJ(1048585, this, j) == null) && (remove = this.e.remove(Long.valueOf(j))) != null) {
+            this.b.removeCallbacks(remove);
         }
-        return (ShareForumMsgData) invokeL.objValue;
     }
 
-    @Nullable
-    public static ShareThreadMsgData e(@Nullable ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public static f28 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, chatMessage)) == null) {
-            if (chatMessage != null && chatMessage.getMsgType() == 32) {
-                if (chatMessage.getObjContent() != null) {
-                    return (ShareThreadMsgData) chatMessage.getObjContent();
-                }
-                ShareThreadMsgData shareThreadMsgData = (ShareThreadMsgData) OrmObject.objectWithJsonStr(chatMessage.getContent(), ShareThreadMsgData.class);
-                if (shareThreadMsgData != null) {
-                    chatMessage.setEncodeContent(shareThreadMsgData.toEncodeContent());
-                }
-                chatMessage.setObjContent(shareThreadMsgData);
-                return shareThreadMsgData;
-            }
-            return null;
-        }
-        return (ShareThreadMsgData) invokeL.objValue;
-    }
-
-    public static final String i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() >= 2) {
-                    String optString = jSONArray.optString(0);
-                    if (1 == jSONArray.optInt(1)) {
-                        sb.append(TbadkCoreApplication.getInst().getString(R.string.last_msg_extra_share));
-                    }
-                    if (optString != null) {
-                        sb.append(optString);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (h == null) {
+                synchronized (f28.class) {
+                    if (h == null) {
+                        h = new f28();
                     }
                 }
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
-            return sb.toString();
+            return h;
         }
-        return (String) invokeL.objValue;
+        return (f28) invokeV.objValue;
     }
 
-    public static final String f(String str) {
-        InterceptResult invokeL;
+    public final void g(long j, long j2, int i, long j3) {
+        GroupMsgData groupMsgData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            if (TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)}) != null) || (groupMsgData = this.c.get(Long.valueOf(j2))) == null) {
+            return;
+        }
+        LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
+        if (listMessage != null && listMessage.size() != 0) {
+            if (!this.e.containsKey(Long.valueOf(j2))) {
+                p(j, j2, i, j3);
+                return;
+            }
+            return;
+        }
+        q(j2);
+    }
+
+    public final void p(long j, long j2, int i, long j3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Long.valueOf(j3)}) == null) {
+            c cVar = new c(this, j2, j, i, j3);
+            this.b.postDelayed(cVar, g28.a().b().b());
+            this.e.put(Long.valueOf(j2), cVar);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Handler handler = this.a;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+            }
+            Handler handler2 = this.b;
+            if (handler2 != null) {
+                handler2.removeCallbacksAndMessages(null);
+            }
+            ConcurrentHashMap<Long, Runnable> concurrentHashMap = this.e;
+            if (concurrentHashMap != null) {
+                for (Map.Entry<Long, Runnable> entry : concurrentHashMap.entrySet()) {
+                    q(entry.getKey().longValue());
+                }
+                this.e.clear();
+            }
+            ConcurrentHashMap<Long, GroupMsgData> concurrentHashMap2 = this.c;
+            if (concurrentHashMap2 != null) {
+                concurrentHashMap2.clear();
+            }
+            Vector<Long> vector = this.f;
+            if (vector != null) {
+                vector.clear();
+            }
+        }
+    }
+
+    public final List<ChatMessage> k(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
+            GroupMsgData groupMsgData = this.c.get(Long.valueOf(j));
+            LinkedList linkedList = null;
+            if (groupMsgData == null) {
                 return null;
             }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null && !optJSONObject.isNull("type")) {
-                        int optInt = optJSONObject.optInt("type");
-                        if (optInt == 0) {
-                            sb.append(optJSONObject.opt("text"));
-                        } else if (optInt == 2) {
-                            sb.append(SmallTailInfo.EMOTION_PREFIX);
-                            sb.append(optJSONObject.opt("c"));
-                            sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                        }
+            LinkedList<ChatMessage> listMessage = groupMsgData.getListMessage();
+            if (listMessage != null && listMessage.size() != 0) {
+                linkedList = new LinkedList();
+                Iterator<ChatMessage> it = listMessage.iterator();
+                long sid = listMessage.get(0).getSid() - 1;
+                while (it.hasNext()) {
+                    ChatMessage next = it.next();
+                    sid++;
+                    if (next.getSid() != sid) {
+                        break;
                     }
+                    it.remove();
+                    linkedList.add(next);
                 }
-            } catch (Error e) {
-                e.printStackTrace();
-            } catch (JSONException e2) {
-                e2.printStackTrace();
             }
-            return sb.toString();
+            return linkedList;
         }
-        return (String) invokeL.objValue;
+        return (List) invokeJ.objValue;
     }
 
-    public static String g(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        String str;
+    public final boolean l(ChatMessage chatMessage, GroupMsgData groupMsgData) {
+        InterceptResult invokeLL;
+        LinkedList<ChatMessage> listMessage;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return null;
-            }
-            UserData userInfo = chatMessage.getUserInfo();
-            if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserName())) {
-                str = chatMessage.getUserInfo().getUserName();
-            } else {
-                str = "";
-            }
-            if (userInfo != null && !TextUtils.isEmpty(userInfo.getUserId()) && userInfo.getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                return C(chatMessage);
-            }
-            if (chatMessage.getMsgType() == 11) {
-                return C(chatMessage);
-            }
-            if (chatMessage.getToUserId() != 0) {
-                return C(chatMessage);
-            }
-            if (!TextUtils.isEmpty(str)) {
-                return str + ":" + C(chatMessage);
-            }
-            return C(chatMessage);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static VoiceMsgData q(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, chatMessage)) == null) {
-            VoiceMsgData voiceMsgData = null;
-            if (chatMessage == null || chatMessage.getMsgType() != 3) {
-                return null;
-            }
-            if (chatMessage.getObjContent() != null) {
-                return (VoiceMsgData) chatMessage.getObjContent();
-            }
-            String content = chatMessage.getContent();
-            if (TextUtils.isEmpty(content)) {
-                VoiceMsgData voiceMsgData2 = new VoiceMsgData();
-                chatMessage.setObjContent(voiceMsgData2);
-                return voiceMsgData2;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(content);
-                if (jSONArray.length() <= 0) {
-                    return null;
-                }
-                if (jSONArray.length() > 0) {
-                    try {
-                        voiceMsgData = (VoiceMsgData) OrmObject.objectWithJson(jSONArray.getJSONObject(0), VoiceMsgData.class);
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                chatMessage.setObjContent(voiceMsgData);
-                return voiceMsgData;
-            } catch (Exception unused) {
-                return voiceMsgData;
-            }
-        }
-        return (VoiceMsgData) invokeL.objValue;
-    }
-
-    public static int h(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65547, null, context, i)) == null) {
-            return context.getResources().getDimensionPixelSize(i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public static String j(String str, boolean z) {
-        InterceptResult invokeLZ;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65549, null, str, z)) == null) {
-            if (str == null) {
-                return null;
-            }
-            try {
-                JSONObject jSONObject = new JSONArray(str).getJSONObject(0);
-                if (z) {
-                    str2 = "big_src";
-                } else {
-                    str2 = "src";
-                }
-                return jSONObject.optString(str2);
-            } catch (Exception unused) {
-                return null;
-            }
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public static String k(JSONObject jSONObject, boolean z) {
-        InterceptResult invokeLZ;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65550, null, jSONObject, z)) == null) {
-            if (z) {
-                str = "big_src";
-            } else {
-                str = "src";
-            }
-            return jSONObject.optString(str);
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    public static yy7 n(String str) {
-        InterceptResult invokeL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (split = str.split("_")) != null && split.length == 2) {
-                yy7 yy7Var = new yy7();
-                yy7Var.a = split[0];
-                yy7Var.b = split[1];
-                return yy7Var;
-            }
-            return null;
-        }
-        return (yy7) invokeL.objValue;
-    }
-
-    public static yy7 o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65554, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() > 0) {
-                    return n(jSONArray.getJSONObject(0).optString("msg_src"));
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return null;
-        }
-        return (yy7) invokeL.objValue;
-    }
-
-    public static boolean v(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, chatMessage)) == null) {
-            if (chatMessage == null) {
-                return true;
-            }
-            String content = chatMessage.getContent();
-            if (!StringUtils.isJSONArray(content)) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, chatMessage, groupMsgData)) == null) {
+            int i = 0;
+            if (chatMessage == null || groupMsgData == null || (listMessage = groupMsgData.getListMessage()) == null) {
                 return false;
             }
-            try {
-                JSONArray jSONArray = new JSONArray(content);
-                if (jSONArray.length() <= 0) {
-                    return true;
-                }
-                if (((JSONObject) jSONArray.get(0)).optInt(SetImageWatermarkTypeReqMsg.SWITCH, -1) == 0) {
-                    return true;
-                }
-                return false;
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (listMessage.contains(chatMessage)) {
                 return true;
             }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean w(ChatMessage chatMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65562, null, chatMessage)) == null) {
-            try {
-                if (chatMessage.getMsgType() != 11 && TbadkCoreApplication.isLogin()) {
-                    if (chatMessage.getUserInfo().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
+            int size = listMessage.size();
+            while (i < size) {
+                ChatMessage chatMessage2 = listMessage.get(i);
+                if (chatMessage2 != null) {
+                    if (chatMessage.getSid() == chatMessage2.getSid()) {
                         return true;
                     }
+                    if (chatMessage.getSid() < chatMessage2.getSid()) {
+                        break;
+                    }
                 }
-            } catch (Exception unused) {
+                i++;
             }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean r(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo, @Nullable boolean z) {
-        InterceptResult invokeLLZ;
-        GamePlayOrderMsgData parseFromMsgInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65557, null, chatMessage, msgInfo, z)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 34 || (parseFromMsgInfo = GamePlayOrderMsgData.parseFromMsgInfo(msgInfo, z)) == null) {
-                return false;
-            }
-            parseFromMsgInfo.setHasRead(w(chatMessage));
-            chatMessage.setContent(OrmObject.jsonStrWithObject(parseFromMsgInfo));
-            chatMessage.setObjContent(parseFromMsgInfo);
-            chatMessage.setEncodeContent(parseFromMsgInfo.toEncodeContent());
-            return true;
-        }
-        return invokeLLZ.booleanValue;
-    }
-
-    public static boolean s(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
-        InterceptResult invokeLL;
-        ImShareChatroomInfo imShareChatroomInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65558, null, chatMessage, msgInfo)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 37 || (imShareChatroomInfo = msgInfo.shareChatroomInfo) == null) {
-                return false;
-            }
-            ShareChatroomMsgData b = ShareChatroomMsgData.Companion.b(imShareChatroomInfo);
-            b.setHasRead(w(chatMessage) ? 1 : 0);
-            chatMessage.setContent(OrmObject.jsonStrWithObject(b));
-            chatMessage.setObjContent(b);
-            chatMessage.setEncodeContent(b.toEncodeContent());
+            listMessage.add(i, chatMessage);
             return true;
         }
         return invokeLL.booleanValue;
     }
 
-    public static boolean t(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
-        InterceptResult invokeLL;
-        ShareForumMsgData ofImForumInfo;
+    /* JADX WARN: Removed duplicated region for block: B:46:0x00f6  */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x010b  */
+    /* JADX WARN: Removed duplicated region for block: B:62:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void m(GroupMsgData groupMsgData, boolean z) {
+        LinkedList<ChatMessage> listMessage;
+        boolean z2;
+        long j;
+        long j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65559, null, chatMessage, msgInfo)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 33 || (ofImForumInfo = ShareForumMsgData.ofImForumInfo(msgInfo.forumInfo)) == null) {
-                return false;
+        if ((interceptable == null || interceptable.invokeLZ(1048581, this, groupMsgData, z) == null) && groupMsgData != null && groupMsgData.getGroupInfo() != null && (listMessage = groupMsgData.getListMessage()) != null && listMessage.size() != 0) {
+            long groupId = groupMsgData.getGroupInfo().getGroupId();
+            ImMessageCenterPojo g = f18.f().g(String.valueOf(groupId), groupMsgData.getGroupInfo().getCustomType());
+            if (g != null) {
+                z2 = true;
+            } else {
+                z2 = false;
             }
-            ofImForumInfo.setHasRead(w(chatMessage));
-            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImForumInfo));
-            chatMessage.setObjContent(ofImForumInfo);
-            chatMessage.setEncodeContent(ofImForumInfo.toEncodeContent());
-            return true;
+            if (!z2) {
+                if (!this.f.contains(Long.valueOf(groupId))) {
+                    n(groupMsgData, listMessage, groupId);
+                    return;
+                }
+                return;
+            }
+            long sid = g.getSid();
+            long c2 = b48.c(g.getPulled_msgId());
+            GroupMsgData groupMsgData2 = this.c.get(Long.valueOf(groupId));
+            if (groupMsgData2 == null) {
+                groupMsgData2 = new GroupMsgData(groupMsgData.getCmd());
+                this.c.put(Long.valueOf(groupId), groupMsgData2);
+            }
+            Iterator<ChatMessage> it = listMessage.iterator();
+            while (it.hasNext()) {
+                ChatMessage next = it.next();
+                if (next.getSid() > sid) {
+                    l(next, groupMsgData2);
+                }
+            }
+            listMessage.clear();
+            List<ChatMessage> k = k(groupId);
+            if (k != null && k.size() > 0) {
+                if (!z && sid > 0 && k.get(0).getSid() != 1 + sid) {
+                    groupMsgData2.getListMessage().addAll(k);
+                } else {
+                    listMessage.addAll(k);
+                    long sid2 = listMessage.get(listMessage.size() - 1).getSid();
+                    j2 = listMessage.get(listMessage.size() - 1).getMsgId();
+                    j = sid2;
+                    if (z) {
+                        this.f.remove(Long.valueOf(groupId));
+                    }
+                    if (this.f.contains(Long.valueOf(groupId))) {
+                        g(j, groupId, groupMsgData.getGroupInfo().getUserType(), j2);
+                        return;
+                    }
+                    return;
+                }
+            }
+            j = sid;
+            j2 = c2;
+            if (z) {
+            }
+            if (this.f.contains(Long.valueOf(groupId))) {
+            }
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean u(@Nullable ChatMessage chatMessage, @Nullable MsgInfo msgInfo) {
-        InterceptResult invokeLL;
-        ShareThreadMsgData ofImShareThreadInfo;
+    public final void n(GroupMsgData groupMsgData, LinkedList<ChatMessage> linkedList, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, chatMessage, msgInfo)) == null) {
-            if (chatMessage == null || msgInfo == null || chatMessage.getMsgType() != 32 || (ofImShareThreadInfo = ShareThreadMsgData.ofImShareThreadInfo(msgInfo.threadInfo)) == null) {
-                return false;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{groupMsgData, linkedList, Long.valueOf(j)}) == null) && groupMsgData != null && linkedList != null && linkedList.size() != 0) {
+            Bundle bundle = new Bundle();
+            bundle.putLong(TbEnum.SystemMessage.KEY_GROUP_ID, j);
+            bundle.putLong("lastMid", linkedList.get(0).getMsgId());
+            if (linkedList.get(0).getSid() > 0) {
+                this.d.put(Long.valueOf(j), MessageUtils.makeNewpushGroupRepair(groupMsgData));
             }
-            ofImShareThreadInfo.setHasRead(w(chatMessage));
-            chatMessage.setContent(OrmObject.jsonStrWithObject(ofImShareThreadInfo));
-            chatMessage.setObjContent(ofImShareThreadInfo);
-            chatMessage.setEncodeContent(ofImShareThreadInfo.toEncodeContent());
-            return true;
+            bundle.putInt("type", groupMsgData.getGroupInfo().getCustomType());
+            Message message = new Message();
+            message.what = 10001;
+            message.setData(bundle);
+            this.a.sendMessage(message);
+            linkedList.clear();
+            this.f.add(Long.valueOf(j));
+            o(j);
         }
-        return invokeLL.booleanValue;
     }
 }

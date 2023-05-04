@@ -1,12 +1,9 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,26 +11,25 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.Collections;
+import java.util.List;
 /* loaded from: classes4.dex */
 public final class cu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
-    public static final Set<String> e;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Object b;
-    public final int c;
+    public final eu2 a;
+    public final List<du2> b;
+    public Boolean c;
+    public du2 d;
 
     /* loaded from: classes4.dex */
     public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public Object b;
-        public int c;
-        public RuntimeException d;
+        public eu2 a;
+        public List<du2> b;
+        public RuntimeException c;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,105 +45,82 @@ public final class cu2 {
             }
         }
 
-        public Exception c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.d;
-            }
-            return (Exception) invokeV.objValue;
-        }
-
-        @Nullable
         @SuppressLint({"BDThrowableCheck"})
-        public cu2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.d != null) {
-                    if (!cu2.d) {
-                        return null;
-                    }
-                    throw this.d;
-                } else if (this.a == null) {
-                    this.d = new IllegalStateException("key == null");
-                    if (!cu2.d) {
-                        return null;
-                    }
-                    throw this.d;
-                } else {
-                    synchronized (a.class) {
-                        if (cu2.e.contains(this.a)) {
-                            this.d = new IllegalStateException("the key of switch has been occupied");
-                            if (!cu2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else if (this.b == null) {
-                            this.d = new IllegalStateException("defaultValue == null");
-                            if (!cu2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else if (!cu2.c(this.c, this.b)) {
-                            this.d = new IllegalStateException("valueType error");
-                            if (!cu2.d) {
-                                return null;
-                            }
-                            throw this.d;
-                        } else {
-                            cu2.e.add(this.a);
-                            return new cu2(this);
-                        }
-                    }
-                }
-            }
-            return (cu2) invokeV.objValue;
-        }
-
-        public a b(@NonNull Object obj) {
+        public a a(@NonNull List<du2> list) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-                this.b = obj;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+                if (list.contains(null)) {
+                    this.c = new IllegalArgumentException("branches contains null value");
+                    if (!cu2.e) {
+                        this.b = null;
+                        return this;
+                    }
+                    throw this.c;
+                }
+                for (du2 du2Var : list) {
+                    if (du2Var.c() + 0 > 100) {
+                        this.c = new IllegalArgumentException("The sum of all flow in the branch must be in [0,100]");
+                        if (!cu2.e) {
+                            this.b = null;
+                            return this;
+                        }
+                        throw this.c;
+                    }
+                }
+                this.b = Collections.unmodifiableList(list);
                 return this;
             }
             return (a) invokeL.objValue;
         }
 
-        public a e(int i) {
-            InterceptResult invokeI;
+        @Nullable
+        @SuppressLint({"BDThrowableCheck"})
+        public cu2 b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-                this.c = i;
-                return this;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                if (this.c != null) {
+                    if (!cu2.e) {
+                        return null;
+                    }
+                    throw this.c;
+                } else if (this.a == null) {
+                    this.c = new IllegalStateException("testSwitch == null");
+                    if (!cu2.e) {
+                        return null;
+                    }
+                    throw this.c;
+                } else {
+                    List<du2> list = this.b;
+                    if (list == null) {
+                        this.c = new IllegalStateException("branches == null");
+                        if (!cu2.e) {
+                            return null;
+                        }
+                        throw this.c;
+                    }
+                    for (du2 du2Var : list) {
+                        if (!eu2.c(this.a.f(), du2Var.e)) {
+                            this.c = new IllegalStateException("branch valueType error");
+                            if (!cu2.e) {
+                                return null;
+                            }
+                            throw this.c;
+                        }
+                    }
+                    return new cu2(this);
+                }
             }
-            return (a) invokeI.objValue;
+            return (cu2) invokeV.objValue;
         }
 
-        @SuppressLint({"BDThrowableCheck"})
-        public a d(@NonNull String str) {
+        public a c(@NonNull eu2 eu2Var) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (TextUtils.isEmpty(str)) {
-                    this.d = new IllegalArgumentException("the key of switch must not be empty");
-                    if (!cu2.d) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.d;
-                } else if (TextUtils.equals(Config.SID, str)) {
-                    this.d = new IllegalArgumentException("sid must not equal \"sids\"");
-                    if (!cu2.d) {
-                        this.a = null;
-                        return this;
-                    }
-                    throw this.d;
-                } else {
-                    this.a = str;
-                    return this;
-                }
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, eu2Var)) == null) {
+                this.a = eu2Var;
+                return this;
             }
             return (a) invokeL.objValue;
         }
@@ -166,38 +139,20 @@ public final class cu2 {
                 return;
             }
         }
-        d = fo1.a;
-        e = new HashSet();
+        e = ho1.a;
     }
 
-    public Object d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.objValue;
-    }
-
-    public String e() {
+    @NonNull
+    public eu2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (String) invokeV.objValue;
+        return (eu2) invokeV.objValue;
     }
 
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public cu2(@NonNull a aVar) {
+    public cu2(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -212,45 +167,33 @@ public final class cu2 {
                 return;
             }
         }
+        this.c = Boolean.FALSE;
         this.a = aVar.a;
         this.b = aVar.b;
-        this.c = aVar.c;
     }
 
-    public static boolean c(int i, Object obj) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(InputDeviceCompat.SOURCE_TRACKBALL, null, i, obj)) == null) {
-            if (i != 0) {
-                if (i != 1) {
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                return false;
-                            }
-                            return obj instanceof String;
-                        }
-                        return obj instanceof Long;
-                    }
-                    return obj instanceof Integer;
-                }
-                return obj instanceof Double;
-            }
-            return obj instanceof Boolean;
-        }
-        return invokeIL.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
+    @Nullable
+    public synchronized du2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (d) {
-                return "SwanLocalABTestSwitch{key='" + this.a + "', defaultValue=" + this.b + ", valueType=" + this.c + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                if (this.c.booleanValue()) {
+                    return this.d;
+                }
+                int currentTimeMillis = (int) (System.currentTimeMillis() % 100);
+                this.c = Boolean.TRUE;
+                for (int i = 0; i < this.b.size(); i++) {
+                    du2 du2Var = this.b.get(i);
+                    currentTimeMillis -= du2Var.c();
+                    if (currentTimeMillis < 0) {
+                        this.d = du2Var;
+                        return du2Var;
+                    }
+                }
+                return null;
             }
-            return super.toString();
         }
-        return (String) invokeV.objValue;
+        return (du2) invokeV.objValue;
     }
 }

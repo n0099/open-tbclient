@@ -1,80 +1,73 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashSet;
-import java.util.Set;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class yj4 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile yj4 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final Set<String> b;
 
-    public yj4(String str, Set<String> set) {
+    public yj4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, set};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = set;
     }
 
-    public static yj4 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        JSONObject optJSONObject;
-        JSONArray optJSONArray;
+    public static yj4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null || (optJSONArray = optJSONObject.optJSONArray("appkeys")) == null) {
-                return null;
-            }
-            String optString = jSONObject.optString("version");
-            HashSet hashSet = new HashSet();
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                String optString2 = optJSONArray.optString(i);
-                if (!TextUtils.isEmpty(optString2)) {
-                    hashSet.add(optString2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (yj4.class) {
+                    if (a == null) {
+                        a = new yj4();
+                    }
                 }
             }
-            return new yj4(optString, hashSet);
+            return a;
         }
-        return (yj4) invokeL.objValue;
+        return (yj4) invokeV.objValue;
     }
 
-    public Set<String> b() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (Set) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        String optString = jSONObject.optString("version");
+        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && if4.b() != null && if4.b().i() != null) {
+            JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
+            JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
+            boolean z2 = true;
+            if (optJSONArray != null) {
+                z = if4.b().o(false, optJSONArray);
+            } else {
+                z = true;
+            }
+            if (optJSONArray2 != null) {
+                z2 = if4.b().o(true, optJSONArray2);
+            }
+            if (z && z2) {
+                if4.b().i().putString("key_online_description_fix_version", optString);
+            }
         }
-        return (String) invokeV.objValue;
     }
 }

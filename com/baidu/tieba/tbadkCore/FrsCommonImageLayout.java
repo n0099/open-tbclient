@@ -299,7 +299,10 @@ public class FrsCommonImageLayout extends LinearLayout implements AbsListView.Re
                                         i = 14;
                                     }
                                     imageUrlData.urlType = i;
-                                    imageUrlData.imageUrl = mediaData.getPicUrl();
+                                    String picUrl = mediaData.getPicUrl();
+                                    imageUrlData.imageUrl = picUrl;
+                                    imageUrlData.urlThumbType = imageUrlData.urlType;
+                                    imageUrlData.imageThumbUrl = picUrl;
                                     imageUrlData.originalUrl = mediaData.getOriginalUrl();
                                     imageUrlData.originalSize = mediaData.getOriginalSize();
                                     imageUrlData.isLongPic = mediaData.isLongPic();

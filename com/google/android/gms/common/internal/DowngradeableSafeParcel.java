@@ -5,7 +5,7 @@ import androidx.annotation.Nullable;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class DowngradeableSafeParcel extends AbstractSafeParcelable implements ReflectedParcelable {
     public static final Object zza = new Object();
     public boolean zzb = false;

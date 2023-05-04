@@ -4,7 +4,7 @@ import android.content.ComponentName;
 import androidx.annotation.NonNull;
 import com.google.android.gms.common.annotation.KeepForSdk;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class LoggingConstants {
     @NonNull
     @KeepForSdk

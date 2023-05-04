@@ -1,8 +1,10 @@
 package com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o38;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
+import com.baidu.tieba.l58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -10,16 +12,18 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
-public class RobotSkillItem extends o38 implements Serializable {
+public class RobotSkillItem extends l58 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -7811153205500425245L;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean isFuncJump;
+    public AbilityItem mAbilityItem;
     public String skillDesc;
     public String skillName;
     public int skillType;
     public String uk;
 
-    @Override // com.baidu.tieba.o38
+    @Override // com.baidu.tieba.l58
     public int getViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -29,12 +33,12 @@ public class RobotSkillItem extends o38 implements Serializable {
         return invokeV.intValue;
     }
 
-    public RobotSkillItem(@NonNull String str, @NonNull String str2, @NonNull int i, String str3) {
+    public RobotSkillItem(@NonNull String str, @NonNull String str2, @NonNull int i, String str3, @Nullable AbilityItem abilityItem, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, Integer.valueOf(i), str3};
+            Object[] objArr = {str, str2, Integer.valueOf(i), str3, abilityItem, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -47,6 +51,8 @@ public class RobotSkillItem extends o38 implements Serializable {
         this.skillDesc = str2;
         this.skillName = str;
         this.skillType = i;
+        this.mAbilityItem = abilityItem;
+        this.isFuncJump = z;
         this.uk = str3;
     }
 
@@ -84,5 +90,23 @@ public class RobotSkillItem extends o38 implements Serializable {
             return this.uk;
         }
         return (String) invokeV.objValue;
+    }
+
+    public AbilityItem getmAbilityItem() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.mAbilityItem;
+        }
+        return (AbilityItem) invokeV.objValue;
+    }
+
+    public boolean isFuncJump() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.isFuncJump;
+        }
+        return invokeV.booleanValue;
     }
 }

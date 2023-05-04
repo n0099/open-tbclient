@@ -1,78 +1,137 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.annotation.SuppressLint;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j26 extends ActivityDelegation implements ho1 {
+public class j26 extends tj1<zh1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public m26 b;
-    public Activity c;
-    public Map<String, String> d;
-    public CustomMessageListener e;
+    public JSONObject a;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a implements zh1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ j26 a;
+        public final /* synthetic */ j26 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(j26 j26Var, int i) {
-            super(i);
+        @Override // com.baidu.tieba.zh1
+        public String a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.zh1
+        public int b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return 120;
+            }
+            return invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.zh1
+        @SuppressLint({"ResourceType"})
+        public int c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.drawable.pic_splash_logo : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.zh1
+        @NonNull
+        public String e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "1481698145541" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.zh1
+        public String from() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "1099a" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.zh1
+        @SuppressLint({"ResourceType"})
+        public int g() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? R.drawable.obfuscated_res_0x7f080254 : invokeV.intValue;
+        }
+
+        @Override // com.baidu.tieba.zh1
+        @SuppressLint({"ResourceType"})
+        public int h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? R.drawable.obfuscated_res_0x7f080255 : invokeV.intValue;
+        }
+
+        public a(j26 j26Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {j26Var, Integer.valueOf(i)};
+                Object[] objArr = {j26Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = j26Var;
+            this.c = j26Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.zh1
+        public JSONObject d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
-                Object data = customResponsedMessage.getData();
-                if (!(data instanceof yl5)) {
-                    return;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                if (this.c.a == null) {
+                    this.c.a = new JSONObject();
+                    try {
+                        boolean z = true;
+                        this.c.a.put("query_response_thread", 1);
+                        this.c.a.put("query_unite_pid", "1640058553813");
+                        this.c.a.put("nad_splash_query_download_opt", fm0.b().a().a("nad_splash_query_download_opt", 0));
+                        boolean i = f55.m().i("key_splash_shake_ad_open", true);
+                        JSONObject jSONObject = this.c.a;
+                        if (i) {
+                            z = false;
+                        }
+                        jSONObject.put("is_block_shake_gesture", z);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
                 }
-                yl5 yl5Var = (yl5) data;
-                if (getTag() != yl5Var.a && !yl5Var.g) {
-                    return;
-                }
-                this.a.mResult.putInt("result_code", yl5Var.b);
-                this.a.mResult.putString("result_msg", yl5Var.c);
-                if (this.a.b != null) {
-                    this.a.b.a(this.a.mResult);
-                }
-                this.a.finish();
+                return this.c.a;
             }
+            return (JSONObject) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.zh1
+        public int f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+                return eq5.l();
+            }
+            return invokeV.intValue;
         }
     }
 
@@ -86,85 +145,19 @@ public class j26 extends ActivityDelegation implements ho1 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = BdUniqueId.gen();
-        this.e = new a(this, 2921393);
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public void finish() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = null;
-            MessageManager.getInstance().unRegisterListener(this.e);
-            super.finish();
-        }
-    }
-
-    public void d(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
-            this.c = activity;
-        }
-    }
-
-    public void e(m26 m26Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, m26Var) == null) {
-            this.b = m26Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.ho1
-    public void onResult(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.mResult.putInt("result_code", i);
-            this.mResult.putString("result_msg", "");
-            finish();
-        }
-    }
-
-    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
-    public boolean onExec() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tj1
+    /* renamed from: c */
+    public zh1 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.e.setTag(this.a);
-            MessageManager.getInstance().registerListener(this.e);
-            int i = this.mParams.getInt("type");
-            String string = this.mParams.getString("orderInfo");
-            yl5 yl5Var = new yl5();
-            yl5Var.a = this.a;
-            yl5Var.b = i;
-            yl5Var.c = string;
-            yl5Var.e = (Map) this.mParams.getSerializable("params");
-            yl5Var.f = this.d;
-            if (getAgent() != null) {
-                yl5Var.d = getAgent();
-            } else {
-                Activity activity = this.c;
-                if (activity != null) {
-                    yl5Var.d = activity;
-                } else {
-                    yl5Var.d = TbadkCoreApplication.getInst().getCurrentActivity();
-                }
-            }
-            CustomMessage customMessage = new CustomMessage(2921393, yl5Var);
-            customMessage.setTag(this.a);
-            boolean sendMessage = MessageManager.getInstance().sendMessage(customMessage);
-            Bundle bundle = this.mResult;
-            int i2 = 1;
-            if (sendMessage) {
-                i2 = 0;
-            }
-            bundle.putInt("result_code", i2);
-            Bundle bundle2 = this.mResult;
-            bundle2.putString("result_msg", "" + sendMessage);
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return invokeV.booleanValue;
+        return (zh1) invokeV.objValue;
     }
 }

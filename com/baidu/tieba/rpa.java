@@ -5,75 +5,62 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.PidLoader;
+import com.fun.ad.sdk.internal.api.PidLoaderCreator;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
 import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.NativeUnifiedADDataAdapter;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class rpa extends BaseAdRipper {
+public class rpa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, PidLoaderCreator> a;
+    public final Map<Ssp.Pid, PidLoader> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rpa(Ssp.Pid pid) {
-        super(pid);
+    public rpa(Map<String, PidLoaderCreator> map) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
+            Object[] objArr = {map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.b = new HashMap();
+        this.a = map;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
+    public PidLoader a(Ssp.Pid pid) {
         InterceptResult invokeL;
-        Field declaredField;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
-            }
-            try {
-                if (obj instanceof NativeUnifiedADDataAdapter) {
-                    NativeUnifiedADDataAdapter nativeUnifiedADDataAdapter = (NativeUnifiedADDataAdapter) obj;
-                    Field declaredField2 = nativeUnifiedADDataAdapter.getClass().getDeclaredField("a");
-                    declaredField2.setAccessible(true);
-                    Object obj2 = declaredField2.get(nativeUnifiedADDataAdapter);
-                    if (obj2 == null) {
-                        return null;
-                    }
-                    Field declaredField3 = obj2.getClass().getDeclaredField("d");
-                    declaredField3.setAccessible(true);
-                    Object obj3 = declaredField3.get(obj2);
-                    if (obj3 == null || (declaredField = obj3.getClass().getSuperclass().getDeclaredField("L")) == null) {
-                        return null;
-                    }
-                    declaredField.setAccessible(true);
-                    Object obj4 = declaredField.get(obj3);
-                    if (obj4 instanceof JSONObject) {
-                        return roa.a((JSONObject) obj4);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) {
+            synchronized (this.b) {
+                PidLoader pidLoader = this.b.get(pid);
+                if (pidLoader != null) {
+                    return pidLoader;
+                }
+                PidLoaderCreator pidLoaderCreator = this.a.get(pid.ssp.type);
+                if (pidLoaderCreator == null) {
+                    LogPrinter.d("Cannot create PidLoader, because the ssp of pid.type:%s hasn't initialized.", pid.type);
                     return null;
                 }
-                return null;
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+                PidLoader create = pidLoaderCreator.create(pid);
+                if (create == null) {
+                    LogPrinter.d("The creator of ssp:%s should't create null for pid:%s", pid.ssp.type, pid.type);
+                    return null;
+                }
+                lva lvaVar = new lva(create);
+                this.b.put(pid, lvaVar);
+                return lvaVar;
             }
         }
-        return (RippedAd) invokeL.objValue;
+        return (PidLoader) invokeL.objValue;
     }
 }

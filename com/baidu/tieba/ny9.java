@@ -1,161 +1,196 @@
 package com.baidu.tieba;
 
-import android.text.Layout;
-import android.text.Selection;
-import android.text.Spannable;
-import android.text.method.LinkMovementMethod;
-import android.view.MotionEvent;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ny9 extends LinkMovementMethod {
+public final class ny9 {
     public static /* synthetic */ Interceptable $ic;
-    public static ny9 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public cv5 a;
-    public int b;
-    public int c;
-    public long d;
-    public int e;
+    public int a;
+    public boolean b;
+    public Object c;
 
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948018939, "Lcom/baidu/tieba/ny9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948018939, "Lcom/baidu/tieba/ny9;");
+        }
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
     public ny9() {
+        this(0, false, null, 7, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                this(((Integer) objArr[0]).intValue(), ((Boolean) objArr[1]).booleanValue(), objArr[2], ((Integer) objArr[3]).intValue(), (DefaultConstructorMarker) objArr[4]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = -1;
     }
 
-    public static ny9 a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    @JvmOverloads
+    public ny9(int i) {
+        this(i, false, null, 6, null);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (f == null) {
-                f = new ny9();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), objArr2[2], ((Integer) objArr2[3]).intValue(), (DefaultConstructorMarker) objArr2[4]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return f;
         }
-        return (ny9) invokeV.objValue;
     }
 
-    public static boolean c(float f2, float f3, float f4, float f5, long j, long j2, long j3) {
-        InterceptResult invokeCommon;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4), Float.valueOf(f5), Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3)})) == null) {
-            float abs = Math.abs(f4 - f2);
-            float abs2 = Math.abs(f5 - f3);
-            long j4 = j2 - j;
-            if (abs <= 100.0f && abs2 <= 100.0f && j4 >= j3) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
                 return true;
+            }
+            if (obj instanceof ny9) {
+                ny9 ny9Var = (ny9) obj;
+                return this.a == ny9Var.a && this.b == ny9Var.b && Intrinsics.areEqual(this.c, ny9Var.c);
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final cv5 b(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
+    /* JADX DEBUG: Multi-variable search result rejected for r1v1, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, textView, spannable, motionEvent)) == null) {
-            if (motionEvent != null && motionEvent.getAction() != 3) {
-                int x = ((int) motionEvent.getX()) - textView.getTotalPaddingLeft();
-                int y = ((int) motionEvent.getY()) - textView.getTotalPaddingTop();
-                int scrollX = x + textView.getScrollX();
-                int scrollY = y + textView.getScrollY();
-                try {
-                    Layout layout = textView.getLayout();
-                    int offsetForHorizontal = layout.getOffsetForHorizontal(layout.getLineForVertical(scrollY), scrollX);
-                    cv5[] cv5VarArr = (cv5[]) spannable.getSpans(offsetForHorizontal, offsetForHorizontal, cv5.class);
-                    if (cv5VarArr == null || cv5VarArr.length <= 0 || cv5VarArr[0] == null) {
-                        return null;
-                    }
-                    return cv5VarArr[0];
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return this.a;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int i = this.a * 31;
+            boolean z = this.b;
+            int i2 = z;
+            if (z != 0) {
+                i2 = 1;
             }
+            int i3 = (i + i2) * 31;
+            Object obj = this.c;
+            return i3 + (obj == null ? 0 : obj.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "VideoAdData(agreeNum=" + this.a + ", agreed=" + this.b + ", funNativeAd=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public ny9(int i, boolean z, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Boolean.valueOf(z), obj};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+        this.a = i;
+        this.b = z;
+        this.c = obj;
+    }
+
+    public /* synthetic */ ny9(int i, boolean z, Object obj, int i2, DefaultConstructorMarker defaultConstructorMarker) {
+        this((i2 & 1) != 0 ? 0 : i, (i2 & 2) != 0 ? false : z, (i2 & 4) != 0 ? null : obj);
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (cv5) invokeLLL.objValue;
+        return invokeV.intValue;
     }
 
-    public void d(int i) {
+    public final boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.e = i;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final Object c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.objValue;
+    }
+
+    public final void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.a = i;
         }
     }
 
-    @Override // android.text.method.LinkMovementMethod, android.text.method.ScrollingMovementMethod, android.text.method.BaseMovementMethod, android.text.method.MovementMethod
-    public boolean onTouchEvent(TextView textView, Spannable spannable, MotionEvent motionEvent) {
-        InterceptResult invokeLLL;
+    public final void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, textView, spannable, motionEvent)) == null) {
-            cv5 b = b(textView, spannable, motionEvent);
-            if (b == null && motionEvent.getAction() == 0) {
-                try {
-                    return super.onTouchEvent(textView, spannable, motionEvent);
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return true;
-                }
-            }
-            if (b != null) {
-                this.a = b;
-            }
-            int i = this.e;
-            if (i > -1) {
-                this.a.g(i);
-            }
-            if (motionEvent.getAction() == 0) {
-                this.b = (int) motionEvent.getX();
-                this.c = (int) motionEvent.getY();
-                this.d = System.currentTimeMillis();
-                cv5 cv5Var = this.a;
-                if (cv5Var != null) {
-                    cv5Var.h(1);
-                    Selection.setSelection(spannable, spannable.getSpanStart(this.a), spannable.getSpanEnd(this.a));
-                }
-                textView.invalidate();
-            } else if (motionEvent.getAction() == 2) {
-                if (this.a != null && (Math.abs(this.b - motionEvent.getX()) > 20.0f || Math.abs(this.c - motionEvent.getY()) > 20.0f)) {
-                    this.a.h(2);
-                    textView.invalidate();
-                    Selection.removeSelection(spannable);
-                }
-            } else if (motionEvent.getAction() == 1 || motionEvent.getAction() == 3) {
-                cv5 cv5Var2 = this.a;
-                if (cv5Var2 != null) {
-                    cv5Var2.h(2);
-                    textView.invalidate();
-                    Selection.removeSelection(spannable);
-                }
-                if (c(this.b, this.c, motionEvent.getX(), motionEvent.getY(), this.d, System.currentTimeMillis(), 500L)) {
-                    return true;
-                }
-            }
-            try {
-                return super.onTouchEvent(textView, spannable, motionEvent);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-                return true;
-            }
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.b = z;
         }
-        return invokeLLL.booleanValue;
+    }
+
+    public final void f(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, obj) == null) {
+            this.c = obj;
+        }
     }
 }

@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.b86;
-import com.baidu.tieba.f86;
+import com.baidu.tieba.b96;
+import com.baidu.tieba.f96;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public ArrayList<b86> b;
+    public ArrayList<b96> b;
     public List<ThreadData> c;
     public String d;
     public BdUniqueId e;
@@ -55,13 +55,13 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         this.e = bdUniqueId;
     }
 
-    public final b86 b() {
+    public final b96 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b86(this.a, this.e);
+            return new b96(this.a, this.e);
         }
-        return (b86) invokeV.objValue;
+        return (b96) invokeV.objValue;
     }
 
     @Override // androidx.viewpager.widget.PagerAdapter
@@ -74,10 +74,10 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         return invokeV.intValue;
     }
 
-    public void c(List<ThreadData> list, f86 f86Var) {
-        b86 b86Var;
+    public void c(List<ThreadData> list, f96 f96Var) {
+        b96 b96Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, f86Var) == null) && list != null && !list.isEmpty()) {
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, f96Var) == null) && list != null && !list.isEmpty()) {
             this.c.clear();
             this.c.addAll(list);
             int size = this.b.size();
@@ -88,25 +88,25 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
                     arrayList.add(this.b.get(i));
                 }
                 for (int i2 = 0; i2 < arrayList.size(); i2++) {
-                    b86 b86Var2 = (b86) arrayList.get(i2);
-                    if (b86Var2.c() != null && b86Var2.c().getParent() != null) {
-                        ((ViewGroup) b86Var2.c().getParent()).removeView(b86Var2.c());
+                    b96 b96Var2 = (b96) arrayList.get(i2);
+                    if (b96Var2.c() != null && b96Var2.c().getParent() != null) {
+                        ((ViewGroup) b96Var2.c().getParent()).removeView(b96Var2.c());
                     }
-                    this.b.remove(b86Var2);
+                    this.b.remove(b96Var2);
                 }
                 arrayList.clear();
             }
             for (int i3 = 0; i3 < size2; i3++) {
                 if (i3 >= size) {
-                    b86Var = b();
-                    b86Var.g(this.a.getUniqueId());
-                    b86Var.h(f86Var);
-                    this.b.add(b86Var);
+                    b96Var = b();
+                    b96Var.g(this.a.getUniqueId());
+                    b96Var.h(f96Var);
+                    this.b.add(b96Var);
                 } else {
-                    b86Var = this.b.get(i3);
+                    b96Var = this.b.get(i3);
                 }
-                if (this.c.get(i3) != null && b86Var != null) {
-                    b86Var.f(this.c.get(i3), this.d);
+                if (this.c.get(i3) != null && b96Var != null) {
+                    b96Var.f(this.c.get(i3), this.d);
                 }
             }
             notifyDataSetChanged();
@@ -133,20 +133,20 @@ public class FrsAlaStageLiveViewItemAdapter extends PagerAdapter {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, viewGroup, i)) == null) {
-            ArrayList<b86> arrayList = this.b;
+            ArrayList<b96> arrayList = this.b;
             if (arrayList == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            b86 b86Var = (b86) ListUtils.getItem(arrayList, i);
-            if (b86Var == null) {
+            b96 b96Var = (b96) ListUtils.getItem(arrayList, i);
+            if (b96Var == null) {
                 return super.instantiateItem(viewGroup, i);
             }
-            if (b86Var.c().getParent() == null) {
-                viewGroup.addView(b86Var.c(), new ViewGroup.LayoutParams(-2, -2));
+            if (b96Var.c().getParent() == null) {
+                viewGroup.addView(b96Var.c(), new ViewGroup.LayoutParams(-2, -2));
             }
-            b86Var.e();
-            b86Var.c().setTag(Integer.valueOf(i));
-            return b86Var.c();
+            b96Var.e();
+            b96Var.c().setTag(Integer.valueOf(i));
+            return b96Var.c();
         }
         return invokeLI.objValue;
     }

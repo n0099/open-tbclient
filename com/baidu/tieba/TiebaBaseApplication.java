@@ -155,12 +155,12 @@ public class TiebaBaseApplication extends TbadkApplication {
             }
             HashSet<String> hashSet = new HashSet<>();
             if (SpeedRuntime.getSpeedContext().isMainProcess()) {
-                String s = q45.m().s("key_sync_task_switch", "");
+                String s = f55.m().s("key_sync_task_switch", "");
                 if (!StringUtils.isNull(s) && (split = s.split("_")) != null && split.length > 0) {
                     Collections.addAll(hashSet, split);
                 }
             }
-            if (i35.a().a) {
+            if (x35.a().a) {
                 applicationTaskPool = new PBTaskPool();
             } else {
                 applicationTaskPool = new ApplicationTaskPool();
@@ -191,17 +191,17 @@ public class TiebaBaseApplication extends TbadkApplication {
             SpeedStatsManager.getInstance().addStatsTimeStamp(1002);
             super.attachBaseContext(context);
             AppRuntimeInit.onApplicationattachBaseContext(this);
-            kj1.b(this);
+            mj1.b(this);
             AppConfig.init(false, false, false, false);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1003);
-            z8a.b(this);
+            vca.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1004);
             f();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1011);
             TitanIniter.init(this);
             LoaderManager.getInstance().load();
             SpeedStatsManager.getInstance().addStatsTimeStamp(1012);
-            ki0.b(this);
+            mi0.b(this);
             SpeedStatsManager.getInstance().addStatsTimeStamp(1010);
         }
     }
@@ -211,8 +211,8 @@ public class TiebaBaseApplication extends TbadkApplication {
         if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && isMainProcess(false) && PermissionUtil.isAgreePrivacyPolicy()) {
             ArrayList arrayList = new ArrayList();
             arrayList.add(new TaskManagerLaunchFetchListener());
-            arrayList.add(new h35());
-            arrayList.add(new g35());
+            arrayList.add(new w35());
+            arrayList.add(new v35());
             AppLaunchInfoFetcher.e(this, arrayList);
         }
     }
@@ -227,9 +227,9 @@ public class TiebaBaseApplication extends TbadkApplication {
             doAfterSuperOnCreate();
             if (!PermissionUtil.isAgreePrivacyPolicy()) {
                 PermissionUtil.registerMutiProcessPrivacyPolicy();
-                registerActivityLifecycleCallbacks(new pv4());
+                registerActivityLifecycleCallbacks(new fw4());
             }
-            registerActivityLifecycleCallbacks(new qv4());
+            registerActivityLifecycleCallbacks(new gw4());
         }
     }
 
@@ -259,9 +259,9 @@ public class TiebaBaseApplication extends TbadkApplication {
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2002);
                 a();
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2003);
-                mm5.b().F(System.currentTimeMillis());
+                fn5.b().F(System.currentTimeMillis());
                 if (isMainProcess(false)) {
-                    f35.i();
+                    u35.i();
                 }
                 if (WindowGreySwitch.getIsOn()) {
                     w8.f().q(true);
@@ -285,13 +285,13 @@ public class TiebaBaseApplication extends TbadkApplication {
                 SpeedStatsManager.getInstance().setMainProcessFlag(isMainProcess(false, this));
                 AppRuntimePreloader.preload(isMainProcess(false, this));
                 if (isMainProcess(false, this)) {
-                    f35.b(this);
+                    u35.b(this);
                 }
                 SpeedStats.getInstance().setContext(this);
                 SpeedStatsManager.getInstance().addStatsTimeStamp(2000);
                 TbadkApplication.sApp = this;
                 if (isMainProcess(false)) {
-                    f35.a();
+                    u35.a();
                 }
                 c9.a().b(super.getResources());
                 c(this);

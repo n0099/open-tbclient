@@ -1,27 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import android.text.TextUtils;
+import android.view.View;
 import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.view.BdTopToast;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class nv5 {
+public class nv5 extends mv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ov5 a;
+    public TbPageContext c;
+    public ov5 d;
+    public int e;
 
-    public nv5(Context context, uv5 uv5Var) {
+    public nv5(TbPageContext tbPageContext, ev5 ev5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, uv5Var};
+            Object[] objArr = {tbPageContext, ev5Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,182 +41,194 @@ public class nv5 {
                 return;
             }
         }
-        ov5 ov5Var = new ov5(2);
-        this.a = ov5Var;
-        ov5Var.A = context;
-        ov5Var.a = uv5Var;
+        this.b = ev5Var;
+        this.c = tbPageContext;
+        ev5Var.a(this);
     }
 
-    public zv5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new zv5(this.a);
-        }
-        return (zv5) invokeV.objValue;
-    }
-
-    public nv5 b(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
-            this.a.T = z;
-            return this;
-        }
-        return (nv5) invokeZ.objValue;
-    }
-
-    public nv5 c(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
-            this.a.R = z;
-            return this;
-        }
-        return (nv5) invokeZ.objValue;
-    }
-
-    public nv5 d(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            this.a.P = i;
-            return this;
-        }
-        return (nv5) invokeI.objValue;
-    }
-
-    public nv5 e(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            this.a.H = i;
-            return this;
-        }
-        return (nv5) invokeI.objValue;
-    }
-
-    public nv5 f(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            this.a.L = i;
-            return this;
-        }
-        return (nv5) invokeI.objValue;
-    }
-
-    public nv5 g(Calendar calendar) {
+    @Override // com.baidu.tieba.lv5
+    public boolean a(String str) {
         InterceptResult invokeL;
+        ev5 ev5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, calendar)) == null) {
-            this.a.e = calendar;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            ev5 ev5Var2 = this.b;
+            if (ev5Var2 != null) {
+                ev5Var2.i(str);
+            }
+            pv5 pv5Var = this.a;
+            if (pv5Var != null && (ev5Var = this.b) != null) {
+                pv5Var.d(ev5Var.c());
+                return true;
+            }
+            return true;
         }
-        return (nv5) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public nv5 h(ViewGroup viewGroup) {
+    @Override // com.baidu.tieba.lv5
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.lv5
+    public boolean c(hv5 hv5Var) {
         InterceptResult invokeL;
+        ev5 ev5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
-            this.a.y = viewGroup;
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hv5Var)) == null) {
+            ev5 ev5Var2 = this.b;
+            if (ev5Var2 != null && ev5Var2.c() >= 30) {
+                j(this.c.getPageActivity(), false, String.format(this.c.getString(R.string.bawu_multi_del_post_max_num), 30));
+                return false;
+            }
+            ev5 ev5Var3 = this.b;
+            if (ev5Var3 != null) {
+                ev5Var3.f(hv5Var);
+            }
+            pv5 pv5Var = this.a;
+            if (pv5Var != null && (ev5Var = this.b) != null) {
+                pv5Var.d(ev5Var.c());
+            }
+            return true;
         }
-        return (nv5) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public nv5 i(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.mv5, com.baidu.tieba.lv5
+    public void dismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            this.a.O = i;
-            return this;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            pv5 pv5Var = this.a;
+            if (pv5Var != null) {
+                pv5Var.a();
+            }
+            ev5 ev5Var = this.b;
+            if (ev5Var != null && ev5Var.b() != null && this.b.b().g() != null) {
+                this.b.b().g().a();
+            }
         }
-        return (nv5) invokeI.objValue;
     }
 
-    public nv5 l(float f) {
-        InterceptResult invokeF;
+    @Override // com.baidu.tieba.mv5
+    public void f() {
+        ev5 ev5Var;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048587, this, f)) == null) {
-            this.a.Q = f;
-            return this;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ev5Var = this.b) != null && ev5Var.c() != 0) {
+            this.b.h("1");
+            i();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", "1");
+            if (this.e == 3) {
+                str = "3";
+            } else {
+                str = "2";
+            }
+            TiebaStatic.log(param.param("obj_source", str));
         }
-        return (nv5) invokeF.objValue;
     }
 
-    public nv5 m(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.mv5
+    public void g() {
+        ev5 ev5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            this.a.N = i;
-            return this;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (ev5Var = this.b) != null && ev5Var.c() != 0) {
+            String str = "2";
+            this.b.h("2");
+            i();
+            StatisticItem param = new StatisticItem(CommonStatisticKey.KEY_MULTI_DEL_BUTTON_CLICK).param("obj_type", "2");
+            if (this.e == 3) {
+                str = "3";
+            }
+            TiebaStatic.log(param.param("obj_source", str));
         }
-        return (nv5) invokeI.objValue;
     }
 
-    public nv5 n(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.mv5
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.a.M = i;
-            return this;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            dismiss();
         }
-        return (nv5) invokeI.objValue;
     }
 
-    public nv5 p(boolean[] zArr) {
-        InterceptResult invokeL;
+    public final void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, zArr)) == null) {
-            this.a.d = zArr;
-            return this;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            ov5 ov5Var = new ov5(this.c, this.b);
+            this.d = ov5Var;
+            ov5Var.c(this.e);
         }
-        return (nv5) invokeL.objValue;
     }
 
-    public nv5 j(String str, String str2, String str3, String str4, String str5, String str6) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.lv5
+    public void show() {
+        pv5 pv5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{str, str2, str3, str4, str5, str6})) == null) {
-            ov5 ov5Var = this.a;
-            ov5Var.l = str;
-            ov5Var.m = str2;
-            ov5Var.n = str3;
-            ov5Var.o = str4;
-            ov5Var.p = str5;
-            ov5Var.q = str6;
-            return this;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (pv5Var = this.a) != null) {
+            pv5Var.e();
         }
-        return (nv5) invokeCommon.objValue;
     }
 
-    public nv5 k(int i, pv5 pv5Var) {
-        InterceptResult invokeIL;
+    @Override // com.baidu.tieba.mv5
+    public void h(jv5 jv5Var) {
+        String str;
+        boolean z;
+        kv5 kv5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048586, this, i, pv5Var)) == null) {
-            ov5 ov5Var = this.a;
-            ov5Var.x = i;
-            ov5Var.c = pv5Var;
-            return this;
+        if (interceptable == null || interceptable.invokeL(1048583, this, jv5Var) == null) {
+            List<String> list = null;
+            int i = -1;
+            if (jv5Var != null) {
+                if (jv5Var.a && (kv5Var = jv5Var.c) != null) {
+                    list = kv5Var.a;
+                    i = kv5Var.c;
+                    str = kv5Var.d;
+                } else {
+                    str = jv5Var.b;
+                }
+            } else {
+                str = "";
+            }
+            ov5 ov5Var = this.d;
+            if (ov5Var != null) {
+                ov5Var.b();
+            }
+            Activity pageActivity = this.c.getPageActivity();
+            if (i == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            j(pageActivity, z, str);
+            ev5 ev5Var = this.b;
+            if (ev5Var != null && ev5Var.b() != null && this.b.b().g() != null) {
+                this.b.b().g().b(list);
+            }
+            if (i == 0) {
+                dismiss();
+            } else if (!ListUtils.isEmpty(list)) {
+                for (String str2 : list) {
+                    a(str2);
+                }
+            }
         }
-        return (nv5) invokeIL.objValue;
     }
 
-    public nv5 o(int i, int i2, int i3, int i4, int i5, int i6) {
-        InterceptResult invokeCommon;
+    public final void j(Activity activity, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048590, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)})) == null) {
-            ov5 ov5Var = this.a;
-            ov5Var.r = i;
-            ov5Var.s = i2;
-            ov5Var.t = i3;
-            ov5Var.u = i4;
-            ov5Var.v = i5;
-            ov5Var.w = i6;
-            return this;
+        if ((interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{activity, Boolean.valueOf(z), str}) == null) && activity != null && !TextUtils.isEmpty(str)) {
+            View findViewById = activity.findViewById(16908290);
+            if (!(findViewById instanceof ViewGroup)) {
+                return;
+            }
+            BdTopToast bdTopToast = new BdTopToast(activity, 3000);
+            bdTopToast.h(z);
+            bdTopToast.g(str);
+            bdTopToast.i((ViewGroup) findViewById);
         }
-        return (nv5) invokeCommon.objValue;
     }
 }

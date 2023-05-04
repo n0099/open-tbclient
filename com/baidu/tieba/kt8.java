@@ -1,63 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Item;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ClassForumInfo;
+import tbclient.GetVerticalForumList.DataRes;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes5.dex */
-public class kt8 implements in {
+public class kt8 {
     public static /* synthetic */ Interceptable $ic;
-    public static BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Item a;
-    public String b;
+    public List<it8> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947924730, "Lcom/baidu/tieba/kt8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947924730, "Lcom/baidu/tieba/kt8;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public kt8(Item item) {
+    public kt8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {item};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = item;
+    }
+
+    public void a(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        if (dataRes.class_foruminfo != null) {
+            this.a = new ArrayList();
+            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
+                it8 it8Var = new it8();
+                it8Var.b = classForumInfo.class_id;
+                it8Var.c = classForumInfo.class_name;
+                it8Var.d = classForumInfo.class_icon;
+                ArrayList arrayList = new ArrayList();
+                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
+                    arrayList.add(new ot8(recommendForumInfo, false));
+                }
+                it8Var.a = arrayList;
+                this.a.add(it8Var);
+            }
+        }
+        Page page = dataRes.page;
     }
 }

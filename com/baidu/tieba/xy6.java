@@ -1,58 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.TextUtils;
-import android.text.style.ClickableSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
 /* loaded from: classes7.dex */
-public final class xy6 implements sy6 {
+public final class xy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
 
-    public xy6() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof xy6) {
+                xy6 xy6Var = (xy6) obj;
+                return Intrinsics.areEqual(this.a, xy6Var.a) && Intrinsics.areEqual(this.b, xy6Var.b);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            int hashCode = (str == null ? 0 : str.hashCode()) * 31;
+            String str2 = this.b;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return "FeedFeedbackUserData(userId=" + this.a + ", portrait=" + this.b + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public xy6(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = str2;
     }
 
-    @Override // com.baidu.tieba.sy6
-    public SpannableString b(Context context, tx6 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        yw6 b;
+    public final String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            wx6 f = richTextData.f();
-            SpannableString spannableString = new SpannableString(f.c());
-            if (!TextUtils.isEmpty(richTextData.d()) && f.b() != null) {
-                if ((clickableSpan instanceof ty6) && (b = f.b()) != null) {
-                    ((ty6) clickableSpan).a(i17.a.a(b));
-                }
-                int length = f.c().length();
-                if (StringsKt__StringsJVMKt.endsWith$default(f.c(), " ", false, 2, null)) {
-                    length = f.c().length() - 1;
-                }
-                spannableString.setSpan(clickableSpan, 0, length, 33);
-            }
-            return spannableString;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

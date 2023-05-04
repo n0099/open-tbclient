@@ -1,84 +1,122 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Build;
-import androidx.core.app.NotificationCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileFilter;
+import java.util.concurrent.PriorityBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
 public class dn1 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static long a = 60000;
-    public static long b;
-    public static long c;
+    public static dn1 b = null;
+    public static int c = Integer.MAX_VALUE;
+    public static long d = 120;
     public transient /* synthetic */ FieldHolder $fh;
+    public ThreadPoolExecutor a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947710210, "Lcom/baidu/tieba/dn1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(dn1 dn1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dn1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947710210, "Lcom/baidu/tieba/dn1;");
+        }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                if (Pattern.matches("cpu[0-9]", file.getName())) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public dn1() {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        long j = a * 60;
-        b = j;
-        c = j * 24;
+        int a2 = (a() / 2) + 2;
+        if (a2 > 3) {
+            i = 3;
+        } else {
+            i = a2;
+        }
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(i, c, d, TimeUnit.SECONDS, new PriorityBlockingQueue());
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.setThreadFactory(new cn1());
+        this.a.allowCoreThreadTimeOut(true);
     }
 
-    @SuppressLint({"WrongConstant"})
-    public static void a(Context context, long j) {
-        PendingIntent broadcast;
+    public static dn1 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLJ(65537, null, context, j) != null) || j <= 0) {
-            return;
-        }
-        try {
-            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
-            Intent intent = new Intent();
-            intent.setPackage(context.getPackageName());
-            intent.setAction("sso_action_t_m");
-            if (b(context)) {
-                broadcast = PendingIntent.getBroadcast(context, 101, intent, 201326592);
-            } else {
-                broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
-            }
-            alarmManager.cancel(broadcast);
-            alarmManager.set(0, System.currentTimeMillis() + j, broadcast);
-        } catch (Throwable th) {
-            en1.d(th);
-        }
-    }
-
-    public static boolean b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            try {
-                if (context.getApplicationInfo().targetSdkVersion >= 31) {
-                    if (Build.VERSION.SDK_INT >= 31) {
-                        return true;
-                    }
-                    return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (dn1.class) {
+                if (b == null) {
+                    b = new dn1();
                 }
-                return false;
-            } catch (Throwable th) {
-                en1.d(th);
-                return false;
+            }
+            return b;
+        }
+        return (dn1) invokeV.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                return new File("/sys/devices/system/cpu/").listFiles(new a(this)).length;
+            } catch (Throwable unused) {
+                return 2;
             }
         }
-        return invokeL.booleanValue;
+        return invokeV.intValue;
+    }
+
+    public void b(zm1 zm1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zm1Var) == null) {
+            try {
+                this.a.execute(zm1Var);
+            } catch (Throwable th) {
+                gn1.d(th);
+            }
+        }
     }
 }

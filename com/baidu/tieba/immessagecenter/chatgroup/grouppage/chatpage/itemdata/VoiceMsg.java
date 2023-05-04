@@ -10,10 +10,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq5;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatMsg;
-import com.baidu.tieba.x65;
+import com.baidu.tieba.n75;
+import com.baidu.tieba.vq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -31,8 +31,8 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public static final long serialVersionUID = -8477601556340635939L;
     public transient /* synthetic */ FieldHolder $fh;
     public final String VOICE_THUMBNAIL_TEXT;
+    @vq5(serialize = false)
     @SerializedName("during_time")
-    @cq5(serialize = false)
     public String during;
     public boolean isLocal;
     public String path;
@@ -41,8 +41,8 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
     public String vid;
     public VoiceData.VoiceModel voiceModel;
     public int voiceStatus;
+    @vq5(serialize = false)
     @SerializedName("voice_url")
-    @cq5(serialize = false)
     public String voiceUrl;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -213,7 +213,7 @@ public class VoiceMsg extends BaseChatMsg<AudioMsg> {
             VoiceMsg voiceMsg = new VoiceMsg();
             voiceMsg.during = String.valueOf(i);
             voiceMsg.vid = str;
-            voiceMsg.path = x65.b(str);
+            voiceMsg.path = n75.b(str);
             voiceMsg.voiceStatus = 1;
             return voiceMsg;
         }

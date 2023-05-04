@@ -1,166 +1,452 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
+import android.os.Build;
+import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.core.util.httpNet.NetWorkUtil;
+import com.baidu.tbadk.core.view.NoNetworkView;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tbadk.coreExtra.message.UpdateClientInfoMessage;
+import com.baidu.tbadk.performanceLog.PerformanceLoggerHelper;
+import com.baidu.tbadk.switchs.NetDeleteSwitch;
+import com.baidu.tbadk.switchs.NetTypeFixedSwitch;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
+import com.baidu.tieba.nw4;
+import com.baidu.tieba.yunpush.BaiduYunPushMessageReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.regex.Pattern;
-import tbclient.NovelInfo;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class wb5 {
     public static /* synthetic */ Interceptable $ic;
+    public static wb5 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public long f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
+    public int a;
+    public ja b;
+    public UpdateClientInfoMessage c;
+    public int d;
+    public final ja e;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948264831, "Lcom/baidu/tieba/wb5;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948264831, "Lcom/baidu/tieba/wb5;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ja {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wb5 a;
+
+        public a(wb5 wb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wb5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wb5Var;
+        }
+
+        @Override // com.baidu.tieba.ja
+        public void a(String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a.b != null) {
+                this.a.b.a(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.ja
+        public void c(dj djVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, djVar) == null) && this.a.b != null) {
+                this.a.b.c(djVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.ja
+        public void d(lj ljVar) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, ljVar) == null) && this.a.b != null) {
+                this.a.b.d(ljVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.ja
+        public boolean b(int i, String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+                bh5.b(0, 2, 0, 0, 0);
+                if (this.a.b != null) {
+                    this.a.b.b(i, str);
+                }
+                return false;
+            }
+            return invokeIL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ja
+        public void g(Map<String, String> map) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, map) == null) {
+                bh5.b(0, 1, 0, 0, 0);
+                if (this.a.b != null) {
+                    this.a.b.g(map);
+                }
+                if (!ga5.d().e()) {
+                    MessageManager.getInstance().sendMessage(new CustomMessage(2921695, ""));
+                }
+                ea.a("TbOnline", 1001, 0, "begin_online", 0, "begin online");
+                if (PerformanceLoggerHelper.getInstance().isSmallFlow() && wb5.b(this.a) < 10) {
+                    ea.e();
+                }
+                bh5.b(1001, 0, 0, 3, 0);
+                wb5 wb5Var = this.a;
+                wb5Var.c = wb5Var.i();
+                MessageManager.getInstance().sendMessage(this.a.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends xa {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wb5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(wb5 wb5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wb5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wb5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ua
+        /* renamed from: c */
+        public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+            InterceptResult invokeL;
+            long j;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+                if (socketResponsedMessage instanceof ResponseOnlineMessage) {
+                    ResponseOnlineMessage responseOnlineMessage = (ResponseOnlineMessage) socketResponsedMessage;
+                    if (responseOnlineMessage.getOrginalMessage() != null && (responseOnlineMessage.getOrginalMessage() instanceof SocketMessage)) {
+                        i = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getSquencedId();
+                        j = ((SocketMessage) responseOnlineMessage.getOrginalMessage()).getClientLogID();
+                    } else {
+                        j = 0;
+                        i = 0;
+                    }
+                    if (responseOnlineMessage.getError() == 0) {
+                        this.a.m();
+                        ea.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_succ", 0, "online succ. retry count-" + this.a.a);
+                        return socketResponsedMessage;
+                    }
+                    this.a.o(socketResponsedMessage.getCmd(), responseOnlineMessage.getError(), responseOnlineMessage.getErrorString());
+                    ea.b("TbOnline", socketResponsedMessage.getCmd(), j, i, "online_failed", responseOnlineMessage.getError(), responseOnlineMessage.getErrorString() + "online failed. count-" + this.a.a);
+                    return null;
+                }
+                this.a.o(socketResponsedMessage.getCmd(), -1, null);
+                return null;
+            }
+            return (SocketResponsedMessage) invokeL.objValue;
+        }
+    }
 
     public wb5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        this.c = null;
+        this.d = 0;
+        this.e = new a(this);
+        MessageManager.getInstance().addResponsedMessageRule(new b(this, 1001));
     }
 
-    public String a() {
+    public static synchronized wb5 j() {
         InterceptResult invokeV;
+        wb5 wb5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            synchronized (wb5.class) {
+                if (f == null) {
+                    synchronized (wb5.class) {
+                        if (f == null) {
+                            f = new wb5();
+                        }
+                    }
+                }
+                wb5Var = f;
+            }
+            return wb5Var;
+        }
+        return (wb5) invokeV.objValue;
+    }
+
+    public static /* synthetic */ int b(wb5 wb5Var) {
+        int i = wb5Var.d + 1;
+        wb5Var.d = i;
+        return i;
+    }
+
+    public void p(ja jaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jaVar) == null) {
+            this.b = jaVar;
+        }
+    }
+
+    public final UpdateClientInfoMessage i() {
+        InterceptResult invokeV;
+        String valueOf;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+            UpdateClientInfoMessage updateClientInfoMessage = new UpdateClientInfoMessage();
+            if (fc9.b()) {
+                updateClientInfoMessage.addUserInfo("model", ki.g());
+                updateClientInfoMessage.addUserInfo("brand", Build.BRAND);
+                updateClientInfoMessage.addUserInfo(HttpRequest.PHONE_IMEI, TbadkCoreApplication.getInst().getImei());
+                updateClientInfoMessage.addUserInfo(HttpRequest.OS_VERSION, ki.k());
+                updateClientInfoMessage.addUserInfo(HttpRequest.ANDROID_ID, TbadkCoreApplication.getInst().getAndroidId());
+            } else {
+                updateClientInfoMessage.addUserInfo(HttpRequest.NEED_DECRYPT, fc9.c());
+                String g = fc9.g(HttpRequest.PHONE_IMEI);
+                if (!TextUtils.isEmpty(g)) {
+                    updateClientInfoMessage.addUserInfo(g, fc9.f());
+                }
+                String g2 = fc9.g("model");
+                if (!TextUtils.isEmpty(g2)) {
+                    updateClientInfoMessage.addUserInfo(g2, fc9.h());
+                }
+                String g3 = fc9.g("brand");
+                if (!TextUtils.isEmpty(g3)) {
+                    updateClientInfoMessage.addUserInfo(g3, fc9.e());
+                }
+                String g4 = fc9.g(HttpRequest.ANDROID_ID);
+                if (!TextUtils.isEmpty(g4)) {
+                    updateClientInfoMessage.addUserInfo(g4, fc9.d());
+                }
+            }
+            if (ec9.b()) {
+                updateClientInfoMessage.addUserInfo("mac", PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst()));
+            } else {
+                updateClientInfoMessage.addUserInfo("need_cam_decrypt", ec9.c());
+                String d = ec9.d("mac");
+                if (!TextUtils.isEmpty(d)) {
+                    updateClientInfoMessage.addUserInfo(d, ec9.e());
+                }
+            }
+            String str = "2";
+            updateClientInfoMessage.addUserInfo(HttpRequest.CLIENT_TYPE, "2");
+            updateClientInfoMessage.addUserInfo("_client_version", TbConfig.getVersion());
+            updateClientInfoMessage.addUserInfo(HttpRequest.USER_AGENT, ps5.b());
+            String clientId = TbadkCoreApplication.getClientId();
+            if (clientId != null) {
+                updateClientInfoMessage.addUserInfo(HttpRequest.CLIENT_ID, clientId);
+            }
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                updateClientInfoMessage.addUserInfo(HttpRequest.SUBAPP_TYPE, TbConfig.getSubappType());
+            }
+            String from = TbadkCoreApplication.getFrom();
+            if (from != null && from.length() > 0) {
+                updateClientInfoMessage.addUserInfo("from", from);
+            }
+            if (NetTypeFixedSwitch.isOn()) {
+                updateClientInfoMessage.addUserInfo("net_type", String.valueOf(BdNetTypeUtil.netType()));
+            } else {
+                String netType = NetWorkUtil.getNetType();
+                if (netType != null) {
+                    updateClientInfoMessage.addUserInfo("net_type", netType);
+                }
+            }
+            if (!NetDeleteSwitch.isOn() && (valueOf = String.valueOf(BdNetTypeUtil.netType())) != null) {
+                updateClientInfoMessage.addUserInfo("net", valueOf);
+            }
+            updateClientInfoMessage.addUserInfo("cuid", TbadkCoreApplication.getInst().getCuid());
+            updateClientInfoMessage.addUserInfo("cuid_galaxy2", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            updateClientInfoMessage.addUserInfo("c3_aid", TbadkCoreApplication.getInst().getCuidGalaxy3());
+            updateClientInfoMessage.addUserInfo(TiebaStatic.Params.CUID_GID, TbadkCoreApplication.getInst().getCuidGid());
+            updateClientInfoMessage.addUserInfo("timestamp", Long.toString(System.currentTimeMillis()));
+            updateClientInfoMessage.addUserInfo(TiebaStatic.Params.SAMPLE_ID, TbSingleton.getInstance().getSampleId());
+            updateClientInfoMessage.addUserInfo("z_id", TbadkCoreApplication.getInst().getZid());
+            updateClientInfoMessage.addUserInfo("baiduid", TbSingleton.getInstance().getBaiduIdForAnti());
+            updateClientInfoMessage.addUserInfo("sdk_ver", TbadkCoreApplication.getInst().getSdk_ver());
+            updateClientInfoMessage.addUserInfo("framework_ver", TbadkCoreApplication.getInst().getFramework_ver());
+            updateClientInfoMessage.addUserInfo("naws_game_ver", TbadkCoreApplication.getInst().getNaws_game_ver());
+            StringBuffer stringBuffer = new StringBuffer(15);
+            stringBuffer.append(String.valueOf(ii.l(TbadkCoreApplication.getInst().getApp())));
+            stringBuffer.append(",");
+            stringBuffer.append(String.valueOf(ii.j(TbadkCoreApplication.getInst().getApp())));
+            updateClientInfoMessage.addUserInfo("_phone_screen", stringBuffer.toString());
+            if (ga5.d().f() > 0) {
+                updateClientInfoMessage.addUserInfo("_msg_status", "0");
+            } else {
+                updateClientInfoMessage.addUserInfo("_msg_status", "1");
+            }
+            updateClientInfoMessage.addUserInfo("_pic_quality", String.valueOf(iw4.c().e()));
+            String yunpushChannelId = TbadkCoreApplication.getInst().getYunpushChannelId();
+            Log.i(BaiduYunPushMessageReceiver.TAG, "channel_id " + yunpushChannelId);
+            if (!TextUtils.isEmpty(yunpushChannelId)) {
+                updateClientInfoMessage.addUserInfo("channel_id", yunpushChannelId);
+            }
+            try {
+                if (TbadkCoreApplication.isLogin()) {
+                    nw4.b c = nw4.b().c(TbadkCoreApplication.getCurrentBduss());
+                    String a2 = mw4.a(TbadkCoreApplication.getCurrentAccountInfo());
+                    if (c != null) {
+                        updateClientInfoMessage.setBduss(c.a, a2);
+                    } else {
+                        updateClientInfoMessage.setBduss(TbadkCoreApplication.getCurrentBduss(), a2);
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            int d2 = ii.d(TbadkCoreApplication.getInst().getContext(), 70.0f);
+            updateClientInfoMessage.setHeight(ii.d(TbadkCoreApplication.getInst().getContext(), 70.0f));
+            updateClientInfoMessage.setWidth(d2);
+            if (y75.b().d()) {
+                updateClientInfoMessage.setPub_env(Integer.valueOf(y75.b().c()));
+            }
+            if (TbSingleton.getInstance().isVisitPreviewServer()) {
+                updateClientInfoMessage.setPub_env(Integer.valueOf(gg.e(TbSingleton.getInstance().getPubEnvValue(), 0)));
+            }
+            updateClientInfoMessage.setSecretKey(ia.a().c());
+            updateClientInfoMessage.addUserInfo("pversion", TiebaIMConfig.PROTOBUF_VERSION);
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            updateClientInfoMessage.addUserInfo("q_type", String.valueOf(iw4.c().e()));
+            updateClientInfoMessage.addUserInfo("scr_h", String.valueOf(ii.j(inst)));
+            updateClientInfoMessage.addUserInfo("scr_w", String.valueOf(ii.l(inst)));
+            updateClientInfoMessage.addUserInfo("scr_dip", String.valueOf(Double.valueOf(ii.i(inst))));
+            updateClientInfoMessage.addUserInfo("active_timestamp", TbSingleton.getInstance().getActiveTimeStamp() + "");
+            updateClientInfoMessage.addUserInfo("first_install_time", TbSingleton.getInstance().getAppFirstInstallTime() + "");
+            updateClientInfoMessage.addUserInfo(TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, TbSingleton.getInstance().getAppLastUpdateTime() + "");
+            updateClientInfoMessage.addUserInfo("event_day", TbSingleton.getInstance().getData());
+            if (PermissionUtil.isAgreePrivacyPolicy()) {
+                str = "1";
+            }
+            updateClientInfoMessage.addUserInfo("cmode", str);
+            updateClientInfoMessage.addUserInfo("extra", f55.m().s("key_sync_extra_field", ""));
+            updateClientInfoMessage.addUserInfo("personalized_rec_switch", String.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch()));
+            if (SocketAddCommonParamSwitch.getIsOn()) {
+                updateClientInfoMessage.addUserInfo("start_type", u35.f + "");
+                updateClientInfoMessage.addUserInfo("start_scheme", u35.e());
+            }
+            return updateClientInfoMessage;
         }
-        return (String) invokeV.objValue;
+        return (UpdateClientInfoMessage) invokeV.objValue;
     }
 
-    public long b() {
-        InterceptResult invokeV;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().getSocketClient().F(this.e);
         }
-        return invokeV.longValue;
     }
 
-    public String c() {
+    public boolean l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            int i = 0;
-            while (Pattern.compile("\\n").matcher(this.j).find()) {
-                i++;
+            if (this.a >= 5) {
+                return true;
             }
-            return i;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return "1".equals(this.e);
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean i() {
-        InterceptResult invokeV;
+    public final void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (!StringUtils.isNull(this.b) && !StringUtils.isNull(this.c) && !StringUtils.isNull(this.e) && !StringUtils.isNull(this.d)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a = 0;
+            MessageManager.getInstance().getSocketClient().H();
+            NoNetworkView.f();
+            BdSocketLinkService.stopReConnStrategy("online succ");
+        }
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a++;
+            if (l()) {
+                BdSocketLinkService.setAvailable(false);
+                NoNetworkView.f();
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void j(NovelInfo novelInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, novelInfo) == null) {
-            this.a = novelInfo.novel_id.longValue();
-            String str = novelInfo.img;
-            this.b = novelInfo.name;
-            String str2 = novelInfo.author;
-            String str3 = novelInfo.desc;
-            this.c = novelInfo.discount_price;
-            novelInfo.percent.longValue();
-            this.d = novelInfo.h5_url;
-            this.e = novelInfo.is_pay;
-            this.f = novelInfo.chapters.longValue();
-            this.g = novelInfo.member_text;
-            this.h = novelInfo.member_img;
-            this.i = novelInfo.buy_url;
         }
     }
 
-    public void k(String str) {
+    public final void o(int i, int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.j = str;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            if (z) {
-                this.e = "1";
-            } else {
-                this.e = "0";
-            }
+        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
+            n();
+            BdSocketLinkService.close(8, "online error = " + i2);
         }
     }
 }

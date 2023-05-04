@@ -1,24 +1,24 @@
 package rx.internal.subscriptions;
 
-import com.baidu.tieba.k6b;
-import com.baidu.tieba.u1b;
+import com.baidu.tieba.iab;
+import com.baidu.tieba.q5b;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class SequentialSubscription extends AtomicReference<u1b> implements u1b {
+public final class SequentialSubscription extends AtomicReference<q5b> implements q5b {
     public static final long serialVersionUID = 995205034283130269L;
 
     public SequentialSubscription() {
     }
 
-    public u1b current() {
-        u1b u1bVar = (u1b) super.get();
-        if (u1bVar == Unsubscribed.INSTANCE) {
-            return k6b.c();
+    public q5b current() {
+        q5b q5bVar = (q5b) super.get();
+        if (q5bVar == Unsubscribed.INSTANCE) {
+            return iab.c();
         }
-        return u1bVar;
+        return q5bVar;
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.q5b
     public boolean isUnsubscribed() {
         if (get() == Unsubscribed.INSTANCE) {
             return true;
@@ -26,86 +26,86 @@ public final class SequentialSubscription extends AtomicReference<u1b> implement
         return false;
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.q5b
     public void unsubscribe() {
-        u1b andSet;
-        u1b u1bVar = get();
+        q5b andSet;
+        q5b q5bVar = get();
         Unsubscribed unsubscribed = Unsubscribed.INSTANCE;
-        if (u1bVar != unsubscribed && (andSet = getAndSet(unsubscribed)) != null && andSet != Unsubscribed.INSTANCE) {
+        if (q5bVar != unsubscribed && (andSet = getAndSet(unsubscribed)) != null && andSet != Unsubscribed.INSTANCE) {
             andSet.unsubscribe();
         }
     }
 
-    public SequentialSubscription(u1b u1bVar) {
-        lazySet(u1bVar);
+    public SequentialSubscription(q5b q5bVar) {
+        lazySet(q5bVar);
     }
 
-    public boolean replace(u1b u1bVar) {
-        u1b u1bVar2;
+    public boolean replace(q5b q5bVar) {
+        q5b q5bVar2;
         do {
-            u1bVar2 = get();
-            if (u1bVar2 == Unsubscribed.INSTANCE) {
-                if (u1bVar != null) {
-                    u1bVar.unsubscribe();
+            q5bVar2 = get();
+            if (q5bVar2 == Unsubscribed.INSTANCE) {
+                if (q5bVar != null) {
+                    q5bVar.unsubscribe();
                     return false;
                 }
                 return false;
             }
-        } while (!compareAndSet(u1bVar2, u1bVar));
+        } while (!compareAndSet(q5bVar2, q5bVar));
         return true;
     }
 
-    public boolean replaceWeak(u1b u1bVar) {
-        u1b u1bVar2 = get();
-        if (u1bVar2 == Unsubscribed.INSTANCE) {
-            if (u1bVar != null) {
-                u1bVar.unsubscribe();
+    public boolean replaceWeak(q5b q5bVar) {
+        q5b q5bVar2 = get();
+        if (q5bVar2 == Unsubscribed.INSTANCE) {
+            if (q5bVar != null) {
+                q5bVar.unsubscribe();
             }
             return false;
-        } else if (compareAndSet(u1bVar2, u1bVar) || get() != Unsubscribed.INSTANCE) {
+        } else if (compareAndSet(q5bVar2, q5bVar) || get() != Unsubscribed.INSTANCE) {
             return true;
         } else {
-            if (u1bVar != null) {
-                u1bVar.unsubscribe();
+            if (q5bVar != null) {
+                q5bVar.unsubscribe();
             }
             return false;
         }
     }
 
-    public boolean update(u1b u1bVar) {
-        u1b u1bVar2;
+    public boolean update(q5b q5bVar) {
+        q5b q5bVar2;
         do {
-            u1bVar2 = get();
-            if (u1bVar2 == Unsubscribed.INSTANCE) {
-                if (u1bVar != null) {
-                    u1bVar.unsubscribe();
+            q5bVar2 = get();
+            if (q5bVar2 == Unsubscribed.INSTANCE) {
+                if (q5bVar != null) {
+                    q5bVar.unsubscribe();
                     return false;
                 }
                 return false;
             }
-        } while (!compareAndSet(u1bVar2, u1bVar));
-        if (u1bVar2 != null) {
-            u1bVar2.unsubscribe();
+        } while (!compareAndSet(q5bVar2, q5bVar));
+        if (q5bVar2 != null) {
+            q5bVar2.unsubscribe();
             return true;
         }
         return true;
     }
 
-    public boolean updateWeak(u1b u1bVar) {
-        u1b u1bVar2 = get();
-        if (u1bVar2 == Unsubscribed.INSTANCE) {
-            if (u1bVar != null) {
-                u1bVar.unsubscribe();
+    public boolean updateWeak(q5b q5bVar) {
+        q5b q5bVar2 = get();
+        if (q5bVar2 == Unsubscribed.INSTANCE) {
+            if (q5bVar != null) {
+                q5bVar.unsubscribe();
             }
             return false;
-        } else if (compareAndSet(u1bVar2, u1bVar)) {
+        } else if (compareAndSet(q5bVar2, q5bVar)) {
             return true;
         } else {
-            u1b u1bVar3 = get();
-            if (u1bVar != null) {
-                u1bVar.unsubscribe();
+            q5b q5bVar3 = get();
+            if (q5bVar != null) {
+                q5bVar.unsubscribe();
             }
-            if (u1bVar3 != Unsubscribed.INSTANCE) {
+            if (q5bVar3 != Unsubscribed.INSTANCE) {
                 return false;
             }
             return true;

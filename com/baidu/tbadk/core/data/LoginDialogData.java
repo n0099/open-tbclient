@@ -25,6 +25,7 @@ public class LoginDialogData {
     public static final String PB_COLLECT_RESULT_PAGE = "pb_shoucang";
     public static final String PB_MORE_REPLY_RESULT_PAGE = "pb_chakanhuifu";
     public static final String PB_REPLY_RESULT_PAGE = "pb_huifu_louzhonglou";
+    public static final String SCHEMA_LOGIN = "schema_login";
     public static final String SEARCH_RESULT_PAGE = "sousuo_dianji";
     public static final String SETTING_PAGE = "setting_page";
     public transient /* synthetic */ FieldHolder $fh;

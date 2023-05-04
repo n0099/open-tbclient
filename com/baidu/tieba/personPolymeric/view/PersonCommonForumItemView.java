@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.t59;
+import com.baidu.tieba.m89;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
     public TextView e;
     public int f;
     public Context g;
-    public t59 h;
+    public m89 h;
     public View.OnClickListener i;
 
     /* loaded from: classes5.dex */
@@ -95,7 +95,7 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
         this.f = 3;
         this.g = context;
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0765, (ViewGroup) this, true);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0771, (ViewGroup) this, true);
         c();
         d();
     }
@@ -105,9 +105,9 @@ public class PersonCommonForumItemView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = (BarImageView) findViewById(R.id.forum_avatar);
             this.b = (TextView) findViewById(R.id.forum_name);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b91);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb5);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bb6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090b99);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090bbd);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090bbe);
         }
     }
 
@@ -132,15 +132,15 @@ public class PersonCommonForumItemView extends RelativeLayout {
         }
     }
 
-    public void setData(t59 t59Var) {
+    public void setData(m89 m89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t59Var) == null) {
-            this.h = t59Var;
-            this.a.N(t59Var.c, 10, false);
+        if (interceptable == null || interceptable.invokeL(1048579, this, m89Var) == null) {
+            this.h = m89Var;
+            this.a.N(m89Var.c, 10, false);
             TextView textView = this.b;
-            textView.setText(StringHelper.cutForumNameWithSuffix(t59Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f06b5));
-            this.d.setText(StringHelper.numberUniformFormat((long) t59Var.d));
-            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0f2c), StringHelper.getUserDescByGender(t59Var.e)));
+            textView.setText(StringHelper.cutForumNameWithSuffix(m89Var.b, 7, StringHelper.STRING_MORE) + this.g.getString(R.string.obfuscated_res_0x7f0f06c2));
+            this.d.setText(StringHelper.numberUniformFormat((long) m89Var.d));
+            this.c.setText(String.format(this.g.getString(R.string.obfuscated_res_0x7f0f0f44), StringHelper.getUserDescByGender(m89Var.e)));
             if (getRootView() != null) {
                 getRootView().setOnClickListener(this.i);
             }

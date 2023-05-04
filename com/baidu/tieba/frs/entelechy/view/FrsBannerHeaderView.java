@@ -28,10 +28,10 @@ import com.baidu.tbadk.core.util.tbselector.selector.DrawableSelector;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hu9;
-import com.baidu.tieba.lt5;
-import com.baidu.tieba.mt5;
-import com.baidu.tieba.q47;
+import com.baidu.tieba.cy9;
+import com.baidu.tieba.g67;
+import com.baidu.tieba.ku5;
+import com.baidu.tieba.lu5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -189,7 +189,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                                 return;
                             }
                             tbImage.setVisibility(0);
-                            lt5 a = mt5.a.a();
+                            ku5 a = lu5.a.a();
                             Intrinsics.checkNotNullExpressionValue(iconUrl, "iconUrl");
                             a.a(iconUrl, tbImage);
                         }
@@ -305,7 +305,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                                 return;
                             }
                             tbImage.setVisibility(0);
-                            lt5 a = mt5.a.a();
+                            ku5 a = lu5.a.a();
                             Intrinsics.checkNotNullExpressionValue(iconUrl, "iconUrl");
                             a.a(iconUrl, tbImage);
                         }
@@ -550,8 +550,8 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                 themeColorInfo = null;
             }
             if (themeColorInfo != null) {
-                str2 = hu9.d(themeColorInfo);
-                str = hu9.e(themeColorInfo);
+                str2 = cy9.d(themeColorInfo);
+                str = cy9.f(themeColorInfo);
             } else {
                 str = null;
                 str2 = null;
@@ -639,53 +639,53 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
         TbImage tbImage2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031a, (ViewGroup) this, true);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d031d, (ViewGroup) this, true);
             this.b = inflate;
             ImageView imageView = null;
             if (inflate != null) {
-                tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090bf8);
+                tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c00);
             } else {
                 tbImageView = null;
             }
             this.c = tbImageView;
             View view2 = this.b;
             if (view2 != null) {
-                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bf5);
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090bfd);
             } else {
                 textView = null;
             }
             this.d = textView;
             View view3 = this.b;
             if (view3 != null) {
-                textView2 = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090bf6);
+                textView2 = (TextView) view3.findViewById(R.id.obfuscated_res_0x7f090bfe);
             } else {
                 textView2 = null;
             }
             this.e = textView2;
             View view4 = this.b;
             if (view4 != null) {
-                tbImage = (TbImage) view4.findViewById(R.id.obfuscated_res_0x7f090bf3);
+                tbImage = (TbImage) view4.findViewById(R.id.obfuscated_res_0x7f090bfb);
             } else {
                 tbImage = null;
             }
             this.f = tbImage;
             View view5 = this.b;
             if (view5 != null) {
-                textView3 = (TextView) view5.findViewById(R.id.obfuscated_res_0x7f090bf7);
+                textView3 = (TextView) view5.findViewById(R.id.obfuscated_res_0x7f090bff);
             } else {
                 textView3 = null;
             }
             this.g = textView3;
             View view6 = this.b;
             if (view6 != null) {
-                tbImage2 = (TbImage) view6.findViewById(R.id.obfuscated_res_0x7f090bfb);
+                tbImage2 = (TbImage) view6.findViewById(R.id.obfuscated_res_0x7f090c03);
             } else {
                 tbImage2 = null;
             }
             this.h = tbImage2;
             View view7 = this.b;
             if (view7 != null) {
-                imageView = (ImageView) view7.findViewById(R.id.obfuscated_res_0x7f090bf9);
+                imageView = (ImageView) view7.findViewById(R.id.obfuscated_res_0x7f090c01);
             }
             this.i = imageView;
             TbImageView tbImageView2 = this.c;
@@ -735,7 +735,7 @@ public final class FrsBannerHeaderView extends RelativeLayout implements View.On
                     Context context = getContext();
                     if (context != null) {
                         TbPageContext<?> pageContext = ((TbPageContextSupport) context).getPageContext();
-                        if (pageContext == null || q47.f().i()) {
+                        if (pageContext == null || g67.f().i()) {
                             return;
                         }
                         UrlManager urlManager = UrlManager.getInstance();

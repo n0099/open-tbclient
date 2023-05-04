@@ -46,7 +46,7 @@ import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedBehavior {
     public static final long ANIMATION_DURATION = 300;
     public static final int DEF_STYLE_RES = 2131755854;
@@ -78,7 +78,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     public final boolean paddingRightSystemWindowInsets;
     public int rightInset;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface AnimationListener {
         void onAnimationEnd(BottomAppBar bottomAppBar);
 
@@ -86,12 +86,12 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface FabAlignmentMode {
     }
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface FabAnimationMode {
     }
 
@@ -103,7 +103,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
     public void setTitle(CharSequence charSequence) {
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Behavior extends HideBottomViewOnScrollBehavior<BottomAppBar> {
         @NonNull
         public final Rect fabContentRect;
@@ -332,7 +332,7 @@ public class BottomAppBar extends Toolbar implements CoordinatorLayout.AttachedB
         this.hideOnScroll = z;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class SavedState extends AbsSavedState {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.bottomappbar.BottomAppBar.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */

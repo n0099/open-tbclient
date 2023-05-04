@@ -1,75 +1,105 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.switchs.LoginPassV6Switch;
-import com.baidu.tbadk.switchs.LowVersionLoginPassV6Switch;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.webkit.sdk.SevenZipUtils;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipSpecialItem;
+import tbclient.GetVipInfo.VipSpecialList;
 /* loaded from: classes4.dex */
-public class fn8 {
+public class fn8 implements in {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
+    public static int d;
+    public static boolean e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
+    public en8 a;
+    public List<gn8> b;
 
-    public fn8() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947770009, "Lcom/baidu/tieba/fn8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947770009, "Lcom/baidu/tieba/fn8;");
+                return;
+            }
+        }
+        c = BdUniqueId.gen();
+        d = 3;
+        e = false;
+    }
+
+    @Override // com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public fn8(VipSpecialList vipSpecialList) {
+        List<VipSpecialItem> list;
+        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipSpecialList};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            try {
-                b(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
+        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
+            String str2 = vipSpecialList.card_id;
+            en8 en8Var = new en8();
+            this.a = en8Var;
+            en8Var.e(4);
+            this.a.d(vipSpecialList.class_name);
+            this.a.f(vipSpecialList.class_url_name);
+            this.a.g(vipSpecialList.class_url);
+            if (TbadkCoreApplication.isLogin()) {
+                str = TbadkCoreApplication.getCurrentAccount();
+            } else {
+                str = SevenZipUtils.FILE_NAME_TEMP;
             }
-        }
-    }
-
-    public void b(JSONObject jSONObject) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("config");
-            if (optJSONObject != null && (optJSONArray = optJSONObject.optJSONArray(SetImageWatermarkTypeReqMsg.SWITCH)) != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONObject jSONObject2 = optJSONArray.getJSONObject(i);
-                    if (jSONObject2 != null) {
-                        String optString = jSONObject2.optString("name");
-                        Integer valueOf = Integer.valueOf(jSONObject2.optInt("type", 0));
-                        if (LoginPassV6Switch.KEY.equals(optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            g75.a();
-                        }
-                        if (TextUtils.equals(LowVersionLoginPassV6Switch.KEY, optString)) {
-                            SwitchManager.getInstance().turn(optString, valueOf.intValue());
-                            g75.a();
-                        }
+            if (StringUtils.isNull(f) || !f.equals(str)) {
+                e = false;
+                f = str;
+            }
+            this.b = new ArrayList();
+            for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
+                this.b.add(new gn8(vipSpecialList.item.get(i3)));
+                if (e) {
+                    if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
+                        this.b.add(new gn8(true, true));
                     }
+                } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
+                    this.b.add(new gn8(true, false));
+                    return;
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
         }
     }
 }

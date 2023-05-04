@@ -1,43 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public abstract class zf6<T extends BaseCardInfo> implements View.OnClickListener {
+public final class zf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public TbPageContext<?> b;
-    public Context c;
-    public View d;
-    public yg6<T> e;
-    public BdUniqueId f;
-    public String g;
-    public int h;
+    public final Map<Integer, WeakReference<WebView>> a;
 
-    public abstract int d();
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    public abstract void l(T t);
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zf6 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void m(TbPageContext<?> tbPageContext, int i);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-233646143, "Lcom/baidu/tieba/zf6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-233646143, "Lcom/baidu/tieba/zf6$b;");
+                    return;
+                }
+            }
+            a = new zf6(null);
+        }
+    }
 
-    public zf6(TbPageContext<?> tbPageContext) {
+    public zf6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,115 +62,42 @@ public abstract class zf6<T extends BaseCardInfo> implements View.OnClickListene
                 return;
             }
         }
-        this.a = 3;
-        this.f = null;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.d = LayoutInflater.from(getContext()).inflate(d(), (ViewGroup) null, false);
+        this.a = new HashMap();
     }
 
-    public zf6(TbPageContext<?> tbPageContext, ViewGroup viewGroup) {
+    public static zf6 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        this.a = 3;
-        this.f = null;
-        this.b = tbPageContext;
-        this.c = tbPageContext.getPageActivity();
-        this.d = LayoutInflater.from(getContext()).inflate(d(), viewGroup, false);
+        return (zf6) invokeV.objValue;
     }
 
-    public String c() {
+    public List<WeakReference<WebView>> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
+            return new ArrayList(this.a.values());
         }
-        return (String) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public yg6<T> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (yg6) invokeV.objValue;
+    public /* synthetic */ zf6(a aVar) {
+        this();
     }
 
-    public BdUniqueId f() {
-        InterceptResult invokeV;
+    public void c(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.f;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public TbPageContext<?> g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (TbPageContext) invokeV.objValue;
-    }
-
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.c;
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void n(yg6<T> yg6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, yg6Var) == null) {
-            this.e = yg6Var;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) && webView != null) {
+            this.a.put(Integer.valueOf(webView.hashCode()), new WeakReference<>(webView));
         }
     }
 
-    public void o(BdUniqueId bdUniqueId) {
+    public void d(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
-            this.f = bdUniqueId;
-        }
-    }
-
-    public void q(int i) {
-        View view2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048587, this, i) == null) && (view2 = this.d) != null) {
-            view2.setVisibility(i);
-        }
-    }
-
-    public void setFrom(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
-            this.g = str;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView) == null) && webView != null) {
+            this.a.remove(Integer.valueOf(webView.hashCode()));
         }
     }
 }

@@ -2,11 +2,11 @@ package com.google.ar.core;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.cta;
+import com.baidu.tieba.ywa;
 import com.google.ar.core.ArCoreApk;
 /* loaded from: classes8.dex */
 public final class u extends com.google.a.b.a.a.a.e {
-    public final /* synthetic */ cta a;
+    public final /* synthetic */ ywa a;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -16,8 +16,8 @@ public final class u extends com.google.a.b.a.a.a.e {
     public final void a(Bundle bundle) {
     }
 
-    public u(cta ctaVar) {
-        this.a = ctaVar;
+    public u(ywa ywaVar) {
+        this.a = ywaVar;
     }
 
     @Override // com.google.a.b.a.a.a.d

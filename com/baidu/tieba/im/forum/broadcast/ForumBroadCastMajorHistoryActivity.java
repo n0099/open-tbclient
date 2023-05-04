@@ -15,19 +15,19 @@ import com.baidu.tbadk.core.util.ForumBroadcastHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.im.forum.broadcast.data.ForumBroadcastMajorResidueData;
 import com.baidu.tieba.im.forum.broadcast.model.ForumBroadCastMajorHistoryModel;
-import com.baidu.tieba.pz7;
-import com.baidu.tieba.qz7;
-import com.baidu.tieba.sz7;
+import com.baidu.tieba.m18;
+import com.baidu.tieba.n18;
+import com.baidu.tieba.p18;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements pz7 {
+public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadCastMajorHistoryActivity> implements m18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ForumBroadCastMajorHistoryModel a;
-    public sz7 b;
+    public p18 b;
     public View c;
     public String d;
     public String e;
@@ -47,7 +47,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.pz7
+    @Override // com.baidu.tieba.m18
     public void b() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;
@@ -61,13 +61,13 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onDestroy();
-            sz7 sz7Var = this.b;
-            if (sz7Var != null) {
-                sz7Var.n();
+            p18 p18Var = this.b;
+            if (p18Var != null) {
+                p18Var.n();
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
             if (forumBroadCastMajorHistoryModel != null) {
-                forumBroadCastMajorHistoryModel.b0();
+                forumBroadCastMajorHistoryModel.g0();
             }
         }
     }
@@ -89,7 +89,7 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.pz7
+    @Override // com.baidu.tieba.m18
     public void refresh() {
         ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel;
         Interceptable interceptable = $ic;
@@ -98,15 +98,15 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.pz7
-    public void F0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
+    @Override // com.baidu.tieba.m18
+    public void G0(ForumBroadcastMajorResidueData forumBroadcastMajorResidueData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, forumBroadcastMajorResidueData) == null) {
             this.b.u(forumBroadcastMajorResidueData);
         }
     }
 
-    @Override // com.baidu.tieba.z45.g
+    @Override // com.baidu.tieba.p55.g
     public void f(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
@@ -114,18 +114,18 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
         }
     }
 
-    @Override // com.baidu.tieba.pz7
-    public void i0(qz7 qz7Var) {
+    @Override // com.baidu.tieba.m18
+    public void j0(n18 n18Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, qz7Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, n18Var) == null) {
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
-            if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.d()) {
-                this.b.r(getString(R.string.obfuscated_res_0x7f0f096c), false);
+            if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.e()) {
+                this.b.r(getString(R.string.obfuscated_res_0x7f0f0981), false);
                 return;
             }
-            sz7 sz7Var = this.b;
-            if (sz7Var != null) {
-                sz7Var.o(qz7Var);
+            p18 p18Var = this.b;
+            if (p18Var != null) {
+                p18Var.o(n18Var);
             }
         }
     }
@@ -141,18 +141,18 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
 
     @Override // android.app.Activity
     public void onNewIntent(Intent intent) {
-        sz7 sz7Var;
+        p18 p18Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048586, this, intent) == null) {
             super.onNewIntent(intent);
             refresh();
-            if (ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) && (sz7Var = this.b) != null) {
-                sz7Var.s();
+            if (ForumBroadcastHelper.VALUE_INTENT_BCAST_FROM_EDIT_SUCCESS.equals(intent.getStringExtra("from")) && (p18Var = this.b) != null) {
+                p18Var.s();
             }
         }
     }
 
-    @Override // com.baidu.tieba.pz7
+    @Override // com.baidu.tieba.m18
     public void g(ErrorData errorData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, errorData) == null) {
@@ -160,11 +160,11 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
                 if (!StringUtils.isNull(errorData.error_msg)) {
                     showToast(errorData.error_msg);
                 } else {
-                    showToast(R.string.obfuscated_res_0x7f0f096c);
+                    showToast(R.string.obfuscated_res_0x7f0f0981);
                 }
             }
             ForumBroadCastMajorHistoryModel forumBroadCastMajorHistoryModel = this.a;
-            if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.d()) {
+            if (forumBroadCastMajorHistoryModel != null && !forumBroadCastMajorHistoryModel.e()) {
                 String str = null;
                 if (errorData != null) {
                     str = getString(R.string.net_error_text, new Object[]{errorData.error_msg, Integer.valueOf(errorData.error_code)});
@@ -181,10 +181,10 @@ public class ForumBroadCastMajorHistoryActivity extends BaseActivity<ForumBroadC
             super.onCreate(bundle);
             x1(bundle);
             this.a = new ForumBroadCastMajorHistoryModel(getPageContext(), this, this.d);
-            this.c = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02bf, (ViewGroup) null);
-            this.b = new sz7(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
+            this.c = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d02c2, (ViewGroup) null);
+            this.b = new p18(getPageContext(), this, this.c, this.d, this.e, this.f, bundle);
             setContentView(this.c);
-            this.a.Z();
+            this.a.e0();
             refresh();
         }
     }

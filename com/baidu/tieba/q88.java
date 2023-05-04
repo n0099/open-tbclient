@@ -1,55 +1,75 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.data.UserData;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q88 {
+public class q88 extends ca8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AbilityItem a;
 
-    public static String a(UserData userData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ca8
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, userData)) == null) {
-            if (userData == null) {
-                return "";
-            }
-            if (UtilHelper.isFllowByPriorty(userData)) {
-                if (userData.getAuthType() == 1) {
-                    if (userData.isOfficial()) {
-                        return "";
-                    }
-                } else if (userData.getAuthType() == 2) {
-                    if (userData.isOriginal()) {
-                        return userData.getCreatorInfo().authDesc;
-                    }
-                } else if (userData.getAuthType() == 3) {
-                    if (userData.isNewGod()) {
-                        return userData.getNewGodData().getFieldName() + qr5.c(userData.isVideoGod());
-                    }
-                } else if (userData.getAuthType() == 4 && userData.showBazhuGrade()) {
-                    return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE);
-                }
-            }
-            if (TextUtils.isEmpty("") && userData.isOfficial()) {
-                return "";
-            }
-            if (TextUtils.isEmpty("") && userData.isOriginal()) {
-                return userData.getCreatorInfo().authDesc;
-            }
-            if (TextUtils.isEmpty("") && userData.isNewGod()) {
-                return userData.getNewGodData().getFieldName() + qr5.c(userData.isVideoGod());
-            } else if (!TextUtils.isEmpty("") || !userData.showBazhuGrade()) {
-                return "";
-            } else {
-                return StringHelper.cutChineseAndEnglishWithSuffix(userData.getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    public q88(AbilityItem abilityItem) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {abilityItem};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.a = abilityItem;
+    }
+
+    public AbilityItem b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (AbilityItem) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            AbilityItem abilityItem = this.a;
+            if (abilityItem == null || abilityItem.getStyleConf() == null) {
+                return "";
+            }
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                if (this.a.getStyleConf().getDark() == null || this.a.getStyleConf().getDark().getIcon() == null) {
+                    return "";
+                }
+                return this.a.getStyleConf().getDark().getIcon();
+            } else if (this.a.getStyleConf().getDay() == null || this.a.getStyleConf().getDay().getIcon() == null) {
+                return "";
+            } else {
+                return this.a.getStyleConf().getDay().getIcon();
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

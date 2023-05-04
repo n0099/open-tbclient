@@ -1,81 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.lego.card.model.ICardInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class u67 implements e67 {
+public class u67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public dg7 a;
 
-    public u67() {
+    public u67(TbPageContext tbPageContext, dg7 dg7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, dg7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = dg7Var;
     }
 
-    @Override // com.baidu.tieba.e67
-    public vm<? extends pz4, ? extends TypeAdapter.ViewHolder> a(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, boolean z) {
-        InterceptResult invokeLLZ;
+    public void a(dy5 dy5Var) {
+        dg7 dg7Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, tbPageContext, bdUniqueId, z)) == null) {
-            return new n97(tbPageContext, ThreadData.TYPE_STAR_INTERVIEW, bdUniqueId, z);
-        }
-        return (vm) invokeLLZ.objValue;
-    }
-
-    @Override // com.baidu.tieba.e67
-    public z47<ICardInfo, ? extends TypeAdapter.ViewHolder> b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            return new sd7(tbPageContext, bdUniqueId, bdUniqueId2);
-        }
-        return (z47) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e67
-    public vm<? extends ThreadData, ? extends TypeAdapter.ViewHolder> d(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, tbPageContext, bdUniqueId, bdUniqueId2)) == null) {
-            if (bdUniqueId == ThreadData.TYPE_LOTTERY) {
-                return new q87(tbPageContext, bdUniqueId, bdUniqueId2);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dy5Var) == null) && (dg7Var = this.a) != null && dg7Var.T0() != null && this.a.T0().D0() != null && this.a.w1() != null && dy5Var != null && this.a.w1().g0() != null && this.a.w0() != null) {
+            BdTypeRecyclerView g0 = this.a.w1().g0();
+            int i = dy5Var.a;
+            if (i != 2) {
+                if (i != 3 || dy5Var.a() == null) {
+                    return;
+                }
+                g0.removeHeaderView(dy5Var.a());
+                this.a.w0().x0(0);
+            } else if (dy5Var.a() == null) {
+            } else {
+                g0.removeHeaderView(dy5Var.a());
+                g0.addHeaderView(dy5Var.a(), g0.getHeaderViewsCount() - 1);
+                this.a.w0().x0(8);
             }
-            throw new IllegalArgumentException("Unsupported adapter type.");
         }
-        return (vm) invokeLLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.e67
-    public vm<? extends ThreadData, ? extends TypeAdapter.ViewHolder> c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{tbPageContext, bdUniqueId, bdUniqueId2, Boolean.valueOf(z)})) == null) {
-            if (bdUniqueId == cl9.d) {
-                return new n87(tbPageContext, bdUniqueId, z);
-            }
-            if (bdUniqueId == ThreadData.TYPE_STAR_INTERVIEW) {
-                return new o97(tbPageContext, bdUniqueId, bdUniqueId2, z);
-            }
-            throw new IllegalArgumentException("Unsupported adapter type.");
-        }
-        return (vm) invokeCommon.objValue;
     }
 }

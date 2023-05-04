@@ -42,12 +42,12 @@ public final class av extends zu {
 
             /* renamed from: com.baidu.tieba.av$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes3.dex */
-            public class View$OnClickListenerC0214a implements View.OnClickListener {
+            public class View$OnClickListenerC0221a implements View.OnClickListener {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
                 public final /* synthetic */ a a;
 
-                public View$OnClickListenerC0214a(a aVar) {
+                public View$OnClickListenerC0221a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -100,8 +100,8 @@ public final class av extends zu {
                     Toast unused = av.b = new Toast(this.a.a);
                     av.b.setView(this.a.b);
                     av.b.setGravity(81, 0, this.a.c);
-                    iv.m(av.b, R.style.obfuscated_res_0x7f100425);
-                    this.a.b.setOnClickListener(new View$OnClickListenerC0214a(this));
+                    iv.m(av.b, R.style.obfuscated_res_0x7f100426);
+                    this.a.b.setOnClickListener(new View$OnClickListenerC0221a(this));
                     av.b.show();
                 }
             }
@@ -147,12 +147,12 @@ public final class av extends zu {
 
         /* renamed from: com.baidu.tieba.av$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class RunnableC0213a implements Runnable {
+        public class RunnableC0220a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ a a;
 
-            public RunnableC0213a(a aVar) {
+            public RunnableC0220a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -177,7 +177,7 @@ public final class av extends zu {
                     Toast unused = av.b = new Toast(this.a.a);
                     av.b.setView(this.a.b);
                     av.b.setGravity(81, 0, this.a.c);
-                    iv.m(av.b, R.style.obfuscated_res_0x7f100425);
+                    iv.m(av.b, R.style.obfuscated_res_0x7f100426);
                     av.b.show();
                 }
             }
@@ -207,7 +207,7 @@ public final class av extends zu {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                av.c.post(new RunnableC0213a(this));
+                av.c.post(new RunnableC0220a(this));
             }
         }
     }
@@ -252,7 +252,7 @@ public final class av extends zu {
                 bvVar.f(viewGroup);
                 bvVar.e(81, 0, this.b);
                 bvVar.d(this.c);
-                bvVar.j(R.style.obfuscated_res_0x7f100425);
+                bvVar.j(R.style.obfuscated_res_0x7f100426);
                 bvVar.c();
             }
         }

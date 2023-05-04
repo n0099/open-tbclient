@@ -1,82 +1,78 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import android.content.Context;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.image.TbImage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class pe8 {
+public final class pe8 extends oe8<wc8, ImageView, qc8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static oe8 a(AdvertAppInfo advertAppInfo) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pe8(String name) {
+        super(name);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {name};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        Intrinsics.checkNotNullParameter(name, "name");
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oe8
+    /* renamed from: l */
+    public ImageView g(ViewGroup parent) {
         InterceptResult invokeL;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
-            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof oe8)) {
-                return null;
-            }
-            return (oe8) iLegoAdvert;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, parent)) == null) {
+            Intrinsics.checkNotNullParameter(parent, "parent");
+            Context context = parent.getContext();
+            Intrinsics.checkNotNullExpressionValue(context, "parent.context");
+            TbImage tbImage = new TbImage(context, null, 0, 6, null);
+            tbImage.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds96), UtilHelper.getDimenPixelSize(R.dimen.tbds50)));
+            return tbImage;
         }
-        return (oe8) invokeL.objValue;
+        return (ImageView) invokeL.objValue;
     }
 
-    public static void b(oe8 oe8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.oe8
+    /* renamed from: k */
+    public void d(ImageView imageView, qc8 data) {
+        TbImage tbImage;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, oe8Var) == null) && oe8Var != null && oe8Var.getParallelCharge() != null) {
-            n11.b(oe8Var.getParallelCharge().b);
-            Iterator<String> it = oe8Var.getParallelCharge().c.iterator();
-            while (it.hasNext()) {
-                n11.b(it.next());
-            }
-        }
-    }
-
-    public static void c(AdvertAppInfo advertAppInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
-            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
-            if (iLegoAdvert != null) {
-                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
-            }
-            m11.b(clogBuilder);
-        }
-    }
-
-    public static boolean d(oe8 oe8Var) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, oe8Var)) == null) {
-            if (oe8Var == null || oe8Var.getParallelCharge() == null) {
-                return false;
-            }
-            String str = oe8Var.getParallelCharge().a;
-            n11.b(str);
-            if (!TextUtils.isEmpty(str)) {
-                z = true;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, imageView, data) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (imageView instanceof TbImage) {
+                tbImage = (TbImage) imageView;
             } else {
-                z = false;
+                tbImage = null;
             }
-            Iterator<String> it = oe8Var.getParallelCharge().d.iterator();
-            while (it.hasNext()) {
-                String next = it.next();
-                if (!z && TextUtils.isEmpty(next)) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                n11.b(next);
+            wc8 f = data.c().f();
+            if (f != null && tbImage != null) {
+                tbImage.k("res://drawable/" + f.a());
             }
-            return z;
         }
-        return invokeL.booleanValue;
     }
 }

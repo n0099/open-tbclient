@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jt4;
-import com.baidu.tieba.u19;
-import com.baidu.tieba.v29;
-import com.baidu.tieba.yg6;
+import com.baidu.tieba.ji6;
+import com.baidu.tieba.n49;
+import com.baidu.tieba.o59;
+import com.baidu.tieba.pt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,13 +31,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u19 a;
+    public n49 a;
     public Bundle b;
-    public v29 c;
-    public yg6 d;
+    public o59 c;
+    public ji6 d;
 
     /* loaded from: classes5.dex */
-    public class a extends yg6<v29> {
+    public class a extends ji6<o59> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PersonCenterMoreActivity b;
@@ -61,14 +61,14 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg6
+        @Override // com.baidu.tieba.ji6
         /* renamed from: d */
-        public void a(View view2, v29 v29Var) {
+        public void a(View view2, o59 o59Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, v29Var) != null) {
+            if (interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, o59Var) != null) {
                 return;
             }
-            this.b.c = v29Var;
+            this.b.c = o59Var;
             if (this.b.c == null || this.b.F1()) {
                 return;
             }
@@ -111,9 +111,9 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
             super.onChangeSkinType(i);
-            u19 u19Var = this.a;
-            if (u19Var != null) {
-                u19Var.d();
+            n49 n49Var = this.a;
+            if (n49Var != null) {
+                n49Var.d();
             }
         }
     }
@@ -124,7 +124,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             return;
         }
         if (str.startsWith("tieba&")) {
-            E1(str);
+            D1(str);
         } else if (str.startsWith("nohead:url")) {
             StringBuilder sb = new StringBuilder();
             sb.append(str.replaceFirst("nohead:url=", ""));
@@ -140,7 +140,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         }
     }
 
-    public final void E1(String str) {
+    public final void D1(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
             return;
@@ -154,7 +154,7 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
         } else if (!str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTP) && !str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_HTTPS)) {
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001387, str));
         } else {
-            jt4.D(getPageContext().getPageActivity(), true, str);
+            pt4.D(getPageContext().getPageActivity(), true, str);
         }
     }
 
@@ -167,10 +167,10 @@ public class PersonCenterMoreActivity extends BaseActivity<PersonCenterMoreActiv
             if (intent != null) {
                 this.b = intent.getBundleExtra(PersonMoreActivityConfig.URL_BUNDLE);
             }
-            setContentView(R.layout.obfuscated_res_0x7f0d074e);
-            u19 u19Var = new u19(getPageContext(), this.b, this.d);
-            this.a = u19Var;
-            u19Var.c();
+            setContentView(R.layout.obfuscated_res_0x7f0d075a);
+            n49 n49Var = new n49(getPageContext(), this.b, this.d);
+            this.a = n49Var;
+            n49Var.c();
         }
     }
 

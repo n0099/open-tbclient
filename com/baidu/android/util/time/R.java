@@ -13,10 +13,10 @@ public final class R {
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
         public static final int app_name = 0x7f0f029e;
-        public static final int time_liveshow_teletext_time_day_before = 0x7f0f14ee;
-        public static final int time_liveshow_teletext_time_hour_before = 0x7f0f14ef;
-        public static final int time_liveshow_teletext_time_min_before = 0x7f0f14f0;
-        public static final int time_liveshow_teletext_time_sec_before = 0x7f0f14f1;
+        public static final int time_liveshow_teletext_time_day_before = 0x7f0f1507;
+        public static final int time_liveshow_teletext_time_hour_before = 0x7f0f1508;
+        public static final int time_liveshow_teletext_time_min_before = 0x7f0f1509;
+        public static final int time_liveshow_teletext_time_sec_before = 0x7f0f150a;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {

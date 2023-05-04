@@ -1,66 +1,55 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ena implements TTAdDislike.DislikeInteractionCallback {
+public class ena {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ View a;
-    public final /* synthetic */ rna b;
-    public final /* synthetic */ zma c;
 
-    public ena(zma zmaVar, View view2, rna rnaVar) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zmaVar, view2, rnaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-        }
-        this.c = zmaVar;
-        this.a = view2;
-        this.b = rnaVar;
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onCancel() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d("CSJBannerExpressAd dislike callback onCancel", new Object[0]);
-        }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onSelected(int i, String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            LogPrinter.d("dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
-            if (this.a.getParent() != null) {
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
+            StringBuilder sb = new StringBuilder(str);
+            if (!str.contains("?")) {
+                sb.append("?");
             }
-            this.c.onAdClose(this.b);
+            sb.append("&");
+            sb.append("clientfrom=native");
+            sb.append("&");
+            sb.append("client=android");
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onShow() {
+    public static String b(String str, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, hashMap)) == null) {
+            if (TextUtils.isEmpty(str) || hashMap.isEmpty()) {
+                return str;
+            }
+            StringBuilder sb = new StringBuilder(str);
+            if (!str.contains("?")) {
+                sb.append("?");
+            }
+            for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                sb.append("&");
+                sb.append(entry.getKey());
+                sb.append("=");
+                sb.append(entry.getValue());
+            }
+            return sb.toString();
         }
+        return (String) invokeLL.objValue;
     }
 }

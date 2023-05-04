@@ -1,64 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.view.View;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.google.ar.core.InstallActivity;
+import com.google.ar.core.exceptions.UnavailableUserDeclinedInstallationException;
 /* loaded from: classes6.dex */
-public final class rwa<TResult> implements iwa<TResult> {
+public final class rwa implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jwa<TResult> a;
-    public Executor b;
-    public final Object c;
+    public final /* synthetic */ InstallActivity a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mwa a;
-        public final /* synthetic */ rwa b;
-
-        public a(rwa rwaVar, mwa mwaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rwaVar, mwaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = rwaVar;
-            this.a = mwaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                synchronized (this.b.c) {
-                    if (this.b.a != null) {
-                        this.b.a.onComplete(this.a);
-                    }
-                }
-            }
-        }
-    }
-
-    public rwa(Executor executor, jwa<TResult> jwaVar) {
+    public rwa(InstallActivity installActivity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {executor, jwaVar};
+            Object[] objArr = {installActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -68,26 +28,15 @@ public final class rwa<TResult> implements iwa<TResult> {
                 return;
             }
         }
-        this.c = new Object();
-        this.a = jwaVar;
-        this.b = executor;
+        this.a = installActivity;
     }
 
-    @Override // com.baidu.tieba.iwa
-    public final void cancel() {
+    @Override // android.view.View.OnClickListener
+    public final void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            synchronized (this.c) {
-                this.a = null;
-            }
+        if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.iwa
-    public final void onComplete(mwa<TResult> mwaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mwaVar) == null) {
-            this.b.execute(new a(this, mwaVar));
-        }
+        this.a.j(new UnavailableUserDeclinedInstallationException());
     }
 }

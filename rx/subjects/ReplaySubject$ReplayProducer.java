@@ -1,41 +1,41 @@
 package rx.subjects;
 
-import com.baidu.tieba.i2b;
-import com.baidu.tieba.p1b;
-import com.baidu.tieba.t1b;
-import com.baidu.tieba.u1b;
+import com.baidu.tieba.e6b;
+import com.baidu.tieba.l5b;
+import com.baidu.tieba.p5b;
+import com.baidu.tieba.q5b;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.AtomicLong;
 /* loaded from: classes9.dex */
-public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements p1b, u1b {
+public final class ReplaySubject$ReplayProducer<T> extends AtomicInteger implements l5b, q5b {
     public static final long serialVersionUID = -5006209596735204567L;
-    public final t1b<? super T> actual;
+    public final p5b<? super T> actual;
     public int index;
     public Object node;
     public final AtomicLong requested = new AtomicLong();
     public final ReplaySubject$ReplayState<T> state;
     public int tailIndex;
 
-    public ReplaySubject$ReplayProducer(t1b<? super T> t1bVar, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
-        this.actual = t1bVar;
+    public ReplaySubject$ReplayProducer(p5b<? super T> p5bVar, ReplaySubject$ReplayState<T> replaySubject$ReplayState) {
+        this.actual = p5bVar;
         this.state = replaySubject$ReplayState;
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.q5b
     public boolean isUnsubscribed() {
         return this.actual.isUnsubscribed();
     }
 
-    @Override // com.baidu.tieba.u1b
+    @Override // com.baidu.tieba.q5b
     public void unsubscribe() {
         this.state.remove(this);
     }
 
-    @Override // com.baidu.tieba.p1b
+    @Override // com.baidu.tieba.l5b
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i > 0) {
-            i2b.b(this.requested, j);
+            e6b.b(this.requested, j);
             this.state.buffer.a(this);
         } else if (i >= 0) {
         } else {

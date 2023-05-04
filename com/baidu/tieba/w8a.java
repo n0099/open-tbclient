@@ -1,27 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.content.Intent;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
+import com.baidu.tbadk.data.AtSelectData;
+import java.util.ArrayList;
+import java.util.LinkedList;
 /* loaded from: classes6.dex */
-public class w8a {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile v8a a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w8a {
+    void A();
 
-    public static synchronized v8a a() {
-        InterceptResult invokeV;
-        v8a v8aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (w8a.class) {
-                if (a == null) {
-                    a = new v8a();
-                }
-                v8aVar = a;
-            }
-            return v8aVar;
-        }
-        return (v8a) invokeV.objValue;
-    }
+    void B();
+
+    void D(jd5 jd5Var);
+
+    void E();
+
+    LinkedList<y65> F();
+
+    void b(boolean z);
+
+    void c(String str);
+
+    void d();
+
+    void e(int i, boolean z);
+
+    void f();
+
+    int g();
+
+    void h();
+
+    boolean i();
+
+    void j();
+
+    void k(boolean z);
+
+    void m();
+
+    void n(@Nullable ArrayList<AtSelectData> arrayList);
+
+    void o(boolean z);
+
+    void onActivityResult(int i, int i2, Intent intent);
+
+    boolean onBackPressed();
+
+    void onChangeSkinType(int i);
+
+    void onCreate(Bundle bundle);
+
+    void onDestroy();
+
+    void onNewIntent(Intent intent);
+
+    void onPause();
+
+    void onResume();
+
+    void onSaveInstanceState(Bundle bundle);
+
+    void onStart();
+
+    void onStop();
+
+    void p(boolean z);
+
+    void r();
+
+    void s();
+
+    @NonNull
+    PermissionJudgePolicy t();
+
+    void u();
+
+    void v();
+
+    void w();
+
+    void x(int[] iArr);
+
+    void y(boolean z);
+
+    void z(jd5 jd5Var);
 }

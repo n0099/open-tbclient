@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.data.PraiseData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.qq5;
+import com.baidu.tieba.ir5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,7 +72,7 @@ public class FrsPraiseView extends LinearLayout {
                 } else {
                     str = "";
                 }
-                qq5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
+                ir5.b(new PraiseListActivityConfig(this.a.a, this.a.g, this.a.h, str, this.a.i));
             }
         }
     }
@@ -252,10 +252,10 @@ public class FrsPraiseView extends LinearLayout {
                     this.c.setText(this.a.getString(R.string.common_praise_view_text));
                 } else if (num <= 999999) {
                     TextView textView2 = this.c;
-                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0611) + num + this.a.getString(R.string.common_praise_view_text2));
+                    textView2.setText(this.a.getString(R.string.obfuscated_res_0x7f0f061e) + num + this.a.getString(R.string.common_praise_view_text2));
                 } else {
                     TextView textView3 = this.c;
-                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0611) + "999999+" + this.a.getString(R.string.common_praise_view_text2));
+                    textView3.setText(this.a.getString(R.string.obfuscated_res_0x7f0f061e) + "999999+" + this.a.getString(R.string.common_praise_view_text2));
                 }
             }
         }

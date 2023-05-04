@@ -1,73 +1,43 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.vl0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ConcurrentLinkedQueue;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class nl0 extends rj1<ql0> {
+public class nl0 implements tl0, Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ConcurrentLinkedQueue<vl0.b<?>> a;
+    public final AtomicBoolean b;
 
     /* loaded from: classes5.dex */
-    public class a implements ql0 {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final nl0 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final ml0 b;
 
-        public a(nl0 nl0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nl0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-571833606, "Lcom/baidu/tieba/nl0$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-571833606, "Lcom/baidu/tieba/nl0$a;");
                     return;
                 }
             }
-            this.b = new ml0();
-        }
-
-        @Override // com.baidu.tieba.ql0
-        public <T extends pl0> void a(@Nullable T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, t) == null) && t != null) {
-                this.b.b(t);
-            }
-        }
-
-        @Override // com.baidu.tieba.ql0
-        public void unregister(@NonNull Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, obj) == null) {
-                this.b.g(obj);
-            }
-        }
-
-        @Override // com.baidu.tieba.ql0
-        public <T extends pl0> void b(@NonNull Object obj, @NonNull sl0<T> sl0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, sl0Var) == null) {
-                this.b.d(obj, sl0Var);
-            }
-        }
-
-        @Override // com.baidu.tieba.ql0
-        public <T extends pl0> void c(@NonNull Object obj, int i, @NonNull sl0<T> sl0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_SEND_USER_MSG, this, obj, i, sl0Var) == null) {
-                this.b.c(obj, i, sl0Var);
-            }
+            a = new nl0();
         }
     }
 
@@ -81,19 +51,52 @@ public class nl0 extends rj1<ql0> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ConcurrentLinkedQueue<>();
+        this.b = new AtomicBoolean(false);
+    }
+
+    public static tl0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
+        }
+        return (tl0) invokeV.objValue;
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+            return;
+        }
+        while (true) {
+            vl0.b<?> poll = this.a.poll();
+            if (poll != null) {
+                poll.a.onEvent(poll.b);
+            } else {
+                this.b.set(false);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rj1
-    /* renamed from: a */
-    public ql0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.tl0
+    public <T extends rl0> void a(wl0 wl0Var, ul0<T> ul0Var, T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, wl0Var, ul0Var, t) == null) {
+            if (aj0.a()) {
+                this.a.offer(new vl0.b<>(wl0Var, ul0Var, t));
+                if (this.b.compareAndSet(false, true)) {
+                    p21.c(this, "BackgroundDeliver", 3);
+                    return;
+                }
+                return;
+            }
+            ul0Var.onEvent(t);
         }
-        return (ql0) invokeV.objValue;
     }
 }

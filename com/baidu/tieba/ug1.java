@@ -1,117 +1,82 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class ug1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable... closeableArr) {
+    public static String a(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeableArr) == null) && closeableArr != null) {
-            for (Closeable closeable : closeableArr) {
-                if (closeable != null) {
-                    try {
-                        closeable.close();
-                    } catch (IOException unused) {
-                    }
-                }
-            }
-        }
-    }
-
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            if (file == null) {
-                return null;
-            }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
+            JSONObject b = b(str3);
             try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    a(fileInputStream);
-                    return c;
-                } catch (Exception unused) {
-                    a(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    a(fileInputStream2);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
+                b.put("orderId", str);
+                b.put("payInfo", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-        } else {
-            return (String) invokeL.objValue;
+            return b.toString();
         }
+        return (String) invokeLLL.objValue;
     }
 
-    public static String c(InputStream inputStream) {
+    public static String d(String str, String str2, String str3) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, str, str2, str3)) == null) {
+            JSONObject b = b(str3);
+            try {
+                b.put("orderId", str);
+                b.put("payUrl", str2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return b.toString();
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static JSONObject b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("returnData", a);
+                jSONObject.put("msg", str);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
-            StringBuilder sb = new StringBuilder();
-            while (true) {
-                String readLine = bufferedReader.readLine();
-                if (readLine != null) {
-                    sb.append(readLine);
-                } else {
-                    return sb.toString();
-                }
-            }
-        } else {
-            return (String) invokeL.objValue;
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 
-    public static void d(String str, File file) {
+    public static String c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, file) == null) && !TextUtils.isEmpty(str) && file != null) {
-            FileOutputStream fileOutputStream = null;
-            try {
-                if (!file.getParentFile().exists()) {
-                    file.getParentFile().mkdirs();
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                try {
-                    fileOutputStream2.write(str.getBytes());
-                    fileOutputStream2.flush();
-                    a(fileOutputStream2);
-                } catch (Exception unused) {
-                    fileOutputStream = fileOutputStream2;
-                    a(fileOutputStream);
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    a(fileOutputStream);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-            } catch (Throwable th2) {
-                th = th2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return b(str).toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void e(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle) == null) {
+            if (bundle != null) {
+                a = bundle.getString("returnData");
+            } else {
+                a = "";
             }
         }
     }

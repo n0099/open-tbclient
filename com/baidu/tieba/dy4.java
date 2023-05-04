@@ -1,43 +1,73 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tbclient.LinkThreadContent;
-import tbclient.LinkThreadInfo;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+import tbclient.FrsPage.CoverImageColor;
+import tbclient.FrsPage.HeadImgs;
+import tbclient.FrsPage.VideoImageColor;
 /* loaded from: classes4.dex */
-public class dy4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int g = 1;
+public class dy4 implements k35 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
-    public String d;
-    public int e;
-    public boolean f;
+    public CoverImageColor c;
+    public List<VideoImageColor> d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public boolean l;
+    public String m;
+    public float n;
+    public List<String> o;
+    public qo9 p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947720874, "Lcom/baidu/tieba/dy4;")) == null) {
-            return;
+    /* loaded from: classes4.dex */
+    public class a implements Comparator<VideoImageColor> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(dy4 dy4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dy4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947720874, "Lcom/baidu/tieba/dy4;");
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(VideoImageColor videoImageColor, VideoImageColor videoImageColor2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, videoImageColor, videoImageColor2)) == null) {
+                return videoImageColor.time.intValue() - videoImageColor2.time.intValue();
+            }
+            return invokeLL.intValue;
         }
     }
 
@@ -45,6 +75,159 @@ public class dy4 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public CoverImageColor b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (CoverImageColor) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public qo9 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.p;
+        }
+        return (qo9) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.k35
+    public String getPicLinkUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.k35
+    public String getPicUrl() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.m;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public float k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.n;
+        }
+        return invokeV.floatValue;
+    }
+
+    public List<String> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.o;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public List<VideoImageColor> m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return this.l;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public dy4(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -54,112 +237,110 @@ public class dy4 {
                 return;
             }
         }
-        this.e = 0;
-        this.f = false;
+        this.e = str;
+        this.f = str2;
+        this.i = str3;
     }
 
-    public String a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public dy4 clone() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+            dy4 dy4Var = new dy4();
+            dy4Var.a = this.a;
+            dy4Var.b = this.b;
+            dy4Var.c = this.c;
+            dy4Var.d = this.d;
+            dy4Var.e = this.e;
+            dy4Var.f = this.f;
+            dy4Var.g = this.g;
+            dy4Var.i = this.i;
+            dy4Var.j = this.j;
+            dy4Var.k = this.k;
+            dy4Var.m = this.m;
+            dy4Var.n = this.n;
+            dy4Var.o = this.o;
+            dy4Var.h = this.h;
+            return dy4Var;
         }
-        return (String) invokeV.objValue;
+        return (dy4) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void o(HeadImgs headImgs) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void g(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048593, this, headImgs) != null) || headImgs == null) {
             return;
         }
-        this.a = jSONObject.optString("link_url");
-        JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
+        this.a = headImgs.cover_url;
+        this.b = headImgs.play_url;
+        this.c = headImgs.cover_image_color;
+        s(headImgs.video_image_color);
+        this.e = headImgs.img_url;
+        this.f = headImgs.pc_url;
+        this.g = headImgs.schema;
+        this.m = headImgs.tag_name_url;
+        this.h = headImgs.package_name;
+        String str = headImgs.tag_name_wh;
+        if (str != null) {
             try {
-                JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
-                if (jSONObject2 != null) {
-                    this.b = jSONObject2.optString("link_title");
-                    this.c = jSONObject2.optString("link_abstract");
-                    this.d = jSONObject2.optString("link_head_small_pic");
-                    this.e = jSONObject2.optInt("link_type");
-                    if (hi.isEmpty(this.b) && hi.isEmpty(this.c)) {
-                        this.f = true;
-                    }
-                } else {
-                    this.f = true;
+                String[] split = str.split(",");
+                int e = gg.e(split[0], 1);
+                int e2 = gg.e(split[1], 1);
+                if (e2 != 0) {
+                    this.n = e / e2;
                 }
-                return;
-            } catch (JSONException unused) {
-                this.f = true;
-                return;
+            } catch (Exception e3) {
+                BdLog.e(e3.getMessage());
             }
         }
-        this.f = true;
+        String str2 = headImgs.title;
+        if (str2 != null) {
+            this.i = str2.trim();
+        }
+        String str3 = headImgs.subtitle;
+        if (str3 != null) {
+            this.j = str3.trim();
+        }
+        String str4 = headImgs.btn_text;
+        if (str4 != null) {
+            this.k = str4.trim();
+        }
+        this.o = headImgs.third_statistics_url;
+        qo9 qo9Var = new qo9();
+        this.p = qo9Var;
+        qo9Var.d(headImgs);
     }
 
-    public void h(LinkThreadInfo linkThreadInfo) {
+    public void p(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, linkThreadInfo) != null) || linkThreadInfo == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048595, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void s(List<VideoImageColor> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048597, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.a = linkThreadInfo.link_url;
-        LinkThreadContent linkThreadContent = (LinkThreadContent) ListUtils.getItem(linkThreadInfo.link_content, 0);
-        if (linkThreadContent != null) {
-            this.b = linkThreadContent.link_title;
-            this.c = linkThreadContent.link_abstract;
-            this.d = linkThreadContent.link_head_small_pic;
-            this.e = linkThreadContent.link_type.intValue();
-            if (hi.isEmpty(this.b) && hi.isEmpty(this.c)) {
-                this.f = true;
-                return;
-            }
-            return;
-        }
-        this.f = true;
+        ArrayList arrayList = new ArrayList(list);
+        Collections.sort(arrayList, new a(this));
+        this.d = arrayList;
     }
 }

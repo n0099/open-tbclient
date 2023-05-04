@@ -1,36 +1,121 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.BIMManager;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.immessagecenter.chatgroup.chatbox.GroupChatBottomSheetController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmName;
-import kotlin.jvm.internal.Intrinsics;
-@JvmName(name = "ChatUtil")
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class f58 {
+public class f58 implements uj1<zi5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final long a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            String bdUidFromBdUK = BIMManager.getBdUidFromBdUK(str);
-            Intrinsics.checkNotNullExpressionValue(bdUidFromBdUK, "getBdUidFromBdUK(this)");
-            return Long.parseLong(bdUidFromBdUK);
+    /* loaded from: classes4.dex */
+    public class a implements zi5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @Nullable
+        public GroupChatBottomSheetController b;
+
+        public a(f58 f58Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {f58Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeL.longValue;
+
+        @Override // com.baidu.tieba.zi5
+        public void onChangeSkinType(int i) {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.b0(i);
+            }
+        }
+
+        @Override // com.baidu.tieba.ej5
+        public void a(@NonNull TbPageContext tbPageContext, @Nullable List<Long> list, long j, String str, long j2, boolean z, boolean z2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, list, Long.valueOf(j), str, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
+                if (groupChatBottomSheetController == null) {
+                    this.b = new GroupChatBottomSheetController(tbPageContext, j, str, j2, list, z, z2);
+                } else {
+                    groupChatBottomSheetController.i0(j, str, j2, list, z, z2);
+                }
+                this.b.k0();
+            }
+        }
+
+        @Override // com.baidu.tieba.zi5
+        public void onDestroy() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
+                if (groupChatBottomSheetController != null) {
+                    groupChatBottomSheetController.c0();
+                }
+                this.b = null;
+            }
+        }
+
+        @Override // com.baidu.tieba.zi5
+        public void onPause() {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.e0();
+            }
+        }
+
+        @Override // com.baidu.tieba.zi5
+        public void onResume() {
+            GroupChatBottomSheetController groupChatBottomSheetController;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (groupChatBottomSheetController = this.b) != null) {
+                groupChatBottomSheetController.f0();
+            }
+        }
     }
 
-    public static final String b(String str) {
-        InterceptResult invokeL;
+    public f58() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            Intrinsics.checkNotNullParameter(str, "<this>");
-            return BIMManager.getBdUKFromBdUid(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.uj1
+    /* renamed from: a */
+    public zi5 getService() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
+        }
+        return (zi5) invokeV.objValue;
     }
 }

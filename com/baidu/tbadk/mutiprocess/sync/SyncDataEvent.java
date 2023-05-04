@@ -8,6 +8,7 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
 public class SyncDataEvent extends SerializableEvent {
     public static /* synthetic */ Interceptable $ic = null;
@@ -17,6 +18,7 @@ public class SyncDataEvent extends SerializableEvent {
     public int praiseSwitch;
     public ProfileVirtualImageInfo profileVirtualImageInfo;
     public String sampleId;
+    public HashMap<String, Integer> switches;
     public int themeIsBlack;
     public String ubsABTest;
     public UserGrowthTaskListData userGrowthTaskListData;

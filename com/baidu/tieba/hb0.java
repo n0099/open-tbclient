@@ -1,24 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
 public class hb0 {
     public static /* synthetic */ Interceptable $ic;
+    public static INetWork a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Runnable runnable) {
+    public static INetWork a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, runnable) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, "live-feedpage-" + jb0.a().b(), 3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
         }
+        return (INetWork) invokeV.objValue;
     }
 
-    public static void b(Runnable runnable, String str, int i) {
+    public static void b(INetWork iNetWork) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65537, null, runnable, str, i) == null) {
-            ExecutorUtilsExt.postOnElastic(runnable, str, i);
+        if (interceptable == null || interceptable.invokeL(65537, null, iNetWork) == null) {
+            a = iNetWork;
         }
     }
 }

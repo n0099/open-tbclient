@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,21 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface wi0 {
-    public static final ServiceReference a = new ServiceReference("nad.core", "cyber");
-    public static final wi0 b = new a();
+    public static final ServiceReference d = new ServiceReference("nad.core", "hostCI");
+    public static final wi0 e = new a();
 
-    boolean a();
+    String j();
+
+    String k();
+
+    @NonNull
+    String u();
+
+    @NonNull
+    String x();
+
+    @NonNull
+    String y();
 
     /* loaded from: classes6.dex */
     public static class a implements wi0 {
@@ -19,13 +32,41 @@ public interface wi0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.wi0
-        public boolean a() {
+        public String j() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return false;
-            }
-            return invokeV.booleanValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wi0
+        public String k() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wi0
+        @NonNull
+        public String u() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wi0
+        @NonNull
+        public String x() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "" : (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.wi0
+        @NonNull
+        public String y() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (String) invokeV.objValue;
         }
 
         public a() {

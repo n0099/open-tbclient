@@ -1,64 +1,33 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
-/* loaded from: classes6.dex */
-public final class wz0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -2;
+/* loaded from: classes7.dex */
+public class wz0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948287740, "Lcom/baidu/tieba/wz0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948287740, "Lcom/baidu/tieba/wz0;");
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void a(@Nullable Activity activity, boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65536, null, activity, z) == null) && activity != null) {
+            if (z) {
+                activity.setRequestedOrientation(8);
+            } else {
+                activity.setRequestedOrientation(0);
+            }
+            activity.getWindow().setFlags(1024, 1024);
         }
     }
 
-    public static void a(ClarityUrlList clarityUrlList) {
-        ClarityUrlList.c cVar;
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static void b(@Nullable Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
-            Iterator it = clarityUrlList.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    cVar = (ClarityUrlList.c) it.next();
-                    if ("auto".equals(cVar.c())) {
-                        break;
-                    }
-                } else {
-                    cVar = null;
-                    break;
-                }
-            }
-            if (cVar != null) {
-                clarityUrlList.remove(cVar);
-            }
+        if ((interceptable == null || interceptable.invokeL(65537, null, activity) == null) && activity != null) {
+            activity.setRequestedOrientation(1);
         }
-    }
-
-    public static jy0 b(ClarityUrlList clarityUrlList, double d) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
-            a(clarityUrlList);
-            int f = k01.f(a);
-            a = f;
-            return k01.g(clarityUrlList, f, d, false);
-        }
-        return (jy0) invokeCommon.objValue;
     }
 }

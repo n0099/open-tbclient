@@ -1,76 +1,170 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.camera.view.CameraPreview;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class u32 extends k32<CameraPreview, p02> {
+public class u32 extends w83 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.w83
+    @NonNull
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/button" : (String) invokeV.objValue;
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public u32(@NonNull Context context, @NonNull p02 p02Var) {
-        super(context, p02Var);
+    public u32(u83 u83Var) {
+        super(u83Var, "/swanAPI/button");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, p02Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (l32) objArr2[1]);
+                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        g(2);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k32
-    /* renamed from: G */
-    public void C(@NonNull CameraPreview cameraPreview, @NonNull p02 p02Var, @NonNull n42 n42Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, cameraPreview, p02Var, n42Var) == null) {
-            super.C(cameraPreview, p02Var, n42Var);
-            if (t()) {
-                cameraPreview.x(p02Var);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.k32
-    @NonNull
-    /* renamed from: F */
-    public CameraPreview v(@NonNull Context context) {
+    @Nullable
+    public final v32 q(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            return new CameraPreview(context, n());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
+            }
+            JSONObject k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                x42.c("Component-Action-Button", "params is null");
+                return null;
+            }
+            v32 v32Var = new v32();
+            try {
+                v32Var.a(k);
+            } catch (JSONException e) {
+                e.printStackTrace();
+                x42.d("Component-Action-Button", "model parse exception:", e);
+            }
+            return v32Var;
         }
-        return (CameraPreview) invokeL.objValue;
+        return (v32) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.k32
-    public void z() {
+    @Override // com.baidu.tieba.w83
+    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            super.z();
-            CameraPreview q = q();
-            if (q != null) {
-                q.p();
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("Component-Action-Button", "insert");
             }
+            v32 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                x42.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            o32 insert = new t32(context, q).insert();
+            boolean a = insert.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
+            }
+            return a;
         }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.w83
+    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("Component-Action-Button", "remove");
+            }
+            v32 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                x42.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            t32 t32Var = (t32) k42.a(q);
+            if (t32Var == null) {
+                String str2 = "can't find button component:#" + q.b;
+                x42.c("Component-Action-Button", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            o32 B = t32Var.B();
+            boolean a = B.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.w83
+    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, x73 x73Var) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("Component-Action-Button", StickerDataChangeType.UPDATE);
+            }
+            v32 q = q(unitedSchemeEntity);
+            if (q == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                x42.c("Component-Action-Button", "model is null");
+                return false;
+            }
+            t32 t32Var = (t32) k42.a(q);
+            if (t32Var == null) {
+                String str2 = "can't find button component:#" + q.b;
+                x42.c("Component-Action-Button", str2);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
+                return false;
+            }
+            o32 update = t32Var.update((t32) q);
+            boolean a = update.a();
+            if (a) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            } else {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
+            }
+            return a;
+        }
+        return invokeLLLLL.booleanValue;
     }
 }

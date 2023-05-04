@@ -1,34 +1,32 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.videoplay.service.VideoVerticalPageFragmentService;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
-public class ri5 implements bj1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ri5 {
+    @NonNull
+    public static final ServiceReference a;
+    @NonNull
+    public static final ri5 b;
 
-    public ri5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    boolean a(@NonNull String str);
 
-    @Override // com.baidu.tieba.bj1
-    public Object get() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new VideoVerticalPageFragmentService() : invokeV.objValue;
+    @NonNull
+    String b(@NonNull String str);
+
+    @NonNull
+    String c();
+
+    @NonNull
+    String d(@NonNull String str, boolean z);
+
+    @NonNull
+    String e(@NonNull String str, @NonNull String str2);
+
+    static {
+        ServiceReference serviceReference = new ServiceReference("tbBaseEmotion", "EmotionService");
+        a = serviceReference;
+        b = (ri5) ServiceManager.getService(serviceReference);
     }
 }

@@ -1,40 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.net.MailTo;
+import android.view.View;
+import android.widget.LinearLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class oaa {
+public class oaa extends haa {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static volatile oaa c;
     public transient /* synthetic */ FieldHolder $fh;
-    public paa a;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public Map<String, JSONObject> b;
+        public final /* synthetic */ oaa a;
 
-        public a() {
+        public a(oaa oaaVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oaaVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -44,174 +38,101 @@ public class oaa {
                     return;
                 }
             }
-            this.a = 0;
-            this.b = new HashMap();
+            this.a = oaaVar;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.a.m0()) {
+                    this.a.e.U0(9, false);
+                    this.a.n0(1);
+                    return;
+                }
+                oaa oaaVar = this.a;
+                oaaVar.e.c(oaaVar.a.getString(R.string.obfuscated_res_0x7f0f0572));
+                this.a.n0(0);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948026906, "Lcom/baidu/tieba/oaa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948026906, "Lcom/baidu/tieba/oaa;");
-                return;
-            }
-        }
-        b = saa.m();
-    }
-
-    public oaa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oaa(@NonNull TbPageContext<?> tbPageContext, @NonNull NavigationBar navigationBar, @NonNull LinearLayout linearLayout, @NonNull EditorTools editorTools, @NonNull t8a t8aVar, boolean z) {
+        super(tbPageContext, navigationBar, linearLayout, editorTools, t8aVar, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, navigationBar, linearLayout, editorTools, t8aVar, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (NavigationBar) objArr2[1], (LinearLayout) objArr2[2], (EditorTools) objArr2[3], (t8a) objArr2[4], ((Boolean) objArr2[5]).booleanValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static oaa f() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.haa, com.baidu.tieba.iaa
+    public void M(@NonNull List<u8a<?>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (c == null) {
-                synchronized (oaa.class) {
-                    if (c == null) {
-                        c = new oaa();
-                    }
-                }
-            }
-            return c;
-        }
-        return (oaa) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            x9a o = x9a.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            x9a o = x9a.o();
-            if (o != null && !o.g("2980", 32)) {
-                return false;
-            }
-            if (o != null && o.d("2980")) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void a(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048576, this, str, z) != null) || TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str) || !b()) {
-            return;
-        }
-        this.a.c(str, z);
-    }
-
-    public boolean d(cba cbaVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cbaVar)) == null) {
-            if (cbaVar == null || cbaVar.w() || !c()) {
-                return false;
-            }
-            this.a.f();
-            Map<String, a> v = this.a.v(7);
-            if (v != null && v.size() != 0) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    boolean z = false;
-                    for (String str : v.keySet()) {
-                        a aVar = v.get(str);
-                        if (aVar != null && !TextUtils.isEmpty(str)) {
-                            JSONObject jSONObject2 = new JSONObject();
-                            JSONArray jSONArray = new JSONArray();
-                            for (JSONObject jSONObject3 : aVar.b.values()) {
-                                jSONArray.put(jSONObject3);
-                            }
-                            jSONObject2.put("total", aVar.a);
-                            jSONObject2.put("data", jSONArray);
-                            jSONObject.put(str.replace("-", ""), jSONObject2);
-                            z = true;
-                        }
-                    }
-                    if (z) {
-                        eaa eaaVar = new eaa("2980");
-                        eaaVar.y(jSONObject);
-                        eaaVar.B(System.currentTimeMillis());
-                        cbaVar.c(eaaVar, eaaVar.g());
-                        cbaVar.a(v.keySet());
-                        return true;
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void e(Map<String, a> map, String str, String str2, int i, int i2) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{map, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || map == null) {
-            return;
-        }
-        if (map.containsKey(str)) {
-            aVar = map.get(str);
-        } else {
-            a aVar2 = new a();
-            map.put(str, aVar2);
-            aVar = aVar2;
-        }
-        Map<String, JSONObject> map2 = aVar.b;
-        if (map2.containsKey(str2) && b) {
-            Log.e("UBCArrivalStatics", "*******duplicate ubc id record: " + str2);
-        }
-        try {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("id", str2);
-            jSONObject.put("c", i);
-            jSONObject.put(MailTo.CC, i2);
-            aVar.a += i;
-            map2.put(str2, jSONObject);
-        } catch (JSONException e) {
-            e.printStackTrace();
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            c8a f = x9a.f(this.a);
+            list.add(f);
+            d8a g = x9a.g(this.a);
+            f.w(g);
+            list.add(g);
+            list.add(x9a.o(this.a));
+            k8a n = x9a.n(this.a, this, this.s, this.J);
+            this.D = n;
+            list.add(n);
+            j8a m = x9a.m(this.a, this, this.d, this.C, this.s, this.J);
+            this.F = m;
+            f.w(m);
+            list.add(this.F);
         }
     }
 
-    public void g(paa paaVar) {
+    @Override // com.baidu.tieba.haa, com.baidu.tieba.iaa
+    public void O(@NonNull EditorTools editorTools) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, paaVar) == null) {
-            this.a = paaVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) == null) {
+            editorTools.setBarMaxLauCount(3);
+            editorTools.setMoreButtonAtEnd(true);
+            editorTools.setMoreVipIcon(true);
+            editorTools.setBarLauncherType(1);
+            editorTools.E(true);
+            editorTools.F(false);
+            editorTools.setBackgroundColorId(R.color.CAM_X0201);
+            z9a.h(this.a, editorTools, this);
+            z9a.d(editorTools, this);
+            z9a.a(this.a, editorTools, this);
+            z9a.b(this.a, editorTools, this);
+            z9a.i(this.a, editorTools);
+            z9a.m(this.a, editorTools, this.p.getCallFrom(), this);
+            editorTools.f();
+            super.O(editorTools);
+        }
+    }
+
+    @Override // com.baidu.tieba.haa, com.baidu.tieba.iaa
+    public void P(@NonNull NavigationBar navigationBar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, navigationBar) == null) {
+            super.P(navigationBar);
+            if (this.q) {
+                navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f1105));
+                p0(0, 0);
+                q0(R.drawable.obfuscated_res_0x7f080a38, R.dimen.tbds31, R.dimen.tbds31, R.dimen.tbds0);
+                this.j.setOnClickListener(new a(this));
+                return;
+            }
+            navigationBar.setCenterTextTitle(this.a.getString(R.string.obfuscated_res_0x7f0f0fc9));
         }
     }
 }

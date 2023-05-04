@@ -4,13 +4,13 @@ import android.os.Bundle;
 import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.cs9;
-import com.baidu.tieba.hs9;
-import com.baidu.tieba.pl5;
-import com.baidu.tieba.qs9;
+import com.baidu.tieba.cw9;
+import com.baidu.tieba.im5;
+import com.baidu.tieba.lw9;
+import com.baidu.tieba.p55;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.list.BubbleListModel;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.xv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,13 +22,13 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleListModel a;
-    public hs9 b;
-    public cs9 c;
+    public cw9 b;
+    public xv9 c;
     public BubbleListModel.c d;
     public BdListView.p e;
-    public final z45.g f;
+    public final p55.g f;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -60,9 +60,9 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         }
 
         @Override // com.baidu.tieba.themeCenter.bubble.list.BubbleListModel.c
-        public void a(int i, String str, qs9 qs9Var, List<DressItemData> list) {
+        public void a(int i, String str, lw9 lw9Var, List<DressItemData> list) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qs9Var, list}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, lw9Var, list}) == null) {
                 this.a.b.j();
                 BubbleListActivity bubbleListActivity = this.a;
                 bubbleListActivity.hideLoadingView(bubbleListActivity.b.c());
@@ -71,7 +71,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
                     this.a.b.h();
                     return;
                 }
-                this.a.b.i(qs9Var, list, this.a.a.f0());
+                this.a.b.i(lw9Var, list, this.a.a.k0());
             }
         }
     }
@@ -104,13 +104,13 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.Q();
+                this.a.a.V();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements z45.g {
+    public class c implements p55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BubbleListActivity a;
@@ -133,7 +133,7 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             this.a = bubbleListActivity;
         }
 
-        @Override // com.baidu.tieba.z45.g
+        @Override // com.baidu.tieba.p55.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.a.a != null) {
@@ -165,25 +165,25 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            hs9 hs9Var = this.b;
-            if (hs9Var != null) {
-                hs9Var.d();
+            cw9 cw9Var = this.b;
+            if (cw9Var != null) {
+                cw9Var.d();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public pl5 getPageStayDurationItem() {
+    public im5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pl5 pageStayDurationItem = super.getPageStayDurationItem();
+            im5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (pl5) invokeV.objValue;
+        return (im5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -196,10 +196,10 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        hs9 hs9Var;
+        cw9 cw9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (hs9Var = this.b) != null) {
-            showLoadingView(hs9Var.c());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a != null && (cw9Var = this.b) != null) {
+            showLoadingView(cw9Var.c());
             this.a.loadData();
         }
     }
@@ -211,12 +211,12 @@ public class BubbleListActivity extends BaseActivity<BubbleListActivity> {
             super.onCreate(bundle);
             BubbleListModel bubbleListModel = new BubbleListModel(this);
             this.a = bubbleListModel;
-            bubbleListModel.h0(this.d);
-            cs9 cs9Var = new cs9(getPageContext());
-            this.c = cs9Var;
-            hs9 hs9Var = new hs9(this, cs9Var);
-            this.b = hs9Var;
-            hs9Var.g(this.e, this.f);
+            bubbleListModel.m0(this.d);
+            xv9 xv9Var = new xv9(getPageContext());
+            this.c = xv9Var;
+            cw9 cw9Var = new cw9(this, xv9Var);
+            this.b = cw9Var;
+            cw9Var.g(this.e, this.f);
             showLoadingView(this.b.c());
             this.a.loadData();
         }

@@ -1,60 +1,46 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes3.dex */
-public final class bi7 {
+public class bi7 implements d25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String g() {
+    @Override // com.baidu.tieba.d25
+    public String name() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return q45.m().s(q45.q("forum_group_entrance_guide_has_show_array"), "");
-        }
-        return (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGroupChatGuide" : (String) invokeV.objValue;
     }
 
-    public static final String h() {
+    public bi7() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d25
+    public Class<? extends b25> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return q45.m().s(q45.q("forum_group_feed_card_has_show_array"), "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return ai7.class;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public static final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return q45.m().n(q45.q("forum_group_entrance_guide_frequency"), 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return q45.m().n(q45.q("forum_group_feed_card_frequency"), 0);
-        }
-        return invokeV.intValue;
-    }
-
-    public static final void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            q45.m().B(q45.q("forum_group_entrance_guide_has_show_array"), str);
-        }
-    }
-
-    public static final void l(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            q45.m().B(q45.q("forum_group_feed_card_has_show_array"), str);
-        }
+        return (Class) invokeV.objValue;
     }
 }

@@ -7,7 +7,7 @@ import com.google.android.gms.common.GooglePlayServicesUtilLight;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.internal.Preconditions;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class RemoteCreator<T> {
     public final String zza;
     public T zzb;
@@ -22,7 +22,7 @@ public abstract class RemoteCreator<T> {
     public abstract T getRemoteCreator(@NonNull IBinder iBinder);
 
     @KeepForSdk
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class RemoteCreatorException extends Exception {
         @KeepForSdk
         public RemoteCreatorException(@NonNull String str) {

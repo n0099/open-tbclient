@@ -7,11 +7,11 @@ import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.PersonalCardDetailActivityConfig;
-import com.baidu.tieba.is9;
-import com.baidu.tieba.ks9;
-import com.baidu.tieba.lr9;
-import com.baidu.tieba.pl5;
-import com.baidu.tieba.qs9;
+import com.baidu.tieba.dw9;
+import com.baidu.tieba.fw9;
+import com.baidu.tieba.gv9;
+import com.baidu.tieba.im5;
+import com.baidu.tieba.lw9;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel;
 import com.baidu.tieba.themeCenter.card.category.PersonalCardItemView;
 import com.baidu.tieba.themeCenter.card.setCard.SetPersonalCardModel;
@@ -25,7 +25,7 @@ import java.util.List;
 public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCategoryActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ks9 a;
+    public fw9 a;
     public PersonalCardCategoryModel b;
     public SetPersonalCardModel c;
     public PersonalCardItemView.b d;
@@ -33,7 +33,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
     public SetPersonalCardModel.b f;
     public BdListView.p g;
 
-    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.BaseActivity, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -65,19 +65,19 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         }
 
         @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardItemView.b
-        public void a(lr9 lr9Var) {
+        public void a(gv9 gv9Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, lr9Var) != null) || lr9Var == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, gv9Var) != null) || gv9Var == null) {
                 return;
             }
-            if (lr9Var.a() == lr9.k) {
-                if (lr9Var.g() != 1 && this.a.c != null) {
-                    this.a.c.W(lr9Var.a(), 1);
+            if (gv9Var.a() == gv9.k) {
+                if (gv9Var.g() != 1 && this.a.c != null) {
+                    this.a.c.b0(gv9Var.a(), 1);
                     return;
                 }
                 return;
             }
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.a.getPageContext().getPageActivity(), lr9Var.a())));
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalCardDetailActivityConfig(this.a.getPageContext().getPageActivity(), gv9Var.a())));
         }
     }
 
@@ -106,15 +106,15 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         }
 
         @Override // com.baidu.tieba.themeCenter.card.category.PersonalCardCategoryModel.b
-        public void a(int i, String str, qs9 qs9Var, List<is9> list, boolean z) {
+        public void a(int i, String str, lw9 lw9Var, List<dw9> list, boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, qs9Var, list, Boolean.valueOf(z)}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, lw9Var, list, Boolean.valueOf(z)}) == null) {
                 PersonalCardCategoryActivity personalCardCategoryActivity = this.a;
                 personalCardCategoryActivity.hideLoadingView(personalCardCategoryActivity.a.c());
                 if (i != 0) {
                     this.a.showToast(str);
                 }
-                this.a.a.j(i, qs9Var, list, true);
+                this.a.a.j(i, lw9Var, list, true);
             }
         }
     }
@@ -147,7 +147,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         public void a(boolean z, long j, int i, String str, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j), Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) && z && this.a.b != null) {
-                this.a.b.Z(j, i);
+                this.a.b.e0(j, i);
             }
         }
     }
@@ -180,7 +180,7 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         public void onScrollToBottom() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.Y();
+                this.a.b.d0();
             }
         }
     }
@@ -209,25 +209,25 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             super.onChangeSkinType(i);
-            ks9 ks9Var = this.a;
-            if (ks9Var != null) {
-                ks9Var.d();
+            fw9 fw9Var = this.a;
+            if (fw9Var != null) {
+                fw9Var.d();
             }
         }
     }
 
     @Override // com.baidu.tbadk.BaseActivity
-    public pl5 getPageStayDurationItem() {
+    public im5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pl5 pageStayDurationItem = super.getPageStayDurationItem();
+            im5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (pl5) invokeV.objValue;
+        return (im5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.BaseActivity, com.baidu.adp.base.BdBaseActivity, android.app.Activity
@@ -248,10 +248,10 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
 
     @Override // com.baidu.tbadk.BaseActivity
     public void onNetRefreshButtonClicked() {
-        ks9 ks9Var;
+        fw9 fw9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (ks9Var = this.a) != null) {
-            showLoadingView(ks9Var.c());
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.b != null && (fw9Var = this.a) != null) {
+            showLoadingView(fw9Var.c());
             this.b.loadData();
         }
     }
@@ -261,16 +261,16 @@ public class PersonalCardCategoryActivity extends BaseActivity<PersonalCardCateg
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             super.onCreate(bundle);
-            ks9 ks9Var = new ks9(this);
-            this.a = ks9Var;
-            ks9Var.h(this.g);
+            fw9 fw9Var = new fw9(this);
+            this.a = fw9Var;
+            fw9Var.h(this.g);
             this.a.g(this.d);
             PersonalCardCategoryModel personalCardCategoryModel = new PersonalCardCategoryModel(this);
             this.b = personalCardCategoryModel;
-            personalCardCategoryModel.b0(this.e);
+            personalCardCategoryModel.g0(this.e);
             SetPersonalCardModel setPersonalCardModel = new SetPersonalCardModel();
             this.c = setPersonalCardModel;
-            setPersonalCardModel.V(this.f);
+            setPersonalCardModel.a0(this.f);
             showLoadingView(this.a.c());
             this.b.loadData();
         }

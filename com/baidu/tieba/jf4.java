@@ -1,106 +1,35 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.searchbox.http.request.PostStringRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.IOException;
-import java.nio.channels.ReadableByteChannel;
-import java.util.HashMap;
 import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class jf4<T> implements mf4<T> {
+public class jf4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mf4
-    public void a(T t) {
+    public static void a(@NonNull Object obj, @Nullable Map<String, String> map) {
+        String remove;
+        int parseInt;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65536, null, obj, map) != null) || map == null || !map.containsKey("SWAN-TIMEOUT-SETTING") || (remove = map.remove("SWAN-TIMEOUT-SETTING")) == null || !TextUtils.isDigitsOnly(remove) || (parseInt = Integer.parseInt(remove)) <= 0) {
+            return;
         }
-    }
-
-    @Override // com.baidu.tieba.mf4
-    public void c(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+        if (obj instanceof PostStringRequest.PostStringRequestBuilder) {
+            PostStringRequest.PostStringRequestBuilder postStringRequestBuilder = (PostStringRequest.PostStringRequestBuilder) obj;
+            postStringRequestBuilder.readTimeout(parseInt);
+            postStringRequestBuilder.writeTimeout(parseInt);
+            postStringRequestBuilder.connectionTimeout(parseInt);
+        } else if (obj instanceof PostByteRequest.PostByteRequestBuilder) {
+            PostByteRequest.PostByteRequestBuilder postByteRequestBuilder = (PostByteRequest.PostByteRequestBuilder) obj;
+            postByteRequestBuilder.readTimeout(parseInt);
+            postByteRequestBuilder.writeTimeout(parseInt);
+            postByteRequestBuilder.connectionTimeout(parseInt);
         }
-    }
-
-    @Override // com.baidu.tieba.mf4
-    public void e(T t, pg4 pg4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, t, pg4Var) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mf4
-    public void f(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
-        }
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 100;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.mf4
-    public void i(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, t) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mf4
-    public void j(T t) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, t) == null) {
-        }
-    }
-
-    public jf4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.mf4
-    public Map<String, Object> k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            HashMap hashMap = new HashMap();
-            hashMap.put("queue_priority", Integer.valueOf(g()));
-            return hashMap;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.mf4
-    public pg4 h(T t, File file, long j, ReadableByteChannel readableByteChannel) throws IOException {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{t, file, Long.valueOf(j), readableByteChannel})) == null) {
-            return new pg4(2302, "业务层默认不处理下载流");
-        }
-        return (pg4) invokeCommon.objValue;
     }
 }

@@ -1,343 +1,339 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.app.Application;
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.net.http.SslError;
+import android.net.Uri;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.webkit.SslErrorHandler;
-import android.webkit.WebResourceError;
-import android.webkit.WebResourceRequest;
-import android.webkit.WebView;
-import android.webkit.WebViewClient;
-import android.widget.FrameLayout;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.browser.IBrowserView;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.medialive.browser.HkWebView;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebChromeClient;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ji8 implements IBrowserView {
+public class ji8 {
     public static /* synthetic */ Interceptable $ic;
+    public static final List<pi8> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HkWebView a;
-    public FrameLayout b;
-    public View c;
-    public View d;
-    public View e;
-    public IBrowserView.OnBrowserStatusChangeCallBack f;
-    public boolean g;
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setDisallowInterceptTouchEvent(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setDynamicDispatcherEnabled(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setOnLongPressListener(IBrowserView.OnLongPressListener onLongPressListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, onLongPressListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setStateViewVisible(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setUpSelect(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends WebViewClient {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ji8 a;
-
-        public a(ji8 ji8Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947884368, "Lcom/baidu/tieba/ji8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ji8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = ji8Var;
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageFinished(WebView webView, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                super.onPageFinished(webView, str);
-                this.a.i();
-                if (this.a.f != null) {
-                    this.a.f.onHideLoading();
-                }
-                if (this.a.g) {
-                    this.a.j();
-                    if (this.a.f != null) {
-                        this.a.f.onLoadFailure();
-                    }
-                } else if (this.a.f != null) {
-                    this.a.f.onLoadSuccess();
-                }
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                super.onPageStarted(webView, str, bitmap);
-                this.a.g = false;
-                this.a.k();
-                this.a.h();
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedError(WebView webView, WebResourceRequest webResourceRequest, WebResourceError webResourceError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, webResourceRequest, webResourceError) == null) {
-                super.onReceivedError(webView, webResourceRequest, webResourceError);
-                this.a.g = true;
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public void onReceivedSslError(WebView webView, SslErrorHandler sslErrorHandler, SslError sslError) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(1048579, this, webView, sslErrorHandler, sslError) == null) {
-                super.onReceivedSslError(webView, sslErrorHandler, sslError);
-                this.a.g = true;
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
-        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-            InterceptResult invokeLL;
-            Activity b;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-                if (TextUtils.isEmpty(str) || (b = w8.f().b()) == null) {
-                    return false;
-                }
-                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(b), new String[]{str}, true);
-                return true;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public ji8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947884368, "Lcom/baidu/tieba/ji8;");
                 return;
             }
         }
-        this.g = false;
+        a = new ArrayList();
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public boolean canGoBack() {
-        InterceptResult invokeV;
+    public static void a(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            HkWebView hkWebView = this.a;
-            if (hkWebView != null && hkWebView.canGoBack()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void goBack() {
-        HkWebView hkWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hkWebView = this.a) != null) {
-            hkWebView.goBack();
+        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
+            kk8.j().D(context, "");
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void onDestroy() {
+    public static void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.a = null;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            kk8.j().q(context);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void refresh() {
-        HkWebView hkWebView;
+    public static void i(Context context) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (hkWebView = this.a) != null) {
-            hkWebView.reload();
+        if (interceptable == null || interceptable.invokeL(65545, null, context) == null) {
+            kk8.j().t(context);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public boolean canScrollVertically(int i) {
-        InterceptResult invokeI;
+    public static void l(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            HkWebView hkWebView = this.a;
-            if (hkWebView != null) {
-                return hkWebView.canScrollVertically(i);
-            }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void loadUrl(String str) {
-        HkWebView hkWebView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && (hkWebView = this.a) != null) {
-            hkWebView.loadUrl(str);
+        if (interceptable == null || interceptable.invokeL(65548, null, context) == null) {
+            kk8.j().z(context);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setErrorView(View view2) {
+    public static void o(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, view2) == null) {
-            this.c = view2;
+        if (interceptable == null || interceptable.invokeL(65551, null, jSONObject) == null) {
+            for (int i = 0; i < a.size(); i++) {
+                a.get(i).onCallback(jSONObject);
+            }
+            a.clear();
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setLoadingView(View view2) {
+    public static void q(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, view2) == null) {
-            this.d = view2;
+        if (interceptable == null || interceptable.invokeJ(65553, null, j) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uid", Long.valueOf(j));
+            kk8.j().g(TbadkCoreApplication.getInst(), "shareSuccess", hashMap);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public void setOnBrowserStatusChangeCallBack(IBrowserView.OnBrowserStatusChangeCallBack onBrowserStatusChangeCallBack) {
+    public static void b(Context context, String str, HashMap<String, Object> hashMap) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, onBrowserStatusChangeCallBack) == null) {
-            this.f = onBrowserStatusChangeCallBack;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, context, str, hashMap) == null) {
+            if (hashMap != null) {
+                String str3 = (String) hashMap.get("enterroom_type");
+                String str4 = (String) hashMap.get("live_activity_type");
+                String str5 = (String) hashMap.get("extra");
+                try {
+                    JSONObject jSONObject = new JSONObject();
+                    jSONObject.put("live_activity_type", str4);
+                    jSONObject.put("extra", str5);
+                    str2 = jSONObject.toString();
+                } catch (JSONException unused) {
+                    str2 = "";
+                }
+                if ("1".equals(str3)) {
+                    kk8.j().H(context, str2);
+                    return;
+                } else {
+                    kk8.j().D(context, "");
+                    return;
+                }
+            }
+            kk8.j().D(context, "");
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.browser.IBrowserView
-    public View getView(Context context) {
-        InterceptResult invokeL;
+    public static void e(Context context, ui8 ui8Var, pi8 pi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (this.b == null) {
-                this.b = new FrameLayout(context);
-            }
-            if (this.e == null) {
-                View view2 = new View(context);
-                this.e = view2;
-                view2.setBackgroundColor(context.getResources().getColor(17170443));
-            }
-            if (this.a == null) {
-                HkWebView hkWebView = new HkWebView(context);
-                this.a = hkWebView;
-                hkWebView.setWebViewClient(new a(this));
-            }
-            this.b.addView(this.a);
-            return this.b;
+        if ((interceptable != null && interceptable.invokeLLL(65541, null, context, ui8Var, pi8Var) != null) || context == null) {
+            return;
         }
-        return (View) invokeL.objValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.d != null && this.e.getParent() != null) {
-                ((ViewGroup) this.e.getParent()).removeView(this.e);
-            }
-            View view2 = this.c;
-            if (view2 != null && view2.getParent() != null) {
-                ((ViewGroup) this.c.getParent()).removeView(this.c);
+        JSONObject jSONObject = new JSONObject();
+        if (ui8Var != null) {
+            try {
+                if (!TextUtils.isEmpty(ui8Var.a)) {
+                    jSONObject.put(WebChromeClient.KEY_ARG_CALLBACK, ui8Var.a);
+                    if (pi8Var != null) {
+                        a.add(pi8Var);
+                    }
+                }
+                jSONObject.put("isTranslucent", ui8Var.b);
+                if (!TextUtils.isEmpty(ui8Var.c)) {
+                    jSONObject.put("from", ui8Var.c);
+                }
+            } catch (JSONException unused) {
             }
         }
+        kk8.j().B(context, jSONObject.toString());
     }
 
-    public final void i() {
+    /* JADX WARN: Removed duplicated region for block: B:58:0x017e  */
+    /* JADX WARN: Removed duplicated region for block: B:59:0x0190  */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void c(Context context, String str, Map<String, Object> map) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (this.d != null && this.e.getParent() != null) {
-                ((ViewGroup) this.e.getParent()).removeView(this.e);
+        if (interceptable == null || interceptable.invokeLLL(65539, null, context, str, map) == null) {
+            String str3 = (String) map.get("enterroom_type");
+            String str4 = (String) map.get("room_id");
+            String str5 = (String) map.get("live_id");
+            String str6 = (String) map.get("username");
+            String str7 = (String) map.get("userrec");
+            String str8 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY);
+            String str9 = (String) map.get(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY);
+            String str10 = (String) map.get("screen_direction");
+            String str11 = (String) map.get("open_giftlist");
+            String str12 = (String) map.get("tab");
+            String str13 = (String) map.get("tag");
+            String str14 = (String) map.get("source");
+            String str15 = (String) map.get("from");
+            String str16 = (String) map.get("extra");
+            String str17 = (String) map.get("audioUrl");
+            String str18 = (String) map.get("audio_bg");
+            String str19 = (String) map.get("chat_mcast_id");
+            String str20 = (String) map.get("open_msgpanel");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(str12)) {
+                    jSONObject.put("tab", str12);
+                }
+                if (!TextUtils.isEmpty(str13)) {
+                    jSONObject.put("tag", str13);
+                }
+                if (!TextUtils.isEmpty(str14)) {
+                    jSONObject.put("source", str14);
+                }
+                if (!TextUtils.isEmpty(str15)) {
+                    jSONObject.put("from", str15);
+                }
+                if (!TextUtils.isEmpty(str8)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, str8);
+                }
+                if (!TextUtils.isEmpty(str9)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, str9);
+                }
+                if (!TextUtils.isEmpty(str10)) {
+                    jSONObject.put("screen_direction", str10);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_ROOM_ID_KEY, str4);
+                }
+                if (!TextUtils.isEmpty(str5)) {
+                    str2 = str5;
+                    try {
+                        jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, str2);
+                    } catch (JSONException e) {
+                        e = e;
+                        e.printStackTrace();
+                        if (!"1".equals(str3)) {
+                        }
+                    }
+                } else {
+                    str2 = str5;
+                }
+                if (!TextUtils.isEmpty(str16)) {
+                    jSONObject.put("extra", str16);
+                }
+                if (!TextUtils.isEmpty(str17)) {
+                    jSONObject.put("audioUrl", str17);
+                }
+                if (!TextUtils.isEmpty(str18)) {
+                    jSONObject.put("audio_bg", str18);
+                }
+                if (!TextUtils.isEmpty(str19)) {
+                    jSONObject.put("chat_mcast_id", str19);
+                }
+                if (!TextUtils.isEmpty(str20)) {
+                    jSONObject.put("open_msgpanel", str20);
+                }
+            } catch (JSONException e2) {
+                e = e2;
+                str2 = str5;
             }
-            View view2 = this.d;
-            if (view2 != null && view2.getParent() != null) {
-                ((ViewGroup) this.d.getParent()).removeView(this.d);
+            if (!"1".equals(str3)) {
+                kk8.j().y(context, str, jSONObject.toString(), map);
+                return;
             }
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("user_name", str6);
+                jSONObject2.put("open_giftlist", str11);
+            } catch (JSONException e3) {
+                e3.printStackTrace();
+            }
+            JSONObject jSONObject3 = new JSONObject();
+            try {
+                jSONObject3.put("live_id", str2);
+                jSONObject3.put("useRecommend", true);
+                jSONObject3.put("otherParams", jSONObject);
+            } catch (JSONException e4) {
+                e4.printStackTrace();
+            }
+            kk8.j().x(context, jSONObject3.toString());
         }
     }
 
-    public final void j() {
-        View view2;
-        View view3;
+    public static void d(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.b != null && (view3 = this.e) != null && view3.getParent() == null) {
-                this.b.addView(this.e, new FrameLayout.LayoutParams(-1, -1));
-            }
-            if (this.b != null && (view2 = this.c) != null && view2.getParent() == null) {
-                this.b.addView(this.c, new FrameLayout.LayoutParams(-1, -1));
-            }
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) {
+            kk8.j().h(context, str);
         }
     }
 
-    public final void k() {
-        View view2;
-        View view3;
+    public static void m(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            if (this.b != null && (view3 = this.e) != null && view3.getParent() == null) {
-                this.b.addView(this.e, new FrameLayout.LayoutParams(-1, -1));
+        if (interceptable == null || interceptable.invokeLL(65549, null, context, str) == null) {
+            kk8.j().A(context, str);
+        }
+    }
+
+    public static void p(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65552, null, str, z) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("uid", str);
+            hashMap.put("isSubscribe", Boolean.valueOf(z));
+            kk8.j().g(TbadkCoreApplication.getInst(), "setAttentionChanged", hashMap);
+        }
+    }
+
+    public static void g(Context context, long j, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{context, Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            kk8.j().v(context, j, i);
+        }
+    }
+
+    public static void h(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65544, null, context, str, i) == null) {
+            kk8.j().s(context, str, i);
+        }
+    }
+
+    public static void j(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65546, null, context, str, str2) == null) {
+            kk8.j().u(context, str, str2);
+        }
+    }
+
+    public static void n(Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65550, null, context, str, str2) == null) {
+            kk8.j().C(context, str, str2);
+        }
+    }
+
+    public static void r(Application application, String str, Uri uri) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65554, null, application, str, uri) == null) {
+            kk8.j().r(application, str, uri);
+        }
+    }
+
+    public static void k(Context context, String str, AlaLiveInfoCoreData alaLiveInfoCoreData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65547, null, context, str, alaLiveInfoCoreData) == null) && alaLiveInfoCoreData != null) {
+            long j = alaLiveInfoCoreData.liveID;
+            String str2 = alaLiveInfoCoreData.userName;
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_COVER_KEY, alaLiveInfoCoreData.liveCover);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_ENTER_LIVE_ID_KEY, j);
+                jSONObject.put("user_name", str2);
+                jSONObject.put(AlaLiveRoomActivityConfig.SDK_LIVE_URL_KEY, alaLiveInfoCoreData.rtmpUrl);
+                jSONObject.put("screen_direction", alaLiveInfoCoreData.screenDirection);
+                jSONObject.put("open_giftlist", "0");
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            if (this.b != null && (view2 = this.d) != null && view2.getParent() == null) {
-                this.b.addView(this.d, new FrameLayout.LayoutParams(-1, -1));
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("live_id", j);
+                jSONObject2.put("useRecommend", true);
+                jSONObject2.put("otherParams", jSONObject);
+            } catch (JSONException e2) {
+                e2.printStackTrace();
             }
+            kk8.j().x(context, jSONObject2.toString());
         }
     }
 }

@@ -1,151 +1,83 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.Gson;
+import java.lang.reflect.Type;
 /* loaded from: classes6.dex */
-public abstract class tia implements sia {
+public class tia implements sia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public boolean b;
-    public boolean c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
 
-    public tia(Context context) {
+    public tia() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.g = -200;
-        if (context != null) {
-            this.a = context.getApplicationContext();
-        }
     }
 
     @Override // com.baidu.tieba.sia
-    public void a(int i) {
+    public String a(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            this.g = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                if (kha.c().d() != null && kha.c().d().c() != null) {
+                    return kha.c().d().c().a(obj);
+                }
+                return new Gson().toJson(obj);
+            } catch (Exception e) {
+                nla.b(e.getMessage());
+                return "";
+            }
         }
+        return (String) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.sia
-    public void b(String str) {
+    public <T> T b(String str, Class<T> cls) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.f = str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
+            try {
+                if (kha.c().d() != null && kha.c().d().c() != null) {
+                    return (T) kha.c().d().c().b(str, cls);
+                }
+                return (T) new Gson().fromJson(str, (Class<Object>) cls);
+            } catch (Exception e) {
+                nla.b(e.getMessage());
+                return null;
+            }
         }
+        return (T) invokeLL.objValue;
     }
 
     @Override // com.baidu.tieba.sia
-    public void e(boolean z) {
+    public <T> T c(String str, Type type) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
+            try {
+                if (kha.c().d() != null && kha.c().d().c() != null) {
+                    return (T) kha.c().d().c().c(str, type);
+                }
+                return (T) new Gson().fromJson(str, type);
+            } catch (Exception e) {
+                nla.b(e.getMessage());
+                return null;
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.sia
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.e = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.sia
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.d = str;
-        }
-    }
-
-    @Override // com.baidu.tieba.sia
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // com.baidu.tieba.sia
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.sia
-    public String getAAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sia
-    public String getOAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sia
-    public int getStatusCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.sia
-    public String getVAID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sia
-    public boolean isSupport() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
+        return (T) invokeLL.objValue;
     }
 }

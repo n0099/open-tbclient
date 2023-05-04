@@ -1,67 +1,53 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ku2 extends hu2 {
+public class ku2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ou2 A;
-    public double B;
-    public int C;
-    public String z;
 
-    public ku2() {
+    public static int a(String str, int i) {
+        InterceptResult invokeLI;
+        long parseLong;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                x42.o("map", "color string is empty, use default " + Integer.toHexString(i));
+                return i;
+            }
+            try {
+                if (str.charAt(0) == '#') {
+                    String substring = str.substring(1);
+                    if (substring.length() != 6 && substring.length() != 8) {
+                        throw new IllegalArgumentException("char count not right");
+                    }
+                    if (substring.length() == 6) {
+                        parseLong = Long.parseLong(substring, 16) | (-16777216);
+                    } else {
+                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
+                    }
+                    return (int) parseLong;
+                }
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                x42.o("map", "parse color error, use default " + Integer.toHexString(i));
+                return i;
             }
         }
-        this.z = "";
-        this.C = 1000;
+        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.hu2, com.baidu.tieba.l32, com.baidu.tieba.ux2
-    public void a(JSONObject jSONObject) throws JSONException {
+    public static float b(double d) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
+            return (float) (d * ol3.l(AppRuntime.getAppContext()));
         }
-        super.a(jSONObject);
-        this.z = jSONObject.optString("markerId");
-        ou2 ou2Var = new ou2();
-        this.A = ou2Var;
-        ou2Var.a(jSONObject.optJSONObject("destination"));
-        jSONObject.optBoolean("autoRotate");
-        this.B = jSONObject.optDouble("rotate");
-        this.C = Math.abs(jSONObject.optInt("duration", this.C));
-    }
-
-    @Override // com.baidu.tieba.l32, com.baidu.tieba.ux2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        ou2 ou2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.z) && (ou2Var = this.A) != null && ou2Var.isValid()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return invokeCommon.floatValue;
     }
 }

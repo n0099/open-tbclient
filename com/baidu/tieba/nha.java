@@ -1,55 +1,12 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
+import android.util.Pair;
+import java.util.AbstractMap;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class nha {
-    public static /* synthetic */ Interceptable $ic;
-    public static final DecimalFormat a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nha {
+    void a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, List<AbstractMap.SimpleEntry<String, String>> list);
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948003842, "Lcom/baidu/tieba/nha;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948003842, "Lcom/baidu/tieba/nha;");
-                return;
-            }
-        }
-        a = new DecimalFormat("0.00");
-    }
-
-    public static String a(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return a.format(((float) j) / 1048576.0f) + "M/" + a.format(((float) j2) / 1048576.0f) + "M";
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            try {
-                String hexString = Integer.toHexString((int) (Float.parseFloat(str2) * 255.0f));
-                return Color.parseColor("#" + hexString + str);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return 0;
-            }
-        }
-        return invokeLL.intValue;
-    }
+    void b(int i, String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, LinkedList<Pair<String, Object>> linkedList);
 }

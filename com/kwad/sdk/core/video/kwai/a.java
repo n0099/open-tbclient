@@ -7,7 +7,7 @@ public abstract class a implements c {
     public c.e JR;
     public c.h JS;
     public c.b JT;
-    public c.InterfaceC0634c JU;
+    public c.InterfaceC0637c JU;
     public c.d JV;
     public c.a JW;
     public c.f adC;
@@ -24,8 +24,8 @@ public abstract class a implements c {
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
-    public final void a(c.InterfaceC0634c interfaceC0634c) {
-        this.JU = interfaceC0634c;
+    public final void a(c.InterfaceC0637c interfaceC0637c) {
+        this.JU = interfaceC0637c;
     }
 
     @Override // com.kwad.sdk.core.video.kwai.c
@@ -82,8 +82,8 @@ public abstract class a implements c {
     }
 
     public final boolean notifyOnError(int i, int i2) {
-        c.InterfaceC0634c interfaceC0634c = this.JU;
-        return interfaceC0634c != null && interfaceC0634c.j(i, i2);
+        c.InterfaceC0637c interfaceC0637c = this.JU;
+        return interfaceC0637c != null && interfaceC0637c.j(i, i2);
     }
 
     public final boolean notifyOnInfo(int i, int i2) {

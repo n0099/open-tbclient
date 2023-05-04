@@ -1,105 +1,287 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.animation.AnimationUtils;
-import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Base64;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.UIMsg;
+import com.baidu.poly.statistics.exception.ServerDataException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.URLDecoder;
+import java.security.KeyFactory;
+import java.security.PublicKey;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class uh1 {
     public static /* synthetic */ Interceptable $ic;
-    public static Toast a;
+    public static String a;
+    public static String b;
+    public static String c;
+    public static Bundle d;
+    public static long e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static View a(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0500, (ViewGroup) null);
-            ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba6)).setText(str);
-            return inflate;
-        }
-        return (View) invokeLL.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a extends gf1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gf1 a;
 
-    public static void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65541, null, context, str) != null) || context == null) {
-            return;
-        }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
-        }
-        b(context);
-        a.setView(a(context, str));
-        a.show();
-    }
-
-    public static void b(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            Toast toast = new Toast(context.getApplicationContext());
-            a = toast;
-            toast.setGravity(17, 0, 0);
-            a.setDuration(0);
-        }
-    }
-
-    public static View c(Context context, int i, String str, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, Boolean.valueOf(z)})) == null) {
-            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d04ff, (ViewGroup) null);
-            ImageView imageView = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba5);
-            TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091ba6);
-            if (-1 == i) {
-                imageView.setVisibility(8);
-            } else {
-                imageView.setVisibility(0);
-                imageView.setImageResource(i);
-                if (z) {
-                    imageView.startAnimation(AnimationUtils.loadAnimation(context, R.anim.obfuscated_res_0x7f0100a3));
+        public a(gf1 gf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            textView.setText(str);
-            return inflate;
+            this.a = gf1Var;
         }
-        return (View) invokeCommon.objValue;
+
+        @Override // com.baidu.tieba.gf1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gf1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("code", 1);
+                    String optString = jSONObject.optString("msg", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == 0 && optJSONObject != null) {
+                        String unused = uh1.a = optJSONObject.optString("orderId");
+                        String unused2 = uh1.b = optJSONObject.optString("smsId");
+                        uh1.c = optJSONObject.optString("mobile");
+                        this.a.c(optJSONObject);
+                        return;
+                    }
+                    gf1 gf1Var = this.a;
+                    gf1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
+                } catch (JSONException unused3) {
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
     }
 
-    public static void d(Context context, int i, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65539, null, context, i, str) != null) || context == null) {
-            return;
+    /* loaded from: classes6.dex */
+    public static class b extends gf1<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gf1 a;
+
+        public b(gf1 gf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gf1Var;
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
+
+        @Override // com.baidu.tieba.gf1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
         }
-        b(context);
-        a.setView(c(context, i, str, false));
-        a.show();
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gf1
+        /* renamed from: d */
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str);
+                    int optInt = jSONObject.optInt("code", 1);
+                    String optString = jSONObject.optString("msg", "");
+                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
+                    if (optInt == 0 && optJSONObject != null) {
+                        this.a.c(optJSONObject);
+                        return;
+                    }
+                    gf1 gf1Var = this.a;
+                    gf1Var.a(new ServerDataException("msg = " + optString), optInt, optString);
+                } catch (JSONException unused) {
+                    this.a.b(new ServerDataException(UIMsg.UI_TIP_SERVER_ERROR), UIMsg.UI_TIP_SERVER_ERROR);
+                }
+            }
+        }
     }
 
-    public static void e(Context context, int i, String str) {
+    /* loaded from: classes6.dex */
+    public static class c extends gf1<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gf1 a;
+
+        public c(gf1 gf1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gf1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gf1Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.gf1
+        /* renamed from: d */
+        public void c(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+                this.a.c(jSONObject);
+            }
+        }
+
+        @Override // com.baidu.tieba.gf1
+        public void a(Throwable th, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, th, i, str) == null) {
+                this.a.a(th, i, str);
+            }
+        }
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, i, str) != null) || context == null) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return i(str, "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDeoE4C+X8ahP2/juzyb10hdQNIHR3a+m3+nV6sVaOiXpNw1sNnB/2ms9vV2yXCOTz2JFWMmgr8p5dA9yUfYzSVMWN8jyZdOzAwGzjh6oB32FsqlgFkXNTNJHkdIzJRq/H8Q9mlh67c2KrMN2QLU219M6EbLoTL0i+0oUbZ4W0IrwIDAQAB");
         }
-        Toast toast = a;
-        if (toast != null) {
-            toast.cancel();
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(String str, gf1<JSONObject> gf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, gf1Var) == null) {
+            String[] split = str.split("&");
+            hf1 hf1Var = new hf1();
+            for (String str2 : split) {
+                String[] split2 = str2.split("=");
+                if (split2.length == 2) {
+                    if (TextUtils.equals(split2[0], "timestamp")) {
+                        hf1Var.d(split2[0], URLDecoder.decode(split2[1]));
+                    } else {
+                        hf1Var.d(split2[0], split2[1]);
+                    }
+                }
+            }
+            of1.j().g(qf1.e(), hf1Var, new c(gf1Var));
         }
-        b(context);
-        a.setView(c(context, i, str, true));
-        a.show();
+    }
+
+    public static void g(String str, if1 if1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65542, null, str, if1Var) == null) {
+            String a2 = if1Var.a("Cookie");
+            String str2 = "BDUSS=" + str;
+            if (a2 == null) {
+                if1Var.d("Cookie", str2);
+                return;
+            }
+            if1Var.d("Cookie", a2 + "; " + str2);
+        }
+    }
+
+    public static String i(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, str, str2)) == null) {
+            try {
+                PublicKey generatePublic = KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str2, 0)));
+                Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+                cipher.init(1, generatePublic);
+                return Base64.encodeToString(cipher.doFinal(str.getBytes()), 0);
+            } catch (Exception e2) {
+                e2.printStackTrace();
+                return "";
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void e(Bundle bundle, String str, String str2, long j, gf1<JSONObject> gf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{bundle, str, str2, Long.valueOf(j), gf1Var}) == null) {
+            d = bundle;
+            e = j;
+            f = str2;
+            if1 if1Var = new if1();
+            pf1.d(if1Var);
+            f(bundle, if1Var);
+            hf1 hf1Var = new hf1();
+            hf1Var.d("token", d("orderId=" + str + "&payChannel=" + str2 + "&timestamp=" + j));
+            new mf1().a(qf1.n(), if1Var, hf1Var, new a(gf1Var));
+        }
+    }
+
+    public static void f(Bundle bundle, if1 if1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, bundle, if1Var) == null) {
+            String string = bundle.getString("bduss");
+            if (TextUtils.isEmpty(string)) {
+                return;
+            }
+            g(string, if1Var);
+        }
+    }
+
+    public static void h(String str, gf1<JSONObject> gf1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, str, gf1Var) == null) {
+            if1 if1Var = new if1();
+            pf1.d(if1Var);
+            f(d, if1Var);
+            hf1 hf1Var = new hf1();
+            hf1Var.d("token", d("orderId=" + a + "&payChannel=" + f + "&smsId=" + b + "&timestamp=" + e + "&verifyCode=" + str));
+            new mf1().a(qf1.g(), if1Var, hf1Var, new b(gf1Var));
+        }
     }
 }

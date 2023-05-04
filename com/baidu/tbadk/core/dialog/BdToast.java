@@ -194,10 +194,10 @@ public class BdToast {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (TbadkApplication.getInst().getSkinType() == 4 && StringUtils.isNotNull(this.i)) {
-                this.d.i(this.i);
+                this.d.k(this.i);
                 this.d.setVisibility(0);
             } else if (StringUtils.isNotNull(this.h)) {
-                this.d.i(this.h);
+                this.d.k(this.h);
                 this.d.setVisibility(0);
             } else {
                 int i = this.g;

@@ -1,115 +1,198 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.LinkedHashMap;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.util.Arrays;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class isa extends asa {
+public class isa extends hra<zra> {
     public static /* synthetic */ Interceptable $ic;
-    public static final LinkedHashMap<Long, String> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public int d;
-    public Thread e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947865458, "Lcom/baidu/tieba/isa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947865458, "Lcom/baidu/tieba/isa;");
-                return;
-            }
-        }
-        f = new LinkedHashMap<>();
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public isa(Thread thread, int i, long j) {
-        super(j);
+    public isa(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.REWARD), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {thread, Integer.valueOf(i), Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.d = 100;
-        this.e = thread;
-        this.d = i;
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public isa(Thread thread, long j) {
-        this(thread, 100, j);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {thread, Long.valueOf(j)};
-            interceptable.invokeUnInit(65538, newInitContext);
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Thread) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Long) objArr2[2]).longValue());
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.asa
-    public void b() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (StackTraceElement stackTraceElement : this.e.getStackTrace()) {
-                sb.append(stackTraceElement.toString());
-                sb.append("\r\n");
-            }
-            synchronized (f) {
-                if (f.size() == this.d && this.d > 0) {
-                    f.remove(f.keySet().iterator().next());
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            zra zraVar = (zra) obj;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements TTAdNative.RewardVideoAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ isa c;
+
+        public a(isa isaVar, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {isaVar, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                f.put(Long.valueOf(System.currentTimeMillis()), sb.toString());
+            }
+            this.c = isaVar;
+            this.b = str;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJRewardVideoAd onError code: " + i + ", message: " + str, new Object[0]);
+                if (this.a) {
+                    return;
+                }
+                this.c.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
+        public void onRewardVideoCached() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
+        public void onRewardVideoCached(TTRewardVideoAd tTRewardVideoAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, tTRewardVideoAd) == null) {
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.RewardVideoAdListener
+        public void onRewardVideoAdLoad(TTRewardVideoAd tTRewardVideoAd) {
+            Set<String> set;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tTRewardVideoAd) == null) {
+                this.a = true;
+                LogPrinter.d();
+                zra zraVar = new zra(tTRewardVideoAd);
+                String a = zraVar.a();
+                synchronized (tqa.class) {
+                    set = tqa.b;
+                    if (set.isEmpty()) {
+                        String string = dsa.a.getString("req_id", "");
+                        if (string.isEmpty()) {
+                            z = true;
+                        } else {
+                            set.addAll(Arrays.asList(string.split(ParamableElem.DIVIDE_PARAM)));
+                        }
+                    }
+                    z = !set.contains(a);
+                }
+                if (!z) {
+                    this.c.onError("repeat");
+                    this.c.getClass();
+                    return;
+                }
+                String a2 = zraVar.a();
+                synchronized (tqa.class) {
+                    if (set.add(a2)) {
+                        StringBuilder sb = new StringBuilder();
+                        for (String str : set) {
+                            sb.append(str);
+                            sb.append(ParamableElem.DIVIDE_PARAM);
+                        }
+                        sb.deleteCharAt(sb.length() - 1);
+                        dsa.a.edit().putString("req_id", sb.toString()).apply();
+                    }
+                }
+                isa isaVar = this.c;
+                String str2 = this.b;
+                isaVar.getClass();
+                ((TTRewardVideoAd) zraVar.a).setRewardPlayAgainInteractionListener(new pqa(isaVar, zraVar, str2));
+                isa isaVar2 = this.c;
+                String str3 = this.b;
+                isaVar2.getClass();
+                ((TTRewardVideoAd) zraVar.a).setRewardAdInteractionListener(new rqa(isaVar2, zraVar, str3));
+                this.c.onAdLoaded((isa) zraVar);
             }
         }
     }
 
-    public ArrayList<String> e(long j, long j2) {
-        InterceptResult invokeCommon;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            ArrayList<String> arrayList = new ArrayList<>();
-            synchronized (f) {
-                for (Long l : f.keySet()) {
-                    if (j < l.longValue() && l.longValue() < j2) {
-                        arrayList.add(jsa.x.format(l) + "\r\n\r\n" + f.get(l));
-                    }
-                }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
             }
-            return arrayList;
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            String tid = getTid(valueOf);
+            String buildExtra = buildExtra(context, tid, valueOf);
+            int i = 1;
+            AdSlot.Builder userID = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setUserID(FunAdSdk.getFunAdConfig().userId);
+            if (this.mPid.isHorizontal) {
+                i = 2;
+            }
+            AdSlot build = userID.setOrientation(i).setMediaExtra(buildExtra).build();
+            onLoadStart(funAdSlot);
+            this.e.loadRewardVideoAd(build, new a(this, tid));
         }
-        return (ArrayList) invokeCommon.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, activity, viewGroup, str, obj)) == null) {
+            zra zraVar = (zra) obj;
+            onShowStart(zraVar);
+            ((TTRewardVideoAd) zraVar.a).setDownloadListener(new zqa(null));
+            ((TTRewardVideoAd) zraVar.a).showRewardVideoAd(activity);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
     }
 }

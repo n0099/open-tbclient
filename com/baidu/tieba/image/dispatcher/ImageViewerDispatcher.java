@@ -12,7 +12,7 @@ import com.baidu.tbadk.core.atomData.WriteActivityConfig;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.message.HistoryMessage;
 import com.baidu.tbadk.coreExtra.view.ImageUrlData;
-import com.baidu.tieba.fd9;
+import com.baidu.tieba.eg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -22,7 +22,7 @@ import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ImageViewerDispatcher implements fd9 {
+public class ImageViewerDispatcher implements eg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,13 +40,13 @@ public class ImageViewerDispatcher implements fd9 {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:43:0x0139  */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0188  */
-    /* JADX WARN: Removed duplicated region for block: B:47:0x0190  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x01ae  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x01d7  */
-    /* JADX WARN: Removed duplicated region for block: B:64:? A[RETURN, SYNTHETIC] */
-    @Override // com.baidu.tieba.fd9
+    /* JADX WARN: Removed duplicated region for block: B:47:0x0143  */
+    /* JADX WARN: Removed duplicated region for block: B:50:0x0192  */
+    /* JADX WARN: Removed duplicated region for block: B:51:0x019a  */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x01b8  */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x01e1  */
+    /* JADX WARN: Removed duplicated region for block: B:70:? A[RETURN, SYNTHETIC] */
+    @Override // com.baidu.tieba.eg9
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -56,6 +56,9 @@ public class ImageViewerDispatcher implements fd9 {
         JSONObject optJSONObject;
         boolean z;
         String str3;
+        JSONObject jSONObject2;
+        ImageUrlData imageUrlData;
+        JSONArray jSONArray;
         boolean z2;
         boolean z3;
         long longValue;
@@ -76,94 +79,102 @@ public class ImageViewerDispatcher implements fd9 {
                 int i = 0;
                 while (i < optJSONArray.length()) {
                     try {
-                        JSONObject jSONObject2 = (JSONObject) optJSONArray.get(i);
+                        jSONObject2 = (JSONObject) optJSONArray.get(i);
                         arrayList.add(jSONObject2.optString("big_pic_url"));
-                        ImageUrlData imageUrlData = new ImageUrlData();
-                        JSONArray jSONArray = optJSONArray;
+                        imageUrlData = new ImageUrlData();
+                        jSONArray = optJSONArray;
                         imageUrlData.urlType = 13;
-                        imageUrlData.imageUrl = jSONObject2.optString("small_pic_url");
-                        imageUrlData.originalUrl = jSONObject2.optString("origin_pic_url");
-                        str = optString4;
+                        String optString6 = jSONObject2.optString("small_pic_url");
+                        imageUrlData.imageUrl = optString6;
                         str2 = optString5;
                         try {
-                            imageUrlData.originalSize = jSONObject2.optLong("origin_pic_size");
-                            if (jSONObject2.optInt("is_long_pic") == 1) {
-                                z2 = true;
-                            } else {
-                                z2 = false;
-                            }
-                            imageUrlData.isLongPic = z2;
-                            if (jSONObject2.optInt("is_show_origin_btn") == 1) {
-                                z3 = true;
-                            } else {
-                                z3 = false;
-                            }
-                            imageUrlData.mIsShowOrigonButton = z3;
-                            if (valueOf == null) {
-                                longValue = 0;
-                            } else {
-                                longValue = valueOf.longValue();
-                            }
-                            imageUrlData.threadId = longValue;
-                            Long valueOf2 = Long.valueOf(jSONObject2.optLong(WriteActivityConfig.FLOOR_ID));
-                            if (valueOf2 == null) {
-                                longValue2 = 0;
-                            } else {
-                                longValue2 = valueOf2.longValue();
-                            }
-                            imageUrlData.postId = longValue2;
-                            concurrentHashMap.put(arrayList.get(i), imageUrlData);
-                            i++;
-                            optJSONArray = jSONArray;
-                            optString4 = str;
-                            optString5 = str2;
+                            imageUrlData.urlThumbType = imageUrlData.urlType;
+                            imageUrlData.imageThumbUrl = optString6;
+                            imageUrlData.originalUrl = jSONObject2.optString("origin_pic_url");
+                            str = optString4;
                         } catch (Exception e) {
                             e = e;
-                            e.printStackTrace();
-                            JSONObject optJSONObject2 = jSONObject.optJSONObject("rect");
-                            Rect rect = new Rect();
-                            RectF rectF = new RectF();
-                            rect.left = optJSONObject2.optInt("l");
-                            rect.top = optJSONObject2.optInt("t");
-                            rect.right = optJSONObject2.optInt("r");
-                            int optInt2 = optJSONObject2.optInt("b");
-                            rect.bottom = optInt2;
-                            rectF.left = rect.left;
-                            rectF.top = rect.top;
-                            rectF.right = rect.right;
-                            rectF.bottom = optInt2;
-                            ThreadData threadData = null;
-                            optJSONObject = jSONObject.optJSONObject("recom_info");
-                            if (optJSONObject != null) {
-                            }
-                            ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
-                            builder.A(arrayList);
-                            builder.E(optInt);
-                            builder.C(optString);
-                            builder.B(optString2);
-                            builder.R(String.valueOf(valueOf));
-                            builder.F(true);
-                            if (arrayList.size() <= 0) {
-                            }
-                            builder.M(str3);
-                            builder.I(true);
-                            builder.y(concurrentHashMap);
-                            builder.K(true);
-                            builder.Q(threadData);
-                            builder.H(z);
-                            builder.P(rect, rectF);
-                            ImageViewerConfig x = builder.x(context);
-                            if (optString3 != null) {
-                            }
-                            BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE_FROM, "image", "tran");
-                            MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
-                            if (!(context instanceof TbPageContextSupport)) {
-                            }
+                            str = optString4;
                         }
                     } catch (Exception e2) {
                         e = e2;
                         str = optString4;
                         str2 = optString5;
+                    }
+                    try {
+                        imageUrlData.originalSize = jSONObject2.optLong("origin_pic_size");
+                        if (jSONObject2.optInt("is_long_pic") == 1) {
+                            z2 = true;
+                        } else {
+                            z2 = false;
+                        }
+                        imageUrlData.isLongPic = z2;
+                        if (jSONObject2.optInt("is_show_origin_btn") == 1) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        imageUrlData.mIsShowOrigonButton = z3;
+                        if (valueOf == null) {
+                            longValue = 0;
+                        } else {
+                            longValue = valueOf.longValue();
+                        }
+                        imageUrlData.threadId = longValue;
+                        Long valueOf2 = Long.valueOf(jSONObject2.optLong(WriteActivityConfig.FLOOR_ID));
+                        if (valueOf2 == null) {
+                            longValue2 = 0;
+                        } else {
+                            longValue2 = valueOf2.longValue();
+                        }
+                        imageUrlData.postId = longValue2;
+                        concurrentHashMap.put(arrayList.get(i), imageUrlData);
+                        i++;
+                        optJSONArray = jSONArray;
+                        optString5 = str2;
+                        optString4 = str;
+                    } catch (Exception e3) {
+                        e = e3;
+                        e.printStackTrace();
+                        JSONObject optJSONObject2 = jSONObject.optJSONObject("rect");
+                        Rect rect = new Rect();
+                        RectF rectF = new RectF();
+                        rect.left = optJSONObject2.optInt("l");
+                        rect.top = optJSONObject2.optInt("t");
+                        rect.right = optJSONObject2.optInt("r");
+                        int optInt2 = optJSONObject2.optInt("b");
+                        rect.bottom = optInt2;
+                        rectF.left = rect.left;
+                        rectF.top = rect.top;
+                        rectF.right = rect.right;
+                        rectF.bottom = optInt2;
+                        ThreadData threadData = null;
+                        optJSONObject = jSONObject.optJSONObject("recom_info");
+                        if (optJSONObject != null) {
+                        }
+                        ImageViewerConfig.Builder builder = new ImageViewerConfig.Builder();
+                        builder.A(arrayList);
+                        builder.E(optInt);
+                        builder.C(optString);
+                        builder.B(optString2);
+                        builder.R(String.valueOf(valueOf));
+                        builder.F(true);
+                        if (arrayList.size() <= 0) {
+                        }
+                        builder.M(str3);
+                        builder.I(true);
+                        builder.y(concurrentHashMap);
+                        builder.K(true);
+                        builder.Q(threadData);
+                        builder.H(z);
+                        builder.P(rect, rectF);
+                        ImageViewerConfig x = builder.x(context);
+                        if (optString3 != null) {
+                        }
+                        BdTracesManager.INSTANCE.getFpsTracer().beginFpsCollect(ImageViewerConfig.KEY_FPS_IMAGE_FROM, "image", "tran");
+                        MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
+                        if (!(context instanceof TbPageContextSupport)) {
+                        }
                     }
                 }
             }

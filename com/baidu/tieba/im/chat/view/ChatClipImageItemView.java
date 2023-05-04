@@ -30,11 +30,11 @@ import java.lang.reflect.Method;
 public class ChatClipImageItemView extends GifView implements sk.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean j1;
-    public sk k1;
-    public final Path l1;
-    public boolean m1;
-    public a n1;
+    public boolean k1;
+    public sk l1;
+    public final Path m1;
+    public boolean n1;
+    public a o1;
 
     /* loaded from: classes4.dex */
     public interface a {
@@ -116,10 +116,10 @@ public class ChatClipImageItemView extends GifView implements sk.a {
                 return;
             }
         }
-        this.j1 = true;
-        this.l1 = new Path();
-        this.m1 = true;
-        this.n1 = null;
+        this.k1 = true;
+        this.m1 = new Path();
+        this.n1 = true;
+        this.o1 = null;
         T(context, attributeSet, i);
         setShowStaticDrawable(false);
     }
@@ -150,13 +150,13 @@ public class ChatClipImageItemView extends GifView implements sk.a {
                 }
             }
             if (!z) {
-                this.k1 = new vk();
+                this.l1 = new vk();
             } else {
-                this.k1 = new pk();
+                this.l1 = new pk();
             }
             this.d.n = true;
-            this.k1.t(this);
-            sk skVar = this.k1;
+            this.l1.t(this);
+            sk skVar = this.l1;
             this.e = skVar;
             skVar.r(this.d);
         }
@@ -172,9 +172,9 @@ public class ChatClipImageItemView extends GifView implements sk.a {
             }
             float width = rectF.width();
             float height = rectF.height();
-            this.l1.reset();
-            this.l1.set(o0(width, height, 1.0f));
-            return this.l1;
+            this.m1.reset();
+            this.m1.set(o0(width, height, 1.0f));
+            return this.m1;
         }
         return (Path) invokeL.objValue;
     }
@@ -183,7 +183,7 @@ public class ChatClipImageItemView extends GifView implements sk.a {
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, canvas) == null) {
-            a aVar = this.n1;
+            a aVar = this.o1;
             if (aVar == null) {
                 SkinManager.setBackgroundColor(this, R.color.CAM_X0204);
             } else {
@@ -199,10 +199,10 @@ public class ChatClipImageItemView extends GifView implements sk.a {
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onWindowVisibilityChanged(i);
             if (i == 0) {
-                if (!this.m1) {
+                if (!this.n1) {
                     invalidate();
                 } else {
-                    this.m1 = false;
+                    this.n1 = false;
                 }
             }
         }
@@ -211,7 +211,7 @@ public class ChatClipImageItemView extends GifView implements sk.a {
     public void setLeft(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.j1 = z;
+            this.k1 = z;
         }
     }
 
@@ -234,7 +234,7 @@ public class ChatClipImageItemView extends GifView implements sk.a {
             } else {
                 z2 = false;
             }
-            sk skVar = this.k1;
+            sk skVar = this.l1;
             if (!z2 && !z) {
                 z3 = false;
             }
@@ -249,7 +249,7 @@ public class ChatClipImageItemView extends GifView implements sk.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            this.k1.u(false);
+            this.l1.u(false);
             return super.getDefaultBdImage();
         }
         return (tm) invokeV.objValue;
@@ -277,7 +277,7 @@ public class ChatClipImageItemView extends GifView implements sk.a {
             float f7 = f2 - f5;
             Path path = new Path();
             path.offset(0.0f, 0.0f);
-            if (this.j1) {
+            if (this.k1) {
                 float f8 = f4 + f3;
                 float f9 = d;
                 float f10 = f3 + f9;

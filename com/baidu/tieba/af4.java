@@ -1,124 +1,131 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.searchbox.http.request.HttpCommonRequestBuilder;
-import com.baidu.searchbox.http.request.HttpRequestBuilder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import okhttp3.MediaType;
 import okhttp3.RequestBody;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpOptions;
-import org.apache.http.client.methods.HttpPut;
-import org.apache.http.client.methods.HttpTrace;
 /* loaded from: classes3.dex */
 public class af4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public Map<String, String> c;
+    public RequestBody d;
+    public ResponseCallback e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public Object i;
+    public int j;
+    public int k;
+    public a l;
 
-    public static HttpRequestBuilder a(@NonNull ye4 ye4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ye4Var)) == null) {
-            return b(ye4Var, null);
-        }
-        return (HttpRequestBuilder) invokeL.objValue;
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public int c;
     }
 
-    @NonNull
-    public static HttpRequestBuilder b(@NonNull ye4 ye4Var, @Nullable ze4 ze4Var) {
-        InterceptResult invokeLL;
-        HttpCommonRequestBuilder o;
+    public af4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ye4Var, ze4Var)) == null) {
-            if (ze4Var == null) {
-                ze4Var = ze4.g();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            String str = ye4Var.b;
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -531492226:
-                    if (str.equals(HttpOptions.METHOD_NAME)) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case 70454:
-                    if (str.equals("GET")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case 79599:
-                    if (str.equals(HttpPut.METHOD_NAME)) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-                case 2213344:
-                    if (str.equals("HEAD")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case 2461856:
-                    if (str.equals("POST")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case 80083237:
-                    if (str.equals(HttpTrace.METHOD_NAME)) {
-                        c = 6;
-                        break;
-                    }
-                    break;
-                case 1669334218:
-                    if (str.equals("CONNECT")) {
-                        c = 7;
-                        break;
-                    }
-                    break;
-                case 2012838315:
-                    if (str.equals(HttpDelete.METHOD_NAME)) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-            }
-            switch (c) {
-                case 0:
-                    return ze4Var.getRequest();
-                case 1:
-                    return ze4Var.headerRequest();
-                case 2:
-                    o = ze4Var.o();
-                    break;
-                case 3:
-                    o = ze4Var.postRequest();
-                    break;
-                case 4:
-                    o = ze4Var.putRequest();
-                    break;
-                case 5:
-                    o = ze4Var.deleteRequest();
-                    break;
-                case 6:
-                    o = ze4Var.y();
-                    break;
-                case 7:
-                    o = ze4Var.a();
-                    break;
-                default:
-                    return ze4Var.getRequest();
-            }
-            RequestBody requestBody = ye4Var.d;
-            if (requestBody != null) {
-                o.requestBody(requestBody);
-            }
-            return o;
         }
-        return (HttpRequestBuilder) invokeLL.objValue;
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+    }
+
+    public a b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.l;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public af4(String str, ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, responseCallback};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.e = responseCallback;
+    }
+
+    public af4(String str, RequestBody requestBody, ResponseCallback responseCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, requestBody, responseCallback};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        this.b = "GET";
+        this.f = false;
+        this.g = false;
+        this.h = false;
+        this.j = 6;
+        this.k = 0;
+        this.a = str;
+        this.d = requestBody;
+        this.e = responseCallback;
+    }
+
+    public af4 a(MediaType mediaType, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaType, str)) == null) {
+            if (mediaType != null && str != null) {
+                this.d = RequestBody.create(mediaType, str);
+            }
+            return this;
+        }
+        return (af4) invokeLL.objValue;
     }
 }

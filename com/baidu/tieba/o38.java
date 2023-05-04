@@ -1,15 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class o38 {
+public class o38 implements CustomMessageTask.CustomRunnable<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract int getViewType();
 
     public o38() {
         Interceptable interceptable = $ic;
@@ -23,5 +25,19 @@ public abstract class o38 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            int e = gg.e(customMessage.getData(), 0);
+            if (h18.w().p(String.valueOf(e))) {
+                return new CustomResponsedMessage<>(2001151, String.valueOf(e));
+            }
+            return null;
+        }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

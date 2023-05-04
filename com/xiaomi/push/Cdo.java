@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.os.Build;
 /* renamed from: com.xiaomi.push.do  reason: invalid class name */
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class Cdo {
     public static void a(byte[] bArr) {
         if (bArr.length >= 2) {

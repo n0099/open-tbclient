@@ -1,29 +1,19 @@
 package com.baidu.tieba;
+
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.swan.game.ad.entity.AdResponseInfo;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public interface ow3 {
-    long a();
+    void a(String str, JSONObject jSONObject, ResponseCallback<AdResponseInfo> responseCallback);
 
-    void b(boolean z);
+    void b(String str, JSONObject jSONObject, ResponseCallback<gw3> responseCallback);
 
-    boolean c();
+    void c(String str, ResponseCallback<pv3> responseCallback);
 
-    boolean d();
+    void d(String str);
 
-    String e();
+    void e(String str);
 
-    long f();
-
-    String g();
-
-    long h();
-
-    Long i();
-
-    boolean j();
-
-    boolean k();
-
-    String l();
-
-    String m();
+    void f(String str, ResponseCallback<AdResponseInfo> responseCallback);
 }

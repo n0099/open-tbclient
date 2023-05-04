@@ -1,189 +1,191 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.pay.panel.PaymentPanelManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u03 {
+public class u03 extends i03 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Map<String, HybridUbcFlow>> a;
-    public final Map<String, om3<HybridUbcFlow>> b;
-    public final om3<HybridUbcFlow> c;
 
-    /* loaded from: classes6.dex */
-    public class a implements om3<HybridUbcFlow> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u03 a;
-
-        public a(u03 u03Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {u03Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = u03Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(HybridUbcFlow hybridUbcFlow) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-                this.a.g(hybridUbcFlow.p);
-            }
-        }
+    @Override // com.baidu.tieba.aw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "PaymentPanelApi" : (String) invokeV.objValue;
     }
 
-    public u03() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948157137, "Lcom/baidu/tieba/u03;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948157137, "Lcom/baidu/tieba/u03;");
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = new HashMap();
-        this.c = new a(this);
+        f = ho1.a;
     }
 
-    public final HybridUbcFlow a(String str) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public u03(@NonNull yv1 yv1Var) {
+        super(yv1Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            HybridUbcFlow hybridUbcFlow = new HybridUbcFlow(str);
-            hybridUbcFlow.H("callback_on_submit", this.c);
-            om3<HybridUbcFlow> om3Var = this.b.get(str);
-            if (om3Var != null) {
-                om3Var.a(hybridUbcFlow);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yv1Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((yv1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return hybridUbcFlow;
         }
-        return (HybridUbcFlow) invokeL.objValue;
     }
 
-    public HybridUbcFlow b(String str) {
+    public xz1 x(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c(str, "default");
+            q("#chooseCoupon", false);
+            x73 b0 = x73.b0();
+            if (b0 == null) {
+                if (f) {
+                    Log.e("PaymentPanelApi", "failed: swan app is null");
+                }
+                return new xz1(1001, "swan app is null");
+            }
+            SwanAppActivity w = b0.w();
+            if (w == null) {
+                if (f) {
+                    Log.e("PaymentPanelApi", "failed: swan activity is null");
+                }
+                return new xz1(1001, "swan activity is null");
+            }
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new xz1(202, "cb is empty");
+            }
+            String optString2 = jSONObject.optString("componentId");
+            if (TextUtils.isEmpty(optString2)) {
+                return new xz1(202, "empty componentId");
+            }
+            String optString3 = jSONObject.optString("appKey");
+            if (TextUtils.isEmpty(optString3)) {
+                return new xz1(202, "empty appKey");
+            }
+            String optString4 = jSONObject.optString("totalAmount");
+            if (TextUtils.isEmpty(optString4)) {
+                return new xz1(202, "empty totalAmount");
+            }
+            PaymentPanelManager.z().s(this, w, optString2, optString3, optString4, optString);
+            return xz1.f();
         }
-        return (HybridUbcFlow) invokeL.objValue;
+        return (xz1) invokeL.objValue;
     }
 
-    public synchronized HybridUbcFlow e(String str) {
+    public xz1 y(String str) {
         InterceptResult invokeL;
-        HybridUbcFlow f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                f = f(str, "default");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#getPaymentInfo", false);
+            if (x73.b0() == null) {
+                if (f) {
+                    Log.e("PaymentPanelApi", "failed: null swan runtime");
+                }
+                return new xz1(1001, "swan app is null");
             }
-            return f;
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new xz1(202, "cb is empty");
+            }
+            String optString2 = jSONObject.optString("componentId");
+            if (TextUtils.isEmpty(optString2)) {
+                return new xz1(202, "empty componentId");
+            }
+            String optString3 = jSONObject.optString("dealId");
+            if (TextUtils.isEmpty(optString3)) {
+                return new xz1(202, "empty dealId");
+            }
+            String optString4 = jSONObject.optString("appKey");
+            if (TextUtils.isEmpty(optString4)) {
+                return new xz1(202, "empty appKey");
+            }
+            String optString5 = jSONObject.optString("totalAmount");
+            if (TextUtils.isEmpty(optString5)) {
+                return new xz1(202, "empty totalAmount");
+            }
+            PaymentPanelManager.z().C(this, optString2, optString3, optString4, optString5, optString);
+            return xz1.f();
         }
-        return (HybridUbcFlow) invokeL.objValue;
+        return (xz1) invokeL.objValue;
     }
 
-    public u03 g(String str) {
+    public xz1 z(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            synchronized (this.a) {
-                this.a.remove(str);
-            }
-            return this;
-        }
-        return (u03) invokeL.objValue;
-    }
-
-    public HybridUbcFlow c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map == null) {
-                    return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#setPaymentInfo", false);
+            if (x73.b0() == null) {
+                if (f) {
+                    Log.e("PaymentPanelApi", "failed: swan app is null");
                 }
-                return map.get(str2);
+                return new xz1(1001, "swan app is null");
             }
-        }
-        return (HybridUbcFlow) invokeLL.objValue;
-    }
-
-    public u03 d(String str, om3<HybridUbcFlow> om3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, om3Var)) == null) {
-            synchronized (this.b) {
-                this.b.put(str, om3Var);
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
             }
-            return this;
-        }
-        return (u03) invokeLL.objValue;
-    }
-
-    public u03 h(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, str2)) == null) {
-            synchronized (this.a) {
-                Map<String, HybridUbcFlow> map = this.a.get(str);
-                if (map != null) {
-                    map.remove(str2);
-                }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new xz1(202, "cb is empty");
             }
-            return this;
-        }
-        return (u03) invokeLL.objValue;
-    }
-
-    public synchronized HybridUbcFlow f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, str2)) == null) {
-            synchronized (this) {
-                synchronized (this.a) {
-                    Map<String, HybridUbcFlow> map = this.a.get(str);
-                    if (map == null) {
-                        HashMap hashMap = new HashMap();
-                        HybridUbcFlow a2 = a(str);
-                        hashMap.put(str2, a2);
-                        this.a.put(str, hashMap);
-                        return a2;
-                    }
-                    HybridUbcFlow hybridUbcFlow = map.get(str2);
-                    if (hybridUbcFlow == null) {
-                        hybridUbcFlow = a(str);
-                        map.put(str2, hybridUbcFlow);
-                    }
-                    return hybridUbcFlow;
-                }
+            String optString2 = jSONObject.optString("componentId");
+            if (TextUtils.isEmpty(optString2)) {
+                return new xz1(202, "empty componentId");
             }
+            String optString3 = jSONObject.optString("chosenChannel");
+            if (TextUtils.isEmpty(optString3)) {
+                return new xz1(202, "empty chosenChannel");
+            }
+            PaymentPanelManager.z().J(this, optString2, optString3, optString);
+            return xz1.f();
         }
-        return (HybridUbcFlow) invokeLL.objValue;
+        return (xz1) invokeL.objValue;
     }
 }

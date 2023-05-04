@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class gq {
     public int a;
 
@@ -19,7 +19,7 @@ public class gq {
     public String c;
     public String d;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static final a a = new a("internal-server-error");
         public static final a b = new a("forbidden");

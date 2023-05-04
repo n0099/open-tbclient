@@ -11,31 +11,37 @@ public class g64 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public String filePath;
+    public int progress;
     @V8JavascriptField
-    public int statusCode;
+    public long totalBytesExpectedToWrite;
     @V8JavascriptField
-    public String tempFilePath;
+    public long totalBytesWritten;
 
-    public g64() {
+    public g64(int i, long j, long j2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), Long.valueOf(j2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.progress = i;
+        this.totalBytesExpectedToWrite = j;
+        this.totalBytesWritten = j2;
     }
 
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "ResponseData{statusCode=" + this.statusCode + ",tempFilePath=" + this.tempFilePath + ",filePath=" + this.filePath + "}";
+            return "TaskProgressData{progress=" + this.progress + ", totalBytesExpectedToWrite=" + this.totalBytesExpectedToWrite + ", totalBytesWritten=" + this.totalBytesWritten + '}';
         }
         return (String) invokeV.objValue;
     }

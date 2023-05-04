@@ -1,113 +1,242 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.widget.LinearLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.img.ImageUploadResult;
-import com.baidu.tbadk.img.ImageUploader;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.OriginalThreadInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.rw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class b19 {
+public class b19 extends a19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public LinearLayout f;
+    public ax4 g;
+    public by h;
+    public jy i;
+    public ThreadData j;
 
     /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
+    public class a extends ax4 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ b19 a;
 
-    /* loaded from: classes3.dex */
-    public interface c {
-        void a(int i, String str, ImageUploadResult imageUploadResult);
-    }
+        @Override // com.baidu.tieba.ax4
+        public yy4 getNegFeedBackData() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return null;
+            }
+            return (yy4) invokeV.objValue;
+        }
 
-    /* loaded from: classes3.dex */
-    public static class b extends BdAsyncTask<String, Integer, ImageUploadResult> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public c b;
+        @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+        public BdUniqueId getType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return null;
+            }
+            return (BdUniqueId) invokeV.objValue;
+        }
 
-        public b() {
+        public a(b19 b19Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b19Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = b19Var;
         }
 
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ImageUploadResult doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        @Override // com.baidu.tieba.ax4
+        public ThreadData getThreadData() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                return new ImageUploader("user_pics").uploadInBackground(FileHelper.getFileDireciory(this.a), false);
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a.j;
             }
-            return (ImageUploadResult) invokeL.objValue;
+            return (ThreadData) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b19 a;
+
+        public b(b19 b19Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b19Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = b19Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ImageUploadResult imageUploadResult) {
-            String str;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            b19 b19Var;
+            rw.a aVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, imageUploadResult) == null) {
-                super.onPostExecute(imageUploadResult);
-                if (this.b != null) {
-                    int i = 0;
-                    if (imageUploadResult != null) {
-                        i = imageUploadResult.error_code;
-                        str = imageUploadResult.error_msg;
-                    } else {
-                        str = "";
-                    }
-                    this.b.a(i, str, imageUploadResult);
-                }
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (aVar = (b19Var = this.a).c) != null) {
+                aVar.a(b19Var.g);
             }
         }
     }
 
-    public b19() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b19(TbPageContext tbPageContext, int i) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public void a(String str, c cVar) {
+    @Override // com.baidu.tieba.a19
+    public void d(rw.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, cVar) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            super.d(aVar);
+            jy jyVar = this.i;
+            if (jyVar != null) {
+                jyVar.A(aVar);
+            }
+            by byVar = this.h;
+            if (byVar != null) {
+                byVar.B(aVar);
+            }
+            LinearLayout linearLayout = this.f;
+            if (linearLayout != null) {
+                linearLayout.setOnClickListener(new b(this));
+            }
         }
-        b bVar = new b(null);
-        bVar.a = str;
-        bVar.b = cVar;
-        bVar.execute("");
+    }
+
+    @Override // com.baidu.tieba.a19
+    public void e(ji6 ji6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, ji6Var) == null) {
+            super.e(ji6Var);
+            jy jyVar = this.i;
+            if (jyVar != null) {
+                jyVar.p(this.b);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.a19
+    public View a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.f == null) {
+                LinearLayout linearLayout = new LinearLayout(this.a.getPageActivity());
+                this.f = linearLayout;
+                SkinManager.setBackgroundColor(linearLayout, R.color.CAM_X0206);
+                this.f.setOrientation(1);
+                this.f.setLayoutParams(new LinearLayout.LayoutParams(-1, -2));
+            }
+            this.f.removeAllViews();
+            if (this.h == null) {
+                by byVar = new by(this.a);
+                this.h = byVar;
+                byVar.r(Boolean.TRUE);
+            }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
+            layoutParams.topMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_H_X005);
+            layoutParams.leftMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            layoutParams.rightMargin = this.a.getResources().getDimensionPixelOffset(R.dimen.M_W_X007);
+            this.f.addView(this.h.k(), layoutParams);
+            if (this.i == null) {
+                this.i = new jy(this.a.getPageActivity());
+            }
+            this.f.addView(this.i.k());
+            return this.f;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.a19
+    public void b(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) && this.e != i) {
+            this.e = i;
+            SkinManager.setBackgroundColor(this.f, R.color.CAM_X0206);
+            by byVar = this.h;
+            if (byVar != null) {
+                byVar.onChangeSkinType(tbPageContext, i);
+            }
+            jy jyVar = this.i;
+            if (jyVar != null) {
+                jyVar.onChangeSkinType(tbPageContext, i);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.a19
+    public void c(OriginalThreadInfo originalThreadInfo) {
+        ThreadData b2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, originalThreadInfo) == null) {
+            this.d = originalThreadInfo;
+            if (originalThreadInfo == null) {
+                b2 = null;
+            } else {
+                b2 = originalThreadInfo.b();
+            }
+            this.j = b2;
+            a aVar = new a(this);
+            this.g = aVar;
+            jy jyVar = this.i;
+            if (jyVar != null) {
+                jyVar.a(aVar);
+            }
+            by byVar = this.h;
+            if (byVar != null) {
+                byVar.a(this.g);
+            }
+        }
     }
 }

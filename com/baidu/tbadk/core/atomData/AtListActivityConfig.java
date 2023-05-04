@@ -17,6 +17,7 @@ import java.util.ArrayList;
 public class AtListActivityConfig extends IntentConfig {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String AT_SELECT_UID_DATA = "at_select_uid_data";
+    public static final String CALL_AT_LIST_OPTIONAL = "at_list_optional";
     public static final String CALL_AT_LIST_SOURCE = "at_list_source";
     public static final String GROUP_BOT_SKILL = "group_bot_skill";
     public static final String GROUP_CHAT_FORUM_ID = "group_chat_forum_id";
@@ -59,93 +60,100 @@ public class AtListActivityConfig extends IntentConfig {
         }
     }
 
+    public void setCallAtListOptional(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            getIntent().putExtra(CALL_AT_LIST_OPTIONAL, z);
+        }
+    }
+
     public void setCallAtListSource(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             getIntent().putExtra(CALL_AT_LIST_SOURCE, str);
         }
     }
 
     public void setChatroomId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             getIntent().putExtra(GROUP_CHAT_ROOM_ID, String.valueOf(j));
         }
     }
 
     public void setForumId(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
             getIntent().putExtra(GROUP_CHAT_FORUM_ID, String.valueOf(j));
         }
     }
 
     public void setForumName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
             getIntent().putExtra(GROUP_CHAT_FORUM_NAME, str);
         }
     }
 
     public void setFromFid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
             getIntent().putExtra("forum_id", str);
         }
     }
 
     public void setFromTid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
             getIntent().putExtra("thread_id", str);
         }
     }
 
     public void setIsForBjh(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             getIntent().putExtra(IS_FOR_BJH, z);
         }
     }
 
     public void setIsForChat(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
             getIntent().putExtra(IS_FOR_CHAT, z);
         }
     }
 
     public void setIsForGroupChat(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
             getIntent().putExtra(IS_FOR_GROUP_CHAT, z);
         }
     }
 
     public void setIsShowBotInfo(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
             getIntent().putExtra(IS_SHOW_BOT_INFO, z);
         }
     }
 
     public void setSelectedAtList(ArrayList<AtSelectData> arrayList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, arrayList) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, arrayList) == null) {
             getIntent().putParcelableArrayListExtra(IntentConfig.AT_SELECT_LIST_DATA, arrayList);
         }
     }
 
     public void setSelectedAtUid(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             getIntent().putExtra(AT_SELECT_UID_DATA, str);
         }
     }
 
     public void setUserRole(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
             getIntent().putExtra(USER_ROLE, i);
         }
     }

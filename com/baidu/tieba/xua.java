@@ -1,70 +1,92 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.ServiceConnection;
-import android.os.Bundle;
-import android.os.IBinder;
-import android.os.Message;
-import android.os.Messenger;
-import android.util.Log;
+import android.text.TextUtils;
+import android.widget.Button;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.kwad.sdk.api.KsAppDownloadListener;
 /* loaded from: classes7.dex */
-public class xua implements ServiceConnection {
+public class xua implements KsAppDownloadListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Messenger a;
-    public Bundle b;
-    public Context c;
+    public Button a;
+    public String b;
 
-    public xua() {
+    public xua(String str, Button button) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, button};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = str;
+        this.a = button;
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFailed() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.a.setText(R.string.obfuscated_res_0x7f0f07e3);
+            } else {
+                this.a.setText(this.b);
             }
         }
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadFinished() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
-            Log.i("MessengerSrvConnection", "onServiceConnected");
-            this.a = new Messenger(iBinder);
-            Message obtain = Message.obtain();
-            obtain.setData(this.b);
-            try {
-                this.a.send(obtain);
-            } catch (Exception e) {
-                String str = "message sending failed. " + e.getMessage();
-            }
-            Log.i("MessengerSrvConnection", "start unbind service.");
-            try {
-                this.c.unbindService(this);
-                Log.i("MessengerSrvConnection", "unbind service end.");
-            } catch (Exception unused) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.a.setText(R.string.obfuscated_res_0x7f0f07e6);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onDownloadStarted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onIdle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                this.a.setText(R.string.obfuscated_res_0x7f0f07e3);
+            } else {
+                this.a.setText(this.b);
             }
         }
     }
 
-    @Override // android.content.ServiceConnection
-    public void onServiceDisconnected(ComponentName componentName) {
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onInstalled() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
-            Log.i("MessengerSrvConnection", "onServiceDisconnected");
-            this.a = null;
-            this.b = null;
-            this.c = null;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.setText(R.string.obfuscated_res_0x7f0f07e7);
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsAppDownloadListener
+    public void onProgressUpdate(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            Button button = this.a;
+            button.setText(button.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f07e4, String.format("%s/100", Integer.valueOf(i))));
         }
     }
 }

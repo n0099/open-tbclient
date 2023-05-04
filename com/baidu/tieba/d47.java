@@ -1,51 +1,51 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tieba.forumMember.bawu.BawuTeamInfoReadCacheRequestMessage;
+import com.baidu.tieba.forumMember.bawu.BawuTeamReadCacheResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class d47 {
+public class d47 implements CustomMessageTask.CustomRunnable<Object> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b47 a;
 
-    public d47(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
+    public d47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (bdTypeListView == null) {
-            return;
-        }
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(new z37(tbPageContext, i47.d, tbPageContext.getUniqueId()));
-        b47 b47Var = new b47(tbPageContext, j47.h, tbPageContext.getUniqueId());
-        this.a = b47Var;
-        arrayList.add(b47Var);
-        arrayList.add(new a47(tbPageContext, i47.c, tbPageContext.getUniqueId()));
-        arrayList.add(new c47(tbPageContext, i47.e, tbPageContext.getUniqueId()));
-        bdTypeListView.addAdapters(arrayList);
     }
 
-    public void a(View.OnClickListener onClickListener) {
+    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
-            this.a.u(onClickListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+            if (customMessage != null && (customMessage instanceof BawuTeamInfoReadCacheRequestMessage)) {
+                byte[] a = new b47().a(((BawuTeamInfoReadCacheRequestMessage) customMessage).getCacheKey());
+                BawuTeamReadCacheResponseMessage bawuTeamReadCacheResponseMessage = new BawuTeamReadCacheResponseMessage();
+                try {
+                    bawuTeamReadCacheResponseMessage.decodeInBackGround(2003005, a);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                return bawuTeamReadCacheResponseMessage;
+            }
+            return null;
         }
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

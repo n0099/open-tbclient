@@ -10,7 +10,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class e92 extends w82<JSONObject, vz1> {
+public class e92 extends y82<JSONObject, xz1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,41 +29,30 @@ public class e92 extends w82<JSONObject, vz1> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.a92
+    @Override // com.baidu.tieba.c92
     @NonNull
     /* renamed from: c */
-    public vz1 a(@NonNull JSONObject jSONObject) {
+    public xz1 a(@NonNull JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
             if (jSONObject == null) {
-                return new vz1(202);
+                return new xz1(202);
             }
             JSONObject optJSONObject = jSONObject.optJSONObject("data");
             if (optJSONObject == null) {
-                return new vz1(202, "data is required");
+                return new xz1(202, "data is required");
             }
-            String optString = optJSONObject.optString("status");
-            if (TextUtils.isEmpty(optString)) {
-                return new vz1(202, "status is required");
+            String optString = optJSONObject.optString("content");
+            String optString2 = optJSONObject.optString("type");
+            String optString3 = optJSONObject.optString("source");
+            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2) && !TextUtils.isEmpty(optString3)) {
+                x42.k("Api-HandleException", String.format("发生jserror: type = %s, source = %s, content = %s", optString2, optString3, optString));
+                c82.d().e(a82.a(optString2, optString, optString3));
+                return new xz1(0);
             }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 48) {
-                if (hashCode == 49 && optString.equals("1")) {
-                    c = 0;
-                }
-            } else if (optString.equals("0")) {
-                c = 1;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return new vz1(202, "status value is invalid");
-                }
-                new u82().d();
-            }
-            return new vz1(0);
+            return new xz1(202);
         }
-        return (vz1) invokeL.objValue;
+        return (xz1) invokeL.objValue;
     }
 }

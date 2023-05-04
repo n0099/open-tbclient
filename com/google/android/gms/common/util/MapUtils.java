@@ -5,7 +5,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import java.util.HashMap;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MapUtils {
     @KeepForSdk
     public static void writeStringMapToJson(@NonNull StringBuilder sb, @NonNull HashMap<String, String> hashMap) {

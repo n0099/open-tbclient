@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.core.flow.data.ApkDownloadInfoData;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -9,13 +10,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class w59 extends BaseCardInfo {
+public class w59 extends BaseCardInfo implements in {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
+    public static BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public List<ApkDownloadInfoData> a;
+    public List<ApkDownloadInfoData> b;
 
     static {
         InterceptResult invokeClinit;
@@ -43,8 +46,11 @@ public class w59 extends BaseCardInfo {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayList();
+        this.b = new ArrayList();
     }
 
     @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in

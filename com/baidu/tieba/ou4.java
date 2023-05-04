@@ -1,49 +1,84 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SyncServiceConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.browser.BaseWebViewActivity;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ou4 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
+public class ou4 implements xf6 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948044731, "Lcom/baidu/tieba/ou4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    @Override // com.baidu.tieba.xf6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        wf6.a(this, webView, str, jSONObject);
+    }
+
+    @Override // com.baidu.tieba.xf6
+    public /* synthetic */ void onDestroy() {
+        wf6.b(this);
+    }
+
+    public ou4() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948044731, "Lcom/baidu/tieba/ou4;");
-        }
-    }
-
-    public static void a() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (i = a) != -1 && i != TbSingleton.getInstance().getPersonalizedRecSwitch()) {
-            TbSingleton.getInstance().personalizedRecSwitchChanged = true;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void b(int i) {
+    @Override // com.baidu.tieba.xf6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
-            a = i;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.IS_DISABLE_GO_BACK.equals(str2)) {
+                jsPromptResult.confirm(c(webView).a());
+                return false;
+            }
+            return false;
         }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public hq9 c(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
+            hq9 hq9Var = new hq9();
+            Activity a = mf6.a(webView.getContext());
+            int i = 1;
+            if (a instanceof BaseWebViewActivity) {
+                ((BaseWebViewActivity) a).isDisableGoBack = true;
+            } else {
+                i = 0;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("resultCode", i);
+                hq9Var.o(jSONObject.toString());
+                return hq9Var;
+            } catch (JSONException e) {
+                BdLog.e(e);
+                return hq9Var;
+            }
+        }
+        return (hq9) invokeL.objValue;
     }
 }

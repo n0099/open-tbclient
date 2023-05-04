@@ -1,15 +1,19 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import java.io.File;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface zr1 {
-    void a(String str, String str2);
+    void a(String str, ev2 ev2Var);
 
-    File b(Context context, String str);
+    int getDuration();
 
-    JSONObject c(Context context, String str);
+    boolean isPlaying();
 
-    void d();
+    void onRelease();
+
+    void pause();
+
+    void play();
+
+    void seek(int i);
+
+    void stop();
 }

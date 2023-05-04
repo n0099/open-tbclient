@@ -56,7 +56,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c7, viewGroup, false);
+        return LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00c8, viewGroup, false);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -65,7 +65,7 @@ public class HeaderLoadingLayout extends LoadingLayout {
             this.f.clearAnimation();
             this.f.startAnimation(this.l);
         }
-        this.h.setText(R.string.obfuscated_res_0x7f0f01b4);
+        this.h.setText(R.string.obfuscated_res_0x7f0f01b2);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -82,29 +82,29 @@ public class HeaderLoadingLayout extends LoadingLayout {
         this.f.clearAnimation();
         this.f.setVisibility(4);
         this.g.setVisibility(0);
-        this.h.setText(R.string.obfuscated_res_0x7f0f01b3);
+        this.h.setText(R.string.obfuscated_res_0x7f0f01b1);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void j() {
         this.f.clearAnimation();
         this.f.startAnimation(this.k);
-        this.h.setText(R.string.obfuscated_res_0x7f0f01b5);
+        this.h.setText(R.string.obfuscated_res_0x7f0f01b3);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public void k() {
         this.f.clearAnimation();
-        this.h.setText(R.string.obfuscated_res_0x7f0f01b4);
+        this.h.setText(R.string.obfuscated_res_0x7f0f01b2);
     }
 
     public final void n(Context context) {
-        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c7e);
-        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c7c);
-        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091c7f);
-        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091c80);
-        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c82);
-        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091c84);
+        this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f091c8e);
+        this.f = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c8c);
+        this.h = (TextView) findViewById(R.id.obfuscated_res_0x7f091c8f);
+        this.g = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091c90);
+        this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f091c92);
+        this.j = (TextView) findViewById(R.id.obfuscated_res_0x7f091c94);
         RotateAnimation rotateAnimation = new RotateAnimation(0.0f, -180.0f, 1, 0.5f, 1, 0.5f);
         this.k = rotateAnimation;
         rotateAnimation.setDuration(120L);

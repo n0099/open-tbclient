@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import com.xiaomi.push.dw;
 import com.xiaomi.push.service.bg;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fj {
     public static void a(bg.b bVar, String str, fv fvVar) {
         String a;

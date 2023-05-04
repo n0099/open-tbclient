@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import java.io.PrintStream;
 import java.io.PrintWriter;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class gg extends Exception {
     public gp a;
 

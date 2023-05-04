@@ -1,13 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.widget.Toast;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,89 +8,106 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class n24 extends s93 {
+public class n24 extends yh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public class a implements om3<Boolean> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(n24 n24Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n24Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(Boolean bool) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-                Context appContext = AppRuntime.getAppContext();
-                if (bool.booleanValue()) {
-                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f013b, 1).show();
-                } else {
-                    Toast.makeText(appContext, (int) R.string.obfuscated_res_0x7f0f013a, 1).show();
-                }
-            }
-        }
-    }
+    public String d;
+    public String e;
+    public String f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n24(s83 s83Var) {
-        super(s83Var, "/swanAPI/debugGameSconsole");
+    public n24(@NonNull String str, String str2, String str3, String str4) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {str, str2, str3, str4};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.d = str2;
+        this.e = str3;
+        this.f = str4;
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    public static yh2 t(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (!s93.b) {
-                return false;
-            }
-            JSONObject a2 = s93.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0135, 1).show();
-                return false;
-            }
-            String optString = a2.optString("downloadurl");
-            if (TextUtils.isEmpty(optString)) {
-                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0136, 1).show();
-                return false;
-            }
-            m24.m().c(optString, new a(this));
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return new n24("sconsole_console", "%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, str2);
         }
-        return invokeLLLL.booleanValue;
+        return (yh2) invokeLL.objValue;
+    }
+
+    public static yh2 v(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            return new n24("sconsole_system", "%s.message = { type:'log',logType:'%s',logs:[%s] };", str, str2);
+        }
+        return (yh2) invokeLL.objValue;
+    }
+
+    public static yh2 u(boolean z) {
+        InterceptResult invokeZ;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
+            if (z) {
+                str = "show";
+            } else {
+                str = "hide";
+            }
+            return new n24("sconsole_entirety", "%s.message = { type:'act',act:'%s' };", null, str);
+        }
+        return (yh2) invokeZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.xh2
+    public String o(String str) {
+        InterceptResult invokeL;
+        char c;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            String str2 = this.d;
+            int hashCode = str2.hashCode();
+            if (hashCode != -2011830027) {
+                if (hashCode != -774049378) {
+                    if (hashCode == 2080164540 && str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s] };")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                } else {
+                    if (str2.equals("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                }
+            } else {
+                if (str2.equals("%s.message = { type:'act',act:'%s' };")) {
+                    c = 2;
+                }
+                c = 65535;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        return "";
+                    }
+                    return String.format("%s.message = { type:'act',act:'%s' };", str, this.f);
+                }
+                return String.format("%s.message = { type:'log',logType:'%s',logs:[%s] };", str, this.e, JSONObject.quote(this.f));
+            }
+            return String.format("%s.message = { type:'log',logType:'%s',logs:[%s, %s] };", str, this.e, JSONObject.quote(lk3.b(lk3.a(), "yyyy-MM-dd HH:mm:ss")), JSONObject.quote(this.f));
+        }
+        return (String) invokeL.objValue;
     }
 }

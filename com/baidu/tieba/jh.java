@@ -197,7 +197,6 @@ public class jh {
             a(hashMap, "net_type", rgVar.p);
             a(hashMap, "cuid", rgVar.g);
             a(hashMap, "cuid_galaxy2", rgVar.h);
-            a(hashMap, "model", rgVar.k);
             if (TextUtils.isEmpty(rgVar.l)) {
                 rgVar.l = "0";
             }
@@ -213,7 +212,6 @@ public class jh {
             a(hashMap, BaiduIdentityManager.PARAM_CUA, rgVar.s);
             a(hashMap, TiebaStatic.Params.BDID, rgVar.z);
             a(hashMap, "cookie", rgVar.n);
-            a(hashMap, "oaid", rgVar.t);
             a(hashMap, "utbrand", rgVar.w);
             a(hashMap, "baiduapppb_ut", rgVar.x);
             a(hashMap, HttpRequest.USER_AGENT, rgVar.y);
@@ -221,12 +219,28 @@ public class jh {
             a(hashMap, "first_install_time", rgVar.B);
             a(hashMap, TableDefine.UserInfoColumns.COLUMN_UPDATE_TIME, rgVar.C);
             a(hashMap, "event_day", rgVar.D);
-            if (((Boolean) MessageManager.getInstance().runTask(2000985, Boolean.class, str).getData()).booleanValue()) {
-                MessageManager.getInstance().runTask(2000984, HashMap.class, hashMap);
+            if (((Boolean) MessageManager.getInstance().runTask(2000985, Boolean.class, "isKeepOriginalLogic").getData()).booleanValue()) {
+                a(hashMap, "model", rgVar.k);
+                a(hashMap, "oaid", rgVar.t);
+                if (((Boolean) MessageManager.getInstance().runTask(2000985, Boolean.class, str).getData()).booleanValue()) {
+                    a(hashMap, "isKeepOriginalLogic", "true");
+                    MessageManager.getInstance().runTask(2000984, HashMap.class, hashMap);
+                } else {
+                    a(hashMap, HttpRequest.ANDROID_ID, rgVar.v);
+                    a(hashMap, HttpRequest.PHONE_IMEI, rgVar.i);
+                }
             } else {
-                a(hashMap, "mac", rgVar.u);
-                a(hashMap, HttpRequest.ANDROID_ID, rgVar.v);
-                a(hashMap, HttpRequest.PHONE_IMEI, rgVar.i);
+                MessageManager.getInstance().runTask(2000984, HashMap.class, hashMap);
+            }
+            if (((Boolean) MessageManager.getInstance().runTask(2000983, Boolean.class, "isKeepOriginalLogic").getData()).booleanValue()) {
+                if (((Boolean) MessageManager.getInstance().runTask(2000983, Boolean.class, str).getData()).booleanValue()) {
+                    a(hashMap, "isKeepOriginalLogic", "true");
+                    MessageManager.getInstance().runTask(2000982, HashMap.class, hashMap);
+                } else {
+                    a(hashMap, "mac", rgVar.u);
+                }
+            } else {
+                MessageManager.getInstance().runTask(2000982, HashMap.class, hashMap);
             }
             return hashMap;
         }

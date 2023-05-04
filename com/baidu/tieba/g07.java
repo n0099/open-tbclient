@@ -1,83 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.VoiceData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.Voice;
 /* loaded from: classes4.dex */
 public final class g07 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740187, "Lcom/baidu/tieba/g07;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947740187, "Lcom/baidu/tieba/g07;");
-                return;
-            }
+    public static final void a(Voice voice, List<s17<? extends Object>> mutableList) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, voice, mutableList) == null) {
+            Intrinsics.checkNotNullParameter(voice, "<this>");
+            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
+            mutableList.add(b(voice));
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes4.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public static final t17<VoiceData.VoiceModel> b(Voice voice) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, voice)) == null) {
+            Intrinsics.checkNotNullParameter(voice, "<this>");
+            VoiceData.VoiceModel voiceModel = new VoiceData.VoiceModel();
+            voiceModel.from = CommonStatisticKey.FRS_VOICE_PLAY;
+            voiceModel.setVoiceId(voice.voice_md5);
+            voiceModel.setDuration(voice.during_time.intValue() / 1000);
+            return new t17<>(voiceModel, "feed_voice");
         }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final void a(vx6 vx6Var) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, vx6Var) == null) && vx6Var != null) {
-                String b = vx6Var.b();
-                if (b != null && b.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (z) {
-                    return;
-                }
-                StatisticItem statisticItem = new StatisticItem(vx6Var.b());
-                for (Map.Entry<String, String> entry : vx6Var.a().entrySet()) {
-                    statisticItem.param(entry.getKey(), entry.getValue());
-                }
-                for (Map.Entry<String, String> entry2 : vx6Var.c().entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-                TiebaStatic.log(statisticItem);
-            }
-        }
+        return (t17) invokeL.objValue;
     }
 }

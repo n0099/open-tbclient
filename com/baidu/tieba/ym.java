@@ -144,7 +144,7 @@ public class ym {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
             TextView textView = new TextView(context);
-            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0b01));
+            textView.setText(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f0b16));
             int d = ii.d(context, 15.0f);
             textView.setPadding(d, d, d, d);
             textView.setHeight(0);

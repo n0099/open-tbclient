@@ -1,10 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MediaData;
-import com.baidu.tieba.card.data.BaseCardInfo;
+import android.util.SparseArray;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,22 +8,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.AdInfo;
-import tbclient.Media;
 /* loaded from: classes5.dex */
-public class j77 extends BaseCardInfo {
+public class j77 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId h;
+    public static j77 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public List<MediaData> e;
-    public int f;
-    public boolean g;
+    public SparseArray<k77> a;
 
     static {
         InterceptResult invokeClinit;
@@ -42,7 +28,7 @@ public class j77 extends BaseCardInfo {
                 return;
             }
         }
-        h = BdUniqueId.gen();
+        b = new j77();
     }
 
     public j77() {
@@ -58,106 +44,24 @@ public class j77 extends BaseCardInfo {
                 return;
             }
         }
-        this.g = false;
+        this.a = new SparseArray<>();
     }
 
-    public String c() {
+    public static j77 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (j77) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public k77 b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return this.a.get(i);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return h;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public List<MediaData> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public void l(AdInfo adInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, adInfo) != null) || adInfo == null) {
-            return;
-        }
-        this.a = adInfo.portrait;
-        this.b = adInfo.ad_name;
-        this.c = adInfo.ad_desc;
-        this.d = adInfo.ad_url;
-        this.f = adInfo.show_rule.intValue();
-        if (adInfo.media != null) {
-            this.e = new ArrayList();
-            for (Media media : adInfo.media) {
-                MediaData mediaData = new MediaData();
-                mediaData.parserProtobuf(media);
-                this.e.add(mediaData);
-            }
-        }
-    }
-
-    public void m(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.g = z;
-        }
+        return (k77) invokeI.objValue;
     }
 }

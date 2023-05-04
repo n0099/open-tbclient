@@ -1,230 +1,185 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
+import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
+import android.widget.ImageView;
+import android.widget.TextView;
+import androidx.viewpager.widget.ViewPager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.lego.indicator.SlidingTabLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RankingParam;
-import tbclient.SugRankingInfo;
 /* loaded from: classes6.dex */
-public class vh8 implements in {
+public class vh8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public a d;
+    public ImageView a;
+    public View b;
+    public TextView c;
+    public SlidingTabLayout d;
+    public Context e;
+    public Animation f;
+    public Animation g;
+    public boolean h;
+    public ig i;
 
     /* loaded from: classes6.dex */
-    public static class a {
+    public class a extends ig {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public Integer a;
-        public Integer b;
-        public String c;
-        public Integer d;
+        public final /* synthetic */ vh8 a;
 
-        public void e(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, num) == null) {
-            }
-        }
-
-        public void h(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048583, this, num) == null) {
-            }
-        }
-
-        public a() {
+        public a(vh8 vh8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vh8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = vh8Var;
         }
 
-        public Integer a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.ig
+        public void a(Animation animation) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (Integer) invokeV.objValue;
-        }
-
-        public Integer b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (Integer) invokeV.objValue;
-        }
-
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public Integer d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.d;
-            }
-            return (Integer) invokeV.objValue;
-        }
-
-        public void f(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, num) == null) {
-                this.b = num;
-            }
-        }
-
-        public void g(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, num) == null) {
-                this.a = num;
-            }
-        }
-
-        public void i(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                this.c = str;
-            }
-        }
-
-        public void j(Integer num) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048585, this, num) == null) {
-                this.d = num;
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948240899, "Lcom/baidu/tieba/vh8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948240899, "Lcom/baidu/tieba/vh8;");
+            if ((interceptable != null && interceptable.invokeL(1048576, this, animation) != null) || this.a.c == null) {
                 return;
             }
+            if (animation == this.a.f) {
+                this.a.c.setVisibility(0);
+                this.a.c.setClickable(true);
+            } else if (animation == this.a.g) {
+                this.a.c.setVisibility(8);
+                this.a.c.setClickable(false);
+            }
         }
-        e = BdUniqueId.gen();
     }
 
-    public vh8() {
+    public vh8(Context context, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
+        this.h = true;
+        this.i = new a(this);
+        this.b = view2;
+        this.e = context;
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09220f);
+        this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09220d);
+        this.d = (SlidingTabLayout) view2.findViewById(R.id.obfuscated_res_0x7f09220e);
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void h(View.OnClickListener onClickListener) {
+        ImageView imageView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (imageView = this.a) != null) {
+            imageView.setOnClickListener(onClickListener);
         }
-        return (String) invokeV.objValue;
     }
 
-    public a b() {
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = true;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.clearAnimation();
+                this.c.startAnimation(f());
+            }
+            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
+        }
+    }
+
+    public final Animation e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            if (this.f == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.fade_in);
+                this.f = loadAnimation;
+                loadAnimation.setAnimationListener(this.i);
+            }
+            return this.f;
         }
-        return (a) invokeV.objValue;
+        return (Animation) invokeV.objValue;
     }
 
-    public String c() {
+    public final Animation f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            if (this.g == null) {
+                Animation loadAnimation = AnimationUtils.loadAnimation(this.e, R.anim.obfuscated_res_0x7f010064);
+                this.g = loadAnimation;
+                loadAnimation.setAnimationListener(this.i);
+            }
+            return this.g;
         }
-        return (String) invokeV.objValue;
+        return (Animation) invokeV.objValue;
     }
 
-    public String d() {
-        InterceptResult invokeV;
+    public void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.h = false;
+            TextView textView = this.c;
+            if (textView != null) {
+                textView.clearAnimation();
+                this.c.setVisibility(0);
+                this.c.startAnimation(e());
+            }
+            SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return e;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void e(SugRankingInfo sugRankingInfo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, sugRankingInfo) == null) {
-            String str = sugRankingInfo.rank_title;
-            this.a = str;
-            this.c = str;
-            RankingParam rankingParam = sugRankingInfo.rank_param;
-            if (rankingParam != null) {
-                a aVar = new a();
-                aVar.g(rankingParam.rank_type);
-                aVar.f(rankingParam.rank_code);
-                aVar.i(rankingParam.sort_type);
-                aVar.j(rankingParam.tab_id);
-                aVar.e(rankingParam.pn);
-                aVar.h(rankingParam.rn);
-                this.d = aVar;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0205);
+            SkinManager.setBackgroundColor(this.c, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.c, R.color.CAM_X0106, 1);
+            if (this.h) {
+                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_down_normal);
+            } else {
+                SkinManager.setImageResource(this.a, R.drawable.lego_icon_triangle_up_normal);
+            }
+            SkinManager.setBackgroundResource(this.a, R.drawable.lego_btn_more_selector);
+            SlidingTabLayout slidingTabLayout = this.d;
+            if (slidingTabLayout != null) {
+                slidingTabLayout.onChangeSkinType(i);
             }
         }
     }
 
-    public void f(String str) {
+    public void i(ViewPager viewPager, int i) {
+        SlidingTabLayout slidingTabLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.b = str;
+        if ((interceptable == null || interceptable.invokeLI(1048581, this, viewPager, i) == null) && (slidingTabLayout = this.d) != null) {
+            slidingTabLayout.setViewPager(viewPager, i);
         }
     }
 }

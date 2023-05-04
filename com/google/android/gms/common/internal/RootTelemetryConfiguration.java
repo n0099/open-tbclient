@@ -10,7 +10,7 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 @KeepForSdk
 @SafeParcelable.Class(creator = "RootTelemetryConfigurationCreator")
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class RootTelemetryConfiguration extends AbstractSafeParcelable {
     @NonNull
     @KeepForSdk

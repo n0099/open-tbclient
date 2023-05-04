@@ -1,54 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class wo4 implements vo4 {
+public class wo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vo4
-    public void onBufferingUpdate(int i) {
+    public static boolean a(Activity activity, View view2) {
+        InterceptResult invokeLL;
+        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vo4
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vo4
-    public void onSeekEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.vo4
-    public void onVideoSizeChanged(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-        }
-    }
-
-    public wo4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
+            if (activity != null && view2 != null && (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) != null) {
+                b(view2);
+                viewGroup.removeView(view2);
+                viewGroup.addView(view2);
+                return true;
             }
+            return false;
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
+                ViewGroup viewGroup = (ViewGroup) view2.getParent();
+                if (viewGroup.indexOfChild(view2) != -1) {
+                    try {
+                        viewGroup.removeView(view2);
+                        return true;
+                    } catch (Exception unused) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

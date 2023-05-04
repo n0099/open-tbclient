@@ -10,8 +10,8 @@ import com.baidu.live.business.model.data.LiveRoomEntity;
 import com.baidu.live.business.view.banner.BannerEntity;
 import com.baidu.live.business.view.banner.BannerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.k90;
-import com.baidu.tieba.mb0;
+import com.baidu.tieba.m90;
+import com.baidu.tieba.ob0;
 import java.util.List;
 /* loaded from: classes2.dex */
 public class Live4Ratio5BannerItemView extends LiveBaseItemView {
@@ -67,7 +67,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         setNeedRatio(true);
         setAspectRatio(1.25f);
         this.k = context;
-        this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0572, this).findViewById(R.id.obfuscated_res_0x7f091522);
+        this.h = (FrameLayout) RelativeLayout.inflate(context, R.layout.obfuscated_res_0x7f0d057b, this).findViewById(R.id.obfuscated_res_0x7f091530);
         j();
     }
 
@@ -119,10 +119,10 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
         this.i = bannerView;
         bannerView.setShowRoundPicture(true, 10);
         this.i.setIndicatorGravity(81);
-        this.i.setIndicatorMargin(0, 0, 0, (int) k90.c(this.k.getResources(), 7.0f));
-        this.i.setLargeIndicatorItemSize((int) k90.c(this.k.getResources(), 4.0f));
-        this.i.setSmallIndicatorItemSize((int) k90.c(this.k.getResources(), 4.0f));
-        this.i.setIndicatorInterval((int) k90.c(this.k.getResources(), 6.0f));
+        this.i.setIndicatorMargin(0, 0, 0, (int) m90.c(this.k.getResources(), 7.0f));
+        this.i.setLargeIndicatorItemSize((int) m90.c(this.k.getResources(), 4.0f));
+        this.i.setSmallIndicatorItemSize((int) m90.c(this.k.getResources(), 4.0f));
+        this.i.setIndicatorInterval((int) m90.c(this.k.getResources(), 6.0f));
         this.i.setAspectRatio(1.25f);
         this.i.setScene(this.c);
         this.i.setOnBannerClickListener(new a());
@@ -133,7 +133,7 @@ public class Live4Ratio5BannerItemView extends LiveBaseItemView {
     public final void l(List<LiveBannerEntity> list) {
         if (this.i != null && this.h != null) {
             int i = 8;
-            if (!mb0.c(list)) {
+            if (!ob0.c(list)) {
                 if (this.i.r(list)) {
                     BannerEntity bannerEntity = new BannerEntity();
                     bannerEntity.mBannerList = list;

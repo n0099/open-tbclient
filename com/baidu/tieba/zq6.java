@@ -1,168 +1,137 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.enterForum.recforum.message.RecommendForumRespondedMessage;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.yd5;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes7.dex */
-public class zq6 {
+public class zq6 extends yd5 {
     public static /* synthetic */ Interceptable $ic;
+    public static zq6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public sq6 a;
-    public boolean b;
-    public int c;
-    public b d;
-    public final HttpMessageListener e;
+    public LinkedList<be5> a;
 
-    /* loaded from: classes7.dex */
-    public interface b {
-        void a(boolean z);
+    @Override // com.baidu.tieba.yd5
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
     }
 
-    /* loaded from: classes7.dex */
-    public class a extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zq6 a;
+    @Override // com.baidu.tieba.yd5
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(zq6 zq6Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948368650, "Lcom/baidu/tieba/zq6;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zq6Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = zq6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003527 && (httpResponsedMessage instanceof RecommendForumRespondedMessage)) {
-                boolean z = true;
-                this.a.b = true;
-                if (httpResponsedMessage.getError() != 0) {
-                    return;
-                }
-                this.a.a = ((RecommendForumRespondedMessage) httpResponsedMessage).getRecommendForumData();
-                if (this.a.d == null) {
-                    return;
-                }
-                b bVar = this.a.d;
-                if (this.a.c != 1) {
-                    z = false;
-                }
-                bVar.a(z);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948368650, "Lcom/baidu/tieba/zq6;");
+                return;
             }
         }
+        b = new zq6();
     }
 
     public zq6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = false;
-        this.c = 1;
-        this.e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA);
-        f();
-        j();
     }
 
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA, TbConfig.SERVER_ADDRESS + "c/f/forum/getRecommendForumData");
-            tbHttpMessageTask.setResponsedClass(RecommendForumRespondedMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.b = false;
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA);
-            httpMessage.addParam("page", i);
-            MessageManager.getInstance().sendMessage(httpMessage);
-        }
-    }
-
-    public void l(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public sq6 e() {
+    public static synchronized zq6 e() {
         InterceptResult invokeV;
+        zq6 zq6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            synchronized (zq6.class) {
+                zq6Var = b;
+            }
+            return zq6Var;
         }
-        return (sq6) invokeV.objValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MessageManager.getInstance().registerListener(this.e);
-        }
+        return (zq6) invokeV.objValue;
     }
 
     public boolean g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            LinkedList<be5> linkedList = this.a;
+            if (linkedList != null && linkedList.size() != 0) {
+                return false;
+            }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public void h() {
+    @Override // com.baidu.tieba.yd5
+    public void b(yd5.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            k(1);
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            LinkedList<be5> linkedList = this.a;
+            if (linkedList != null && !linkedList.isEmpty()) {
+                Iterator<be5> it = this.a.iterator();
+                while (it.hasNext()) {
+                    be5 next = it.next();
+                    if (aVar != null) {
+                        aVar.a(next);
+                    }
+                }
+            } else if (TbFaceManager.i().m() > 0) {
+                this.a = new LinkedList<>();
+                yq6 yq6Var = new yq6();
+                this.a.add(yq6Var);
+                if (aVar != null) {
+                    aVar.a(yq6Var);
+                }
+            }
         }
     }
 
-    public void i() {
+    public boolean f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int i = this.c + 1;
-            this.c = i;
-            k(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            LinkedList<be5> linkedList = this.a;
+            if (linkedList != null) {
+                Iterator<be5> it = linkedList.iterator();
+                while (it.hasNext()) {
+                    if (it.next().m(str)) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

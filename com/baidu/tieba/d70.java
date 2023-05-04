@@ -1,86 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.concurrent.Executors;
+import java.util.concurrent.LinkedBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
 public class d70 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile d70 b;
+    public static final int c;
+    public static final int d;
+    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public String b;
-    public boolean c;
-    public JSONObject d;
+    public ThreadPoolExecutor a;
 
-    public d70(boolean z, JSONArray jSONArray) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947657324, "Lcom/baidu/tieba/d70;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947657324, "Lcom/baidu/tieba/d70;");
+                return;
+            }
+        }
+        int availableProcessors = Runtime.getRuntime().availableProcessors();
+        c = availableProcessors;
+        d = Math.max(2, Math.min(availableProcessors - 1, 4));
+        e = (c * 2) + 1;
+    }
+
+    public d70() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), jSONArray};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.c = z;
-        this.a = jSONArray;
-        this.b = String.valueOf(System.currentTimeMillis());
+        this.a = null;
+        ThreadPoolExecutor.DiscardOldestPolicy discardOldestPolicy = new ThreadPoolExecutor.DiscardOldestPolicy();
+        ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(d, e, 30L, TimeUnit.SECONDS, new LinkedBlockingQueue(), Executors.defaultThreadFactory(), discardOldestPolicy);
+        this.a = threadPoolExecutor;
+        threadPoolExecutor.allowCoreThreadTimeOut(true);
     }
 
-    public JSONObject a() {
+    public static d70 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("uploadtime", this.b);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            this.d = jSONObject;
-            return jSONObject;
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public JSONObject b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONArray jSONArray = this.a;
-            if (jSONArray != null && jSONArray.length() >= 0) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put(TtmlNode.TAG_METADATA, a());
-                    if (this.c) {
-                        str = "1";
-                    } else {
-                        str = "0";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (d70.class) {
+                    if (b == null) {
+                        b = new d70();
                     }
-                    jSONObject.put(Constant.IS_REAL, str);
-                    jSONObject.put("data", this.a);
-                } catch (JSONException e) {
-                    e.printStackTrace();
                 }
-                g70.a("UploadData", "uploadJson:" + jSONObject.toString());
-                return jSONObject;
             }
-            return null;
+            return b;
         }
-        return (JSONObject) invokeV.objValue;
+        return (d70) invokeV.objValue;
+    }
+
+    public boolean b(Runnable runnable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+            try {
+                this.a.submit(runnable);
+                return true;
+            } catch (Throwable th) {
+                i70.b("UBCTaskManager", "Exception ", th);
+                return false;
+            }
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,50 +1,34 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.statemachine.base.BaseStateMachine;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class an9 {
+public final class an9 extends BaseStateMachine {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947621085, "Lcom/baidu/tieba/an9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947621085, "Lcom/baidu/tieba/an9;");
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
-        String[] split;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public an9(mn9 animationTipStateMap) {
+        super(animationTipStateMap);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str) || (split = str.split(":")) == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {animationTipStateMap};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((mn9) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            for (String str2 : split) {
-                if (!TextUtils.isEmpty(str2) && str2.contains("TBCGameID=")) {
-                    int indexOf = str2.indexOf("=") + 1;
-                    if (indexOf >= str2.length()) {
-                        return "";
-                    }
-                    return str2.substring(indexOf, str2.length());
-                }
-            }
-            return "";
         }
-        return (String) invokeL.objValue;
+        Intrinsics.checkNotNullParameter(animationTipStateMap, "animationTipStateMap");
     }
 }

@@ -1,43 +1,15 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.view.View;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
 /* loaded from: classes4.dex */
 public interface h54 {
-    String a();
+    View a(Context context, GameCloseGuidePopView.e eVar);
 
-    String b();
+    void b(int i);
 
-    String c();
+    void c();
 
-    String d();
-
-    String e();
-
-    String f();
-
-    String g();
-
-    String h();
-
-    String i();
-
-    String j();
-
-    String k();
-
-    String l();
-
-    String m();
-
-    String n();
-
-    String o();
-
-    String p();
-
-    String q();
-
-    String r();
-
-    String s();
-
-    String t();
+    void release();
 }

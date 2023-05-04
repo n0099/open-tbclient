@@ -1,20 +1,29 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.activity.BaseActivity;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class m52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static String c;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public JSONArray b;
+    public String c;
+    public String d;
 
     static {
         InterceptResult invokeClinit;
@@ -29,69 +38,60 @@ public class m52 {
                 return;
             }
         }
-        a = fo1.a;
+        e = ho1.a;
     }
 
-    public static String a() {
-        InterceptResult invokeV;
+    public m52() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b + "/swan-core/master/master.html";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b + "/swan-core/slaves/slaves.html";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return TextUtils.equals(c, "update_tag_by_remote_debug");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return !TextUtils.isEmpty(b);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            c = "update_tag_by_remote_debug";
-        }
-    }
-
-    public static void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            if (a) {
-                Log.d("RemoteDebugger", "Current launch mode is " + str);
-            }
-            c = str;
-            if (TextUtils.equals(str, "update_tag_by_activity_on_new_intent")) {
-                l52.g().o();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void g(String str) {
+    public static m52 b(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, str) == null) {
-            b = str;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            m52 m52Var = new m52();
+            try {
+                m52Var.b = jSONObject.getJSONArray("host");
+                m52Var.a = jSONObject.getString("appKey");
+                jSONObject.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+                m52Var.c = jSONObject.getString(ClientCookie.PORT_ATTR);
+                m52Var.d = Uri.decode(jSONObject.optString("url"));
+                return m52Var;
+            } catch (JSONException unused) {
+                if (e) {
+                    Log.e("RemoteDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
+                }
+                return null;
+            }
         }
+        return (m52) invokeL.objValue;
+    }
+
+    public String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            JSONArray jSONArray = this.b;
+            if (jSONArray == null) {
+                return "";
+            }
+            String optString = jSONArray.optString(i);
+            if (TextUtils.isEmpty(optString)) {
+                return "";
+            }
+            return "http://" + optString + ":" + this.c;
+        }
+        return (String) invokeI.objValue;
     }
 }

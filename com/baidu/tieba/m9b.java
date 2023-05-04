@@ -1,63 +1,130 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.IPayEventStatistics;
-import tv.athena.revenue.RevenueManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
+import rx.exceptions.OnErrorNotImplementedException;
+import rx.exceptions.UnsubscribeFailedException;
 /* loaded from: classes5.dex */
-public class m9b {
+public class m9b<T> extends p5b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final p5b<? super T> e;
+    public boolean f;
 
-    public static IPayEventStatistics a(int i, int i2) {
-        InterceptResult invokeII;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m9b(p5b<? super T> p5bVar) {
+        super(p5bVar);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("UIStatisticReporter", "getSDKReporter error revenue null", new Object[0]);
-                return null;
-            }
-            return revenue.getPayEventStatistic();
-        }
-        return (IPayEventStatistics) invokeII.objValue;
-    }
-
-    public static void b(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65537, null, i, i2, str) == null) {
-            IPayEventStatistics a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUiEvent(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {p5bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((p5b) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.e = p5bVar;
     }
 
-    public static void c(int i, int i2, String str, String str2) {
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    public void g(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2}) == null) {
-            IPayEventStatistics a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUiEvent(str, str2);
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+            v9b.c().b().a(th);
+            try {
+                this.e.onError(th);
+                try {
+                    unsubscribe();
+                } catch (Throwable th2) {
+                    s9b.j(th2);
+                    throw new OnErrorFailedException(th2);
+                }
+            } catch (OnErrorNotImplementedException e) {
+                try {
+                    unsubscribe();
+                    throw e;
+                } catch (Throwable th3) {
+                    s9b.j(th3);
+                    throw new OnErrorNotImplementedException("Observer.onError not implemented and error while unsubscribing.", new CompositeException(Arrays.asList(th, th3)));
+                }
+            } catch (Throwable th4) {
+                s9b.j(th4);
+                try {
+                    unsubscribe();
+                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError", new CompositeException(Arrays.asList(th, th4)));
+                } catch (Throwable th5) {
+                    s9b.j(th5);
+                    throw new OnErrorFailedException("Error occurred when trying to propagate error to Observer.onError and during unsubscription.", new CompositeException(Arrays.asList(th, th4, th5)));
+                }
             }
         }
     }
 
-    public static void d(int i, int i2, String str, String str2, String str3, String str4) {
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 2, expect 1 */
+    /* JADX DEBUG: Finally have unexpected throw blocks count: 3, expect 1 */
+    @Override // com.baidu.tieba.k5b
+    public void onCompleted() {
+        UnsubscribeFailedException unsubscribeFailedException;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), str, str2, str3, str4}) == null) {
-            IPayEventStatistics a = a(i, i2);
-            if (a == null) {
-                RLog.error("UIStatisticReporter", "report error isdkReporter null", new Object[0]);
-            } else {
-                a.reportUvEvent(str, str2, str3, str4);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && !this.f) {
+            this.f = true;
+            try {
+                this.e.onCompleted();
+                try {
+                    unsubscribe();
+                } finally {
+                }
+            } catch (Throwable th) {
+                try {
+                    v5b.e(th);
+                    s9b.j(th);
+                    throw new OnCompletedFailedException(th.getMessage(), th);
+                } catch (Throwable th2) {
+                    try {
+                        unsubscribe();
+                        throw th2;
+                    } finally {
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.k5b
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+            v5b.e(th);
+            if (!this.f) {
+                this.f = true;
+                g(th);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.k5b
+    public void onNext(T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+            try {
+                if (!this.f) {
+                    this.e.onNext(t);
+                }
+            } catch (Throwable th) {
+                v5b.f(th, this);
             }
         }
     }

@@ -1,122 +1,267 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import android.text.TextUtils;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.coreExtra.message.ResponseOnlineMessage;
+import com.baidu.tieba.debugtool.annotation.Modify;
+import com.baidu.tieba.debugtool.annotation.ModifyClass;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import org.json.JSONObject;
+import java.util.HashSet;
+@ModifyClass
 /* loaded from: classes6.dex */
-public class rb5 {
+public class rb5 extends bb {
     public static /* synthetic */ Interceptable $ic;
-    public static rb5 d;
+    public static rb5 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, String> a;
-    public HashMap<String, String> b;
-    public HashMap<String, String> c;
+    public boolean a;
+    public int b;
+    public long c;
+    public final SparseArray<b> d;
+    public final HashSet<Integer> e;
+    public int f;
 
-    public rb5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public boolean b;
+        public long c;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a = 0;
+                if (this.b) {
+                    this.b = false;
+                    this.c = 0L;
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                int i2 = this.a + 1;
+                this.a = i2;
+                if (!this.b && i2 >= i) {
+                    this.b = true;
+                    this.c = System.currentTimeMillis();
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948115876, "Lcom/baidu/tieba/rb5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948115876, "Lcom/baidu/tieba/rb5;");
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.c = new HashMap<>();
+        g = new rb5();
     }
 
-    public static synchronized rb5 a() {
+    public static rb5 a() {
         InterceptResult invokeV;
-        rb5 rb5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (rb5.class) {
-                if (d == null) {
-                    d = new rb5();
-                }
-                rb5Var = d;
-            }
-            return rb5Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return g;
         }
         return (rb5) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
+    public int b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Modify(description = "强制使用短连接", type = Constants.SHORT_PING_CMD_TYPE)
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            for (int i = 0; i < this.d.size(); i++) {
+                this.d.valueAt(i).b();
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rb5() {
+        super(1001);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = 3;
+        this.c = 300000L;
+        this.d = new SparseArray<>();
+        this.e = new HashSet<>();
+        this.f = 0;
+        MessageManager.getInstance().registerListener(0, this);
+    }
+
+    @Modify(description = "长连接是否可用", type = 32)
+    public boolean c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.f = 0;
+            if (d()) {
+                this.f = 3;
+                return false;
+            } else if (this.e.contains(Integer.valueOf(i))) {
+                this.f = 6;
+                return false;
+            } else if (!MessageManager.getInstance().getSocketClient().u()) {
+                this.f = 1;
+                return false;
+            } else if (System.currentTimeMillis() - MessageManager.getInstance().getSocketClient().p() > tb5.j().i() + 20000) {
+                ea.a("lcapimgr", i, 0, "isAPIAvailableNow", 0, "deepsleep");
+                this.f = 2;
+                return false;
+            } else if (TextUtils.isEmpty(TiebaIMConfig.defaultUrl)) {
+                return false;
+            } else {
+                b bVar = this.d.get(i);
+                if (bVar != null && bVar.b) {
+                    if (Math.abs(System.currentTimeMillis() - bVar.c) > this.c) {
+                        bVar.b();
+                    } else {
+                        this.f = 4;
+                        return false;
+                    }
+                }
+                return true;
+            }
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void e(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            b bVar = this.d.get(i);
+            if (bVar == null) {
+                bVar = new b(null);
+                this.d.append(i, bVar);
+            }
+            if (bVar != null) {
+                bVar.a(this.b);
+            }
+            this.f = 5;
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.d.remove(i);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    /* renamed from: g */
+    public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, socketResponsedMessage) != null) || !(socketResponsedMessage instanceof ResponseOnlineMessage) || ((ResponseOnlineMessage) socketResponsedMessage).getError() != 0) {
             return;
         }
-        try {
-            JSONObject optJSONObject = jSONObject.optJSONObject("upload_file_frequency");
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("2g");
-                String optString2 = optJSONObject.optString("3g");
-                String optString3 = optJSONObject.optString("4g");
-                String optString4 = optJSONObject.optString("wifi");
-                if (optString != null) {
-                    this.a.put("2g", optString);
-                }
-                if (optString2 != null) {
-                    this.a.put("3g", optString2);
-                }
-                if (optString3 != null) {
-                    this.a.put("4g", optString3);
-                }
-                if (optString4 != null) {
-                    this.a.put("wifi", optString4);
-                }
+        h();
+    }
+
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.a = z;
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public void k(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048585, this, j) == null) {
+            this.c = j;
+        }
+    }
+
+    public void l(int[] iArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048586, this, iArr) == null) && iArr != null && iArr.length > 0) {
+            this.e.clear();
+            for (int i : iArr) {
+                this.e.add(Integer.valueOf(i));
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("upload_data_num");
-            if (optJSONObject2 != null) {
-                String optString5 = optJSONObject2.optString("2g");
-                String optString6 = optJSONObject2.optString("3g");
-                String optString7 = optJSONObject2.optString("4g");
-                String optString8 = optJSONObject2.optString("wifi");
-                if (optString5 != null) {
-                    this.b.put("2g", optString5);
-                }
-                if (optString6 != null) {
-                    this.b.put("3g", optString6);
-                }
-                if (optString7 != null) {
-                    this.b.put("4g", optString7);
-                }
-                if (optString8 != null) {
-                    this.b.put("wifi", optString8);
-                }
-            }
-            JSONObject optJSONObject3 = jSONObject.optJSONObject("merge_data_frequency");
-            if (optJSONObject3 != null) {
-                String optString9 = optJSONObject3.optString("2g");
-                String optString10 = optJSONObject3.optString("3g");
-                String optString11 = optJSONObject3.optString("4g");
-                String optString12 = optJSONObject3.optString("wifi");
-                if (optString9 != null) {
-                    this.c.put("2g", optString9);
-                }
-                if (optString10 != null) {
-                    this.c.put("3g", optString10);
-                }
-                if (optString11 != null) {
-                    this.c.put("4g", optString11);
-                }
-                if (optString12 != null) {
-                    this.c.put("wifi", optString12);
-                }
-            }
-            jSONObject.optString("is_on");
-        } catch (Exception e) {
-            BdLog.detailException(e);
         }
     }
 }

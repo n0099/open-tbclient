@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
+import android.view.SurfaceHolder;
 /* loaded from: classes6.dex */
 public interface tk1 {
     void a();
 
-    void b(Surface surface);
+    void surfaceCreated(SurfaceHolder surfaceHolder);
 }

@@ -1,7 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.adp.BdUniqueId;
 /* loaded from: classes5.dex */
 public interface pp7 {
-    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
+    void b();
+
+    void c(int i, hq5 hq5Var, int i2);
+
+    void d(int i, int i2, hq5 hq5Var, int i3);
 }

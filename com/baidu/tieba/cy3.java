@@ -1,35 +1,43 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
 import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.game.guide.dialog.GamenowRecommendPopView;
+import com.baidu.swan.game.guide.view.GameGuideViewContainer;
+import com.baidu.swan.games.view.recommend.popview.GameCloseGuidePopView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class cy3 extends Dialog {
+public class cy3 implements h54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public DialogInterface.OnClickListener a;
 
     /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements GamenowRecommendPopView.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cy3 a;
+        public final /* synthetic */ GameCloseGuidePopView.e a;
 
-        public a(cy3 cy3Var) {
+        public a(cy3 cy3Var, GameCloseGuidePopView.e eVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cy3Var};
+                Object[] objArr = {cy3Var, eVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -39,103 +47,109 @@ public class cy3 extends Dialog {
                     return;
                 }
             }
-            this.a = cy3Var;
+            this.a = eVar;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.swan.game.guide.dialog.GamenowRecommendPopView.e
+        public void a() {
+            GameCloseGuidePopView.e eVar;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                cy3 cy3Var = this.a;
-                DialogInterface.OnClickListener onClickListener = cy3Var.a;
-                if (onClickListener != null) {
-                    onClickListener.onClick(cy3Var, -2);
-                }
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (eVar = this.a) == null) {
+                return;
             }
+            eVar.a();
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cy3 a;
-
-        public b(cy3 cy3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947691052, "Lcom/baidu/tieba/cy3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cy3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = cy3Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.dismiss();
-                cy3 cy3Var = this.a;
-                DialogInterface.OnClickListener onClickListener = cy3Var.a;
-                if (onClickListener != null) {
-                    onClickListener.onClick(cy3Var, -1);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public cy3(@NonNull Context context) {
-        super(context, R.style.obfuscated_res_0x7f100001);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947691052, "Lcom/baidu/tieba/cy3;");
                 return;
             }
         }
-        this.a = null;
+        boolean z = ho1.a;
     }
 
-    public final void a() {
+    public cy3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f09255b);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09257d);
-            rb4.a(textView);
-            rb4.a(textView2);
-            textView.setOnClickListener(new a(this));
-            textView2.setOnClickListener(new b(this));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    @Override // android.app.Dialog
-    public void onCreate(Bundle bundle) {
+    @Override // com.baidu.tieba.h54
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d00ab);
-            setCancelable(false);
-            a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            hy3.n().t();
+        }
+    }
+
+    @Override // com.baidu.tieba.h54
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            hy3.n().u();
+        }
+    }
+
+    @Override // com.baidu.tieba.h54
+    public View a(Context context, GameCloseGuidePopView.e eVar) {
+        InterceptResult invokeLL;
+        wx3 wx3Var;
+        GameGuideConfigInfo z;
+        GameGuideConfigInfo.CloseInfo closeInfo;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, eVar)) == null) {
+            if (context == null || (wx3Var = wx3.o) == null) {
+                return null;
+            }
+            String I = wx3Var.I();
+            if ((!TextUtils.equals(I, by3.a) && rl3.F(context, I)) || (z = wx3.o.z()) == null || (closeInfo = z.closeInfo) == null) {
+                return null;
+            }
+            int i = closeInfo.type;
+            ArrayList<GameGuideConfigInfo.RecommendGameInfo> arrayList = closeInfo.gameList;
+            if ((i != 0 || arrayList == null || arrayList.size() < 3) && ((i != 1 || arrayList == null || arrayList.size() < 6) && i != 2)) {
+                return null;
+            }
+            if (i != 0 && i != 1) {
+                if (i == 2) {
+                    ty3.n().c("gbADialogShow");
+                }
+            } else {
+                ty3.n().c("gbBDialogShow");
+            }
+            GamenowRecommendPopView gamenowRecommendPopView = new GamenowRecommendPopView(context, closeInfo);
+            gamenowRecommendPopView.setOnClickListener(new a(this, eVar));
+            return gamenowRecommendPopView;
+        }
+        return (View) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.h54
+    public void b(int i) {
+        wx3 wx3Var;
+        GameGuideViewContainer B;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (wx3Var = wx3.o) != null && (B = wx3Var.B()) != null) {
+            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) B.getLayoutParams();
+            layoutParams.rightMargin = i;
+            B.setLayoutParams(layoutParams);
         }
     }
 }

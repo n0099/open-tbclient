@@ -133,7 +133,7 @@ public class u {
                     if (a2 >= 0) {
                         treeMap.put("space_id", Integer.toString(a2));
                     }
-                    treeMap.put(Constants.PHONE_BRAND, Build.BRAND + "");
+                    treeMap.put("brand", Build.BRAND + "");
                     treeMap.put("ram", com.xiaomi.push.i.m527a());
                     treeMap.put(Config.ROM, com.xiaomi.push.i.m530b());
                     JSONObject jSONObject2 = new JSONObject();
@@ -254,7 +254,7 @@ public class u {
             a2 = com.xiaomi.push.i.a();
             if (a2 >= 0) {
             }
-            treeMap.put(Constants.PHONE_BRAND, Build.BRAND + "");
+            treeMap.put("brand", Build.BRAND + "");
             treeMap.put("ram", com.xiaomi.push.i.m527a());
             treeMap.put(Config.ROM, com.xiaomi.push.i.m530b());
             JSONObject jSONObject22 = new JSONObject();

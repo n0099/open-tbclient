@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,14 +9,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class c37 implements in {
+public final class c37 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId d;
+    public static final c37 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public al9 a;
-    public String b;
-    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +29,7 @@ public class c37 implements in {
                 return;
             }
         }
-        d = BdUniqueId.gen();
+        a = new c37();
     }
 
     public c37() {
@@ -48,61 +46,18 @@ public class c37 implements in {
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final int a(String resName) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, resName)) == null) {
+            Intrinsics.checkNotNullParameter(resName, "resName");
+            try {
+                return pw6.a.getResources().getIdentifier(resName, EMABTest.TYPE_STRING, pw6.a.getPackageName());
+            } catch (Exception e) {
+                BdLog.e(e);
+                return 0;
+            }
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public al9 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (al9) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return d;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.c = str;
-        }
-    }
-
-    public void f(al9 al9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, al9Var) == null) {
-            this.a = al9Var;
-        }
+        return invokeL.intValue;
     }
 }

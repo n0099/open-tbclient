@@ -1,70 +1,20 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.v8engine.V8ExceptionInfo;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.ss2;
+import com.baidu.tieba.us2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
-import org.json.JSONException;
+import java.util.HashSet;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pe3 {
+public final class pe3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static int a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HashMap a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ String c;
-
-        public a(HashMap hashMap, File file, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {hashMap, file, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hashMap;
-            this.b = file;
-            this.c = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            js1 u;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (u = cr2.u()) != null) {
-                u.a(this.a, this.b, null, "error_js");
-                if (pe3.a) {
-                    Log.d("V8StabilityHelper", "extraData :" + this.a.toString());
-                    Log.d("V8StabilityHelper", "filePath :" + this.c);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -79,118 +29,135 @@ public class pe3 {
                 return;
             }
         }
-        a = fo1.a;
+        boolean z = ho1.a;
+        a = 0;
     }
 
-    public static void b(V8ExceptionInfo v8ExceptionInfo) {
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, v8ExceptionInfo) == null) {
-            if (v8ExceptionInfo == null) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "empty exceptionInfo");
-                    return;
-                }
-                return;
-            }
-            c(v8ExceptionInfo);
-            d(v8ExceptionInfo);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    public static void a(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        us2.a W = w73.K().q().W();
+        String i = ch3.i(W.j0(), W.G());
+        if (!jSONObject.has("appid")) {
+            xk3.f(jSONObject, "appid", W.H());
+        }
+        if (!jSONObject.has("swan")) {
+            xk3.f(jSONObject, "swan", i);
+        }
+        if (!jSONObject.has("appversion")) {
+            xk3.f(jSONObject, "appversion", W.v1());
+        }
+        if (!jSONObject.has("swanNativeVersion")) {
+            xk3.f(jSONObject, "swanNativeVersion", io1.a());
+        }
+        if (!jSONObject.has("thirdversion")) {
+            xk3.f(jSONObject, "thirdversion", W.w1());
+        }
+        if (w73.K().q().y0() && !jSONObject.has("isWebDowngrade")) {
+            xk3.f(jSONObject, "isWebDowngrade", "1");
         }
     }
 
-    public static void c(V8ExceptionInfo v8ExceptionInfo) {
+    public static String b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, v8ExceptionInfo) == null) {
-            if (!cr2.g0().A()) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "stability switch off");
-                    return;
-                }
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
-            ss2.a aVar = null;
-            v73 M = v73.M();
-            if (M != null) {
-                aVar = M.Y();
+            String o = pl3.o(str);
+            if (TextUtils.isEmpty(o)) {
+                return str;
             }
-            oj3 oj3Var = new oj3();
-            oj3Var.k(5L);
-            oj3Var.i(37L);
-            we3 we3Var = new we3();
-            we3Var.p(oj3Var);
-            we3Var.r(aVar);
-            we3Var.q(oe3.n(u73.K().k()));
-            we3Var.m(v73.g0());
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-                    jSONObject.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
-                }
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-                    jSONObject.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
-                }
-                if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
-                    jSONObject.put("exceptionType", v8ExceptionInfo.exceptionType);
-                }
-                we3Var.e(jSONObject);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            oe3.R(we3Var);
+            HashSet hashSet = new HashSet();
+            hashSet.add("bduss");
+            hashSet.add("bduss".toUpperCase());
+            String i = pl3.i(o, hashSet);
+            String f = pl3.f(str);
+            return f + "?" + i;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            a = i;
         }
     }
 
-    public static void d(V8ExceptionInfo v8ExceptionInfo) {
+    public static <EvenT extends ze3> EvenT f(EvenT event) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, v8ExceptionInfo) == null) {
-            if (!cr2.g0().G()) {
-                if (a) {
-                    Log.d("V8StabilityHelper", "upload js switch off");
-                }
-            } else if (TextUtils.isEmpty(v8ExceptionInfo.filePath)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, event)) == null) {
+            e(event, "isDownloading", String.valueOf(w73.K().q().F0() ? 1 : 0));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ze3> EvenT g(EvenT event) {
+        InterceptResult invokeL;
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, event)) == null) {
+            if (c() == 2) {
+                z = true;
             } else {
-                String str = v8ExceptionInfo.filePath;
-                if (str.startsWith("script:")) {
-                    if (a) {
-                        Log.d("V8StabilityHelper", "file path start with js code prefix");
-                        return;
-                    }
-                    return;
-                }
-                SwanCoreVersion e = ah3.e(u73.K().k());
-                if (e != null && !TextUtils.isEmpty(e.swanCorePath)) {
-                    if (!str.startsWith(e.swanCorePath)) {
-                        if (a) {
-                            Log.d("V8StabilityHelper", "file path is not swan core path");
-                            return;
-                        }
-                        return;
-                    }
-                    File file = new File(str);
-                    if (!file.exists()) {
-                        return;
-                    }
-                    HashMap hashMap = new HashMap();
-                    v73 M = v73.M();
-                    if (!TextUtils.isEmpty(v73.g0())) {
-                        hashMap.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, v73.g0());
-                    }
-                    if (M != null && !TextUtils.isEmpty(M.k0())) {
-                        hashMap.put("appVersion", M.k0());
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionMsg)) {
-                        hashMap.put("exceptionMsg", v8ExceptionInfo.exceptionMsg);
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionTrace)) {
-                        hashMap.put("exceptionTrace", v8ExceptionInfo.exceptionTrace);
-                    }
-                    if (!TextUtils.isEmpty(v8ExceptionInfo.exceptionType)) {
-                        hashMap.put("exceptionType", v8ExceptionInfo.exceptionType);
-                    }
-                    pk3.k(new a(hashMap, file, str), "error_js");
-                }
+                z = false;
             }
+            if (z) {
+                str = "2";
+            } else {
+                str = "1";
+            }
+            e(event, "launchType", str);
+            return event;
         }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ze3> EvenT h(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, event)) == null) {
+            e(event, "packageState", String.valueOf(w73.K().q().E0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ze3> EvenT i(EvenT event) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, event)) == null) {
+            e(event, "coreState", String.valueOf(re2.B0()));
+            return event;
+        }
+        return (EvenT) invokeL.objValue;
+    }
+
+    public static <EvenT extends ze3> EvenT e(EvenT event, String str, Object obj) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, event, str, obj)) == null) {
+            if (event != null && !TextUtils.isEmpty(str)) {
+                event.a(str, obj);
+            }
+            return event;
+        }
+        return (EvenT) invokeLLL.objValue;
     }
 }

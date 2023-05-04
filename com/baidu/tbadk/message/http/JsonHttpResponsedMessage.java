@@ -53,14 +53,14 @@ public class JsonHttpResponsedMessage extends TbHttpResponsedMessage {
                 errorData.parserJson(str);
                 setError(errorData.getError_code());
                 if (getError() == -1) {
-                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05ec));
+                    setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05f9));
                 } else {
                     setErrorString(errorData.getError_msg());
                 }
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 setError(-1);
-                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05ec));
+                setErrorString(TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f05f9));
             }
         }
     }

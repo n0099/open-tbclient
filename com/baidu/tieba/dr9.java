@@ -1,146 +1,173 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
-import com.baidu.tieba.k95;
-import com.baidu.tieba.t05;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class dr9 extends t05 {
+public abstract class dr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public LiveRemindRecommendData d;
-    public Map<String, Object> e;
-    public k95 f;
+    public cr9 a;
+    public final String b;
+    public final int c;
+    public final long d;
+    public final String e;
+    public final int f;
 
-    /* loaded from: classes4.dex */
-    public class a implements k95.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dr9 a;
+    public abstract void a();
 
-        public a(dr9 dr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dr9Var;
-        }
+    public abstract boolean c();
 
-        @Override // com.baidu.tieba.k95.h
-        public void dismiss() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-    }
+    public abstract gr9 g(ArrayList<Integer> arrayList, String str, int i);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dr9(MainTabActivity mainTabActivity, ro9 ro9Var) {
-        super(mainTabActivity);
+    public dr9(String str, int i, int i2, long j, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ro9Var};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = mainTabActivity;
+        this.b = str;
+        this.c = i2;
+        this.d = j;
+        this.e = str2;
+        this.f = i;
     }
 
-    @Override // com.baidu.tieba.t05
-    public void b() {
-        k95 k95Var;
+    public byte[] b(RandomAccessFile randomAccessFile, int i) {
+        InterceptResult invokeLI;
+        int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (k95Var = this.f) != null) {
-            k95Var.t();
-        }
-    }
-
-    @Override // com.baidu.tieba.t05
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = l95.d(null, this.c.getPageContext(), this.e, 0L, 4000L, new a(this));
-            e45.b().f(LiveRemindConfig.Scene.LIVE_FLOAT);
-        }
-    }
-
-    @Override // com.baidu.tieba.t05
-    public void d(t05.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (a15.i()) {
-                aVar.a(false);
-                return;
-            }
-            LiveRemindRecommendData c = d45.a().c(0);
-            this.d = c;
-            if (c != null && e45.b().j(LiveRemindConfig.Scene.LIVE_FLOAT)) {
-                this.e = new HashMap();
-                int i = 3;
-                if (this.d.getRemindType() != 1) {
-                    if (this.d.getRemindType() == 2) {
-                        i = 4;
-                    } else if (this.d.getRemindType() == 3) {
-                        i = 2;
-                    } else {
-                        i = 0;
-                    }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, randomAccessFile, i)) == null) {
+            if (randomAccessFile != null && i >= 0) {
+                if (i == this.c) {
+                    i2 = (int) (this.d - ((i - 1) * this.f));
+                } else {
+                    i2 = this.f;
                 }
-                this.e.put("view_top_params_key_image_url", this.d.getLiveIconSrc());
-                this.e.put("view_top_params_key_schema", this.d.getLiveIconScheme());
-                this.e.put("view_top_params_user_name", this.d.getUserName());
-                this.e.put("view_top_params_key_desc", this.d.getDesc());
-                this.e.put("view_top_params_room_id", this.d.getRoomId());
-                this.e.put("view_top_params_btn_text", this.d.getBtnText());
-                this.e.put("view_top_params_key_title", this.d.getTitle());
-                this.e.put("view_top_params_key_nid", this.d.getFeedId());
-                this.e.put("view_top_params_key_yyext", this.d.getYyExtData());
-                this.e.put("view_top_params_key_type", Integer.valueOf(i));
-                this.e.put("view_top_params_is_breathe", Boolean.FALSE);
-                if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !ma5.e()) {
-                    if (!MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !ma5.e()) {
-                        aVar.a(true);
-                        return;
-                    } else {
-                        aVar.a(false);
-                        return;
+                byte[] bArr = new byte[i2];
+                boolean z = false;
+                try {
+                    synchronized (randomAccessFile) {
+                        randomAccessFile.seek((i - 1) * this.f);
+                        if (randomAccessFile.read(bArr, 0, i2) != -1) {
+                            z = true;
+                        }
                     }
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-                aVar.a(false);
-                return;
+                if (z) {
+                    return bArr;
+                }
             }
-            aVar.a(false);
+            return null;
         }
+        return (byte[]) invokeLI.objValue;
+    }
+
+    public void d(int i) {
+        cr9 cr9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (cr9Var = this.a) != null) {
+            cr9Var.onProgressUpdate(i / 100.0f);
+        }
+    }
+
+    public void f(cr9 cr9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, cr9Var) == null) {
+            this.a = cr9Var;
+        }
+    }
+
+    public final String e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            try {
+                JSONObject optJSONObject = new JSONObject(str).optJSONObject("data");
+                if (optJSONObject != null) {
+                    return optJSONObject.optString("video_url");
+                }
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public gr9 h(RandomAccessFile randomAccessFile, int i, long j, String str) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{randomAccessFile, Integer.valueOf(i), Long.valueOf(j), str})) == null) {
+            byte[] b = b(randomAccessFile, i);
+            if (b == null) {
+                gr9 gr9Var = new gr9();
+                gr9Var.b = -1;
+                gr9Var.c = "上传文件不存在";
+                return gr9Var;
+            } else if (c()) {
+                return null;
+            } else {
+                NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.URL_UPLOAD_VIDEO);
+                netWork.addPostData("chunk_no", String.valueOf(i));
+                netWork.addPostData("chunk_sum", String.valueOf(this.c));
+                netWork.addPostData("chunk_size", String.valueOf(b.length));
+                netWork.addPostData("video_size", String.valueOf(this.d));
+                netWork.addPostData(VideoFinishResult.KEY_VIDEO_MD5, this.e);
+                netWork.addPostData("video_len", String.valueOf(j));
+                netWork.addPostData(HttpRequest.TBS, TbadkCoreApplication.getInst().getTbs());
+                netWork.addPostData("video_chunk", b);
+                netWork.addPostData("upload_id", str);
+                if (c()) {
+                    return null;
+                }
+                String postMultiNetData = netWork.postMultiNetData();
+                if (c()) {
+                    return null;
+                }
+                gr9 gr9Var2 = new gr9();
+                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
+                    gr9Var2.a = e(postMultiNetData);
+                } else {
+                    if (netWork.getNetContext().getResponse().isNetSuccess()) {
+                        gr9Var2.b = netWork.getNetContext().getResponse().mServerErrorCode;
+                    } else {
+                        gr9Var2.b = netWork.getNetContext().getResponse().mNetErrorCode;
+                    }
+                    gr9Var2.c = netWork.getNetContext().getResponse().mErrorString;
+                }
+                return gr9Var2;
+            }
+        }
+        return (gr9) invokeCommon.objValue;
     }
 }

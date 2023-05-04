@@ -1,29 +1,31 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.tieba.ro2;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class po2 extends ql2<ro2> {
+public class po2 extends oo2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ro2.f h;
 
     /* loaded from: classes5.dex */
-    public class a implements ro2.f {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ po2 a;
+        public final /* synthetic */ List a;
+        public final /* synthetic */ ap2 b;
 
-        public a(po2 po2Var) {
+        public a(po2 po2Var, List list, ap2 ap2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {po2Var};
+                Object[] objArr = {po2Var, list, ap2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -33,43 +35,50 @@ public final class po2 extends ql2<ro2> {
                     return;
                 }
             }
-            this.a = po2Var;
+            this.a = list;
+            this.b = ap2Var;
         }
 
-        @Override // com.baidu.tieba.ro2.f
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.onCallback(this.a, "onConfirmBtnClick", null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                for (String str : this.a) {
+                    this.b.e(str);
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public po2(@NonNull ro2 ro2Var) {
-        super(ro2Var);
+    public po2(u83 u83Var) {
+        super(u83Var, "/swanAPI/removeComponentFromFullScreenSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ro2Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((sl2) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a aVar = new a(this);
-        this.h = aVar;
-        ro2Var.D0(aVar);
-        this.a.a(new vo2());
-        this.a.a(new uo2());
-        this.a.a(new wo2());
-        this.a.a(new so2());
-        this.a.a(new to2());
+    }
+
+    @Override // com.baidu.tieba.oo2
+    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull ap2 ap2Var, @NonNull List<String> list) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, ap2Var, list)) == null) {
+            rl3.a0(new a(this, list, ap2Var));
+            return true;
+        }
+        return invokeLLL.booleanValue;
     }
 }

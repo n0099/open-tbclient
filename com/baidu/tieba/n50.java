@@ -1,44 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.HashSet;
-import java.util.Set;
-import java.util.regex.Pattern;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.webkit.internal.Base64;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import kotlin.jvm.internal.ByteCompanionObject;
+import org.apache.commons.codec.net.QCodec;
 /* loaded from: classes5.dex */
-public class n50 {
+public final class n50 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] g;
+    public static final byte[] a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public boolean b;
-    public Set<String> c;
-    public String d;
-    public Context e;
-    public int f;
 
     static {
         InterceptResult invokeClinit;
@@ -53,225 +31,7 @@ public class n50 {
                 return;
             }
         }
-        g = new byte[]{77, 73, 78, 71};
-    }
-
-    public n50() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public Set<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (Set) invokeV.objValue;
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String[] b(Signature[] signatureArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, signatureArr)) == null) {
-            int length = signatureArr.length;
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = m40.c(signatureArr[i].toByteArray());
-            }
-            return strArr;
-        }
-        return (String[]) invokeL.objValue;
-    }
-
-    public static boolean g(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strArr, strArr2)) == null) {
-            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-                return false;
-            }
-            HashSet hashSet = new HashSet();
-            for (String str : strArr) {
-                hashSet.add(str);
-            }
-            HashSet hashSet2 = new HashSet();
-            for (String str2 : strArr2) {
-                hashSet2.add(str2);
-            }
-            return hashSet.equals(hashSet2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean j(String str, Context context, JSONObject jSONObject, Set<String> set) throws JSONException, PackageManager.NameNotFoundException {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, context, jSONObject, set)) == null) {
-            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-            int length = jSONArray.length();
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = jSONArray.getString(i);
-            }
-            String[] b = b(context.getPackageManager().getPackageInfo(str, 64).signatures);
-            if (b != null && b.length > 0) {
-                Collections.addAll(set, b);
-            }
-            return g(strArr, b);
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public void a(String str, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, context) == null) {
-            this.d = str;
-            this.e = context;
-        }
-    }
-
-    public final void e(Bundle bundle, y30 y30Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, bundle, y30Var) == null) {
-            try {
-                if (y30Var == null) {
-                    this.f |= 16;
-                    return;
-                }
-                String string = bundle.getString("helios_data");
-                if (TextUtils.isEmpty(string)) {
-                    this.f |= 1;
-                    return;
-                }
-                String string2 = bundle.getString("helios_sf");
-                if (TextUtils.isEmpty(string2)) {
-                    this.f |= 2;
-                    return;
-                }
-                byte[] decode = Base64.decode(string.getBytes(IMAudioTransRequest.CHARSET), 1);
-                for (int i = 0; i < decode.length; i++) {
-                    decode[i] = (byte) (decode[i] ^ g[i % g.length]);
-                }
-                JSONObject jSONObject = new JSONObject(new String(decode));
-                if (!i(jSONObject)) {
-                    return;
-                }
-                HashSet hashSet = new HashSet();
-                this.c = hashSet;
-                if (!j(this.d, this.e, jSONObject, hashSet)) {
-                    this.f |= 4;
-                } else if (Arrays.equals(n40.a(Base64.decode(string2, 0), y30Var), m40.b(decode))) {
-                    this.a = jSONObject.getLong("priority");
-                    this.b = true;
-                } else {
-                    this.f |= 8;
-                }
-            } catch (Exception e) {
-                this.f |= 256;
-                Log.getStackTraceString(e);
-            }
-        }
-    }
-
-    public void f(y30 y30Var, boolean z) {
-        PackageInfo packageInfo;
-        ActivityInfo[] activityInfoArr;
-        ActivityInfo activityInfo;
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048580, this, y30Var, z) == null) {
-            PackageManager packageManager = this.e.getPackageManager();
-            try {
-                packageInfo = packageManager.getPackageInfo(this.d, 2);
-            } catch (PackageManager.NameNotFoundException unused) {
-                packageInfo = null;
-            }
-            if (packageInfo != null && (activityInfoArr = packageInfo.receivers) != null && activityInfoArr.length > 0) {
-                for (ActivityInfo activityInfo2 : activityInfoArr) {
-                    if ("com.baidu.helios.DummyProvider".equals(activityInfo2.name)) {
-                        try {
-                            activityInfo = packageManager.getReceiverInfo(new ComponentName(activityInfo2.packageName, activityInfo2.name), 128);
-                        } catch (PackageManager.NameNotFoundException unused2) {
-                            activityInfo = null;
-                        }
-                        if (activityInfo != null && (bundle = activityInfo.metaData) != null && bundle.containsKey("helios") && z) {
-                            e(bundle, y30Var);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public final boolean i(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
-            l40 l40Var = new l40();
-            l40Var.b(jSONObject.optLong("flags"));
-            String optString = jSONObject.optString("package", "");
-            long a = l40Var.a(7L);
-            if (optString.equals("") && a != 4) {
-                this.f |= 64;
-                return false;
-            }
-            if (a == 0) {
-                if (!optString.equals(this.d)) {
-                    this.f |= 32;
-                    return false;
-                }
-            } else if (a == 1) {
-                String str = this.d;
-                if (str == null || !str.startsWith(optString)) {
-                    this.f |= 32;
-                    return false;
-                }
-            } else if (a == 2) {
-                try {
-                    if (!Pattern.compile(optString).matcher(this.d).matches()) {
-                        this.f |= 32;
-                        return false;
-                    }
-                } catch (Exception unused) {
-                    this.f |= 128;
-                    return false;
-                }
-            } else if (a == 4) {
-                return true;
-            } else {
-                this.f |= 64;
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
+        a = new byte[]{0, -118, 109, 108, -43, -56, 63, 62, 108, ExifInterface.MARKER_SOF1, -94, 72, -110, -122, -111, -109, 102, -12, 17, 110, 123, 1, -110, 124, 18, 78, -48, -23, 85, -21, -48, 4, ExifInterface.MARKER_SOF14, -68, 88, -15, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -32, -14, 54, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, ExifInterface.MARKER_SOF3, -110, ExifInterface.MARKER_SOF3, 113, -21, -60, 66, -122, -52, Base64.INTERNAL_PADDING, 28, -48, -24, -96, -25, 13, -88, -96, -98, 23, -14, -89, 24, 90, 82, -16, -65, 107, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -22, 113, 24, -46, 120, 57, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, -13, 2, Constants.SHORT_PING_CMD_TYPE, 92, 9, 69, 91, 107, ExifInterface.MARKER_SOF15, -127, 54, -70, 104, 34, -13, 76, 26, 84, -1, -99, 80, -98, 43, ExifInterface.MARKER_SOS, -60, 86, 58, 107, 40, -69, -43, -109, -124, 103, -79, -43, -22, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, -11, -52, 55, 86, 75, -43, 114, -18, 2, 77, ExifInterface.MARKER_SOF11, -65, 3, 8, 45, 106, -117, -42, 56, 51, -11, -76, 21, 68, 116, -52, -71, 81, -17, 49, 71, 4, -1, -60, 52, ExifInterface.MARKER_SOF9, -72, 8, -100, 90, -12, 15, 108, 45, 86, 97, 20, 53, 70, -106, -36, -1, 10, -115, 53, -109, -52, -73, 108, 122, -8, 113, 98, Byte.MIN_VALUE, -81, 79, 98, -15, -36, 119, 118, ExifInterface.MARKER_SOF9, -125, 61, -98, 59, 111, 16, 22, 118, 40, -18, -5, 2, -17, 71, -114, ExifInterface.START_CODE, -45, 96, 10, -104, 64, QCodec.UNDERSCORE, -47, 73, ByteCompanionObject.MAX_VALUE, 88, ExifInterface.MARKER_SOF10, -3, -99, 16, ExifInterface.MARKER_SOF6, 27, -7, -36, 60, -60, -13, -99, 55, 55, -7, -96, -34, 7, -34, 28, ExifInterface.MARKER_APP1, -26, -96, ExifInterface.MARKER_APP1, 54, -108, 45, 6, -27, -106, -104, ExifInterface.MARKER_SOF6, -22, -71, -81, -30, 100, 61, -1, ExifInterface.MARKER_SOF5, 56, 48, ExifInterface.MARKER_SOF3, -11};
+        b = new byte[]{1, 0, 1};
     }
 }

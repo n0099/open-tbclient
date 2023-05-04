@@ -20,8 +20,11 @@ import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.suspended.SuspendIdleView;
 import com.baidu.tbadk.suspended.TranView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dt5;
+import com.baidu.tieba.cu5;
+import com.baidu.tieba.du5;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.pt4;
+import com.baidu.tieba.yt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -42,7 +45,7 @@ public class FloatWebLayout extends FrameLayout {
     public ImageView f;
     public TextView g;
     public LinearLayout h;
-    public dt5 i;
+    public cu5 i;
 
     /* loaded from: classes3.dex */
     public class a implements View.OnClickListener {
@@ -72,7 +75,7 @@ public class FloatWebLayout extends FrameLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.i.u();
+                this.a.i.goBack();
             }
         }
     }
@@ -163,7 +166,7 @@ public class FloatWebLayout extends FrameLayout {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.i.u()) {
+            if (this.i.goBack()) {
                 return true;
             }
             c();
@@ -179,9 +182,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null && suspendIdleView.getRatio() == 1.0f) {
                 this.b.h();
             }
-            dt5 dt5Var = this.i;
-            if (dt5Var != null) {
-                dt5Var.A();
+            cu5 cu5Var = this.i;
+            if (cu5Var != null) {
+                cu5Var.onPause();
             }
             this.a.setOnClickListener(null);
         }
@@ -244,53 +247,33 @@ public class FloatWebLayout extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onDetachedFromWindow();
-            dt5 dt5Var = this.i;
-            if (dt5Var != null) {
-                dt5Var.onDestroy();
+            cu5 cu5Var = this.i;
+            if (cu5Var != null) {
+                cu5Var.onDestroy();
             }
         }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public FloatWebLayout(@NonNull Context context) {
-        this(context, null);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public FloatWebLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, 0);
+        super(context, attributeSet);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet};
-            interceptable.invokeUnInit(65538, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
+                super((Context) objArr2[0], (AttributeSet) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        e(context, "");
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -301,27 +284,39 @@ public class FloatWebLayout extends FrameLayout {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context, attributeSet, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65539, newInitContext);
+            interceptable.invokeUnInit(65538, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
                 int i3 = i2 & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (AttributeSet) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        e(context, "");
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public FloatWebLayout(@NonNull Context context, String str) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65539, newInitContext);
                 return;
             }
         }
-        e(context);
-    }
-
-    public final void f(@NonNull Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
-            dt5 dt5Var = new dt5(context, this.h, this);
-            this.i = dt5Var;
-            this.b.setContentViewTop(dt5Var);
-        }
+        e(context, str);
     }
 
     public final void h(@NonNull Context context) {
@@ -338,9 +333,9 @@ public class FloatWebLayout extends FrameLayout {
             if (suspendIdleView != null) {
                 suspendIdleView.i();
             }
-            dt5 dt5Var = this.i;
-            if (dt5Var != null) {
-                dt5Var.y(str, false);
+            cu5 cu5Var = this.i;
+            if (cu5Var != null) {
+                cu5Var.k1(str, false);
                 this.i.onResume();
             }
             this.a.setOnClickListener(new c(this));
@@ -355,20 +350,32 @@ public class FloatWebLayout extends FrameLayout {
         }
     }
 
-    public final void e(@NonNull Context context) {
+    public final void e(@NonNull Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, str) == null) {
             LayoutInflater.from(context).inflate(R.layout.layout_float_web_view, (ViewGroup) this, true);
             this.b = (SuspendIdleView) findViewById(R.id.suspended_view);
             this.c = (LinearLayout) findViewById(R.id.navigation_bar_group);
             this.d = (NavigationBar) findViewById(R.id.suspended_navigation_bar);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090772);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090775);
             h(context);
             g(context);
-            f(context);
+            f(context, str);
             this.b.setNavigationBar(this.c);
             this.b.setTranView(this.a);
             this.b.setContentView(this.h);
+        }
+    }
+
+    public final void f(@NonNull Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
+            if (pt4.b(str)) {
+                this.i = new du5(context, this.h, this);
+            } else {
+                this.i = new yt5(context, this.h, this);
+            }
+            this.b.setContentViewTop(this.i);
         }
     }
 

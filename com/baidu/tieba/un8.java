@@ -1,79 +1,123 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.animation.Animation;
-import android.view.animation.Transformation;
-import android.widget.FrameLayout;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskHttpResMessage;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskReqMessage;
+import com.baidu.tieba.memberCenter.memberTask.FinishMemberTaskSocketMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class un8 extends Animation {
+public class un8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View a;
+    public b a;
     public int b;
     public int c;
-    public FrameLayout.LayoutParams d;
+    public long d;
+    public za e;
 
-    public un8(View view2, int i, int i2) {
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(int i, String str, int i2, int i3, long j);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a extends za {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ un8 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(un8 un8Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {un8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = un8Var;
+        }
+
+        @Override // com.baidu.tieba.za
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
+                return;
+            }
+            boolean z = responsedMessage instanceof FinishMemberTaskHttpResMessage;
+            if (!z && !(responsedMessage instanceof FinishMemberTaskSocketMessage)) {
+                return;
+            }
+            if (z) {
+                this.a.b = ((FinishMemberTaskHttpResMessage) responsedMessage).getStatus();
+            } else if (responsedMessage instanceof FinishMemberTaskSocketMessage) {
+                this.a.b = ((FinishMemberTaskSocketMessage) responsedMessage).getStatus();
+            }
+            if (this.a.a != null) {
+                this.a.a.a(responsedMessage.getError(), responsedMessage.getErrorString(), this.a.b, this.a.c, this.a.d);
+            }
+        }
+    }
+
+    public un8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (view2 == null) {
-            return;
-        }
-        this.a = view2;
-        if (view2.getVisibility() == 8 && i2 > 0) {
-            this.b = i2;
-        } else {
-            this.b = this.a.getMeasuredHeight();
-        }
-        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
-        this.d = layoutParams;
-        this.c = i;
-        if (i == 0) {
-            layoutParams.bottomMargin = -this.b;
-        } else {
-            layoutParams.bottomMargin = 0;
+        this.a = null;
+        this.e = new a(this, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, 309429);
+        xo9.h(309429, FinishMemberTaskSocketMessage.class, false, false);
+        xo9.c(309429, CmdConfigHttp.CMD_FINISH_MEMBER_TASK, TbConfig.FINISH_MEMBER_TASK, FinishMemberTaskHttpResMessage.class, false, false, false, false);
+        MessageManager.getInstance().registerListener(this.e);
+    }
+
+    public void h(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
+            this.a = bVar;
         }
     }
 
-    @Override // android.view.animation.Animation
-    public void applyTransformation(float f, Transformation transformation) {
+    public void f(long j, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
-            super.applyTransformation(f, transformation);
-            if (f < 1.0f) {
-                if (this.c == 0) {
-                    FrameLayout.LayoutParams layoutParams = this.d;
-                    int i = this.b;
-                    layoutParams.bottomMargin = (-i) + ((int) (i * f));
-                } else {
-                    this.d.bottomMargin = -((int) (this.b * f));
-                }
-                this.a.requestLayout();
-            } else if (this.c == 0) {
-                this.d.bottomMargin = 0;
-                this.a.requestLayout();
-                this.b = this.a.getMeasuredHeight();
-            } else {
-                this.d.bottomMargin = -this.b;
-                this.a.setVisibility(8);
-                this.a.requestLayout();
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
+            this.d = j;
+            this.c = i;
+            FinishMemberTaskReqMessage finishMemberTaskReqMessage = new FinishMemberTaskReqMessage();
+            finishMemberTaskReqMessage.setTaskId(j);
+            MessageManager.getInstance().sendMessage(finishMemberTaskReqMessage);
+        }
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
         }
     }
 }

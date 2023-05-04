@@ -1,21 +1,60 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.TypedValue;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r9b {
+public abstract class r9b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(float f) {
-        InterceptResult invokeF;
+    @Deprecated
+    public void a(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(65536, null, f)) == null) {
-            return (int) TypedValue.applyDimension(1, f, Resources.getSystem().getDisplayMetrics());
+        if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
         }
-        return invokeF.intValue;
+    }
+
+    public String c(Object obj) throws InterruptedException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public r9b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final String b(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            try {
+                return c(obj);
+            } catch (InterruptedException unused) {
+                Thread.currentThread().interrupt();
+                return obj.getClass().getName() + ".errorRendering";
+            } catch (Throwable th) {
+                v5b.e(th);
+                return obj.getClass().getName() + ".errorRendering";
+            }
+        }
+        return (String) invokeL.objValue;
     }
 }

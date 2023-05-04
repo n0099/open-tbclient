@@ -1,48 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.facebook.fresco.animation.backend.AnimationBackend;
+import com.facebook.fresco.animation.backend.AnimationBackendDelegate;
 /* loaded from: classes5.dex */
-public class ju5 {
+public class ju5 extends AnimationBackendDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public ku5 c;
+    public int a;
 
-    public ju5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ju5(@Nullable AnimationBackend animationBackend, int i) {
+        super(animationBackend);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {animationBackend, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((AnimationBackend) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
     }
 
-    public void a(String str) {
+    @Override // com.facebook.fresco.animation.backend.AnimationBackendDelegate, com.facebook.fresco.animation.backend.AnimationInformation
+    public int getLoopCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || hi.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            jSONObject.optInt("error_code");
-            this.b = jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
-            ku5 ku5Var = new ku5();
-            this.c = ku5Var;
-            ku5Var.a(jSONObject.optJSONObject("info"));
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return invokeV.intValue;
     }
 }

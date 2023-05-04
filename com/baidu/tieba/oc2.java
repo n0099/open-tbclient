@@ -1,147 +1,111 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Patterns;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import android.webkit.MimeTypeMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.sc2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.InputStream;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebResourceResponse;
 import java.util.Map;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes5.dex */
-public final class oc2 {
+public final class oc2 implements sc2.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CopyOnWriteArrayList<lc2> a;
+    public String b;
+    public Map<String, String> c;
+    public int d;
+    public boolean e;
+    public String f;
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00b7  */
-    /* JADX WARN: Removed duplicated region for block: B:43:0x00cd  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0115  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static kc2 a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        String str2;
-        String str3;
-        InputStream inputStream;
-        int i;
-        HttpURLConnection httpURLConnection;
-        String scheme;
+    public oc2(CopyOnWriteArrayList<lc2> copyOnWriteArrayList, String str, Map<String, String> map, int i, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, map)) == null) {
-            String str4 = null;
-            if (TextUtils.isEmpty(str) || !Patterns.WEB_URL.matcher(str).matches()) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {copyOnWriteArrayList, str, map, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = copyOnWriteArrayList;
+        this.b = str;
+        this.c = map;
+        this.d = i;
+        this.e = z;
+    }
+
+    @Override // com.baidu.tieba.sc2.a
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    @Override // com.baidu.tieba.sc2.a
+    public WebResourceResponse b(String str, Map<String, String> map, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, map, z)) == null) {
+            if (this.d >= this.a.size()) {
                 return null;
             }
-            String scheme2 = Uri.parse(str).getScheme();
-            int i2 = 200;
-            HttpURLConnection httpURLConnection2 = null;
-            while (true) {
-                try {
-                    httpURLConnection = (HttpURLConnection) new URL(str).openConnection();
-                    try {
-                        httpURLConnection.setRequestMethod("GET");
-                        if (map != null) {
-                            for (Map.Entry<String, String> entry : map.entrySet()) {
-                                httpURLConnection.setRequestProperty(entry.getKey(), entry.getValue());
-                            }
-                        }
-                        httpURLConnection.setUseCaches(false);
-                        httpURLConnection.setDoInput(true);
-                        httpURLConnection.setConnectTimeout(ac2.a().e());
-                        httpURLConnection.setReadTimeout(ac2.a().h());
-                        String headerField = httpURLConnection.getHeaderField("Location");
-                        if (headerField == null) {
-                            scheme = null;
-                        } else {
-                            scheme = Uri.parse(headerField).getScheme();
-                        }
-                        if (headerField == null || (scheme != null && scheme.equals(scheme2))) {
-                            break;
-                        }
-                        scheme2 = scheme;
-                        httpURLConnection2 = httpURLConnection;
-                        str = headerField;
-                    } catch (Exception e) {
-                        e = e;
-                        httpURLConnection2 = httpURLConnection;
-                        str2 = null;
-                        if (ec2.a) {
-                            Log.e("HybridIntercept", Log.getStackTraceString(e));
-                        }
-                        str3 = str2;
-                        inputStream = null;
-                        i = i2;
-                        httpURLConnection = httpURLConnection2;
-                        HashMap hashMap = new HashMap();
-                        String str5 = "UTF-8";
-                        if (httpURLConnection != null) {
-                        }
-                        String str6 = str5;
-                        String str7 = str4;
-                        if (TextUtils.isEmpty(str3)) {
-                        }
-                        return new kc2(i, str3, inputStream, hashMap, str6, str7);
-                    }
-                } catch (Exception e2) {
-                    e = e2;
-                }
-            }
-            i2 = httpURLConnection.getResponseCode();
-            str3 = httpURLConnection.getResponseMessage();
-            try {
-                inputStream = httpURLConnection.getInputStream();
-                i = i2;
-            } catch (Exception e3) {
-                httpURLConnection2 = httpURLConnection;
-                str2 = str3;
-                e = e3;
-                if (ec2.a) {
-                }
-                str3 = str2;
-                inputStream = null;
-                i = i2;
-                httpURLConnection = httpURLConnection2;
-                HashMap hashMap2 = new HashMap();
-                String str52 = "UTF-8";
-                if (httpURLConnection != null) {
-                }
-                String str62 = str52;
-                String str72 = str4;
-                if (TextUtils.isEmpty(str3)) {
-                }
-                return new kc2(i, str3, inputStream, hashMap2, str62, str72);
-            }
-            HashMap hashMap22 = new HashMap();
-            String str522 = "UTF-8";
-            if (httpURLConnection != null) {
-                if (httpURLConnection.getContentEncoding() != null) {
-                    str522 = httpURLConnection.getContentEncoding();
-                }
-                str4 = httpURLConnection.getContentType();
-                Map<String, List<String>> headerFields = httpURLConnection.getHeaderFields();
-                if (headerFields != null) {
-                    for (Map.Entry<String, List<String>> entry2 : headerFields.entrySet()) {
-                        List<String> value = entry2.getValue();
-                        if (!value.isEmpty()) {
-                            hashMap22.put(entry2.getKey(), value.get(0));
-                        }
-                    }
-                }
-            }
-            String str622 = str522;
-            String str722 = str4;
-            if (TextUtils.isEmpty(str3)) {
-                str3 = DnsModel.MSG_OK;
-            }
-            return new kc2(i, str3, inputStream, hashMap22, str622, str722);
+            return this.a.get(this.d).a(new oc2(this.a, this.b, this.c, this.d + 1, z));
         }
-        return (kc2) invokeLL.objValue;
+        return (WebResourceResponse) invokeLLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.sc2.a
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.sc2.a
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sc2.a
+    public String getMimeType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (TextUtils.isEmpty(this.f)) {
+                this.f = MimeTypeMap.getSingleton().getMimeTypeFromExtension(MimeTypeMap.getFileExtensionFromUrl(this.b));
+            }
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.sc2.a
+    public Map<String, String> getRequestHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.c;
+        }
+        return (Map) invokeV.objValue;
     }
 }

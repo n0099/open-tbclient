@@ -11,7 +11,7 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.animation.LinearInterpolator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ml3;
+import com.baidu.tieba.ol3;
 /* loaded from: classes3.dex */
 public class LoadingAnimView extends View {
     public float a;
@@ -106,10 +106,10 @@ public class LoadingAnimView extends View {
         if (this.c != null && this.d != null) {
             int measuredWidth = getMeasuredWidth();
             int measuredHeight = getMeasuredHeight();
-            int f = ml3.f(getContext(), 6.0f);
+            int f = ol3.f(getContext(), 6.0f);
             this.c.eraseColor(0);
             this.g.setStyle(Paint.Style.FILL);
-            this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060335));
+            this.g.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060339));
             this.g.setAlpha((int) ((((1.0d - (Math.abs(this.a - 0.5d) * 2.0d)) * 0.3d) + 0.3d) * 255.0d));
             float f2 = measuredWidth / 2.0f;
             float f3 = measuredHeight / 2.0f;

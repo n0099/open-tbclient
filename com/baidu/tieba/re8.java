@@ -1,174 +1,124 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.impersonal.sprite.SpriteMsgProcessor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class re8 {
+public abstract class re8<SdkMsg extends ChatMsg, T> implements ue8<SdkMsg, zc8<T>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final int c;
-    public final String d;
-    public final String e;
-    public final int f;
-    public final String g;
-    public final String h;
-    public final String i;
-    public boolean j;
-    public boolean k;
 
-    public re8(JSONObject jSONObject) {
+    public abstract int c();
+
+    public abstract SdkMsg e(T t);
+
+    public abstract T g(SdkMsg sdkmsg);
+
+    public re8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.j = false;
-        this.k = false;
-        this.a = jSONObject.optString("bIcon");
-        this.b = jSONObject.optString("bIconN");
-        this.c = jSONObject.optInt("bIconType");
-        this.d = jSONObject.optString("bSelIcon");
-        this.e = jSONObject.optString("bSelIconN");
-        this.f = jSONObject.optInt("bSelIconType");
-        this.g = jSONObject.optString("clickAction");
-        this.h = jSONObject.optString("preAction");
-        this.i = jSONObject.optString("statKey");
     }
 
-    public static int f(int i) {
-        InterceptResult invokeI;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ue8
+    /* renamed from: d */
+    public SdkMsg b(zc8<T> msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            return le8.a(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            SdkMsg e = e(msg.f());
+            e.setSenderUid(BIMManager.getBdUidFromBdUK(String.valueOf(SpriteMsgProcessor.m.a())));
+            JSONObject jSONObject = new JSONObject();
+            jSONObject.put("type", c());
+            jSONObject.put("from", "android");
+            e.setContentExtra(jSONObject.toString());
+            return e;
         }
-        return invokeI.intValue;
+        return (SdkMsg) invokeL.objValue;
     }
 
-    public void k(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ue8
+    /* renamed from: f */
+    public zc8<T> a(SdkMsg msg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            this.j = z;
-        }
-    }
-
-    public void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-            this.k = z;
-        }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (e() > 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.j) {
-                return this.d;
-            }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.j) {
-                i = this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, msg)) == null) {
+            Intrinsics.checkNotNullParameter(msg, "msg");
+            zc8<T> zc8Var = new zc8<>();
+            zc8Var.i(g(msg));
+            zc8Var.c(msg.getMsgId());
+            String msgKey = msg.getMsgKey();
+            Intrinsics.checkNotNullExpressionValue(msgKey, "msg.msgKey");
+            zc8Var.d(msgKey);
+            zc8Var.e().l(msg.getContacterUk());
+            zc8Var.e().k(lla.c(msg.getSenderUid(), 0L));
+            zc8Var.e().i(msg.getStatus());
+            zc8Var.j(msg);
+            boolean isSelf = msg.isSelf(TbadkApplication.getInst());
+            zc8Var.e().h(isSelf);
+            if (!isSelf) {
+                zc8Var.e().g(TbSingleton.getInstance().getFunnySpriteAvatar());
+                zc8Var.e().f(TbSingleton.getInstance().getFunnySpriteName());
             } else {
-                i = this.c;
+                zc8Var.e().g(TbadkCoreApplication.getCurrentPortrait());
+                zc8Var.e().f(TbadkCoreApplication.getCurrentAccountNameShow());
             }
-            return f(i);
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (TextUtils.isEmpty(this.a) && TextUtils.isEmpty(this.b) && TextUtils.isEmpty(this.d) && TextUtils.isEmpty(this.e) && TextUtils.isEmpty(this.g) && TextUtils.isEmpty(this.h) && TextUtils.isEmpty(this.i) && this.c == 0 && this.f == 0) {
-                return false;
+            if (!StringUtils.isNull(msg.getContentExtra())) {
+                try {
+                    JSONObject jSONObject = new JSONObject(msg.getContentExtra());
+                    zc8Var.e().j(jSONObject.optInt("type"));
+                    zc8Var.e().e(jSONObject.optString("from"));
+                } catch (JSONException e) {
+                    if (!TbadkApplication.getInst().isDebugMode()) {
+                        e.printStackTrace();
+                    } else {
+                        throw e;
+                    }
+                }
             }
-            return true;
+            String msgContent = msg.getMsgContent();
+            if (msgContent == null) {
+                msgContent = "";
+            } else {
+                Intrinsics.checkNotNullExpressionValue(msgContent, "msg.msgContent ?: \"\"");
+            }
+            if (!hi.isEmpty(msgContent)) {
+                try {
+                    JSONObject jSONObject2 = new JSONObject(msgContent);
+                    yc8 g = zc8Var.g();
+                    String optString = jSONObject2.optString("origin_msg_key");
+                    Intrinsics.checkNotNullExpressionValue(optString, "msgContentObj.optString(\"origin_msg_key\")");
+                    g.b(optString);
+                } catch (JSONException e2) {
+                    BdLog.e(e2);
+                }
+            }
+            return zc8Var;
         }
-        return invokeV.booleanValue;
+        return (zc8) invokeL.objValue;
     }
 }

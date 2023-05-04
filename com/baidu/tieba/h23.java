@@ -1,24 +1,57 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.AnyThread;
+import androidx.annotation.LayoutRes;
+import androidx.annotation.Nullable;
+import androidx.annotation.UiThread;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
-import java.util.Locale;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes4.dex */
-public class h23 {
+public class h23 implements bt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
+    public ConcurrentHashMap<Integer, CopyOnWriteArrayList<View>> c;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final h23 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-797083326, "Lcom/baidu/tieba/h23$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-797083326, "Lcom/baidu/tieba/h23$b;");
+                    return;
+                }
+            }
+            a = new h23(null);
+        }
+    }
 
     public h23() {
         Interceptable interceptable = $ic;
@@ -30,116 +63,118 @@ public class h23 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.c = new ConcurrentHashMap<>();
     }
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = true;
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b) {
-            d();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a = false;
-            c();
-            k();
-        }
-    }
-
-    public void k() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && !this.b) {
-            b();
-        }
-    }
-
-    public final ViewGroup b() {
+    public static h23 a() {
         InterceptResult invokeV;
-        ViewGroup viewGroup;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (v73.b0() != null && v73.b0().w() != null && (viewGroup = (ViewGroup) v73.b0().w().findViewById(16908290)) != null) {
-                ViewGroup viewGroup2 = (ViewGroup) viewGroup.findViewById(R.id.obfuscated_res_0x7f09214a);
-                if (viewGroup2 != null) {
-                    return viewGroup2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (h23) invokeV.objValue;
+    }
+
+    public /* synthetic */ h23(a aVar) {
+        this();
+    }
+
+    @Nullable
+    @UiThread
+    public View b(@LayoutRes int i, @Nullable ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeCommon;
+        ViewGroup.LayoutParams layoutParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), viewGroup, Boolean.valueOf(z)})) == null) {
+            View d = d(i);
+            if (d != null && viewGroup != null && (layoutParams = viewGroup.getLayoutParams()) != null) {
+                ViewGroup.LayoutParams layoutParams2 = d.getLayoutParams();
+                if (layoutParams2 == null) {
+                    layoutParams2 = new ViewGroup.LayoutParams(layoutParams);
+                } else {
+                    layoutParams2.width = layoutParams.width;
+                    layoutParams2.height = layoutParams.height;
                 }
-                ViewGroup viewGroup3 = (ViewGroup) LayoutInflater.from(v73.b0().w()).inflate(R.layout.obfuscated_res_0x7f0d088a, viewGroup);
-                this.b = true;
-                return viewGroup3;
+                d.setLayoutParams(layoutParams2);
             }
-            return null;
-        }
-        return (ViewGroup) invokeV.objValue;
-    }
-
-    public final void d() {
-        v73 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (b0 = v73.b0()) != null && b0.w() != null) {
-            ViewGroup viewGroup = (ViewGroup) b0.w().findViewById(R.id.obfuscated_res_0x7f09214a);
-            if (viewGroup != null && (viewGroup.getParent() instanceof ViewGroup)) {
-                ((ViewGroup) viewGroup.getParent()).removeView(viewGroup);
+            if (d == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                View inflate = LayoutInflater.from(er2.c()).inflate(i, viewGroup, z);
+                long currentTimeMillis2 = System.currentTimeMillis();
+                if (bt2.a) {
+                    Log.d("SwanPerformance", "getView resId = " + i + " ；inflate new view cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                }
+                return inflate;
             }
-            this.b = false;
+            return d;
+        }
+        return (View) invokeCommon.objValue;
+    }
+
+    @AnyThread
+    public void c(@LayoutRes int... iArr) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iArr) == null) && iArr != null && iArr.length != 0) {
+            try {
+                long currentTimeMillis = System.currentTimeMillis();
+                int length = iArr.length;
+                LayoutInflater from = LayoutInflater.from(er2.c());
+                for (int i : iArr) {
+                    View inflate = from.inflate(i, (ViewGroup) null);
+                    CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                    if (copyOnWriteArrayList == null) {
+                        copyOnWriteArrayList = new CopyOnWriteArrayList<>();
+                    }
+                    copyOnWriteArrayList.add(inflate);
+                    this.c.put(Integer.valueOf(i), copyOnWriteArrayList);
+                }
+                if (bt2.a) {
+                    long currentTimeMillis2 = System.currentTimeMillis();
+                    Log.d("SwanPerformance", "inflateLayoutRes count = " + length + "; cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
+                }
+            } catch (Exception e) {
+                if (bt2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
+                }
+            }
         }
     }
 
-    public void f(long j) {
+    @Nullable
+    @AnyThread
+    public View d(@LayoutRes int i) {
+        InterceptResult invokeI;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090a93, j, "#80ff0000", "FCP");
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            View view2 = null;
+            try {
+                CopyOnWriteArrayList<View> copyOnWriteArrayList = this.c.get(Integer.valueOf(i));
+                if (copyOnWriteArrayList != null && !copyOnWriteArrayList.isEmpty()) {
+                    view2 = copyOnWriteArrayList.remove(0);
+                }
+            } catch (Exception e) {
+                if (bt2.a) {
+                    Log.d("SwanPerformance", Log.getStackTraceString(e));
+                }
+            }
+            if (bt2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("tryObtainLayoutByResId resId = ");
+                sb.append(i);
+                if (view2 == null) {
+                    str = " cache view is null";
+                } else {
+                    str = " adopt cached view";
+                }
+                sb.append(str);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            return view2;
         }
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090ab4, j, "#80ff0000", "FIP");
-        }
-    }
-
-    public void h(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048583, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090b0e, j, "#8000ff00", "FMP");
-        }
-    }
-
-    public void i(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
-            j(R.id.obfuscated_res_0x7f090d2a, j, "#80ff0000", "FTP");
-        }
-    }
-
-    public final void j(int i, long j, String str, String str2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, str2}) != null) || this.a || (b = b()) == null) {
-            return;
-        }
-        TextView textView = (TextView) b.findViewById(i);
-        textView.setText(String.format(str2 + ":[%s]ms", Long.valueOf(j)));
-        textView.setBackgroundColor(Color.parseColor(str));
-    }
-
-    public void l(long j, long j2) {
-        ViewGroup b;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048587, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) != null) || this.a || (b = b()) == null) {
-            return;
-        }
-        ((TextView) b.findViewById(R.id.obfuscated_res_0x7f092184)).setText(String.format("启动:[%s] 耗时:[%s]ms", new SimpleDateFormat("HH:mm:ss:SSS", Locale.getDefault()).format(Long.valueOf(j)), Long.valueOf(j2)));
+        return (View) invokeI.objValue;
     }
 }

@@ -1,317 +1,346 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.app.Activity;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.os.Build;
+import android.view.View;
+import androidx.core.app.NotificationManagerCompat;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.client.socket.link.BdSocketLinkService;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.framework.task.SocketMessageTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
+import androidx.exifinterface.media.ExifInterface;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tbadk.coreExtra.message.PingMessage;
-import com.baidu.tbadk.coreExtra.message.ResponsedPingMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.TimeHelper;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.view.CustomPushPremissionDialogView;
+import com.baidu.tieba.u05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes3.dex */
-public class cb5 extends Handler implements x9 {
+public class cb5 {
     public static /* synthetic */ Interceptable $ic;
-    public static cb5 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public int d;
-    public PingMessage e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947669011, "Lcom/baidu/tieba/cb5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947669011, "Lcom/baidu/tieba/cb5;");
-        }
-    }
-
-    @Override // com.baidu.tieba.x9
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 1003;
-        }
-        return invokeV.intValue;
-    }
 
     /* loaded from: classes3.dex */
-    public class a extends bb {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cb5 a;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ int[] b;
+        public final /* synthetic */ u05 c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(cb5 cb5Var, int i) {
-            super(i);
+        public a(TbPageContext tbPageContext, int[] iArr, u05 u05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cb5Var, Integer.valueOf(i)};
+                Object[] objArr = {tbPageContext, iArr, u05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = cb5Var;
+            this.a = tbPageContext;
+            this.b = iArr;
+            this.c = u05Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null) {
-                this.a.l(socketResponsedMessage);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                cb5.e(this.a);
+                this.b[0] = 1;
+                this.c.dismiss();
             }
         }
     }
 
     /* loaded from: classes3.dex */
-    public class b extends CustomMessageListener {
+    public static class b implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ cb5 a;
+        public final /* synthetic */ int[] a;
+        public final /* synthetic */ u05 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(cb5 cb5Var, int i) {
-            super(i);
+        public b(int[] iArr, u05 u05Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cb5Var, Integer.valueOf(i)};
+                Object[] objArr = {iArr, u05Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = cb5Var;
+            this.a = iArr;
+            this.b = u05Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null) {
-                this.a.h((BackgroundSwitchMessage) customResponsedMessage);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a[0] = 2;
+                this.b.dismiss();
             }
         }
     }
 
-    public cb5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = 0L;
-        this.b = 180000;
-        this.c = 900000;
-        this.d = 900000;
-        this.e = null;
-    }
+    /* loaded from: classes3.dex */
+    public static class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ int a;
+        public final /* synthetic */ int[] b;
 
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            int[] socketHeartBeatStratgy = TbadkCoreApplication.getInst().getSocketHeartBeatStratgy();
-            if (socketHeartBeatStratgy.length == 2) {
-                int i = socketHeartBeatStratgy[0] * 1000;
-                this.b = i;
-                this.c = socketHeartBeatStratgy[1] * 1000;
-                if (i < 180000) {
-                    this.b = 180000;
-                }
-                if (this.c < 180000) {
-                    this.c = 180000;
+        public c(int i, int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), iArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = i;
+            this.b = iArr;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+                StatisticItem statisticItem = new StatisticItem("c13673");
+                statisticItem.param("obj_source", this.a);
+                statisticItem.param("obj_type", this.b[0]);
+                TiebaStatic.log(statisticItem);
+            }
         }
     }
 
-    public static cb5 j() {
+    public static u05 a(TbPageContext<?> tbPageContext, int i, int i2, int i3, int i4, u05.e eVar, u05.e eVar2) {
+        InterceptResult invokeCommon;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{tbPageContext, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), eVar, eVar2})) == null) {
+            if (i >= 0) {
+                str = TbadkCoreApplication.getInst().getContext().getString(i);
+            } else {
+                str = null;
+            }
+            return b(tbPageContext, str, TbadkCoreApplication.getInst().getContext().getString(i2), TbadkCoreApplication.getInst().getContext().getString(i3), TbadkCoreApplication.getInst().getContext().getString(i4), eVar, eVar2);
+        }
+        return (u05) invokeCommon.objValue;
+    }
+
+    public static u05 b(TbPageContext<?> tbPageContext, String str, String str2, String str3, String str4, u05.e eVar, u05.e eVar2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, str, str2, str3, str4, eVar, eVar2})) == null) {
+            if (tbPageContext == null) {
+                return null;
+            }
+            u05 u05Var = new u05(tbPageContext.getPageActivity());
+            u05Var.setTitle(str);
+            u05Var.setMessage(str2);
+            u05Var.setPositiveButton(str3, eVar);
+            u05Var.setNegativeButton(str4, eVar2);
+            u05Var.create(tbPageContext);
+            return u05Var;
+        }
+        return (u05) invokeCommon.objValue;
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (f == null) {
-                synchronized (cb5.class) {
-                    if (f == null) {
-                        f = new cb5();
-                    }
-                }
-            }
-            return f;
-        }
-        return (cb5) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x9
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            removeMessages(1);
-        }
-    }
-
-    @Override // com.baidu.tieba.x9
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            removeMessages(1);
-            sendMessageDelayed(obtainMessage(1), this.d);
-            this.a = System.currentTimeMillis();
-        }
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.x9
-    public boolean b(boolean z, String str) {
-        InterceptResult invokeZL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if ((!z && System.currentTimeMillis() - this.a < LiveFeedPageSdk.REFRESH_TIME) || !BdSocketLinkService.isOpen()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String systemProperty = UtilHelper.getSystemProperty("ro.miui.ui.version.name");
+            if (StringUtils.isNull(systemProperty) || gg.e(systemProperty.replace(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, ""), 0) >= 10) {
                 return false;
             }
-            this.a = System.currentTimeMillis();
-            MessageManager.getInstance().sendMessage(this.e);
-            PingMessage pingMessage = this.e;
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            sb.append("-");
-            if (this.d == this.c) {
-                str2 = "back";
-            } else {
-                str2 = "fore";
-            }
-            sb.append(str2);
-            ea.c("PingManager", pingMessage, 0, "send_ping", 0, sb.toString());
             return true;
         }
-        return invokeZL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.x9
-    public void d(String str) {
+    public static void d(Activity activity) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || !PermissionUtil.isAgreePrivacyPolicy()) {
-            return;
-        }
-        if (BdSocketLinkService.isClose()) {
-            ig5.b(0, 0, 0, 1, 10);
-            BdSocketLinkService.startService(false, str);
-        } else if (BdSocketLinkService.isOpen()) {
-            b(false, str);
-        }
-    }
-
-    public final void h(BackgroundSwitchMessage backgroundSwitchMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, backgroundSwitchMessage) != null) || backgroundSwitchMessage == null) {
-            return;
-        }
-        if (backgroundSwitchMessage.getData().booleanValue()) {
-            this.d = this.c;
-            return;
-        }
-        this.d = this.b;
-        d("switchToForeground");
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, message) == null) && message.what == 1) {
-            e();
-            b(true, "regular time send");
+        if (interceptable == null || interceptable.invokeL(65539, null, activity) == null) {
+            try {
+                if (Build.VERSION.SDK_INT >= 26 && !c()) {
+                    Intent intent = new Intent();
+                    intent.setAction("android.settings.APP_NOTIFICATION_SETTINGS");
+                    intent.putExtra("android.provider.extra.APP_PACKAGE", activity.getPackageName());
+                    intent.putExtra("android.provider.extra.CHANNEL_ID", activity.getApplicationInfo().uid);
+                    intent.putExtra("app_package", activity.getPackageName());
+                    intent.putExtra("app_uid", activity.getApplicationInfo().uid);
+                    activity.startActivity(intent);
+                } else {
+                    Intent intent2 = new Intent("android.settings.APPLICATION_SETTINGS");
+                    intent2.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                    intent2.setData(Uri.fromParts("package", activity.getPackageName(), null));
+                    activity.startActivity(intent2);
+                }
+            } catch (Exception unused) {
+                Intent intent3 = new Intent();
+                intent3.setAction("android.settings.APPLICATION_DETAILS_SETTINGS");
+                intent3.setData(Uri.fromParts("package", activity.getPackageName(), null));
+                activity.startActivity(intent3);
+            }
         }
     }
 
-    public void k() {
+    public static void e(a9 a9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            gn5 gn5Var = new gn5(1003);
-            gn5Var.setResponsedClass(ResponsedPingMessage.class);
-            gn5Var.h(false);
-            gn5Var.setPriority(-3);
-            gn5Var.f(SocketMessageTask.DupLicateMode.REMOVE_ME);
-            gn5Var.e(false);
-            MessageManager.getInstance().registerTask(gn5Var);
-            this.e = new PingMessage();
-            m();
-            a aVar = new a(this, 1003);
-            MessageManager.getInstance().registerListener(new b(this, 2001011));
-            MessageManager.getInstance().registerListener(aVar);
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, a9Var) != null) || a9Var == null) {
+            return;
+        }
+        d(a9Var.getPageActivity());
+    }
+
+    public static u05 f(TbPageContext<?> tbPageContext, u05.e eVar, u05.e eVar2, String str) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65541, null, tbPageContext, eVar, eVar2, str)) == null) {
+            if (tbPageContext == null || tbPageContext.getPageActivity() == null) {
+                return null;
+            }
+            u05 create = new u05(tbPageContext.getPageActivity()).setTitle(TbadkCoreApplication.getInst().getContext().getString(R.string.confirm_title)).setMessage(String.format(TbadkCoreApplication.getInst().getContext().getString(R.string.url_notify), str)).setPositiveButton(TbadkCoreApplication.getInst().getContext().getString(R.string.alert_yes_button), eVar).setNegativeButton(TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f038b), eVar2).create(tbPageContext);
+            create.show();
+            return create;
+        }
+        return (u05) invokeLLLL.objValue;
+    }
+
+    public static boolean g(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
+            boolean z = false;
+            if (NotificationManagerCompat.from(context).areNotificationsEnabled()) {
+                return false;
+            }
+            Date date = new Date(f55.m().o("push_permission_dialog_scene_cold_start_key", 0L));
+            Date date2 = new Date(f55.m().o("push_permission_dialog_scene_interaction_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date3 = new Date(currentTimeMillis);
+            if (i == 0 && TimeHelper.getDayDifference(date3, date2) >= 7 && !TimeHelper.isSameDay(date3, date)) {
+                z = true;
+            }
+            if (i == 1 && TimeHelper.getDayDifference(date3, date) >= 7 && !TimeHelper.isSameDay(date3, date2)) {
+                z = true;
+            }
+            if (z) {
+                if (i != 0) {
+                    if (i == 1) {
+                        f55.m().A("push_permission_dialog_scene_cold_start_key", currentTimeMillis);
+                    }
+                } else {
+                    f55.m().A("push_permission_dialog_scene_interaction_key", currentTimeMillis);
+                }
+            }
+            return z;
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static void h(TbPageContext<?> tbPageContext, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{tbPageContext, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            u05 u05Var = new u05(tbPageContext.getPageActivity());
+            u05Var.setCancelable(false);
+            u05Var.setPositiveButton((String) null, (u05.e) null);
+            u05Var.setNegativeButton((String) null, (u05.e) null);
+            u05Var.setContentViewSize(4);
+            CustomPushPremissionDialogView customPushPremissionDialogView = new CustomPushPremissionDialogView(tbPageContext.getPageActivity());
+            u05Var.setContentView(customPushPremissionDialogView);
+            int[] iArr = {-1};
+            customPushPremissionDialogView.getPushPermissionDialogConfirmButton().setOnClickListener(new a(tbPageContext, iArr, u05Var));
+            customPushPremissionDialogView.getPushPermissionDialogCancelButton().setOnClickListener(new b(iArr, u05Var));
+            u05Var.setOnDismissListener(new c(i, iArr));
+            if (j > 0) {
+                u05Var.create(tbPageContext).show(j);
+            } else {
+                u05Var.create(tbPageContext).show();
+            }
+            StatisticItem statisticItem = new StatisticItem("c13674");
+            statisticItem.param("obj_source", i);
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public final void l(ResponsedMessage<?> responsedMessage) {
+    public static boolean i(Context context, int i) {
+        InterceptResult invokeLI;
+        int i2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, responsedMessage) != null) || responsedMessage == null) {
-            return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, context, i)) == null) {
+            l95 pushStrategyConfig = TbSingleton.getInstance().getPushStrategyConfig();
+            if (pushStrategyConfig != null && pushStrategyConfig.d()) {
+                i2 = pushStrategyConfig.b();
+            } else {
+                i2 = 0;
+            }
+            if (i2 <= 0) {
+                i2 = 3;
+            }
+            Date date = new Date(f55.m().o("push_permission_dialog_scene_post_success_start_key", 0L));
+            Date date2 = new Date(f55.m().o("push_permission_dialog_scene_all_item_tab_key", 0L));
+            long currentTimeMillis = System.currentTimeMillis();
+            Date date3 = new Date(currentTimeMillis);
+            boolean z2 = true;
+            if (i == 2 && TimeHelper.getDayDifference(date3, date) >= i2) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ((i != 3 && i != 4 && i != 5 && i != 6 && i != 7) || TimeHelper.getDayDifference(date3, date2) < i2) {
+                z2 = z;
+            }
+            if (z2) {
+                switch (i) {
+                    case 2:
+                        f55.m().A("push_permission_dialog_scene_post_success_start_key", currentTimeMillis);
+                        break;
+                    case 3:
+                    case 4:
+                    case 5:
+                    case 6:
+                    case 7:
+                        f55.m().A("push_permission_dialog_scene_all_item_tab_key", currentTimeMillis);
+                        break;
+                }
+            }
+            return z2;
         }
-        int error = responsedMessage.getError();
-        if (error == 0) {
-            com.baidu.adp.framework.message.Message<?> orginalMessage = responsedMessage.getOrginalMessage();
-            int i = ov4.a;
-            ea.c("PingManager", orginalMessage, 0, "ping_succ", i, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
-            return;
-        }
-        BdSocketLinkService.close(7, "ping error");
-        int cmd = this.e.getCmd();
-        long clientLogID = this.e.getClientLogID();
-        ea.b("PingManager", cmd, clientLogID, 0, "ping_err", error, "costtime:" + String.valueOf(System.currentTimeMillis() - this.a));
+        return invokeLI.booleanValue;
     }
 }

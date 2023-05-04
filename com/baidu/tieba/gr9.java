@@ -1,181 +1,28 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tieba.qj9;
-import com.baidu.tieba.t05;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gr9 extends t05 {
+public class gr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity c;
-    public final ro9 d;
-    public IconPopData e;
-    public e05 f;
+    public String a;
+    public int b;
+    public String c;
 
-    /* loaded from: classes4.dex */
-    public class a implements qj9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gr9 a;
-
-        public a(gr9 gr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gr9Var;
-        }
-
-        @Override // com.baidu.tieba.qj9.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.qj9.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.c();
-            }
-        }
-
-        @Override // com.baidu.tieba.qj9.c
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.c();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gr9 a;
-
-        public b(gr9 gr9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gr9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = gr9Var;
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                a15.r("userIcon");
-                this.a.c();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gr9(MainTabActivity mainTabActivity, ro9 ro9Var) {
-        super(mainTabActivity);
+    public gr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
-        }
-        this.c = mainTabActivity;
-        this.d = ro9Var;
-    }
-
-    @Override // com.baidu.tieba.t05
-    public void b() {
-        e05 e05Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (e05Var = this.f) != null) {
-            e05Var.a();
-        }
-    }
-
-    @Override // com.baidu.tieba.t05
-    public void d(t05.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            if (a15.i() && aVar != null) {
-                aVar.a(false);
-                return;
-            }
-            ro9 ro9Var = this.d;
-            if ((ro9Var == null || ro9Var.y() == null || (this.d.y().getCurrentTabType() != 2 && this.d.y().getCurrentTabType() != 1 && this.d.y().getCurrentTabType() != 3)) && aVar != null) {
-                aVar.a(false);
-                return;
-            }
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            this.e = iconPopData;
-            if (iconPopData != null && PollingModel.u0() && this.e.getPic160() != null && this.e.getTitle() != null && this.c.H1() && this.c.D && this.e.getUid().longValue() == TbadkCoreApplication.getCurrentAccountId() && aVar != null) {
-                aVar.a(true);
-            } else if (aVar != null) {
-                aVar.a(false);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.t05
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.e == null) {
-                this.e = TbSingleton.getInstance().getIconPopData();
-            }
-            if (!PollingModel.u0()) {
-                c();
-                return;
-            }
-            qj9 qj9Var = new qj9();
-            qj9Var.e(new a(this));
-            qj9Var.f(new b(this));
-            this.f = qj9Var.d(this.e);
-            a15.l("userIcon");
         }
     }
 }

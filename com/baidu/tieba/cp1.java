@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import java.net.MalformedURLException;
+import java.util.List;
 /* loaded from: classes4.dex */
 public interface cp1 {
-    String a();
+    List<u93> a(u83 u83Var);
 
-    boolean b();
+    List<u93> b(u83 u83Var);
 
-    String c(String str) throws MalformedURLException;
+    List<u93> c(u83 u83Var);
 }

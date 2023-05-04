@@ -2,12 +2,11 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ad3;
+import com.baidu.tieba.cd3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,12 +14,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yi2 extends s93 {
+public class yi2 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public class a implements om3<yc3<ad3.e>> {
+    public class a implements qm3<ad3<cd3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ CallbackHandler a;
@@ -50,36 +49,45 @@ public class yi2 extends s93 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
+        @Override // com.baidu.tieba.qm3
         /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
+        public void a(ad3<cd3.e> ad3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (!tc3.h(yc3Var)) {
-                    tc3.p(yc3Var, this.a, this.b);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad3Var) == null) {
+                if (!vc3.h(ad3Var)) {
+                    vc3.p(ad3Var, this.a, this.b);
                     return;
                 }
-                boolean b = ji2.b(this.c.optInt("useExtension"));
-                if (b && !mi2.b().exists()) {
-                    n73.f(AppRuntime.getAppContext(), R.string.obfuscated_res_0x7f0f0145).G();
-                    this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, this.d.getResources().getString(R.string.obfuscated_res_0x7f0f0145));
-                    return;
+                if (li2.b(this.c.optInt("emitReplaceDependency"))) {
+                    if (mi2.l().isEmpty()) {
+                        Context context = this.d;
+                        if (context == null) {
+                            context = er2.c();
+                        }
+                        String string = context.getResources().getString(R.string.obfuscated_res_0x7f0f0141);
+                        p73.g(context, string).G();
+                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, string);
+                        return;
+                    }
+                    mi2.n(true);
+                } else {
+                    mi2.n(false);
+                    mi2.c();
                 }
-                u33.V(b);
                 UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(0));
-                u33.Z();
+                w33.Z();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yi2(s83 s83Var) {
-        super(s83Var, "/swanAPI/debug/setExtensionConfig");
+    public yi2(u83 u83Var) {
+        super(u83Var, "/swanAPI/debug/setReplaceDependencyConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -93,22 +101,22 @@ public class yi2 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            JSONObject a2 = s93.a(unitedSchemeEntity, "params");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            JSONObject a2 = u93.a(unitedSchemeEntity, "params");
             if (a2 == null) {
-                v42.c("ExtCore-SetConfig", "params is null");
+                x42.c("setReplaceDependencyConfig", "params is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (!a2.has("useExtension")) {
-                v42.c("ExtCore-SetConfig", "useExtension is null");
+            } else if (!a2.has("emitReplaceDependency")) {
+                x42.c("setReplaceDependencyConfig", "emitReplaceDependency is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             } else {
-                v73Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
+                x73Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, unitedSchemeEntity, a2, context));
                 return true;
             }
         }

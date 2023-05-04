@@ -1,223 +1,213 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.defaultimpl.utils.MultiRatePlayUrlHelper;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import java.util.HashMap;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class yw3 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String k = "ug_";
-    public static String l = "ug_business";
-    public static String m = "ctkey";
-    public static String n = "CTK";
-    public static String o = "sid_eid";
-    public static String p = "exps";
+public class yw3 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public Context b;
+    public String b;
     public String c;
-    public String d;
-    public String e;
+    public int d;
+    public int e;
     public String f;
     public String g;
-    public String h;
-    public ww3 i;
-    public String j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948344532, "Lcom/baidu/tieba/yw3;")) == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+        public int d;
+        public int e;
+        public String f;
+        public String g;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
+
+        public yw3 h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new yw3(this, null);
+            }
+            return (yw3) invokeV.objValue;
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948344532, "Lcom/baidu/tieba/yw3;");
+
+        public b i(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                this.e = qx3.a(i);
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b j(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.a = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b k(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+                this.f = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b l(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                this.d = qx3.a(i);
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b m(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+                this.b = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b n(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+                this.g = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b o(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+                this.c = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
     }
 
-    public abstract HashMap<String, String> a();
-
-    public abstract String e();
-
-    public yw3(Context context, ww3 ww3Var) {
+    public yw3(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, ww3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "https://mobads.baidu.com/cpro/ui/mads.php";
-        this.f = "1";
-        this.g = "2";
-        this.h = "8.800201";
-        this.b = context;
-        this.i = ww3Var;
-        if (ww3Var != null) {
-            this.c = ww3Var.b();
-            this.d = this.i.e();
-            this.e = this.i.g();
-        }
-        if (!ox3.o()) {
-            this.j = ox3.b();
-        }
+        this.b = bVar.b;
+        this.a = bVar.a;
+        this.d = bVar.d;
+        this.e = bVar.e;
+        this.c = bVar.c;
+        this.f = bVar.f;
+        this.g = bVar.g;
     }
 
-    public final HashMap<String, String> b() {
+    public /* synthetic */ yw3(b bVar, a aVar) {
+        this(bVar);
+    }
+
+    public int a() {
         InterceptResult invokeV;
-        String str;
-        JSONArray optJSONArray;
-        JSONObject jSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            HashMap<String, String> hashMap = new HashMap<>();
-            try {
-                hashMap.put("lw", String.valueOf(Math.round(ox3.i(this.b) / ox3.d(this.b))));
-                hashMap.put(MultiRatePlayUrlHelper.ABBR_FLV_HEVC_LIST, String.valueOf(Math.round(ox3.h(this.b) / ox3.d(this.b))));
-                StringBuilder sb = new StringBuilder();
-                sb.append("");
-                sb.append(NetworkUtils.c(false));
-                hashMap.put("net", sb.toString());
-                hashMap.put("n", this.f);
-                hashMap.put(PushConstants.URI_PACKAGE_NAME, this.e);
-                hashMap.put("appid", this.d);
-                hashMap.put(TbConfig.SW_APID, "" + ox3.i(this.b));
-                hashMap.put("sh", "" + ox3.h(this.b));
-                hashMap.put("sn", "" + f());
-                hashMap.put("os", "android");
-                hashMap.put("pa", nw3.b().c());
-                hashMap.put("apid", "" + this.c);
-                hashMap.put("chid", "0");
-                String m2 = nw3.b().m();
-                if (m2.equals("0")) {
-                    m2 = "";
-                }
-                hashMap.put("imei", m2);
-                hashMap.put("cuid", nw3.b().e());
-                hashMap.put("osv", ox3.f());
-                hashMap.put("tp", ox3.e());
-                hashMap.put("app_ver", ox3.l());
-                String c = ox3.c(d(), "BAIDUID");
-                if (TextUtils.isEmpty(c) || c.split(":").length <= 0) {
-                    str = "";
-                } else {
-                    str = c.split(":")[0];
-                }
-                hashMap.put("baiduid", str);
-                hashMap.put("p_ver", this.h);
-                hashMap.put("rpt", this.g);
-                hashMap.put("tab", "2");
-                hashMap.put("req_id", "");
-                hashMap.put("scene", nw3.b().getScene());
-                String e = e();
-                hashMap.put(p, e);
-                hashMap.put(TiebaStatic.Params.EQID, nw3.b().g());
-                JSONObject n2 = nw3.b().n();
-                if (n2 != null) {
-                    if (n2.has(l) && (jSONObject = n2.getJSONObject(l)) != null) {
-                        Iterator<String> keys = jSONObject.keys();
-                        while (keys != null && keys.hasNext()) {
-                            String next = keys.next();
-                            if (!TextUtils.isEmpty(next)) {
-                                String optString = jSONObject.optString(next, "none");
-                                if (n.equals(next)) {
-                                    hashMap.put(m, optString);
-                                    this.j = optString;
-                                } else {
-                                    hashMap.put(k + next, optString);
-                                }
-                            }
-                        }
-                    }
-                    if (n2.has(o) && (optJSONArray = n2.optJSONArray(o)) != null && optJSONArray.length() > 0) {
-                        StringBuilder sb2 = new StringBuilder();
-                        if (!TextUtils.isEmpty(e)) {
-                            sb2.append(e + ",");
-                        }
-                        for (int i = 0; i < optJSONArray.length(); i++) {
-                            String optString2 = optJSONArray.optString(i);
-                            if (!TextUtils.isEmpty(optString2)) {
-                                sb2.append(optString2);
-                                if (i >= 0 && i < optJSONArray.length() - 1) {
-                                    sb2.append(",");
-                                }
-                            }
-                        }
-                        if (sb2.length() > 0) {
-                            hashMap.put(p, sb2.toString());
-                        }
-                    }
-                }
-                if (!hashMap.containsKey(n) && !TextUtils.isEmpty(this.j)) {
-                    hashMap.put(n, this.j);
-                }
-                hashMap.put("con_name", nw3.b().a());
-            } catch (Exception unused) {
-            }
-            return hashMap;
+            return this.a;
         }
-        return (HashMap) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
     public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
+            return this.f;
         }
         return (String) invokeV.objValue;
     }
 
-    public String d() {
+    public int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return nw3.b().f(".baidu.com");
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    public final String f() {
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            try {
-                String m2 = nw3.b().m();
-                String e = NetworkUtils.e(this.b);
-                if (TextUtils.isEmpty(m2)) {
-                    return e;
-                }
-                return m2;
-            } catch (Exception unused) {
-                return "";
-            }
+            return this.g;
         }
         return (String) invokeV.objValue;
     }
@@ -226,9 +216,7 @@ public abstract class yw3 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            HashMap<String, String> b = b();
-            b.putAll(a());
-            return lx3.a(this.a, b);
+            return this.c;
         }
         return (String) invokeV.objValue;
     }

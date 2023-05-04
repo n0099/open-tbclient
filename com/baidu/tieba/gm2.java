@@ -1,60 +1,80 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.fm2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
-public class gm2 extends pl2<dm2> {
+public class gm2 extends sl2<fm2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pl2
-    @NonNull
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "extractMediaMetadata" : (String) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public class a implements fm2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gm2 a;
+
+        public a(gm2 gm2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gm2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = gm2Var;
+        }
+
+        @Override // com.baidu.tieba.fm2.a
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onMediaMetadataExtracted", bundle);
+            }
+        }
+
+        @Override // com.baidu.tieba.fm2.a
+        public void onRelease() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.b == null) {
+                return;
+            }
+            this.a.b = null;
+        }
     }
 
-    public gm2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gm2(@NonNull fm2 fm2Var) {
+        super(fm2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {fm2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ul2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl2
-    /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull dm2 dm2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, dm2Var) == null) {
-            Object obj = command.obj;
-            if (obj instanceof ArrayList) {
-                ArrayList arrayList = (ArrayList) obj;
-                if (arrayList.size() < 4) {
-                    return;
-                }
-                HashMap hashMap = new HashMap();
-                hashMap.put("Cookie", (String) arrayList.get(1));
-                hashMap.put("User-Agent", (String) arrayList.get(2));
-                hashMap.put("Referer", (String) arrayList.get(3));
-                dm2Var.k((String) arrayList.get(0), hashMap);
-            }
-        }
+        ((fm2) this.c).w(new a(this));
+        this.a.a(new im2());
+        this.a.a(new jm2());
     }
 }

@@ -1,87 +1,78 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Intent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
 public final class ep0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ep0 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public o81 a;
-    public y91 b;
 
-    public ep0(dp0 dp0Var, Context context) {
-        Integer num;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947741892, "Lcom/baidu/tieba/ep0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947741892, "Lcom/baidu/tieba/ep0;");
+                return;
+            }
+        }
+        a = new ep0();
+    }
+
+    public ep0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {dp0Var, context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(context, "context");
-        if (dp0Var != null) {
-            num = Integer.valueOf(dp0Var.b());
-        } else {
-            num = null;
-        }
-        if (num != null && num.intValue() == 1) {
-            this.a = new o81(context);
-        } else if (num != null && num.intValue() == 0) {
-            this.b = new y91(context);
-        }
-    }
-
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            y91 y91Var = this.b;
-            if (y91Var != null) {
-                y91Var.i();
-            }
-            o81 o81Var = this.a;
-            if (o81Var != null) {
-                o81Var.h();
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public final void b() {
+    public final boolean a(fp0 fp0Var, Context context, Intent intent) {
+        InterceptResult invokeLLL;
+        int i;
+        int b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            y91 y91Var = this.b;
-            if (y91Var != null) {
-                y91Var.l();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, fp0Var, context, intent)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            if (fp0Var != null) {
+                i = fp0Var.b();
+            } else {
+                i = -1;
             }
-            o81 o81Var = this.a;
-            if (o81Var != null) {
-                o81Var.k();
+            if (i == 1) {
+                int b2 = i71.b(context.getApplicationContext(), null);
+                if (b2 == 0) {
+                    return false;
+                }
+                if ((2 == b2 || 1 == b2 || 4 == b2) && intent != null) {
+                    intent.putExtra("downgrade_to_native", "1");
+                }
+                return true;
+            } else if (i != 0 || 4 == (b = l91.b(context.getApplicationContext(), null)) || b == 0 || 2 == b || 1 == b) {
+                return false;
+            } else {
+                return true;
             }
         }
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            y91 y91Var = this.b;
-            if (y91Var != null) {
-                y91Var.o(z);
-            }
-            o81 o81Var = this.a;
-            if (o81Var != null) {
-                o81Var.n(z);
-            }
-        }
+        return invokeLLL.booleanValue;
     }
 }

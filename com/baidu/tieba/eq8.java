@@ -1,17 +1,25 @@
 package com.baidu.tieba;
 
+import android.widget.BaseAdapter;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class eq8 {
+public abstract class eq8 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
-    public static eq8 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public volatile boolean a;
+    public ArrayList<UserData> a;
+    public boolean b;
+    public boolean c;
+
+    public abstract void a(jz4 jz4Var);
+
+    public abstract boolean d(long j);
 
     public eq8() {
         Interceptable interceptable = $ic;
@@ -26,41 +34,42 @@ public class eq8 {
                 return;
             }
         }
-        this.a = false;
+        this.a = null;
+        this.b = false;
+        this.c = false;
     }
 
-    public static eq8 b() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                b = new eq8();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = false;
+            ArrayList<UserData> arrayList = this.a;
+            if (arrayList != null && arrayList.size() == 0) {
+                this.b = true;
             }
-            return b;
         }
-        return (eq8) invokeV.objValue;
     }
 
-    public boolean a() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
         }
         return invokeV.booleanValue;
     }
 
-    public void c() {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = false;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a.clear();
         }
     }
 
-    public void d(boolean z) {
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.c = z;
         }
     }
 }

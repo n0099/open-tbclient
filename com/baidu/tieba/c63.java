@@ -1,45 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import android.os.Bundle;
+import com.baidu.sapi2.activity.BaseActivity;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.d63;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class c63 {
+public final class c63 extends x33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-    public String b;
-
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
 
     public c63() {
         Interceptable interceptable = $ic;
@@ -55,36 +28,25 @@ public class c63 {
         }
     }
 
-    @Nullable
-    public static c63 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        int length;
+    @Override // com.baidu.tieba.x33
+    public void b(Bundle params) {
+        d63.a b;
+        d63.a b2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            c63 c63Var = new c63();
-            c63Var.b = jSONObject.optString("more");
-            JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
-            if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
-                return null;
-            }
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    a aVar = new a();
-                    optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
-                    aVar.b = optJSONObject.optString("app_name");
-                    aVar.a = optJSONObject.optString("photo_addr");
-                    aVar.c = optJSONObject.optString("scheme");
-                    arrayList.add(aVar);
+        if (interceptable == null || interceptable.invokeL(1048576, this, params) == null) {
+            Intrinsics.checkNotNullParameter(params, "params");
+            String string = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_OPEN_ID);
+            String string2 = params.getString("swanId");
+            String string3 = params.getString(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID);
+            String string4 = params.getString("hostName");
+            if (ProcessUtils.isMainProcess()) {
+                if (string != null && (b2 = d63.c.b()) != null) {
+                    b2.a(string, string3, string4);
+                }
+                if (string2 != null && (b = d63.c.b()) != null) {
+                    b.b(string2, string3, string4);
                 }
             }
-            c63Var.a = arrayList;
-            return c63Var;
         }
-        return (c63) invokeL.objValue;
     }
 }

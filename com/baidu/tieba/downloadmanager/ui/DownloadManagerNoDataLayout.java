@@ -11,8 +11,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -105,7 +105,7 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
             layoutParams2.setMargins(0, ii.g(context, R.dimen.tbds34), 0, 0);
             this.b.setGravity(17);
             addView(this.b, layoutParams2);
-            this.c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0471);
+            this.c = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0479);
             b();
         }
     }
@@ -115,7 +115,7 @@ public class DownloadManagerNoDataLayout extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             setBackground(null);
             SkinManager.setImageResource(this.a, R.drawable.im_no_data_icon);
-            r25 d = r25.d(this.b);
+            g35 d = g35.d(this.b);
             d.w(R.color.CAM_X0110);
             d.B(R.dimen.T_X08);
         }

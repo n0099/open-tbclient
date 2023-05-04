@@ -11,7 +11,7 @@ import java.util.regex.Pattern;
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class FontParser {
     public static final String DEFAULT_FALLBACK = "/system/fonts/DroidSansFallback.ttf";
     public static final String DEFAULT_FONTS = "/system/fonts/DroidSans.ttf";

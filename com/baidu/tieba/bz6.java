@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
-import com.baidu.tieba.bv6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class bz6 implements sy6 {
+public class bz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final bv6.k a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public lz6 e;
+    public String f;
 
     public bz6() {
         Interceptable interceptable = $ic;
@@ -26,24 +25,7 @@ public final class bz6 implements sy6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = bv6.a().c();
-    }
-
-    @Override // com.baidu.tieba.sy6
-    public SpannableString b(Context context, tx6 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString a = this.a.a(context, richTextData.a());
-            Intrinsics.checkNotNullExpressionValue(a, "resolver.create(context,…ichTextData.businessInfo)");
-            return a;
-        }
-        return (SpannableString) invokeLLL.objValue;
     }
 }

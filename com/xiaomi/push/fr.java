@@ -7,7 +7,7 @@ import com.xiaomi.push.dw;
 import com.xiaomi.push.fv;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.bg;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fr extends gc {
     public fm a;
 

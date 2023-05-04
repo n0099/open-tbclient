@@ -6,10 +6,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tieba.ci5;
+import com.baidu.tieba.em6;
 import com.baidu.tieba.immessagecenter.slice.Slice;
 import com.baidu.tieba.impersonal.databinding.SlicePersonalSpriteBinding;
-import com.baidu.tieba.qk6;
+import com.baidu.tieba.vi5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,7 +39,7 @@ public final class ChatSpriteSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public View I(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
+    public View N(LayoutInflater inflater, ViewGroup container, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, inflater, container, bundle)) == null) {
@@ -54,18 +54,18 @@ public final class ChatSpriteSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void P(View view2, Bundle bundle) {
+    public void U(View view2, Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.P(view2, bundle);
-            qk6 a = ci5.a.a().a();
+            super.U(view2, bundle);
+            em6 a = vi5.a.a().a();
             if (a != null) {
                 SlicePersonalSpriteBinding slicePersonalSpriteBinding = this.j;
                 if (slicePersonalSpriteBinding == null) {
                     Intrinsics.throwUninitializedPropertyAccessException("binding");
                     slicePersonalSpriteBinding = null;
                 }
-                slicePersonalSpriteBinding.b.i(a);
+                slicePersonalSpriteBinding.b.j(a);
             }
         }
     }

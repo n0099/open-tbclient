@@ -1,7 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface rp8 {
-    void a(GetCloudFaceGroupMessage getCloudFaceGroupMessage);
+    void a(JSONObject jSONObject) throws JSONException;
+
+    void b(JSONObject jSONObject) throws JSONException;
+
+    void c(JSONObject jSONObject) throws JSONException;
 }

@@ -2,7 +2,7 @@ package com.baidu.searchbox.aperf.param;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.tieba.if9;
+import com.baidu.tieba.hi9;
 @Autowired
 /* loaded from: classes2.dex */
 public class AperfOverlayRuntime {
@@ -15,6 +15,6 @@ public class AperfOverlayRuntime {
 
     @Inject(force = false)
     public static IAperfOverlayContext getAperfOverlayContext() {
-        return if9.a();
+        return hi9.a();
     }
 }

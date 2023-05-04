@@ -1,46 +1,173 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.net.http.SslError;
-import android.os.Message;
-import android.view.KeyEvent;
-import android.webkit.SslErrorHandler;
-import com.baidu.nadcore.webview.view.AbsNadBrowserView;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.net.Uri;
+import android.view.View;
+import android.widget.CheckBox;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.wb1;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface w81 extends c81 {
-    void F(AbsNadBrowserView absNadBrowserView, float f, float f2);
+public class w81 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public CheckBox a;
+    public TextView b;
+    public String c;
+    public Context d;
+    public wb1 e;
+    public g81 f;
 
-    void F0(AbsNadBrowserView absNadBrowserView, String str, boolean z);
+    /* loaded from: classes6.dex */
+    public class a implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w81 a;
 
-    void G0(AbsNadBrowserView absNadBrowserView, SslErrorHandler sslErrorHandler, SslError sslError);
+        public a(w81 w81Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w81Var;
+        }
 
-    void L0(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                dialogInterface.dismiss();
+                this.a.d(true);
+            }
+        }
+    }
 
-    boolean P(AbsNadBrowserView absNadBrowserView, KeyEvent keyEvent);
+    /* loaded from: classes6.dex */
+    public class b implements DialogInterface.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ w81 a;
 
-    boolean P0(AbsNadBrowserView absNadBrowserView, String str);
+        public b(w81 w81Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {w81Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = w81Var;
+        }
 
-    void U0(AbsNadBrowserView absNadBrowserView, String str, Bitmap bitmap);
+        @Override // android.content.DialogInterface.OnClickListener
+        public void onClick(DialogInterface dialogInterface, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
+                dialogInterface.dismiss();
+                this.a.d(false);
+            }
+        }
+    }
 
-    void V(AbsNadBrowserView absNadBrowserView, String str);
+    public w81(Context context, String str, @NonNull g81 g81Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, g81Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = context;
+        this.f = g81Var;
+        this.c = str;
+        b();
+    }
 
-    void V0(AbsNadBrowserView absNadBrowserView, x81 x81Var, String str, String str2);
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            View inflate = View.inflate(this.d, R.layout.nad_light_browser_geolocation_dialog, null);
+            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091d74);
+            TextView textView = (TextView) inflate.findViewById(R.id.message_text);
+            this.b = textView;
+            textView.setTextColor(this.d.getResources().getColor(R.color.nad_box_dialog_message_text_color));
+            this.b.setText(c());
+            wb1.a aVar = new wb1.a(this.d);
+            aVar.q(R.string.nad_geolocation_permissions_prompt_title);
+            aVar.s(inflate);
+            aVar.l(R.string.nad_geolocation_permissions_prompt_dont_share, new b(this));
+            aVar.o(R.string.nad_geolocation_permissions_prompt_share, new a(this));
+            this.e = aVar.a();
+        }
+    }
 
-    void a1();
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Uri parse = Uri.parse(this.c);
+            String str = this.c;
+            if ("http".equals(parse.getScheme())) {
+                str = this.c.substring(7);
+            }
+            return String.format(this.d.getResources().getString(R.string.nad_geolocation_permissions_prompt_message), str);
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void b(AbsNadBrowserView absNadBrowserView, int i, String str, String str2);
+    public final void d(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            boolean isChecked = this.a.isChecked();
+            if (isChecked) {
+                if (z) {
+                    i = R.string.nad_geolocation_permissions_prompt_toast_allowed;
+                } else {
+                    i = R.string.nad_geolocation_permissions_prompt_toast_disallowed;
+                }
+                h31.a().a(this.d.getApplicationContext(), i);
+            }
+            this.f.a(this.c, z, isChecked);
+        }
+    }
 
-    void i(AbsNadBrowserView absNadBrowserView, String str);
-
-    void j(AbsNadBrowserView absNadBrowserView);
-
-    void n0();
-
-    void o1(AbsNadBrowserView absNadBrowserView, int i);
-
-    z81 q0(AbsNadBrowserView absNadBrowserView, String str);
-
-    void u0(AbsNadBrowserView absNadBrowserView, Message message, Message message2);
-
-    void y(AbsNadBrowserView absNadBrowserView, String str);
+    public void e() {
+        wb1 wb1Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (wb1Var = this.e) != null) {
+            v31.b(wb1Var);
+        }
+    }
 }

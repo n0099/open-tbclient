@@ -1,157 +1,46 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uk4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public final class ih2 implements uk4 {
+public class ih2 extends eh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
-    public uk4 c;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public ih2 a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public ih2 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ih2 ih2Var = this.a;
-                this.a = null;
-                return ih2Var;
-            }
-            return (ih2) invokeV.objValue;
-        }
-
-        public final ih2 c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a == null) {
-                    this.a = new ih2(null);
-                }
-                return this.a;
-            }
-            return (ih2) invokeV.objValue;
-        }
-
-        public b b(boolean z) {
-            InterceptResult invokeZ;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) != null) {
-                return (b) invokeZ.objValue;
-            }
-            c().b = z;
-            return this;
-        }
-
-        public b d(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048579, this, str)) != null) {
-                return (b) invokeL.objValue;
-            }
-            c().a = str;
-            return this;
-        }
-
-        public b e(uk4 uk4Var) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable != null && (invokeL = interceptable.invokeL(1048580, this, uk4Var)) != null) {
-                return (b) invokeL.objValue;
-            }
-            c().c = uk4Var;
-            return this;
-        }
-    }
-
-    public ih2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ih2(@NonNull dh2 dh2Var) {
+        super(dh2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dh2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((dh2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public String e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.eh2
+    public void e() {
+        ArrayList<String> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "SoLib:: libName=" + this.a + " buildin=" + this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public /* synthetic */ ih2(a aVar) {
-        this();
-    }
-
-    @Override // com.baidu.tieba.uk4
-    public void a(String str, uk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            uk4 uk4Var = this.c;
-            if (uk4Var != null) {
-                uk4Var.a(str, aVar);
-            } else if (aVar != null) {
-                aVar.a(true);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (arrayList = this.d.b) != null && !arrayList.isEmpty()) {
+            hg2 d = jg2.c().d();
+            ArrayList<String> arrayList2 = this.d.b;
+            sh2 l = sh2.l();
+            l.i(15);
+            d.g(arrayList2, true, false, l.k());
         }
     }
 }

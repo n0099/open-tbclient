@@ -1,147 +1,118 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
-import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedHashMap;
-import java.util.Map;
+import java.lang.reflect.Array;
 /* loaded from: classes5.dex */
-public abstract class or4 implements nr4 {
+public class or4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public or4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public void c(String[] strArr, StringBuilder sb, Map<String, String> map, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(1048576, this, strArr, sb, map, i) == null) && strArr != null && strArr.length > i && map != null && sb != null) {
-            LinkedHashMap linkedHashMap = new LinkedHashMap();
-            while (i < strArr.length) {
-                String str = "@" + strArr[i];
-                Iterator<Map.Entry<String, String>> it = map.entrySet().iterator();
-                while (true) {
-                    if (it.hasNext()) {
-                        Map.Entry<String, String> next = it.next();
-                        if (str.startsWith(next.getKey())) {
-                            String replace = str.replace(next.getKey(), "");
-                            if ("@p".equals(next.getKey())) {
-                                String d = d(replace);
-                                if (!StringUtils.isNull(d)) {
-                                    linkedHashMap.put(next.getValue(), d);
-                                }
-                            } else {
-                                linkedHashMap.put(next.getValue(), replace);
-                            }
-                        }
-                    }
-                }
-                i++;
-            }
-            for (Map.Entry entry : linkedHashMap.entrySet()) {
-                if (!StringUtils.isNull((String) entry.getKey()) && !StringUtils.isNull((String) entry.getValue())) {
-                    String str2 = "?";
-                    if (sb.toString().contains("?")) {
-                        str2 = "&";
-                    }
-                    sb.append(str2);
-                    sb.append((String) entry.getKey());
-                    sb.append("=");
-                    sb.append((String) entry.getValue());
-                }
-            }
-        }
-    }
-
-    public final String d(String str) {
+    public static String a(char[] cArr) {
         InterceptResult invokeL;
-        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            int hashCode = str.hashCode();
-            if (hashCode != 81) {
-                if (hashCode != 104) {
-                    if (hashCode != 112) {
-                        if (hashCode != 119) {
-                            if (hashCode != 122) {
-                                if (hashCode != 98) {
-                                    if (hashCode == 99 && str.equals("c")) {
-                                        c = 1;
-                                    }
-                                    c = 65535;
-                                } else {
-                                    if (str.equals("b")) {
-                                        c = 2;
-                                    }
-                                    c = 65535;
-                                }
-                            } else {
-                                if (str.equals("z")) {
-                                    c = 5;
-                                }
-                                c = 65535;
-                            }
-                        } else {
-                            if (str.equals("w")) {
-                                c = 0;
-                            }
-                            c = 65535;
-                        }
-                    } else {
-                        if (str.equals("p")) {
-                            c = 4;
-                        }
-                        c = 65535;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cArr)) == null) {
+            if (cArr != null && cArr.length != 0) {
+                StringBuilder sb = new StringBuilder();
+                for (char c : cArr) {
+                    if (c != 0) {
+                        sb.append(c);
                     }
-                } else {
-                    if (str.equals("h")) {
-                        c = 3;
-                    }
-                    c = 65535;
                 }
-            } else {
-                if (str.equals("Q")) {
-                    c = 6;
-                }
-                c = 65535;
+                return sb.toString();
             }
-            switch (c) {
-                case 0:
-                    return PbModel.WISE;
-                case 1:
-                    return ThirdPartyUtil.TYPE_WEIXIN;
-                case 2:
-                    return "shoubai";
-                case 3:
-                    return "tbShareH5";
-                case 4:
-                    return "pc";
-                case 5:
-                    return "zhongjianye";
-                case 6:
-                    return com.tencent.connect.common.Constants.SOURCE_QQ;
-                default:
-                    return null;
-            }
+            return null;
         }
         return (String) invokeL.objValue;
+    }
+
+    public static String d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            if (!StringUtils.isNull(str) && str.endsWith("!") && str.startsWith("$")) {
+                return str.replace("$", "").replace("!", "");
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static char[][] e(char[][] cArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, cArr)) == null) {
+            if (cArr != null && cArr[0] != null) {
+                char[][] cArr2 = (char[][]) Array.newInstance(char.class, cArr.length, cArr[0].length);
+                for (int length = cArr.length - 1; length >= 0; length--) {
+                    cArr2[(cArr.length - length) - 1] = cArr[length];
+                }
+                return cArr2;
+            }
+            return null;
+        }
+        return (char[][]) invokeL.objValue;
+    }
+
+    public static String f(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            char[] charArray = str.toCharArray();
+            char[][] cArr = (char[][]) Array.newInstance(char.class, (charArray.length / 2) + 1, 2);
+            c(charArray, cArr);
+            return a(b(e(cArr)));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static char[] b(char[][] cArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, cArr)) == null) {
+            if (cArr != null && cArr[0] != null) {
+                char[] cArr2 = new char[cArr.length * cArr[0].length];
+                int i = 0;
+                for (int i2 = 0; i2 < cArr.length; i2++) {
+                    for (int i3 = 0; i3 < cArr[i2].length; i3++) {
+                        if (cArr[i2][i3] != 0) {
+                            cArr2[i] = cArr[i2][i3];
+                            i++;
+                        }
+                    }
+                }
+                return cArr2;
+            }
+            return null;
+        }
+        return (char[]) invokeL.objValue;
+    }
+
+    public static void c(char[] cArr, char[][] cArr2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, cArr, cArr2) == null) {
+            int length = cArr2.length;
+            int length2 = cArr2[0].length;
+            int i = 0;
+            int i2 = 0;
+            for (char c : cArr) {
+                if (i >= length2) {
+                    i2++;
+                    i = 0;
+                }
+                if (i2 < length) {
+                    cArr2[i2][i] = c;
+                    i++;
+                } else {
+                    return;
+                }
+            }
+        }
     }
 }

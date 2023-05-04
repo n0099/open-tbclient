@@ -9,12 +9,12 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.e19;
+import com.baidu.tieba.f49;
+import com.baidu.tieba.g49;
 import com.baidu.tieba.horizonalList.widget.HTypeListView;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.in;
-import com.baidu.tieba.m19;
-import com.baidu.tieba.n19;
+import com.baidu.tieba.x39;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
     public View b;
     public TextView c;
     public HTypeListView d;
-    public m19 e;
+    public f49 e;
     public int f;
     public TbPageContext g;
 
@@ -55,19 +55,19 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
         this.f = 3;
         this.a = view2;
         this.g = tbPageContext;
-        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0908d9);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092334);
-        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0914ac);
+        this.b = view2.findViewById(R.id.obfuscated_res_0x7f0908dc);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09234c);
+        HTypeListView hTypeListView = (HTypeListView) view2.findViewById(R.id.obfuscated_res_0x7f0914ba);
         this.d = hTypeListView;
-        this.e = new m19(this.g, hTypeListView);
+        this.e = new f49(this.g, hTypeListView);
     }
 
-    public void a(n19 n19Var) {
+    public void a(g49 g49Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, n19Var) != null) || n19Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, g49Var) != null) || g49Var == null) {
             return;
         }
-        this.e.c(c(n19Var.a()));
+        this.e.c(c(g49Var.a()));
     }
 
     public void b() {
@@ -89,9 +89,9 @@ public class PersonInfoUserPicsHolder extends TypeAdapter.ViewHolder {
                 return list;
             }
             ArrayList arrayList = new ArrayList(list);
-            e19 e19Var = new e19(ii.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), ii.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023d));
-            ListUtils.add(arrayList, 0, e19Var);
-            ListUtils.add(arrayList, e19Var);
+            x39 x39Var = new x39(ii.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f070207), ii.g(this.g.getPageActivity(), R.dimen.obfuscated_res_0x7f07023d));
+            ListUtils.add(arrayList, 0, x39Var);
+            ListUtils.add(arrayList, x39Var);
             return arrayList;
         }
         return (List) invokeL.objValue;

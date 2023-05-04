@@ -1,147 +1,81 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
-import android.util.Log;
-import android.webkit.JavascriptInterface;
-import androidx.annotation.ColorInt;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.content.Context;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 /* loaded from: classes6.dex */
 public class ra4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    @V8JavascriptField
-    public String backgroundColor;
-    @V8JavascriptField
-    public String borderColor;
-    @V8JavascriptField
-    public double borderRadius;
-    @V8JavascriptField
-    public int borderWidth;
-    @V8JavascriptField
-    public String color;
-    @V8JavascriptField
-    public double fontSize;
-    @V8JavascriptField
-    public String fontWeight;
-    @V8JavascriptField
-    public int height;
-    @V8JavascriptField
-    public boolean hidden;
-    @V8JavascriptField
-    public int left;
-    @V8JavascriptField
-    public int lineHeight;
-    @V8JavascriptField
-    public double opacity;
-    @V8JavascriptField
-    public String textAlign;
-    @V8JavascriptField
-    public int top;
-    @V8JavascriptField
-    public int width;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void r();
-    }
-
-    public ra4(@NonNull c02 c02Var) {
+    public static boolean a(View view2, dy2 dy2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {c02Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, dy2Var)) == null) {
+            op1 X = kt2.U().X();
+            if (X != null && X.c(view2, dy2Var)) {
+                return true;
             }
+            return false;
         }
-        this.fontSize = 16.0d;
-        this.opacity = 1.0d;
-        a(c02Var);
+        return invokeLL.booleanValue;
     }
 
-    public static int c(@ColorInt int i) {
-        InterceptResult invokeI;
+    public static boolean f(View view2, dy2 dy2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            int i2 = (16711680 & i) >> 16;
-            int i3 = (65280 & i) >> 8;
-            int i4 = i & 255;
-            float f = (((-16777216) & i) >>> 24) / 255.0f;
-            if (f > 0.0f) {
-                return Color.argb(255, (int) ((i2 * f) + 0.5d), (int) ((i3 * f) + 0.5d), (int) ((i4 * f) + 0.5d));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, view2, dy2Var)) == null) {
+            op1 X = kt2.U().X();
+            if (X != null && X.a(view2, dy2Var)) {
+                return true;
             }
-            return i;
+            return false;
         }
-        return invokeI.intValue;
+        return invokeLL.booleanValue;
     }
 
-    public final void a(@NonNull c02 c02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, c02Var) == null) {
-            this.left = c02Var.r("left", this.left);
-            this.top = c02Var.r("top", this.top);
-            this.width = c02Var.r("width", this.width);
-            this.height = c02Var.r("height", this.height);
-            this.backgroundColor = c02Var.C(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, this.backgroundColor);
-            this.borderColor = c02Var.C("borderColor", this.borderColor);
-            this.borderRadius = c02Var.n("borderRadius", this.borderRadius);
-            this.borderWidth = c02Var.r("borderWidth", this.borderWidth);
-            this.fontSize = c02Var.n(TtmlNode.ATTR_TTS_FONT_SIZE, this.fontSize);
-            this.lineHeight = c02Var.r("lineHeight", this.lineHeight);
-            this.textAlign = c02Var.C(TtmlNode.ATTR_TTS_TEXT_ALIGN, this.textAlign);
-            this.fontWeight = c02Var.C(TtmlNode.ATTR_TTS_FONT_WEIGHT, this.fontWeight);
-            this.hidden = c02Var.m("hidden", this.hidden);
-            this.opacity = c02Var.n(NativeConstants.OPACITY, this.opacity);
-            this.color = c02Var.C("color", this.color);
-            if (fo1.a) {
-                Log.d("ApiButtonStyle", "parseApiButtonStyle = " + toString());
-            }
-        }
-    }
-
-    public void b(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @JavascriptInterface
-    public void onFieldChangedCallback(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (fo1.a) {
-                Log.d("ApiButtonStyle", "onFieldChangedCallback fieldName=" + str);
-            }
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.r();
-            }
-        }
-    }
-
-    public String toString() {
+    public static Context b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "left:" + this.left + ";top:" + this.top + ";width:" + this.width + ";height:" + this.height + ";backgroundColor:" + this.backgroundColor + ";borderColor:" + this.borderColor + ";borderWidth:" + this.borderWidth + ";borderRadius:" + this.borderRadius + ";textAlign:" + this.textAlign + ";fontSize:" + this.fontSize + ";lineHeight:" + this.lineHeight + ";fontWeight:" + this.fontWeight + ";hidden;" + this.hidden + ";opacity:" + this.opacity + ";color:" + this.color;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            op1 X = kt2.U().X();
+            if (X != null) {
+                return X.getContext();
+            }
+            return null;
         }
-        return (String) invokeV.objValue;
+        return (Context) invokeV.objValue;
+    }
+
+    public static void c(wm3 wm3Var) {
+        op1 X;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65538, null, wm3Var) == null) && (X = kt2.U().X()) != null) {
+            X.e(wm3Var);
+        }
+    }
+
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            op1 X = kt2.U().X();
+            if (X != null && X.removeView(view2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void e(wm3 wm3Var) {
+        op1 X;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, wm3Var) == null) && (X = kt2.U().X()) != null) {
+            X.f(wm3Var);
+        }
     }
 }

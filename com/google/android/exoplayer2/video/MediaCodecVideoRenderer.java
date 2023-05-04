@@ -37,7 +37,7 @@ import com.google.android.exoplayer2.util.Util;
 import com.google.android.exoplayer2.video.VideoRendererEventListener;
 import java.nio.ByteBuffer;
 @TargetApi(16)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MediaCodecVideoRenderer extends MediaCodecRenderer {
     public static final String KEY_CROP_BOTTOM = "crop-bottom";
     public static final String KEY_CROP_LEFT = "crop-left";

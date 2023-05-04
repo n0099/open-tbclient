@@ -1,115 +1,70 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebView;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class tb3 extends l32 {
+public class tb3 extends wb3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String j;
-    public String k;
-    public String l;
-    public boolean m;
-    public List<String> n;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948175396, "Lcom/baidu/tieba/tb3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948175396, "Lcom/baidu/tieba/tb3;");
-                return;
-            }
-        }
-        boolean z = fo1.a;
-    }
-
-    @Override // com.baidu.tieba.l32, com.baidu.tieba.ux2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.c);
-        }
-        return invokeV.booleanValue;
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tb3() {
-        super("webView", "viewId");
+    public tb3(u83 u83Var) {
+        super(u83Var, "/swanAPI/removeWebView");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {u83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = true;
     }
 
-    public static tb3 h(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("RemoveWebViewAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            String str = unitedSchemeEntity.getParams().get("params");
-            tb3 tb3Var = new tb3();
-            try {
-                tb3Var.a(new JSONObject(str));
-                return tb3Var;
-            } catch (JSONException e) {
-                v42.d(WebView.LOGTAG, "parsing params occurs exception", e);
-                return null;
+            vb3 h = vb3.h(unitedSchemeEntity);
+            if (!h.isValid()) {
+                x42.c("removeWebView", "params is invalid");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                return true;
             }
-        }
-        return (tb3) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l32, com.baidu.tieba.ux2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        super.a(jSONObject);
-        this.j = jSONObject.optString("src");
-        this.k = jSONObject.optString(TTDownloadField.TT_USERAGENT);
-        this.l = jSONObject.optString("type");
-        JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
-        if (optJSONArray != null && optJSONArray.length() != 0) {
-            this.n = new ArrayList();
-            int length = optJSONArray.length();
-            for (int i = 0; i < length; i++) {
-                this.n.add(optJSONArray.optString(i));
+            du1 du1Var = (du1) kt2.U().A(h.c);
+            if (du1Var == null) {
+                x42.c("removeWebView", "viewManager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return true;
+            } else if (!du1Var.X(h)) {
+                x42.c("removeWebView", "remove webview widget fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return true;
+            } else {
+                x42.i("removeWebView", "remove webview widget success");
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
             }
         }
+        return invokeLLLL.booleanValue;
     }
 }

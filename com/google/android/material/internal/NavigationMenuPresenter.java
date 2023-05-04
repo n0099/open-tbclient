@@ -468,7 +468,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     /* loaded from: classes8.dex */
     public static class NormalViewHolder extends ViewHolder {
         public NormalViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup, View.OnClickListener onClickListener) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0230, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0233, viewGroup, false));
             this.itemView.setOnClickListener(onClickListener);
         }
     }
@@ -476,14 +476,14 @@ public class NavigationMenuPresenter implements MenuPresenter {
     /* loaded from: classes8.dex */
     public static class SeparatorViewHolder extends ViewHolder {
         public SeparatorViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0232, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0235, viewGroup, false));
         }
     }
 
     /* loaded from: classes8.dex */
     public static class SubheaderViewHolder extends ViewHolder {
         public SubheaderViewHolder(@NonNull LayoutInflater layoutInflater, ViewGroup viewGroup) {
-            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0233, viewGroup, false));
+            super(layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0236, viewGroup, false));
         }
     }
 
@@ -694,7 +694,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
     @Override // androidx.appcompat.view.menu.MenuPresenter
     public MenuView getMenuView(ViewGroup viewGroup) {
         if (this.menuView == null) {
-            NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0234, viewGroup, false);
+            NavigationMenuView navigationMenuView = (NavigationMenuView) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0237, viewGroup, false);
             this.menuView = navigationMenuView;
             navigationMenuView.setAccessibilityDelegateCompat(new NavigationMenuViewAccessibilityDelegate(this.menuView));
             if (this.adapter == null) {
@@ -704,7 +704,7 @@ public class NavigationMenuPresenter implements MenuPresenter {
             if (i != -1) {
                 this.menuView.setOverScrollMode(i);
             }
-            this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) this.menuView, false);
+            this.headerLayout = (LinearLayout) this.layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0234, (ViewGroup) this.menuView, false);
             this.menuView.setAdapter(this.adapter);
         }
         return this.menuView;

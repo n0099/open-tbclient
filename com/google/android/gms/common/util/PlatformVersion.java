@@ -4,7 +4,7 @@ import android.os.Build;
 import com.google.android.gms.common.annotation.KeepForSdk;
 @VisibleForTesting
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class PlatformVersion {
     @KeepForSdk
     public static boolean isAtLeastHoneycomb() {

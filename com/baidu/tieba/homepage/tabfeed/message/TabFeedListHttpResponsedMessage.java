@@ -3,7 +3,7 @@ package com.baidu.tieba.homepage.tabfeed.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.yt7;
+import com.baidu.tieba.tv7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import tbclient.Error;
 public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yt7 tabFeedData;
+    public tv7 tabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -54,9 +54,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage {
             if (getError() != 0 || activityPageResIdl.data == null) {
                 return;
             }
-            yt7 yt7Var = new yt7();
-            this.tabFeedData = yt7Var;
-            yt7Var.j(activityPageResIdl.data);
+            tv7 tv7Var = new tv7();
+            this.tabFeedData = tv7Var;
+            tv7Var.j(activityPageResIdl.data);
         }
     }
 }

@@ -1,140 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Build;
-import android.telephony.SubscriptionInfo;
-import android.telephony.SubscriptionManager;
-import android.text.TextUtils;
-import android.util.Pair;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.cmic.sso.sdk.auth.AuthnHelper;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class nn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, str, z)) == null) ? z ? str : "" : (String) invokeLZ.objValue;
-    }
-
-    public static int a(Context context) {
+    public static byte[] a(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-                if (!ol1.g(context).e()) {
-                    return -1000;
-                }
-                if (Build.VERSION.SDK_INT < 24) {
-                    return -1001;
-                }
-                if (!en1.n(context)) {
-                    return -1002;
-                }
-                return SubscriptionManager.getDefaultDataSubscriptionId();
-            } catch (Throwable th) {
-                en1.d(th);
-                return -1001;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
+            byte[] bArr2 = new byte[256];
+            for (int i = 0; i < 256; i++) {
+                bArr2[i] = (byte) i;
             }
+            if (bArr != null && bArr.length != 0) {
+                int i2 = 0;
+                int i3 = 0;
+                for (int i4 = 0; i4 < 256; i4++) {
+                    i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
+                    byte b = bArr2[i4];
+                    bArr2[i4] = bArr2[i3];
+                    bArr2[i3] = b;
+                    i2 = (i2 + 1) % bArr.length;
+                }
+                return bArr2;
+            }
+            return null;
         }
-        return invokeL.intValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public static Pair<Integer, Integer> c(Context context) {
-        InterceptResult invokeL;
-        int i;
-        int parseInt;
-        int parseInt2;
+    public static byte[] b(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i2 = -1;
-            Pair<Integer, Integer> pair = new Pair<>(-1, -1);
-            try {
-                JSONObject networkType = AuthnHelper.getInstance(context).getNetworkType(context);
-                if (networkType == null) {
-                    return pair;
-                }
-                if (networkType.has("networktype")) {
-                    parseInt = Integer.parseInt(networkType.optString("networktype", "-1"));
-                    parseInt2 = Integer.parseInt(networkType.optString("operatortype", "-1"));
-                } else if (networkType.has("networkType")) {
-                    parseInt = Integer.parseInt(networkType.optString("networkType", "-1"));
-                    parseInt2 = Integer.parseInt(networkType.optString("operatorType", "-1"));
-                } else {
-                    i = -1;
-                    return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
-                }
-                i = parseInt2;
-                i2 = parseInt;
-                return Pair.create(Integer.valueOf(i2), Integer.valueOf(i));
-            } catch (Throwable th) {
-                en1.d(th);
-                return pair;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
+            if (bArr != null && bArr2 != null) {
+                return d(bArr, bArr2);
             }
+            return null;
         }
-        return (Pair) invokeL.objValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static Pair<Integer, String[]> d(Context context) {
-        InterceptResult invokeL;
+    public static byte[] c(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            try {
-                if (!ol1.g(context).e()) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000), String.valueOf(-1000)});
-                }
-                if (Build.VERSION.SDK_INT < 22) {
-                    return new Pair<>(-2, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!kn1.a(context, com.kuaishou.weapon.p0.h.c)) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
-                }
-                if (!en1.n(context)) {
-                    return new Pair<>(-1, new String[]{String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002), String.valueOf(-1002)});
-                }
-                List<SubscriptionInfo> activeSubscriptionInfoList = ((SubscriptionManager) context.getSystemService("telephony_subscription_service")).getActiveSubscriptionInfoList();
-                if (activeSubscriptionInfoList == null) {
-                    return new Pair<>(0, new String[]{String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003), String.valueOf(-1003)});
-                }
-                String[] strArr = new String[4];
-                int i = 0;
-                for (SubscriptionInfo subscriptionInfo : activeSubscriptionInfoList) {
-                    int i2 = i * 2;
-                    int simSlotIndex = subscriptionInfo.getSimSlotIndex();
-                    int subscriptionId = subscriptionInfo.getSubscriptionId();
-                    String iccId = subscriptionInfo.getIccId();
-                    if (TextUtils.isEmpty(iccId)) {
-                        iccId = String.valueOf(-1003);
-                    }
-                    strArr[i2] = simSlotIndex + "_" + subscriptionId + "_" + iccId;
-                    CharSequence carrierName = subscriptionInfo.getCarrierName();
-                    if (carrierName != null) {
-                        strArr[i2 + 1] = carrierName.toString();
-                    } else {
-                        strArr[i2 + 1] = String.valueOf(-1003);
-                    }
-                    i++;
-                    if (i >= 2) {
-                        break;
-                    }
-                }
-                for (int i3 = 0; i3 < 4; i3++) {
-                    if (TextUtils.isEmpty(strArr[i3])) {
-                        strArr[i3] = String.valueOf(-1003);
-                    }
-                }
-                return new Pair<>(Integer.valueOf(i), strArr);
-            } catch (Throwable th) {
-                en1.d(th);
-                return new Pair<>(-1, new String[]{String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001), String.valueOf(-1001)});
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
+            if (bArr != null && bArr2 != null) {
+                return d(bArr, bArr2);
             }
+            return null;
         }
-        return (Pair) invokeL.objValue;
+        return (byte[]) invokeLL.objValue;
+    }
+
+    public static byte[] d(byte[] bArr, byte[] bArr2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
+            byte[] a = a(bArr2);
+            byte[] bArr3 = new byte[bArr.length];
+            int i = 0;
+            int i2 = 0;
+            for (int i3 = 0; i3 < bArr.length; i3++) {
+                i = (i + 1) & 255;
+                i2 = ((a[i] & 255) + i2) & 255;
+                byte b = a[i];
+                a[i] = a[i2];
+                a[i2] = b;
+                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
+                bArr3[i3] = (byte) (bArr3[i3] ^ ExifInterface.START_CODE);
+            }
+            return bArr3;
+        }
+        return (byte[]) invokeLL.objValue;
     }
 }

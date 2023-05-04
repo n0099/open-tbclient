@@ -1,58 +1,65 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.google.zxing.client.result.ResultParser;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.StringWriter;
 /* loaded from: classes4.dex */
-public final class ef0 {
+public class ef0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2) {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-            if (str2.length() > 2001) {
-                int i = 0;
-                while (i < str2.length()) {
-                    int i2 = i + 2001;
-                    if (i2 < str2.length()) {
-                        b(3, str, str2.substring(i, i2));
-                    } else {
-                        b(3, str, str2.substring(i));
-                    }
-                    i = i2;
-                }
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException e) {
+                e.printStackTrace();
             }
-            b(3, str, str2);
         }
     }
 
-    public static void b(int i, String str, String str2) {
+    public static String b(InputStream inputStream) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(65537, null, i, str, str2) == null) {
-            if (i != 2) {
-                if (i != 3) {
-                    if (i != 4) {
-                        if (i != 5) {
-                            if (i != 6) {
-                                Log.d(str, str2);
-                                return;
-                            } else {
-                                Log.e(str, str2);
-                                return;
-                            }
-                        }
-                        Log.w(str, str2);
-                        return;
-                    }
-                    Log.i(str, str2);
-                    return;
-                }
-                Log.d(str, str2);
-                return;
-            }
-            Log.v(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return c(inputStream, null);
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(InputStream inputStream, String str) throws IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream != null) {
+                if (TextUtils.isEmpty(str)) {
+                    str = System.getProperty("file.encoding", IMAudioTransRequest.CHARSET);
+                }
+                InputStreamReader inputStreamReader = new InputStreamReader(inputStream, str);
+                StringWriter stringWriter = new StringWriter();
+                char[] cArr = new char[4096];
+                for (int read = inputStreamReader.read(cArr); read > 0; read = inputStreamReader.read(cArr)) {
+                    stringWriter.write(cArr, 0, read);
+                }
+                String stringWriter2 = stringWriter.toString();
+                inputStreamReader.close();
+                stringWriter.close();
+                if (IMAudioTransRequest.CHARSET.equalsIgnoreCase(str) && stringWriter2.startsWith(ResultParser.BYTE_ORDER_MARK)) {
+                    return stringWriter2.substring(1);
+                }
+                return stringWriter2;
+            }
+            throw new IllegalArgumentException("stream may not be null.");
+        }
+        return (String) invokeLL.objValue;
     }
 }

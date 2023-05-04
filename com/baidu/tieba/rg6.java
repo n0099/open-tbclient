@@ -1,107 +1,83 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.text.TextUtils;
+import android.webkit.MimeTypeMap;
+import androidx.annotation.NonNull;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class rg6 {
     public static /* synthetic */ Interceptable $ic;
-    public static rg6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<StatisticItem> a;
 
-    public rg6() {
+    @NonNull
+    public static String a(String str) {
+        InterceptResult invokeL;
+        int lastIndexOf;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static rg6 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (rg6.class) {
-                    if (b == null) {
-                        b = new rg6();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            String c = c(str);
+            if (!TextUtils.isEmpty(c)) {
+                try {
+                    int lastIndexOf2 = c.lastIndexOf(47);
+                    if (lastIndexOf2 >= 0) {
+                        c = c.substring(lastIndexOf2 + 1);
                     }
+                    if (!TextUtils.isEmpty(c) && (lastIndexOf = c.lastIndexOf(46)) >= 0) {
+                        return c.substring(lastIndexOf + 1);
+                    }
+                    return "";
+                } catch (Exception unused) {
+                    return "";
                 }
             }
-            return b;
+            return "";
         }
-        return (rg6) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public void a(StatisticItem statisticItem) {
+    public static String b(String str) {
+        InterceptResult invokeL;
+        String mimeTypeFromExtension;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
-            return;
-        }
-        if (this.a == null) {
-            this.a = new ArrayList();
-        }
-        this.a.add(statisticItem);
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        int i = -1;
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null && i != statisticItem.getPosition()) {
-                i = statisticItem.getPosition();
-                statisticItem.delete(TiebaStatic.Params.OBJ_PARAM2);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
-                TiebaStatic.log(statisticItem);
-            }
-        }
-        this.a.clear();
-    }
-
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || ListUtils.getCount(this.a) == 0) {
-            return;
-        }
-        for (StatisticItem statisticItem : this.a) {
-            if (statisticItem != null) {
-                if (statisticItem.getKey() != null && !statisticItem.getKey().equals("c13756") && !statisticItem.getKey().equals("c13750") && !statisticItem.getKey().equals("c13751")) {
-                    statisticItem.param("obj_type", z ? 1 : 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String str2 = null;
+            try {
+                String fileExtensionFromUrl = MimeTypeMap.getFileExtensionFromUrl(str);
+                if (!TextUtils.isEmpty(fileExtensionFromUrl) && !TextUtils.equals(fileExtensionFromUrl, StringUtil.NULL_STRING)) {
+                    if (TextUtils.equals(fileExtensionFromUrl, "json")) {
+                        mimeTypeFromExtension = "application/json";
+                    } else {
+                        mimeTypeFromExtension = MimeTypeMap.getSingleton().getMimeTypeFromExtension(fileExtensionFromUrl);
+                    }
+                    str2 = mimeTypeFromExtension;
                 }
-                TiebaStatic.log(statisticItem);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            if (TextUtils.isEmpty(str2)) {
+                return "*/*";
+            }
+            return str2;
         }
-        this.a.clear();
+        return (String) invokeL.objValue;
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            int indexOf = str.indexOf("?");
+            if (indexOf > 0) {
+                return str.substring(0, indexOf);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
     }
 }

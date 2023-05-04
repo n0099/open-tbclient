@@ -360,7 +360,7 @@ public class AndroidApplication extends Activity implements q1 {
             if (configuration.hardKeyboardHidden != 1) {
                 z = false;
             }
-            this.b.r(z);
+            this.b.s(z);
         }
     }
 

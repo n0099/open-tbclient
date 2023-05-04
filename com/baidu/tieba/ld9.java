@@ -1,34 +1,15 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetMoreMsg.MsgContent;
 /* loaded from: classes5.dex */
-public class ld9 {
+public class ld9 implements hy5<kd9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public int g;
-    public int h;
-    public int i;
-    public String j;
-    public String k;
-    public long l;
-    public long m;
-    public boolean n;
-    public boolean o;
-    public int p;
-    public String q;
-    public String r;
-    public long s;
-    public long t;
 
     public ld9() {
         Interceptable interceptable = $ic;
@@ -40,43 +21,19 @@ public class ld9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.k = "";
     }
 
-    public ld9(MsgContent msgContent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hy5
+    /* renamed from: b */
+    public kd9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {msgContent};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new kd9();
         }
-        this.k = "";
-        this.d = msgContent.title;
-        this.q = msgContent.url;
-        this.f = msgContent.src;
-        this.e = msgContent.text;
-        a(this);
-    }
-
-    public static void a(ld9 ld9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, ld9Var) == null) {
-            ld9Var.i = 0;
-            ld9Var.g = 4;
-            ld9Var.h = 4;
-            ld9Var.l = System.currentTimeMillis();
-            ld9Var.n = true;
-        }
+        return (kd9) invokeV.objValue;
     }
 }

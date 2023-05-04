@@ -1,105 +1,146 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
+import android.app.Activity;
+import android.graphics.drawable.Drawable;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.URLEncoder;
+import tbclient.FrsTabInfo;
 /* loaded from: classes5.dex */
 public class jl7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            switch (i) {
-                case 202001:
-                case 205001:
-                case 309456:
-                case CmdConfigHttp.CMD_CHECK_REAL_NAME /* 1003325 */:
-                    return true;
-                default:
-                    return false;
-            }
-        }
-        return invokeI.booleanValue;
-    }
-
     /* loaded from: classes5.dex */
-    public static class a implements Runnable {
+    public static class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageView a;
 
-        public a() {
+        public a(ImageView imageView) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageView};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = imageView;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Drawable maskDrawable;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                jl7.e();
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                view2.setTag(Boolean.valueOf(!((Boolean) view2.getTag()).booleanValue()));
+                ImageView imageView = this.a;
+                if (((Boolean) view2.getTag()).booleanValue()) {
+                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_complete16_svg, null);
+                } else {
+                    maskDrawable = SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null);
+                }
+                imageView.setImageDrawable(maskDrawable);
             }
         }
     }
 
-    public static void d() {
+    /* loaded from: classes5.dex */
+    public static class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ImageView a;
+        public final /* synthetic */ FrsTabInfo b;
+        public final /* synthetic */ FrsTabInfo c;
+
+        public b(ImageView imageView, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {imageView, frsTabInfo, frsTabInfo2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = imageView;
+            this.b = frsTabInfo;
+            this.c = frsTabInfo2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                f55.m().w("key_frs_move_area_tip", !((Boolean) this.a.getTag()).booleanValue());
+                f67.h().m(this.b.tab_id.intValue(), this.c.tab_id.intValue());
+            }
+        }
+    }
+
+    public static void a(TbPageContext tbPageContext, FrsTabInfo frsTabInfo, FrsTabInfo frsTabInfo2) {
+        String format;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!ii.E()) {
-                TbadkCoreApplication.getInst().handler.post(new a());
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, tbPageContext, frsTabInfo, frsTabInfo2) == null) && frsTabInfo != null && frsTabInfo2 != null && tbPageContext != null && tbPageContext.getPageActivity() != null) {
+            Activity pageActivity = tbPageContext.getPageActivity();
+            LinearLayout linearLayout = new LinearLayout(pageActivity);
+            linearLayout.setOrientation(0);
+            linearLayout.setGravity(16);
+            linearLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), UtilHelper.getDimenPixelSize(R.dimen.M_H_X008), UtilHelper.getDimenPixelSize(R.dimen.M_W_X012), 0);
+            ImageView imageView = new ImageView(pageActivity);
+            imageView.setImageDrawable(SvgManager.getInstance().getMaskDrawable(R.drawable.ic_icon_mask_use_check16_svg, null));
+            linearLayout.addView(imageView, new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds39), UtilHelper.getDimenPixelSize(R.dimen.tbds39)));
+            TextView textView = new TextView(pageActivity);
+            textView.setText(R.string.no_tip_again);
+            textView.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X003), 0, 0, 0);
+            g35 d = g35.d(textView);
+            d.B(R.dimen.T_X07);
+            d.w(R.color.CAM_X0108);
+            d.C(R.string.F_X01);
+            linearLayout.addView(textView);
+            imageView.setTag(Boolean.FALSE);
+            imageView.setOnClickListener(new a(imageView));
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(tbPageContext.getPageActivity());
+            tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0799);
+            if (frsTabInfo.is_general_tab.intValue() != 0 && frsTabInfo.tab_type.intValue() != 100) {
+                String string = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0797);
+                String str = frsTabInfo.tab_name;
+                format = String.format(string, str, frsTabInfo2.tab_name, str);
             } else {
-                e();
+                String string2 = tbPageContext.getString(R.string.obfuscated_res_0x7f0f0798);
+                String str2 = frsTabInfo.tab_name;
+                String str3 = frsTabInfo2.tab_name;
+                format = String.format(string2, str2, str3, str2, str3);
             }
-        }
-    }
-
-    public static boolean b(NetWork netWork) {
-        InterceptResult invokeL;
-        int netErrorCode;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, netWork)) == null) {
-            if (netWork == null) {
-                return false;
-            }
-            if (netWork.isNetSuccess()) {
-                netErrorCode = netWork.getServerErrorCode();
-            } else {
-                netErrorCode = netWork.getNetErrorCode();
-            }
-            if (netErrorCode != 1990055) {
-                return false;
-            }
-            d();
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            Context applicationContext = TbadkCoreApplication.getInst().getApplicationContext();
-            jt4.A(applicationContext, "", UrlSchemaHelper.REAL_NAME_AUTH_URL + "&u=" + URLEncoder.encode(UrlSchemaHelper.FINISH_THIS_WEBVIEW), true, true, true, true, true, false);
+            tBAlertBuilder.q(format);
+            tBAlertBuilder.n(3);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.k(linearLayout);
+            tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.next_time, TBAlertConfig.OperateBtnStyle.SECONDARY), new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0796, TBAlertConfig.OperateBtnStyle.MAIN, new b(imageView, frsTabInfo, frsTabInfo2)));
+            tBAlertBuilder.i();
+            tBAlertBuilder.z();
         }
     }
 }

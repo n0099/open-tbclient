@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.in;
-import com.baidu.tieba.q19;
+import com.baidu.tieba.j49;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -47,19 +47,19 @@ public class PersonInfoAddUserPicViewHolder extends TypeAdapter.ViewHolder {
         this.d = 3;
         this.a = view2.findViewById(R.id.obfuscated_res_0x7f09012c);
         this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090125);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923e4);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923fd);
     }
 
     public void a(in inVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, inVar) != null) || !(inVar instanceof q19)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, inVar) != null) || !(inVar instanceof j49)) {
             return;
         }
         this.e = inVar;
-        q19 q19Var = (q19) inVar;
+        j49 j49Var = (j49) inVar;
         SkinManager.setImageResource(this.b, R.drawable.icon_mine_pic_add);
-        if (q19Var.a() > 0) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08de), Integer.valueOf(q19Var.a())));
+        if (j49Var.a() > 0) {
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f08ef), Integer.valueOf(j49Var.a())));
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());

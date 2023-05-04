@@ -4,7 +4,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.annotation.WorkerThread;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.u68;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.ChatMsgProcessor;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.apache.http.client.methods.HttpDelete;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class Action {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,14 +25,14 @@ public class Action {
     @Nullable
     public final a d;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public interface a<Msg extends BaseMsg> {
         @WorkerThread
-        void a(@NonNull Op op, @Nullable Msg msg, @NonNull u68.j jVar);
+        void a(@NonNull Op op, @Nullable Msg msg, @NonNull ChatMsgProcessor.j jVar);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Op {
         public static final /* synthetic */ Op[] $VALUES;
         public static /* synthetic */ Interceptable $ic;

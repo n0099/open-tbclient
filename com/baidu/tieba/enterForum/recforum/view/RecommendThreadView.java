@@ -11,8 +11,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.uq6;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.ms6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,16 +45,16 @@ public class RecommendThreadView extends LinearLayout {
         }
     }
 
-    public void setData(uq6 uq6Var) {
+    public void setData(ms6 ms6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, uq6Var) != null) || uq6Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048580, this, ms6Var) != null) || ms6Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(uq6Var.b())) {
-            this.a.N(uq6Var.b(), 10, false);
+        if (!TextUtils.isEmpty(ms6Var.b())) {
+            this.a.N(ms6Var.b(), 10, false);
         }
-        if (!TextUtils.isEmpty(uq6Var.d())) {
-            this.b.setText(uq6Var.d());
+        if (!TextUtils.isEmpty(ms6Var.d())) {
+            this.b.setText(ms6Var.d());
         }
         d();
     }
@@ -116,14 +116,14 @@ public class RecommendThreadView extends LinearLayout {
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
             setOrientation(1);
             setLayoutParams(layoutParams);
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d07d0, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d07dc, this);
         }
     }
 
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091d33);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091d43);
             this.a = tbImageView;
             tbImageView.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
@@ -131,7 +131,7 @@ public class RecommendThreadView extends LinearLayout {
             this.a.setDrawBorder(true);
             this.a.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070743));
             this.a.setBorderSurroundContent(true);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d32);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091d42);
             d();
         }
     }
@@ -141,7 +141,7 @@ public class RecommendThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.setPlaceHolder(2);
             this.a.setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
-            r25 d = r25.d(this.b);
+            g35 d = g35.d(this.b);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0105);
         }

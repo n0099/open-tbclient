@@ -1,111 +1,182 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Dialog;
+import android.view.ViewGroup;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.view.NavigationBarCoverTip;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ia5 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static long a = -1;
+    public static /* synthetic */ Interceptable $ic;
+    public static ia5 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public da5 a;
+    public String b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947846796, "Lcom/baidu/tieba/ia5;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public ia5() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947846796, "Lcom/baidu/tieba/ia5;");
-        }
+        this.a = b();
     }
 
-    public static int a() {
+    public static ia5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                return 3;
-            }
-            return q45.m().n("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
-                int a2 = a();
-                if (a2 != 2) {
-                    if (a2 == 3) {
-                        return R.drawable.icon_mask_share_wechat40_svg;
+            if (c == null) {
+                synchronized (ia5.class) {
+                    if (c == null) {
+                        c = new ia5();
                     }
-                    if (a2 != 4) {
-                        if (a2 != 6) {
-                            if (a2 != 8) {
-                                return R.drawable.icon_mask_share_wechat40_svg;
-                            }
-                            return R.drawable.icon_mask_share_qq40_svg;
-                        }
-                        return R.drawable.icon_mask_share_weibo40_svg;
-                    }
-                    return R.drawable.icon_mask_share_qqzone40_svg;
                 }
-                return R.drawable.icon_mask_share_circle40_svg;
             }
-            return -1;
+            return c;
+        }
+        return (ia5) invokeV.objValue;
+    }
+
+    public final da5 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2156675, da5.class);
+            if (runTask != null) {
+                return (da5) runTask.getData();
+            }
+            return null;
+        }
+        return (da5) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            da5 da5Var = this.a;
+            if (da5Var != null) {
+                return da5Var.g();
+            }
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public static long c() {
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            long j = a;
-            if (j >= 0) {
-                return j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            da5 da5Var = this.a;
+            if (da5Var != null) {
+                return da5Var.b();
             }
-            if (!hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-                a = q45.m().o("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            da5 da5Var = this.a;
+            if (da5Var != null) {
+                return da5Var.a();
             }
-            return a;
+            return false;
         }
-        return invokeV.longValue;
+        return invokeV.booleanValue;
     }
 
-    public static void d(int i) {
+    public void l() {
+        da5 da5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            q45.m().z("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
-            q45.m().H("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
-            a = 0L;
-        }
-    }
-
-    public static void e(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
-            q45.m().A("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
-            a = j;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && (da5Var = this.a) != null) {
+            da5Var.c();
         }
     }
 
-    public static void f() {
+    public void a(int i, TbPageContext tbPageContext, ViewGroup viewGroup, boolean z) {
+        da5 da5Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            a = -1L;
+        if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), tbPageContext, viewGroup, Boolean.valueOf(z)}) == null) && (da5Var = this.a) != null) {
+            da5Var.f(i, tbPageContext, viewGroup, z);
         }
+    }
+
+    public void h(boolean z, int i, int i2) {
+        da5 da5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2)}) == null) && (da5Var = this.a) != null) {
+            da5Var.i(z, i, i2);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public NavigationBarCoverTip j(Activity activity, ViewGroup viewGroup) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, viewGroup)) == null) {
+            da5 da5Var = this.a;
+            if (da5Var != null) {
+                return da5Var.e(activity, viewGroup);
+            }
+            return null;
+        }
+        return (NavigationBarCoverTip) invokeLL.objValue;
+    }
+
+    public void m(boolean z, long j) {
+        da5 da5Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), Long.valueOf(j)}) == null) && (da5Var = this.a) != null) {
+            da5Var.h(z, j);
+        }
+    }
+
+    public Dialog k(int i, TbPageContext tbPageContext, uw5 uw5Var, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), tbPageContext, uw5Var, Boolean.valueOf(z)})) == null) {
+            da5 da5Var = this.a;
+            if (da5Var != null) {
+                return da5Var.d(i, tbPageContext, uw5Var, z);
+            }
+            return null;
+        }
+        return (Dialog) invokeCommon.objValue;
     }
 }

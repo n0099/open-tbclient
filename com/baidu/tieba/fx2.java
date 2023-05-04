@@ -1,158 +1,192 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fx2 extends l32 {
+public class fx2 implements vu2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public ex2 B;
-    public boolean C;
-    public String j;
-    public boolean k;
-    public String l;
-    public String m;
-    public boolean n;
-    public boolean o;
-    public int p;
-    public boolean q;
-    public boolean r;
-    public String s;
-    public String t;
-    public boolean u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public int y;
-    public boolean z;
+    public pt1 a;
+    public String b;
+    public hx2 c;
+    public boolean d;
+    public Context e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947779433, "Lcom/baidu/tieba/fx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947779433, "Lcom/baidu/tieba/fx2;");
+    @Override // com.baidu.tieba.vu2
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu2
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        }
+    }
+
+    public fx2(Context context, @NonNull hx2 hx2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, hx2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = fo1.a;
+        this.e = context;
+        this.c = hx2Var;
+        this.b = hx2Var.j;
+        e();
+        a();
     }
 
-    @Override // com.baidu.tieba.l32, com.baidu.tieba.ux2
-    public boolean isValid() {
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.b)) {
+            wu2.a(this);
+        }
+    }
+
+    @Override // com.baidu.tieba.vu2
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return !TextUtils.isEmpty(this.j);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu2
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public hx2 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (hx2) invokeV.objValue;
+    }
+
+    public pt1 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.a == null) {
+                x42.i("VrVideo", "create player");
+                this.a = er2.D0().create();
+            }
+            return this.a;
+        }
+        return (pt1) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu2
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            hx2 hx2Var = this.c;
+            if (hx2Var != null) {
+                return hx2Var.t;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu2
+    public boolean onBackPressed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            x42.i("VrVideo", "onBackPressed");
+            pt1 pt1Var = this.a;
+            if (pt1Var != null && pt1Var.onBackPressed()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fx2() {
-        super("vrvideo", "viewId");
+    @Override // com.baidu.tieba.vu2
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            x42.i("VrVideo", MissionEvent.MESSAGE_DESTROY);
+            pt1 pt1Var = this.a;
+            if (pt1Var != null) {
+                pt1Var.stop();
+                this.a = null;
             }
+            wu2.k(this);
         }
-        this.j = "";
-        this.k = false;
-        this.l = "";
-        this.m = "0";
-        this.n = false;
-        this.o = false;
-        this.p = 0;
-        this.r = true;
-        this.s = "";
-        this.t = "";
-        this.u = true;
-        this.v = true;
-        this.w = true;
-        this.x = true;
-        this.y = -1;
-        this.z = true;
-        this.A = true;
-        this.B = new ex2();
-        this.C = true;
     }
 
-    public static fx2 h(JSONObject jSONObject, @NonNull fx2 fx2Var) {
-        InterceptResult invokeLL;
+    public void g(hx2 hx2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, fx2Var)) == null) {
-            fx2 fx2Var2 = new fx2();
-            if (jSONObject != null) {
-                fx2Var2.e(jSONObject, fx2Var);
-                fx2Var2.j = jSONObject.optString("videoId", fx2Var.j);
-                fx2Var2.n = jSONObject.optBoolean("autoplay", fx2Var.n);
-                fx2Var2.k = jSONObject.optBoolean("muted", fx2Var.k);
-                fx2Var2.m = jSONObject.optString("initialTime", fx2Var.m);
-                fx2Var2.l = jSONObject.optString(NativeConstants.POSTER, fx2Var.l);
-                fx2Var2.p = jSONObject.optInt(CriusAttrConstants.POSITION, fx2Var.p);
-                fx2Var2.q = jSONObject.optBoolean("fullScreen", fx2Var.q);
-                fx2Var2.o = jSONObject.optBoolean("loop", fx2Var.o);
-                fx2Var2.r = jSONObject.optBoolean("controls", fx2Var.r);
-                fx2Var2.s = i(jSONObject.optString("src", fx2Var.s));
-                fx2Var2.A = !df3.E(jSONObject.optString("src", fx2Var.s));
-                fx2Var2.u = jSONObject.optBoolean("showPlayBtn", fx2Var.u);
-                fx2Var2.v = jSONObject.optBoolean("showMuteBtn", fx2Var.v);
-                fx2Var2.w = jSONObject.optBoolean("showCenterPlayBtn", fx2Var.w);
-                fx2Var2.x = jSONObject.optBoolean("showProgress", fx2Var.x);
-                fx2Var2.z = jSONObject.optBoolean("showFullscreenBtn", fx2Var.z);
-                fx2Var2.t = jSONObject.optString("sanId", fx2Var.t);
-                fx2Var2.B = fx2Var2.B.a(jSONObject.optJSONObject("vrVideoMode"));
-                fx2Var2.C = jSONObject.optBoolean("showNoWifiTip", fx2Var.C);
+        if (interceptable == null || interceptable.invokeL(1048582, this, hx2Var) == null) {
+            x42.i("VrVideo", "Open Player " + hx2Var.j);
+            pt1 pt1Var = this.a;
+            if (pt1Var != null) {
+                pt1Var.e(hx2Var, this.e);
             }
-            return fx2Var2;
+            this.c = hx2Var;
         }
-        return (fx2) invokeLL.objValue;
     }
 
-    public static String i(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vu2
+    public void k(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (df3.E(str) && v73.M() != null) {
-                return df3.H(str, v73.M());
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+            if (z) {
+                if (this.d) {
+                    e().resume();
+                }
+                e().b();
+            } else if (this.a != null) {
+                this.d = e().isPlaying();
+                e().pause();
+                e().c();
             }
-            return str;
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l32
-    public String toString() {
-        InterceptResult invokeV;
+    public void h(hx2 hx2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", mAutoPlay=" + this.n + ", mShowNoWifiTip=" + this.C + ", mLoop=" + this.o + ", mPos=" + this.p + ", mFullScreen=" + this.q + ", mShowControlPanel=" + this.r + ", mSrc='" + this.s + "', mSanId='" + this.t + "', mShowPlayBtn=" + this.u + ", mShowMuteBtn=" + this.v + ", mShowCenterPlayBtn=" + this.w + ", mShowProgress=" + this.x + ", mDirection=" + this.y + ", mShowFullscreenBtn=" + this.z + ", mIsRemoteFile=" + this.A + ", mVrVideoMode=" + this.B.toString() + '}';
+        if (interceptable == null || interceptable.invokeL(1048583, this, hx2Var) == null) {
+            x42.b("VrVideo", "update 接口");
+            pt1 pt1Var = this.a;
+            if (pt1Var != null) {
+                pt1Var.d(hx2Var, true);
+            }
+            this.c = hx2Var;
         }
-        return (String) invokeV.objValue;
     }
 }

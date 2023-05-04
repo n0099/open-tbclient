@@ -78,7 +78,7 @@ public class ShareFromFrsView extends LinearLayout {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return hi.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f06b5);
+            return hi.cutString(str, 8) + this.g.getString(R.string.obfuscated_res_0x7f0f06c2);
         }
         return (String) invokeL.objValue;
     }

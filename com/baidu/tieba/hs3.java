@@ -1,69 +1,321 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.cpu.booster.utils.CpuType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes4.dex */
-public class hs3 implements gs3 {
+public class hs3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hs3 d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public is3 a;
+    public final List<is3> a;
     public boolean b;
+    public Timer c;
 
-    public hs3(@NonNull Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947834241, "Lcom/baidu/tieba/hs3;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947834241, "Lcom/baidu/tieba/hs3;");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends TimerTask {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hs3 a;
+
+        public a(hs3 hs3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hs3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hs3Var;
+        }
+
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.i();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-737054461, "Lcom/baidu/tieba/hs3$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-737054461, "Lcom/baidu/tieba/hs3$b;");
+                    return;
+                }
+            }
+            int[] iArr = new int[CpuType.values().length];
+            a = iArr;
+            try {
+                iArr[CpuType.Mtk.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[CpuType.QualComm.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[CpuType.Unknown.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public hs3(Context context) {
+        long j;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        c(context);
-    }
-
-    @Override // com.baidu.tieba.gs3
-    public void a() {
-        is3 is3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (is3Var = this.a) != null && is3Var.b()) {
-            this.b = false;
-            this.a.c(6, "", new int[0]);
-            this.a.c(3, "", new int[0]);
-            this.a.c(12, "", new int[0]);
-            this.a.c(9, "", new int[0]);
+        this.a = new ArrayList();
+        if (e) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
+        }
+        a(context.getApplicationContext());
+        if (e) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("CPU-Booster", "collect booster cost - " + (currentTimeMillis - j) + "ms");
         }
     }
 
-    @Override // com.baidu.tieba.gs3
-    public void b(int i) {
-        is3 is3Var;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (is3Var = this.a) != null && is3Var.b() && this.a.c(12, "", new int[0]) == 0) {
-            this.b = true;
-            this.a.c(5, "", new int[0]);
-            this.a.c(2, "", new int[0]);
-            this.a.c(11, "", new int[0]);
-            this.a.c(8, "", new int[0]);
-            this.a.c(39, "", new int[0]);
+        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
+            e = z;
         }
     }
 
-    public final void c(Context context) {
+    public static hs3 d(@NonNull Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = is3.a(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (d == null) {
+                synchronized (hs3.class) {
+                    if (d == null) {
+                        d = new hs3(context);
+                    }
+                }
+            }
+            return d;
+        }
+        return (hs3) invokeL.objValue;
+    }
+
+    public static void e(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context) == null) {
+            if (e) {
+                Log.d("CPU-Booster", "cpu-booster preInit");
+            }
+            d(context);
+        }
+    }
+
+    public final int c(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            if (i < 0) {
+                return 200;
+            }
+            return Math.min(i, 5000);
+        }
+        return invokeI.intValue;
+    }
+
+    public final void a(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            if (ws3.a()) {
+                this.a.add(new js3(context));
+                this.a.add(new ls3(context));
+            } else if (ws3.b()) {
+                this.a.add(new rs3(context));
+            }
+            int i = b.a[vs3.h().ordinal()];
+            if (i != 1) {
+                if (i == 2) {
+                    this.a.add(new ts3(context));
+                    return;
+                }
+                return;
+            }
+            this.a.add(new ps3(context));
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !e) {
+            return;
+        }
+        int e2 = vs3.e();
+        StringBuilder sb = new StringBuilder(" \n\n");
+        sb.append("CPU Support Freq Info:\n");
+        for (int i = 0; i < e2; i++) {
+            ns3 a2 = vs3.a(i);
+            sb.append("CPU");
+            sb.append(a2.a);
+            sb.append(":");
+            sb.append("min-");
+            sb.append(a2.b / 1000);
+            sb.append("mHz, max-");
+            sb.append(a2.c / 1000);
+            sb.append("mHz\n");
+        }
+        sb.append("\n\n");
+        sb.append("CPU Current Freq:\n");
+        for (int i2 = 0; i2 < e2; i2++) {
+            sb.append("CPU");
+            sb.append(i2);
+            sb.append(":");
+            sb.append(vs3.j(i2) / 1000);
+            sb.append("mHz");
+            sb.append("\n");
+        }
+        if (e) {
+            Log.d("CPU-Booster", sb.toString());
+        }
+    }
+
+    public synchronized void i() {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                if (!this.b) {
+                    return;
+                }
+                if (e) {
+                    Log.d("CPU-Booster", "stopBooster");
+                }
+                if (e) {
+                    j = System.currentTimeMillis();
+                } else {
+                    j = 0;
+                }
+                for (is3 is3Var : this.a) {
+                    is3Var.a();
+                }
+                this.b = false;
+                if (this.c != null) {
+                    this.c.cancel();
+                    this.c = null;
+                }
+                if (e) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    Log.d("CPU-Booster", "stop booster cost - " + (currentTimeMillis - j) + "ms");
+                }
+            }
+        }
+    }
+
+    public synchronized void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            synchronized (this) {
+                h(3000);
+            }
+        }
+    }
+
+    public synchronized void h(int i) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            synchronized (this) {
+                if (this.b) {
+                    if (e) {
+                        Log.d("CPU-Booster", "start fail -> isEnabled - true, already start - " + this.b);
+                    }
+                    return;
+                }
+                if (e) {
+                    Log.d("CPU-Booster", "startBooster");
+                }
+                this.b = true;
+                int c = c(i);
+                if (e) {
+                    j = System.currentTimeMillis();
+                } else {
+                    j = 0;
+                }
+                for (is3 is3Var : this.a) {
+                    is3Var.b(c);
+                }
+                if (this.c == null) {
+                    Timer timer = new Timer();
+                    this.c = timer;
+                    timer.schedule(new a(this), c);
+                }
+                if (e) {
+                    long currentTimeMillis = System.currentTimeMillis();
+                    Log.d("CPU-Booster", "start booster cost - " + (currentTimeMillis - j) + "ms");
+                    f();
+                }
+            }
         }
     }
 }

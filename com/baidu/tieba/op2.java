@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes5.dex */
-public class op2 extends pl2<gq2> {
+public class op2 extends rl2<iq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "prepareAsync" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pause" : (String) invokeV.objValue;
     }
 
     public op2() {
@@ -36,22 +36,13 @@ public class op2 extends pl2<gq2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gq2 gq2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, command, gq2Var) == null) {
-            command.ret = gq2Var.prepareAsync() ? 1 : 0;
-            String str = command.what;
-            d(gq2Var, str, "isSupport: " + command.ret, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.pl2
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            command.ret = 1;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) == null) {
+            iq2Var.pause();
+            d(iq2Var, command.what, null, false);
         }
     }
 }

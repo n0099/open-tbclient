@@ -1,86 +1,143 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.square.ForumSquareActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActBtn;
-import tbclient.TPointPost;
-import tbclient.Timgs;
-import tbclient.VideoInfo;
 /* loaded from: classes6.dex */
-public class tl9 {
+public class tl9 extends vm<vl9, CardViewHolder<mm9>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public ArrayList<sl9> b;
-    public ArrayList<vl9> c;
+    public TbPageContext<?> a;
+    public ji6<vl9> b;
 
-    public tl9(TPointPost tPointPost) {
-        boolean z;
+    /* loaded from: classes6.dex */
+    public class a extends ji6<vl9> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tl9 b;
+
+        public a(tl9 tl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = tl9Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ji6
+        /* renamed from: d */
+        public void a(View view2, vl9 vl9Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, vl9Var) == null) && vl9Var != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
+                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).x1().getClassName();
+                if (!"推荐".equals(className)) {
+                    StatisticItem statisticItem = new StatisticItem("c13652");
+                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                    statisticItem.param("fid", vl9Var.a);
+                    statisticItem.param("resource_id", className);
+                    TiebaStatic.log(statisticItem);
+                    return;
+                }
+                StatisticItem statisticItem2 = new StatisticItem("c13643");
+                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                statisticItem2.param("fid", vl9Var.a);
+                statisticItem2.param("obj_locate", 3);
+                TiebaStatic.log(statisticItem2);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tl9(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), vl9.h);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tPointPost};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (tPointPost != null) {
-            try {
-                String str = tPointPost.position;
-                tPointPost.template_id.longValue();
-                if (tPointPost.is_tuiguang.intValue() == 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                this.a = z;
-                tPointPost.template_type.intValue();
-                List<ActBtn> list = tPointPost.act_btn;
-                if (list != null && list.size() > 0) {
-                    this.b = new ArrayList<>();
-                    for (int i3 = 0; i3 != list.size(); i3++) {
-                        this.b.add(new sl9(list.get(i3)));
-                    }
-                }
-                List<Timgs> list2 = tPointPost.t_imgs;
-                if (list2 != null && list2.size() > 0) {
-                    this.c = new ArrayList<>();
-                    for (int i4 = 0; i4 != list2.size(); i4++) {
-                        this.c.add(new vl9(list2.get(i4)));
-                    }
-                }
-                if (tPointPost.detail_info != null) {
-                    new ul9(tPointPost.detail_info);
-                }
-                String str2 = tPointPost.monitor_id;
-                tPointPost.hidden_day.intValue();
-                VideoInfo videoInfo = tPointPost.t_video;
-                String str3 = tPointPost.tag_name;
-            } catch (Exception e) {
-                BdLog.detailException(e);
-            }
-        }
+        this.b = new a(this);
+        this.a = tbPageContext;
     }
 
-    public vl9 a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public CardViewHolder<mm9> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (vl9) ListUtils.getItem(this.c, 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            mm9 mm9Var = new mm9(this.a);
+            mm9Var.o(this.mPageId);
+            return new CardViewHolder<>(mm9Var);
         }
-        return (vl9) invokeV.objValue;
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: u */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vl9 vl9Var, CardViewHolder<mm9> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vl9Var, cardViewHolder})) == null) {
+            if (vl9Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().i(vl9Var);
+                cardViewHolder.a().k(this.b);
+                if (this.a.getPageActivity() instanceof ForumSquareActivity) {
+                    String className = ((ForumSquareActivity) this.a.getPageActivity()).x1().getClassName();
+                    if (!"推荐".equals(className)) {
+                        StatisticItem statisticItem = new StatisticItem("c13651");
+                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                        statisticItem.param("fid", vl9Var.a);
+                        statisticItem.param("resource_id", className);
+                        TiebaStatic.log(statisticItem);
+                    } else {
+                        StatisticItem statisticItem2 = new StatisticItem("c13642");
+                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
+                        statisticItem2.param("fid", vl9Var.d());
+                        statisticItem2.param("obj_locate", 3);
+                        TiebaStatic.log(statisticItem2);
+                    }
+                }
+                return cardViewHolder.getView();
+            }
+            return null;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

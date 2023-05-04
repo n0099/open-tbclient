@@ -1,117 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.forumMember.manito.ManitoHeaderItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h47 {
+public class h47 extends p67<i47, ManitoHeaderItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h47(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            q45.m().B(q45.q("search_forum_history"), "");
-        }
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        String s = q45.m().s(q45.q("search_forum_history"), "");
-        if (!StringUtils.isNull(s)) {
-            try {
-                JSONArray jSONArray = new JSONArray(s);
-                if (jSONArray.length() <= 0) {
-                    return;
-                }
-                ArrayList arrayList = new ArrayList();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    Object obj = jSONArray.get(i);
-                    if (!str.equals(obj)) {
-                        arrayList.add((String) obj);
-                    }
-                }
-                q45.m().B(q45.q("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    public static void d(String str) {
-        JSONArray jSONArray;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: G */
+    public ManitoHeaderItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new ManitoHeaderItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d05be, (ViewGroup) null));
         }
-        String s = q45.m().s(q45.q("search_forum_history"), "");
-        try {
-            if (StringUtils.isNull(s)) {
-                jSONArray = new JSONArray();
-            } else {
-                jSONArray = new JSONArray(s);
-            }
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(str);
-            int i = 1;
-            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                Object obj = jSONArray.get(i2);
-                if ((obj instanceof String) && !str.equals(obj)) {
-                    arrayList.add((String) obj);
-                    i++;
-                }
-                if (i == 6) {
-                    break;
-                }
-            }
-            q45.m().B(q45.q("search_forum_history"), new JSONArray((Collection) arrayList).toString());
-        } catch (JSONException e) {
-            e.printStackTrace();
-        }
+        return (ManitoHeaderItemViewHolder) invokeL.objValue;
     }
 
-    public static ArrayList<String> c() {
-        InterceptResult invokeV;
+    public View H(int i, View view2, ViewGroup viewGroup, i47 i47Var, ManitoHeaderItemViewHolder manitoHeaderItemViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String s = q45.m().s(q45.q("search_forum_history"), "");
-            ArrayList<String> arrayList = null;
-            if (StringUtils.isNull(s)) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i47Var, manitoHeaderItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) i47Var, (i47) manitoHeaderItemViewHolder);
+            if (manitoHeaderItemViewHolder.b != this.f) {
+                SkinManager.setBackgroundColor(manitoHeaderItemViewHolder.getView(), R.color.CAM_X0201);
+                SkinManager.setViewTextColor(manitoHeaderItemViewHolder.a, R.color.CAM_X0105, 1);
             }
-            try {
-                JSONArray jSONArray = new JSONArray(s);
-                if (jSONArray.length() <= 0) {
-                    return null;
-                }
-                ArrayList<String> arrayList2 = new ArrayList<>();
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    try {
-                        Object obj = jSONArray.get(i);
-                        if (obj instanceof String) {
-                            arrayList2.add((String) obj);
-                        }
-                    } catch (JSONException e) {
-                        e = e;
-                        arrayList = arrayList2;
-                        e.printStackTrace();
-                        return arrayList;
-                    }
-                }
-                return arrayList2;
-            } catch (JSONException e2) {
-                e = e2;
-            }
-        } else {
-            return (ArrayList) invokeV.objValue;
+            manitoHeaderItemViewHolder.a.setText(String.format(this.mContext.getResources().getString(R.string.obfuscated_res_0x7f0f06ee), Integer.valueOf(i47Var.a())));
+            manitoHeaderItemViewHolder.b = this.f;
+            return view2;
         }
+        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.p67, com.baidu.tieba.vm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        H(i, view2, viewGroup, (i47) obj, (ManitoHeaderItemViewHolder) viewHolder);
+        return view2;
     }
 }

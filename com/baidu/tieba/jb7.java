@@ -1,67 +1,17 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tieba.tbadkCore.FrsRequestData;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 /* loaded from: classes5.dex */
-public class jb7 extends vm<ya7, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
+public interface jb7 {
+    void a(wk7 wk7Var, FrsViewData frsViewData);
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public jb7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
+    void b(View view2);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public FrsGameStrategyItemView.FrsGameStrategyItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new FrsGameStrategyItemView.FrsGameStrategyItemViewHolder(new FrsGameStrategyItemView(this.a));
-        }
-        return (FrsGameStrategyItemView.FrsGameStrategyItemViewHolder) invokeL.objValue;
-    }
+    void c(wk7 wk7Var, v67 v67Var, FrsViewData frsViewData);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ya7 ya7Var, FrsGameStrategyItemView.FrsGameStrategyItemViewHolder frsGameStrategyItemViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ya7Var, frsGameStrategyItemViewHolder})) == null) {
-            frsGameStrategyItemViewHolder.a.l(ya7Var);
-            return frsGameStrategyItemViewHolder.getView();
-        }
-        return (View) invokeCommon.objValue;
-    }
+    int d(int i, FrsRequestData frsRequestData);
+
+    boolean e(int i);
 }

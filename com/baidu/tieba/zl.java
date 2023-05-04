@@ -4,6 +4,7 @@ import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.pms.bean.DegradeData;
 import com.baidu.searchbox.pms.bean.ErrorInfo;
@@ -139,7 +140,7 @@ public class zl extends DefaultPackageCallback {
                 if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
                     DownloadOptions downloadOptions = new DownloadOptions();
                     downloadOptions.fileDir = am.a(packageInfo.name);
-                    sl.a(packageInfo, "download start");
+                    sl.b(packageInfo.name, packageInfo.toString(), "download start");
                     PmsManager.getInstance().download(packageInfo, downloadOptions, new yl(this.a));
                     z = true;
                 }
@@ -160,10 +161,10 @@ public class zl extends DefaultPackageCallback {
                     } else if (!new File(am.b(packageInfo2.name)).exists()) {
                         DownloadOptions downloadOptions2 = new DownloadOptions();
                         downloadOptions2.fileDir = am.a(packageInfo2.name);
-                        sl.a(packageInfo2, "re download start");
+                        sl.b(packageInfo2.name, packageInfo2.toString(), "re download start");
                         PmsManager.getInstance().download(packageInfo2, downloadOptions2, new yl(this.a));
                     } else if (cm.a(BdBaseApplication.getInst().getContext(), am.a(packageInfo2.name))) {
-                        sl.a(packageInfo2, "load success1");
+                        sl.b(packageInfo2.name, packageInfo2.toString(), "load success1");
                         ConcurrentHashMap<String, String> resHashMap2 = BdBaseApplication.getInst().getResHashMap();
                         String str2 = packageInfo2.name;
                         resHashMap2.put(str2, am.a(str2));
@@ -179,6 +180,7 @@ public class zl extends DefaultPackageCallback {
             }
         }
         if (!resultData.invalidList.isEmpty()) {
+            DefaultLog.getInstance().c("PMS delete File", "删除已经废弃资源");
             BdAsyncTask<?, ?, ?> searchTask = BdAsyncTask.searchTask("key_res_del");
             if (searchTask == null || searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.PENDING) {
                 xl xlVar = new xl();

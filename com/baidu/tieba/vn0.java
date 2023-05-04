@@ -1,67 +1,84 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.lp.reward.NadRewardVideoActivity;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
-@Service
 /* loaded from: classes6.dex */
-public class vn0 extends th0 {
+public class vn0 {
     public static /* synthetic */ Interceptable $ic;
+    public static sn0 a;
+    public static un0 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.th0
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "rewardImpl" : (String) invokeV.objValue;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948246417, "Lcom/baidu/tieba/vn0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948246417, "Lcom/baidu/tieba/vn0;");
+        }
     }
 
     public vn0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.th0
-    public boolean b(@NonNull Context context, @NonNull xh0 xh0Var, @Nullable Map<String, Object> map, @Nullable bi0 bi0Var) {
-        InterceptResult invokeLLLL;
+    public static sn0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xh0Var, map, bi0Var)) == null) {
-            super.b(context, xh0Var, map, bi0Var);
-            HashMap<String, String> d = xh0Var.d();
-            int i = 0;
-            if (d.isEmpty()) {
-                c(bi0Var, xh0Var, 202, false);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (vn0.class) {
+                    if (a == null) {
+                        a = (sn0) ServiceManager.getService(sn0.a);
+                    }
+                    if (a == null) {
+                        a = sn0.b;
+                    }
+                }
             }
-            Intent intent = new Intent(context, NadRewardVideoActivity.class);
-            intent.putExtra("params", d);
-            boolean d2 = t31.d(context, intent);
-            if (!d2) {
-                i = 1001;
-            }
-            c(bi0Var, xh0Var, i, d2);
-            return true;
+            return a;
         }
-        return invokeLLLL.booleanValue;
+        return (sn0) invokeV.objValue;
+    }
+
+    public static un0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (vn0.class) {
+                    if (b == null) {
+                        b = (un0) ServiceManager.getService(un0.a);
+                    }
+                    if (b == null) {
+                        b = un0.b;
+                    }
+                }
+            }
+            return b;
+        }
+        return (un0) invokeV.objValue;
     }
 }

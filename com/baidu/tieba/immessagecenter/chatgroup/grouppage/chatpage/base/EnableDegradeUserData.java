@@ -17,7 +17,7 @@ import java.io.Serializable;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
 @Metadata(d1 = {"\u00004\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\f\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\u0003\b\u0086\b\u0018\u00002\u00020\u0001:\u0002\u001a\u001bB!\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\u0002\u0010\bJ\t\u0010\u000f\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\u0010\u001a\u0004\u0018\u00010\u0005HÆ\u0003J\u000b\u0010\u0011\u001a\u0004\u0018\u00010\u0007HÆ\u0003J+\u0010\u0012\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0007HÆ\u0001J\u0013\u0010\u0013\u001a\u00020\u00142\b\u0010\u0015\u001a\u0004\u0018\u00010\u0016HÖ\u0003J\t\u0010\u0017\u001a\u00020\u0003HÖ\u0001J\t\u0010\u0018\u001a\u00020\u0019HÖ\u0001R\u0013\u0010\u0004\u001a\u0004\u0018\u00010\u0005¢\u0006\b\n\u0000\u001a\u0004\b\t\u0010\nR\u0013\u0010\u0006\u001a\u0004\u0018\u00010\u0007¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\fR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000e¨\u0006\u001c"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData;", "Ljava/io/Serializable;", "type", "", "icon", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$IconData;", "text", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData;", "(ILcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$IconData;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData;)V", "getIcon", "()Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$IconData;", "getText", "()Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData;", "getType", "()I", "component1", "component2", "component3", "copy", "equals", "", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "toString", "", "IconData", "TextData", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public final class EnableDegradeUserData implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -100,8 +100,8 @@ public final class EnableDegradeUserData implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    @Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\u001f\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001:\u00011B_\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0005\u0012\u0006\u0010\b\u001a\u00020\u0005\u0012\u0006\u0010\t\u001a\u00020\u0005\u0012\u0006\u0010\n\u001a\u00020\u0003\u0012\u0006\u0010\u000b\u001a\u00020\f\u0012\u0006\u0010\r\u001a\u00020\u0003\u0012\u0006\u0010\u000e\u001a\u00020\u0003\u0012\u0006\u0010\u000f\u001a\u00020\f¢\u0006\u0002\u0010\u0010J\t\u0010\u001f\u001a\u00020\u0003HÆ\u0003J\t\u0010 \u001a\u00020\u0003HÆ\u0003J\t\u0010!\u001a\u00020\fHÆ\u0003J\t\u0010\"\u001a\u00020\u0005HÆ\u0003J\u000b\u0010#\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\t\u0010$\u001a\u00020\u0005HÆ\u0003J\t\u0010%\u001a\u00020\u0005HÆ\u0003J\t\u0010&\u001a\u00020\u0005HÆ\u0003J\t\u0010'\u001a\u00020\u0003HÆ\u0003J\t\u0010(\u001a\u00020\fHÆ\u0003J\t\u0010)\u001a\u00020\u0003HÆ\u0003Jy\u0010*\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00032\b\b\u0002\u0010\u0007\u001a\u00020\u00052\b\b\u0002\u0010\b\u001a\u00020\u00052\b\b\u0002\u0010\t\u001a\u00020\u00052\b\b\u0002\u0010\n\u001a\u00020\u00032\b\b\u0002\u0010\u000b\u001a\u00020\f2\b\b\u0002\u0010\r\u001a\u00020\u00032\b\b\u0002\u0010\u000e\u001a\u00020\u00032\b\b\u0002\u0010\u000f\u001a\u00020\fHÆ\u0001J\u0013\u0010+\u001a\u00020,2\b\u0010-\u001a\u0004\u0018\u00010.HÖ\u0003J\t\u0010/\u001a\u00020\u0005HÖ\u0001J\t\u00100\u001a\u00020\u0003HÖ\u0001R\u0016\u0010\r\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012R\u0016\u0010\u000b\u001a\u00020\f8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014R\u0011\u0010\u000e\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0012R\u0016\u0010\u0007\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u0017R\u0016\u0010\b\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0018\u0010\u0017R\u0016\u0010\t\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0019\u0010\u0017R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u001a\u0010\u0017R\u0013\u0010\u0006\u001a\u0004\u0018\u00010\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001b\u0010\u0012R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u0012R\u0011\u0010\n\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0012R\u0016\u0010\u000f\u001a\u00020\f8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u0014¨\u00062"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData;", "Ljava/io/Serializable;", "str", "", "priority", "", "schema", "degradeEnable", "degradeLength", "degradePriority", "suffix", TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;", "backgroundAlpha", "corner", "textColor", "(Ljava/lang/String;ILjava/lang/String;IIILjava/lang/String;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;)V", "getBackgroundAlpha", "()Ljava/lang/String;", "getBackgroundColor", "()Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;", "getCorner", "getDegradeEnable", "()I", "getDegradeLength", "getDegradePriority", "getPriority", "getSchema", "getStr", "getSuffix", "getTextColor", "component1", "component10", "component11", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", "copy", "equals", "", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "toString", "ColorData", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes4.dex */
+    @Metadata(d1 = {"\u0000.\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0000\n\u0002\u0010\b\n\u0002\b\u0006\n\u0002\u0018\u0002\n\u0002\b\"\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0004\b\u0086\b\u0018\u00002\u00020\u0001:\u00014Bm\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0003\u0012\u0006\u0010\u0007\u001a\u00020\u0005\u0012\b\u0010\b\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\t\u001a\u0004\u0018\u00010\u0005\u0012\b\u0010\n\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u000b\u001a\u0004\u0018\u00010\f\u0012\b\u0010\r\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u000e\u001a\u0004\u0018\u00010\u0003\u0012\b\u0010\u000f\u001a\u0004\u0018\u00010\f¢\u0006\u0002\u0010\u0010J\t\u0010!\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\"\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u000b\u0010#\u001a\u0004\u0018\u00010\fHÆ\u0003J\t\u0010$\u001a\u00020\u0005HÆ\u0003J\u000b\u0010%\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\t\u0010&\u001a\u00020\u0005HÆ\u0003J\u0010\u0010'\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0002\u0010\u0019J\u0010\u0010(\u001a\u0004\u0018\u00010\u0005HÆ\u0003¢\u0006\u0002\u0010\u0019J\u000b\u0010)\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u000b\u0010*\u001a\u0004\u0018\u00010\fHÆ\u0003J\u000b\u0010+\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\u008c\u0001\u0010,\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u00032\b\b\u0002\u0010\u0007\u001a\u00020\u00052\n\b\u0002\u0010\b\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\t\u001a\u0004\u0018\u00010\u00052\n\b\u0002\u0010\n\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u000b\u001a\u0004\u0018\u00010\f2\n\b\u0002\u0010\r\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u000e\u001a\u0004\u0018\u00010\u00032\n\b\u0002\u0010\u000f\u001a\u0004\u0018\u00010\fHÆ\u0001¢\u0006\u0002\u0010-J\u0013\u0010.\u001a\u00020/2\b\u00100\u001a\u0004\u0018\u000101HÖ\u0003J\t\u00102\u001a\u00020\u0005HÖ\u0001J\t\u00103\u001a\u00020\u0003HÖ\u0001R\u0018\u0010\r\u001a\u0004\u0018\u00010\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0011\u0010\u0012R\u0018\u0010\u000b\u001a\u0004\u0018\u00010\f8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0013\u0010\u0014R\u0013\u0010\u000e\u001a\u0004\u0018\u00010\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u0015\u0010\u0012R\u0016\u0010\u0007\u001a\u00020\u00058\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0016\u0010\u0017R\u001a\u0010\b\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\n\n\u0002\u0010\u001a\u001a\u0004\b\u0018\u0010\u0019R\u001a\u0010\t\u001a\u0004\u0018\u00010\u00058\u0006X\u0087\u0004¢\u0006\n\n\u0002\u0010\u001a\u001a\u0004\b\u001b\u0010\u0019R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\u001c\u0010\u0017R\u0013\u0010\u0006\u001a\u0004\u0018\u00010\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001d\u0010\u0012R\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001e\u0010\u0012R\u0013\u0010\n\u001a\u0004\u0018\u00010\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u001f\u0010\u0012R\u0018\u0010\u000f\u001a\u0004\u0018\u00010\f8\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b \u0010\u0014¨\u00065"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData;", "Ljava/io/Serializable;", "str", "", "priority", "", "schema", "degradeEnable", "degradeLength", "degradePriority", "suffix", TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;", "backgroundAlpha", "corner", "textColor", "(Ljava/lang/String;ILjava/lang/String;ILjava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;)V", "getBackgroundAlpha", "()Ljava/lang/String;", "getBackgroundColor", "()Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;", "getCorner", "getDegradeEnable", "()I", "getDegradeLength", "()Ljava/lang/Integer;", "Ljava/lang/Integer;", "getDegradePriority", "getPriority", "getSchema", "getStr", "getSuffix", "getTextColor", "component1", "component10", "component11", "component2", "component3", "component4", "component5", "component6", "component7", "component8", "component9", "copy", "(Ljava/lang/String;ILjava/lang/String;ILjava/lang/Integer;Ljava/lang/Integer;Ljava/lang/String;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;Ljava/lang/String;Ljava/lang/String;Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;)Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData;", "equals", "", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "toString", "ColorData", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+    /* loaded from: classes5.dex */
     public static final class TextData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -113,9 +113,9 @@ public final class EnableDegradeUserData implements Serializable {
         @SerializedName("short_enable")
         public final int degradeEnable;
         @SerializedName("short_length")
-        public final int degradeLength;
+        public final Integer degradeLength;
         @SerializedName("short_priority")
-        public final int degradePriority;
+        public final Integer degradePriority;
         public final int priority;
         public final String schema;
         public final String str;
@@ -159,16 +159,16 @@ public final class EnableDegradeUserData implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.degradeEnable : invokeV.intValue;
         }
 
-        public final int component5() {
+        public final Integer component5() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.degradeLength : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.degradeLength : (Integer) invokeV.objValue;
         }
 
-        public final int component6() {
+        public final Integer component6() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.degradePriority : invokeV.intValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this.degradePriority : (Integer) invokeV.objValue;
         }
 
         public final String component7() {
@@ -189,17 +189,12 @@ public final class EnableDegradeUserData implements Serializable {
             return (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) ? this.backgroundAlpha : (String) invokeV.objValue;
         }
 
-        public final TextData copy(String str, int i, String str2, int i2, int i3, int i4, String suffix, ColorData backgroundColor, String backgroundAlpha, String corner, ColorData textColor) {
+        public final TextData copy(String str, int i, String str2, int i2, Integer num, Integer num2, String str3, ColorData colorData, String str4, String str5, ColorData colorData2) {
             InterceptResult invokeCommon;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), suffix, backgroundColor, backgroundAlpha, corner, textColor})) == null) {
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, Integer.valueOf(i), str2, Integer.valueOf(i2), num, num2, str3, colorData, str4, str5, colorData2})) == null) {
                 Intrinsics.checkNotNullParameter(str, "str");
-                Intrinsics.checkNotNullParameter(suffix, "suffix");
-                Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
-                Intrinsics.checkNotNullParameter(backgroundAlpha, "backgroundAlpha");
-                Intrinsics.checkNotNullParameter(corner, "corner");
-                Intrinsics.checkNotNullParameter(textColor, "textColor");
-                return new TextData(str, i, str2, i2, i3, i4, suffix, backgroundColor, backgroundAlpha, corner, textColor);
+                return new TextData(str, i, str2, i2, num, num2, str3, colorData, str4, str5, colorData2);
             }
             return (TextData) invokeCommon.objValue;
         }
@@ -213,7 +208,7 @@ public final class EnableDegradeUserData implements Serializable {
                 }
                 if (obj instanceof TextData) {
                     TextData textData = (TextData) obj;
-                    return Intrinsics.areEqual(this.str, textData.str) && this.priority == textData.priority && Intrinsics.areEqual(this.schema, textData.schema) && this.degradeEnable == textData.degradeEnable && this.degradeLength == textData.degradeLength && this.degradePriority == textData.degradePriority && Intrinsics.areEqual(this.suffix, textData.suffix) && Intrinsics.areEqual(this.backgroundColor, textData.backgroundColor) && Intrinsics.areEqual(this.backgroundAlpha, textData.backgroundAlpha) && Intrinsics.areEqual(this.corner, textData.corner) && Intrinsics.areEqual(this.textColor, textData.textColor);
+                    return Intrinsics.areEqual(this.str, textData.str) && this.priority == textData.priority && Intrinsics.areEqual(this.schema, textData.schema) && this.degradeEnable == textData.degradeEnable && Intrinsics.areEqual(this.degradeLength, textData.degradeLength) && Intrinsics.areEqual(this.degradePriority, textData.degradePriority) && Intrinsics.areEqual(this.suffix, textData.suffix) && Intrinsics.areEqual(this.backgroundColor, textData.backgroundColor) && Intrinsics.areEqual(this.backgroundAlpha, textData.backgroundAlpha) && Intrinsics.areEqual(this.corner, textData.corner) && Intrinsics.areEqual(this.textColor, textData.textColor);
                 }
                 return false;
             }
@@ -226,7 +221,21 @@ public final class EnableDegradeUserData implements Serializable {
             if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
                 int hashCode = ((this.str.hashCode() * 31) + this.priority) * 31;
                 String str = this.schema;
-                return ((((((((((((((((hashCode + (str == null ? 0 : str.hashCode())) * 31) + this.degradeEnable) * 31) + this.degradeLength) * 31) + this.degradePriority) * 31) + this.suffix.hashCode()) * 31) + this.backgroundColor.hashCode()) * 31) + this.backgroundAlpha.hashCode()) * 31) + this.corner.hashCode()) * 31) + this.textColor.hashCode();
+                int hashCode2 = (((hashCode + (str == null ? 0 : str.hashCode())) * 31) + this.degradeEnable) * 31;
+                Integer num = this.degradeLength;
+                int hashCode3 = (hashCode2 + (num == null ? 0 : num.hashCode())) * 31;
+                Integer num2 = this.degradePriority;
+                int hashCode4 = (hashCode3 + (num2 == null ? 0 : num2.hashCode())) * 31;
+                String str2 = this.suffix;
+                int hashCode5 = (hashCode4 + (str2 == null ? 0 : str2.hashCode())) * 31;
+                ColorData colorData = this.backgroundColor;
+                int hashCode6 = (hashCode5 + (colorData == null ? 0 : colorData.hashCode())) * 31;
+                String str3 = this.backgroundAlpha;
+                int hashCode7 = (hashCode6 + (str3 == null ? 0 : str3.hashCode())) * 31;
+                String str4 = this.corner;
+                int hashCode8 = (hashCode7 + (str4 == null ? 0 : str4.hashCode())) * 31;
+                ColorData colorData2 = this.textColor;
+                return hashCode8 + (colorData2 != null ? colorData2.hashCode() : 0);
             }
             return invokeV.intValue;
         }
@@ -241,7 +250,7 @@ public final class EnableDegradeUserData implements Serializable {
         }
 
         @Metadata(d1 = {"\u0000&\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0000\n\u0002\u0010\u000e\n\u0002\b\f\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\b\u0086\b\u0018\u00002\u00020\u0001B\u001f\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\b\u0010\u0006\u001a\u0004\u0018\u00010\u0005¢\u0006\u0002\u0010\u0007J\t\u0010\r\u001a\u00020\u0003HÆ\u0003J\t\u0010\u000e\u001a\u00020\u0005HÆ\u0003J\u000b\u0010\u000f\u001a\u0004\u0018\u00010\u0005HÆ\u0003J)\u0010\u0010\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00052\n\b\u0002\u0010\u0006\u001a\u0004\u0018\u00010\u0005HÆ\u0001J\u0013\u0010\u0011\u001a\u00020\u00122\b\u0010\u0013\u001a\u0004\u0018\u00010\u0014HÖ\u0003J\t\u0010\u0015\u001a\u00020\u0003HÖ\u0001J\t\u0010\u0016\u001a\u00020\u0005HÖ\u0001R\u0011\u0010\u0004\u001a\u00020\u0005¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u0013\u0010\u0006\u001a\u0004\u0018\u00010\u0005¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\tR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000b\u0010\f¨\u0006\u0017"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$TextData$ColorData;", "Ljava/io/Serializable;", "type", "", "day", "", LiveFeedPageSdk.UI_MODE_NIGHT, "(ILjava/lang/String;Ljava/lang/String;)V", "getDay", "()Ljava/lang/String;", "getNight", "getType", "()I", "component1", "component2", "component3", "copy", "equals", "", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-        /* loaded from: classes4.dex */
+        /* loaded from: classes5.dex */
         public static final class ColorData implements Serializable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
@@ -375,38 +384,33 @@ public final class EnableDegradeUserData implements Serializable {
             }
         }
 
-        public TextData(String str, int i, String str2, int i2, int i3, int i4, String suffix, ColorData backgroundColor, String backgroundAlpha, String corner, ColorData textColor) {
+        public TextData(String str, int i, String str2, int i2, Integer num, Integer num2, String str3, ColorData colorData, String str4, String str5, ColorData colorData2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r3;
-                Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), suffix, backgroundColor, backgroundAlpha, corner, textColor};
+                Object[] objArr = {str, Integer.valueOf(i), str2, Integer.valueOf(i2), num, num2, str3, colorData, str4, str5, colorData2};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             Intrinsics.checkNotNullParameter(str, "str");
-            Intrinsics.checkNotNullParameter(suffix, "suffix");
-            Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
-            Intrinsics.checkNotNullParameter(backgroundAlpha, "backgroundAlpha");
-            Intrinsics.checkNotNullParameter(corner, "corner");
-            Intrinsics.checkNotNullParameter(textColor, "textColor");
             this.str = str;
             this.priority = i;
             this.schema = str2;
             this.degradeEnable = i2;
-            this.degradeLength = i3;
-            this.degradePriority = i4;
-            this.suffix = suffix;
-            this.backgroundColor = backgroundColor;
-            this.backgroundAlpha = backgroundAlpha;
-            this.corner = corner;
-            this.textColor = textColor;
+            this.degradeLength = num;
+            this.degradePriority = num2;
+            this.suffix = str3;
+            this.backgroundColor = colorData;
+            this.backgroundAlpha = str4;
+            this.corner = str5;
+            this.textColor = colorData2;
         }
 
         public final String getBackgroundAlpha() {
@@ -445,22 +449,22 @@ public final class EnableDegradeUserData implements Serializable {
             return invokeV.intValue;
         }
 
-        public final int getDegradeLength() {
+        public final Integer getDegradeLength() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
                 return this.degradeLength;
             }
-            return invokeV.intValue;
+            return (Integer) invokeV.objValue;
         }
 
-        public final int getDegradePriority() {
+        public final Integer getDegradePriority() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
                 return this.degradePriority;
             }
-            return invokeV.intValue;
+            return (Integer) invokeV.objValue;
         }
 
         public final int getPriority() {
@@ -510,7 +514,7 @@ public final class EnableDegradeUserData implements Serializable {
     }
 
     @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0010\b\n\u0002\b\u0011\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\b\u0086\b\u0018\u00002\u00020\u0001B/\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\b\u0010\u0004\u001a\u0004\u0018\u00010\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006\u0012\u0006\u0010\u0007\u001a\u00020\u0006\u0012\u0006\u0010\b\u001a\u00020\u0006¢\u0006\u0002\u0010\tJ\t\u0010\u0011\u001a\u00020\u0003HÆ\u0003J\u000b\u0010\u0012\u001a\u0004\u0018\u00010\u0003HÆ\u0003J\t\u0010\u0013\u001a\u00020\u0006HÆ\u0003J\t\u0010\u0014\u001a\u00020\u0006HÆ\u0003J\t\u0010\u0015\u001a\u00020\u0006HÆ\u0003J=\u0010\u0016\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\n\b\u0002\u0010\u0004\u001a\u0004\u0018\u00010\u00032\b\b\u0002\u0010\u0005\u001a\u00020\u00062\b\b\u0002\u0010\u0007\u001a\u00020\u00062\b\b\u0002\u0010\b\u001a\u00020\u0006HÆ\u0001J\u0013\u0010\u0017\u001a\u00020\u00182\b\u0010\u0019\u001a\u0004\u0018\u00010\u001aHÖ\u0003J\t\u0010\u001b\u001a\u00020\u0006HÖ\u0001J\t\u0010\u001c\u001a\u00020\u0003HÖ\u0001R\u0011\u0010\u0007\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\n\u0010\u000bR\u0011\u0010\b\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\f\u0010\u000bR\u0013\u0010\u0004\u001a\u0004\u0018\u00010\u0003¢\u0006\b\n\u0000\u001a\u0004\b\r\u0010\u000eR\u0011\u0010\u0002\u001a\u00020\u0003¢\u0006\b\n\u0000\u001a\u0004\b\u000f\u0010\u000eR\u0011\u0010\u0005\u001a\u00020\u0006¢\u0006\b\n\u0000\u001a\u0004\b\u0010\u0010\u000b¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/EnableDegradeUserData$IconData;", "Ljava/io/Serializable;", "url", "", "schema", "width", "", "height", "priority", "(Ljava/lang/String;Ljava/lang/String;III)V", "getHeight", "()I", "getPriority", "getSchema", "()Ljava/lang/String;", "getUrl", "getWidth", "component1", "component2", "component3", "component4", "component5", "copy", "equals", "", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class IconData implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;

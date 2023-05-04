@@ -1,19 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.view.View;
 /* loaded from: classes5.dex */
-public class pd9 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface pd9 {
+    void autoPlay(int i);
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "{\"clickFidList\":[\"" + str + "\"]}";
-        }
-        return (String) invokeL.objValue;
-    }
+    boolean canPlay();
+
+    long getCurrentPosition();
+
+    int getPlayStatus();
+
+    String getPlayUrl();
+
+    View getVideoContainer();
+
+    boolean isPlayStarted();
+
+    boolean isPlaying();
+
+    void release();
+
+    void startPlay();
+
+    void stopPlay();
 }

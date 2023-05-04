@@ -10,18 +10,18 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.swan.videoplayer.SwanVideoView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ip4;
-import com.baidu.tieba.jp4;
 import com.baidu.tieba.kp4;
+import com.baidu.tieba.lp4;
+import com.baidu.tieba.mp4;
 /* loaded from: classes3.dex */
-public final class MediaGestureLayout extends FrameLayout implements jp4 {
-    public ip4 a;
+public final class MediaGestureLayout extends FrameLayout implements lp4 {
+    public kp4 a;
     public b b;
     public MediaVolume c;
     public MediaBrightness d;
     public MediaFastForward e;
     public SwanVideoView f;
-    public kp4 g;
+    public mp4 g;
 
     /* loaded from: classes3.dex */
     public interface b {
@@ -66,7 +66,7 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.jp4
+    @Override // com.baidu.tieba.lp4
     public boolean a(MotionEvent motionEvent) {
         b bVar = this.b;
         if (bVar != null) {
@@ -76,8 +76,8 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
         return true;
     }
 
-    public void g(@NonNull kp4 kp4Var) {
-        this.g = kp4Var;
+    public void g(@NonNull mp4 mp4Var) {
+        this.g = mp4Var;
     }
 
     public void h(@NonNull SwanVideoView swanVideoView) {
@@ -85,10 +85,10 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
     }
 
     public final void i(Context context) {
-        ip4 ip4Var = new ip4(context);
-        this.a = ip4Var;
-        ip4Var.d(this);
-        this.g = new kp4.b().f();
+        kp4 kp4Var = new kp4(context);
+        this.a = kp4Var;
+        kp4Var.d(this);
+        this.g = new mp4.b().f();
         setOnTouchListener(new a());
     }
 
@@ -107,7 +107,7 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
         addView(this.e);
     }
 
-    @Override // com.baidu.tieba.jp4
+    @Override // com.baidu.tieba.lp4
     public boolean onDoubleTap(MotionEvent motionEvent) {
         b bVar;
         if (this.g.a() && (bVar = this.b) != null) {
@@ -131,7 +131,7 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
         i(context);
     }
 
-    @Override // com.baidu.tieba.jp4
+    @Override // com.baidu.tieba.lp4
     public boolean b(MotionEvent motionEvent, MediaGestureMode mediaGestureMode) {
         this.e.setVisibility(8);
         this.c.setVisibility(8);
@@ -147,11 +147,11 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
         return true;
     }
 
-    @Override // com.baidu.tieba.jp4
+    @Override // com.baidu.tieba.lp4
     public boolean c(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
             float b2 = this.c.b() + (((motionEvent.getY() - motionEvent2.getY()) * this.c.c()) / (getHeight() * 0.8f));
-            this.c.g(R.drawable.obfuscated_res_0x7f081276);
+            this.c.g(R.drawable.obfuscated_res_0x7f0812a7);
             this.c.h(b2);
             this.c.f();
             return true;
@@ -159,7 +159,7 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
         return false;
     }
 
-    @Override // com.baidu.tieba.jp4
+    @Override // com.baidu.tieba.lp4
     public boolean d(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         int i;
         if (this.g.d()) {
@@ -168,9 +168,9 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
             this.e.h((int) (this.e.b() + (c2 / (getWidth() * 0.8f))));
             MediaFastForward mediaFastForward = this.e;
             if (x > 0.0f) {
-                i = R.drawable.obfuscated_res_0x7f081272;
+                i = R.drawable.obfuscated_res_0x7f0812a3;
             } else {
-                i = R.drawable.obfuscated_res_0x7f081273;
+                i = R.drawable.obfuscated_res_0x7f0812a4;
             }
             mediaFastForward.g(i);
             this.e.f();
@@ -179,12 +179,12 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
         return false;
     }
 
-    @Override // com.baidu.tieba.jp4
+    @Override // com.baidu.tieba.lp4
     public boolean e(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
         if ((this.g.f() && this.g.b()) || (!this.g.f() && this.g.e())) {
             float a2 = this.d.a() + (((motionEvent.getY() - motionEvent2.getY()) * this.d.b()) / (getHeight() * 0.8f));
             this.d.f(a2);
-            this.d.g(R.drawable.obfuscated_res_0x7f081264);
+            this.d.g(R.drawable.obfuscated_res_0x7f081295);
             this.d.h((int) ((a2 / this.d.b()) * 100.0f));
             this.d.e();
             return true;
@@ -192,7 +192,7 @@ public final class MediaGestureLayout extends FrameLayout implements jp4 {
         return false;
     }
 
-    @Override // com.baidu.tieba.jp4
+    @Override // com.baidu.tieba.lp4
     public boolean onDown(MotionEvent motionEvent) {
         SwanVideoView swanVideoView = this.f;
         if (swanVideoView == null) {

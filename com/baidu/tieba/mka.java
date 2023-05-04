@@ -1,210 +1,109 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import org.json.JSONObject;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes5.dex */
 public class mka {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public float c;
-    public float d;
-    public float e;
-    public float f;
-    public float g;
-    public List<oka> h;
-    public List<String> i;
-    public Map<String, String> j;
-    public Map<String, nka> k;
+    public ExecutorService a;
+    public lka b;
+    public volatile boolean c;
+    public int d;
+    public int e;
+    public int f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947976934, "Lcom/baidu/tieba/mka;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ byte[] a;
+        public final /* synthetic */ mka b;
+
+        public a(mka mkaVar, byte[] bArr) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mkaVar, bArr};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947976934, "Lcom/baidu/tieba/mka;");
-                return;
+            this.b = mkaVar;
+            this.a = bArr;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.b.c) {
+                        this.b.b.g(mka.l(this.a, this.b.f, this.b.e));
+                        return;
+                    }
+                    this.b.d(this.a, this.b.d);
+                    this.b.b.g(mka.h(this.a, this.b.f, this.b.e));
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
             }
         }
-        l = AppConfig.isDebug();
     }
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.equals("1", this.b)) {
-                this.b = "0";
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mka a;
+
+        public b(mka mkaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mkaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return this.b;
+            this.a = mkaVar;
         }
-        return (String) invokeV.objValue;
-    }
 
-    public Map<String, String> b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.j;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public List<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.i;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (!TextUtils.equals("0", this.a)) {
-                this.a = "1";
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.a != null) {
+                        this.a.a.shutdown();
+                        this.a.a.awaitTermination(3000L, TimeUnit.MILLISECONDS);
+                    }
+                    if (this.a.b != null) {
+                        this.a.b.c();
+                    }
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
             }
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public Map<String, nka> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.k;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public float f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            float f = this.g;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.g = 20.0f;
-            }
-            return this.g;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            float f = this.d;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.d = 1.0f;
-            }
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public List<oka> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.h;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public float i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            float f = this.e;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.e = 20.0f;
-            }
-            return this.e;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            float f = this.f;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.f = 7.0f;
-            }
-            return this.f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            float f = this.c;
-            if (f <= 0.0f || Float.isNaN(f)) {
-                this.c = 100.0f;
-            }
-            return this.c;
-        }
-        return invokeV.floatValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return TextUtils.equals("1", a());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return TextUtils.equals("1", d());
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.a = "1";
-            this.b = "0";
-            this.c = 100.0f;
-            this.d = 1.0f;
-            this.e = 20.0f;
-            this.f = 7.0f;
-            this.g = 20.0f;
         }
     }
 
@@ -212,262 +111,180 @@ public class mka {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new ArrayList();
-        this.i = new ArrayList();
-        this.j = new HashMap();
-        this.k = new HashMap();
+        this.b = new lka();
     }
 
-    public void A(float f) {
+    public static byte[] h(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            this.c = f;
-        }
-    }
-
-    public void q(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.b = str;
-        }
-    }
-
-    public void r(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, map) == null) {
-            this.j = map;
-        }
-    }
-
-    public void s(List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, list) == null) {
-            this.i = list;
-        }
-    }
-
-    public void t(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
-            this.a = str;
-        }
-    }
-
-    public void u(Map<String, nka> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, map) == null) {
-            this.k = map;
-        }
-    }
-
-    public void v(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048598, this, f) == null) {
-            this.g = f;
-        }
-    }
-
-    public void w(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048599, this, f) == null) {
-            this.d = f;
-        }
-    }
-
-    public void x(List<oka> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
-            this.h = list;
-        }
-    }
-
-    public void y(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048601, this, f) == null) {
-            this.e = f;
-        }
-    }
-
-    public void z(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048602, this, f) == null) {
-            this.f = f;
-        }
-    }
-
-    public void n(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, jSONObject) == null) {
-            if (jSONObject != null && jSONObject.length() != 0) {
-                if (l) {
-                    Log.d("YaLogConfigData", "yalog config params is: " + jSONObject.toString());
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65539, null, bArr, i, i2)) == null) {
+            int i3 = i * i2;
+            int i4 = (i3 * 3) / 2;
+            byte[] bArr2 = new byte[i4];
+            int i5 = 0;
+            for (int i6 = 0; i6 < i; i6++) {
+                for (int i7 = i2 - 1; i7 >= 0; i7--) {
+                    bArr2[i5] = bArr[(i7 * i) + i6];
+                    i5++;
                 }
-                String optString = jSONObject.optString(SetImageWatermarkTypeReqMsg.SWITCH);
-                this.a = optString;
-                if (!TextUtils.equals("0", optString)) {
-                    this.a = "1";
+            }
+            int i8 = i4 - 1;
+            for (int i9 = i - 1; i9 > 0; i9 -= 2) {
+                for (int i10 = 0; i10 < i2 / 2; i10++) {
+                    int i11 = (i10 * i) + i3;
+                    bArr2[i8] = bArr[i11 + i9];
+                    int i12 = i8 - 1;
+                    bArr2[i12] = bArr[i11 + (i9 - 1)];
+                    i8 = i12 - 1;
                 }
-                String optString2 = jSONObject.optString("clear");
-                this.b = optString2;
-                if (!TextUtils.equals("1", optString2)) {
-                    this.b = "0";
+            }
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public static byte[] l(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65541, null, bArr, i, i2)) == null) {
+            int i3 = i * i2;
+            byte[] bArr2 = new byte[(i3 * 3) / 2];
+            int i4 = i - 1;
+            int i5 = 0;
+            for (int i6 = i4; i6 >= 0; i6--) {
+                for (int i7 = 0; i7 < i2; i7++) {
+                    bArr2[i5] = bArr[(i7 * i) + i6];
+                    i5++;
                 }
-                float optDouble = (float) jSONObject.optDouble("totalsize");
-                this.c = optDouble;
-                if (optDouble <= 0.0f || Float.isNaN(optDouble)) {
-                    this.c = 100.0f;
+            }
+            int i8 = i3;
+            while (i4 > 0) {
+                for (int i9 = 0; i9 < i2 / 2; i9++) {
+                    int i10 = (i9 * i) + i3;
+                    bArr2[i8] = bArr[(i4 - 1) + i10];
+                    int i11 = i8 + 1;
+                    bArr2[i11] = bArr[i10 + i4];
+                    i8 = i11 + 1;
                 }
-                float optDouble2 = (float) jSONObject.optDouble("singlesize");
-                this.d = optDouble2;
-                if (optDouble2 <= 0.0f || Float.isNaN(optDouble2)) {
-                    this.d = 1.0f;
+                i4 -= 2;
+            }
+            o(bArr2, i2, i);
+            return bArr2;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public static byte[] o(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65543, null, bArr, i, i2)) == null) {
+            for (int i3 = 0; i3 < (i2 * 3) / 2; i3++) {
+                for (int i4 = 0; i4 < i / 2; i4++) {
+                    int i5 = (i3 * i) + i4;
+                    byte b2 = bArr[i5];
+                    int i6 = (((i3 + 1) * i) - 1) - i4;
+                    bArr[i5] = bArr[i6];
+                    bArr[i6] = b2;
                 }
-                float optDouble3 = (float) jSONObject.optDouble("spacesize");
-                this.e = optDouble3;
-                if (optDouble3 <= 0.0f || Float.isNaN(optDouble3)) {
-                    this.e = 20.0f;
-                }
-                float optDouble4 = (float) jSONObject.optDouble("spacetimeout");
-                this.f = optDouble4;
-                if (optDouble4 <= 0.0f || Float.isNaN(optDouble4)) {
-                    this.f = 7.0f;
-                }
-                float optDouble5 = (float) jSONObject.optDouble("idsize");
-                this.g = optDouble5;
-                if (optDouble5 <= 0.0f || Float.isNaN(optDouble5)) {
-                    this.g = 20.0f;
-                }
-                this.i = new ArrayList();
-                JSONObject optJSONObject2 = jSONObject.optJSONObject("set");
-                if (optJSONObject2 != null && optJSONObject2.length() > 0) {
-                    Iterator<String> keys = optJSONObject2.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        JSONObject optJSONObject3 = optJSONObject2.optJSONObject(next);
-                        if (optJSONObject3 != null && (optJSONObject = optJSONObject3.optJSONObject("data")) != null && optJSONObject.length() != 0) {
-                            boolean z = !TextUtils.equals("0", optJSONObject.optString(SetImageWatermarkTypeReqMsg.SWITCH));
-                            float optDouble6 = (float) optJSONObject.optDouble("size");
-                            if (optDouble6 <= 0.0f || Float.isNaN(optDouble6)) {
-                                optDouble6 = this.e;
-                            }
-                            float optDouble7 = (float) optJSONObject.optDouble("timeout");
-                            if (optDouble7 <= 0.0f || Float.isNaN(optDouble7)) {
-                                optDouble7 = this.f;
-                            }
-                            oka okaVar = new oka(next, z, optDouble6, optDouble7);
-                            if (okaVar.e(z, this.e, this.f)) {
-                                this.i.add(next);
-                            } else {
-                                this.h.add(okaVar);
-                            }
-                        }
-                    }
-                }
-            } else if (l) {
-                Log.d("YaLogConfigData", "ConfigData is null");
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLII.objValue;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public void c(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr) == null) {
+            this.a.execute(new a(this, bArr));
+        }
+    }
+
+    public final void d(byte[] bArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, bArr, i) == null) {
+            if (i == 17) {
+                k(bArr);
+            } else if (i == 842094169) {
+                n(bArr);
             }
         }
     }
 
-    public void o(JSONObject jSONObject, boolean z) {
-        nka nkaVar;
-        long j;
-        long j2;
-        nka nkaVar2;
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048591, this, jSONObject, z) == null) {
-            if (jSONObject != null && jSONObject.length() != 0) {
-                if (l) {
-                    Log.d("YaLogConfigData", "yalog id content is: " + jSONObject.toString());
-                }
-                JSONObject optJSONObject = jSONObject.optJSONObject("set");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        JSONObject optJSONObject2 = optJSONObject.optJSONObject(next);
-                        if (optJSONObject2 != null) {
-                            long optLong = optJSONObject2.optLong("version");
-                            if (this.j != null && this.j.containsKey(next)) {
-                                j2 = Long.parseLong(this.j.get(next));
-                            } else {
-                                if (this.k != null && this.k.containsKey(next) && (nkaVar2 = this.k.get(next)) != null) {
-                                    j2 = nkaVar2.c();
-                                }
-                                j2 = 0;
-                            }
-                            if (!z || j2 < optLong) {
-                                JSONObject optJSONObject3 = optJSONObject2.optJSONObject("data");
-                                if (optJSONObject3 != null && optJSONObject3.length() != 0 && optJSONObject3.has("yalogswitch")) {
-                                    boolean z2 = !TextUtils.equals(optJSONObject3.optString("yalogswitch"), "0");
-                                    float optDouble = (float) optJSONObject3.optDouble("yalogsize");
-                                    if (optDouble <= 0.0f || Float.isNaN(optDouble)) {
-                                        optDouble = f();
-                                    }
-                                    nka nkaVar3 = new nka(next, optLong, z2, optDouble);
-                                    if (nkaVar3.d(z2, f())) {
-                                        Map<String, String> map = this.j;
-                                        if (map != null) {
-                                            map.put(next, String.valueOf(optLong));
-                                        }
-                                        Map<String, nka> map2 = this.k;
-                                        if (map2 != null && map2.containsKey(next)) {
-                                            this.k.remove(next);
-                                        }
-                                    } else {
-                                        Map<String, nka> map3 = this.k;
-                                        if (map3 != null) {
-                                            map3.put(next, nkaVar3);
-                                        }
-                                        Map<String, String> map4 = this.j;
-                                        if (map4 != null && map4.containsKey(next)) {
-                                            this.j.remove(next);
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-                JSONObject optJSONObject4 = jSONObject.optJSONObject("del");
-                if (optJSONObject4 != null && optJSONObject4.length() > 0) {
-                    Iterator<String> keys2 = optJSONObject4.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        long optLong2 = optJSONObject4.optLong(next2, 0L);
-                        Map<String, String> map5 = this.j;
-                        if (map5 != null && !TextUtils.isEmpty(map5.get(next2))) {
-                            try {
-                                j = Long.parseLong(this.j.get(next2));
-                            } catch (NumberFormatException unused) {
-                                j = 0;
-                            }
-                            if (!z || j < optLong2) {
-                                this.j.remove(next2);
-                            }
-                        } else {
-                            Map<String, nka> map6 = this.k;
-                            if (map6 != null && map6.containsKey(next2) && (nkaVar = this.k.get(next2)) != null) {
-                                long c = nkaVar.c();
-                                if (!z || c < optLong2) {
-                                    this.k.remove(next2);
-                                }
-                            }
-                        }
-                    }
-                }
-            } else if (l) {
-                Log.d("YaLogConfigData", "yalog id content is null");
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    public boolean f(int i, int i2, int i3, int i4, int i5, int i6, String str) {
+        InterceptResult invokeCommon;
+        int i7;
+        Interceptable interceptable = $ic;
+        if (interceptable != null && (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), str})) != null) {
+            return invokeCommon.booleanValue;
+        }
+        this.d = i3;
+        this.e = i;
+        this.f = i2;
+        if (i3 != 17) {
+            i7 = i3 == 842094169 ? 19 : 19;
+            return false;
+        }
+        i7 = 21;
+        try {
+            this.b.d(i, i2, i7, i4, i5, i6, str);
+            this.a = Executors.newSingleThreadExecutor();
+            return true;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Executors.newSingleThreadExecutor().execute(new b(this));
+        }
+    }
+
+    public final void k(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
+            for (int length = (bArr.length * 2) / 3; length < bArr.length - 1; length += 2) {
+                byte b2 = bArr[length];
+                int i = length + 1;
+                bArr[length] = bArr[i];
+                bArr[i] = b2;
+            }
+        }
+    }
+
+    public final void n(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            int length = (bArr.length * 2) / 3;
+            int i = length / 2;
+            for (int i2 = length; i2 < length + i; i2++) {
+                byte b2 = bArr[i2];
+                int i3 = i2 + i;
+                bArr[i2] = bArr[i3];
+                bArr[i3] = b2;
             }
         }
     }

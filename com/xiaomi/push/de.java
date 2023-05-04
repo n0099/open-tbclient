@@ -10,7 +10,7 @@ import java.util.HashMap;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class de {
     public static volatile de a;
 
@@ -20,7 +20,7 @@ public class de {
     /* renamed from: a  reason: collision with other field name */
     public final ConcurrentLinkedQueue<b> f210a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends b {
         public a() {
             super();
@@ -32,7 +32,7 @@ public class de {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends am.b {
         public long a = System.currentTimeMillis();
 
@@ -55,7 +55,7 @@ public class de {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class c extends b {
         public int a;
 

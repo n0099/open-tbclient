@@ -11,10 +11,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.deletethread.DeleteThreadHttpResponseMessage;
-import com.baidu.tieba.gd9;
+import com.baidu.tieba.fg9;
+import com.baidu.tieba.hc9;
 import com.baidu.tieba.homepage.personalize.bigday.BigdayActivity;
-import com.baidu.tieba.l99;
-import com.baidu.tieba.np7;
+import com.baidu.tieba.ir7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ public class RecommendFrsStatic {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, tbPageContext, strArr)) == null) {
-                return gd9.b(tbPageContext, strArr);
+                return fg9.b(tbPageContext, strArr);
             }
             return invokeLL.intValue;
         }
@@ -83,8 +83,8 @@ public class RecommendFrsStatic {
         tbHttpMessageTask2.setRetry(3);
         messageManager2.registerTask(tbHttpMessageTask2);
         TbadkCoreApplication.getInst().RegisterIntent(BigdayActivityConfig.class, BigdayActivity.class);
-        np7.b().c();
-        l99.c().d();
+        ir7.b().c();
+        hc9.c().d();
         UrlManager.getInstance().addListener(new a());
         TbHttpMessageTask tbHttpMessageTask3 = new TbHttpMessageTask(CmdConfigHttp.CMD_REQUEST_SPRITE_LOOP, TbConfig.SERVER_ADDRESS + TbConfig.REQUEST_SPRITE_LOOP);
         tbHttpMessageTask3.setResponsedClass(SpriteTipHttpResponseMessage.class);

@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b48;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.o38;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.l58;
+import com.baidu.tieba.x58;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -34,7 +34,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
     public transient /* synthetic */ FieldHolder $fh;
     public TbImageView d;
     public View e;
-    public b48 f;
+    public x58 f;
     public String g;
     public String h;
 
@@ -110,18 +110,18 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
         }
-        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e11);
-        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090e13);
+        this.d = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090e1a);
+        this.e = view2.findViewById(R.id.obfuscated_res_0x7f090e1c);
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder
-    public void d(@NonNull o38 o38Var, @NonNull TbPageContext tbPageContext, int i2) {
+    public void d(@NonNull l58 l58Var, @NonNull TbPageContext tbPageContext, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, o38Var, tbPageContext, i2) == null) {
-            if (o38Var instanceof b48) {
-                b48 b48Var = (b48) o38Var;
-                this.f = b48Var;
-                this.g = b48Var.b();
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, l58Var, tbPageContext, i2) == null) {
+            if (l58Var instanceof x58) {
+                x58 x58Var = (x58) l58Var;
+                this.f = x58Var;
+                this.g = x58Var.b();
                 this.h = this.f.c();
                 this.d.setOnClickListener(new a(this, tbPageContext));
             }
@@ -136,7 +136,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i2) == null) {
             super.f(i2);
             if (TextUtils.isEmpty(this.g) && (tbImageView = this.d) != null) {
-                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f0805fd, i2);
+                SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080603, i2);
             }
             if (!TextUtils.isEmpty(this.g) && this.d != null) {
                 o(i2);
@@ -152,8 +152,8 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 return;
             }
             this.e.setVisibility(0);
-            r25.d(this.e).f(R.color.CAM_X0503);
-            r25.d(this.e).o(R.string.J_X06);
+            g35.d(this.e).f(R.color.CAM_X0503);
+            g35.d(this.e).o(R.string.J_X06);
         }
     }
 
@@ -200,7 +200,7 @@ public class ChatBannerViewHolder extends BaseItemViewHolder {
                 o(skinType);
                 return;
             }
-            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f0805fd, skinType);
+            SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f080603, skinType);
         }
     }
 }

@@ -2,31 +2,33 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.util.Log;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.swan.apps.view.SwanAppActionBar;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xa3 extends s93 {
+public class xa3 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xa3(s83 s83Var) {
-        super(s83Var, "/swanAPI/setNavigationBarColor");
+    public xa3(u83 u83Var) {
+        super(u83Var, "/swanAPI/getMenuButtonBoundingClientRect");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,51 +42,97 @@ public class xa3 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("BarColorAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (x73Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            e72 V = it2.U().V();
+            if (u93.b) {
+                Log.d("GetMenuButtonBounding", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            g72 V = kt2.U().V();
             if (V == null) {
-                v42.c("navigationColor", "manager is null");
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else if (optParamsAsJo == null) {
-                v42.c("navigationColor", "paramsJson is null");
+            }
+            d72 m = V.m();
+            if (m == null) {
                 unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
-            } else {
-                String optString = optParamsAsJo.optString("frontColor");
-                String optString2 = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-                JSONObject optJSONObject = optParamsAsJo.optJSONObject("animation");
-                b72 m = V.m();
-                if (m == null) {
-                    v42.c("navigationColor", "slave container exception");
+            } else if (x73Var.w0()) {
+                View q = fr2.i().q(m);
+                if (q == null) {
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                     return false;
-                } else if (!m.H2(optString, true)) {
-                    v42.c("navigationColor", "set title color fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else if (!m.x2(SwanAppConfigData.t(optString2), true)) {
-                    v42.c("navigationColor", "set title background fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
-                } else {
-                    if (optJSONObject != null) {
-                        m.v2(optJSONObject.optInt("duration"), optJSONObject.optString("timingFunc"));
-                        v42.i("navigationColor", "set action bar animator");
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    return true;
                 }
+                unitedSchemeEntity.result = j(q);
+                return true;
+            } else {
+                SwanAppActionBar N1 = m.N1();
+                if (N1 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                View rightMenu = N1.getRightMenu();
+                if (rightMenu == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                    return false;
+                }
+                unitedSchemeEntity.result = j(rightMenu);
+                return true;
             }
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final JSONObject j(View view2) {
+        InterceptResult invokeL;
+        boolean z;
+        int P;
+        JSONObject wrapCallbackParams;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            x73 M = x73.M();
+            if (M != null) {
+                z = M.w0();
+            } else {
+                z = false;
+            }
+            if (z) {
+                P = 0;
+            } else {
+                P = (int) (ol3.P(ol3.t()) + 0.5f);
+            }
+            int P2 = (int) (ol3.P(view2.getLeft()) + 0.5f);
+            int P3 = (int) (ol3.P(view2.getRight()) + 0.5f);
+            int P4 = ((int) (ol3.P(view2.getTop()) + 0.5f)) + P;
+            int P5 = ((int) (ol3.P(view2.getBottom()) + 0.5f)) + P;
+            int i = P3 - P2;
+            int i2 = P5 - P4;
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("width", i);
+                jSONObject.put("height", i2);
+                jSONObject.put("left", P2);
+                jSONObject.put("right", P3);
+                jSONObject.put("top", P4);
+                jSONObject.put("bottom", P5);
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0);
+            } catch (JSONException e) {
+                if (u93.b) {
+                    e.printStackTrace();
+                }
+                wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(1001, "result JSONException");
+            }
+            if (u93.b) {
+                Log.e("GetMenuButtonBounding", wrapCallbackParams.toString());
+            }
+            return wrapCallbackParams;
+        }
+        return (JSONObject) invokeL.objValue;
     }
 }

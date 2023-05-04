@@ -1,63 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ana;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.baidu.validation.utils.ValidationLog;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bna extends ana.b {
+public class bna {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ kna f;
+    public String a;
+    public final List<String> b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bna(ana anaVar, eoa eoaVar, String str, kna knaVar) {
-        super(anaVar, eoaVar, str);
+    public bna() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {anaVar, eoaVar, str, knaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((ana) objArr2[0], (eoa) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = knaVar;
+        this.b = new ArrayList();
     }
 
-    @Override // com.baidu.tieba.ana.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-    public void onAdClicked(View view2, int i) {
+    public static bna a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048576, this, view2, i) == null) {
-            super.onAdClicked(view2, i);
-            kna knaVar = this.f;
-            String str = this.b;
-            FunSplashAdInteractionListener funSplashAdInteractionListener = knaVar.j;
-            if (funSplashAdInteractionListener != null) {
-                funSplashAdInteractionListener.onAdClicked(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                bna bnaVar = new bna();
+                JSONObject optJSONObject = jSONObject.optJSONObject("action");
+                if (optJSONObject != null) {
+                    bnaVar.a = optJSONObject.optString("name");
+                    JSONArray optJSONArray = optJSONObject.optJSONArray("params");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            bnaVar.b.add(optJSONArray.optString(i));
+                        }
+                    }
+                }
+                return bnaVar;
+            } catch (JSONException e) {
+                ValidationLog.e(e);
+                return null;
             }
         }
+        return (bna) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ana.b, com.bytedance.sdk.openadsdk.TTSplashAd.AdInteractionListener
-    public void onAdShow(View view2, int i) {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, i) == null) {
-            super.onAdShow(view2, i);
-            kna knaVar = this.f;
-            knaVar.g = knaVar.b.getWidth();
-            knaVar.h = knaVar.b.getHeight();
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (String) invokeV.objValue;
+    }
+
+    public List<String> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (List) invokeV.objValue;
     }
 }

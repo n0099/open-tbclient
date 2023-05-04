@@ -1,74 +1,28 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.widget.ImageView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.SVGAVideoEntity;
 import java.util.ArrayList;
 import java.util.List;
+/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Lcom/baidu/tieba/iya<TTResult;>; */
 /* loaded from: classes5.dex */
-public class iya {
+public final class iya<TResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vya a;
-    public final SVGAVideoEntity b;
+    public final Object a;
+    public boolean b;
+    public TResult c;
+    public Exception d;
+    public List<wya<TResult>> e;
 
-    /* loaded from: classes5.dex */
-    public final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String a;
-        public final qya b;
-
-        public a(iya iyaVar, String str, qya qyaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {iyaVar, str, qyaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = qyaVar;
-        }
-
-        public final qya a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.b;
-            }
-            return (qya) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    public iya(SVGAVideoEntity sVGAVideoEntity) {
+    public iya() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {sVGAVideoEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,52 +32,101 @@ public class iya {
                 return;
             }
         }
-        this.b = sVGAVideoEntity;
-        this.a = new vya();
+        this.a = new Object();
+        this.e = new ArrayList();
     }
 
-    public void a(Canvas canvas, int i, ImageView.ScaleType scaleType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, canvas, i, scaleType) == null) {
-            this.a.f(canvas.getWidth(), canvas.getHeight(), (float) this.b.h().b(), (float) this.b.h().a(), scaleType);
-        }
-    }
-
-    public final vya b() {
+    public final Exception c() {
         InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (vya) invokeV.objValue;
-    }
-
-    public final SVGAVideoEntity c() {
-        InterceptResult invokeV;
+        Exception exc;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+            synchronized (this.a) {
+                exc = this.d;
+            }
+            return exc;
         }
-        return (SVGAVideoEntity) invokeV.objValue;
+        return (Exception) invokeV.objValue;
     }
 
-    public final List<a> d(int i) {
-        InterceptResult invokeI;
+    public final TResult d() {
+        InterceptResult invokeV;
+        TResult tresult;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            List<pya> g = this.b.g();
-            ArrayList arrayList = new ArrayList();
-            for (pya pyaVar : g) {
-                a aVar = null;
-                if (i >= 0 && i < pyaVar.a().size() && pyaVar.a().get(i).a() > 0.0d) {
-                    aVar = new a(this, pyaVar.b(), pyaVar.a().get(i));
-                }
-                if (aVar != null) {
-                    arrayList.add(aVar);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this.a) {
+                if (this.d == null) {
+                    tresult = this.c;
+                } else {
+                    throw new RuntimeException(this.d);
                 }
             }
-            return arrayList;
+            return tresult;
         }
-        return (List) invokeI.objValue;
+        return (TResult) invokeV.objValue;
+    }
+
+    public final boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            synchronized (this.a) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            synchronized (this.a) {
+                if (this.b) {
+                    e();
+                    if (this.d == null) {
+                        z = true;
+                    }
+                }
+                z = false;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final iya<TResult> a(wya<TResult> wyaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wyaVar)) == null) {
+            synchronized (this.a) {
+                if (!this.b) {
+                    this.e.add(wyaVar);
+                } else {
+                    wyaVar.a(this);
+                }
+            }
+            return this;
+        }
+        return (iya) invokeL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this.a) {
+                for (wya<TResult> wyaVar : this.e) {
+                    try {
+                        wyaVar.a(this);
+                    } catch (RuntimeException e) {
+                        throw e;
+                    } catch (Exception e2) {
+                        throw new RuntimeException(e2);
+                    }
+                }
+                this.e = null;
+            }
+        }
     }
 }

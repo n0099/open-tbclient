@@ -1,134 +1,244 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagTagInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
-import java.util.ArrayList;
-import java.util.List;
-import tv.athena.revenue.payui.model.PayUIKitConfig;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes6.dex */
 public class v9b {
     public static /* synthetic */ Interceptable $ic;
+    public static final v9b f;
+    public static final r9b g;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicReference<r9b> a;
+    public final AtomicReference<t9b> b;
+    public final AtomicReference<x9b> c;
+    public final AtomicReference<q9b> d;
+    public final AtomicReference<w9b> e;
 
-    public static int a(double d, double d2) {
-        InterceptResult invokeCommon;
+    /* loaded from: classes6.dex */
+    public static class a extends r9b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends q9b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(v9b v9bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v9bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948197034, "Lcom/baidu/tieba/v9b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948197034, "Lcom/baidu/tieba/v9b;");
+                return;
+            }
+        }
+        f = new v9b();
+        g = new a();
+    }
+
+    @Deprecated
+    public static v9b c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "countPayAmountMargin targetAmount:" + d + " accountAmount:" + d2);
-            double d3 = (d - d2) / 100.0d;
-            double d4 = 1.0d;
-            if (d3 > 1.0d) {
-                if (d3 > 1.0d && d3 <= 10.0d) {
-                    d4 = Math.ceil(d3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
+        }
+        return (v9b) invokeV.objValue;
+    }
+
+    public v9b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicReference<>();
+        this.b = new AtomicReference<>();
+        this.c = new AtomicReference<>();
+        this.d = new AtomicReference<>();
+        this.e = new AtomicReference<>();
+    }
+
+    public q9b a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.d.get() == null) {
+                Object e = e(q9b.class, System.getProperties());
+                if (e == null) {
+                    this.d.compareAndSet(null, new b(this));
                 } else {
-                    if (d3 % 10.0d > 0.0d) {
-                        d3 = (((int) (d3 / 10.0d)) + 1) * 10;
+                    this.d.compareAndSet(null, (q9b) e);
+                }
+            }
+            return this.d.get();
+        }
+        return (q9b) invokeV.objValue;
+    }
+
+    public r9b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a.get() == null) {
+                Object e = e(r9b.class, System.getProperties());
+                if (e == null) {
+                    this.a.compareAndSet(null, g);
+                } else {
+                    this.a.compareAndSet(null, (r9b) e);
+                }
+            }
+            return this.a.get();
+        }
+        return (r9b) invokeV.objValue;
+    }
+
+    public t9b d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b.get() == null) {
+                Object e = e(t9b.class, System.getProperties());
+                if (e == null) {
+                    this.b.compareAndSet(null, u9b.f());
+                } else {
+                    this.b.compareAndSet(null, (t9b) e);
+                }
+            }
+            return this.b.get();
+        }
+        return (t9b) invokeV.objValue;
+    }
+
+    public w9b f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.e.get() == null) {
+                Object e = e(w9b.class, System.getProperties());
+                if (e == null) {
+                    this.e.compareAndSet(null, w9b.h());
+                } else {
+                    this.e.compareAndSet(null, (w9b) e);
+                }
+            }
+            return this.e.get();
+        }
+        return (w9b) invokeV.objValue;
+    }
+
+    public x9b g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c.get() == null) {
+                Object e = e(x9b.class, System.getProperties());
+                if (e == null) {
+                    this.c.compareAndSet(null, y9b.e());
+                } else {
+                    this.c.compareAndSet(null, (x9b) e);
+                }
+            }
+            return this.c.get();
+        }
+        return (x9b) invokeV.objValue;
+    }
+
+    public static Object e(Class<?> cls, Properties properties) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, cls, properties)) == null) {
+            Properties properties2 = (Properties) properties.clone();
+            String simpleName = cls.getSimpleName();
+            String property = properties2.getProperty("rxjava.plugin." + simpleName + ".implementation");
+            if (property == null) {
+                Iterator it = properties2.entrySet().iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
                     }
-                    d4 = d3;
+                    Map.Entry entry = (Map.Entry) it.next();
+                    String obj = entry.getKey().toString();
+                    if (obj.startsWith("rxjava.plugin.") && obj.endsWith(".class") && simpleName.equals(entry.getValue().toString())) {
+                        String str = "rxjava.plugin." + obj.substring(0, obj.length() - 6).substring(14) + ".impl";
+                        String property2 = properties2.getProperty(str);
+                        if (property2 != null) {
+                            property = property2;
+                        } else {
+                            throw new IllegalStateException("Implementing class declaration for " + simpleName + " missing: " + str);
+                        }
+                    }
                 }
             }
-            RLog.info("PayAmountHelper", "countPayAmountMargin amountMarginCount:" + d4);
-            return (int) d4;
-        }
-        return invokeCommon.intValue;
-    }
-
-    public static int b(List<g9b> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            for (int i2 = 0; i2 < list.size(); i2++) {
-                if (list.get(i2).c() == i) {
-                    return i2;
+            if (property != null) {
+                try {
+                    return Class.forName(property).asSubclass(cls).newInstance();
+                } catch (ClassCastException e) {
+                    throw new IllegalStateException(simpleName + " implementation is not an instance of " + simpleName + ": " + property, e);
+                } catch (ClassNotFoundException e2) {
+                    throw new IllegalStateException(simpleName + " implementation class not found: " + property, e2);
+                } catch (IllegalAccessException e3) {
+                    throw new IllegalStateException(simpleName + " implementation not able to be accessed: " + property, e3);
+                } catch (InstantiationException e4) {
+                    throw new IllegalStateException(simpleName + " implementation not able to be instantiated: " + property, e4);
                 }
-            }
-            return -1;
-        }
-        return invokeLI.intValue;
-    }
-
-    public static g9b c(List<g9b> list, PayUIKitConfig payUIKitConfig, double d, double d2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{list, payUIKitConfig, Double.valueOf(d), Double.valueOf(d2)})) == null) {
-            RLog.info("PayAmountHelper", "createPayAmount targetAmount:" + d + " accountAmount:" + d2);
-            if (list != null && !list.isEmpty()) {
-                int a = a(d, d2);
-                RLog.info("PayAmountHelper", "countPayAmountMargin amountMargin:" + a);
-                int b = b(list, a);
-                RLog.info("PayAmountHelper", "findPayAmountPositionFromConfigList position:" + b);
-                if (b >= 0) {
-                    d(list, b);
-                } else {
-                    f(list, payUIKitConfig, a);
-                }
-                return list.get(0);
             }
             return null;
         }
-        return (g9b) invokeCommon.objValue;
-    }
-
-    public static void d(List<g9b> list, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, list, i) == null) {
-            RLog.info("PayAmountHelper", "movePayAmountList position:" + i);
-            RLog.debug("PayAmountHelper", "movePayAmountList configAmountList:" + list);
-            if (i != 0) {
-                list.add(0, list.remove(i));
-            }
-            if (list.get(0).a.giftBagTagInfos != null && !list.get(0).a.giftBagTagInfos.isEmpty()) {
-                list.get(0).a.giftBagTagInfos.get(0).tag = "推荐";
-                return;
-            }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            list.get(0).a.giftBagTagInfos = new ArrayList();
-            list.get(0).a.giftBagTagInfos.add(giftBagTagInfo);
-        }
-    }
-
-    public static boolean e(g9b g9bVar) {
-        InterceptResult invokeL;
-        ProductInfo productInfo;
-        List<GiftBagsInfo> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, g9bVar)) == null) {
-            if (g9bVar != null && (productInfo = g9bVar.a) != null && (list = productInfo.giftbags) != null && !list.isEmpty()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static void f(List<g9b> list, PayUIKitConfig payUIKitConfig, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65541, null, list, payUIKitConfig, i) == null) {
-            RLog.debug("PayAmountHelper", "replacePayAmountList configAmountList:" + list);
-            if (i > 500000) {
-                i = 500000;
-            }
-            g9b a = q9b.a(i * 100, payUIKitConfig);
-            RLog.info("PayAmountHelper", "createPayAmount customPayAmount:" + a);
-            if (e(list.get(0))) {
-                list.remove(list.size() - 1);
-            } else if (e(list.get(list.size() - 1))) {
-                list.remove(0);
-            } else {
-                list.remove(0);
-            }
-            GiftBagTagInfo giftBagTagInfo = new GiftBagTagInfo();
-            giftBagTagInfo.tag = "推荐";
-            a.a.giftBagTagInfos = new ArrayList();
-            a.a.giftBagTagInfos.add(giftBagTagInfo);
-            list.add(0, a);
-        }
+        return invokeLL.objValue;
     }
 }

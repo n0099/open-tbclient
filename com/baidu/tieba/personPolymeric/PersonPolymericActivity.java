@@ -38,7 +38,7 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -94,13 +94,13 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager x0() {
+    public VoiceManager y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             PersonPolymericFragment personPolymericFragment = this.a;
             if (personPolymericFragment != null) {
-                return personPolymericFragment.x0();
+                return personPolymericFragment.y0();
             }
             return null;
         }
@@ -144,9 +144,9 @@ public class PersonPolymericActivity extends BaseFragmentActivity implements Voi
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0770);
+            setContentView(R.layout.obfuscated_res_0x7f0d077c);
             this.a = new PersonPolymericFragment();
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090bca, this.a).commit();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090bd2, this.a).commit();
             if (getIntent() != null && getIntent().getParcelableExtra(IntentConfig.KEY_URI) != null && !w8.f().h("MainTabActivity")) {
                 this.b = true;
             }

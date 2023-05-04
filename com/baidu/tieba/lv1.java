@@ -1,121 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ad3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lv1 extends aw1 {
+public final class lv1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static final lv1 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yv1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "AllianceAccountApi" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements om3<yc3<ad3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ lv1 b;
-
-        public a(lv1 lv1Var, String str) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947956226, "Lcom/baidu/tieba/lv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lv1Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = lv1Var;
-            this.a = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (tc3.h(yc3Var)) {
-                    this.b.z(this.a);
-                    return;
-                }
-                int b = yc3Var.b();
-                tc3.f(b);
-                this.b.d(this.a, new vz1(b, tc3.f(b)));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lv1(@NonNull wv1 wv1Var) {
-        super(wv1Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wv1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((wv1) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947956226, "Lcom/baidu/tieba/lv1;");
                 return;
             }
         }
+        b = new lv1();
     }
 
-    public vz1 y(String str) {
-        InterceptResult invokeL;
+    public lv1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getUnionBDUSS", false);
-            v73 b0 = v73.b0();
-            if (b0 == null) {
-                return new vz1(1001, "swan app is null");
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            Pair<vz1, JSONObject> s = s(str);
-            vz1 vz1Var = (vz1) s.first;
-            if (!vz1Var.isSuccess()) {
-                return vz1Var;
-            }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new vz1(201, "cb is empty");
-            }
-            b0.e0().g(u73.K(), "account_get_union_bduss", new a(this, optString));
-            return vz1.f();
         }
-        return (vz1) invokeL.objValue;
     }
 
-    public final void z(String str) {
+    public final String a() {
+        InterceptResult invokeV;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            vk3.f(jSONObject, "bduss", gv1.a.a());
-            d(str, new vz1(0, jSONObject));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str = a;
+            if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                a = b();
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            fg3 a2 = lg3.a();
+            if (a2 == null) {
+                return null;
+            }
+            return a2.getString("alliance_login_uk", null);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            lg3.a().putString("alliance_login_uk", "");
+            a = null;
+        }
+    }
+
+    public final void c(int i, JSONObject jsonObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, jsonObject) == null) {
+            Intrinsics.checkNotNullParameter(jsonObject, "jsonObject");
+            if (i == 0) {
+                e(jsonObject);
+            }
+        }
+    }
+
+    public final void e(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            lg3.a().putString("alliance_login_uk", jSONObject.optString("uk"));
         }
     }
 }

@@ -1,177 +1,170 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseArray;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.DeleteThreadInfo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.pb.pb.godreply.LookMoreHttpResMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreReqMessage;
+import com.baidu.tieba.pb.pb.godreply.LookMoreSocketResMessage;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class az8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public PbModel a;
+    public b b;
+    public final BdUniqueId c;
+    public final za d;
 
     /* loaded from: classes3.dex */
-    public static class a implements du5 {
+    public interface b {
+        void a(int i, String str, String str2);
+
+        void onSuccess(List<pp9> list);
+    }
+
+    /* loaded from: classes3.dex */
+    public class a extends za {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PbModel a;
-        public final /* synthetic */ fx8 b;
+        public final /* synthetic */ az8 a;
 
-        public a(PbModel pbModel, fx8 fx8Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(az8 az8Var, int i, int i2) {
+            super(i, i2);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {pbModel, fx8Var};
+                Object[] objArr = {az8Var, Integer.valueOf(i), Integer.valueOf(i2)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = pbModel;
-            this.b = fx8Var;
+            this.a = az8Var;
         }
 
-        @Override // com.baidu.tieba.du5
-        public void a() {
+        @Override // com.baidu.tieba.za
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.m4(false);
-            }
-        }
-
-        @Override // com.baidu.tieba.du5
-        public void b(List<String> list) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || this.a.u1() == null) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
                 return;
             }
-            ArrayList<am9> F = this.a.u1().F();
-            if (!ListUtils.isEmpty(F) && !ListUtils.isEmpty(list)) {
-                Iterator<am9> it = F.iterator();
-                while (it.hasNext()) {
-                    am9 next = it.next();
-                    int i = 0;
-                    while (true) {
-                        if (i >= list.size()) {
-                            break;
-                        } else if (TextUtils.equals(list.get(i), next.O())) {
-                            it.remove();
-                            if (this.a.u1().M() != null) {
-                                this.a.u1().M().setReply_num(this.a.u1().M().getReply_num() - 1);
-                            }
-                        } else {
-                            i++;
-                        }
+            if (responsedMessage.getOrginalMessage() != null && responsedMessage.getOrginalMessage().getTag() != null && responsedMessage.getOrginalMessage().getTag() != this.a.c) {
+                return;
+            }
+            if (responsedMessage instanceof LookMoreHttpResMessage) {
+                LookMoreHttpResMessage lookMoreHttpResMessage = (LookMoreHttpResMessage) responsedMessage;
+                List<pp9> data = lookMoreHttpResMessage.getData();
+                String errorString = lookMoreHttpResMessage.getErrorString();
+                int error = lookMoreHttpResMessage.getError();
+                if (error == 0) {
+                    if (!ListUtils.isEmpty(data)) {
+                        this.a.b.onSuccess(data);
+                        return;
                     }
+                    return;
                 }
-                this.b.I1(this.a.u1());
-            }
-        }
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            cu5.b().a();
-        }
-    }
-
-    public static fu5 b(PbModel pbModel, fx8 fx8Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, pbModel, fx8Var)) == null) {
-            if (pbModel != null && fx8Var != null) {
-                fu5 fu5Var = new fu5();
-                if (pbModel.u1() != null && pbModel.u1().k() != null) {
-                    if (pbModel.u1().k().getDeletedReasonInfo() != null) {
-                        fu5Var.p(pbModel.u1().k().getDeletedReasonInfo().is_grays_cale_forum.intValue());
-                        fu5Var.o(pbModel.u1().k().getDeletedReasonInfo().is_boomgrow.intValue());
+                this.a.b.a(error, errorString, "");
+            } else if (responsedMessage instanceof LookMoreSocketResMessage) {
+                LookMoreSocketResMessage lookMoreSocketResMessage = (LookMoreSocketResMessage) responsedMessage;
+                List<pp9> data2 = lookMoreSocketResMessage.getData();
+                String errorString2 = lookMoreSocketResMessage.getErrorString();
+                int error2 = lookMoreSocketResMessage.getError();
+                if (error2 == 0) {
+                    if (data2 != null) {
+                        this.a.b.onSuccess(data2);
+                        return;
                     }
-                    fu5Var.l(pbModel.u1().k().getId());
-                    fu5Var.m(pbModel.u1().k().getName());
-                    fu5Var.k(pbModel.u1().k().getImage_url());
-                    fu5Var.t(pbModel.u1().k().getUser_level());
+                    return;
                 }
-                if (pbModel.u1() != null && pbModel.u1().n() != null) {
-                    fu5Var.n(pbModel.u1().n().has_forum_rule.intValue());
-                }
-                if (pbModel.u1() != null && pbModel.u1().T() != null) {
-                    fu5Var.s(pbModel.u1().T());
-                }
-                fu5Var.q(new a(pbModel, fx8Var));
-                if (pbModel.u1() != null) {
-                    AntiData c = pbModel.u1().c();
-                    SparseArray<String> sparseArray = new SparseArray<>();
-                    if (c != null && c.getDelThreadInfoList() != null) {
-                        List<DeleteThreadInfo> delThreadInfoList = c.getDelThreadInfoList();
-                        for (int i = 0; i < delThreadInfoList.size(); i++) {
-                            if (delThreadInfoList.get(i) != null && !TextUtils.isEmpty(delThreadInfoList.get(i).text_info)) {
-                                sparseArray.put(delThreadInfoList.get(i).text_id, delThreadInfoList.get(i).text_info);
-                            }
-                        }
-                    }
-                    fu5Var.r(sparseArray);
-                }
-                return fu5Var;
+                this.a.b.a(error2, errorString2, "");
             }
-            return null;
-        }
-        return (fu5) invokeLL.objValue;
-    }
-
-    public static boolean c(ht8 ht8Var, am9 am9Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, ht8Var, am9Var)) == null) {
-            if (ht8Var != null && am9Var != null) {
-                hu5 hu5Var = new hu5();
-                hu5Var.d(am9Var.K() + "");
-                if (ht8Var.M() != null) {
-                    hu5Var.f(ht8Var.M().getId());
-                }
-                hu5Var.e(am9Var.O());
-                return cu5.b().c(hu5Var);
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(TbPageContext<BaseFragmentActivity> tbPageContext, PbModel pbModel, fx8 fx8Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, tbPageContext, pbModel, fx8Var) == null) && tbPageContext != null && pbModel != null && fx8Var != null) {
-            cu5.b().e(tbPageContext, fx8Var.o1(), b(pbModel, fx8Var));
-            cu5.b().d(1);
         }
     }
 
-    public static boolean e(am9 am9Var) {
-        InterceptResult invokeL;
+    public az8(PbModel pbModel, BaseFragmentActivity baseFragmentActivity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, am9Var)) == null) {
-            if (am9Var == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pbModel, baseFragmentActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return cu5.b().f(am9Var.O());
         }
-        return invokeL.booleanValue;
+        this.d = new a(this, CmdConfigHttp.CMD_PB_GOD_MORE, 309446);
+        this.a = pbModel;
+        this.c = BdUniqueId.gen();
+        e();
+        this.d.setTag(baseFragmentActivity.getUniqueId());
+        MessageManager.getInstance().registerListener(this.d);
+        this.b = null;
+    }
+
+    public void f(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            this.b = bVar;
+        }
+    }
+
+    public void c(List<Long> list) {
+        PbModel pbModel;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, list) == null) && (pbModel = this.a) != null && pbModel.z1() != null) {
+            int l = ii.l(TbadkCoreApplication.getInst());
+            int j = ii.j(TbadkCoreApplication.getInst());
+            LookMoreReqMessage lookMoreReqMessage = new LookMoreReqMessage();
+            lookMoreReqMessage.setKz(Long.valueOf(gg.g(this.a.b, 0L)));
+            lookMoreReqMessage.setPost_id(list);
+            lookMoreReqMessage.setSt_type(gg.e(this.a.mStType, 0));
+            lookMoreReqMessage.setWith_floor(1);
+            lookMoreReqMessage.setScr_w(l);
+            lookMoreReqMessage.setScr_h(j);
+            lookMoreReqMessage.setTag(this.c);
+            MessageManager.getInstance().sendMessage(lookMoreReqMessage);
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.d);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_PB_GOD_MORE, xo9.a(TbConfig.PB_MORE_GOD_REPLY_URL, 309446));
+            tbHttpMessageTask.setResponsedClass(LookMoreHttpResMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
+            xo9.f(309446, LookMoreSocketResMessage.class, false);
+        }
     }
 }

@@ -18,7 +18,7 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.huawei.hms.adapter.internal.CommonCode;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 @SafeParcelable.Class(creator = "ConnectionResultCreator")
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ConnectionResult extends AbstractSafeParcelable {
     public static final int API_DISABLED = 23;
     public static final int API_DISABLED_FOR_CONNECTION = 24;

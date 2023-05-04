@@ -2,7 +2,6 @@ package com.baidu.tbadk.switchs;
 
 import com.baidu.adp.lib.featureSwitch.SwitchManager;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q45;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -31,6 +30,16 @@ public class PicReqSwitch extends te {
             return null;
         }
         return (String[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.te
+    public int getDefaultType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 0;
+        }
+        return invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.te
@@ -84,15 +93,5 @@ public class PicReqSwitch extends te {
             return false;
         }
         return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.te
-    public int getDefaultType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return q45.m().n("key_pic_req_switch", 0);
-        }
-        return invokeV.intValue;
     }
 }

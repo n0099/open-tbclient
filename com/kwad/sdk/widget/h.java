@@ -109,11 +109,11 @@ public final class h {
 
     public final void d(Context context, @Nullable AttributeSet attributeSet) {
         if (attributeSet != null) {
-            int[] iArr = {R.attr.obfuscated_res_0x7f0403b7, R.attr.obfuscated_res_0x7f040399};
+            int[] iArr = {R.attr.obfuscated_res_0x7f0403c0, R.attr.obfuscated_res_0x7f0403a2};
             Arrays.sort(iArr);
             TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, iArr);
-            this.wm = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403b7), 0);
-            this.arm = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f040399), true);
+            this.wm = obtainStyledAttributes.getDimensionPixelOffset(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403c0), 0);
+            this.arm = obtainStyledAttributes.getBoolean(Arrays.binarySearch(iArr, (int) R.attr.obfuscated_res_0x7f0403a2), true);
             obtainStyledAttributes.recycle();
         }
         this.ZA = new Path();

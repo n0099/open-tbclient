@@ -1,140 +1,29 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbPageContextSupport;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.data.PrivateForumPopInfoData;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.d05;
-import com.baidu.tieba.frs.FrsPrivateCommonDialogView;
-import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.mc.FrsModelController;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.PrivateForumInfo;
 /* loaded from: classes3.dex */
-public class bg7 extends l15 {
+public class bg7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
-    public String c;
+    public final v67 a;
+    public final FrsFragment b;
+    public final cl7 c;
+    public final wk7 d;
+    public final FrsModelController e;
+    public final c87 f;
+    public final uf7 g;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TbPageContext a;
-        public final /* synthetic */ d05 b;
-        public final /* synthetic */ bg7 c;
-
-        public a(bg7 bg7Var, TbPageContext tbPageContext, d05 d05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bg7Var, tbPageContext, d05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = bg7Var;
-            this.a = tbPageContext;
-            this.b = d05Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                boolean booleanValue = ((Boolean) view2.getTag(R.id.is_forum_owner_check)).booleanValue();
-                PrivateForumPopInfoData privateForumPopInfoData = (PrivateForumPopInfoData) view2.getTag(R.id.private_pop_info);
-                UrlManager.getInstance().dealOneLink(this.a, new String[]{privateForumPopInfoData.U()});
-                xf7.f(privateForumPopInfoData, booleanValue, this.c.b, this.c.c, true);
-                this.b.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements d05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(bg7 bg7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bg7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                d05Var.dismiss();
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921682, 3));
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921588));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(bg7 bg7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bg7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                a15.r("frsExam");
-            }
-        }
-    }
-
-    public bg7() {
+    public bg7(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -144,70 +33,16 @@ public class bg7 extends l15 {
                 return;
             }
         }
-        this.a = false;
-    }
-
-    @Override // com.baidu.tieba.l15
-    public void a(@NonNull Context context, @NonNull c15 c15Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c15Var) == null) {
-            if (!(context instanceof TbPageContextSupport)) {
-                a15.r("frsExam");
-                return;
-            }
-            TbPageContextSupport tbPageContextSupport = (TbPageContextSupport) context;
-            if (tbPageContextSupport.getPageContext() != null && tbPageContextSupport.getPageContext().getPageActivity() != null) {
-                pk9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
-                FrsViewData frsViewData = new FrsViewData();
-                frsViewData.receiveData(frsResponseData);
-                if (frsViewData.getForum() != null) {
-                    this.c = frsViewData.getForum().getName();
-                    this.b = frsViewData.getForum().getId();
-                }
-                if (!StringUtils.isNull(this.c) && !StringUtils.isNull(this.b)) {
-                    if ((frsViewData.getPrivateForumTotalInfo() == null || frsViewData.getPrivateForumTotalInfo().a() == null || frsViewData.getUserData().getIs_manager() != 1) && frsViewData.getPrivateForumPopInfo() == null) {
-                        a15.r("frsExam");
-                        return;
-                    }
-                    PrivateForumPopInfoData privateForumPopInfoData = new PrivateForumPopInfoData();
-                    privateForumPopInfoData.V(frsViewData.getPrivateForumTotalInfo().c());
-                    FrsPrivateCommonDialogView frsPrivateCommonDialogView = new FrsPrivateCommonDialogView(tbPageContextSupport.getPageContext().getPageActivity());
-                    PrivateForumInfo a2 = frsViewData.getPrivateForumTotalInfo().a();
-                    if (a2 != null && a2.private_forum_status.intValue() == 1 && (hi.isEmpty(privateForumPopInfoData.T()) || privateForumPopInfoData.S() != gg.e(this.b, 0))) {
-                        privateForumPopInfoData.Y("create_success");
-                        privateForumPopInfoData.Z(String.format(pe7.t, this.b, this.c));
-                        privateForumPopInfoData.X(gg.e(this.b, -1));
-                        privateForumPopInfoData.setTitle(context.getString(R.string.obfuscated_res_0x7f0f1557));
-                        privateForumPopInfoData.W(context.getString(R.string.obfuscated_res_0x7f0f1558));
-                        z = frsPrivateCommonDialogView.c(privateForumPopInfoData, false);
-                    } else if (privateForumPopInfoData.S() == gg.e(this.b, 0)) {
-                        z = frsPrivateCommonDialogView.c(privateForumPopInfoData, false);
-                    } else {
-                        z = false;
-                    }
-                    if (!z && (privateForumPopInfoData = frsViewData.getPrivateForumPopInfo()) != null && privateForumPopInfoData.S() == gg.e(this.b, 0)) {
-                        this.a = true;
-                        frsPrivateCommonDialogView.c(privateForumPopInfoData, true);
-                    }
-                    TbPageContext pageContext = tbPageContextSupport.getPageContext();
-                    d05 d05Var = new d05(pageContext.getPageActivity());
-                    d05Var.setContentViewSize(10);
-                    d05Var.setContentView(frsPrivateCommonDialogView);
-                    d05Var.setCanceledOnTouchOutside(false);
-                    frsPrivateCommonDialogView.setConfirmButton(new a(this, pageContext, d05Var));
-                    d05Var.setCloseButton(new b(this));
-                    d05Var.setOnDismissListener(new c(this));
-                    d05Var.create(pageContext).show();
-                    FrsPrivateCommonDialogView.setDialogShown(privateForumPopInfoData, this.a);
-                    xf7.f(privateForumPopInfoData, this.a, this.b, this.c, false);
-                    a15.l("frsExam");
-                    return;
-                }
-                a15.r("frsExam");
-                return;
-            }
-            a15.r("frsExam");
+        if (frsFragment != null) {
+            this.b = frsFragment;
+            this.d = frsFragment.w0();
+            this.a = this.b.w1();
+            this.c = this.b.S3();
+            this.e = this.b.T0();
+            this.f = this.b.M3();
+            this.g = this.b.l1();
+            return;
         }
+        throw new NullPointerException("FrsActivity is NullPointerException");
     }
 }

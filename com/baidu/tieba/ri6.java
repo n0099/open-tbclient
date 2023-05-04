@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-@Service
 /* loaded from: classes6.dex */
-public class ri6 implements tz6 {
+public abstract class ri6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public abstract int sort();
 
     public ri6() {
         Interceptable interceptable = $ic;
@@ -27,19 +23,5 @@ public class ri6 implements tz6 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.tz6
-    @NonNull
-    public List<b07<?, ?>> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new ii6());
-            arrayList.add(new ji6());
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

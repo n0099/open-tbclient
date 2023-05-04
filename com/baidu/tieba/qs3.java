@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,19 +15,22 @@ import java.lang.reflect.Method;
 public class qs3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Object a;
+    public final Object a;
     public Method b;
     public Method c;
     public Method d;
     public Method e;
-    public String f;
+    public Method f;
+    public Method g;
+    public Method h;
+    public boolean i;
 
-    public qs3(Class<?> cls) {
+    public qs3(Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls};
+            Object[] objArr = {obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,149 +40,224 @@ public class qs3 {
                 return;
             }
         }
-        if (cls == null) {
-            return;
-        }
-        try {
-            Object m = zb4.m(cls);
-            this.a = m;
-            if (m != null) {
-                Method i3 = zb4.i(cls, "hypnusSetAction", Integer.TYPE, Integer.TYPE);
-                this.b = i3;
-                if (i3 != null) {
-                    i3.setAccessible(true);
-                }
-                Method i4 = zb4.i(cls, "hypnusSetSignatureAction", Integer.TYPE, Integer.TYPE, String.class);
-                this.c = i4;
-                if (i4 != null) {
-                    i4.setAccessible(true);
-                }
-                Method i5 = zb4.i(cls, "isHypnusOK", new Class[0]);
-                this.e = i5;
-                if (i5 != null) {
-                    i5.setAccessible(true);
-                }
-                f();
-            }
-        } catch (Throwable unused) {
-        }
+        this.a = obj;
     }
 
+    @SuppressLint({"WrongConstant"})
     public static qs3 a(@NonNull Context context) {
-        Class<?> cls;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            Object obj = null;
             try {
-                cls = zb4.b("com.oppo.hypnus.HypnusManager", true);
+                obj = context.getSystemService("mtk-perfservice");
+                if (obj != null) {
+                    zb4.c(obj.getClass());
+                }
             } catch (Throwable unused) {
-                cls = null;
             }
-            return new qs3(cls);
+            return new qs3(obj);
         }
         return (qs3) invokeL.objValue;
     }
 
-    public final String b() {
+    public boolean b() {
         InterceptResult invokeV;
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String str2 = this.f;
-            if (str2 != null) {
-                return str2;
+            if (!c()) {
+                return false;
             }
-            Method method = this.d;
-            if (method != null) {
-                try {
-                    Object invoke = method.invoke(null, new Object[0]);
-                    if (invoke == null) {
-                        str = "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4";
-                    } else {
-                        str = (String) invoke;
-                    }
-                    this.f = str;
-                } catch (Throwable unused) {
-                    this.f = "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4";
+            if (this.i) {
+                if (this.b == null) {
+                    return false;
                 }
-            }
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c != null && b() != null) {
                 return true;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                Class<?> b = zb4.b("com.oppo.hypnus.Hypnus", true);
-                if (b != null) {
-                    Method i = zb4.i(b, "getLocalSignature", new Class[0]);
-                    this.d = i;
+                this.i = true;
+                if (this.b == null) {
+                    Method i = bc4.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                    this.b = i;
                     if (i != null) {
                         i.setAccessible(true);
                     }
                 }
             } catch (Throwable unused) {
             }
+            if (this.b == null) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    public boolean g() {
+    public int g() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            Object obj = this.a;
-            if (obj == null) {
-                return false;
-            }
-            Method method = this.e;
-            if (method == null) {
-                return true;
+            if (!c()) {
+                return -1;
             }
             try {
-                Object invoke = method.invoke(obj, new Object[0]);
-                if (invoke != null) {
-                    return ((Boolean) invoke).booleanValue();
+                if (this.c == null) {
+                    Method i = bc4.i(this.a.getClass(), "userRegScn", new Class[0]);
+                    this.c = i;
+                    if (i != null) {
+                        i.setAccessible(true);
+                    }
+                }
+                Object obj = null;
+                if (this.c != null) {
+                    obj = this.c.invoke(this.a, new Object[0]);
+                }
+                if (obj != null) {
+                    return ((Integer) obj).intValue();
                 }
             } catch (Throwable unused) {
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.a != null) {
+                return true;
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void d(int i, int i2) {
-        Object obj;
-        Method method;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && (obj = this.a) != null && (method = this.b) != null) {
-            try {
-                method.invoke(obj, Integer.valueOf(i), Integer.valueOf(i2));
-            } catch (Throwable unused) {
+        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.f == null) {
+                Method i2 = bc4.i(this.a.getClass(), "userDisable", Integer.TYPE);
+                this.f = i2;
+                if (i2 != null) {
+                    i2.setAccessible(true);
+                }
             }
+            if (this.f != null) {
+                this.f.invoke(this.a, Integer.valueOf(i));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.g == null) {
+                Method i2 = bc4.i(this.a.getClass(), "userUnreg", Integer.TYPE);
+                this.g = i2;
+                if (i2 != null) {
+                    i2.setAccessible(true);
+                }
+            }
+            if (this.g != null) {
+                this.g.invoke(this.a, Integer.valueOf(i));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.h == null) {
+                Method i2 = bc4.i(this.a.getClass(), "userUnregScn", Integer.TYPE);
+                this.h = i2;
+                if (i2 != null) {
+                    i2.setAccessible(true);
+                }
+            }
+            if (this.h != null) {
+                this.h.invoke(this.a, Integer.valueOf(i));
+            }
+        } catch (Throwable unused) {
         }
     }
 
     public void e(int i, int i2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) && this.a != null && this.c != null && b() != null) {
-            try {
-                this.c.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), this.f);
-            } catch (Throwable unused) {
+        if ((interceptable != null && interceptable.invokeII(1048579, this, i, i2) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.e == null) {
+                Method i3 = bc4.i(this.a.getClass(), "userEnableTimeoutMs", Integer.TYPE, Integer.TYPE);
+                this.e = i3;
+                if (i3 != null) {
+                    i3.setAccessible(true);
+                }
             }
+            if (this.e != null) {
+                this.e.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2));
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public int f(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Object invoke;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(1048580, this, i, i2, i3, i4)) == null) {
+            if (!c()) {
+                return -1;
+            }
+            try {
+                if (this.b == null) {
+                    Method i5 = bc4.i(this.a.getClass(), "userRegBigLittle", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                    this.b = i5;
+                    if (i5 != null) {
+                        i5.setAccessible(true);
+                    }
+                }
+                if (this.b == null || (invoke = this.b.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4))) == null) {
+                    return -1;
+                }
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
+            }
+        }
+        return invokeIIII.intValue;
+    }
+
+    public void h(int i, int i2, int i3, int i4, int i5, int i6) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) != null) || !c()) {
+            return;
+        }
+        try {
+            if (this.d == null) {
+                Method i7 = bc4.i(this.a.getClass(), "userRegScnConfig", Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE, Integer.TYPE);
+                this.d = i7;
+                if (i7 != null) {
+                    i7.setAccessible(true);
+                }
+            }
+            if (this.d != null) {
+                this.d.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6));
+            }
+        } catch (Throwable unused) {
         }
     }
 }

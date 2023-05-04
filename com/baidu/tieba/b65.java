@@ -1,11 +1,13 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes3.dex */
 public interface b65 {
-    void a(int i, float f);
+    void a(x55 x55Var);
 
-    void b(int i, float f);
+    View getView();
 
-    void c(int i, float f);
+    void onDismiss();
 
-    void d(int i, float f);
+    void onShow();
 }

@@ -1,90 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
-import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.pi5;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.person.holder.PersonCenterIntervalHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 /* loaded from: classes3.dex */
-public class b49 implements pi5, PersonPostModel.d, PersonPostModel.c {
+public class b49 extends vm<x39, PersonCenterIntervalHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public PersonPostModel a;
-    @Nullable
-    public pi5.a b;
 
-    public b49(@NonNull TbPageContext tbPageContext) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public b49(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new PersonPostModel(tbPageContext, tbPageContext.getUniqueId(), this, false, 1);
     }
 
-    @Override // com.baidu.tieba.pi5
-    public void a(@Nullable pi5.a aVar) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public PersonCenterIntervalHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PersonCenterIntervalHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0435, viewGroup, false));
         }
+        return (PersonCenterIntervalHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pi5
-    public void b(@NonNull String str, @Nullable MetaData metaData, @NonNull Integer num, @NonNull Integer num2, @NonNull Integer num3, @NonNull Integer num4, @NonNull Long l, @NonNull Integer num5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, metaData, num, num2, num3, num4, l, num5}) == null) {
-            this.a.fetchPostByBeginThreadId(str, this, metaData, num, num2, num3, num4, l, num5);
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.vm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, x39 x39Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        t(i, view2, viewGroup, x39Var, personCenterIntervalHolder);
+        return view2;
     }
 
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.c
-    public void q0(PersonPostModel personPostModel, boolean z) {
+    public View t(int i, View view2, ViewGroup viewGroup, x39 x39Var, PersonCenterIntervalHolder personCenterIntervalHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, personPostModel, z) == null) && this.b != null) {
-            ArrayList arrayList = new ArrayList();
-            Iterator<in> it = personPostModel.threadList.iterator();
-            while (it.hasNext()) {
-                in next = it.next();
-                if (next instanceof CardPersonDynamicThreadData) {
-                    ThreadData threadData = ((CardPersonDynamicThreadData) next).getThreadData();
-                    if (!TextUtils.equals(threadData.getTid(), "0")) {
-                        arrayList.add(threadData);
-                    }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, x39Var, personCenterIntervalHolder})) == null) {
+            if (x39Var != null && personCenterIntervalHolder != null) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                if (personCenterIntervalHolder.a != skinType) {
+                    personCenterIntervalHolder.a = skinType;
+                    SkinManager.setBackgroundResource(personCenterIntervalHolder.b, x39Var.c);
                 }
+                ViewGroup.LayoutParams layoutParams = personCenterIntervalHolder.b.getLayoutParams();
+                int i2 = x39Var.a;
+                if (i2 > 0) {
+                    layoutParams.height = i2;
+                }
+                int i3 = x39Var.b;
+                if (i3 > 0) {
+                    layoutParams.width = i3;
+                }
+                personCenterIntervalHolder.b.setLayoutParams(layoutParams);
+                personCenterIntervalHolder.b.setOnClickListener(null);
             }
-            this.b.b(arrayList, personPostModel.getDataResMap());
-            this.b.a();
+            return view2;
         }
-    }
-
-    @Override // com.baidu.tieba.personPolymeric.mode.PersonPostModel.d
-    public void w0(PersonPostModel personPostModel, boolean z) {
-        pi5.a aVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048579, this, personPostModel, z) == null) && (aVar = this.b) != null) {
-            aVar.a();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

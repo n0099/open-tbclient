@@ -12,7 +12,7 @@ import androidx.annotation.RestrictTo;
 import com.google.android.material.badge.BadgeDrawable;
 import com.google.android.material.internal.ParcelableSparseArray;
 @RestrictTo({RestrictTo.Scope.LIBRARY})
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BadgeUtils {
     public static final boolean USE_COMPAT_PARENT;
 

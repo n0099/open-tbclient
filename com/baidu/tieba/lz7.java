@@ -1,193 +1,173 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteException;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.IMConstants;
+import android.content.Context;
+import android.content.Intent;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.db.pojo.CommonMsgPojo;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.PersonalMsgImageActivityConfig;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.data.StatisticInfoField;
+import com.baidu.tieba.lg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class lz7 extends zy7 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static zy7 d = null;
-    public static String e = "tb_private_msg_";
+public class lz7 extends BdAsyncTask<String, Integer, String> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public NetWork a;
+    public String b;
+    public String c;
+    public long d;
+    public long e;
+    public String f;
+    public Context g;
+    public boolean h;
+    public HashMap<String, Boolean> i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947960256, "Lcom/baidu/tieba/lz7;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947960256, "Lcom/baidu/tieba/lz7;");
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lz7() {
-        super("tb_private_msg_", PersonalChatMessage.class);
+    public lz7(@NonNull Context context, @NonNull String str, long j, @Nullable String str2, long j2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str, Long.valueOf(j), str2, Long.valueOf(j2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (Class) objArr[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.i = new HashMap<>();
+        this.g = context;
+        this.b = str;
+        this.e = j;
+        this.f = str2;
+        this.d = j2;
+        this.h = z;
     }
 
-    public static synchronized lz7 w() {
-        InterceptResult invokeV;
-        lz7 lz7Var;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            synchronized (lz7.class) {
-                if (d == null) {
-                    d = new lz7();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.i.containsKey(this.c) && this.i.get(this.c).booleanValue()) {
+                ii.P(TbadkCoreApplication.getInst(), R.string.save_emotion_duplicate);
+            } else if (this.c == null) {
+            } else {
+                if (TbadkCoreApplication.getInst().isMainProcess(true)) {
+                    lg5.b bVar = new lg5.b();
+                    bVar.c = this.c;
+                    String str = this.b;
+                    bVar.a = str;
+                    bVar.b = str;
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004610, bVar));
+                    return;
                 }
-                lz7Var = (lz7) d;
+                Intent intent = new Intent(lg5.a);
+                intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+                intent.putExtra(lg5.b, this.b);
+                intent.putExtra(lg5.c, this.b);
+                intent.putExtra(lg5.d, this.c);
+                TbadkCoreApplication.getInst().sendBroadcast(intent);
             }
-            return lz7Var;
         }
-        return (lz7) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r11v0, resolved type: int */
-    /* JADX WARN: Multi-variable type inference failed */
-    public CommonMsgPojo x(String str, int i) {
-        InterceptResult invokeLI;
-        Cursor cursor;
+    public final void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            Cursor cursor2 = null;
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             try {
-                try {
-                    cursor = gz7.d().e("select * from " + (e + str) + " WHERE is_delete=? AND msg_type= ?", new String[]{String.valueOf(0), String.valueOf(i)});
-                    try {
-                        CommonMsgPojo commonMsgPojo = new CommonMsgPojo();
-                        if (cursor != null && cursor.moveToNext()) {
-                            commonMsgPojo.setGid(str);
-                            commonMsgPojo.setUid(cursor.getString(cursor.getColumnIndex("uid")));
-                            commonMsgPojo.setUser_info(cursor.getString(cursor.getColumnIndex("user_info")));
-                            commonMsgPojo.setToUid(cursor.getString(cursor.getColumnIndex("to_uid")));
-                            commonMsgPojo.setToUser_info(cursor.getString(cursor.getColumnIndex("to_user_info")));
-                            commonMsgPojo.setContent(cursor.getString(cursor.getColumnIndex("content")));
-                            commonMsgPojo.setCreate_time(cursor.getLong(cursor.getColumnIndex("create_time")));
-                            commonMsgPojo.setExt(cursor.getString(cursor.getColumnIndex("ext")));
-                            commonMsgPojo.setMid(cursor.getLong(cursor.getColumnIndex("mid")));
-                            commonMsgPojo.setMsg_status(cursor.getInt(cursor.getColumnIndex(IMConstants.MSG_STATUS)));
-                            commonMsgPojo.setMsg_type(cursor.getInt(cursor.getColumnIndex("msg_type")));
-                            commonMsgPojo.setRid(cursor.getLong(cursor.getColumnIndex("rid")));
-                            commonMsgPojo.setRead_flag(cursor.getInt(cursor.getColumnIndex("read_flag")));
-                            commonMsgPojo.setIs_delete(cursor.getInt(cursor.getColumnIndex("is_delete")));
-                            commonMsgPojo.setIsFriend(cursor.getInt(cursor.getColumnIndex("is_friend")));
-                            ji.a(cursor);
-                            return commonMsgPojo;
-                        }
-                    } catch (SQLiteException e2) {
-                        e = e2;
-                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
-                        e.printStackTrace();
-                        b(str);
-                        ji.a(cursor);
-                        return null;
-                    } catch (Exception e3) {
-                        e = e3;
-                        TiebaStatic.printDBExceptionLog(e, "PersonalMsgDao.getMsgContextByMsgType", new Object[0]);
-                        e.printStackTrace();
-                        ji.a(cursor);
-                        return null;
-                    }
-                } catch (Throwable th) {
-                    th = th;
-                    cursor2 = i;
-                    ji.a(cursor2);
-                    throw th;
-                }
-            } catch (SQLiteException e4) {
-                e = e4;
-                cursor = null;
-            } catch (Exception e5) {
-                e = e5;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ji.a(cursor2);
-                throw th;
+                this.c = new JSONObject(str).getString("pid");
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
-            ji.a(cursor);
-            return null;
         }
-        return (CommonMsgPojo) invokeLI.objValue;
     }
 
-    public boolean y(long j, long j2, String str) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), str})) == null) {
-            if (StringUtils.isNull(str)) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            NetWork netWork = this.a;
+            if (netWork != null) {
+                netWork.cancelNetConnect();
             }
-            Boolean bool = Boolean.FALSE;
-            if (j == 0 || TbadkCoreApplication.getCurrentAccount() == null) {
-                return false;
-            }
-            String valueOf = String.valueOf(j);
-            String str2 = e + valueOf;
-            if (this.c == null) {
-                this.c = i();
-            }
-            if (!this.c.contains(valueOf)) {
-                b(valueOf);
-                this.c.add(valueOf);
-            }
-            try {
-                try {
-                    ContentValues contentValues = new ContentValues();
-                    contentValues.put("content", str);
-                    if (gz7.d().update(str2, contentValues, "mid=?", new String[]{String.valueOf(j2)}) == 1) {
-                        bool = Boolean.TRUE;
-                    }
-                } catch (Exception e2) {
-                    TiebaStatic.printDBExceptionLog(e2, "PersonalMsgDao.updateGamePlayMsg", new Object[0]);
-                    e2.printStackTrace();
-                    bool = Boolean.FALSE;
-                }
-                ji.a(null);
-                ji.c(null);
-                return bool.booleanValue();
-            } catch (Throwable th) {
-                ji.a(null);
-                ji.c(null);
-                throw th;
-            }
+            this.c = null;
+            super.cancel(true);
         }
-        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.onPreExecute();
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public String doInBackground(String... strArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, strArr)) == null) {
+            NetWork netWork = new NetWork(TbConfig.URL_REQUEST_PID);
+            this.a = netWork;
+            String str = null;
+            try {
+                netWork.addPostData("pic_url", this.b);
+                str = this.a.postMultiNetData();
+                if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                    c(str);
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPostExecute(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            super.onPostExecute((lz7) str);
+            if (this.h) {
+                b();
+                dz7.a(2, 1, this.e, this.d);
+                return;
+            }
+            PersonalMsgImageActivityConfig personalMsgImageActivityConfig = new PersonalMsgImageActivityConfig(this.g, this.b, TbadkCoreApplication.getCurrentAccountId(), "");
+            StatisticInfoField statisticInfoField = new StatisticInfoField();
+            String str2 = this.f;
+            if (str2 != null) {
+                statisticInfoField.setForumName(str2);
+            }
+            statisticInfoField.setForumId(String.valueOf(this.e));
+            statisticInfoField.setChatRoomId(String.valueOf(this.d));
+            personalMsgImageActivityConfig.setStatisticInfoFild(statisticInfoField);
+            personalMsgImageActivityConfig.setFrom(1);
+            personalMsgImageActivityConfig.setPid(this.c);
+            personalMsgImageActivityConfig.isFromGroupChat(true);
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, personalMsgImageActivityConfig));
+            dz7.a(1, 2, this.e, this.d);
+        }
     }
 }

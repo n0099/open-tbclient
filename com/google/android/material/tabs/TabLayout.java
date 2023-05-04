@@ -955,7 +955,7 @@ public class TabLayout extends HorizontalScrollView {
             } else {
                 frameLayout = this;
             }
-            ImageView imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022d, (ViewGroup) frameLayout, false);
+            ImageView imageView = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0230, (ViewGroup) frameLayout, false);
             this.iconView = imageView;
             frameLayout.addView(imageView, 0);
         }
@@ -970,7 +970,7 @@ public class TabLayout extends HorizontalScrollView {
             } else {
                 frameLayout = this;
             }
-            TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022e, (ViewGroup) frameLayout, false);
+            TextView textView = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) frameLayout, false);
             this.textView = textView;
             frameLayout.addView(textView);
         }
@@ -1878,7 +1878,7 @@ public class TabLayout extends HorizontalScrollView {
     }
 
     public TabLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406a3);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0406ac);
     }
 
     private void configureTab(@NonNull Tab tab, int i) {

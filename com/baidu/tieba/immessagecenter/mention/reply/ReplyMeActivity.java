@@ -46,7 +46,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -88,7 +88,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         public void b() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.u1();
+                this.a.w1();
             }
         }
     }
@@ -154,7 +154,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
                 voiceManager.onPause();
             }
             if (isFinishing()) {
-                u1();
+                w1();
             }
         }
     }
@@ -195,7 +195,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         }
     }
 
-    public final void t1() {
+    public final void v1() {
         SwipeBackLayout swipeBackLayout;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (swipeBackLayout = this.mSwipeBackLayout) != null) {
@@ -204,7 +204,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager x0() {
+    public VoiceManager y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -236,9 +236,9 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             ReplyMessageFragment replyMessageFragment = this.a;
             if (replyMessageFragment != null && intent != null) {
                 replyMessageFragment.setArguments(intent.getExtras());
-                if (this.a.N1() != null) {
-                    this.a.b2();
-                    this.a.Z1();
+                if (this.a.O1() != null) {
+                    this.a.c2();
+                    this.a.a2();
                 }
             }
         }
@@ -267,22 +267,22 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
             setContentView(R.layout.obfuscated_res_0x7f0d004f);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.b = navigationBar;
-            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f10bc));
+            navigationBar.setCenterTextTitle(getResources().getString(R.string.obfuscated_res_0x7f0f10d4));
             this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             ReplyMessageFragment replyMessageFragment = new ReplyMessageFragment();
             this.a = replyMessageFragment;
             replyMessageFragment.setArguments(getIntent().getExtras());
-            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090772, this.a).commitAllowingStateLoss();
+            getSupportFragmentManager().beginTransaction().add(R.id.obfuscated_res_0x7f090775, this.a).commitAllowingStateLoss();
             adjustResizeForSoftInput();
-            VoiceManager x0 = x0();
-            this.c = x0;
-            x0.onCreate(getPageContext());
-            s1();
-            t1();
+            VoiceManager y0 = y0();
+            this.c = y0;
+            y0.onCreate(getPageContext());
+            u1();
+            v1();
         }
     }
 
-    public final void s1() {
+    public final void u1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && getIntent() != null) {
             StatisticItem statisticItem = new StatisticItem("c14622");
@@ -292,7 +292,7 @@ public class ReplyMeActivity extends BaseFragmentActivity implements VoiceManage
         }
     }
 
-    public final void u1() {
+    public final void w1() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048591, this) != null) || this.e) {
             return;

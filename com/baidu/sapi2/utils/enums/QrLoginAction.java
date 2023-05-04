@@ -1,7 +1,9 @@
 package com.baidu.sapi2.utils.enums;
+
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
 /* loaded from: classes2.dex */
 public enum QrLoginAction {
-    NOTICE("notice"),
+    NOTICE(TopBubbleData.NOTICE),
     LOGIN("login"),
     CANCEL("cancel");
     

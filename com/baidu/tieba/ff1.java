@@ -1,25 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ff1 extends hf1<String, String> {
-    public static /* synthetic */ Interceptable $ic;
+public final class ff1 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final int[] MaxHeightScrollView;
+    public static final int MaxHeightScrollView_maxHeight = 0;
+    public static final int MaxHeightScrollView_maxHeightRatio = 1;
+    public static final int MaxHeightScrollView_minHeightRatio = 2;
+    public static final int[] PolyVerificationCodeView;
+    public static final int PolyVerificationCodeView_vcv_et_bg = 0;
+    public static final int PolyVerificationCodeView_vcv_et_cursor = 1;
+    public static final int PolyVerificationCodeView_vcv_et_cursor_visible = 2;
+    public static final int PolyVerificationCodeView_vcv_et_number = 3;
+    public static final int PolyVerificationCodeView_vcv_et_spacing = 4;
+    public static final int PolyVerificationCodeView_vcv_et_text_color = 5;
+    public static final int PolyVerificationCodeView_vcv_et_text_size = 6;
+    public static final int PolyVerificationCodeView_vcv_et_width = 7;
+    public static final int[] PopupWindow;
+    public static final int PopupWindow_android_popupAnimationStyle = 1;
+    public static final int PopupWindow_android_popupBackground = 0;
+    public static final int PopupWindow_overlapAnchor = 2;
+    public static final int PopupWindow_popupAnimationStyle = 3;
+    public static final int PopupWindow_popupBackground = 4;
+    public static final int[] ProgressButton;
+    public static final int ProgressButton_textColor = 0;
+    public static final int[] SwitchButton;
+    public static final int SwitchButton_kswAnimationDuration = 0;
+    public static final int SwitchButton_kswBackColor = 1;
+    public static final int SwitchButton_kswBackDrawable = 2;
+    public static final int SwitchButton_kswBackRadius = 3;
+    public static final int SwitchButton_kswFadeBack = 4;
+    public static final int SwitchButton_kswTextAdjust = 5;
+    public static final int SwitchButton_kswTextExtra = 6;
+    public static final int SwitchButton_kswTextOff = 7;
+    public static final int SwitchButton_kswTextOn = 8;
+    public static final int SwitchButton_kswTextThumbInset = 9;
+    public static final int SwitchButton_kswThumbColor = 10;
+    public static final int SwitchButton_kswThumbDrawable = 11;
+    public static final int SwitchButton_kswThumbHeight = 12;
+    public static final int SwitchButton_kswThumbMargin = 13;
+    public static final int SwitchButton_kswThumbMarginBottom = 14;
+    public static final int SwitchButton_kswThumbMarginLeft = 15;
+    public static final int SwitchButton_kswThumbMarginRight = 16;
+    public static final int SwitchButton_kswThumbMarginTop = 17;
+    public static final int SwitchButton_kswThumbRadius = 18;
+    public static final int SwitchButton_kswThumbRangeRatio = 19;
+    public static final int SwitchButton_kswThumbWidth = 20;
+    public static final int SwitchButton_kswTintColor = 21;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ff1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947762104, "Lcom/baidu/tieba/ff1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947762104, "Lcom/baidu/tieba/ff1;");
+                return;
             }
         }
+        MaxHeightScrollView = new int[]{R.attr.obfuscated_res_0x7f0404cb, R.attr.obfuscated_res_0x7f0404cc, R.attr.obfuscated_res_0x7f0404dc};
+        PolyVerificationCodeView = new int[]{R.attr.obfuscated_res_0x7f040788, R.attr.obfuscated_res_0x7f040789, R.attr.obfuscated_res_0x7f04078a, R.attr.obfuscated_res_0x7f04078b, R.attr.obfuscated_res_0x7f04078c, R.attr.obfuscated_res_0x7f04078d, R.attr.obfuscated_res_0x7f04078e, R.attr.obfuscated_res_0x7f04078f};
+        PopupWindow = new int[]{16843126, 16843465, R.attr.obfuscated_res_0x7f040521, R.attr.popupAnimationStyle, R.attr.popupBackground};
+        ProgressButton = new int[]{R.attr.obfuscated_res_0x7f040708};
+        SwitchButton = new int[]{R.attr.obfuscated_res_0x7f0403ec, R.attr.obfuscated_res_0x7f0403ed, R.attr.obfuscated_res_0x7f0403ee, R.attr.obfuscated_res_0x7f0403ef, R.attr.obfuscated_res_0x7f0403f0, R.attr.obfuscated_res_0x7f0403f1, R.attr.obfuscated_res_0x7f0403f2, R.attr.obfuscated_res_0x7f0403f3, R.attr.obfuscated_res_0x7f0403f4, R.attr.obfuscated_res_0x7f0403f5, R.attr.obfuscated_res_0x7f0403f6, R.attr.obfuscated_res_0x7f0403f7, R.attr.obfuscated_res_0x7f0403f8, R.attr.obfuscated_res_0x7f0403f9, R.attr.obfuscated_res_0x7f0403fa, R.attr.obfuscated_res_0x7f0403fb, R.attr.obfuscated_res_0x7f0403fc, R.attr.obfuscated_res_0x7f0403fd, R.attr.obfuscated_res_0x7f0403fe, R.attr.obfuscated_res_0x7f0403ff, R.attr.obfuscated_res_0x7f040400, R.attr.obfuscated_res_0x7f040401};
     }
 }

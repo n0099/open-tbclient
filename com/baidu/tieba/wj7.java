@@ -1,9 +1,60 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface wj7<T> {
-    void a(View view2, T t, int i);
+public final class wj7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(View view2, T t, int i);
+    public static final String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return f55.m().s(f55.q("forum_group_entrance_guide_has_show_array"), "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return f55.m().s(f55.q("forum_group_feed_card_has_show_array"), "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static final int i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return f55.m().n(f55.q("forum_group_entrance_guide_frequency"), 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static final int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return f55.m().n(f55.q("forum_group_feed_card_frequency"), 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public static final void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            f55.m().B(f55.q("forum_group_entrance_guide_has_show_array"), str);
+        }
+    }
+
+    public static final void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
+            f55.m().B(f55.q("forum_group_feed_card_has_show_array"), str);
+        }
+    }
 }

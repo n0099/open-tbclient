@@ -1,163 +1,214 @@
 package com.baidu.tieba;
 
-import android.opengl.Matrix;
-import android.util.Log;
+import android.opengl.EGLContext;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mario.gldraw2d.params.MirrorType;
-import com.baidu.mario.gldraw2d.params.ScaleType;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wc0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String a = "wc0";
+public class wc0 implements Cloneable, Comparable<wc0> {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public EGLContext a;
+    public tc0 b;
+    public sc0 c;
+    public qc0 d;
+    public uc0 e;
+    public boolean f;
+    public pc0 g;
+    public vc0 h;
+    public int i;
+    public boolean j;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948265637, "Lcom/baidu/tieba/wc0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public wc0(EGLContext eGLContext, int i, boolean z) {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {eGLContext, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948265637, "Lcom/baidu/tieba/wc0;");
-        }
+        this.a = eGLContext;
+        this.i = i;
+        this.j = z;
+        this.b = new tc0();
+        this.c = new sc0();
+        this.d = new rc0();
+        this.e = new uc0();
+        this.f = false;
+        this.g = null;
+        this.h = new vc0();
     }
 
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-322482936, "Lcom/baidu/tieba/wc0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-322482936, "Lcom/baidu/tieba/wc0$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[ScaleType.values().length];
-            a = iArr;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public wc0 clone() {
+        wc0 wc0Var;
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             try {
-                iArr[ScaleType.FIT_XY.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
+                wc0Var = (wc0) super.clone();
+            } catch (CloneNotSupportedException e) {
+                e.printStackTrace();
+                wc0Var = null;
             }
-            try {
-                a[ScaleType.FIT_CENTER.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            if (wc0Var != null) {
+                wc0Var.m(this.e.clone());
+                wc0Var.q(this.h.clone());
             }
-            try {
-                a[ScaleType.CENTER_CROP.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
+            return wc0Var;
+        }
+        return (wc0) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: b */
+    public int compareTo(wc0 wc0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wc0Var)) == null) {
+            if (this.i < wc0Var.d()) {
+                return -1;
             }
-            try {
-                a[ScaleType.EQUAL_SCALE.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
+            return 1;
+        }
+        return invokeL.intValue;
+    }
+
+    public void m(uc0 uc0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, uc0Var) == null) {
+            this.e = uc0Var;
         }
     }
 
-    public static void a(float[] fArr, MirrorType mirrorType) {
+    public void n(EGLContext eGLContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, fArr, mirrorType) == null) {
-            if (fArr == null) {
-                Log.e(a, "mirrorDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            }
-            if (mirrorType == MirrorType.HORIZONTALLY) {
-                Matrix.rotateM(fArr, 0, 180.0f, 0.0f, 1.0f, 0.0f);
-            } else if (mirrorType == MirrorType.VERTICALLY) {
-                Matrix.rotateM(fArr, 0, 180.0f, 1.0f, 0.0f, 0.0f);
-                fArr[6] = 0.0f;
-                fArr[9] = 0.0f;
-            }
+        if (interceptable == null || interceptable.invokeL(1048591, this, eGLContext) == null) {
+            this.a = eGLContext;
         }
     }
 
-    public static void b(float[] fArr) {
+    public void p(pc0 pc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, fArr) == null) {
-            Matrix.setIdentityM(fArr, 0);
+        if (interceptable == null || interceptable.invokeL(1048592, this, pc0Var) == null) {
+            this.g = pc0Var;
         }
     }
 
-    public static void c(float[] fArr, float f) {
+    public void q(vc0 vc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLF(65539, null, fArr, f) == null) {
-            if (fArr == null) {
-                Log.e(a, "rotateDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            }
-            Matrix.rotateM(fArr, 0, f, 0.0f, 0.0f, 1.0f);
+        if (interceptable == null || interceptable.invokeL(1048593, this, vc0Var) == null) {
+            this.h = vc0Var;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0062, code lost:
-        if (r0 > r5) goto L32;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:33:0x0067, code lost:
-        if (r0 > r5) goto L30;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:34:0x0069, code lost:
-        r5 = r5 / r0;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:35:0x006d, code lost:
-        r8 = r0 / r5;
-        r5 = 1.0f;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static void d(float[] fArr, rc0 rc0Var, qc0 qc0Var, ScaleType scaleType, float f) {
-        float f2;
+    public void r(tc0 tc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{fArr, rc0Var, qc0Var, scaleType, Float.valueOf(f)}) == null) {
-            if (fArr == null) {
-                Log.e(a, "scaleDraw2DMVP mvpMatrix == NULLLLLLL!!!");
-            } else if (rc0Var != null && rc0Var.d() > 0 && rc0Var.b() > 0) {
-                if (qc0Var != null && qc0Var.c() > 0 && qc0Var.b() > 0) {
-                    float d = (rc0Var.d() * 1.0f) / rc0Var.b();
-                    float c = (qc0Var.c() * 1.0f) / qc0Var.b();
-                    int i = a.a[scaleType.ordinal()];
-                    if (i != 1) {
-                        if (i != 2) {
-                            if (i != 3) {
-                                if (i == 4) {
-                                    f2 = f;
-                                }
-                            }
-                        }
-                        Matrix.scaleM(fArr, 0, f, f2, 1.0f);
-                        return;
-                    }
-                    f2 = 1.0f;
-                    f = 1.0f;
-                    Matrix.scaleM(fArr, 0, f, f2, 1.0f);
-                    return;
-                }
-                Log.e(a, "scaleDraw2DMVP draw target error!!!");
-            } else {
-                Log.e(a, "scaleDraw2DMVP source texture error!!!");
-            }
+        if (interceptable == null || interceptable.invokeL(1048594, this, tc0Var) == null) {
+            this.b = tc0Var;
         }
     }
 
-    public static void e(float[] fArr, float f, float f2) {
+    public uc0 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{fArr, Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            Matrix.translateM(fArr, 0, f, f2, 1.0f);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
+        return (uc0) invokeV.objValue;
+    }
+
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public qc0 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (qc0) invokeV.objValue;
+    }
+
+    public EGLContext f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.a;
+        }
+        return (EGLContext) invokeV.objValue;
+    }
+
+    public pc0 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return (pc0) invokeV.objValue;
+    }
+
+    public vc0 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.h;
+        }
+        return (vc0) invokeV.objValue;
+    }
+
+    public sc0 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return (sc0) invokeV.objValue;
+    }
+
+    public tc0 j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.b;
+        }
+        return (tc0) invokeV.objValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.j;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
     }
 }

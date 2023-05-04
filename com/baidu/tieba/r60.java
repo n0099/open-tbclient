@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.core.Call;
 import com.baidu.searchbox.network.outback.core.MediaType;
 import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.RequestBody;
 import com.baidu.searchbox.network.outback.core.Response;
-import com.baidu.tieba.b60;
+import com.baidu.searchbox.network.support.cookie.Cookie;
+import com.baidu.searchbox.network.support.cookie.CookieHandler;
+import com.baidu.searchbox.network.support.cookie.CookieJar;
+import com.baidu.tieba.d60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,102 +17,86 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.IOException;
 import java.util.List;
 /* loaded from: classes6.dex */
-public final class r60 implements b60.a {
+public final class r60 implements d60 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<b60> a;
+    public final CookieJar a;
     public i60 b;
-    public final int c;
-    public final Request d;
-    public final Call e;
-    public int f;
 
-    public r60(List<b60> list, i60 i60Var, int i, Request request, Call call) {
+    public r60(CookieJar cookieJar, i60 i60Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, i60Var, Integer.valueOf(i), request, call};
+            Object[] objArr = {cookieJar, i60Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = list;
+        this.a = cookieJar;
         this.b = i60Var;
-        this.c = i;
-        this.d = request;
-        this.e = call;
     }
 
-    @Override // com.baidu.tieba.b60.a
-    public Response a(Request request) throws IOException {
+    @Override // com.baidu.tieba.d60
+    public Response a(d60.a aVar) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
-            return b(request, this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            Request request = aVar.request();
+            request.getNetworkStatRecord().startTs = System.currentTimeMillis();
+            Request.Builder newBuilder = request.newBuilder();
+            newBuilder.removeHeader("bdapp-support-brotli");
+            RequestBody body = request.body();
+            if (body != null) {
+                MediaType contentType = body.contentType();
+                if (contentType != null) {
+                    newBuilder.header("Content-Type", contentType.toString());
+                }
+                long contentLength = body.contentLength();
+                if (contentLength != -1) {
+                    newBuilder.header("Content-Length", Long.toString(contentLength));
+                    newBuilder.removeHeader("Transfer-Encoding");
+                } else {
+                    newBuilder.header("Transfer-Encoding", "chunked");
+                    newBuilder.removeHeader("Content-Length");
+                }
+            }
+            List<Cookie> loadForRequest = this.a.loadForRequest(request.url());
+            if (!loadForRequest.isEmpty()) {
+                newBuilder.header("Cookie", b(loadForRequest));
+            }
+            if (request.header("User-Agent") == null && this.b.C() != null) {
+                newBuilder.header("User-Agent", this.b.C());
+            }
+            Response a = aVar.a(newBuilder.build());
+            CookieHandler.receiveHeaders(this.a, request, a.headers());
+            return a.newBuilder().request(request).build();
         }
         return (Response) invokeL.objValue;
     }
 
-    public Response b(Request request, i60 i60Var) throws IOException {
-        InterceptResult invokeLL;
+    public final String b(List<Cookie> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, request, i60Var)) == null) {
-            if (this.c < this.a.size()) {
-                this.f++;
-                r60 r60Var = new r60(this.a, i60Var, this.c + 1, request, this.e);
-                b60 b60Var = this.a.get(this.c);
-                Response a = b60Var.a(r60Var);
-                if (a != null) {
-                    if (a.body() != null) {
-                        a.getStatRecord().responseLength = a.body().contentLength();
-                        a.getStatRecord().finishTs = System.currentTimeMillis();
-                        MediaType contentType = a.body().contentType();
-                        if (contentType != null) {
-                            a.getStatRecord().contentType = contentType.toString();
-                        }
-                        return a;
-                    }
-                    throw new IllegalStateException("interceptor " + b60Var + " returned a response with no body");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            StringBuilder sb = new StringBuilder();
+            int size = list.size();
+            for (int i = 0; i < size; i++) {
+                if (i > 0) {
+                    sb.append("; ");
                 }
-                throw new NullPointerException("interceptor " + b60Var + " returned null");
+                Cookie cookie = list.get(i);
+                sb.append(cookie.name());
+                sb.append('=');
+                sb.append(cookie.value());
             }
-            throw new AssertionError();
+            return sb.toString();
         }
-        return (Response) invokeLL.objValue;
-    }
-
-    public Call call() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (Call) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b60.a
-    public i60 connection() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (i60) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.b60.a
-    public Request request() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return (Request) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

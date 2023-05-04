@@ -2,6 +2,7 @@ package com.baidu.tieba;
 
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JsObject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,18 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class v14 implements u14 {
+public class v14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, w14> a;
-    public HashMap<String, ArrayList<u14>> b;
-    public String c;
-    public c64 d;
-    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -35,15 +29,15 @@ public class v14 implements u14 {
                 return;
             }
         }
-        f = fo1.a;
+        a = ho1.a;
     }
 
-    public v14(String str) {
+    public v14(JsObject jsObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
+            Object[] objArr = {jsObject};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -53,100 +47,43 @@ public class v14 implements u14 {
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new HashMap<>();
-        this.e = new Object();
-        this.c = str;
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (f) {
-                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
+        e02 F = e02.F(jsObject);
+        if (F == null) {
+            return;
+        }
+        x73 M = x73.M();
+        if (M == null) {
+            a(F, false, b("internal error"));
+            return;
+        }
+        try {
+            boolean m = F.m("mixWithOther", false);
+            M.U().h("key_audio_is_mix_with_other", Boolean.valueOf(m));
+            if (a) {
+                Log.d("InnerAudioOptionApi", "Audio Mix Changed to " + m);
             }
-            if (this.d == null) {
-                this.d = c64.b();
-            }
-            w14 w14Var = new w14(this.d, this.c, str, this);
-            this.a.put(str, w14Var);
-            w14Var.e();
+            a(F, true, "setInnerAudioOption:ok");
+        } catch (Exception unused) {
+            x42.c("InnerAudioOptionApi", "set swanApp global var error");
+            a(F, false, b("internal error"));
         }
     }
 
-    @Override // com.baidu.tieba.u14
-    public void a(String str, String str2) {
-        ArrayList<u14> arrayList;
+    public final void a(e02 e02Var, boolean z, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i = 0; i < size; i++) {
-                        arrayList.get(i).a(str, str2);
-                        if (f) {
-                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
-                        }
-                    }
-                    this.a.remove(str);
-                }
-            }
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{e02Var, Boolean.valueOf(z), str}) == null) {
+            g24 g24Var = new g24();
+            g24Var.errMsg = str;
+            ja4.call(e02Var, z, g24Var);
         }
     }
 
-    public void e(String str, u14 u14Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, u14Var) == null) {
-            synchronized (this.e) {
-                if (!d(str)) {
-                    if (f) {
-                        Log.e("AudioDownloadManager", "start load url = " + str);
-                    }
-                    c(str);
-                } else if (f) {
-                    Log.e("AudioDownloadManager", "re load url = " + str);
-                }
-                b(str, u14Var);
-            }
-        }
-    }
-
-    public final void b(String str, u14 u14Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, u14Var) == null) {
-            if (this.b.containsKey(str)) {
-                this.b.get(str).add(u14Var);
-                return;
-            }
-            ArrayList<u14> arrayList = new ArrayList<>();
-            arrayList.add(u14Var);
-            this.b.put(str, arrayList);
-        }
-    }
-
-    public final boolean d(String str) {
+    public final String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return this.a.containsKey(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return String.format("setInnerAudioOption:fail %s", str);
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.u14
-    public void fail(int i, String str) {
-        ArrayList<u14> arrayList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
-            synchronized (this.e) {
-                if (d(str) && (arrayList = this.b.get(str)) != null) {
-                    int size = arrayList.size();
-                    for (int i2 = 0; i2 < size; i2++) {
-                        arrayList.get(i2).fail(i, str);
-                    }
-                    this.a.remove(str);
-                }
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

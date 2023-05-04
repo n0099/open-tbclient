@@ -1,27 +1,75 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.emotioncenter.data.EmotionCenterData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public final class aw6 {
+public class aw6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ox6 a;
-    public final ez6 b;
-    public boolean c;
+    public List<k35> a;
 
-    public aw6(ox6 data, ez6 statData, boolean z) {
+    /* loaded from: classes3.dex */
+    public class a implements k35 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+
+        public a(aw6 aw6Var, ThreadData threadData, String str, String str2, String str3, String str4, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {aw6Var, threadData, str, str2, str3, str4, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // com.baidu.tieba.k35
+        public String getPicLinkUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.k35
+        public String getPicUrl() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    public aw6(List<EmotionCenterData.BannerData> list) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data, statData, Boolean.valueOf(z)};
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,48 +79,23 @@ public final class aw6 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        Intrinsics.checkNotNullParameter(statData, "statData");
-        this.a = data;
-        this.b = statData;
-        this.c = z;
+        this.a = new ArrayList();
+        if (list != null && !ListUtils.isEmpty(list)) {
+            for (int i3 = 0; i3 < list.size(); i3++) {
+                EmotionCenterData.BannerData bannerData = list.get(i3);
+                if (bannerData != null) {
+                    this.a.add(new a(this, null, bannerData.url, bannerData.action, null, null, 0));
+                }
+            }
+        }
     }
 
-    public /* synthetic */ aw6(ox6 ox6Var, ez6 ez6Var, boolean z, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(ox6Var, ez6Var, (i & 4) != 0 ? true : z);
-    }
-
-    public final ox6 a() {
+    public List<k35> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a;
         }
-        return (ox6) invokeV.objValue;
-    }
-
-    public final boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final ez6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (ez6) invokeV.objValue;
-    }
-
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.c = z;
-        }
+        return (List) invokeV.objValue;
     }
 }

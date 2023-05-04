@@ -19,8 +19,8 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -113,7 +113,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void b(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d07cf, this);
+            LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d07db, this);
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-1, -2);
             setOrientation(0);
             setLayoutParams(layoutParams);
@@ -135,7 +135,7 @@ public class RecommendForumInfoView extends LinearLayout {
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091d2e);
+            BarImageView barImageView = (BarImageView) findViewById(R.id.obfuscated_res_0x7f091d3e);
             this.a = barImageView;
             barImageView.setPlaceHolder(1);
             this.a.setShowOval(true);
@@ -144,9 +144,9 @@ public class RecommendForumInfoView extends LinearLayout {
             this.a.setStrokeWith(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
             this.a.setStrokeColorResId(R.color.CAM_X0401);
             this.a.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091d2f);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e4);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09238d);
+            this.b = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f091d3f);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e3);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0923a5);
             this.e = (FollowUserButton) findViewById(R.id.like_button);
             e();
         }
@@ -155,8 +155,8 @@ public class RecommendForumInfoView extends LinearLayout {
     public void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            r25.d(this).f(R.color.CAM_X0201);
-            r25 d = r25.d(this.b);
+            g35.d(this).f(R.color.CAM_X0201);
+            g35 d = g35.d(this.b);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0105);
             Drawable pureDrawable = WebPManager.getPureDrawable(R.drawable.icon_pure_ba16, SkinManager.getColor(R.color.CAM_X0105), null);
@@ -166,10 +166,10 @@ public class RecommendForumInfoView extends LinearLayout {
                 this.b.setCompoundDrawables(null, null, pureDrawable, null);
                 this.b.setCompoundDrawablePadding(ii.g(getContext(), R.dimen.M_W_X002));
             }
-            r25 d2 = r25.d(this.c);
+            g35 d2 = g35.d(this.c);
             d2.B(R.dimen.T_X09);
             d2.w(R.color.CAM_X0109);
-            r25 d3 = r25.d(this.d);
+            g35 d3 = g35.d(this.d);
             d3.B(R.dimen.T_X09);
             d3.w(R.color.CAM_X0109);
             this.e.onChangeSkinType(TbadkCoreApplication.getInst().getSkinType());
@@ -231,7 +231,7 @@ public class RecommendForumInfoView extends LinearLayout {
             if (!TextUtils.isEmpty(str2)) {
                 this.b.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), str2));
             }
-            this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0451), StringHelper.numberUniformFormatExtra(i)));
+            this.c.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0459), StringHelper.numberUniformFormatExtra(i)));
             this.d.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i2)));
             this.f = z;
             this.e.q(z);

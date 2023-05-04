@@ -1,52 +1,124 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.switchs.ChunkUploadSwitch;
+import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vq9 extends CustomMessageListener {
-    public static /* synthetic */ Interceptable $ic;
+public class vq9 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int c = 524288;
+    public static int d = 6144000;
+    public static int e = 524288;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cp9 a;
+    public zq9 a;
+    public wp8 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vq9(MainTabActivity mainTabActivity) {
-        super(2921764);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948249579, "Lcom/baidu/tieba/vq9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948249579, "Lcom/baidu/tieba/vq9;");
+        }
+    }
+
+    public vq9(wp8 wp8Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {wp8Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity.e;
+        this.b = wp8Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        cp9 cp9Var;
+    public static void b(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (cp9Var = this.a) != null && cp9Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
-            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
-                Runnable runnable = this.a.k().d;
-                jg.a().removeCallbacks(runnable);
-                jg.a().post(runnable);
-                return;
+        if (interceptable == null || interceptable.invokeI(65538, null, i) == null) {
+            if (i <= 0) {
+                d = 6144000;
+            } else {
+                d = i;
             }
-            jg.a().removeCallbacks(this.a.k().d);
         }
+    }
+
+    public static void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            if (i <= 0) {
+                c = 524288;
+            } else {
+                c = i;
+            }
+        }
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
+            if (i <= 0) {
+                e = 524288;
+            } else {
+                e = i;
+            }
+        }
+    }
+
+    public void a() {
+        zq9 zq9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (zq9Var = this.a) != null) {
+            zq9Var.cancel();
+        }
+    }
+
+    public VideoFinishResult e(String str, String str2, int i, cr9 cr9Var) {
+        InterceptResult invokeLLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLIL = interceptable.invokeLLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i, cr9Var)) == null) {
+            try {
+                if (SwitchManager.getInstance().findType(ChunkUploadSwitch.KEY) == 1) {
+                    this.a = new br9(str2, e, this.b);
+                } else {
+                    this.a = new ar9(str, c, d, this.b);
+                }
+                this.a.a(cr9Var);
+                return this.a.b(str2, i);
+            } catch (Exception e2) {
+                BdLog.e(e2.getMessage());
+                wp8 wp8Var = this.b;
+                if (wp8Var != null) {
+                    wp8Var.f(306, -4399, qp8.a(e2));
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (VideoFinishResult) invokeLLIL.objValue;
     }
 }

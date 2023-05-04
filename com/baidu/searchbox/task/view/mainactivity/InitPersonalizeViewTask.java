@@ -5,7 +5,7 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.homepage.personalize.PersonalizePageView;
-import com.baidu.tieba.yg5;
+import com.baidu.tieba.rh5;
 /* loaded from: classes2.dex */
 public class InitPersonalizeViewTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -23,7 +23,7 @@ public class InitPersonalizeViewTask extends LaunchTask {
         PersonalizePageView personalizePageView;
         try {
             Activity mainActivity = TbadkCoreApplication.getInst().getMainActivity();
-            if (mainActivity != null && (personalizePageView = (PersonalizePageView) yg5.e().c(1011)) != null) {
+            if (mainActivity != null && (personalizePageView = (PersonalizePageView) rh5.e().c(1011)) != null) {
                 personalizePageView.e0(mainActivity);
             }
         } catch (Exception e) {

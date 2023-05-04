@@ -1,67 +1,76 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.View;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemGameCodeLayout;
+import com.baidu.tbadk.mainTab.FragmentTabIndicator;
+import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
+import com.baidu.tieba.frs.gamerecommend.FrsGameRecommendFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class fd7 extends qw<md7> {
+public class fd7 extends oh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CardItemGameCodeLayout f;
+    public FrsGameRecommendFragment c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public fd7(Context context) {
-        super(context);
+    @Override // com.baidu.tieba.oh5
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public fd7(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new CardItemGameCodeLayout(context);
+        this.c = FrsGameRecommendFragment.J1(str, str2);
+        b().a = this.c;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
-    /* renamed from: s */
-    public void a(md7 md7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, md7Var) == null) {
-            this.f.setData(md7Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.qw
-    public View k() {
+    @Override // com.baidu.tieba.oh5
+    public ph5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ph5 ph5Var = new ph5();
+            ph5Var.e = 11;
+            ph5Var.b = R.string.obfuscated_res_0x7f0f0763;
+            ph5Var.i = ph5.k;
+            return ph5Var;
         }
-        return (View) invokeV.objValue;
+        return (ph5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    @Override // com.baidu.tieba.oh5
+    public TbFragmentTabIndicator c(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            FragmentTabIndicator fragmentTabIndicator = (FragmentTabIndicator) LayoutInflater.from(context).inflate(R.layout.fragmenttabindicator, (ViewGroup) null);
+            this.b = fragmentTabIndicator;
+            fragmentTabIndicator.setTextSize(2.0f);
+            return this.b;
         }
+        return (TbFragmentTabIndicator) invokeL.objValue;
     }
 }

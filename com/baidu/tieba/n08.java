@@ -1,238 +1,194 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.SocketResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.SyncServiceConfig;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.MemoryNotifyUpdataGroupMessage;
-import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public class n08 {
     public static /* synthetic */ Interceptable $ic;
-    public static n08 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public bb a;
-    public CustomMessageListener b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947948755, "Lcom/baidu/tieba/n08;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947948755, "Lcom/baidu/tieba/n08;");
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends bb {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n08 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(n08 n08Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n08Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n08Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        /* renamed from: a */
-        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 202006 && (socketResponsedMessage instanceof PushNotifyMessage)) {
-                this.a.d((PushNotifyMessage) socketResponsedMessage);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(n08 n08Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n08Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            ImMessageCenterPojo imMessageCenterPojo;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016014 || (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) == null) {
-                return;
-            }
-            f08.n().v(gg.g(imMessageCenterPojo.getGid(), 0L), e28.c(imMessageCenterPojo.getPulled_msgId()), 0L, true);
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public boolean d;
+    public int e;
 
     public n08() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        new ArrayList();
-        this.a = new a(this, 202006);
-        this.b = new b(this, 0);
     }
 
-    public static synchronized n08 b() {
+    public String a() {
         InterceptResult invokeV;
-        n08 n08Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (n08.class) {
-                if (c == null) {
-                    c = new n08();
-                }
-                n08Var = c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return true;
             }
-            return n08Var;
+            return false;
         }
-        return (n08) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public void c() {
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            e();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String str = this.a;
+            if (str != null) {
+                return str.hashCode();
+            }
+            return 0;
         }
+        return invokeV.intValue;
     }
 
-    public final void e() {
+    public static n08 g(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.a);
-            MessageManager.getInstance().registerListener(2016014, this.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+            if (obj instanceof Map) {
+                Map map = (Map) obj;
+                n08 n08Var = new n08();
+                try {
+                    n08Var.a = (String) map.get("user_id");
+                    n08Var.b = (String) map.get("username");
+                    n08Var.c = (String) map.get("avatar");
+                    n08Var.d = ((Boolean) map.get("is_free")).booleanValue();
+                    n08Var.e = ((Integer) map.get("pos")).intValue();
+                } catch (Exception unused) {
+                    Log.d("GameMatchUser", "Flutter Data Parser Error!");
+                }
+                if (n08Var.f()) {
+                    return n08Var;
+                }
+                return null;
+            }
+            return null;
         }
+        return (n08) invokeL.objValue;
     }
 
-    public final void d(PushNotifyMessage pushNotifyMessage) {
+    @NonNull
+    public static List<n08> h(HashMap hashMap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushNotifyMessage) == null) && pushNotifyMessage != null) {
-            if (pushNotifyMessage.getType() == 3) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
-            } else if (pushNotifyMessage.getType() == 4) {
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
-            } else if (pushNotifyMessage.getType() == 36) {
-                if (!TextUtils.isEmpty(pushNotifyMessage.getContent())) {
-                    try {
-                        String optString = new JSONObject(pushNotifyMessage.getContent()).optString("url");
-                        if (TbConfig.GET_POLLING_DATA.equals(optString)) {
-                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.TRUE));
-                        }
-                        if (!TextUtils.isEmpty(optString)) {
-                            u95.b().f(optString);
-                        }
-                    } catch (JSONException e) {
-                        e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Object obj = hashMap.get("imUserList");
+            if (obj instanceof List) {
+                int i = 0;
+                while (true) {
+                    List list = (List) obj;
+                    if (i >= list.size()) {
+                        break;
                     }
-                }
-            } else if (!yz7.n().w()) {
-            } else {
-                String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
-                boolean z = false;
-                f45.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
-                if (TextUtils.isEmpty(valueOf)) {
-                    return;
-                }
-                BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
-                if (pushNotifyMessage.getGroupType() == 0) {
-                    f08.n().y(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
-                    return;
-                }
-                int a2 = e08.a(pushNotifyMessage.getGroupType());
-                if (yz7.n().h(String.valueOf(pushNotifyMessage.getGroupId()), a2) != null) {
-                    z = true;
-                }
-                if (z) {
-                    f08.n().y(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
-                } else {
-                    g(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), a2);
+                    n08 g = g(list.get(i));
+                    if (g != null) {
+                        arrayList.add(g);
+                    }
+                    i++;
                 }
             }
+            return arrayList;
         }
+        return (List) invokeL.objValue;
     }
 
-    public final void g(long j, long j2, int i) {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) != null) || j2 <= 0) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || n08.class != obj.getClass()) {
+                return false;
+            }
+            String str = this.a;
+            String str2 = ((n08) obj).a;
+            if (str != null) {
+                return str.equals(str2);
+            }
+            if (str2 == null) {
+                return true;
+            }
+            return false;
         }
-        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-        imMessageCenterPojo.setCustomGroupType(i);
-        imMessageCenterPojo.setGid(String.valueOf(j));
-        imMessageCenterPojo.setPulled_msgId(e28.a(j2 - 1));
-        MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
+        return invokeL.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "GameMatchUser{userId='" + this.a + "', showName='" + this.b + "', avatar='" + this.c + "', isFree='" + this.d + "', pos='" + this.e + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

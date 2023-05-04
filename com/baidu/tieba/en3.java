@@ -1,70 +1,76 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.swan.menu.BaseMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class en3 implements wd4 {
+public class en3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrameLayout a;
 
-    public en3() {
+    public static JSONObject a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("slaveId", str);
+                jSONObject.put("type", str2);
+            } catch (JSONException e) {
+                if (ho1.a) {
+                    e.printStackTrace();
+                }
             }
+            return jSONObject;
         }
-        this.a = null;
+        return (JSONObject) invokeLL.objValue;
     }
 
-    @Override // com.baidu.tieba.wd4
-    public void a(BaseMenuView baseMenuView) {
+    public static JSONObject b(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, baseMenuView) != null) || baseMenuView == null || ProcessUtils.isMainProcess() || !SwanAppProcessInfo.isSwanAppProcess(ProcessUtils.getCurProcessName())) {
-            return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, jSONObject)) == null) {
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("id", str2);
+                jSONObject3.put("action", str4);
+                jSONObject3.put("e", jSONObject);
+                JSONObject jSONObject4 = new JSONObject();
+                jSONObject4.put("type", str3);
+                jSONObject4.put("params", jSONObject3);
+                jSONObject2.put("slaveId", str);
+                jSONObject2.put("type", "abilityMessage");
+                jSONObject2.put("value", jSONObject4);
+            } catch (JSONException e) {
+                if (ho1.a) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject2;
         }
-        if (cr2.M().a()) {
-            b(baseMenuView);
-        } else {
-            c(baseMenuView);
+        return (JSONObject) invokeLLLLL.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r4v1, types: [org.json.JSONObject, T] */
+    public static void c(String str, String str2, String str3, String str4, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(65538, null, str, str2, str3, str4, jSONObject) == null) {
+            di2 di2Var = new di2();
+            di2Var.c = b(str, str2, str3, str4, jSONObject);
+            kt2.U().u(di2Var);
         }
     }
 
-    public final void b(ViewGroup viewGroup) {
+    /* JADX WARN: Type inference failed for: r5v1, types: [org.json.JSONObject, T] */
+    public static void d(String str, String str2, String str3, String str4, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup) != null) || viewGroup == null || !(viewGroup instanceof FrameLayout)) {
-            return;
-        }
-        if (this.a == null) {
-            FrameLayout frameLayout = new FrameLayout(viewGroup.getContext());
-            this.a = frameLayout;
-            frameLayout.setBackgroundResource(R.color.obfuscated_res_0x7f06032c);
-        }
-        viewGroup.removeView(this.a);
-        viewGroup.addView(this.a, new FrameLayout.LayoutParams(-1, -1));
-    }
-
-    public final void c(ViewGroup viewGroup) {
-        FrameLayout frameLayout;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup) == null) && viewGroup != null && (frameLayout = this.a) != null) {
-            viewGroup.removeView(frameLayout);
-            this.a = null;
+        if (interceptable == null || interceptable.invokeLLLLL(65539, null, str, str2, str3, str4, jSONObject) == null) {
+            di2 di2Var = new di2();
+            di2Var.c = b(str, str2, str3, str4, jSONObject);
+            kt2.U().m(str, di2Var);
         }
     }
 }

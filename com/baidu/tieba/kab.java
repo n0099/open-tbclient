@@ -1,15 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.Window;
-import tv.athena.revenue.payui.view.WindowParams;
+import com.yy.mobile.framework.revenuesdk.IRevenue;
+import com.yy.mobile.framework.revenuesdk.baseapi.log.IRLogDelegate;
+import java.util.List;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
 /* loaded from: classes5.dex */
 public interface kab {
-    void attachWindow(Window window);
+    void addLogDelegate(IRLogDelegate iRLogDelegate);
 
-    View getContentView();
+    void addRevenueConfig(MiddleRevenueConfig middleRevenueConfig);
 
-    void refreshView();
+    List<IRevenue> getAllRevenue();
 
-    void refreshWindow(WindowParams windowParams);
+    IMiddleRevenue getMiddleRevenue(int i, int i2);
+
+    IRevenue getRevenue(int i, int i2);
+
+    lab getYYPayMiddleService(int i, int i2);
+
+    void removeRevenueConfig(int i, int i2);
+
+    void updateMiddleRevenueConfig(int i, int i2, Long l, String str);
 }

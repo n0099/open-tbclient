@@ -1,159 +1,196 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.ByteArrayInputStream;
-import java.io.CharArrayWriter;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.FileReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.OutputStream;
+import java.io.InputStreamReader;
+import java.lang.reflect.Method;
+import java.nio.charset.StandardCharsets;
+import java.util.UUID;
 /* loaded from: classes5.dex */
-public class po4 {
+public class po4 implements lo4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
 
-    public static void a(Closeable closeable) {
+    @Override // com.baidu.tieba.lo4
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
-            try {
-                closeable.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lo4
+    /* renamed from: h */
+    public void put(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
         }
     }
 
-    public static long b(InputStream inputStream, OutputStream outputStream) {
-        InterceptResult invokeLL;
+    public po4(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, inputStream, outputStream)) == null) {
-            if (inputStream != null && outputStream != null) {
-                try {
-                    byte[] bArr = new byte[p81.a];
-                    long j = 0;
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            outputStream.write(bArr, 0, read);
-                            j += read;
-                        } else {
-                            outputStream.flush();
-                            return j;
-                        }
-                    }
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0L;
         }
-        return invokeLL.longValue;
+        this.a = context.getApplicationContext();
     }
 
-    public static boolean d(String str, File file) {
-        InterceptResult invokeLL;
-        File parentFile;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, file)) == null) {
-            if (TextUtils.isEmpty(str) || (parentFile = file.getParentFile()) == null || !parentFile.isDirectory()) {
-                return false;
-            }
-            if (!parentFile.exists()) {
-                parentFile.mkdirs();
-            }
-            e(str.getBytes(), file);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static String c(File file) {
+    public static byte[] g(byte[]... bArr) {
         InterceptResult invokeL;
-        FileReader fileReader;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileReader fileReader2 = null;
-            if (file != null && file.exists()) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
+            int i = 0;
+            for (byte[] bArr2 : bArr) {
+                i += bArr2.length;
+            }
+            byte[] bArr3 = new byte[i];
+            int i2 = 0;
+            for (byte[] bArr4 : bArr) {
+                System.arraycopy(bArr4, 0, bArr3, i2, bArr4.length);
+                i2 += bArr4.length;
+            }
+            return bArr3;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        byte[] g;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            byte[] bytes = d().getBytes(StandardCharsets.UTF_8);
+            byte[] bytes2 = "com.baidu.swan".getBytes(StandardCharsets.UTF_8);
+            if (Build.VERSION.SDK_INT < 23) {
+                g = g(bytes2, UUID.randomUUID().toString().getBytes(StandardCharsets.UTF_8), String.valueOf(System.nanoTime()).getBytes(StandardCharsets.UTF_8), bytes);
+            } else {
+                g = g(bytes2, bytes);
+            }
+            return so4.b(g, true);
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @SuppressLint({"DiscouragedPrivateApi"})
+    public final String e() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            try {
+                str = (String) Build.class.getField("SERIAL").get(null);
                 try {
-                    fileReader = new FileReader(file);
-                } catch (Exception unused) {
-                    fileReader = null;
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    char[] cArr = new char[256];
-                    CharArrayWriter charArrayWriter = new CharArrayWriter();
-                    while (true) {
-                        int read = fileReader.read(cArr);
-                        if (read > 0) {
-                            charArrayWriter.write(cArr, 0, read);
-                        } else {
-                            String charArrayWriter2 = charArrayWriter.toString();
-                            a(fileReader);
-                            return charArrayWriter2;
-                        }
+                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                        Method declaredMethod = Build.class.getDeclaredMethod("getString", String.class);
+                        declaredMethod.setAccessible(true);
+                        str = (String) declaredMethod.invoke(null, "ro.serialno");
                     }
-                } catch (Exception unused2) {
-                    a(fileReader);
-                    return null;
-                } catch (Throwable th2) {
-                    th = th2;
-                    fileReader2 = fileReader;
-                    a(fileReader2);
-                    throw th;
+                    if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                        str = f("ro.serialno");
+                    }
+                } catch (Exception unused) {
                 }
+            } catch (Exception unused2) {
+                str = null;
             }
-            return null;
+            if (TextUtils.isEmpty(str) || TextUtils.equals(str, "unknown")) {
+                return null;
+            }
+            return str;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void e(byte[] bArr, File file) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.lo4
+    /* renamed from: c */
+    public String get() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, file) == null) {
-            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(bArr);
-            f(byteArrayInputStream, file);
-            a(byteArrayInputStream);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b();
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void f(InputStream inputStream, File file) {
-        FileOutputStream fileOutputStream;
+    @SuppressLint({"HardwareIds"})
+    public final String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, inputStream, file) == null) {
-            FileOutputStream fileOutputStream2 = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String a = ct3.b.a(this.a);
+            if (TextUtils.isEmpty(a)) {
+                a = e();
+            }
+            if (TextUtils.isEmpty(a)) {
+                a = UUID.randomUUID().toString();
+            }
+            if (a == null) {
+                return "";
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String f(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            BufferedReader bufferedReader2 = null;
             try {
                 try {
-                    fileOutputStream = new FileOutputStream(file);
+                    Runtime runtime = Runtime.getRuntime();
+                    bufferedReader = new BufferedReader(new InputStreamReader(runtime.exec("getprop " + str).getInputStream()), 256);
                 } catch (Throwable th) {
                     th = th;
                 }
-            } catch (FileNotFoundException e) {
-                e = e;
+            } catch (IOException unused) {
             }
             try {
-                b(inputStream, fileOutputStream);
-                a(fileOutputStream);
-            } catch (FileNotFoundException e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
-                e.printStackTrace();
-                a(fileOutputStream2);
+                String readLine = bufferedReader.readLine();
+                ro4.a(bufferedReader);
+                if (readLine == null) {
+                    return "";
+                }
+                return readLine;
+            } catch (IOException unused2) {
+                bufferedReader2 = bufferedReader;
+                ro4.a(bufferedReader2);
+                ro4.a(bufferedReader2);
+                return "";
             } catch (Throwable th2) {
                 th = th2;
-                fileOutputStream2 = fileOutputStream;
-                a(fileOutputStream2);
+                bufferedReader2 = bufferedReader;
+                ro4.a(bufferedReader2);
                 throw th;
             }
         }
+        return (String) invokeL.objValue;
     }
 }

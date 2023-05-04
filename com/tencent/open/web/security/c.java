@@ -6,7 +6,7 @@ import com.tencent.open.log.SLog;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes8.dex */
-public class c extends a.C0729a {
+public class c extends a.C0732a {
     public String d;
 
     public c(WebView webView, long j, String str, String str2) {
@@ -31,17 +31,17 @@ public class c extends a.C0729a {
         }
     }
 
-    @Override // com.tencent.open.a.C0729a
+    @Override // com.tencent.open.a.C0732a
     public void a() {
         SLog.d("openSDK_LOG.SecureJsListener", "-->onNoMatchMethod...");
     }
 
-    @Override // com.tencent.open.a.C0729a
+    @Override // com.tencent.open.a.C0732a
     public void a(Object obj) {
         SLog.v("openSDK_LOG.SecureJsListener", "-->onComplete, result: " + obj);
     }
 
-    @Override // com.tencent.open.a.C0729a
+    @Override // com.tencent.open.a.C0732a
     public void a(String str) {
         int i;
         SLog.v("openSDK_LOG.SecureJsListener", "-->onCustomCallback, js: " + str);

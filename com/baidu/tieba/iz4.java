@@ -1,20 +1,22 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.RewardMaterial;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class iz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public boolean c;
-    public boolean d;
+    public ArrayList<UserData> a;
+    public ArrayList<UserData> b;
+    public cz4 c;
 
     public iz4() {
         Interceptable interceptable = $ic;
@@ -26,70 +28,54 @@ public class iz4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
+        this.c = new cz4();
+    }
+
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                b(new JSONObject(str));
+            } catch (Exception e) {
+                BdLog.detailException(e);
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static iz4 e(RewardMaterial rewardMaterial) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, rewardMaterial)) == null) {
-            if (rewardMaterial == null) {
-                return null;
+        try {
+            JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
+            JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
+            if (optJSONArray != null) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    UserData userData = new UserData();
+                    userData.parserJson(optJSONArray.getJSONObject(i));
+                    userData.mAttentionType = 2;
+                    this.a.add(userData);
+                }
             }
-            iz4 iz4Var = new iz4();
-            iz4Var.a = rewardMaterial.icon;
-            iz4Var.b = rewardMaterial.unlock_level;
-            boolean z2 = false;
-            if (rewardMaterial.is_matched.intValue() == 1) {
-                z = true;
-            } else {
-                z = false;
+            if (optJSONArray2 != null) {
+                for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                    UserData userData2 = new UserData();
+                    userData2.parserJson(optJSONArray2.getJSONObject(i2));
+                    userData2.mAttentionType = 1;
+                    this.b.add(userData2);
+                }
             }
-            iz4Var.c = z;
-            if (rewardMaterial.is_newest_matched_level.intValue() == 1) {
-                z2 = true;
-            }
-            iz4Var.d = z2;
-            return iz4Var;
+            this.c.i(jSONObject.optJSONObject("page"));
+            jSONObject.optInt("tafriendnum", 0);
+            jSONObject.optInt("commonfriendnum", 0);
+        } catch (Exception e) {
+            BdLog.detailException(e);
         }
-        return (iz4) invokeL.objValue;
     }
 }

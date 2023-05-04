@@ -131,7 +131,7 @@ public class LocalVideoThumbLoaderProc implements dg<tm> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            tm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), TbImageMemoryCache.s().w(toCacheKey(str)), i, i2);
+            tm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(toCacheKey(str), TbImageMemoryCache.v().A(toCacheKey(str)), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
@@ -157,7 +157,7 @@ public class LocalVideoThumbLoaderProc implements dg<tm> {
             if (tmVar.u()) {
                 tmVar.A(i);
                 tmVar.z(i2);
-                TbImageMemoryCache.s().k(toCacheKey(str), tmVar);
+                TbImageMemoryCache.v().m(toCacheKey(str), tmVar);
             }
         }
     }

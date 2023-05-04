@@ -1,12 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.cd3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,54 +12,73 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nv1 extends s93 {
+public class nv1 extends cw1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.aw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "AllianceAccountApi" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public class a implements qm3<ad3<cd3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ nv1 b;
 
-        public a(nv1 nv1Var) {
+        public a(nv1 nv1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nv1Var};
+                Object[] objArr = {nv1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.b = nv1Var;
+            this.a = str;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qm3
+        /* renamed from: b */
+        public void a(ad3<cd3.e> ad3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                j72.b3();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad3Var) == null) {
+                if (vc3.h(ad3Var)) {
+                    this.b.z(this.a);
+                    return;
+                }
+                int b = ad3Var.b();
+                vc3.f(b);
+                this.b.d(this.a, new xz1(b, vc3.f(b)));
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nv1(s83 s83Var) {
-        super(s83Var, "/swanAPI/setSelectedAddressSync");
+    public nv1(@NonNull yv1 yv1Var) {
+        super(yv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {yv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((yv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -69,46 +86,36 @@ public class nv1 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    public xz1 y(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (v73Var == null) {
-                v42.i("SetSelectedAddressSync", "framework error");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#getUnionBDUSS", false);
+            x73 b0 = x73.b0();
+            if (b0 == null) {
+                return new xz1(1001, "swan app is null");
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo != null && optParamsAsJo.length() > 0) {
-                String optString = optParamsAsJo.optString("errno");
-                if (!TextUtils.equals(optString, "0")) {
-                    v42.i("SetSelectedAddressSync", "error no" + optString);
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error no" + optString);
-                    return false;
-                }
-                JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-                if (optJSONObject != null && optJSONObject.length() > 0) {
-                    j(optJSONObject);
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    return true;
-                }
-                v42.i("SetSelectedAddressSync", "address data is empty");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "data is empty");
-                return false;
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
             }
-            v42.i("SetSelectedAddressSync", "empty params");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-            return false;
+            String optString = ((JSONObject) s.second).optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                return new xz1(201, "cb is empty");
+            }
+            b0.e0().g(w73.K(), "account_get_union_bduss", new a(this, optString));
+            return xz1.f();
         }
-        return invokeLLLL.booleanValue;
+        return (xz1) invokeL.objValue;
     }
 
-    public final void j(JSONObject jSONObject) {
+    public final void z(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
-            qv1.a().c(jSONObject);
-            pl3.a0(new a(this));
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            xk3.f(jSONObject, "bduss", iv1.a.a());
+            d(str, new xz1(0, jSONObject));
         }
     }
 }

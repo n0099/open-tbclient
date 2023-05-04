@@ -1,29 +1,12 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.searchbox.ubcprocessor.UBCCloudControlProcessor;
 /* loaded from: classes4.dex */
 public interface iea {
-    int a() throws IOException;
+    public static final ServiceReference a = new ServiceReference(UBCCloudControlProcessor.UBC_KEY, "yalog");
 
-    int b() throws IOException;
+    void a(String str, String str2);
 
-    boolean c();
-
-    void close();
-
-    void d();
-
-    int e() throws IOException;
-
-    boolean f();
-
-    byte[] g();
-
-    long getCurrentPosition();
-
-    long getDuration();
-
-    void h(long j);
-
-    void seek(long j);
+    void b(String str, String str2);
 }

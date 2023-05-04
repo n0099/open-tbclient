@@ -1,73 +1,83 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.util.Log;
+import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.android.imrtc.BIMRtcClient;
+import com.baidu.android.imsdk.BIMManager;
+import com.baidu.android.imsdk.account.ILoginListener;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.pay.IPayCallback;
-import com.baidu.searchbox.live.interfaces.pay.IPayChannel;
-import com.baidu.searchbox.live.interfaces.pay.PayChannelType;
-import com.baidu.searchbox.live.interfaces.pay.YYPayResultService;
-import com.baidu.searchbox.live.interfaces.service.PayChannelService;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.wallet.ITiebaPay;
-import com.baidu.tieba.wallet.ITiebaPayCallback;
+import com.baidu.android.imsdk.utils.LogUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class ni8 implements PayChannelService {
-    public static /* synthetic */ Interceptable $ic;
+public class ni8 implements ILoginListener {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static volatile ni8 d = null;
+    public static boolean e = true;
     public transient /* synthetic */ FieldHolder $fh;
-    public ITiebaPay a;
+    public boolean a;
+    public b b;
+    public BroadcastReceiver c;
 
-    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
-    public YYPayResultService buildYYPayResChannel() {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(int i, String str);
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948003532, "Lcom/baidu/tieba/ni8;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948003532, "Lcom/baidu/tieba/ni8;");
+        }
+    }
+
+    public static boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return false;
         }
-        return (YYPayResultService) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     /* loaded from: classes5.dex */
-    public class a implements IPayChannel {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ni8 a;
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void onPayResult(String str, String str2, String str3, Context context, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, context, Boolean.valueOf(z)}) == null) {
-            }
-        }
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void release() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            }
-        }
+        public final /* synthetic */ ni8 this$0;
 
         /* renamed from: com.baidu.tieba.ni8$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0352a implements ITiebaPayCallback {
+        public class C0370a extends vr5<Object> {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ IPayCallback a;
+            public final /* synthetic */ a a;
 
-            public C0352a(a aVar, IPayCallback iPayCallback) {
+            public C0370a(a aVar) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
                     newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, iPayCallback};
+                    Object[] objArr = {aVar};
                     interceptable.invokeUnInit(65536, newInitContext);
                     int i = newInitContext.flag;
                     if ((i & 1) != 0) {
@@ -77,16 +87,19 @@ public class ni8 implements PayChannelService {
                         return;
                     }
                 }
-                this.a = iPayCallback;
+                this.a = aVar;
             }
 
-            @Override // com.baidu.tieba.wallet.ITiebaPayCallback
-            public void onPayResult(int i, String str) {
-                IPayCallback iPayCallback;
+            @Override // com.baidu.tieba.vr5
+            public Object doInBackground() {
+                InterceptResult invokeV;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (iPayCallback = this.a) != null) {
-                    iPayCallback.onPayResult(i, str);
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive doInBackground");
+                    this.a.this$0.d(null);
+                    return null;
                 }
+                return invokeV.objValue;
             }
         }
 
@@ -105,38 +118,29 @@ public class ni8 implements PayChannelService {
                     return;
                 }
             }
-            this.a = ni8Var;
+            this.this$0 = ni8Var;
         }
 
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public PayChannelType getType() {
-            InterceptResult invokeV;
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            boolean z;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return PayChannelType.WALLET;
-            }
-            return (PayChannelType) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public String getUaForFrontPay() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return vr5.b() + " (Baidu; P1 " + ki.k() + SmallTailInfo.EMOTION_SUFFIX;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
-        public void pay(Activity activity, HashMap<String, String> hashMap, IPayCallback iPayCallback) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048579, this, activity, hashMap, iPayCallback) == null) && hashMap != null && !hashMap.isEmpty()) {
-                this.a.c();
-                if (this.a.a != null) {
-                    this.a.a.pay(hashMap.remove("channel"), hashMap, new C0352a(this, iPayCallback));
-                } else if (iPayCallback != null) {
-                    iPayCallback.onPayResult(2, null);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive context=" + context + ", intent=" + intent);
+                if (intent != null && "com.baidu.lcp.sdk.broadcast".equals(intent.getAction())) {
+                    if (intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1) == 0) {
+                        z = true;
+                    } else {
+                        z = false;
+                    }
+                    Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.iConnectListener -> onReceive connect=" + z);
+                    Log.d("ImSdkManager", "registerConnectListener connect ：" + intent.getIntExtra("com.baidu.lcp.sdk.connect.state", -1));
+                    si8.i(z);
+                    if (z) {
+                        si8.j("login_lcp");
+                        si8.c("login_lcp");
+                        zr5.b(new C0370a(this), null);
+                    }
                 }
             }
         }
@@ -146,36 +150,130 @@ public class ni8 implements PayChannelService {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
+        this.c = new a(this);
     }
 
-    public final void c() {
-        CustomResponsedMessage runTask;
+    public static ni8 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
-            this.a = (ITiebaPay) runTask.getData();
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
-    public IPayChannel buildPayChannel(PayChannelType payChannelType) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payChannelType)) == null) {
-            if (payChannelType == PayChannelType.WALLET) {
-                return new a(this);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (ni8.class) {
+                    if (d == null) {
+                        d = new ni8();
+                    }
+                }
             }
-            return null;
+            return d;
         }
-        return (IPayChannel) invokeL.objValue;
+        return (ni8) invokeV.objValue;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            si8.c("login_lcp");
+            si8.c("login_im");
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init context=" + context);
+            int i = 0;
+            this.a = false;
+            String version = TbConfig.getVersion();
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("com.baidu.lcp.sdk.broadcast");
+            LocalBroadcastManager.getInstance(context).registerReceiver(this.c, intentFilter);
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            if (c()) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init debug");
+                BIMManager.init(context, 10773430L, 1, cuidGalaxy2);
+                BIMManager.enableDebugMode(true);
+                BIMRtcClient.setRtcDebugAndLogEnable(context, true, true);
+                t80.d(context, 1);
+                t80.c(context, true);
+                i = 1;
+            } else {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.init online");
+                BIMManager.init(context, 10773430L, 0, cuidGalaxy2);
+                BIMRtcClient.setRtcDebugAndLogEnable(context, false, false);
+            }
+            BIMManager.setProductLine(context, 3, version);
+            LogUtils.d("imlog", "BIMManager init env:" + i);
+            e(context, cuidGalaxy2);
+        }
+    }
+
+    public void d(b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM listener=" + bVar);
+            this.b = bVar;
+            String from = TbConfig.getFrom();
+            String currentFrom = TbConfig.getCurrentFrom();
+            if (TbadkCoreApplication.isLogin()) {
+                Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM login");
+                String currentAccount = TbadkCoreApplication.getCurrentAccount();
+                String currentBduss = TbadkCoreApplication.getCurrentBduss();
+                BIMManager.login(currentAccount, currentBduss, 1, from, currentFrom, this);
+                LogUtils.d("imlog", "IMSdkManager PassIsLogin loginToIM uid = " + currentAccount + ", bduss = " + currentBduss + ", from = " + from + ", cfrom = " + currentFrom);
+                return;
+            }
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToIM cuid");
+            String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            BIMManager.login(null, cuidGalaxy2, 6, from, currentFrom, this);
+            LogUtils.d("imlog", "IMSdkManager 匿名使用cuid登录 loginToIM , cuid = " + cuidGalaxy2 + ", from = " + from + ", cfrom = " + currentFrom);
+        }
+    }
+
+    public final void e(Context context, String str) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP context=" + context);
+            if (e) {
+                i = 1;
+            } else {
+                i = 2;
+            }
+            e = false;
+            t70.a(context, "10773430", str, i);
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.loginToLCP connect end");
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.account.ILoginListener
+    public void onLoginResult(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+            si8.h(0L, i, str);
+            if (i == 0) {
+                si8.j("login_im");
+                si8.c("login_im");
+            }
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLoginResult errno=" + i + ", errMsg=" + str);
+            b bVar = this.b;
+            if (bVar != null) {
+                bVar.a(i, str);
+                this.b = null;
+            }
+        }
+    }
+
+    @Override // com.baidu.android.imsdk.account.ILoginListener
+    public void onLogoutResult(int i, String str, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) == null) {
+            Log.i("updateImsdk", "@@ updateImsdk ImSdkManager.onLogoutResult errno=" + i + ", errMsg=" + str + ", type=" + i2);
+            if (!this.a) {
+                d(null);
+            }
+        }
     }
 }

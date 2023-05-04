@@ -1,23 +1,18 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.os.Handler;
+import android.os.Looper;
 import android.util.Log;
 import android.view.View;
-import androidx.annotation.DrawableRes;
+import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.StringRes;
+import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.res.widget.toast.ToastLocation;
-import com.baidu.swan.apps.res.widget.toast.ToastRightAreaStyle;
-import com.baidu.swan.apps.res.widget.toast.ToastTemplate;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.p73;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,178 +21,184 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class n73 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean u;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public CharSequence b;
-    public CharSequence c;
-    public CharSequence d;
-    public Drawable e;
-    public Drawable f;
-    public Uri g;
-    public int h;
-    public int i;
-    public c j;
-    public int k;
-    public b l;
-    public boolean m;
+    public boolean a;
+    public Context b;
+    public WindowManager c;
+    public volatile int d;
+    public View e;
+    public View f;
+    public WindowManager.LayoutParams g;
+    public Handler h;
+    public Runnable i;
+    public Runnable j;
+    public p73.b k;
+    public boolean l;
+    public View m;
     public View n;
-    public ToastRightAreaStyle o;
-    public CharSequence p;
-    public CharSequence q;
-    public ToastLocation r;
-    public ToastTemplate s;
-    public boolean t;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void onDismiss();
-    }
-
-    /* loaded from: classes5.dex */
-    public interface c {
-        void a();
-    }
-
-    @Deprecated
-    public n73 h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) ? this : (n73) invokeI.objValue;
-    }
-
-    public n73 i(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) ? this : (n73) invokeI.objValue;
-    }
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n73 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-620690846, "Lcom/baidu/tieba/n73$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-620690846, "Lcom/baidu/tieba/n73$a;");
+        public a(n73 n73Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n73Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            int[] iArr = new int[ToastTemplate.values().length];
-            a = iArr;
-            try {
-                iArr[ToastTemplate.T1.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[ToastTemplate.T2.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[ToastTemplate.T3.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[ToastTemplate.T4.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
+            this.a = n73Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.e != null) {
+                    if (this.a.e.getParent() != null) {
+                        this.a.c.removeView(this.a.e);
+                        if (this.a.k != null) {
+                            this.a.k.onDismiss();
+                            this.a.k = null;
+                        }
+                    }
+                    this.a.e = null;
+                }
+                if (this.a.m != null) {
+                    if (this.a.m.getParent() != null) {
+                        this.a.c.removeView(this.a.m);
+                    }
+                    this.a.m = null;
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947955327, "Lcom/baidu/tieba/n73;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n73 a;
+
+        public b(n73 n73Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n73Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947955327, "Lcom/baidu/tieba/n73;");
-                return;
+            this.a = n73Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.l) {
+                        if (this.a.m != null && (this.a.m.getParent() instanceof ViewGroup)) {
+                            ((ViewGroup) this.a.m.getParent()).removeView(this.a.m);
+                        }
+                        WindowManager.LayoutParams t = this.a.t();
+                        this.a.n = new FrameLayout(this.a.b);
+                        this.a.n.setClickable(true);
+                        this.a.c.addView(this.a.n, t);
+                        this.a.m = this.a.n;
+                    }
+                    if (this.a.f != null && (this.a.f.getParent() instanceof ViewGroup)) {
+                        ((ViewGroup) this.a.f.getParent()).removeView(this.a.f);
+                    }
+                    this.a.c.addView(this.a.f, this.a.g);
+                    this.a.e = this.a.f;
+                    this.a.h.postDelayed(this.a.j, this.a.d * 1000);
+                    if (this.a.a) {
+                        Log.d("ToastCustom", "add mView");
+                    }
+                } finally {
+                    if (!z) {
+                    }
+                }
             }
         }
-        u = fo1.a;
     }
 
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            j73.d();
-            o73.h();
-        }
-    }
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n73 a;
 
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (!j73.e() && !o73.k()) {
-                return false;
+        public c(n73 n73Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n73Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            return true;
+            this.a = n73Var;
         }
-        return invokeV.booleanValue;
-    }
 
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            C(false);
-        }
-    }
-
-    @Deprecated
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            E(false);
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || !b()) {
-            return;
-        }
-        a();
-        j73.h(this.a, this.b, this.h, false, this.i, this.m);
-    }
-
-    public void G() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            H(false);
-        }
-    }
-
-    public void I() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            J(false);
-        }
-    }
-
-    @Deprecated
-    public void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            x(false, false);
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
-            A(false);
+        @Override // java.lang.Runnable
+        public void run() {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    if (this.a.e != null) {
+                        if (this.a.e.getParent() != null) {
+                            this.a.c.removeViewImmediate(this.a.e);
+                        }
+                        if (this.a.k != null) {
+                            this.a.k.onDismiss();
+                            this.a.k = null;
+                        }
+                        if (this.a.a) {
+                            Log.d("ToastCustom", "remove mView");
+                        }
+                        this.a.e = null;
+                    }
+                    if (this.a.m != null) {
+                        if (this.a.m.getParent() != null) {
+                            this.a.c.removeViewImmediate(this.a.m);
+                        }
+                        if (this.a.a) {
+                            Log.d("ToastCustom", "remove mMaskView");
+                        }
+                        this.a.m = null;
+                    }
+                } finally {
+                    if (!z) {
+                    }
+                }
+            }
         }
     }
 
@@ -207,423 +208,135 @@ public class n73 {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.k = 2;
-        this.o = ToastRightAreaStyle.JUMP;
-        this.r = ToastLocation.MIDDLE;
-        this.s = ToastTemplate.T1;
-        this.t = false;
-        this.a = context;
-        this.h = 2;
+        this.b = context;
+        this.c = (WindowManager) context.getSystemService("window");
+        this.h = new Handler(Looper.getMainLooper());
+        this.j = new a(this);
+        WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+        this.g = layoutParams;
+        layoutParams.height = -2;
+        layoutParams.width = -2;
+        layoutParams.format = -3;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100426;
+        layoutParams.type = 2005;
+        layoutParams.setTitle("Toast");
+        WindowManager.LayoutParams layoutParams2 = this.g;
+        layoutParams2.flags = 168;
+        layoutParams2.gravity = 81;
+        layoutParams2.y = -30;
+        this.d = 2;
+        this.a = false;
     }
 
-    public void A(boolean z) {
+    public void A(@StyleRes int i) {
+        WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || !b()) {
-            return;
+        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (layoutParams = this.g) != null) {
+            layoutParams.windowAnimations = i;
         }
-        a();
-        if (!z) {
-            Context context = this.a;
-            if (context instanceof Activity) {
-                o73.m((Activity) context, this.b, this.h, this.m);
-                return;
+    }
+
+    public void v(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            if (i <= 0) {
+                i = 2;
+            }
+            this.d = i;
+        }
+    }
+
+    public void x(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void y(p73.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bVar) == null) {
+            this.k = bVar;
+        }
+    }
+
+    public void z(@NonNull View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, view2) == null) {
+            this.f = view2;
+            view2.setClickable(true);
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            Runnable runnable = this.i;
+            if (runnable != null) {
+                this.h.removeCallbacks(runnable);
+            }
+            b bVar = new b(this);
+            this.i = bVar;
+            this.h.post(bVar);
+        }
+    }
+
+    public void s() {
+        Handler handler;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (handler = this.h) != null) {
+            handler.post(new c(this));
+            this.h.removeCallbacks(this.j);
+            if (this.a) {
+                Log.d("ToastCustom", "cancel");
             }
         }
-        j73.i(this.a, this.b, this.h, this.m);
     }
 
-    public void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (!z) {
-            Context context = this.a;
-            if (context instanceof Activity) {
-                o73.n((Activity) context, this.b, this.e, this.n, this.h, this.m);
-                return;
-            }
-        }
-        j73.j(this.a, this.b, this.e, this.n, this.h, this.m);
-    }
-
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048585, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (!z) {
-            Context context = this.a;
-            if (context instanceof Activity) {
-                o73.o((Activity) context, null, null, null, this.b, null, this.h, ToastLocation.BOTTOM, this.j, this.m);
-                return;
-            }
-        }
-        y(this.a, this.b);
-    }
-
-    public static int c(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return ml3.t() + ((int) context.getResources().getDimension(R.dimen.obfuscated_res_0x7f070159));
-        }
-        return invokeL.intValue;
-    }
-
-    public static n73 e(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            return new n73(context);
-        }
-        return (n73) invokeL.objValue;
-    }
-
-    @Deprecated
-    public n73 j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            this.k = i;
-            return this;
-        }
-        return (n73) invokeI.objValue;
-    }
-
-    public n73 k(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, charSequence)) == null) {
-            this.d = charSequence;
-            return this;
-        }
-        return (n73) invokeL.objValue;
-    }
-
-    public n73 l(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
-            this.h = Math.max(i, 1);
-            return this;
-        }
-        return (n73) invokeI.objValue;
-    }
-
-    public n73 m(@DrawableRes int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
-            Context context = this.a;
-            if (context != null && context.getResources() != null) {
-                this.e = this.a.getResources().getDrawable(i);
-            }
-            return this;
-        }
-        return (n73) invokeI.objValue;
-    }
-
-    public n73 n(@NonNull Drawable drawable) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, drawable)) == null) {
-            this.e = drawable;
-            return this;
-        }
-        return (n73) invokeL.objValue;
-    }
-
-    public n73 o(@NonNull Uri uri) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, uri)) == null) {
-            this.g = uri;
-            return this;
-        }
-        return (n73) invokeL.objValue;
-    }
-
-    public n73 p(ToastLocation toastLocation) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, toastLocation)) == null) {
-            this.r = toastLocation;
-            return this;
-        }
-        return (n73) invokeL.objValue;
-    }
-
-    public n73 q(@NonNull int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
-            this.i = i;
-            return this;
-        }
-        return (n73) invokeI.objValue;
-    }
-
-    public n73 r(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, charSequence)) == null) {
-            this.b = charSequence;
-            return this;
-        }
-        return (n73) invokeL.objValue;
-    }
-
-    public n73 s(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
-            this.m = z;
-            return this;
-        }
-        return (n73) invokeZ.objValue;
-    }
-
-    public n73 t(@NonNull CharSequence charSequence) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, charSequence)) == null) {
-            this.c = charSequence;
-            return this;
-        }
-        return (n73) invokeL.objValue;
-    }
-
-    public n73 u(c cVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, cVar)) == null) {
-            this.j = cVar;
-            return this;
-        }
-        return (n73) invokeL.objValue;
-    }
-
-    public static n73 f(@NonNull Context context, @StringRes int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, context, i)) == null) {
-            n73 n73Var = new n73(context);
-            n73Var.b = context.getText(i);
-            return n73Var;
-        }
-        return (n73) invokeLI.objValue;
-    }
-
-    public static n73 g(@NonNull Context context, @NonNull CharSequence charSequence) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, context, charSequence)) == null) {
-            n73 n73Var = new n73(context);
-            n73Var.b = charSequence;
-            return n73Var;
-        }
-        return (n73) invokeLL.objValue;
-    }
-
-    public final void y(Context context, CharSequence charSequence) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048604, this, context, charSequence) != null) || TextUtils.isEmpty(charSequence)) {
-            return;
-        }
-        j73.k(context, null, null, null, charSequence, null, this.h, this.r, null, this.m);
-    }
-
-    @Deprecated
-    public void E(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (z) {
-            y(this.a, this.c);
-        } else if (this.a instanceof Activity) {
-            b bVar = this.l;
-            if (bVar != null) {
-                o73.l(bVar);
-                this.l = null;
-            }
-            if (1 == this.k) {
-                this.o = ToastRightAreaStyle.JUMP;
-            } else {
-                this.o = ToastRightAreaStyle.BUTTON;
-            }
-            if (TextUtils.isEmpty(this.d)) {
-                o73.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, this.j, this.m);
-                return;
-            }
-            CharSequence charSequence = this.c;
-            CharSequence charSequence2 = this.b;
-            if (TextUtils.isEmpty(charSequence) && !TextUtils.isEmpty(this.b)) {
-                charSequence = this.b;
-                charSequence2 = "";
-            }
-            o73.p((Activity) this.a, this.g, null, null, charSequence, charSequence2, this.d, this.o, this.h, false, this.j);
-        } else {
-            b bVar2 = this.l;
-            if (bVar2 != null) {
-                j73.f(bVar2);
-                this.l = null;
-            }
-            y(this.a, this.c);
-        }
-    }
-
-    public void H(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048583, this, z) != null) || !b()) {
-            return;
-        }
-        a();
-        if (!z && (this.a instanceof Activity)) {
-            if (u) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("给View set 的mOnDismissListener是不是空?");
-                if (this.l == null) {
-                    z2 = true;
-                } else {
-                    z2 = false;
-                }
-                sb.append(z2);
-                Log.w("UniversalToast", sb.toString());
-            }
-            b bVar = this.l;
-            if (bVar != null) {
-                o73.l(bVar);
-                this.l = null;
-            }
-            o73.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, this.j, this.m);
-            return;
-        }
-        b bVar2 = this.l;
-        if (bVar2 != null) {
-            j73.f(bVar2);
-            this.l = null;
-        }
-        y(this.a, this.b);
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public final boolean b() {
+    public final WindowManager.LayoutParams t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            if (this.a == null) {
-                if (!u) {
-                    return false;
-                }
-                throw new IllegalArgumentException("UniversalToast mContext is null!!!");
-            } else if (this.b == null) {
-                if (!u) {
-                    return false;
-                }
-                throw new IllegalArgumentException("UniversalToast toast text is null!!!");
-            } else {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = -1;
+            layoutParams.verticalMargin = p73.c(this.b);
+            layoutParams.flags = 2176;
+            layoutParams.type = 2005;
+            return layoutParams;
+        }
+        return (WindowManager.LayoutParams) invokeV.objValue;
+    }
+
+    public boolean u() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            View view2 = this.e;
+            if (view2 != null && view2.getParent() != null) {
                 return true;
             }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public void v() {
-        CharSequence charSequence;
+    public void w(int i, int i2, int i3) {
+        WindowManager.LayoutParams layoutParams;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
-            if (this.a != null && (!TextUtils.isEmpty(this.b) || !TextUtils.isEmpty(this.c))) {
-                a();
-                if (this.a instanceof Activity) {
-                    int i = a.a[this.s.ordinal()];
-                    if (i != 2) {
-                        if (i != 3) {
-                            if (i != 4) {
-                                if (TextUtils.isEmpty(this.b)) {
-                                    return;
-                                }
-                                o73.o((Activity) this.a, null, null, null, this.b, null, this.h, this.r, null, this.m);
-                                return;
-                            } else if (TextUtils.isEmpty(this.b)) {
-                                return;
-                            } else {
-                                o73.n((Activity) this.a, this.b, this.e, this.n, this.h, this.m);
-                                return;
-                            }
-                        } else if (TextUtils.isEmpty(this.q) && !TextUtils.isEmpty(this.b)) {
-                            o73.o((Activity) this.a, this.g, this.f, this.n, this.b, this.q, this.h, this.r, this.j, this.m);
-                            return;
-                        } else if (TextUtils.isEmpty(this.c)) {
-                            return;
-                        } else {
-                            o73.p((Activity) this.a, this.g, this.f, this.n, this.c, this.p, this.q, this.o, this.h, this.t, this.j);
-                            return;
-                        }
-                    } else if (TextUtils.isEmpty(this.b)) {
-                        return;
-                    } else {
-                        o73.o((Activity) this.a, this.g, this.f, this.n, this.b, this.q, this.h, this.r, this.j, this.m);
-                        return;
-                    }
-                } else if (a.a[this.s.ordinal()] != 4) {
-                    Context context = this.a;
-                    if (TextUtils.isEmpty(this.b)) {
-                        charSequence = this.c;
-                    } else {
-                        charSequence = this.b;
-                    }
-                    y(context, charSequence);
-                    return;
-                } else if (TextUtils.isEmpty(this.b)) {
-                    return;
-                } else {
-                    j73.j(this.a, this.b, this.e, this.n, this.h, this.m);
-                    return;
-                }
-            }
-            m73.h("has no mToastText or mTitleText");
+        if ((interceptable == null || interceptable.invokeIII(1048582, this, i, i2, i3) == null) && (layoutParams = this.g) != null) {
+            layoutParams.gravity = i;
+            layoutParams.x = i2;
+            layoutParams.y = i3;
         }
-    }
-
-    @Deprecated
-    public void x(boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048603, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || !b()) {
-            return;
-        }
-        a();
-        if (!z && (this.a instanceof Activity)) {
-            b bVar = this.l;
-            if (bVar != null) {
-                o73.l(bVar);
-                this.l = null;
-            }
-            if (TextUtils.isEmpty(this.d)) {
-                this.d = cr2.c().getResources().getText(R.string.obfuscated_res_0x7f0f0118);
-            }
-            o73.o((Activity) this.a, null, null, null, this.b, this.d, this.h, ToastLocation.BOTTOM, this.j, this.m);
-            return;
-        }
-        b bVar2 = this.l;
-        if (bVar2 != null) {
-            j73.f(bVar2);
-            this.l = null;
-        }
-        y(this.a, this.b);
     }
 }

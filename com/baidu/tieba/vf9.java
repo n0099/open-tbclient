@@ -1,217 +1,107 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.dns.DnsHelper;
-import com.baidu.searchbox.dns.DnsParseResult;
-import com.baidu.searchbox.dns.util.DnsUtil;
-import com.baidu.searchbox.http.IHttpDns;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tieba.recapp.async.IAdBaseAsyncController;
+import com.baidu.tieba.recapp.constants.PlaceId;
+import com.baidu.tieba.recapp.view.AdVideoFlowView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.Inet6Address;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-import java.util.regex.Pattern;
-import okhttp3.Dns;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class vf9 implements Dns, IHttpDns {
+public class vf9 implements oe9 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public long b;
-    public long c;
-    public DnsParseResult e;
-    public boolean f;
-    public DnsHelper g;
-    public boolean h;
-    public a i;
+    public f06 a;
+    public TbPageContext<BaseFragmentActivity> b;
+    public Map<AdvertAppInfo, AdVideoFlowView> c;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(long j, long j2, DnsParseResult dnsParseResult);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948239008, "Lcom/baidu/tieba/vf9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948239008, "Lcom/baidu/tieba/vf9;");
-                return;
-            }
-        }
-        j = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
-    }
-
-    public DnsHelper a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (DnsHelper) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpDns
-    public boolean getHttpDnsEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public vf9(DnsHelper dnsHelper, boolean z) {
-        boolean z2;
+    public vf9(IAdBaseAsyncController.a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {dnsHelper, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = z;
-        this.b = -1L;
-        this.c = -1L;
-        this.g = dnsHelper;
-        if (dnsHelper != null && dnsHelper.isHttpDnsEnable()) {
-            z2 = true;
-        } else {
-            z2 = false;
-        }
-        this.a = z2;
+        f06 f06Var = new f06(PlaceId.VIDEO_FLOW, "VIDEO_FLOW", aVar);
+        this.a = f06Var;
+        f06Var.e(false);
+        this.c = new HashMap();
     }
 
-    public static boolean b(String str) {
+    @Override // com.baidu.tieba.oe9
+    @Nullable
+    public od9 i(AdvertAppInfo advertAppInfo) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return j.matcher(str).matches();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (obj instanceof vf9) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, advertAppInfo)) == null) {
+            if (this.b == null) {
+                return null;
             }
-            return super.equals(obj);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.IHttpDns
-    public void setHttpDnsEnable(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            this.a = z;
-            DnsHelper dnsHelper = this.g;
-            if (dnsHelper != null) {
-                dnsHelper.setHttpDnsEnable(z);
+            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
+            if (adVideoFlowView == null) {
+                adVideoFlowView = new AdVideoFlowView(this.b.getPageActivity());
+                this.c.put(advertAppInfo, adVideoFlowView);
             }
+            adVideoFlowView.setPageContext(this.b);
+            adVideoFlowView.setData(advertAppInfo);
+            return adVideoFlowView;
+        }
+        return (od9) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.oe9
+    public void a(TbPageContext<BaseFragmentActivity> tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            this.b = tbPageContext;
         }
     }
 
-    @Override // com.baidu.searchbox.http.IHttpDns
-    public void setHttpDnsIPv4OnlyEnable(boolean z) {
+    @Override // com.baidu.tieba.oe9
+    public void m(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.h = z;
+        if (interceptable == null || interceptable.invokeL(1048580, this, advertAppInfo) == null) {
+            this.c.remove(advertAppInfo);
         }
     }
 
-    @Override // okhttp3.Dns
-    public List<InetAddress> lookup(String str) throws UnknownHostException {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.oe9
+    public void c(AdvertAppInfo advertAppInfo, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            if (str != null) {
-                boolean z = this.f;
-                if (z) {
-                    this.b = System.currentTimeMillis();
-                }
-                List arrayList = new ArrayList();
-                try {
-                    if (b(str)) {
-                        return Arrays.asList(InetAddress.getAllByName(str));
-                    }
-                    if (this.a && this.g != null) {
-                        DnsParseResult parseResult = this.g.getParseResult(str);
-                        if (parseResult != null) {
-                            arrayList = DnsUtil.parseInetAddressList(parseResult.getIpList());
-                        }
-                        if (z) {
-                            long currentTimeMillis = System.currentTimeMillis();
-                            this.c = currentTimeMillis;
-                            this.e = parseResult;
-                            if (this.i != null) {
-                                this.i.a(this.b, currentTimeMillis, parseResult);
-                            }
-                        }
-                    } else {
-                        arrayList = Arrays.asList(InetAddress.getAllByName(str));
-                        if (z) {
-                            this.c = System.currentTimeMillis();
-                            DnsParseResult dnsParseResult = new DnsParseResult(DnsUtil.parseRawAddressList(arrayList), 0, 1, DnsUtil.stackType);
-                            this.e = dnsParseResult;
-                            if (this.i != null) {
-                                this.i.a(this.b, this.c, dnsParseResult);
-                            }
-                        }
-                    }
-                    if (DnsUtil.stackType == 3 && this.h && arrayList != null) {
-                        ArrayList arrayList2 = new ArrayList();
-                        for (InetAddress inetAddress : arrayList) {
-                            if (inetAddress instanceof Inet6Address) {
-                                arrayList2.add(inetAddress);
-                            }
-                        }
-                        arrayList.removeAll(arrayList2);
-                        if (arrayList.isEmpty()) {
-                            throw new UnknownHostException("request support ipv4 address only!");
-                        }
-                    }
-                    return arrayList;
-                } catch (IllegalArgumentException e) {
-                    e = e;
-                    throw new UnknownHostException(e.getMessage());
-                } catch (NullPointerException e2) {
-                    if (e2.getMessage() != null && e2.getMessage().contains("Attempt to get length of null array")) {
-                        UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + str);
-                        unknownHostException.initCause(e2);
-                        throw unknownHostException;
-                    }
-                    throw e2;
-                } catch (SecurityException e3) {
-                    e = e3;
-                    throw new UnknownHostException(e.getMessage());
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z) == null) {
+            AdVideoFlowView adVideoFlowView = this.c.get(advertAppInfo);
+            if (adVideoFlowView != null) {
+                adVideoFlowView.onPageSelected(z);
+            }
+            for (AdVideoFlowView adVideoFlowView2 : this.c.values()) {
+                if (adVideoFlowView2 != adVideoFlowView) {
+                    adVideoFlowView2.onPageSelected(false);
                 }
             }
-            throw new UnknownHostException("hostname == null");
         }
-        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.oe9
+    public void loadAd() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.d(1, null);
+        }
     }
 }

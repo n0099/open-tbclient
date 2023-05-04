@@ -1,78 +1,19 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes3.dex */
-public class ba2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static AtomicInteger b;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ba2<T> {
+    T a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947638166, "Lcom/baidu/tieba/ba2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947638166, "Lcom/baidu/tieba/ba2;");
-                return;
-            }
-        }
-        a = fo1.a;
-        b = new AtomicInteger(0);
-    }
+    void c(ca2<T> ca2Var);
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && str.startsWith("master")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
+    T e(PMSAppInfo pMSAppInfo);
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = "master";
-            if (!vb2.h()) {
-                return "master";
-            }
-            int andIncrement = b.getAndIncrement();
-            if (andIncrement >= 1) {
-                str = "master" + andIncrement;
-            }
-            if (a) {
-                Log.i("MasterIdGenerator", "next master id - " + str);
-            }
-            return str;
-        }
-        return (String) invokeV.objValue;
-    }
+    boolean f();
 
-    public static int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            int andSet = b.getAndSet(0);
-            if (a) {
-                Log.i("MasterIdGenerator", "last master id - " + andSet);
-            }
-            return andSet;
-        }
-        return invokeV.intValue;
-    }
+    boolean g();
+
+    boolean h();
+
+    void reset();
 }

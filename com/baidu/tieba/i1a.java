@@ -1,193 +1,62 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.graphics.Rect;
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.videoplay.editor.VideoPlayInputContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class i1a {
+public class i1a extends ud5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public h1a a;
-    public final a9 b;
-    public final kn c;
-    public Runnable d;
-    public boolean e;
-    public Runnable f;
+    public EditText t;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ i1a a;
-
-        public a(i1a i1aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i1aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = i1aVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.d();
-            }
-        }
-    }
-
-    public i1a(a9 a9Var, kn knVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i1a(Context context) {
+        super(context, (String) null, 28);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {a9Var, knVar};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new a(this);
-        this.b = a9Var;
-        this.c = knVar;
+        this.o = false;
+        this.n = 3;
+        VideoPlayInputContainer videoPlayInputContainer = new VideoPlayInputContainer(context);
+        this.m = videoPlayInputContainer;
+        this.t = videoPlayInputContainer.getInputView();
+        this.p = new int[]{4, 24, 3, 9, 6};
     }
 
-    @NonNull
-    public final Rect b(View view2) {
-        InterceptResult invokeL;
+    public EditText g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            Rect rect = new Rect();
-            view2.getGlobalVisibleRect(rect);
-            return rect;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.t;
         }
-        return (Rect) invokeL.objValue;
+        return (EditText) invokeV.objValue;
     }
 
-    public final boolean c(Rect rect) {
-        InterceptResult invokeL;
+    public VideoPlayInputContainer h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rect)) == null) {
-            float j = ii.j(TbadkCoreApplication.getInst());
-            int i = (int) (0.0f * j);
-            int i2 = (int) (j * 0.66f);
-            if (rect.top >= i && rect.bottom <= i2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (VideoPlayInputContainer) this.m;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void e(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && (view2.getTag(R.id.virtual_image_user_head) instanceof h1a)) {
-            ((h1a) view2.getTag(R.id.virtual_image_user_head)).e();
-            view2.setTag(R.id.virtual_image_user_head, null);
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.e = z;
-        }
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048583, this, i) != null) || this.e) {
-            return;
-        }
-        if (this.d == null) {
-            this.d = new Runnable() { // from class: com.baidu.tieba.g1a
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        i1a.this.f();
-                    }
-                }
-            };
-        }
-        jg.a().postDelayed(this.d, i);
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d != null) {
-            jg.a().removeCallbacks(this.d);
-        }
-    }
-
-    public final void f() {
-        kn knVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.b != null && (knVar = this.c) != null && knVar.getListView().getChildCount() != 0 && this.c.getContentViewsCount() != 0) {
-            Context context = this.c.getListView().getContext();
-            if (context instanceof Activity) {
-                Activity activity = (Activity) context;
-                if (!activity.isFinishing() && !activity.isDestroyed()) {
-                    int childCount = this.c.getListView().getChildCount();
-                    for (int i = 0; i < childCount; i++) {
-                        View childAt = this.c.getListView().getChildAt(i);
-                        if (childAt != null && (childAt.getTag(R.id.virtual_image_user_head) instanceof h1a)) {
-                            h1a h1aVar = (h1a) childAt.getTag(R.id.virtual_image_user_head);
-                            if (c(b(childAt))) {
-                                h1aVar.play();
-                            }
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    public void g() {
-        kn knVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && !this.e && this.b != null && (knVar = this.c) != null && knVar.getListView() != null && this.c.getListView().getChildCount() != 0 && this.c.getContentViewsCount() != 0) {
-            int childCount = this.c.getListView().getChildCount();
-            for (int i = 0; i < childCount; i++) {
-                View childAt = this.c.getListView().getChildAt(i);
-                if (childAt != null && (childAt.getTag(R.id.virtual_image_user_head) instanceof h1a)) {
-                    h1a h1aVar = (h1a) childAt.getTag(R.id.virtual_image_user_head);
-                    this.a = h1aVar;
-                    if (h1aVar.c()) {
-                        this.a.b();
-                        q45.m().w("key_reaction_guide_show_number", true);
-                        jg.a().postDelayed(this.f, 4000L);
-                        return;
-                    }
-                }
-            }
-        }
+        return (VideoPlayInputContainer) invokeV.objValue;
     }
 }

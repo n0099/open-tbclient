@@ -1,37 +1,33 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.annotations.SerializedName;
-import java.util.Objects;
-import tbclient.Loop.FestivalInfo;
-import tbclient.ThemeColorInfo;
 /* loaded from: classes5.dex */
 public class ob5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    @SerializedName("main_fname")
-    public String a;
-    @SerializedName("main_fid")
-    public long b;
-    @Nullable
-    @SerializedName("bless")
-    public String c;
-    @Nullable
-    @SerializedName("write_select_tips")
-    public String d;
-    @Nullable
-    @SerializedName("comment_tips")
-    public String e;
-    @Nullable
-    @SerializedName("tips_color")
-    public ThemeColorInfo f;
+
+    public void a(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        }
+    }
+
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        }
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+        }
+    }
 
     public ob5() {
         Interceptable interceptable = $ic;
@@ -43,48 +39,10 @@ public class ob5 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a(FestivalInfo festivalInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, festivalInfo) != null) || festivalInfo == null) {
-            return;
-        }
-        this.a = festivalInfo.main_fname;
-        this.b = festivalInfo.main_fid.longValue();
-        this.c = festivalInfo.bless;
-        this.d = festivalInfo.write_select_tips;
-        this.e = festivalInfo.comment_tips;
-        this.f = festivalInfo.tips_color;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj == null || ob5.class != obj.getClass()) {
-                return false;
-            }
-            ob5 ob5Var = (ob5) obj;
-            if (Objects.equals(this.a, ob5Var.a) && this.b == ob5Var.b && Objects.equals(this.c, ob5Var.c) && Objects.equals(this.d, ob5Var.d) && Objects.equals(this.e, ob5Var.e)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return Objects.hash(this.a, Long.valueOf(this.b), this.c, this.d, this.e);
-        }
-        return invokeV.intValue;
+        SkinManager.getColor(R.color.CAM_X0101);
+        SkinManager.getColor(R.color.CAM_X0305);
     }
 }

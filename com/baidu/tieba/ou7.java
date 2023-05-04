@@ -1,68 +1,113 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.NewHottopic.PkModule;
-import tbclient.NewHottopic.TimeLine;
-import tbclient.NewHottopic.TopicDetail;
 /* loaded from: classes5.dex */
-public class ou7 {
+public class ou7 extends bb9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public dv7 e;
-    public su7 f;
+    public ThreadData V0;
 
-    public ou7() {
+    @Override // com.baidu.tieba.db9
+    public int e0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ou7(Context context, View view2) {
+        super(context, view2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (View) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        q0(true);
     }
 
-    public void a(TopicDetail topicDetail) {
+    @Override // com.baidu.tieba.db9, com.baidu.tieba.ab9
+    public boolean isPlaying() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, topicDetail) != null) || topicDetail == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.isPlaying();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bb9, com.baidu.tieba.db9, com.baidu.cyberplayer.sdk.CyberPlayerManager.OnCompletionListener
+    public void onCompletion() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.db9, com.baidu.tieba.ab9
+    public void startPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            super.startPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.db9, com.baidu.tieba.ab9
+    public void stopPlay() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.stopPlay();
+        }
+    }
+
+    @Override // com.baidu.tieba.db9, com.baidu.tieba.ab9
+    public boolean onBackground(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
+            return super.onBackground(z);
+        }
+        return invokeZ.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bb9, com.baidu.tieba.db9, com.baidu.tieba.ab9
+    public void setData(ThreadData threadData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, threadData) != null) || threadData == null) {
             return;
         }
-        this.a = topicDetail.topic_id.longValue();
-        this.b = topicDetail.topic_desc;
-        topicDetail.discuss_num.longValue();
-        this.c = topicDetail.topic_image;
-        this.d = topicDetail.bg_image;
+        super.setData(threadData);
+        ThreadData threadData2 = this.V0;
+        this.V0 = threadData;
     }
 
-    public void b(PkModule pkModule) {
+    @Override // com.baidu.tieba.db9, com.baidu.tieba.ab9
+    public void setUniqueId(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pkModule) == null) && pkModule != null && pkModule.agree != null && pkModule.disagree != null) {
-            dv7 dv7Var = new dv7();
-            this.e = dv7Var;
-            dv7Var.a = this.a;
-            dv7Var.f = 2;
-            dv7Var.a(pkModule);
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            super.setUniqueId(bdUniqueId);
         }
-    }
-
-    public void c(TimeLine timeLine) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, timeLine) != null) || timeLine == null) {
-            return;
-        }
-        su7 su7Var = new su7();
-        this.f = su7Var;
-        su7Var.a(this.a, timeLine);
     }
 }

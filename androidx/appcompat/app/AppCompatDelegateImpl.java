@@ -185,7 +185,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
 
         @Override // androidx.appcompat.app.ActionBarDrawerToggle.Delegate
         public Drawable getThemeUpIndicator() {
-            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getActionBarThemedContext(), (AttributeSet) null, new int[]{R.attr.obfuscated_res_0x7f040326});
+            TintTypedArray obtainStyledAttributes = TintTypedArray.obtainStyledAttributes(getActionBarThemedContext(), (AttributeSet) null, new int[]{R.attr.obfuscated_res_0x7f04032f});
             Drawable drawable = obtainStyledAttributes.getDrawable(0);
             obtainStyledAttributes.recycle();
             return drawable;
@@ -728,7 +728,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             if (i != 0) {
                 newTheme.applyStyle(i, true);
             }
-            newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f040528, typedValue, true);
+            newTheme.resolveAttribute(R.attr.obfuscated_res_0x7f040531, typedValue, true);
             int i2 = typedValue.resourceId;
             if (i2 != 0) {
                 newTheme.applyStyle(i2, true);
@@ -1615,7 +1615,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                         context = this.mContext;
                     }
                     viewGroup = (ViewGroup) LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0017, (ViewGroup) null);
-                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090826);
+                    DecorContentParent decorContentParent = (DecorContentParent) viewGroup.findViewById(R.id.obfuscated_res_0x7f090829);
                     this.mDecorContentParent = decorContentParent;
                     decorContentParent.setWindowCallback(getWindowCallback());
                     if (this.mOverlayActionBar) {
@@ -1655,7 +1655,7 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
                     });
                 }
                 if (this.mDecorContentParent == null) {
-                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f0923f2);
+                    this.mTitleView = (TextView) viewGroup.findViewById(R.id.obfuscated_res_0x7f09240b);
                 }
                 ViewUtils.makeOptionalFitsSystemWindows(viewGroup);
                 ContentFrameLayout contentFrameLayout = (ContentFrameLayout) viewGroup.findViewById(R.id.obfuscated_res_0x7f090060);
@@ -2149,9 +2149,9 @@ public class AppCompatDelegateImpl extends AppCompatDelegate implements MenuBuil
             z = false;
         }
         if (z) {
-            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0602b8);
+            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0602bc);
         } else {
-            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0602b7);
+            color = ContextCompat.getColor(this.mContext, R.color.obfuscated_res_0x7f0602bb);
         }
         view2.setBackgroundColor(color);
     }

@@ -705,7 +705,7 @@ public class ii {
             if (str != null) {
                 return ProgressDialog.show(context, "", str, true, false, bVar);
             }
-            return ProgressDialog.show(context, "", context.getResources().getString(R.string.obfuscated_res_0x7f0f003a), true, false, bVar);
+            return ProgressDialog.show(context, "", context.getResources().getString(R.string.obfuscated_res_0x7f0f0038), true, false, bVar);
         }
         return (ProgressDialog) invokeLL.objValue;
     }

@@ -1,7 +1,7 @@
 package com.google.android.gms.internal.ads_identifier;
 
 import android.os.Parcel;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzc {
     public static final ClassLoader zza = zzc.class.getClassLoader();
 

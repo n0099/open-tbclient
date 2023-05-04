@@ -9,9 +9,9 @@ import com.baidu.tbadk.browser.TBWebViewActivity;
 import com.baidu.tbadk.core.util.MemberPayStatistic;
 import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tieba.bm5;
-import com.baidu.tieba.vl5;
-import com.baidu.tieba.vr5;
+import com.baidu.tieba.om5;
+import com.baidu.tieba.ps5;
+import com.baidu.tieba.um5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -87,7 +87,7 @@ public class BuyTBeanActivityStatic {
                                 return 3;
                             }
                             if (str.contains("tdoudiscount:")) {
-                                CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, vr5.d(str, MemberPayStatistic.REFER_PAGE), vr5.d(str, MemberPayStatistic.CLICK_ZONE), new vl5(this) { // from class: com.baidu.tieba.wallet.BuyTBeanActivityStatic.1.1
+                                CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, ps5.d(str, MemberPayStatistic.REFER_PAGE), ps5.d(str, MemberPayStatistic.CLICK_ZONE), new om5(this) { // from class: com.baidu.tieba.wallet.BuyTBeanActivityStatic.1.1
                                     public static /* synthetic */ Interceptable $ic;
                                     public transient /* synthetic */ FieldHolder $fh;
                                     public final /* synthetic */ AnonymousClass1 this$0;
@@ -110,27 +110,27 @@ public class BuyTBeanActivityStatic {
                                         this.this$0 = this;
                                     }
 
-                                    @Override // com.baidu.tieba.vl5
-                                    public void onSuccess(bm5 bm5Var) {
+                                    @Override // com.baidu.tieba.om5
+                                    public void onSuccess(um5 um5Var) {
                                         Interceptable interceptable3 = $ic;
-                                        if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bm5Var) == null) {
-                                            TBWebViewActivity.YYPayResultCallback4CallJs.d();
+                                        if (interceptable3 == null || interceptable3.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, um5Var) == null) {
+                                            TBWebViewActivity.YYPayResultCallback4CallJs.e();
                                         }
                                     }
 
-                                    @Override // com.baidu.tieba.vl5
+                                    @Override // com.baidu.tieba.om5
                                     public void onFail(int i, String str2) {
                                         Interceptable interceptable3 = $ic;
                                         if (interceptable3 == null || interceptable3.invokeIL(1048576, this, i, str2) == null) {
-                                            TBWebViewActivity.YYPayResultCallback4CallJs.d();
+                                            TBWebViewActivity.YYPayResultCallback4CallJs.e();
                                         }
                                     }
                                 });
                                 return 0;
                             }
-                            Bundle i = vr5.i(str);
-                            if (i != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(i.getString("path"))) {
-                                CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, vr5.d(str, MemberPayStatistic.REFER_PAGE), vr5.d(str, MemberPayStatistic.CLICK_ZONE));
+                            Bundle g = ps5.g(str);
+                            if (g != null && str.contains(TbConfig.WEB_VIEW_JUMP2NATIVE) && UrlSchemaHelper.PAY_TBEAN_PAGE.equalsIgnoreCase(g.getString("path"))) {
+                                CurrencyJumpHelper.gotoBuyTBeanPage(tbPageContext.getPageActivity(), 0.0f, ps5.d(str, MemberPayStatistic.REFER_PAGE), ps5.d(str, MemberPayStatistic.CLICK_ZONE));
                                 return 0;
                             }
                         }

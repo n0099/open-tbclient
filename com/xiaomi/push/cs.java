@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.net.InetSocketAddress;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class cs {
     public int a;
 

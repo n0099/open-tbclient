@@ -1,33 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public class sq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final byte[] c;
+    public static volatile rq3 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160020, "Lcom/baidu/tieba/sq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static synchronized rq3 a() {
+        InterceptResult invokeV;
+        rq3 rq3Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (sq3.class) {
+                if (a == null) {
+                    a = new rq3();
+                }
+                rq3Var = a;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948160020, "Lcom/baidu/tieba/sq3;");
-                return;
-            }
+            return rq3Var;
         }
-        a = cr2.o().t();
-        b = a + "/bdtls";
-        c = new byte[]{0, -98};
+        return (rq3) invokeV.objValue;
     }
 }

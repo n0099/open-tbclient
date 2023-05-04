@@ -1,127 +1,31 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Bundle;
-import android.os.Message;
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o43 {
+public abstract class o43 extends f83 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982235, "Lcom/baidu/tieba/o43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947982235, "Lcom/baidu/tieba/o43;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o43(a83 a83Var) {
+        super(a83Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((a83) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-        }
-        a = fo1.a;
-    }
-
-    public static void a(Message message) {
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, message) == null) {
-            if (a) {
-                Log.e("ChannelMsgProcessor", "MSG_TYPE_CS_DELEGATION");
-            }
-            int i = message.arg1;
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
-            }
-            w33.a(i, str2, str, bundle);
-        }
-    }
-
-    public static void b(Message message) {
-        Bundle bundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, message) == null) {
-            Bundle bundle2 = (Bundle) message.obj;
-            String str = "";
-            String str2 = null;
-            if (bundle2 != null) {
-                str2 = bundle2.getString("ai_apps_delegation_name", null);
-                str = bundle2.getString("ai_apps_observer_id", "");
-                bundle = bundle2.getBundle("ai_apps_data");
-            } else {
-                bundle = null;
-            }
-            w33.a(-1000, str2, str, bundle);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void c(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("delegation msg obj is not a bundle");
-            }
-            Bundle bundle = (Bundle) obj;
-            y33 y33Var = new y33(bundle.getString("key_observer_id", ""));
-            y33Var.setResult(bundle.getBundle("key_result_data"));
-            z33.b().c(y33Var);
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static void d(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, message) == null) {
-            Object obj = message.obj;
-            if (!(obj instanceof Bundle)) {
-                if (!a) {
-                    return;
-                }
-                throw new RuntimeException("delegation msg obj is not a bundle");
-            }
-            Bundle bundle = (Bundle) obj;
-            y33 y33Var = new y33(bundle.getString("key_observer_id", ""));
-            y33Var.setResult(bundle.getBundle("key_result_data"));
-            z33.b().c(y33Var);
-        }
-    }
-
-    public static void e(int i, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, bundle) == null) {
-            l43 e = l43.e();
-            n43 n43Var = new n43(126, bundle);
-            n43Var.a(i);
-            e.h(n43Var);
-        }
-    }
-
-    public static void f(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, bundle) == null) {
-            l43.e().h(new n43(21, bundle));
         }
     }
 }

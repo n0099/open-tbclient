@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,16 +11,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.UUID;
+import org.json.JSONArray;
 /* loaded from: classes3.dex */
 public class a03 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
+    public static final boolean e;
+    public static final a03 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public long b;
-    public long c;
+    public final List<c03> a;
+    public final Map<String, c03> b;
+    public boolean c;
+    public zz2 d;
 
     static {
         InterceptResult invokeClinit;
@@ -35,34 +41,51 @@ public class a03 {
                 return;
             }
         }
-        d = fo1.a;
+        e = ho1.a;
+        f = new a03();
     }
 
-    public long b() {
+    public static a03 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f;
         }
-        return invokeV.longValue;
+        return (a03) invokeV.objValue;
     }
 
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return d().toString();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.c = true;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "done");
+            }
         }
-        return (String) invokeV.objValue;
     }
 
-    public a03(String str) {
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c = false;
+            synchronized (this.a) {
+                this.a.clear();
+                this.b.clear();
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "reset");
+            }
+        }
+    }
+
+    public a03() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -72,45 +95,107 @@ public class a03 {
                 return;
             }
         }
-        this.a = str;
-        if (d) {
-            Log.d(ExifInterface.TAG_MODEL, "new model, scope id - " + str);
-        }
+        this.a = new ArrayList();
+        this.b = new HashMap();
+        this.c = false;
     }
 
-    public void a(long j) {
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            this.b = j;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, hybridUbcFlow) != null) || hybridUbcFlow == null) {
+            return;
         }
+        JSONArray e2 = e();
+        if (e2 != null && e2.length() > 0) {
+            hybridUbcFlow.D("ma_update_recorder", e2.toString());
+        }
+        c();
     }
 
-    public void c(long j) {
+    public void h(zz2 zz2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
-            this.c = j;
+        if (interceptable == null || interceptable.invokeL(1048582, this, zz2Var) == null) {
+            this.d = zz2Var;
         }
     }
 
-    public JSONObject d() {
+    public String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (this.c) {
+                return null;
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
+            c03 c03Var = new c03(str);
+            c03Var.a(currentTimeMillis);
+            synchronized (this.a) {
+                this.b.put(str2, c03Var);
+            }
+            if (e) {
+                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
+                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
+            }
+            return str2;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.c) {
+            return;
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
+        }
+        if (TextUtils.isEmpty(str)) {
+            return;
+        }
+        long currentTimeMillis = System.currentTimeMillis();
+        synchronized (this.a) {
+            c03 c03Var = this.b.get(str);
+            if (c03Var != null) {
+                c03Var.c(currentTimeMillis);
+                this.a.add(c03Var);
+                this.b.remove(str);
+            }
+        }
+        if (e) {
+            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
+        }
+    }
+
+    public final JSONArray e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("scope_id", this.a);
-                jSONObject.put("begin_ts", this.b);
-                jSONObject.put("end_ts", this.c);
-            } catch (JSONException e) {
-                if (d) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (c03 c03Var : this.a) {
+                        if (c03Var != null && (this.d == null || this.d.a(c03Var))) {
+                            jSONArray.put(c03Var.d());
+                        }
+                    }
+                } catch (Exception e2) {
+                    if (e) {
+                        e2.printStackTrace();
+                    }
                 }
             }
-            if (d) {
-                Log.d(ExifInterface.TAG_MODEL, jSONObject.toString());
+            if (e) {
+                Log.d("MaUpdateRecorder", jSONArray.toString());
             }
-            return jSONObject;
+            return jSONArray;
         }
-        return (JSONObject) invokeV.objValue;
+        return (JSONArray) invokeV.objValue;
     }
 }

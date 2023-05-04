@@ -1,141 +1,143 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.User;
-import tbclient.VoiceRoom;
 /* loaded from: classes5.dex */
-public class ph6 extends nh6 {
+public class ph6 extends kh6<lp6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String Q0;
-    public List<String> R0;
-    public String S0;
-    public String T0;
-    public long U0;
+    public TextView i;
+    public TextView j;
+    public TextView k;
+    public TextView l;
+    public TextView m;
+    public View n;
+    public View o;
+    public String p;
 
-    public ph6(ThreadData threadData) {
+    @Override // com.baidu.tieba.kh6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01a0 : invokeV.intValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ph6(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {threadData};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (threadData == null) {
-            return;
-        }
-        this.a = threadData;
-        String str = threadData.tid;
-        threadData.getTitle();
-        VoiceRoom voiceRoomData = threadData.getVoiceRoomData();
-        if (voiceRoomData != null) {
-            this.Q0 = voiceRoomData.room_name;
-            this.R0 = e0(voiceRoomData);
-            this.S0 = String.valueOf(voiceRoomData.talker_num);
-            this.T0 = String.valueOf(voiceRoomData.joined_num);
-            this.U0 = voiceRoomData.room_id.longValue();
+        r(h());
+    }
+
+    public void t(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.p = str;
         }
     }
 
-    public static boolean W(ThreadData threadData) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.kh6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
-            if (threadData != null && threadData.getVoiceRoomData() != null && threadData.getVoiceRoomData().room_id.longValue() > 0 && !StringUtils.isNull(threadData.getVoiceRoomData().room_name)) {
-                return true;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(h(), R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.n, R.color.CAM_X0205);
+            SkinManager.setBackgroundResource(this.o, R.color.CAM_X0205);
+            SkinManager.setViewTextColor(this.i, R.color.CAM_X0106, 1);
+            SkinManager.setViewTextColor(this.j, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.l, R.color.CAM_X0105, 1);
+            SkinManager.setViewTextColor(this.m, R.color.CAM_X0105, 1);
+        }
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+            if (view2 == this.j || view2 == this.k || view2 == this.l || view2 == this.m) {
+                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 8).param("fid", this.p));
+                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(this.b.getPageActivity()), new String[]{(String) view2.getTag()}, true);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public final List<String> e0(VoiceRoom voiceRoom) {
-        InterceptResult invokeL;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, voiceRoom)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (User user : voiceRoom.talker) {
-                if (user != null) {
-                    arrayList.add(user.portrait);
-                }
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090581);
+            this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090582);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090583);
+            this.l = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090584);
+            this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090585);
+            this.j.setOnClickListener(this);
+            this.k.setOnClickListener(this);
+            this.l.setOnClickListener(this);
+            this.m.setOnClickListener(this);
+            this.n = view2.findViewById(R.id.obfuscated_res_0x7f0908c7);
+            this.o = view2.findViewById(R.id.obfuscated_res_0x7f0908c8);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kh6
+    /* renamed from: s */
+    public void i(lp6 lp6Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, lp6Var) == null) && lp6Var != null && lp6Var.c() != null) {
+            if (!TextUtils.isEmpty(lp6Var.c().title)) {
+                this.i.setText(lp6Var.c().title);
             }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public String Z() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.T0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public List<String> a0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.R0;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public long b0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.U0;
-        }
-        return invokeV.longValue;
-    }
-
-    public String c0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.Q0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d0() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.S0;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nh6, com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (!this.B) {
-                return nh6.I0;
+            this.j.setVisibility(8);
+            this.k.setVisibility(8);
+            this.l.setVisibility(8);
+            this.m.setVisibility(8);
+            if (lp6Var.c().sub_nodes.size() >= 1) {
+                this.j.setVisibility(0);
+                this.j.setTag(lp6Var.c().sub_nodes.get(0).url);
+                this.j.setText(lp6Var.c().sub_nodes.get(0).title);
             }
-            return ThreadData.TYPE_CONTENT_VOICE_ROOM;
+            if (lp6Var.c().sub_nodes.size() >= 2) {
+                this.k.setVisibility(0);
+                this.k.setTag(lp6Var.c().sub_nodes.get(1).url);
+                this.k.setText(lp6Var.c().sub_nodes.get(1).title);
+            }
+            if (lp6Var.c().sub_nodes.size() >= 3) {
+                this.l.setVisibility(0);
+                this.l.setTag(lp6Var.c().sub_nodes.get(2).url);
+                this.l.setText(lp6Var.c().sub_nodes.get(2).title);
+            }
+            if (lp6Var.c().sub_nodes.size() >= 4) {
+                this.m.setVisibility(0);
+                this.m.setTag(lp6Var.c().sub_nodes.get(3).url);
+                this.m.setText(lp6Var.c().sub_nodes.get(3).title);
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

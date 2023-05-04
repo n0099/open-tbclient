@@ -2,43 +2,36 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
-import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.di3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ei3 extends s93 {
+public class ei3 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements di3.b {
+    public class a implements bi3 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ ny1 c;
-        public final /* synthetic */ ei3 d;
+        public final /* synthetic */ CallbackHandler a;
+        public final /* synthetic */ String b;
 
-        public a(ei3 ei3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ny1 ny1Var) {
+        public a(ei3 ei3Var, CallbackHandler callbackHandler, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ei3Var, unitedSchemeEntity, callbackHandler, ny1Var};
+                Object[] objArr = {ei3Var, callbackHandler, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,29 +41,36 @@ public class ei3 extends s93 {
                     return;
                 }
             }
-            this.d = ei3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = ny1Var;
+            this.a = callbackHandler;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.di3.b
-        public void a(float[] fArr) {
+        @Override // com.baidu.tieba.bi3
+        public void a(int i) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
-                this.d.k(this.a, this.b, this.c, fArr);
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                x42.i("MemoryWarningAction", "trimMemory consume level:" + i);
+                if (i == 10 || i == 15) {
+                    JSONObject jSONObject = new JSONObject();
+                    try {
+                        jSONObject.put("level", i);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString());
+                }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ei3(s83 s83Var) {
-        super(s83Var, "/swanAPI/startDeviceMotion");
+    public ei3(u83 u83Var) {
+        super(u83Var, "/swanAPI/memoryWarning");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,80 +84,40 @@ public class ei3 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
-        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (v73Var == null) {
-                v42.c("StartDeviceMotionAction", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
-                return false;
-            } else if (context == null) {
-                v42.c("StartDeviceMotionAction", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
-                return false;
-            } else {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (context != null && callbackHandler != null && x73Var != null) {
                 JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
                 if (optParamsAsJo == null) {
-                    v42.c("StartDeviceMotionAction", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    x42.c("MemoryWarningAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
                 String optString = optParamsAsJo.optString("cb");
                 if (TextUtils.isEmpty(optString)) {
-                    v42.c("StartDeviceMotionAction", "cb is empty");
+                    x42.c("MemoryWarningAction", "callback is null");
                     unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                String optString2 = optParamsAsJo.optString("interval");
-                if (TaskUIData.key.equals(optString2)) {
-                    i = 2;
-                } else if ("game".equals(optString2)) {
-                    i = 1;
-                } else {
-                    i = 3;
-                }
-                v42.i("StartDeviceMotionAction", "startSensor===");
-                ny1 ny1Var = new ny1("deviceMotionChange", optParamsAsJo, optString);
-                if (!di3.h().l(i, new a(this, unitedSchemeEntity, callbackHandler, ny1Var))) {
-                    v42.c("StartDeviceMotionAction", "start system sensor fail");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
-                    return false;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                ny1Var.a(unitedSchemeEntity, callbackHandler);
+                j(context, callbackHandler, optString);
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
                 return true;
             }
+            x42.c("MemoryWarningAction", "execute fail");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ny1 ny1Var, float[] fArr) {
+    public void j(Context context, CallbackHandler callbackHandler, String str) {
+        ci3 b;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, ny1Var, fArr) == null) {
-            JSONObject jSONObject = new JSONObject();
-            double[] dArr = new double[3];
-            double d = fArr[0] - 1.5707963267948966d;
-            if (d < 0.0d) {
-                d += 6.283185307179586d;
-            }
-            dArr[0] = Math.toDegrees(d);
-            dArr[1] = Math.toDegrees(-fArr[2]);
-            dArr[2] = Math.toDegrees(-fArr[1]);
-            if (s93.b) {
-                Log.i("SwanAppAction", "deviceMotionChange: " + Arrays.toString(dArr));
-            }
-            try {
-                jSONObject.put(Key.ALPHA, (float) dArr[0]);
-                jSONObject.put("beta", (float) dArr[1]);
-                jSONObject.put("gamma", (float) dArr[2]);
-                ny1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                v42.c("StartDeviceMotionAction", "handle orientation,json error，" + e.toString());
-                ny1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
-            }
+        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, callbackHandler, str) == null) && (context instanceof di3) && (b = ((di3) context).b()) != null) {
+            b.b(new a(this, callbackHandler, str));
         }
     }
 }

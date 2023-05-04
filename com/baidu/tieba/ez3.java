@@ -1,191 +1,72 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.text.TextUtils;
+import android.content.Intent;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.manage.Download;
-import com.baidu.nps.utils.Constant;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ez3 {
+public class ez3 extends d04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public long d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947751595, "Lcom/baidu/tieba/ez3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947751595, "Lcom/baidu/tieba/ez3;");
-                return;
-            }
-        }
-        e = fo1.a;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ez3() {
+        super("openSpaceCleanActivity");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.c = "";
-        this.d = System.currentTimeMillis();
     }
 
-    public String c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d04
+    public xz1 a(@NonNull JSONObject jSONObject, @NonNull bl2 bl2Var) {
+        InterceptResult invokeLL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public long e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return invokeV.longValue;
-    }
-
-    public ez3(@NonNull Download download) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {download};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
+            if (gl3.m()) {
+                z = b("com.huawei.systemmanager", "com.huawei.systemmanager.appfeature.spacecleaner.SpaceCleanActivity");
+            } else if (gl3.n()) {
+                z = b("com.miui.cleanmaster", "com.miui.optimizecenter.MainActivity");
+            } else if (gl3.o()) {
+                z = b("com.coloros.phonemanager", "com.coloros.phonemanager.clear.ClearActivity");
+            } else if (gl3.r()) {
+                z = b("com.iqoo.secure", "com.iqoo.secure.clean.PhoneCleanActivity2");
+            } else {
+                z = false;
             }
-        }
-        this.a = "";
-        this.c = "";
-        this.d = System.currentTimeMillis();
-        this.a = download.getUrl();
-        this.b = download.getKeyByUser();
-        String fromParam = download.getFromParam();
-        if (!TextUtils.isEmpty(fromParam)) {
-            try {
-                JSONObject jSONObject = new JSONObject(fromParam);
-                this.c = jSONObject.optString("apk_id");
-                this.d = jSONObject.optLong("download_time", System.currentTimeMillis());
-            } catch (JSONException e2) {
-                if (e) {
-                    e2.printStackTrace();
-                }
+            if (!z) {
+                Toast.makeText(er2.c(), (int) R.string.obfuscated_res_0x7f0f0190, 0).show();
             }
+            bl2Var.a(null);
+            return null;
         }
+        return (xz1) invokeLL.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public final boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (!Environment.getExternalStorageState().equals("mounted")) {
-                return null;
-            }
-            String str = AppRuntime.getAppContext().getExternalFilesDir(null) + File.separator + "gameCenter/download/apk";
-            File file = new File(str);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            Intent intent = new Intent();
+            intent.setClassName(str, str2);
+            return gk3.i(er2.c(), intent, true, false);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public ez3 a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            this.c = str;
-            return this;
-        }
-        return (ez3) invokeL.objValue;
-    }
-
-    public ez3 f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            this.b = str;
-            return this;
-        }
-        return (ez3) invokeL.objValue;
-    }
-
-    public ez3 g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            this.a = str;
-            return this;
-        }
-        return (ez3) invokeL.objValue;
-    }
-
-    public Download b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Download download = new Download();
-            download.setUrl(this.a);
-            download.setKeyByUser(this.b);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("apk_id", this.c);
-                jSONObject.put("download_time", this.d);
-            } catch (JSONException e2) {
-                if (e) {
-                    e2.printStackTrace();
-                }
-            }
-            download.setFromParam(jSONObject.toString());
-            download.setMimetype("application/vnd.android.package-archive");
-            download.setWifiOnly(false);
-            String d = d();
-            if (!TextUtils.isEmpty(d)) {
-                download.setSavedPathForUser(d);
-            }
-            download.setFileName(System.currentTimeMillis() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
-            return download;
-        }
-        return (Download) invokeV.objValue;
+        return invokeLL.booleanValue;
     }
 }

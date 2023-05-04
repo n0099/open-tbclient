@@ -10,12 +10,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.TbImageHelper;
 import com.baidu.tbadk.util.AdExtParam;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.hz4;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.nc9;
-import com.baidu.tieba.qc9;
-import com.baidu.tieba.qp5;
-import com.baidu.tieba.rq5;
-import com.baidu.tieba.ry4;
+import com.baidu.tieba.jq5;
+import com.baidu.tieba.jr5;
+import com.baidu.tieba.kf9;
+import com.baidu.tieba.nf9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -70,7 +70,7 @@ public class RecPersonalizeRequest extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             DataReq.Builder builder = new DataReq.Builder();
             int i = 1;
-            rq5.c(builder, true, false, true);
+            jr5.c(builder, true, false, true);
             builder.need_tags = 0;
             builder.load_type = Integer.valueOf(this.loadType);
             builder.page_thread_count = Integer.valueOf(this.threadCount);
@@ -90,10 +90,10 @@ public class RecPersonalizeRequest extends NetMessage {
             builder.new_install = Integer.valueOf(TbadkCoreApplication.getInst().checkNewUser() ? 1 : 0);
             builder.request_times = Integer.valueOf(this.requestTime);
             builder.invoke_source = this.sourceFrom;
-            builder.ad_context_list = qc9.f().d("HOME");
-            builder.app_pos = nc9.e().c();
+            builder.ad_context_list = nf9.f().d("HOME");
+            builder.app_pos = kf9.e().c();
             if (TbSingleton.getInstance().getPbToHomeUpdateData() != null) {
-                ry4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
+                hz4 pbToHomeUpdateData = TbSingleton.getInstance().getPbToHomeUpdateData();
                 builder.from_tid = Long.valueOf(gg.g(pbToHomeUpdateData.a, 0L));
                 builder.query_eqid = pbToHomeUpdateData.b;
                 builder.first_dir = pbToHomeUpdateData.c;
@@ -103,7 +103,7 @@ public class RecPersonalizeRequest extends NetMessage {
             AdExtParam.a b = AdExtParam.a.b();
             b.e(this.adFloorInfo);
             builder.ad_ext_params = b.a();
-            builder.app_transmit_data = qp5.b();
+            builder.app_transmit_data = jq5.b();
             long j = this.pushTid;
             if (j != -1) {
                 builder.push_tid = Long.valueOf(j);

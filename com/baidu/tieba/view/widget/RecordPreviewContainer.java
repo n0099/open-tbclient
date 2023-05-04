@@ -13,10 +13,10 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cia;
-import com.baidu.tieba.hz9;
+import com.baidu.tieba.d3a;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.view.capture.camera.AspectGLSurfaceView;
+import com.baidu.tieba.yla;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -413,11 +413,11 @@ public class RecordPreviewContainer extends FrameLayout {
             if (motionEvent.getAction() == 1) {
                 int x = (int) motionEvent.getX();
                 int y = (int) motionEvent.getY();
-                if (y > this.c || x < cia.k(R.dimen.obfuscated_res_0x7f070258)) {
+                if (y > this.c || x < yla.k(R.dimen.obfuscated_res_0x7f070258)) {
                     return true;
                 }
-                int a2 = hz9.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
-                int a3 = hz9.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
+                int a2 = d3a.a(x, Cea708Decoder.COMMAND_DF2, this.d - Cea708Decoder.COMMAND_DF2);
+                int a3 = d3a.a(y, Cea708Decoder.COMMAND_DF2, this.c - Cea708Decoder.COMMAND_DF2);
                 e eVar = this.u;
                 if (eVar != null) {
                     eVar.b(motionEvent, 308, 308, a2, a3);
@@ -509,7 +509,7 @@ public class RecordPreviewContainer extends FrameLayout {
         }
         ImageView imageView = new ImageView(getContext());
         this.s = imageView;
-        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080acb);
+        imageView.setImageResource(R.drawable.obfuscated_res_0x7f080af8);
         if (this.s != null) {
             int width = getWidth();
             int width2 = this.s.getWidth();
@@ -530,7 +530,7 @@ public class RecordPreviewContainer extends FrameLayout {
             this.n = ViewConfiguration.get(getContext()).getScaledPagingTouchSlop();
             this.d = ii.l(getContext());
             this.c = ii.j(getContext());
-            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f090539);
+            this.t = (AspectGLSurfaceView) findViewById(R.id.obfuscated_res_0x7f09053c);
             this.o = new Handler();
             postDelayed(new a(this), 4000L);
         }

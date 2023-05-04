@@ -19,10 +19,10 @@ import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.ViewSingleClickCompat;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b58;
+import com.baidu.tieba.a78;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.s78;
+import com.baidu.tieba.v98;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final int f;
     public final int g;
     @NonNull
-    public b58 h;
+    public a78 h;
     public View.OnClickListener i;
 
     /* loaded from: classes5.dex */
@@ -72,9 +72,9 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
                     return;
                 }
             }
-            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09088e);
-            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f09088d);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090890);
+            this.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090891);
+            this.b = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090890);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090893);
         }
     }
 
@@ -104,27 +104,25 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            String content;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof AbilityItem)) {
                 AbilityItem abilityItem = (AbilityItem) view2.getTag();
                 this.a.h.c(abilityItem, null);
-                if (abilityItem.getStyleConf().getContent() == null) {
-                    content = "";
-                } else {
-                    content = abilityItem.getStyleConf().getContent();
+                String str = "";
+                if (abilityItem.getStyleConf() != null && abilityItem.getStyleConf().getContent() != null) {
+                    str = abilityItem.getStyleConf().getContent();
                 }
-                s78.e("c15187", content, this.a.c);
+                v98.e("c15187", str, this.a.c);
             }
         }
     }
 
-    public DirectChatAdapter(Context context, @NonNull b58 b58Var) {
+    public DirectChatAdapter(Context context, @NonNull a78 a78Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, b58Var};
+            Object[] objArr = {context, a78Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -137,7 +135,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         this.d = new ArrayList();
         this.i = new a(this);
         this.a = context;
-        this.h = b58Var;
+        this.h = a78Var;
         this.f = context.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
         this.e = context.getResources().getDimensionPixelSize(R.dimen.M_W_X004);
         this.g = context.getResources().getDimensionPixelSize(R.dimen.M_W_X006);
@@ -160,7 +158,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
             }
             String content = styleConf.getContent();
             if (!TextUtils.isEmpty(content) && !this.d.contains(content)) {
-                s78.e("c15186", content, this.c);
+                v98.e("c15186", content, this.c);
                 this.d.add(content);
             }
             viewHolder.a.setTag(abilityItem);
@@ -282,7 +280,7 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d024d, viewGroup, false));
+            return new ViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0250, viewGroup, false));
         }
         return (ViewHolder) invokeLI.objValue;
     }
@@ -290,10 +288,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final void s(@NonNull ViewHolder viewHolder) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, viewHolder) == null) {
-            r25 d = r25.d(viewHolder.a);
+            g35 d = g35.d(viewHolder.a);
             d.o(R.string.J_X01);
             d.f(R.color.CAM_X0208);
-            r25 d2 = r25.d(viewHolder.c);
+            g35 d2 = g35.d(viewHolder.c);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X02);
             d2.w(R.color.CAM_X0105);
@@ -303,10 +301,10 @@ public class DirectChatAdapter extends RecyclerView.Adapter<ViewHolder> {
     public final void t(@NonNull ViewHolder viewHolder, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048586, this, viewHolder, str, str2) == null) {
-            r25 d = r25.d(viewHolder.a);
+            g35 d = g35.d(viewHolder.a);
             d.o(R.string.J_X01);
             d.g(str);
-            r25 d2 = r25.d(viewHolder.c);
+            g35 d2 = g35.d(viewHolder.c);
             d2.B(R.dimen.T_X08);
             d2.C(R.string.F_X02);
             viewHolder.c.setTextColor(Color.parseColor(str2));

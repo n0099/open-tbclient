@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import android.os.Bundle;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class go extends gm {
     public int a;
 
@@ -12,7 +12,7 @@ public class go extends gm {
     public b f447a;
     public String b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum a {
         chat,
         available,
@@ -21,7 +21,7 @@ public class go extends gm {
         dnd
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum b {
         available,
         unavailable,

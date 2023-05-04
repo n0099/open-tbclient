@@ -1,89 +1,36 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.vq4;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tbadk.browser.CommonTbJsBridge;
+import com.baidu.tieba.browser.webview.monitor.MonitorWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class su4 {
+public class su4 implements xf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public vq4 b;
-    public WeakReference<WebView> c;
 
-    /* loaded from: classes6.dex */
-    public class a implements vq4.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ su4 a;
-
-        public a(su4 su4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {su4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = su4Var;
-        }
-
-        @Override // com.baidu.tieba.vq4.b
-        public void a() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !TextUtils.isEmpty(this.a.a)) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    jSONObject.put("resultCode", 1);
-                    this.a.d((WebView) this.a.c.get(), this.a.a, jSONObject);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+    @Override // com.baidu.tieba.xf6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        wf6.a(this, webView, str, jSONObject);
     }
 
-    /* loaded from: classes6.dex */
-    public static final class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final su4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-420256967, "Lcom/baidu/tieba/su4$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-420256967, "Lcom/baidu/tieba/su4$b;");
-                    return;
-                }
-            }
-            a = new su4();
-        }
+    @Override // com.baidu.tieba.xf6
+    public /* synthetic */ void onDestroy() {
+        wf6.b(this);
     }
 
     public su4() {
@@ -96,62 +43,131 @@ public class su4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = null;
     }
 
-    public static su4 e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xf6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (CommonTbJsBridge.GAME_PUSH.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(c(webView, jSONObject.optString("gameId"), jSONObject.optString("gameName"), jSONObject.optString("gameTime"), jSONObject.optString("gameType")).a());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return true;
+            } else if (CommonTbJsBridge.GAME_PUSH_STATUS.equals(str2)) {
+                jsPromptResult.confirm(d(webView).a());
+                return true;
+            } else {
+                return false;
+            }
         }
-        return (su4) invokeV.objValue;
+        return invokeLLLLL.booleanValue;
     }
 
-    public void g() {
-        vq4 vq4Var;
+    public hq9 c(WebView webView, String str, String str2, String str3, String str4) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (vq4Var = this.b) == null) {
-            return;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, str4)) == null) {
+            hq9 hq9Var = new hq9();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("gameId", str);
+                jSONObject.put("gameName", str2);
+                jSONObject.put("gameTime", str3);
+                jSONObject.put("gameType", str4);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            String jSONObject2 = jSONObject.toString();
+            if (!TextUtils.isEmpty(jSONObject2)) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921404, jSONObject2));
+                return hq9Var;
+            }
+            hq9Var.p();
+            return hq9Var;
         }
-        if (vq4Var.d()) {
-            this.b.c();
-        }
-        WeakReference<WebView> weakReference = this.c;
-        if (weakReference != null) {
-            weakReference.clear();
-            this.c = null;
-        }
-        this.b = null;
+        return (hq9) invokeLLLLL.objValue;
     }
 
-    public vq4 f(WebView webView) {
+    public hq9 d(WebView webView) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView)) == null) {
-            this.c = new WeakReference<>(webView);
-            vq4 vq4Var = new vq4(TbadkCoreApplication.getInst(), new a(this));
-            this.b = vq4Var;
-            return vq4Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
+            hq9 hq9Var = new hq9();
+            String s = f55.m().s("key_match_id_list_football", "");
+            String s2 = f55.m().s("key_match_id_list_basketball", "");
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("football", PreferencesUtil.LEFT_MOUNT + s + PreferencesUtil.RIGHT_MOUNT);
+                jSONObject.put("basketball", PreferencesUtil.LEFT_MOUNT + s2 + PreferencesUtil.RIGHT_MOUNT);
+                hq9Var.o(jSONObject.toString());
+            } catch (JSONException e) {
+                BdLog.e(e);
+            }
+            return hq9Var;
         }
-        return (vq4) invokeL.objValue;
+        return (hq9) invokeL.objValue;
     }
 
-    public void h(String str) {
+    public hq9 e(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a = str;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, webView, str, str2)) == null) {
+            hq9 hq9Var = new hq9();
+            if (!str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_CREATE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_DISSLOVE) && !str.equals(CommonTbJsBridge.KEY_GROUP_CHAT_MANAGE)) {
+                if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_NAME.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921779, str2));
+                } else if (CommonTbJsBridge.KEY_GROUP_CHAT_CHANGE_AVATAR.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921780, str2));
+                } else if (CommonTbJsBridge.KEY_SPRING_FESTIVAL_PICK_FORUM.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.TRUE));
+                } else if ("showFunnySprite".equals(str)) {
+                    try {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921797, Integer.valueOf(new JSONObject(str2).optInt("spriteShowType"))));
+                    } catch (JSONException e) {
+                        dj8 defaultLog = DefaultLog.getInstance();
+                        defaultLog.b("SpriteTip", "JSONException:" + e);
+                    }
+                } else if (CommonTbJsBridge.KEY_GROUP_CHAT_NOTIFY_REFTESH.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921795, str2));
+                } else {
+                    boolean z = false;
+                    if ("pbFirstFloorWebViewRefresh".equalsIgnoreCase(str)) {
+                        if (webView instanceof MonitorWebView) {
+                            try {
+                                JSONObject jSONObject = new JSONObject(str2);
+                                ((MonitorWebView) webView).q(jSONObject.optInt("success", 0), jSONObject.optDouble("height", 0.0d));
+                            } catch (Exception unused) {
+                                ((MonitorWebView) webView).q(0, webView.getContentHeight());
+                            }
+                        }
+                    } else if ("setGroupChatBubble".equals(str)) {
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921799, str2));
+                    } else if ("officialPushMsgStatus".equals(str)) {
+                        try {
+                            int optInt = new JSONObject(str2).optInt("status");
+                            if (optInt == 1) {
+                                z = true;
+                            }
+                            f55.m().w("official_push_switch", z);
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921754, Integer.valueOf(optInt)));
+                        } catch (JSONException e2) {
+                            dj8 defaultLog2 = DefaultLog.getInstance();
+                            defaultLog2.b("officialPushMsgStatus", "JSONException:" + e2);
+                        }
+                    }
+                }
+            } else {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921778));
+            }
+            return hq9Var;
         }
-    }
-
-    public final void d(WebView webView, String str, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048576, this, webView, str, jSONObject) != null) || webView == null) {
-            return;
-        }
-        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
+        return (hq9) invokeLLL.objValue;
     }
 }

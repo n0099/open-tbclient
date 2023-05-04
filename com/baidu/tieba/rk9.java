@@ -1,22 +1,20 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.sprite.homepage.HomeSpriteEdgeFloatManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.FrsPage.NavTabInfo;
-import tbclient.FrsTabInfo;
+import kotlin.Unit;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class rk9 {
+public final class rk9 extends zl6<fn9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<FrsTabInfo> a;
-    public List<FrsTabInfo> b;
-    public List<FrsTabInfo> c;
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public rk9() {
+        super(fn9.class);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -24,23 +22,38 @@ public class rk9 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Class) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList();
-        this.b = new ArrayList();
-        this.c = new ArrayList();
     }
 
-    public void a(NavTabInfo navTabInfo) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zl6
+    public void onEvent(fn9 event) {
+        Unit unit;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, navTabInfo) != null) || navTabInfo == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            int type = event.getType();
+            if (type != 1) {
+                if (type != 2) {
+                    return;
+                }
+                HomeSpriteEdgeFloatManager.j.c().J();
+                return;
+            }
+            gn9 a = event.a();
+            if (a != null) {
+                HomeSpriteEdgeFloatManager.j.c().O(a);
+                unit = Unit.INSTANCE;
+            } else {
+                unit = null;
+            }
+            if (unit == null) {
+            }
         }
-        this.a = new ArrayList(navTabInfo.tab);
-        this.b = new ArrayList(navTabInfo.menu);
-        this.c = new ArrayList(navTabInfo.head);
     }
 }

@@ -1,47 +1,52 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.media.AudioManager;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import androidx.annotation.NonNull;
-import androidx.core.content.ContextCompat;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.ui.VerticalVolumeBar;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+import com.baidu.nadcore.video.videoplayer.widget.PlayDrawable;
 import com.baidu.searchbox.player.event.ControlEvent;
 import com.baidu.searchbox.player.event.LayerEvent;
-import com.baidu.searchbox.player.event.SystemEvent;
-import com.baidu.tieba.b41;
+import com.baidu.searchbox.player.event.PlayerEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class du0 extends ut0 {
+public class du0 extends wt0 implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public VerticalVolumeBar b;
-    public AudioManager c;
-    public boolean d;
-    public boolean e;
-    public boolean f;
-    public int g;
-    public final Runnable h;
+    public ImageView b;
+    public PlayDrawable c;
+
+    public void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        }
+    }
+
+    public void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        }
+    }
 
     /* loaded from: classes4.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ du0 a;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ du0 b;
 
-        public a(du0 du0Var) {
+        public a(du0 du0Var, boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {du0Var};
+                Object[] objArr = {du0Var, Boolean.valueOf(z)};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -51,14 +56,19 @@ public class du0 extends ut0 {
                     return;
                 }
             }
-            this.a = du0Var;
+            this.b = du0Var;
+            this.a = z;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.A();
+                if (this.a) {
+                    this.b.b.setVisibility(0);
+                } else {
+                    this.b.b.setVisibility(8);
+                }
             }
         }
     }
@@ -73,191 +83,99 @@ public class du0 extends ut0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = false;
-        this.f = false;
-        this.h = new a(this);
     }
 
-    public final void A() {
-        VerticalVolumeBar verticalVolumeBar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (verticalVolumeBar = this.b) != null && verticalVolumeBar.getVisibility() == 0) {
-            this.b.setVisibility(8);
-            e(ju0.w(LayerEvent.ACTION_HIDE_VOLUME_BAR));
-        }
-    }
-
-    @Override // com.baidu.tieba.vt0
+    @Override // com.baidu.tieba.xt0
     @NonNull
     public View getContentView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.b;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ot0
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.j();
-            A();
-        }
-    }
-
-    public void z() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && r() != null && r().X()) {
-            r().Y(false);
-        }
-    }
-
-    public final void C(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            if (this.b == null) {
-                i();
-            }
-            this.b.setLayoutParams(y(z));
-            A();
-        }
-    }
-
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Activity activity = q().getActivity();
-            if (activity != null && activity.hasWindowFocus()) {
-                if ((!q().Y() && !q().W()) || this.e) {
-                    A();
-                    return;
-                }
-                VerticalVolumeBar verticalVolumeBar = this.b;
-                if (verticalVolumeBar != null && verticalVolumeBar.getVisibility() != 0) {
-                    this.b.setVisibility(0);
-                    tu0 w = ju0.w(LayerEvent.ACTION_SHOW_VOLUME_BAR);
-                    e(w);
-                    o(w);
-                }
-                z();
-                if (this.c == null) {
-                    this.c = (AudioManager) getContext().getApplicationContext().getSystemService("audio");
-                }
-                int streamMaxVolume = this.c.getStreamMaxVolume(3);
-                int streamVolume = this.c.getStreamVolume(3);
-                VerticalVolumeBar verticalVolumeBar2 = this.b;
-                if (verticalVolumeBar2 != null) {
-                    if (!this.f) {
-                        verticalVolumeBar2.setMax(streamMaxVolume);
-                        this.b.setProgress(streamVolume);
-                    } else {
-                        verticalVolumeBar2.setMax(100);
-                        this.b.setProgress(this.g);
-                    }
-                }
-                r().y().removeCallbacks(this.h);
-                r().y().postDelayed(this.h, 1000L);
-                return;
-            }
-            A();
-        }
-    }
-
-    @Override // com.baidu.tieba.ot0
+    @Override // com.baidu.tieba.qt0
     public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            VerticalVolumeBar verticalVolumeBar = new VerticalVolumeBar(getContext(), null, 16842872);
-            this.b = verticalVolumeBar;
-            verticalVolumeBar.setLayoutParams(y(false));
-            this.b.setProgressDrawable(ContextCompat.getDrawable(getContext(), R.drawable.nad_videoplayer_video_volume_bar_color));
-            this.b.setBackgroundResource(R.drawable.nad_videoplayer_video_volume_bar_shadow_bg);
-            int dimension = (int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_shadow_width);
-            int i = dimension / 2;
-            this.b.setPadding(i, dimension, i, dimension);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b = new ImageView(getContext());
+            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(n51.b(42.0f), n51.b(42.0f));
+            layoutParams.gravity = 17;
+            this.c = new PlayDrawable();
+            this.b.setLayoutParams(layoutParams);
+            this.b.setBackground(getContext().getResources().getDrawable(R.drawable.nad_videoplayer_playbtn_bg));
+            this.b.setImageDrawable(this.c);
+            this.b.setOnClickListener(this);
             this.b.setVisibility(8);
         }
     }
 
     /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    @Override // com.baidu.tieba.ot0
-    public void k(@NonNull tu0 tu0Var) {
+    @Override // com.baidu.tieba.qt0
+    public void k(@NonNull vu0 vu0Var) {
         char c;
+        PlayDrawable.IconState iconState;
+        PlayDrawable.IconState iconState2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, tu0Var) == null) {
-            String c2 = tu0Var.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vu0Var) == null) {
+            String c2 = vu0Var.c();
             switch (c2.hashCode()) {
-                case -915923721:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME)) {
-                        c = 7;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -552621273:
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_FULL)) {
-                        c = 5;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -552580917:
-                    if (c2.equals(LayerEvent.ACTION_SWITCH_HALF)) {
-                        c = 6;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -316059751:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_LIGHT)) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case -21461611:
-                    if (c2.equals(LayerEvent.ACTION_TOUCH_DOWN)) {
+                case -150836531:
+                    if (c2.equals(LayerEvent.ACTION_DOUBLE_CLICK)) {
                         c = 1;
                         break;
                     }
                     c = 65535;
                     break;
-                case -14542718:
-                    if (c2.equals(LayerEvent.ACTION_HIDE_VOLUME_BAR)) {
-                        c = '\t';
+                case 14382657:
+                    if (c2.equals(ControlEvent.ACTION_STATUS_SYNC)) {
+                        c = 5;
                         break;
                     }
                     c = 65535;
                     break;
-                case 649538615:
-                    if (c2.equals(LayerEvent.ACTION_ADJUST_VOLUME_COMPLETE)) {
-                        c = '\b';
+                case 154871702:
+                    if (c2.equals(PlayerEvent.ACTION_ON_COMPLETE)) {
+                        c = 6;
                         break;
                     }
                     c = 65535;
                     break;
-                case 1547354793:
-                    if (c2.equals(ControlEvent.ACTION_STOP)) {
+                case 720027695:
+                    if (c2.equals(ControlEvent.ACTION_PAUSE)) {
                         c = 2;
                         break;
                     }
                     c = 65535;
                     break;
-                case 1822725860:
-                    if (c2.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
+                case 723345051:
+                    if (c2.equals(ControlEvent.ACTION_START)) {
+                        c = 4;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 906917140:
+                    if (c2.equals(ControlEvent.ACTION_RESUME)) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 1370689931:
+                    if (c2.equals(PlayerEvent.ACTION_ON_INFO)) {
                         c = 0;
                         break;
                     }
                     c = 65535;
                     break;
-                case 2064424334:
-                    if (c2.equals(LayerEvent.ACTION_POSITION_SLIDE)) {
-                        c = 3;
+                case 1610373035:
+                    if (c2.equals(LayerEvent.ACTION_WAKE_UP_END)) {
+                        c = 7;
                         break;
                     }
                     c = 65535;
@@ -268,39 +186,53 @@ public class du0 extends ut0 {
             }
             switch (c) {
                 case 0:
-                    B();
+                    int g = vu0Var.g(1);
+                    if (g != 904 && g != 956) {
+                        if (702 == g && q().Y()) {
+                            this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                            return;
+                        }
+                        return;
+                    }
+                    this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                    this.b.setImageDrawable(this.c);
                     return;
                 case 1:
-                    if (!this.d) {
-                        A();
-                        return;
+                    boolean d = vu0Var.d(6);
+                    PlayDrawable playDrawable = this.c;
+                    if (d) {
+                        iconState = PlayDrawable.IconState.PAUSE_STATE;
+                    } else {
+                        iconState = PlayDrawable.IconState.PLAY_STATE;
                     }
+                    playDrawable.q(iconState);
                     return;
                 case 2:
+                    this.c.q(PlayDrawable.IconState.PLAY_STATE);
+                    return;
                 case 3:
+                    this.c.q(PlayDrawable.IconState.PAUSE_STATE);
+                    return;
                 case 4:
-                    A();
-                    return;
-                case 5:
-                    C(true);
-                    return;
-                case 6:
-                    C(false);
-                    return;
-                case 7:
-                    this.f = true;
-                    this.g = tu0Var.g(20);
-                    B();
-                    return;
-                case '\b':
-                    this.f = false;
-                    return;
-                case '\t':
-                    VerticalVolumeBar verticalVolumeBar = this.b;
-                    if (verticalVolumeBar != null && verticalVolumeBar.getVisibility() == 0) {
-                        this.b.setVisibility(8);
+                    if (this.b.getVisibility() == 0) {
+                        this.b.setVisibility(4);
                         return;
                     }
+                    return;
+                case 5:
+                    PlayDrawable playDrawable2 = this.c;
+                    if (this.a.u().W()) {
+                        iconState2 = PlayDrawable.IconState.PLAY_STATE;
+                    } else {
+                        iconState2 = PlayDrawable.IconState.PAUSE_STATE;
+                    }
+                    playDrawable2.q(iconState2);
+                    return;
+                case 6:
+                    this.b.setVisibility(4);
+                    return;
+                case 7:
+                    this.b.setVisibility(0);
                     return;
                 default:
                     return;
@@ -308,54 +240,46 @@ public class du0 extends ut0 {
         }
     }
 
-    @Override // com.baidu.tieba.ut0
-    public void s(boolean z, boolean z2) {
+    @Override // com.baidu.tieba.qt0
+    public void n(PlayerStatus playerStatus, PlayerStatus playerStatus2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            this.d = z;
-            if (z) {
-                A();
+        if (interceptable == null || interceptable.invokeLL(1048579, this, playerStatus, playerStatus2) == null) {
+            if (playerStatus != PlayerStatus.PLAYING && playerStatus != PlayerStatus.PREPARED && playerStatus != PlayerStatus.PREPARING) {
+                this.c.q(PlayDrawable.IconState.PLAY_STATE);
+            } else {
+                this.c.q(PlayDrawable.IconState.PAUSE_STATE);
             }
         }
     }
 
-    public FrameLayout.LayoutParams y(boolean z) {
-        InterceptResult invokeZ;
-        int i;
-        float dimension;
-        float dimension2;
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z)) == null) {
-            int dimension3 = (int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_shadow_width);
-            int min = Math.min(b41.c.e(getContext()), b41.c.c(getContext()));
-            if (!z) {
-                i = ((min / 16) * 9) / 2;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            if (q().Y()) {
+                q().f0(1);
+                x();
+            } else if (q().W()) {
+                q().l0();
+                y();
             } else {
-                i = min / 2;
+                q().K0();
             }
-            int i2 = i + dimension3;
-            int dimension4 = (dimension3 * 2) + ((int) getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_height));
-            FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) this.b.getLayoutParams();
-            if (layoutParams == null) {
-                layoutParams = new FrameLayout.LayoutParams(i2, dimension4);
-            }
-            layoutParams.width = i2;
-            layoutParams.height = dimension4;
-            if (!z) {
-                dimension = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_leftmargin);
-            } else {
-                dimension = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_full_leftmargin);
-            }
-            layoutParams.leftMargin = ((int) dimension) - dimension3;
-            layoutParams.gravity = 80;
-            if (!z) {
-                dimension2 = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_bottomargin);
-            } else {
-                dimension2 = getContext().getResources().getDimension(R.dimen.nad_videoplayer_bd_video_volume_full_bottomargin);
-            }
-            layoutParams.bottomMargin = ((int) dimension2) - dimension3;
-            return layoutParams;
+            this.c.r(true);
         }
-        return (FrameLayout.LayoutParams) invokeZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.wt0
+    public void s(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (q().V0() && q().f1() == 0) {
+                this.b.postDelayed(new a(this, z), 200L);
+            } else if (z && !z2) {
+                this.b.setVisibility(0);
+            } else {
+                this.b.setVisibility(8);
+            }
+        }
     }
 }

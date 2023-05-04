@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.os.Build;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,271 +10,286 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
+import java.lang.reflect.InvocationHandler;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
 public class e45 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile e45 g;
-    public static int h;
-    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
+    public b a;
 
     /* loaded from: classes4.dex */
     public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final Class<?> a;
+        public final Object b;
+        public final Class<?> c;
+        public final Method d;
+        public final Object e;
+        public final Method f;
+        public final c g;
+        public final int h;
+        public final h45 i;
+        public int j;
+
+        /* loaded from: classes4.dex */
+        public class a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    this.a.i.a(this.a.f());
+                    this.a.g.c();
+                    this.a.g();
+                }
+            }
+        }
+
+        public b(int i, h45 h45Var) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {Integer.valueOf(i), h45Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.j = 0;
+            this.c = Class.forName("android.view.Choreographer");
+            this.a = Class.forName("android.view.Choreographer$FrameCallback");
+            this.g = new c(this);
+            this.b = Proxy.newProxyInstance(this.a.getClassLoader(), new Class[]{this.a}, this.g);
+            Method method = this.c.getMethod("getInstance", new Class[0]);
+            this.d = method;
+            this.e = method.invoke(null, new Object[0]);
+            this.f = this.c.getMethod("postFrameCallback", this.a);
+            this.h = i <= 0 ? 16 : i;
+            this.i = h45Var;
+        }
+
+        public /* synthetic */ b(int i, h45 h45Var, a aVar) throws ClassNotFoundException, InvocationTargetException, IllegalAccessException, NoSuchMethodException {
+            this(i, h45Var);
+        }
+
+        public final List<Long> f() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                ArrayList arrayList = new ArrayList(24);
+                List<Long> h = h();
+                int size = h.size();
+                int i = 0;
+                while (i < size - 1) {
+                    long longValue = h.get(i).longValue();
+                    i++;
+                    arrayList.add(Long.valueOf(h.get(i).longValue() - longValue));
+                }
+                return arrayList;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.g.c();
+            }
+        }
+
+        public final List<Long> h() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+                return this.g.a;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        public final void i() throws InvocationTargetException, IllegalAccessException {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.f.invoke(this.e, this.b);
+            }
+        }
+
+        public final void j() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                int i = this.j;
+                if (i >= this.h) {
+                    jg.a().post(new a(this));
+                    return;
+                }
+                this.j = i + 1;
+                try {
+                    i();
+                } catch (Throwable th) {
+                    BdLog.e(th);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements InvocationHandler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final List<Long> a;
+        public final List<Integer> b;
+        public b c;
+
+        public c(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = bVar;
+            this.a = new ArrayList(240);
+            this.b = new ArrayList(15);
+        }
+
+        public final void d(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
+                this.a.add(Long.valueOf(j));
+                this.c.j();
+            }
+        }
+
+        public final void c() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c = null;
+                this.a.clear();
+                this.b.clear();
+            }
+        }
+
+        @Override // java.lang.reflect.InvocationHandler
+        public Object invoke(Object obj, Method method, Object[] objArr) throws Throwable {
+            InterceptResult invokeLLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, obj, method, objArr)) == null) {
+                String name = method.getName();
+                Class<?>[] parameterTypes = method.getParameterTypes();
+                if ("doFrame".equals(name) && parameterTypes.length == 1 && parameterTypes[0] == Long.TYPE) {
+                    d(((Long) objArr[0]).longValue());
+                    return null;
+                }
+                return null;
+            }
+            return invokeLLL.objValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final e45 a;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-881064186, "Lcom/baidu/tieba/e45$a;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-881064093, "Lcom/baidu/tieba/e45$d;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-881064186, "Lcom/baidu/tieba/e45$a;");
+                    classClinitInterceptable.invokePostClinit(-881064093, "Lcom/baidu/tieba/e45$d;");
                     return;
                 }
             }
-            int[] iArr = new int[LiveRemindConfig.Scene.values().length];
-            a = iArr;
-            try {
-                iArr[LiveRemindConfig.Scene.LIVE_BUBBLE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LiveRemindConfig.Scene.LIVE_FLOAT.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
+            a = new e45();
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684387, "Lcom/baidu/tieba/e45;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947684387, "Lcom/baidu/tieba/e45;");
-                return;
-            }
-        }
-        new Date();
-        new Date();
     }
 
     public e45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        h();
+        this.a = null;
     }
 
-    public static e45 b() {
+    public static e45 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (g == null) {
-                synchronized (e45.class) {
-                    if (g == null) {
-                        g = new e45();
-                    }
-                }
-            }
-            return g;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return d.a;
         }
         return (e45) invokeV.objValue;
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    public void b(int i, h45 h45Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return q45.m().n(c(LiveRemindConfig.Scene.LIVE_BUBBLE), 0);
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, h45Var) != null) || Build.VERSION.SDK_INT < 16) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            i = 0;
-            h = 0;
-            if (TbadkCoreApplication.isLogin()) {
-                h();
-            }
+        try {
+            b bVar = new b(i, h45Var, null);
+            this.a = bVar;
+            bVar.j();
+        } catch (Throwable th) {
+            BdLog.e(th);
         }
-    }
-
-    public final String c(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.a;
-            }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.d;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String d(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.c;
-            }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.f;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String e(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                return this.b;
-            }
-            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                return this.e;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void g(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, scene) == null) {
-            q45.m().z(c(scene), q45.m().n(c(scene), 0) + 1);
-        }
-    }
-
-    public void m(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, scene) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                i = 0;
-            } else if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                h = 0;
-            }
-            q45.m().z(c(scene), 0);
-        }
-    }
-
-    public void n(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
-            q45.m().z(c(LiveRemindConfig.Scene.LIVE_BUBBLE), i2);
-        }
-    }
-
-    public void f(LiveRemindConfig.Scene scene) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, scene) == null) {
-            int i2 = a.a[scene.ordinal()];
-            if (i2 != 1) {
-                if (i2 == 2) {
-                    q45.m().A(d(scene), System.currentTimeMillis());
-                    h++;
-                    g(LiveRemindConfig.Scene.LIVE_FLOAT);
-                    return;
-                }
-                return;
-            }
-            q45.m().A(d(scene), System.currentTimeMillis());
-            i++;
-            g(LiveRemindConfig.Scene.LIVE_BUBBLE);
-        }
-    }
-
-    public boolean j(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
-            if (!StringHelper.isTaday(q45.m().o(e(scene), 0L))) {
-                q45.m().A(e(scene), System.currentTimeMillis());
-                m(scene);
-            }
-            if (i(scene) && k(scene)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = "key_live_bubble_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
-            this.b = "key_live_bubble_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.c = "key_live_bubble_last_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.d = "key_live_top_float_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
-            this.e = "key_live_top_float_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
-            this.f = "key_live_top_float_last_show_time" + TbadkCoreApplication.getCurrentAccount();
-        }
-    }
-
-    public final boolean i(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, scene)) == null) {
-            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
-                i2 = i;
-            } else if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
-                i2 = h;
-            } else {
-                i2 = 0;
-            }
-            if (q45.m().n(c(scene), 0) >= LiveRemindConfig.c().b() || i2 >= LiveRemindConfig.c().a()) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final boolean k(LiveRemindConfig.Scene scene) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            long o = q45.m().o(d(scene), currentTimeMillis);
-            if (currentTimeMillis == o || (currentTimeMillis - o) / 1000 >= LiveRemindConfig.c().d()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

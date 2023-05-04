@@ -1182,7 +1182,7 @@ public class FeedbackEditActivity extends Activity {
             } else {
                 hashMap.put("contact_way", str4);
             }
-            hashMap.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, "");
+            hashMap.put("brand", "");
             hashMap.put("model", "");
             hashMap.put("sdkvn", "4.1.9.1");
             hashMap.put("os", com.baidu.ufosdk.b.e(context));

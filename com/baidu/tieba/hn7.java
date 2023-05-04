@@ -1,65 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import com.baidu.tbadk.BaseActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes4.dex */
-public class hn7 implements in {
+public class hn7 extends kw5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId f;
-    public static final BdUniqueId g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public boolean c;
-    public boolean d;
-    public BdUniqueId e;
+    public BaseActivity<?> c;
+    public b d;
+    public final uw5 e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947829560, "Lcom/baidu/tieba/hn7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947829560, "Lcom/baidu/tieba/hn7;");
-                return;
-            }
-        }
-        f = BdUniqueId.gen();
-        g = BdUniqueId.gen();
+    /* loaded from: classes4.dex */
+    public interface b {
+        void a(Date date, long j);
     }
 
-    public hn7() {
+    /* loaded from: classes4.dex */
+    public class a implements uw5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hn7 a;
+
+        public a(hn7 hn7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hn7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hn7Var;
+        }
+
+        @Override // com.baidu.tieba.uw5
+        public void a(Date date, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, date, view2) == null) && date != null && this.a.c != null) {
+                if (date.getTime() > System.currentTimeMillis()) {
+                    this.a.c.showToast(R.string.obfuscated_res_0x7f0f0f18);
+                    return;
+                }
+                long time = date.getTime() / 1000;
+                if (this.a.d != null) {
+                    this.a.d.a(date, time);
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public hn7(BaseActivity<?> baseActivity) {
+        super(baseActivity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Activity) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = g;
+        this.e = new a(this);
+        this.c = baseActivity;
     }
 
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public void f(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
+            this.d = bVar;
+            super.c(this.e);
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

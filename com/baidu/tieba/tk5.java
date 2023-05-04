@@ -1,174 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.mvc.message.ReadCacheMessage;
-import com.baidu.tbadk.mvc.message.ReadCacheRespMsg;
-import com.baidu.tieba.gk5;
-import com.baidu.tieba.me;
+import com.baidu.tbadk.mutiprocess.sync.SyncDataEvent;
+import com.baidu.tbadk.switchs.PraiseSwitch;
+import com.baidu.tbadk.switchs.WindowGreySwitch;
+import com.baidu.tieba.person.ProfileVirtualImageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class tk5<T extends gk5> extends rk5<T> {
+public class tk5 implements pj5<SyncDataEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tk5(int i, String str, Class<T> cls) {
-        super(i, str, cls);
+    public tk5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), (String) objArr2[1], (Class) objArr2[2]);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:102:0x0073 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:90:0x00d6 */
-    /* JADX DEBUG: Type inference failed for r1v3. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v12. Raw type applied. Possible types: T */
-    /* JADX DEBUG: Type inference failed for r2v9. Raw type applied. Possible types: T */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    /* JADX WARN: Type inference failed for: r7v10 */
-    /* JADX WARN: Type inference failed for: r7v12 */
-    /* JADX WARN: Type inference failed for: r7v17, types: [java.util.List, java.util.ArrayList] */
-    /* JADX WARN: Type inference failed for: r7v18 */
-    /* JADX WARN: Type inference failed for: r7v36 */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<T> customMessage) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pj5
+    /* renamed from: a */
+    public boolean onEvent(SyncDataEvent syncDataEvent) {
         InterceptResult invokeL;
-        String str;
-        ?? arrayList;
-        String str2;
-        gk5 gk5Var;
-        byte[] bArr;
-        gk5 gk5Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            gk5 gk5Var3 = null;
-            if (customMessage == null || !(customMessage instanceof ReadCacheMessage)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, syncDataEvent)) == null) {
+            boolean z = false;
+            if (syncDataEvent == null) {
+                return false;
             }
-            ReadCacheMessage readCacheMessage = (ReadCacheMessage) customMessage;
-            gk5 gk5Var4 = (gk5) a();
-            try {
-                try {
-                    if (readCacheMessage.isNeedUid()) {
-                        str = TbadkCoreApplication.getCurrentAccount();
-                        if (str == null) {
-                            str = "";
-                        }
-                    } else {
-                        str = null;
-                    }
-                    if (gk5Var4 != null) {
-                        if (readCacheMessage.getRequestData() == null) {
-                            try {
-                                if (gk5Var4 instanceof fk5) {
-                                    c05.d();
-                                    List<me.b<byte[]>> a = oi.a(c05.c(this.b, str));
-                                    if (a != null) {
-                                        arrayList = new ArrayList(a.size());
-                                        for (me.b<byte[]> bVar : a) {
-                                            if (bVar != null && (bArr = bVar.b) != null && (gk5Var2 = (gk5) a()) != null) {
-                                                ((fk5) gk5Var2).initByByteArray(bArr);
-                                                arrayList.add(gk5Var2);
-                                            }
-                                        }
-                                        gk5Var3 = arrayList;
-                                    }
-                                } else if (gk5Var4 instanceof ik5) {
-                                    c05.d();
-                                    List<me.b<String>> b = oi.b(c05.f(this.b, str));
-                                    if (b != null) {
-                                        arrayList = new ArrayList(b.size());
-                                        for (me.b<String> bVar2 : b) {
-                                            if (bVar2 != null && (str2 = bVar2.b) != null && (gk5Var = (gk5) a()) != null) {
-                                                ((ik5) gk5Var).C(str2);
-                                                arrayList.add(gk5Var);
-                                            }
-                                        }
-                                        gk5Var3 = arrayList;
-                                    }
-                                }
-                            } catch (Exception e) {
-                                e = e;
-                                gk5Var3 = gk5Var4;
-                                e.printStackTrace();
-                                return new ReadCacheRespMsg(this.a, gk5Var3);
-                            } catch (Throwable th) {
-                                th = th;
-                                gk5Var3 = gk5Var4;
-                                new ReadCacheRespMsg(this.a, gk5Var3);
-                                throw th;
-                            }
-                        } else {
-                            String cacheKey = readCacheMessage.getRequestData().getCacheKey();
-                            String P = readCacheMessage.getRequestData().P();
-                            try {
-                                if (gk5Var4 instanceof fk5) {
-                                    c05.d();
-                                    byte[] bArr2 = c05.c(P, str).get(cacheKey);
-                                    if (bArr2 != null) {
-                                        ((fk5) gk5Var4).initByByteArray(bArr2);
-                                        ArrayList arrayList2 = new ArrayList();
-                                        arrayList2.add(gk5Var4);
-                                        P = arrayList2;
-                                        gk5Var3 = P;
-                                    }
-                                } else if (gk5Var4 instanceof ik5) {
-                                    c05.d();
-                                    String str3 = c05.f(P, str).get(cacheKey);
-                                    if (str3 != null) {
-                                        ((ik5) gk5Var4).C(str3);
-                                        ?? arrayList3 = new ArrayList();
-                                        arrayList3.add(gk5Var4);
-                                        P = arrayList3;
-                                        gk5Var3 = P;
-                                    }
-                                }
-                            } catch (Exception e2) {
-                                gk5Var3 = P;
-                                e = e2;
-                                e.printStackTrace();
-                                return new ReadCacheRespMsg(this.a, gk5Var3);
-                            } catch (Throwable th2) {
-                                gk5Var3 = P;
-                                th = th2;
-                                new ReadCacheRespMsg(this.a, gk5Var3);
-                                throw th;
-                            }
-                        }
-                    }
-                    return new ReadCacheRespMsg(this.a, gk5Var3);
-                } catch (Exception e3) {
-                    e = e3;
-                }
-            } catch (Throwable th3) {
-                th = th3;
+            HashMap<String, Integer> hashMap = syncDataEvent.switches;
+            if (hashMap != null && hashMap.size() > 0) {
+                SwitchManager.getInstance().refreshSwitchManager(syncDataEvent.switches);
             }
-        } else {
-            return (CustomResponsedMessage) invokeL.objValue;
+            TbSingleton.getInstance().setSampleId(syncDataEvent.sampleId);
+            dq5.d().f(syncDataEvent.abtestExtraData);
+            UbsABTestDataManager.getInstance().parseJSONArrayByStr(syncDataEvent.ubsABTest);
+            TbSingleton.getInstance().setUserGrowthTaskListData(syncDataEvent.userGrowthTaskListData);
+            ProfileVirtualImageInfo.getInstance().parseRemoteInfo(syncDataEvent.profileVirtualImageInfo);
+            w8 f = w8.f();
+            if (syncDataEvent.themeIsBlack == 1) {
+                z = true;
+            }
+            f.q(z);
+            WindowGreySwitch.setNewValue(syncDataEvent.themeIsBlack);
+            SwitchManager.getInstance().turn(PraiseSwitch.KEY, syncDataEvent.praiseSwitch);
+            if (TbadkCoreApplication.getInst().isRemoteProcess()) {
+                dq4.w().J();
+            }
+            return true;
         }
+        return invokeL.booleanValue;
     }
 }

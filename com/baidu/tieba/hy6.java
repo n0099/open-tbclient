@@ -1,29 +1,50 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.LinkedHashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedKV;
 /* loaded from: classes4.dex */
 public final class hy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Map<String, String> a;
 
-    public static final String a(List<FeedKV> list, String key) {
-        InterceptResult invokeLL;
+    public hy6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, list, key)) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(key, "key");
-            for (FeedKV feedKV : list) {
-                if (Intrinsics.areEqual(feedKV.key, key)) {
-                    return feedKV.value;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
+        this.a = new LinkedHashMap();
+    }
+
+    public final Map<String, String> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    public final void b(Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
+            Intrinsics.checkNotNullParameter(map, "<set-?>");
+            this.a = map;
+        }
     }
 }

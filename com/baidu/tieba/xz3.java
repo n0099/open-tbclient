@@ -1,62 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.favordata.SwanFavorItemData;
+import com.baidu.swan.apps.network.SwanAppNetworkUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xz3 extends b04 {
+public class xz3 extends af3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String v;
 
-    /* loaded from: classes7.dex */
-    public class a implements om3<vc3> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zk2 a;
-
-        public a(xz3 xz3Var, zk2 zk2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xz3Var, zk2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zk2Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(vc3 vc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc3Var) == null) {
-                boolean z = true;
-                if ((vc3Var == null || vc3Var.d || vc3Var.j != 1) ? false : false) {
-                    this.a.a(null);
-                } else {
-                    this.a.onFail(10001, "authorize fail.");
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xz3() {
-        super("authorize");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -64,32 +26,213 @@ public class xz3 extends b04 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.b04
-    public vz1 a(@NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
-        InterceptResult invokeLL;
+    public static String l(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
-            if (b04.b && jSONObject.optBoolean("debug", false)) {
-                Log.i("authorize", "debug mode: true.");
-                zk2Var.a(null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
                 return null;
             }
-            v73 b0 = v73.b0();
-            if (b0 == null) {
-                zk2Var.onFail(10001, "authorize fail.");
-                return null;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -2136141294:
+                    if (str.equals("notifyInstall")) {
+                        c = '\r';
+                        break;
+                    }
+                    break;
+                case -1996849701:
+                    if (str.equals("installHijack")) {
+                        c = 17;
+                        break;
+                    }
+                    break;
+                case -1903789791:
+                    if (str.equals("continueClick")) {
+                        c = '\n';
+                        break;
+                    }
+                    break;
+                case -1768725569:
+                    if (str.equals("notifyClick")) {
+                        c = '\f';
+                        break;
+                    }
+                    break;
+                case -1263222921:
+                    if (str.equals("openApp")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -1165168761:
+                    if (str.equals("notifyList")) {
+                        c = 14;
+                        break;
+                    }
+                    break;
+                case -1164961306:
+                    if (str.equals("notifyShow")) {
+                        c = 11;
+                        break;
+                    }
+                    break;
+                case -625158317:
+                    if (str.equals("deleteDownload")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case -606050596:
+                    if (str.equals("resumeAllDownload")) {
+                        c = 6;
+                        break;
+                    }
+                    break;
+                case -567202649:
+                    if (str.equals("continue")) {
+                        c = '\b';
+                        break;
+                    }
+                    break;
+                case -451216226:
+                    if (str.equals("pauseDownload")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case -263045656:
+                    if (str.equals("installSuccess")) {
+                        c = 15;
+                        break;
+                    }
+                    break;
+                case 66344735:
+                    if (str.equals("authorizeClick")) {
+                        c = '\t';
+                        break;
+                    }
+                    break;
+                case 184711125:
+                    if (str.equals("resumeDownload")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 388113743:
+                    if (str.equals("overTwoDays")) {
+                        c = 16;
+                        break;
+                    }
+                    break;
+                case 900412038:
+                    if (str.equals("installApp")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 1475610601:
+                    if (str.equals("authorize")) {
+                        c = 7;
+                        break;
+                    }
+                    break;
+                case 1554935562:
+                    if (str.equals("startDownload")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
             }
-            b0.e0().e("mapp_gamecenter_private_api", new a(this, zk2Var));
-            return null;
+            switch (c) {
+                case 0:
+                    return "start";
+                case 1:
+                    return "pause";
+                case 2:
+                    return "resume";
+                case 3:
+                    return "cancel";
+                case 4:
+                    return "install";
+                case 5:
+                    return "open";
+                case 6:
+                    return "continue";
+                case 7:
+                    return "authorize";
+                case '\b':
+                    return "guide";
+                case '\t':
+                    return "authorizeclick";
+                case '\n':
+                    return "guideclick";
+                case 11:
+                    return "notifyshow";
+                case '\f':
+                    return "notifyclick";
+                case '\r':
+                    return "notifyinstall";
+                case 14:
+                    return "notifylist";
+                case 15:
+                    return "installsuccess";
+                case 16:
+                    return "overtwodays";
+                case 17:
+                    return "installhijack";
+                default:
+                    return str;
+            }
         }
-        return (vz1) invokeLL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.af3, com.baidu.tieba.ze3
+    public JSONObject f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            this.k = ch3.e(TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME) ? 1 : 0);
+            this.n = SwanAppNetworkUtils.f().type;
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
+            try {
+                this.h.put("host", er2.n().a());
+                this.h.put("package", this.v);
+            } catch (JSONException e) {
+                if (ze3.j) {
+                    e.printStackTrace();
+                }
+            }
+            return super.f();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void m(wz3 wz3Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wz3Var) != null) || wz3Var == null) {
+            return;
+        }
+        if (ze3.j) {
+            Log.d("SwanAppUBCEvent", "setCommonData: " + wz3Var.a());
+        }
+        this.a = wz3Var.a;
+        this.f = wz3Var.c;
+        this.c = wz3Var.b;
+        this.o = wz3Var.f;
+        this.p = wz3Var.g;
+        this.s = wz3Var.h;
+        this.u = wz3Var.i;
+        this.l = wz3Var.d;
+        this.m = wz3Var.e;
     }
 }

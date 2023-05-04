@@ -1,23 +1,29 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.webkit.WebView;
-import androidx.annotation.NonNull;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public interface t91 {
-    public static final t91 a = new a();
+    public static final ServiceReference a = new ServiceReference("nad.core", "cookieManager");
+    public static final t91 b = new a();
 
-    WebView a(@NonNull Context context);
+    void a(Context context, String str);
 
     /* loaded from: classes6.dex */
     public static class a implements t91 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.t91
+        public void a(Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, str) == null) {
+            }
+        }
 
         public a() {
             Interceptable interceptable = $ic;
@@ -31,16 +37,6 @@ public interface t91 {
                     interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.t91
-        public WebView a(Context context) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
-                return new WebView(context);
-            }
-            return (WebView) invokeL.objValue;
         }
     }
 }

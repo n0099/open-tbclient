@@ -21,10 +21,10 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.fg;
-import com.baidu.tieba.hn8;
-import com.baidu.tieba.nn8;
+import com.baidu.tieba.qp8;
+import com.baidu.tieba.qy9;
 import com.baidu.tieba.video.editvideo.data.PendantData;
-import com.baidu.tieba.vu9;
+import com.baidu.tieba.wp8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -44,10 +44,10 @@ import org.json.JSONObject;
 public class SelectCoverModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vu9 a;
+    public qy9 a;
     public d b;
     public TbPageContext c;
-    public nn8 d;
+    public wp8 d;
     public final HttpMessageListener e;
     public final HttpMessageListener f;
 
@@ -183,7 +183,7 @@ public class SelectCoverModel extends BdBaseModel {
                             for (int i2 = 0; i2 < jSONArray.length(); i2++) {
                                 PendantData pendantData = (PendantData) OrmObject.objectWithJsonStr(jSONArray.optString(i2), PendantData.class);
                                 if (pendantData != null) {
-                                    pendantData.Q();
+                                    pendantData.V();
                                     this.pendantDatas.add(pendantData);
                                 }
                             }
@@ -233,13 +233,13 @@ public class SelectCoverModel extends BdBaseModel {
                 } else if (VideoCheckUegResponseMessage.STATUS_FAIL.equals(status)) {
                     String msg = videoCheckUegResponseMessage.getMsg();
                     if (TextUtils.isEmpty(msg)) {
-                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1674);
+                        msg = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f168d);
                     }
                     this.a.a.g0(msg);
                 } else {
                     String errorString = httpResponsedMessage.getErrorString();
                     if (TextUtils.isEmpty(errorString)) {
-                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f1646);
+                        errorString = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f165f);
                     }
                     this.a.a.g0(errorString);
                     if (this.a.d != null) {
@@ -326,9 +326,9 @@ public class SelectCoverModel extends BdBaseModel {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-                File V = this.c.V(this.a, this.b);
+                File a0 = this.c.a0(this.a, this.b);
                 this.a.recycle();
-                return V.getAbsolutePath();
+                return a0.getAbsolutePath();
             }
             return (String) invokeL.objValue;
         }
@@ -339,7 +339,7 @@ public class SelectCoverModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
                 super.onPostExecute((c) str);
-                this.c.a.n0(str);
+                this.c.a.m0(str);
             }
         }
     }
@@ -391,7 +391,7 @@ public class SelectCoverModel extends BdBaseModel {
                 } catch (Exception e) {
                     e.printStackTrace();
                     if (this.c.d != null) {
-                        this.c.d.a(203, hn8.a(e));
+                        this.c.d.a(203, qp8.a(e));
                         return bitmap;
                     }
                     return bitmap;
@@ -406,19 +406,19 @@ public class SelectCoverModel extends BdBaseModel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap) == null) {
                 super.onPostExecute((d) bitmap);
-                this.c.a.o1(bitmap);
+                this.c.a.n1(bitmap);
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SelectCoverModel(TbPageContext tbPageContext, vu9 vu9Var, nn8 nn8Var) {
+    public SelectCoverModel(TbPageContext tbPageContext, qy9 qy9Var, wp8 wp8Var) {
         super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, vu9Var, nn8Var};
+            Object[] objArr = {tbPageContext, qy9Var, wp8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -432,8 +432,8 @@ public class SelectCoverModel extends BdBaseModel {
         this.e = new a(this, CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
         this.f = new b(this, CmdConfigHttp.CMD_VIDEO_COVER_PENDANT);
         this.c = tbPageContext;
-        this.a = vu9Var;
-        this.d = nn8Var;
+        this.a = qy9Var;
+        this.d = wp8Var;
         registerTask();
         this.e.setTag(getUniqueId());
         this.e.setSelfListener(true);
@@ -443,7 +443,7 @@ public class SelectCoverModel extends BdBaseModel {
         registerListener(this.f);
     }
 
-    public void S(String str) {
+    public void X(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_VIDEO_TEXT_UEG);
@@ -452,7 +452,7 @@ public class SelectCoverModel extends BdBaseModel {
         }
     }
 
-    public void T() {
+    public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
@@ -480,14 +480,14 @@ public class SelectCoverModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void U(Bitmap bitmap, String str) {
+    public void Z(Bitmap bitmap, String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, bitmap, str) == null) && bitmap != null && !TextUtils.isEmpty(str)) {
             new c(this, bitmap, str).execute(new Void[0]);
         }
     }
 
-    public void W(String str, int i) {
+    public void b0(String str, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, str, i) == null) {
             d dVar = new d(this, str, i);
@@ -507,7 +507,7 @@ public class SelectCoverModel extends BdBaseModel {
     /* JADX WARN: Type inference failed for: r2v7, types: [java.io.OutputStream, java.io.ByteArrayOutputStream] */
     /* JADX WARN: Type inference failed for: r2v8 */
     /* JADX WARN: Type inference failed for: r5v0, types: [android.graphics.Bitmap, java.lang.Object] */
-    public File V(Bitmap bitmap, String str) {
+    public File a0(Bitmap bitmap, String str) {
         InterceptResult invokeLL;
         BufferedOutputStream bufferedOutputStream;
         ?? r2;
@@ -544,7 +544,7 @@ public class SelectCoverModel extends BdBaseModel {
                     try {
                         e.printStackTrace();
                         if (this.d != null) {
-                            this.d.a(202, hn8.a(e));
+                            this.d.a(202, qp8.a(e));
                         }
                         fg.d(r2);
                         fg.d(bufferedOutputStream2);

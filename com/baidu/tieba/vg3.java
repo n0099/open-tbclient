@@ -1,179 +1,176 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import com.yy.hiidostatis.defs.obj.ParamableElem;
+import java.io.File;
 /* loaded from: classes6.dex */
-public final class vg3 extends wg3 {
+public class vg3 extends SQLiteOpenHelper {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean g;
+    public final String a;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ArrayList a;
-        public final /* synthetic */ vg3 b;
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? "CREATE TABLE cookies (_id INTEGER PRIMARY KEY AUTOINCREMENT,name TEXT,value TEXT,domain TEXT,path TEXT,expires INTEGER,secure INTEGER,ext TEXT);" : (String) invokeV.objValue;
+    }
 
-        public a(vg3 vg3Var, ArrayList arrayList) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948239783, "Lcom/baidu/tieba/vg3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vg3Var, arrayList};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = vg3Var;
-            this.a = arrayList;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.m(this.a);
-                this.b.j();
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948239783, "Lcom/baidu/tieba/vg3;");
+                return;
             }
         }
+        b = ho1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vg3(rg3 rg3Var) {
-        super(rg3Var);
+    public vg3(@NonNull Context context, String str) {
+        super(context.getApplicationContext(), c(str), (SQLiteDatabase.CursorFactory) null, 1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {rg3Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((rg3) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], (SQLiteDatabase.CursorFactory) objArr2[2], ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
     }
 
-    @Override // com.baidu.tieba.wg3
-    public void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
-            return;
-        }
-        long j = 0;
-        if (wg3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.g(new a(this, this.b.n()));
-        if (wg3.f) {
-            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-            return;
-        }
-        long j = 0;
-        if (wg3.f) {
-            j = System.currentTimeMillis();
-        }
-        this.a.b();
-        this.g = true;
-        if (wg3.f) {
-            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
-        }
-    }
-
-    public void l() {
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (wg3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            this.a.h();
-            if (wg3.f) {
-                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
-            }
-        }
-    }
-
-    public ArrayList<qg3> k(String str) {
+    public static String c(String str) {
         InterceptResult invokeL;
-        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (wg3.f) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            String o = tq2.o(str);
+            File file = new File(o);
+            if (!file.exists() && !file.mkdirs()) {
+                x42.k("SwanCookieDBHelper", "mkdirs fail: " + o);
             }
-            ArrayList<qg3> arrayList = new ArrayList<>();
-            try {
-                arrayList = this.a.e(str);
-            } catch (Exception e) {
-                v42.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
-            }
-            if (wg3.f) {
-                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
-            }
-            return arrayList;
+            return o + File.separator + "smCookie.db";
         }
-        return (ArrayList) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void m(ArrayList<qg3> arrayList) {
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"BDThrowableCheck"})
+    public synchronized SQLiteDatabase getReadableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Exception e;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
-            if (wg3.f) {
-                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
-            }
-            Iterator<qg3> it = arrayList.iterator();
-            while (it.hasNext()) {
-                qg3 next = it.next();
-                if (next != null) {
-                    if (wg3.f) {
-                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
-                    }
-                    int i = next.i;
-                    if (i != 0) {
-                        if (i != 2) {
-                            if (i == 3) {
-                                this.a.d(next.a, next.b, next.c);
-                                this.a.a(next);
-                                this.b.y(next);
-                            }
-                        } else {
-                            this.a.d(next.a, next.b, next.c);
-                            this.b.g(next);
-                        }
-                    } else {
-                        this.a.a(next);
-                        this.b.y(next);
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            synchronized (this) {
+                try {
+                    sQLiteDatabase = super.getReadableDatabase();
+                } catch (Exception e2) {
+                    sQLiteDatabase = null;
+                    e = e2;
                 }
+                try {
+                    String databaseName = getDatabaseName();
+                    if (!new File(databaseName).exists()) {
+                        x42.k("SwanCookieDBHelper", "getReadableDatabase file is not exit: " + databaseName);
+                        return null;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    x42.k("SwanCookieDBHelper", "getRead fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
+                    if (b) {
+                        throw new RuntimeException(e);
+                    }
+                    return sQLiteDatabase;
+                }
+                return sQLiteDatabase;
             }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    @SuppressLint({"BDThrowableCheck"})
+    public synchronized SQLiteDatabase getWritableDatabase() {
+        InterceptResult invokeV;
+        SQLiteDatabase sQLiteDatabase;
+        Exception e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            synchronized (this) {
+                try {
+                    sQLiteDatabase = super.getWritableDatabase();
+                } catch (Exception e2) {
+                    sQLiteDatabase = null;
+                    e = e2;
+                }
+                try {
+                    String databaseName = getDatabaseName();
+                    if (!new File(databaseName).exists()) {
+                        x42.k("SwanCookieDBHelper", "getWritableDatabase file is not exit: " + databaseName);
+                        return null;
+                    }
+                } catch (Exception e3) {
+                    e = e3;
+                    x42.k("SwanCookieDBHelper", "getWrite fail mAppId =" + this.a + ParamableElem.DIVIDE_PARAM + Log.getStackTraceString(e));
+                    if (b) {
+                        throw new RuntimeException(e);
+                    }
+                    return sQLiteDatabase;
+                }
+                return sQLiteDatabase;
+            }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onCreate(SQLiteDatabase sQLiteDatabase) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, sQLiteDatabase) == null) {
+            if (b) {
+                Log.d("SwanCookieDBHelper", "onCreate");
+            }
+            try {
+                sQLiteDatabase.execSQL(a());
+            } catch (Exception e) {
+                x42.k("SwanCookieDBHelper", "createTableSql fail:" + Log.getStackTraceString(e));
+            }
+        }
+    }
+
+    @Override // android.database.sqlite.SQLiteOpenHelper
+    public void onUpgrade(SQLiteDatabase sQLiteDatabase, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, sQLiteDatabase, i, i2) == null) && b) {
+            Log.d("SwanCookieDBHelper", "oldVersion = " + i + ";newVersion=" + i2);
         }
     }
 }

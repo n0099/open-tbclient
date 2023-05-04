@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,25 +11,33 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.Date;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xd3 {
+public final class xd3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean e;
+    public static volatile xd3 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
+    public be3 a;
+    public ce3 b;
+    public b c;
+    public zd3 d;
 
     /* loaded from: classes7.dex */
-    public class a implements Comparator<File> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a(xd3 xd3Var) {
+    /* loaded from: classes7.dex */
+    public class b implements ae3<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONArray b;
+
+        public b(xd3 xd3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,24 +53,32 @@ public class xd3 {
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
+        public /* synthetic */ b(xd3 xd3Var, a aVar) {
+            this(xd3Var);
+        }
+
+        public void b() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                long lastModified = file.lastModified();
-                long lastModified2 = file2.lastModified();
-                if (lastModified == lastModified2) {
-                    return 0;
-                }
-                if (lastModified - lastModified2 > 0) {
-                    return 1;
-                }
-                return -1;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b = null;
             }
-            return invokeLL.intValue;
+        }
+
+        public JSONObject c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("extra", this.b);
+                } catch (JSONException e) {
+                    if (ae3.a) {
+                        Log.e("SwanStabilityTracer", Log.getStackTraceString(e));
+                    }
+                }
+                return jSONObject;
+            }
+            return (JSONObject) invokeV.objValue;
         }
     }
 
@@ -80,11 +95,44 @@ public class xd3 {
                 return;
             }
         }
-        b = fo1.a;
+        e = ho1.a;
+    }
+
+    public static xd3 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (f == null) {
+                synchronized (xd3.class) {
+                    if (f == null) {
+                        f = new xd3();
+                    }
+                }
+            }
+            return f;
+        }
+        return (xd3) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.c();
+            this.b.b();
+            this.c.b();
+        }
+    }
+
+    public zd3 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (zd3) invokeV.objValue;
     }
 
     public xd3() {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -97,115 +145,100 @@ public class xd3 {
                 return;
             }
         }
-        try {
-            str = AppRuntime.getAppContext().getFilesDir().getPath();
-        } catch (Exception e) {
-            if (!b) {
-                str = "";
-            } else {
-                throw e;
-            }
-        }
-        if (!TextUtils.isEmpty(str)) {
-            this.a = str + File.separator + "aiapps_folder/stability";
-            return;
-        }
-        this.a = "";
+        this.a = new be3();
+        this.b = new ce3();
+        this.c = new b(this, null);
+        this.d = new zd3();
     }
 
-    public final void a(int i) {
-        File[] c;
+    public File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && (c = c()) != null && c.length != 0) {
-            long currentTimeMillis = System.currentTimeMillis();
-            Arrays.sort(c, new a(this));
-            ArrayList<File> arrayList = new ArrayList(c.length);
-            int i2 = 0;
-            for (File file : c) {
-                if (i2 < i) {
-                    if (file.lastModified() - currentTimeMillis > 172800000) {
-                        arrayList.add(file);
-                    }
-                } else {
-                    arrayList.add(file);
-                }
-                i2++;
-            }
-            for (File file2 : arrayList) {
-                zn4.j(file2);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(e());
+            jSONArray.put(g());
+            jSONArray.put(c());
+            return this.d.d(jSONArray);
         }
+        return (File) invokeV.objValue;
     }
 
-    public final File b(long j) {
-        InterceptResult invokeJ;
-        String g0;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                return null;
-            }
-            if (v73.g0() == null) {
-                g0 = "";
-            } else {
-                g0 = v73.g0();
-            }
-            return new File(this.a + File.separator + g0 + "_" + j + "_swan_stability_traces.log");
-        }
-        return (File) invokeJ.objValue;
-    }
-
-    public File[] c() {
+    public JSONObject c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TextUtils.isEmpty(this.a)) {
-                return null;
+            JSONObject c = this.c.c();
+            if (e) {
+                Log.d("SwanStabilityTracer", "extraTraces: " + c);
             }
-            try {
-                return new File(this.a).listFiles();
-            } catch (Exception e) {
-                if (b) {
-                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
-                }
-                return null;
-            }
+            return c;
         }
-        return (File[]) invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
     }
 
-    public File d(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        String g0;
+    public JSONObject e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                a(9);
-                JSONObject jSONObject = new JSONObject();
-                if (v73.g0() == null) {
-                    g0 = "";
-                } else {
-                    g0 = v73.g0();
-                }
-                jSONObject.put("_app_id", g0);
-                jSONObject.put("_date", jk3.b(new Date(currentTimeMillis), "yyyy-MM-dd HH:mm:ss"));
-                jSONArray.put(jSONObject);
-                File b2 = b(currentTimeMillis);
-                if (b2 == null) {
-                    return null;
-                }
-                if (!yq2.b(b2.getPath(), jSONArray.toString(), false)) {
-                    return null;
-                }
-                return b2;
-            } catch (Exception e) {
-                if (b) {
-                    Log.e("SwanStabilityTraceCache", "TraceCache Exception:", e);
-                }
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject d = this.a.d();
+            if (e) {
+                Log.d("SwanStabilityTracer", "LaunchTraces: " + d);
             }
+            return d;
         }
-        return (File) invokeL.objValue;
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public JSONObject g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            JSONObject c = this.b.c();
+            if (e) {
+                Log.d("SwanStabilityTracer", "WhiteTraces: " + c);
+            }
+            return c;
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048586, this) == null) && this.c.b != null && this.c.b.length() != 0) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(e());
+            jSONArray.put(g());
+            jSONArray.put(c());
+            this.d.d(jSONArray);
+        }
+    }
+
+    public void h(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, jSONObject) == null) {
+            this.b.a(jSONObject);
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            j(str, null);
+        }
+    }
+
+    public void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, jSONObject) == null) {
+            this.a.b(jSONObject);
+        }
+    }
+
+    public void j(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            this.a.a(str, str2);
+        }
     }
 }

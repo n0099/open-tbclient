@@ -2,7 +2,7 @@ package com.baidu.tieba.setting.im.more;
 
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.xd9;
+import com.baidu.tieba.wg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import tbclient.SimpleUser;
 public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xd9 privacyData;
+    public wg9 privacyData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponsedPrivacyHttpMessage(int i) {
@@ -37,7 +37,7 @@ public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
                 return;
             }
         }
-        this.privacyData = new xd9();
+        this.privacyData = new wg9();
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -99,12 +99,12 @@ public class ResponsedPrivacyHttpMessage extends HttpResponsedMessage {
         }
     }
 
-    public xd9 getPrivacyData() {
+    public wg9 getPrivacyData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.privacyData;
         }
-        return (xd9) invokeV.objValue;
+        return (wg9) invokeV.objValue;
     }
 }

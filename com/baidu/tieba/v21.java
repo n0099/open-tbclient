@@ -1,18 +1,20 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.ScheduledExecutorService;
+import java.util.concurrent.ScheduledThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class v21 {
+public class v21 implements y21 {
     public static /* synthetic */ Interceptable $ic;
-    public static v21 b;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public w21 a;
+    public ScheduledExecutorService a;
+    public ScheduledExecutorService b;
 
     public v21() {
         Interceptable interceptable = $ic;
@@ -27,35 +29,23 @@ public class v21 {
                 return;
             }
         }
-        this.a = new t21();
-        if (!m21.a()) {
-            this.a = new u21();
+        this.a = new ScheduledThreadPoolExecutor(15);
+        this.b = new ScheduledThreadPoolExecutor(1);
+    }
+
+    @Override // com.baidu.tieba.y21
+    public void a(@NonNull Runnable runnable, @NonNull String str, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{runnable, str, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            this.a.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
     }
 
-    public static v21 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.y21
+    public void b(@NonNull Runnable runnable, @NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (v21.class) {
-                    if (b == null) {
-                        b = new v21();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{runnable, str, Long.valueOf(j)}) == null) {
+            this.b.schedule(runnable, j, TimeUnit.MILLISECONDS);
         }
-        return (v21) invokeV.objValue;
-    }
-
-    @NonNull
-    public w21 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (w21) invokeV.objValue;
     }
 }

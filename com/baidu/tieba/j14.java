@@ -1,43 +1,37 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.IMConstants;
+import android.app.Activity;
+import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.ar.arplay.core.message.ARPMessageType;
-import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.tieba.b73;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class j14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public b73 a;
 
     /* loaded from: classes5.dex */
-    public interface d {
-        void onFail(String str);
-
-        void onSuccess(Object obj);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a extends StringResponseCallback {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ boolean d;
+        public final /* synthetic */ DialogInterface.OnClickListener e;
+        public final /* synthetic */ j14 f;
 
-        public a(d dVar) {
+        public a(j14 j14Var, Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
+                Object[] objArr = {j14Var, activity, str, str2, Boolean.valueOf(z), onClickListener};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,253 +41,77 @@ public class j14 {
                     return;
                 }
             }
-            this.a = dVar;
+            this.f = j14Var;
+            this.a = activity;
+            this.b = str;
+            this.c = str2;
+            this.d = z;
+            this.e = onClickListener;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.a.onFail(exc.getMessage());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    JSONObject e = j14.e(str, this.a);
-                    if (e == null) {
-                        return;
-                    }
-                    this.a.onSuccess(l14.a(e));
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.f.a != null && this.f.a.isShowing()) {
+                    this.f.a.dismiss();
+                }
+                Activity activity = this.a;
+                if (activity == null || activity.isFinishing()) {
                     return;
                 }
-                this.a.onFail(ADConfigError.REASON_NULL_RESPONSE);
+                b73.a d = this.f.d(this.a, this.b, this.c, this.d, this.e);
+                this.f.a = d.X();
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public static class b extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ d a;
-
-        public b(d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dVar;
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-                this.a.onFail(exc.getMessage());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                if (!TextUtils.isEmpty(str)) {
-                    JSONObject e = j14.e(str, this.a);
-                    if (e == null) {
-                        return;
-                    }
-                    this.a.onSuccess(k14.a(e));
-                    return;
-                }
-                this.a.onFail(ADConfigError.REASON_NULL_RESPONSE);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c extends StringResponseCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v73 a;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            }
-        }
-
-        public c(v73 v73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v73Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
-                try {
-                    if (new JSONObject(str).getInt("errno") != 0) {
-                        dg3 a = jg3.a();
-                        a.putInt("swangame_valid__" + this.a.O(), 0);
-                        return;
-                    }
-                    dg3 a2 = jg3.a();
-                    a2.putInt("swangame_valid__" + this.a.O(), 1);
-                    j14.g("1");
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public static void b() {
-        v73 b0;
+    public j14() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65537, null) == null) && (b0 = v73.b0()) != null && !c() && cr2.h0().e(cr2.c())) {
-            if (d()) {
-                g("1");
-            } else {
-                c64.a().getRequest().cookieManager(cr2.q().a()).url(m44.b().a()).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new c(b0));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void f() {
-        v73 b0;
+    public void e() {
+        b73 b73Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && (b0 = v73.b0()) != null && d() && cr2.h0().e(cr2.c())) {
-            c64.a().getRequest().cookieManager(cr2.q().a()).url(m44.b().i()).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (b73Var = this.a) != null) {
+            if (b73Var.isShowing()) {
+                this.a.dismiss();
+            }
+            this.a = null;
         }
     }
 
-    public static boolean c() {
-        InterceptResult invokeV;
+    public final b73.a d(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            v73 b0 = v73.b0();
-            if (b0 == null) {
-                return true;
-            }
-            dg3 a2 = jg3.a();
-            if (a2.getInt("swangame_valid__" + b0.O(), -1) == 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener})) == null) {
+            b73.a aVar = new b73.a(activity);
+            aVar.x(str);
+            aVar.a();
+            aVar.n(new fn3());
+            aVar.m(z);
+            aVar.Q(R.color.obfuscated_res_0x7f06093f);
+            aVar.f(true);
+            aVar.P(str2, onClickListener);
+            return aVar;
         }
-        return invokeV.booleanValue;
+        return (b73.a) invokeCommon.objValue;
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public void f(Activity activity, String str, String str2, boolean z, DialogInterface.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            v73 b0 = v73.b0();
-            if (b0 == null) {
-                return false;
-            }
-            dg3 a2 = jg3.a();
-            if (1 != a2.getInt("swangame_valid__" + b0.O(), -1)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, str, str2, Boolean.valueOf(z), onClickListener}) == null) {
+            rl3.a0(new a(this, activity, str, str2, z, onClickListener));
         }
-        return invokeV.booleanValue;
-    }
-
-    public static JSONObject e(String str, d dVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, dVar)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                if (jSONObject.optInt("errno", -1) != 0) {
-                    dVar.onFail(jSONObject.optString("errmsg"));
-                    return null;
-                }
-                return jSONObject.optJSONObject("data");
-            } catch (Exception e) {
-                dVar.onFail(e.getMessage());
-                return null;
-            }
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    public static void g(String str) {
-        v73 b0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, str) == null) && (b0 = v73.b0()) != null && d() && cr2.h0().e(cr2.c())) {
-            String h = cr2.h0().h(cr2.c());
-            if (TextUtils.isEmpty(h)) {
-                return;
-            }
-            String d2 = bo4.d(Base64.encode(h.getBytes(), 0), false);
-            String i = cr2.h0().i(cr2.c());
-            if (!TextUtils.isEmpty(i) && i.length() > 32) {
-                i = i.substring(0, 32);
-            }
-            c64.a().getRequest().cookieManager(cr2.q().a()).url(m44.b().q()).addUrlParam("sessionId", d2).addUrlParam("deviceId", i).addUrlParam("behaviorType", str).addUrlParam("behaviorTime", String.valueOf(System.currentTimeMillis() / 1000)).addUrlParam("appKey", b0.O()).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(null);
-        }
-    }
-
-    public static void h(String str, d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65543, null, str, dVar) != null) || dVar == null) {
-            return;
-        }
-        v73 b0 = v73.b0();
-        if (b0 == null) {
-            dVar.onFail("swan app is null");
-            return;
-        }
-        c64.a().getRequest().cookieManager(cr2.q().a()).url(m44.b().j()).addUrlParam("appkey", b0.O()).addUrlParam(IMConstants.SERVICE_TYPE_ORDER, str).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new b(dVar));
-    }
-
-    public static void i(long j, d dVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJL(65544, null, j, dVar) != null) || dVar == null) {
-            return;
-        }
-        v73 b0 = v73.b0();
-        if (b0 == null) {
-            dVar.onFail("swan app is null");
-            return;
-        }
-        c64.a().getRequest().cookieManager(cr2.q().a()).url(m44.b().h()).addUrlParam("appkey", b0.O()).addUrlParam("duration", String.valueOf(j)).requestFrom(16).requestSubFrom(ARPMessageType.MSG_TYPE_SHARE).build().executeAsync(new a(dVar));
     }
 }

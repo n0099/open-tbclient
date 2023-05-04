@@ -15,7 +15,7 @@ import com.google.android.gms.common.util.VisibleForTesting;
 import javax.annotation.concurrent.GuardedBy;
 @KeepForSdk
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class GoogleServices {
     public static final Object zza = new Object();
     @Nullable
@@ -41,7 +41,7 @@ public final class GoogleServices {
     public GoogleServices(Context context) {
         boolean z;
         Resources resources = context.getResources();
-        int identifier = resources.getIdentifier("google_app_measurement_enable", "integer", resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f0443));
+        int identifier = resources.getIdentifier("google_app_measurement_enable", "integer", resources.getResourcePackageName(R.string.obfuscated_res_0x7f0f044b));
         if (identifier != 0) {
             int integer = resources.getInteger(identifier);
             if (integer != 0) {

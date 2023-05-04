@@ -1,11 +1,15 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
-import android.view.MotionEvent;
+import android.graphics.Rect;
+import android.util.Log;
 import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,174 +18,155 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class r53 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public final View b;
+    public z53 c;
+    public Context d;
 
-    /* loaded from: classes6.dex */
-    public interface c {
-        void onClickSwitch(View view2, boolean z);
-    }
-
-    public static boolean f(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeZ = interceptable.invokeZ(65541, null, z)) == null) ? z : invokeZ.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-        public final /* synthetic */ View b;
-        public final /* synthetic */ c c;
-
-        public a(View view2, View view3, c cVar) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948072569, "Lcom/baidu/tieba/r53;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, view3, cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = view2;
-            this.b = view3;
-            this.c = cVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && i53.c().e()) {
-                boolean c = r53.c(this.a, this.b);
-                c cVar = this.c;
-                if (cVar != null) {
-                    cVar.onClickSwitch(view2, c);
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948072569, "Lcom/baidu/tieba/r53;");
+                return;
             }
         }
+        e = ho1.a;
     }
 
-    /* loaded from: classes6.dex */
-    public static class b implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ View a;
-
-        public b(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = view2;
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (motionEvent.getAction() == 1) {
-                    this.a.setVisibility(4);
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public static boolean c(View view2, View view3) {
-        InterceptResult invokeLL;
-        boolean z;
+    public r53(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, view2, view3)) == null) {
-            if (view2.getVisibility() != 0) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                h(view2, view3);
-            } else {
-                g(view2, view3);
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static void d(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
-            if (view3 != null) {
-                u53.k(view3);
-                view3.clearFocus();
-            }
-            view2.setVisibility(8);
-        }
-    }
-
-    public static void g(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65542, null, view2, view3) == null) {
-            view2.setVisibility(0);
-            if (view3 != null) {
-                u53.k(view3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = -1;
+        this.b = view2;
+        this.d = view2.getContext();
     }
 
-    public static void h(View view2, View view3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, view2, view3) == null) {
-            u53.m(view3);
-            if (e(view2.getContext())) {
-                view2.setVisibility(4);
-            }
-        }
-    }
-
-    @SuppressLint({"ClickableViewAccessibility"})
-    public static void b(View view2, View view3, View view4, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, view2, view3, view4, cVar) == null) {
-            if (view3 != null) {
-                view3.setOnClickListener(new a(view2, view4, cVar));
-            }
-            if (e(view2.getContext())) {
-                view4.setOnTouchListener(new b(view2));
-            }
-        }
-    }
-
-    public static boolean e(Context context) {
+    public final z53 a(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context instanceof Activity) {
-                boolean d = w53.d((Activity) context);
-                f(d);
-                return d;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            z53 z53Var = this.c;
+            if (z53Var != null) {
+                return z53Var;
             }
-            return false;
+            if (view2 instanceof z53) {
+                z53 z53Var2 = (z53) view2;
+                this.c = z53Var2;
+                return z53Var2;
+            } else if (view2 instanceof ViewGroup) {
+                ViewGroup viewGroup = (ViewGroup) view2;
+                for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                    z53 a = a(viewGroup.getChildAt(i));
+                    if (a != null) {
+                        this.c = a;
+                        return a;
+                    }
+                }
+                return null;
+            } else {
+                return null;
+            }
         }
-        return invokeL.booleanValue;
+        return (z53) invokeL.objValue;
+    }
+
+    public void b(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
+            Context context = this.d;
+            if (context instanceof Activity) {
+                Activity activity = (Activity) context;
+                if (y53.f(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect);
+                    i2 = rect.bottom - rect.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "TranslucentStatus && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
+                if (y53.e(activity) && this.b.getFitsSystemWindows()) {
+                    Rect rect2 = new Rect();
+                    this.b.getWindowVisibleDisplayFrame(rect2);
+                    i2 = rect2.bottom - rect2.top;
+                    if (e) {
+                        Log.d("SPSwitchRootLayout", "systemUILayoutFullScreen && FitsSystemWindows = true, height: " + i2);
+                    }
+                }
+            }
+            if (e) {
+                Log.d("SPSwitchRootLayout", "onMeasure, width: " + i + " height: " + i2);
+            }
+            if (i2 < 0) {
+                return;
+            }
+            int i3 = this.a;
+            if (i3 < 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "onMeasure, oldHeight < 0, oldHeight: " + this.a);
+                }
+                this.a = i2;
+                return;
+            }
+            int i4 = i3 - i2;
+            if (i4 == 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset == 0, break;");
+                    return;
+                }
+                return;
+            }
+            this.a = i2;
+            z53 a = a(this.b);
+            if (a == null) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "cannot find the valid panel layout, give up!");
+                    return;
+                }
+                return;
+            }
+            int visibility = ((LinearLayout) a).getVisibility();
+            if (e) {
+                Log.d("SPSwitchRootLayout", "panel visibility: " + visibility);
+            }
+            if (Math.abs(i4) < w53.g(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change min, not caused by softinput/panel switch!");
+                }
+            } else if (Math.abs(i4) > w53.e(this.b.getContext())) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "layout change max , but not caused by softinput/panel switch!");
+                }
+            } else if (i4 > 0) {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset > 0, offset : " + i4 + ", panel->handleHide...");
+                }
+                a.handleHide();
+            } else {
+                if (e) {
+                    Log.d("SPSwitchRootLayout", "offset < 0, offset : " + i4 + ", panel->handleShow...");
+                }
+                a.handleShow();
+            }
+        }
     }
 }

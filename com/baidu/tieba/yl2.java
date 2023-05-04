@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes7.dex */
-public class yl2 extends pl2<vl2> {
+public class yl2 extends rl2<xl2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "pageScrollBack" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "hidekeyboard" : (String) invokeV.objValue;
     }
 
     public yl2() {
@@ -36,13 +36,13 @@ public class yl2 extends pl2<vl2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull vl2 vl2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull xl2 xl2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, vl2Var) == null) {
-            d(vl2Var, command.what, null, false);
-            vl2Var.x0();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, xl2Var) == null) {
+            d(xl2Var, command.what, null, false);
+            xl2Var.w0();
         }
     }
 }

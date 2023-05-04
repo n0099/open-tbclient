@@ -1,54 +1,66 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import androidx.collection.LongSparseArray;
+import com.baidu.adp.framework.message.SocketMessage;
+import com.baidu.adp.framework.task.SocketMessageTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.message.MessageSyncMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class d28 {
+public class d28 extends ya {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d28() {
+        super(202003);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            StatisticItem.make("c14880").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            StatisticItem.make("c14879").param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_id", str).eventStat();
-        }
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.Message, com.baidu.adp.framework.task.MessageTask] */
+    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.Message' to match base method */
+    @Override // com.baidu.tieba.ta
+    public /* bridge */ /* synthetic */ SocketMessage process(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        SocketMessage socketMessage2 = socketMessage;
+        process2(socketMessage2, socketMessageTask);
+        return socketMessage2;
     }
 
-    public static void c(long j) {
+    /* renamed from: process  reason: avoid collision after fix types in other method */
+    public SocketMessage process2(SocketMessage socketMessage, SocketMessageTask socketMessageTask) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            b28.a("私信链路耗时监控 Tb = " + j + "-x-" + currentTimeMillis);
-            TiebaStatic.log(new StatisticItem("c14673").param("obj_id", j).param("obj_param1", currentTimeMillis));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketMessage, socketMessageTask)) == null) {
+            StringBuilder sb = new StringBuilder(200);
+            if (socketMessage instanceof MessageSyncMessage) {
+                MessageSyncMessage messageSyncMessage = (MessageSyncMessage) socketMessage;
+                LongSparseArray<Long> groupMids = messageSyncMessage.getGroupMids();
+                for (int i = 0; i < groupMids.size(); i++) {
+                    sb.append(groupMids.keyAt(i));
+                    sb.append("-");
+                    sb.append(groupMids.valueAt(i));
+                    sb.append("|");
+                }
+                u45.a("im", socketMessage.getClientLogID(), 202003, "sendMsg", 0, null, "reason", "pull" + messageSyncMessage.getSyncTypeString(), "comment", sb.toString());
+            }
+            return socketMessage;
         }
-    }
-
-    public static void d(long j, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{Long.valueOf(j), Integer.valueOf(i)}) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            b28.a("私信链路耗时监控 Tc = " + j + "-" + i + "-" + currentTimeMillis);
-            TiebaStatic.log(new StatisticItem("c14674").param("obj_id", j).param("obj_type", i).param("obj_param1", currentTimeMillis));
-        }
-    }
-
-    public static void e(long j, int i, long j2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), Long.valueOf(j2)}) == null) {
-            long c = e28.c(j);
-            b28.a("私信链路耗时监控 Ta = " + c + "-" + i + "-" + j2);
-            TiebaStatic.log(new StatisticItem("c14672").param("obj_id", c).param("obj_type", i).param("obj_param1", j2));
-        }
+        return (SocketMessage) invokeLL.objValue;
     }
 }

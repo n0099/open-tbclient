@@ -1,15 +1,7 @@
 package com.baidu.tieba;
+
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface kw3 {
-    void onCompletion();
-
-    boolean onError();
-
-    void onPause();
-
-    void onPrepared();
-
-    void onResume();
-
-    void onStart();
+    void e(View view2);
 }

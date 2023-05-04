@@ -1,27 +1,42 @@
 package com.baidu.tieba;
 
-import com.baidu.ugc.download.exception.DownloadException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public interface ifa extends Runnable {
+public class ifa {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile efa a;
+    public static kfa b;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void b(DownloadException downloadException);
-
-        void onConnectCanceled();
-
-        void onConnectPaused();
-
-        void onConnected(long j, long j2, boolean z);
-
-        void onConnecting();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947852965, "Lcom/baidu/tieba/ifa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947852965, "Lcom/baidu/tieba/ifa;");
+                return;
+            }
+        }
+        b = new kfa();
     }
 
-    void cancel();
-
-    boolean isCanceled();
-
-    boolean isPaused();
-
-    void pause();
+    public static efa a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                a = b.a();
+            }
+            return a;
+        }
+        return (efa) invokeV.objValue;
+    }
 }

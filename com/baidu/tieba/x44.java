@@ -2,60 +2,21 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.tieba.f14;
-import com.baidu.tieba.k03;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+@Singleton
 @Service
-/* loaded from: classes6.dex */
-public class x44 implements bp1 {
+/* loaded from: classes7.dex */
+public class x44 implements cp1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public class a implements f14.d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k03.k a;
-
-        public a(x44 x44Var, k03.k kVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x44Var, kVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = kVar;
-        }
-
-        @Override // com.baidu.tieba.f14.d
-        public void onFail(String str) {
-            k03.k kVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (kVar = this.a) != null) {
-                kVar.onFail(str);
-            }
-        }
-
-        @Override // com.baidu.tieba.f14.d
-        public void onSuccess() {
-            k03.k kVar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (kVar = this.a) != null) {
-                kVar.onSuccess();
-            }
-        }
-    }
 
     public x44() {
         Interceptable interceptable = $ic;
@@ -71,11 +32,39 @@ public class x44 implements bp1 {
         }
     }
 
-    @Override // com.baidu.tieba.bp1
-    public void a(String str, k03.k kVar) {
+    @Override // com.baidu.tieba.cp1
+    public List<u93> a(u83 u83Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, kVar) == null) {
-            i14.o().j(str, new a(this, kVar));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, u83Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new n34(u83Var));
+            arrayList.add(new o34(u83Var));
+            return arrayList;
         }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.cp1
+    public List<u93> c(u83 u83Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, u83Var)) == null) {
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(new g84(u83Var));
+            arrayList.add(new f84(u83Var));
+            return arrayList;
+        }
+        return (List) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.cp1
+    public List<u93> b(u83 u83Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, u83Var)) == null) {
+            return Arrays.asList(new a44(u83Var), new p24(u83Var), new y24(u83Var), new l34(u83Var));
+        }
+        return (List) invokeL.objValue;
     }
 }

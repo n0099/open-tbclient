@@ -11,7 +11,7 @@ import androidx.annotation.Nullable;
 import com.google.android.gms.common.GooglePlayServicesUtilLight;
 import com.google.android.gms.common.annotation.KeepForSdk;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class DeviceProperties {
     @Nullable
     public static Boolean zza;

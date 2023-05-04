@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class no2 extends mo2 {
+public class no2 extends oo2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -18,14 +18,14 @@ public class no2 extends mo2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ List a;
-        public final /* synthetic */ yo2 b;
+        public final /* synthetic */ ap2 b;
 
-        public a(no2 no2Var, List list, yo2 yo2Var) {
+        public a(no2 no2Var, List list, ap2 ap2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {no2Var, list, yo2Var};
+                Object[] objArr = {no2Var, list, ap2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -36,7 +36,7 @@ public class no2 extends mo2 {
                 }
             }
             this.a = list;
-            this.b = yo2Var;
+            this.b = ap2Var;
         }
 
         @Override // java.lang.Runnable
@@ -44,26 +44,26 @@ public class no2 extends mo2 {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 for (String str : this.a) {
-                    this.b.e(str);
+                    this.b.c(str);
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public no2(s83 s83Var) {
-        super(s83Var, "/swanAPI/removeComponentFromFullScreenSync");
+    public no2(u83 u83Var) {
+        super(u83Var, "/swanAPI/addComponentToFullScreenSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((s83) objArr2[0], (String) objArr2[1]);
+                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -71,12 +71,12 @@ public class no2 extends mo2 {
         }
     }
 
-    @Override // com.baidu.tieba.mo2
-    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull yo2 yo2Var, @NonNull List<String> list) {
+    @Override // com.baidu.tieba.oo2
+    public boolean j(@NonNull UnitedSchemeEntity unitedSchemeEntity, @NonNull ap2 ap2Var, @NonNull List<String> list) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, yo2Var, list)) == null) {
-            pl3.a0(new a(this, list, yo2Var));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, unitedSchemeEntity, ap2Var, list)) == null) {
+            rl3.a0(new a(this, list, ap2Var));
             return true;
         }
         return invokeLLL.booleanValue;

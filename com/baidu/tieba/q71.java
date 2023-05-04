@@ -1,64 +1,48 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
 import android.graphics.Bitmap;
-import android.text.TextUtils;
+import android.graphics.Rect;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.ViewTreeObserver;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.webview.data.NadPageType;
 import com.baidu.nadcore.webview.view.AbsNadBrowserView;
-import com.baidu.tieba.v71;
+import com.baidu.tieba.x71;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.pangle.log.ZeusLogger;
-import com.google.android.exoplayer2.source.hls.playlist.HlsPlaylistParser;
-import kotlin.Unit;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class q71 extends h71 implements AbsNadBrowserView.a {
+public final class q71 extends j71 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public long b;
-    public long c;
-    public final w71 d;
-    public boolean e;
-    public long f;
-    public final l71 g;
+    public final String a;
+    public ViewTreeObserver.OnGlobalLayoutListener b;
+    public View.OnLayoutChangeListener c;
+    public boolean d;
+    public final f81 e;
+    public final n71 f;
 
     /* loaded from: classes6.dex */
-    public static final class a {
+    public static final class a implements View.OnLayoutChangeListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public boolean e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public String j;
-        public String k;
-        public String l;
-        public String m;
-        public String n;
-        public String o;
-        public String p;
-        public String q;
-        public String r;
-        public String s;
+        public int a;
+        public final /* synthetic */ q71 b;
 
-        public a() {
+        /* JADX DEBUG: Incorrect args count in method signature: ()V */
+        public a(q71 q71Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q71Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -68,326 +52,84 @@ public final class q71 extends h71 implements AbsNadBrowserView.a {
                     return;
                 }
             }
-            this.a = "";
-            this.b = "";
-            this.c = "";
-            this.d = "";
-            this.f = "";
-            this.g = "";
-            this.h = "0";
-            this.i = "-1";
-            this.j = "-1";
-            this.k = "-1";
-            this.l = "-1";
-            this.m = "";
-            this.n = "";
-            this.o = "";
-            this.p = "-1";
-            this.q = "-1";
-            this.r = "";
-            this.s = "0";
+            this.b = q71Var;
         }
 
-        public final void A(String str) {
+        @Override // android.view.View.OnLayoutChangeListener
+        public void onLayoutChange(View v, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.a = str;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{v, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
+                Intrinsics.checkNotNullParameter(v, "v");
+                Rect rect = new Rect();
+                v.getWindowVisibleDisplayFrame(rect);
+                String str = this.b.a;
+                r81.a(str, "preBottom: " + this.a + " bottom: " + rect.bottom);
+                int i9 = rect.bottom;
+                int i10 = this.a;
+                if (i9 != i10 && i10 != 0) {
+                    AbsNadBrowserView m = this.b.f.m();
+                    if (m != null) {
+                        int i11 = this.a - rect.bottom;
+                        if (i11 <= 200) {
+                            if (i3 == i7 && this.b.d) {
+                                v71.b(this.b.e, m.getHeight(), 0, m.getHeight(), 0);
+                                q71 q71Var = this.b;
+                                q71Var.w(q71Var.f.m(), -1, -1);
+                            }
+                            this.b.d = false;
+                        } else {
+                            this.b.d = true;
+                            if (i3 == i7) {
+                                v71.b(this.b.e, m.getHeight() - i11, i11, m.getHeight(), 0);
+                                q71 q71Var2 = this.b;
+                                q71Var2.w(q71Var2.f.m(), -1, -1);
+                            }
+                        }
+                        this.a = rect.bottom;
+                        return;
+                    }
+                    return;
+                }
+                this.a = rect.bottom;
             }
-        }
-
-        public final void B(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.b = str;
-            }
-        }
-
-        public final void C(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.q = str;
-            }
-        }
-
-        public final void D(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.s = str;
-            }
-        }
-
-        public final void E(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.f = str;
-            }
-        }
-
-        public final void F(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.p = str;
-            }
-        }
-
-        public final void G(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.d = str;
-            }
-        }
-
-        public final void H(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-                this.e = z;
-            }
-        }
-
-        public final void I(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.o = str;
-            }
-        }
-
-        public final void t(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.j = str;
-            }
-        }
-
-        public final void u(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.i = str;
-            }
-        }
-
-        public final void v(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.l = str;
-            }
-        }
-
-        public final void w(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.k = str;
-            }
-        }
-
-        public final void x(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048608, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.r = str;
-            }
-        }
-
-        public final void y(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048609, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.c = str;
-            }
-        }
-
-        public final void z(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048610, this, str) == null) {
-                Intrinsics.checkNotNullParameter(str, "<set-?>");
-                this.h = str;
-            }
-        }
-
-        public final String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-                return this.j;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-                return this.i;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-                return this.l;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-                return this.n;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-                return this.k;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-                return this.r;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-                return this.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-                return this.h;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String j() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-                return this.b;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String k() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-                return this.q;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String l() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-                return this.s;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String m() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-                return this.f;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-                return this.p;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String o() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String p() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-                return this.g;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String q() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-                return this.m;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final String r() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048602, this)) == null) {
-                return this.o;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public final boolean s() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-                return this.e;
-            }
-            return invokeV.booleanValue;
         }
     }
 
-    public q71(l71 container) {
+    /* loaded from: classes6.dex */
+    public static final class b implements f81 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q71 a;
+
+        public b(q71 q71Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q71Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q71Var;
+        }
+
+        @Override // com.baidu.tieba.f81
+        public final void loadUrl(String str, Map<String, String> map) {
+            AbsNadBrowserView m;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) && (m = this.a.f.m()) != null) {
+                AbsNadBrowserView.D(m, str, map, false, 4, null);
+            }
+        }
+    }
+
+    public q71(n71 container) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -403,386 +145,166 @@ public final class q71 extends h71 implements AbsNadBrowserView.a {
             }
         }
         Intrinsics.checkNotNullParameter(container, "container");
-        this.g = container;
-        this.a = new a();
-        this.b = -1L;
-        this.c = -1L;
-        this.d = new w71();
+        this.f = container;
+        this.a = "KeyboardPlugin";
+        this.e = new b(this);
     }
 
-    @Override // com.baidu.tieba.h71
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.u(String.valueOf(System.currentTimeMillis()));
-            this.d.f(System.currentTimeMillis());
-            o();
-            super.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.h71
+    @Override // com.baidu.tieba.j71
     public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            q();
-            this.d.e();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            s();
+            t();
             super.d();
         }
     }
 
-    @Override // com.baidu.tieba.h71
-    public void e(Intent intent) {
+    @Override // com.baidu.tieba.j71
+    public void m() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
-            this.a.u(String.valueOf(System.currentTimeMillis()));
-            this.d.f(System.currentTimeMillis());
-            o();
-            super.e(intent);
-        }
-    }
-
-    @Override // com.baidu.tieba.h71
-    public void g(AbsNadBrowserView webView, String str) {
-        String obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, webView, str) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            this.b = System.currentTimeMillis();
-            Object tag = webView.getTag(R.id.nad_webcontent_error_code);
-            a aVar = this.a;
-            if (tag == null) {
-                obj = "0";
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (j81.b()) {
+                s();
+                t();
             } else {
-                obj = tag.toString();
+                v();
+                u();
             }
-            aVar.w(obj);
-            super.g(webView, str);
+            super.m();
         }
     }
 
-    @Override // com.baidu.tieba.h71
-    public void h(AbsNadBrowserView webView, String str, Bitmap bitmap) {
+    public final void t() {
+        LinearLayout e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, webView, str, bitmap) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            long currentTimeMillis = System.currentTimeMillis();
-            long j = this.f;
-            if (j != 0 && currentTimeMillis - j > 1000) {
-                this.a.D("1");
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.f.e() != null && this.c != null && (e = this.f.e()) != null) {
+            e.removeOnLayoutChangeListener(this.c);
+        }
+    }
+
+    public final void v() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c = new a(this);
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                e.addOnLayoutChangeListener(this.c);
             }
-            this.f = currentTimeMillis;
+        }
+    }
+
+    @Override // com.baidu.tieba.j71
+    public void h(AbsNadBrowserView webView, String str, Bitmap bitmap) {
+        String str2;
+        AbsNadBrowserView m;
+        String str3;
+        x71.e j;
+        x71.e j2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            x71.d l = this.f.l();
+            if (l != null && (j2 = l.j()) != null) {
+                str2 = j2.b();
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && (m = this.f.m()) != null) {
+                x71.d l2 = this.f.l();
+                if (l2 != null && (j = l2.j()) != null) {
+                    str3 = j.b();
+                } else {
+                    str3 = null;
+                }
+                AbsNadBrowserView.B(m, str3, null, 2, null);
+            }
             super.h(webView, str, bitmap);
         }
     }
 
-    @Override // com.baidu.tieba.h71
-    public void i() {
+    public final void w(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d.h(System.currentTimeMillis());
-            long c = this.d.c() - this.d.d();
-            if (c < 0) {
-                c = 0;
-            }
-            w71 w71Var = this.d;
-            w71Var.g(w71Var.b() + c);
-            super.i();
-            p();
+        if ((interceptable != null && interceptable.invokeLII(InputDeviceCompat.SOURCE_TOUCHPAD, this, view2, i, i2) != null) || view2 == null) {
+            return;
+        }
+        ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+        if (layoutParams instanceof FrameLayout.LayoutParams) {
+            view2.setLayoutParams(new FrameLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof LinearLayout.LayoutParams) {
+            view2.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof RelativeLayout.LayoutParams) {
+            view2.setLayoutParams(new RelativeLayout.LayoutParams(i, i2));
+        } else if (layoutParams instanceof ViewGroup.MarginLayoutParams) {
+            view2.setLayoutParams(new ViewGroup.MarginLayoutParams(i, i2));
+        } else if (layoutParams instanceof ViewGroup.LayoutParams) {
+            view2.setLayoutParams(new ViewGroup.LayoutParams(i, i2));
         }
     }
 
-    @Override // com.baidu.tieba.h71
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.d.i(System.currentTimeMillis());
-            if (!this.e) {
-                long d = this.d.d() - this.d.a();
-                if (d < 0) {
-                    d = 0;
-                }
-                this.d.g(d);
-                this.e = true;
-            }
-            super.l();
-        }
-    }
-
-    @Override // com.baidu.tieba.h71
-    public void j(AbsNadBrowserView webView, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048582, this, webView, i, str, str2) == null) {
-            Intrinsics.checkNotNullParameter(webView, "webView");
-            this.a.w(String.valueOf(i));
-            super.j(webView, i, str, str2);
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0116  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0118  */
-    /* JADX WARN: Removed duplicated region for block: B:62:0x0126  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final void n() {
-        String str;
-        boolean z;
+    @Override // com.baidu.tieba.j71
+    public void k(AbsNadBrowserView webView, String str) {
         String str2;
-        String jSONObject;
-        JSONObject jSONObject2;
         AbsNadBrowserView m;
-        Object obj;
-        AbsNadBrowserView m2;
-        Object obj2;
-        Object obj3;
-        v71.f k;
-        String b;
+        String str3;
+        x71.e j;
+        x71.e j2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            a aVar = this.a;
-            v71.d l = this.g.l();
-            Long l2 = null;
-            if (l == null || (str = l.h()) == null) {
-                v71.d l3 = this.g.l();
-                if (l3 != null) {
-                    str = l3.l();
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
+            Intrinsics.checkNotNullParameter(webView, "webView");
+            x71.d l = this.f.l();
+            if (l != null && (j2 = l.j()) != null) {
+                str2 = j2.a();
+            } else {
+                str2 = null;
+            }
+            if (str2 != null && (m = this.f.m()) != null) {
+                x71.d l2 = this.f.l();
+                if (l2 != null && (j = l2.j()) != null) {
+                    str3 = j.a();
                 } else {
-                    str = null;
+                    str3 = null;
                 }
+                AbsNadBrowserView.B(m, str3, null, 2, null);
             }
-            String str3 = "";
-            if (str == null) {
-                str = "";
-            }
-            aVar.B(str);
-            a aVar2 = this.a;
-            v71.d l4 = this.g.l();
-            if (l4 != null && (k = l4.k()) != null && (b = k.b()) != null) {
-                str3 = b;
-            }
-            aVar2.G(str3);
-            a aVar3 = this.a;
-            v71.d l5 = this.g.l();
-            if (l5 != null) {
-                z = l5.n();
-            } else {
-                z = false;
-            }
-            aVar3.H(z);
-            AbsNadBrowserView m3 = this.g.m();
-            if (m3 != null && m3.u()) {
-                a aVar4 = this.a;
-                AbsNadBrowserView m4 = this.g.m();
-                if (m4 != null) {
-                    l2 = Long.valueOf(m4.getPreRenderArrival());
-                }
-                aVar4.t(String.valueOf(l2));
-                this.a.z("5");
-                this.a.C("14");
-            } else {
-                this.a.t(String.valueOf(this.b));
-            }
-            this.a.v(String.valueOf((((float) ((System.currentTimeMillis() - this.d.c()) + this.d.b())) * 1.0f) / ((float) 1000)));
-            a aVar5 = this.a;
-            String str4 = "0";
-            if (!ur0.a()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            aVar5.I(str2);
-            a aVar6 = this.a;
-            try {
-                jSONObject2 = new JSONObject();
-                jSONObject2.put("Nairobi", "1");
-                m = this.g.m();
-            } catch (JSONException e) {
-                p81.d(e);
-                jSONObject = new JSONObject().toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().toString()");
-            }
-            if (m != null && !m.v()) {
-                obj = "0";
-                jSONObject2.put("Sailor", obj);
-                m2 = this.g.m();
-                if (m2 != null && !m2.z()) {
-                    obj2 = "0";
-                    jSONObject2.put(ZeusLogger.TAG, obj2);
-                    if (this.g.d()) {
-                        obj3 = "0";
-                    } else {
-                        obj3 = "1";
-                    }
-                    jSONObject2.put("ClickedCloseBtn", obj3);
-                    if (this.g.f()) {
-                        str4 = "1";
-                    }
-                    jSONObject2.put("KernelDowngrade", str4);
-                    jSONObject2.put("FspTime", String.valueOf(this.c));
-                    Unit unit = Unit.INSTANCE;
-                    jSONObject = jSONObject2.toString();
-                    Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …\n            }.toString()");
-                    aVar6.x(jSONObject);
-                }
-                obj2 = "1";
-                jSONObject2.put(ZeusLogger.TAG, obj2);
-                if (this.g.d()) {
-                }
-                jSONObject2.put("ClickedCloseBtn", obj3);
-                if (this.g.f()) {
-                }
-                jSONObject2.put("KernelDowngrade", str4);
-                jSONObject2.put("FspTime", String.valueOf(this.c));
-                Unit unit2 = Unit.INSTANCE;
-                jSONObject = jSONObject2.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …\n            }.toString()");
-                aVar6.x(jSONObject);
-            }
-            obj = "1";
-            jSONObject2.put("Sailor", obj);
-            m2 = this.g.m();
-            if (m2 != null) {
-                obj2 = "0";
-                jSONObject2.put(ZeusLogger.TAG, obj2);
-                if (this.g.d()) {
-                }
-                jSONObject2.put("ClickedCloseBtn", obj3);
-                if (this.g.f()) {
-                }
-                jSONObject2.put("KernelDowngrade", str4);
-                jSONObject2.put("FspTime", String.valueOf(this.c));
-                Unit unit22 = Unit.INSTANCE;
-                jSONObject = jSONObject2.toString();
-                Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …\n            }.toString()");
-                aVar6.x(jSONObject);
-            }
-            obj2 = "1";
-            jSONObject2.put(ZeusLogger.TAG, obj2);
-            if (this.g.d()) {
-            }
-            jSONObject2.put("ClickedCloseBtn", obj3);
-            if (this.g.f()) {
-            }
-            jSONObject2.put("KernelDowngrade", str4);
-            jSONObject2.put("FspTime", String.valueOf(this.c));
-            Unit unit222 = Unit.INSTANCE;
-            jSONObject = jSONObject2.toString();
-            Intrinsics.checkNotNullExpressionValue(jSONObject, "JSONObject().apply {\n   …\n            }.toString()");
-            aVar6.x(jSONObject);
+            super.k(webView, str);
         }
     }
 
-    public final void o() {
-        Long l;
-        v71.f k;
-        v71.f k2;
-        String a2;
+    public final void s() {
+        ViewTreeObserver viewTreeObserver;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            a aVar = this.a;
-            v71.d l2 = this.g.l();
-            aVar.A((l2 == null || (r1 = l2.g()) == null) ? "ad" : "ad");
-            a aVar2 = this.a;
-            v71.d l3 = this.g.l();
-            String str = "";
-            aVar2.y((l3 == null || (r1 = l3.f()) == null) ? "" : "");
-            a aVar3 = this.a;
-            v71.d l4 = this.g.l();
-            if (l4 != null && (k2 = l4.k()) != null && (a2 = k2.a()) != null) {
-                str = a2;
-            }
-            aVar3.E(str);
-            a aVar4 = this.a;
-            v71.d l5 = this.g.l();
-            if (l5 != null && (k = l5.k()) != null) {
-                l = Long.valueOf(k.d());
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.f.e() != null && this.b != null) {
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                viewTreeObserver = e.getViewTreeObserver();
             } else {
-                l = null;
+                viewTreeObserver = null;
             }
-            aVar4.F(String.valueOf(l));
+            if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
+                viewTreeObserver.removeOnGlobalLayoutListener(this.b);
+            }
         }
     }
 
-    public final void p() {
-        String str;
+    public final void u() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            n();
-            if (TextUtils.isEmpty(this.a.g())) {
-                p81.c(this.g.c(), "ext为空，性能日志发送失败");
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (this.f.e() == null) {
+                r81.a(this.a, "init keyboard config failed");
+                return;
             }
-            t11 g = new t11().g("1029");
-            Intrinsics.checkNotNullExpressionValue(g, "PlogBuilder().setCID(Plo…lder.C_ID_LP_PERFORMANCE)");
-            g.b("f1", this.a.i());
-            g.b("f2", this.a.j());
-            g.b("f14", this.a.g());
-            if (TextUtils.equals(this.a.i(), "xuzhang")) {
-                g.b("f16", this.a.o());
-                g.b("f17", this.a.m());
-                g.b("f20", this.a.p());
-                g.b("ef13", this.a.n());
-            } else {
-                if (this.a.s()) {
-                    str = HlsPlaylistParser.TYPE_VIDEO;
-                } else {
-                    str = "H5";
+            LinearLayout e = this.f.e();
+            if (e != null) {
+                if (this.b == null) {
+                    this.b = new p71(e);
                 }
-                g.b("f16", str);
-            }
-            g.b("ef1", this.a.h());
-            g.b("ef2", this.a.b());
-            g.b("ef3", this.a.a());
-            g.b("ef4", this.a.e());
-            g.b("ef5", this.a.c());
-            g.b("ef9", this.a.q());
-            g.b("ef10", this.a.d());
-            g.b("ef12", this.a.r());
-            g.b("ef14", this.a.k());
-            g.b("ef15", this.a.f());
-            g.b("ef17", this.a.l());
-            m11.b(g);
-        }
-    }
-
-    public final void q() {
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            JSONObject jSONObject = new JSONObject();
-            String i2 = this.a.i();
-            if (Intrinsics.areEqual(i2, NadPageType.PAGE_NAD_FEED.getValue())) {
-                str = "feed_ad";
-            } else if (Intrinsics.areEqual(i2, NadPageType.PAGE_NAD_SPLASH.getValue())) {
-                str = "feed_launch_screen_ad";
-            } else if (Intrinsics.areEqual(i2, NadPageType.PAGE_NAD_POP_WEB.getValue())) {
-                str = "feed_pop_web";
-            } else if (Intrinsics.areEqual(i2, NadPageType.PAGE_FENGCHAO.getValue())) {
-                str = "fc_ad";
-            } else {
-                str = "";
-            }
-            try {
-                jSONObject.put("page_type", str);
-                if (TextUtils.equals(this.a.h(), "5")) {
-                    i = 1;
-                } else {
-                    i = 0;
+                ViewTreeObserver viewTreeObserver = e.getViewTreeObserver();
+                Intrinsics.checkNotNullExpressionValue(viewTreeObserver, "it.viewTreeObserver");
+                if (viewTreeObserver.isAlive()) {
+                    r81.a(this.a, "add layout listener");
+                    viewTreeObserver.addOnGlobalLayoutListener(this.b);
                 }
-                jSONObject.put("is_prerender", i);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("ad_click_time", this.a.b());
-                jSONObject2.put("ad_ext", this.a.g());
-                jSONObject2.put("trigger", this.a.m());
-                jSONObject2.put("ad_real_click_time", this.a.n());
-                jSONObject.put("feed_ext_dict", jSONObject2);
-            } catch (JSONException e) {
-                p81.d(e);
-            }
-            AbsNadBrowserView m = this.g.m();
-            if (m != null) {
-                m.O(jSONObject);
             }
         }
     }

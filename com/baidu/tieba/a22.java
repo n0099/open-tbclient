@@ -8,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class a22 extends b12 {
+public class a22 extends d12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public l12 a;
 
     public a22() {
         Interceptable interceptable = $ic;
@@ -23,28 +23,30 @@ public class a22 extends b12 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.d12
+    public void a(e12 e12Var, Canvas canvas) {
+        l12 l12Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, e12Var, canvas) == null) && (l12Var = this.a) != null && l12Var.d()) {
+            if (this.a.c()) {
+                e12Var.b.setShader(this.a.b());
                 return;
             }
-        }
-        this.a = -1.0f;
-    }
-
-    @Override // com.baidu.tieba.b12
-    public void a(c12 c12Var, Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, c12Var, canvas) == null) {
-            float f = this.a;
-            if (f >= 0.0f && f <= 1.0f) {
-                c12Var.j = (int) (f * 255.0f);
-            }
+            e12Var.e.setColor(this.a.a());
+            e12Var.b.setColor(this.a.a());
+            e12Var.b.setShader(null);
         }
     }
 
-    @Override // com.baidu.tieba.b12
+    @Override // com.baidu.tieba.d12
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            this.a = (float) jSONArray.optDouble(0);
+            this.a = new l12(jSONArray);
         }
     }
 }

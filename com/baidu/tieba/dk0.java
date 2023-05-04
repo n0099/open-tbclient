@@ -1,57 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class dk0 extends pl0 {
+public class dk0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<a> a;
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                StringBuilder sb = new StringBuilder();
-                sb.append(a.class.getSimpleName());
-                sb.append(" ## ");
-                sb.append(WebGLImageLoader.DATA_URL + this.c);
-                sb.append(" ## ");
-                sb.append("jsCallback:" + this.a);
-                sb.append(" ## ");
-                sb.append("action:" + this.b);
-                return sb.toString();
-            }
-            return (String) invokeV.objValue;
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
 
     public dk0() {
         Interceptable interceptable = $ic;
@@ -63,7 +26,42 @@ public class dk0 extends pl0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = "";
+        this.b = "";
+        this.c = "";
+    }
+
+    @NonNull
+    public static dk0 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            dk0 dk0Var = new dk0();
+            JSONObject c = z01.c(str);
+            dk0Var.a = c.optString("ext1");
+            dk0Var.b = c.optString("ext2");
+            dk0Var.c = c.optString("ext3");
+            return dk0Var;
+        }
+        return (dk0) invokeL.objValue;
+    }
+
+    public static String b(@NonNull dk0 dk0Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, dk0Var)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("ext1", dk0Var.a);
+                jSONObject.put("ext2", dk0Var.b);
+                jSONObject.put("ext3", dk0Var.c);
+            } catch (JSONException unused) {
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeL.objValue;
     }
 }

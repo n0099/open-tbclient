@@ -1,55 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.widget.ListView.TypeAdapter;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class by5 {
-    public static /* synthetic */ Interceptable $ic;
-    public static by5 b;
-    public transient /* synthetic */ FieldHolder $fh;
-    public hm0 a;
+public interface by5 extends ey5<gy5> {
+    void a(int i);
 
-    public by5() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = dm0.b().a();
-    }
+    List<Integer> d();
 
-    public static by5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (by5.class) {
-                    if (b == null) {
-                        b = new by5();
-                    }
-                }
-            }
-            return b;
-        }
-        return (by5) invokeV.objValue;
-    }
+    void e(List<ay5> list, String str, String str2, String str3, String str4, boolean z, int i);
 
-    public int b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
-            return this.a.a(str, i);
-        }
-        return invokeLI.intValue;
-    }
+    TypeAdapter.ViewHolder g(ViewGroup viewGroup, Object obj);
+
+    void i(List<ay5> list, int i);
+
+    void k(List<Object> list);
+
+    View m(int i, View view2, ViewGroup viewGroup, Object obj);
+
+    void n(int i, ViewGroup viewGroup, TypeAdapter.ViewHolder viewHolder, Object obj);
+
+    void o(List<ay5> list, List<ay5> list2, boolean z, int i);
+
+    void p(String str);
 }

@@ -4,7 +4,7 @@ import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.o38;
+import com.baidu.tieba.l58;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,12 +12,13 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 /* loaded from: classes5.dex */
-public class RobotSkillRecentlyItem extends o38 implements Serializable {
+public class RobotSkillRecentlyItem extends l58 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = 5531600590149259914L;
     public transient /* synthetic */ FieldHolder $fh;
     public String avatar;
     public String botName;
+    public int funcType;
     public long mForumId;
     public long mRoomId;
     public String skillDesc;
@@ -25,7 +26,7 @@ public class RobotSkillRecentlyItem extends o38 implements Serializable {
     public String skillName;
     public String uk;
 
-    @Override // com.baidu.tieba.o38
+    @Override // com.baidu.tieba.l58
     public int getViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -35,16 +36,16 @@ public class RobotSkillRecentlyItem extends o38 implements Serializable {
         return invokeV.intValue;
     }
 
-    public RobotSkillRecentlyItem(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5, int i) {
+    public RobotSkillRecentlyItem(@NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull String str4, @NonNull String str5, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4, str5, Integer.valueOf(i)};
+            Object[] objArr = {str, str2, str3, str4, str5, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -56,6 +57,7 @@ public class RobotSkillRecentlyItem extends o38 implements Serializable {
         this.avatar = str4;
         this.uk = str5;
         this.skillId = i;
+        this.funcType = i2;
     }
 
     @NonNull
@@ -150,9 +152,21 @@ public class RobotSkillRecentlyItem extends o38 implements Serializable {
         return invokeV.longValue;
     }
 
+    public boolean isFuncJump() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (this.funcType == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void setRoomDetailInfo(long j, long j2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
             this.mRoomId = j;
             this.mForumId = j2;
         }

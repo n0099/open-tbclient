@@ -15,6 +15,8 @@ public class TbadkCoreStatisticKey {
     public static final String ALA_FOLLOW_LIVE_SQUARE_ITEM_CLICK = "c12679";
     public static final String ALA_FOLLOW_LIVE_SQUARE_ITEM_SHOW = "c12678";
     public static final String AS_INVOKE_TIEBA = "c10105";
+    public static final String BIG_PAGE_ADD_EMOTION = "c15212";
+    public static final String BIG_PAGE_AI_EMOTION_BORAD = "c15211";
     public static final String BUBBLE_PAY_MEMBER_CLICK = "c10055";
     public static final String BUBBLE_PAY_MEMBER_SUCCESS = "c10383";
     public static final String CHANDE_OLD_SUCCESS = "c10492";
@@ -61,6 +63,9 @@ public class TbadkCoreStatisticKey {
     public static final String FUN_AD_SHOW_ERROR = "c14199";
     public static final String GOD_REPLY_LAYOUT_FULL_TEXT_CLICK = "c13348";
     public static final String GOD_REPLY_LAYOUT_FULL_TEXT_SHOW = "c13347";
+    public static final String GROUP_CHAT_RICHTEXT_LINK_CLICK_KEY = "c15272";
+    public static final String GROUP_CHAT_RICHTEXT_LINK_EXPOSE_KEY = "c15271";
+    public static final String HEADLINES_2_SHOW = "c15240";
     public static final String HOST_START = "c11894";
     public static final String HOT_SPLASH_APP_START = "c14555";
     public static final String HOT_SPLASH_TIMEOUT = "c14535";
@@ -283,6 +288,7 @@ public class TbadkCoreStatisticKey {
     public static final String SUBPB_CLICK_SEND = "c10090";
     public static final String TAIL_PAY_MEMBER_SUCCESS = "c10061";
     public static final String THREAD_ACHIEVEMENT_DETAIL_SHARE = "c13724";
+    public static final String TOP_AGREE_POST_CLICK = "c15241";
     public static final String UPDATE_IMMEDIATELY_CLICK = "c10003";
     public static final String UPDATE_IMMEDIATELY_SHOW = "c10010";
     public static final String UPDATE_INCREMENTAL_CLICK = "c10001";
@@ -333,6 +339,45 @@ public class TbadkCoreStatisticKey {
         }
 
         public AntiLocateValue() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65537, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65537, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class HeadlinesFrontCardLocateValue {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static int ACTIVITY_LOCATE = 2;
+        public static int NO_LOCATE = -1;
+        public static int TITLE_LOCATE = 1;
+        public static int TOP_AGREE_POST_LOCATE = 3;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-736542254, "Lcom/baidu/tbadk/core/util/TbadkCoreStatisticKey$HeadlinesFrontCardLocateValue;")) == null) {
+                return;
+            }
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-736542254, "Lcom/baidu/tbadk/core/util/TbadkCoreStatisticKey$HeadlinesFrontCardLocateValue;");
+            }
+        }
+
+        public HeadlinesFrontCardLocateValue() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();

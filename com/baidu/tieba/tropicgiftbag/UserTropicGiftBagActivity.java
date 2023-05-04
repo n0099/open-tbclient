@@ -156,7 +156,7 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_BACK_USER);
-            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f12db));
+            statisticItem.param("obj_name", getResources().getString(R.string.obfuscated_res_0x7f0f12f4));
             statisticItem.param("obj_type", i);
             statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
             TiebaStatic.log(statisticItem);
@@ -166,17 +166,17 @@ public class UserTropicGiftBagActivity extends BaseActivity {
     public final void initView() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09251e);
+            RoundRelativeLayout roundRelativeLayout = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f092537);
             this.a = roundRelativeLayout;
             roundRelativeLayout.setAllCornerRound(ii.g(this, R.dimen.tbds32));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f09251f);
-            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0927f2);
-            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091482);
-            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091483);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092026);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092027);
-            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092520);
-            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906f5);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092538);
+            this.f = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09280e);
+            this.g = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091490);
+            this.h = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091491);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09203a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f09203b);
+            this.e = (Button) findViewById(R.id.obfuscated_res_0x7f092539);
+            this.i = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0906f8);
         }
     }
 
@@ -185,18 +185,18 @@ public class UserTropicGiftBagActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080b66);
+            SkinManager.setImageResource(this.f, R.drawable.obfuscated_res_0x7f080b93);
             this.f.setSkinType(i);
-            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080b67);
+            SkinManager.setImageResource(this.g, R.drawable.obfuscated_res_0x7f080b94);
             this.g.setSkinType(i);
-            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080b68);
+            SkinManager.setImageResource(this.h, R.drawable.obfuscated_res_0x7f080b95);
             this.h.setSkinType(i);
             SkinManager.setBackgroundColor(this.a, R.color.CAM_X0205);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0105);
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColorSelector(this.e, R.color.CAM_X0302, R.color.cp_link_tip_a_alpha50);
-            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f08095e);
+            SkinManager.setImageResource(this.i, R.drawable.obfuscated_res_0x7f08098a);
             this.i.setSkinType(i);
         }
     }

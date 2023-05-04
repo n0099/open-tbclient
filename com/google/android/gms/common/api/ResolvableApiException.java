@@ -4,7 +4,7 @@ import android.app.Activity;
 import android.app.PendingIntent;
 import android.content.IntentSender;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ResolvableApiException extends ApiException {
     public ResolvableApiException(@NonNull Status status) {
         super(status);

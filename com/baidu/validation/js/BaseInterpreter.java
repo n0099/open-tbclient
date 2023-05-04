@@ -1,8 +1,8 @@
 package com.baidu.validation.js;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.dja;
-import com.baidu.tieba.fja;
+import com.baidu.tieba.bna;
+import com.baidu.tieba.zma;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,7 +12,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseInterpreter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public dja mInterpreterCallback;
+    public zma mInterpreterCallback;
     public String mName;
 
     public BaseInterpreter() {
@@ -29,10 +29,10 @@ public abstract class BaseInterpreter {
         }
     }
 
-    public dja getInterpreterCallback() {
+    public zma getInterpreterCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInterpreterCallback : (dja) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.mInterpreterCallback : (zma) invokeV.objValue;
     }
 
     public String getName() {
@@ -41,12 +41,12 @@ public abstract class BaseInterpreter {
         return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.mName : (String) invokeV.objValue;
     }
 
-    public abstract String interpret(fja fjaVar);
+    public abstract String interpret(bna bnaVar);
 
-    public void setInterpreterCallback(dja djaVar) {
+    public void setInterpreterCallback(zma zmaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, djaVar) == null) {
-            this.mInterpreterCallback = djaVar;
+        if (interceptable == null || interceptable.invokeL(1048579, this, zmaVar) == null) {
+            this.mInterpreterCallback = zmaVar;
         }
     }
 

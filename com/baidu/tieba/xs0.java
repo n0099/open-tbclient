@@ -1,131 +1,66 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.video.plugin.videoplayer.model.BdVideoSeries;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.jvm.JvmName;
 import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsKt;
+import org.json.JSONArray;
+import org.json.JSONObject;
+@JvmName(name = "AuthParser")
 /* loaded from: classes7.dex */
 public final class xs0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final xs0 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310804, "Lcom/baidu/tieba/xs0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948310804, "Lcom/baidu/tieba/xs0;");
-                return;
-            }
-        }
-        a = new xs0();
-    }
-
-    public xs0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @JvmStatic
-    public static final int a(us0 us0Var, String str) {
-        InterceptResult invokeLL;
-        ss0 c;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, us0Var, str)) == null) {
-            if (us0Var != null || ((c = ws0.c(str)) != null && (us0Var = c.a()) != null)) {
-                num = Integer.valueOf(us0Var.a());
-            } else {
-                num = null;
-            }
-            if (num != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeLL.intValue;
-    }
-
-    @JvmStatic
-    public static final String c(us0 us0Var, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, us0Var, str, str2)) == null) {
-            return a.b(a(us0Var, str), str2);
-        }
-        return (String) invokeLLL.objValue;
-    }
-
-    public final String b(int i, String str) {
-        InterceptResult invokeIL;
-        boolean z;
-        String d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (str != null && str.length() != 0) {
-                z = false;
-            } else {
-                z = true;
-            }
-            if (z) {
-                d = "https://sv.baidu.com";
-            } else {
-                d = d(str);
-            }
-            if (i != 1) {
-                return "";
-            }
-            return d;
-        }
-        return (String) invokeIL.objValue;
-    }
-
-    public final String d(String str) {
+    public static final vs0 a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                Uri url = Uri.parse(str);
-                Intrinsics.checkNotNullExpressionValue(url, "url");
-                String scheme = url.getScheme();
-                if (scheme == null) {
-                    return "https://sv.baidu.com";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null) {
+                try {
+                    JSONArray optJSONArray = new JSONObject(str).optJSONArray("hosts");
+                    if (optJSONArray == null) {
+                        return null;
+                    }
+                    ArrayList arrayList = new ArrayList();
+                    int length = optJSONArray.length();
+                    for (int i = 0; i < length; i++) {
+                        JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                        if (optJSONObject != null) {
+                            String host = optJSONObject.optString("host");
+                            String optString = optJSONObject.optString("auth");
+                            Intrinsics.checkNotNullExpressionValue(host, "host");
+                            arrayList.add(new us0(host, b(optString)));
+                        }
+                    }
+                    return new vs0(arrayList);
+                } catch (Exception e) {
+                    lj0.a("AuthParser", e.getMessage());
                 }
-                String str2 = scheme + "://";
-                if (str2 == null) {
-                    return "https://sv.baidu.com";
-                }
-                String str3 = str2 + url.getHost();
-                if (str3 == null) {
-                    return "https://sv.baidu.com";
-                }
-                return str3;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "https://sv.baidu.com";
             }
+            return null;
         }
-        return (String) invokeL.objValue;
+        return (vs0) invokeL.objValue;
+    }
+
+    public static final ws0 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return null;
+            }
+            List split$default = StringsKt__StringsKt.split$default((CharSequence) str, new String[]{"_"}, false, 0, 6, (Object) null);
+            if (split$default.size() < 4) {
+                return null;
+            }
+            return new ws0(BdVideoSeries.parseIntSafe((String) split$default.get(0), 0), BdVideoSeries.parseIntSafe((String) split$default.get(1), 0), BdVideoSeries.parseIntSafe((String) split$default.get(2), 0), BdVideoSeries.parseIntSafe((String) split$default.get(3), 0));
+        }
+        return (ws0) invokeL.objValue;
     }
 }

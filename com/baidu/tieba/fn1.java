@@ -1,77 +1,84 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.app.AlarmManager;
+import android.app.PendingIntent;
 import android.content.Context;
-import android.text.TextUtils;
+import android.content.Intent;
+import android.os.Build;
+import androidx.core.app.NotificationCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public final class fn1 {
+public class fn1 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
-    public static String b;
+    public static long a = 60000;
+    public static long b;
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            try {
-            } catch (Throwable th) {
-                en1.d(th);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947769792, "Lcom/baidu/tieba/fn1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (!TextUtils.isEmpty(a)) {
-                return a;
-            }
-            a = ol1.g(context).F();
-            return a;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                if (!TextUtils.isEmpty(b)) {
-                    return b;
-                }
-                String c = c(context);
-                b = c;
-                if (!TextUtils.isEmpty(c)) {
-                    return b;
-                }
-                String a2 = new rl1(context).a();
-                b = a2;
-                if (!TextUtils.isEmpty(a2)) {
-                    return b;
-                }
-                return "";
-            } catch (Throwable th) {
-                en1.d(th);
-                return "";
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947769792, "Lcom/baidu/tieba/fn1;");
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        long j = a * 60;
+        b = j;
+        c = j * 24;
     }
 
-    public static String c(Context context) {
+    @SuppressLint({"WrongConstant"})
+    public static void a(Context context, long j) {
+        PendingIntent broadcast;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(65537, null, context, j) != null) || j <= 0) {
+            return;
+        }
+        try {
+            AlarmManager alarmManager = (AlarmManager) context.getSystemService(NotificationCompat.CATEGORY_ALARM);
+            Intent intent = new Intent();
+            intent.setPackage(context.getPackageName());
+            intent.setAction("sso_action_t_m");
+            if (b(context)) {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 201326592);
+            } else {
+                broadcast = PendingIntent.getBroadcast(context, 101, intent, 134217728);
+            }
+            alarmManager.cancel(broadcast);
+            alarmManager.set(0, System.currentTimeMillis() + j, broadcast);
+        } catch (Throwable th) {
+            gn1.d(th);
+        }
+    }
+
+    public static boolean b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                Class<?> cls = Class.forName("com.baidu.sofire.ac.F");
-                Object invoke = cls.getDeclaredMethod("getInstance", new Class[0]).invoke(cls, new Object[0]);
-                if (invoke == null) {
-                    return "";
+                if (context.getApplicationInfo().targetSdkVersion >= 31) {
+                    if (Build.VERSION.SDK_INT >= 31) {
+                        return true;
+                    }
+                    return false;
                 }
-                return (String) cls.getDeclaredMethod("gzd", Context.class).invoke(invoke, context);
+                return false;
             } catch (Throwable th) {
-                en1.d(th);
-                return "";
+                gn1.d(th);
+                return false;
             }
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

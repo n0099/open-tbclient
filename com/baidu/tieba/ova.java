@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.InputStream;
-@Deprecated
+import com.fun.ad.sdk.internal.api.config.Ssp;
 /* loaded from: classes5.dex */
-public abstract class ova {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ova {
+    void onAdClicked(Ssp.Pid pid);
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            throw null;
-        }
-    }
+    void onAdClose(Ssp.Pid pid);
 
-    public abstract InputStream b();
+    void onAdLoad(Ssp.Pid pid);
+
+    void onAdLoadError(Ssp.Pid pid, int i, String str);
+
+    void onAdLoaded(Ssp.Pid pid);
+
+    void onAdShow(Ssp.Pid pid);
+
+    void onAdShowError(Ssp.Pid pid, int i, String str);
+
+    void onRewardedVideo(Ssp.Pid pid, boolean z, int i);
 }

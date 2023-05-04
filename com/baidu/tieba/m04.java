@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
+import android.app.AppOpsManager;
+import android.app.usage.UsageStats;
+import android.app.usage.UsageStatsManager;
+import android.content.pm.PackageInfo;
+import android.content.pm.PackageManager;
+import android.os.Process;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,9 +18,12 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Calendar;
+import java.util.List;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m04 extends b04 {
+public class m04 extends d04 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -30,12 +41,12 @@ public class m04 extends b04 {
                 return;
             }
         }
-        c = fo1.a;
+        c = ho1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public m04() {
-        super("StartAppUsagePage");
+        super("GetAppUseDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -51,30 +62,76 @@ public class m04 extends b04 {
         }
     }
 
-    @Override // com.baidu.tieba.b04
-    public vz1 a(@NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
+    @Override // com.baidu.tieba.d04
+    public xz1 a(@NonNull JSONObject jSONObject, @NonNull bl2 bl2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
-            v73 b0 = v73.b0();
-            if (b0 != null && b0.w() != null) {
-                try {
-                    b0.w().startActivity(new Intent("android.settings.USAGE_ACCESS_SETTINGS"));
-                } catch (Exception e) {
-                    if (c) {
-                        e.printStackTrace();
-                    }
-                    zk3.f(b0.w());
-                }
-                zk2Var.a(null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
+            if (jSONObject == null) {
+                bl2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (c) {
+                Log.e("GetAppUseDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                bl2Var.onFail(202, "params may be error");
             } else {
-                zk2Var.onFail(100, "swan or activity is null");
-                if (c) {
-                    Log.d("StartAppUsagePage", "swan or activity is null");
-                }
+                b(optString, bl2Var);
             }
             return null;
         }
-        return (vz1) invokeLL.objValue;
+        return (xz1) invokeLL.objValue;
+    }
+
+    public final void b(String str, @NonNull bl2 bl2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bl2Var) == null) {
+            try {
+                if (c()) {
+                    PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(str, 0);
+                    if (packageInfo != null) {
+                        List<UsageStats> queryUsageStats = ((UsageStatsManager) AppRuntime.getAppContext().getSystemService("usagestats")).queryUsageStats(3, packageInfo.firstInstallTime, Calendar.getInstance().getTimeInMillis());
+                        if (queryUsageStats.size() == 0) {
+                            bl2Var.onFail(101, "noPermission");
+                            return;
+                        }
+                        for (UsageStats usageStats : queryUsageStats) {
+                            if (TextUtils.equals(usageStats.getPackageName(), str)) {
+                                JSONObject jSONObject = new JSONObject();
+                                JSONObject jSONObject2 = new JSONObject();
+                                jSONObject2.put("appUseDuration", usageStats.getTotalTimeInForeground());
+                                jSONObject.put("data", jSONObject2);
+                                bl2Var.a(jSONObject);
+                                return;
+                            }
+                        }
+                        bl2Var.onFail(31016, "no package info");
+                        return;
+                    }
+                    bl2Var.onFail(31016, "no package info");
+                    return;
+                }
+                bl2Var.onFail(101, "noPermission");
+            } catch (PackageManager.NameNotFoundException e) {
+                e.printStackTrace();
+                bl2Var.onFail(31011, "app is not installed");
+            } catch (JSONException e2) {
+                e2.printStackTrace();
+            }
+        }
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (((AppOpsManager) AppRuntime.getAppContext().getSystemService("appops")).checkOpNoThrow("android:get_usage_stats", Process.myUid(), AppRuntime.getAppContext().getPackageName()) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

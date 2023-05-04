@@ -1,36 +1,79 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetVipInfo.VipDailyList;
+import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes4.dex */
-public class hn8 {
+public class hn8 implements in {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId c;
     public transient /* synthetic */ FieldHolder $fh;
+    public en8 a;
+    public List<in8> b;
 
-    public static String a(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, th)) == null) {
-            if (th == null) {
-                return "";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947829591, "Lcom/baidu/tieba/hn8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            StringBuilder sb = new StringBuilder(th.toString());
-            StackTraceElement[] stackTrace = th.getStackTrace();
-            if (stackTrace != null) {
-                for (int i = 0; i < stackTrace.length; i++) {
-                    StackTraceElement stackTraceElement = stackTrace[i];
-                    if (stackTraceElement != null && i < 7) {
-                        sb.append(" ----> ");
-                        sb.append(stackTraceElement.getClassName());
-                        sb.append(".");
-                        sb.append(stackTraceElement.getMethodName());
-                        sb.append("()");
-                    }
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947829591, "Lcom/baidu/tieba/hn8;");
+                return;
             }
-            return sb.toString();
         }
-        return (String) invokeL.objValue;
+        c = BdUniqueId.gen();
+    }
+
+    @Override // com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return c;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public hn8(VipDailyList vipDailyList) {
+        List<VipThemeItem> list;
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipDailyList};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (vipDailyList != null && (list = vipDailyList.item) != null && list.size() > 0) {
+            String str = vipDailyList.card_id;
+            en8 en8Var = new en8();
+            this.a = en8Var;
+            en8Var.e(1);
+            this.a.d(vipDailyList.class_name);
+            this.a.f(vipDailyList.class_url_name);
+            this.a.g(vipDailyList.class_url);
+            this.b = new ArrayList();
+            for (VipThemeItem vipThemeItem : vipDailyList.item) {
+                this.b.add(new in8(vipThemeItem));
+            }
+        }
     }
 }

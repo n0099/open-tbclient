@@ -1,105 +1,86 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.net.Uri;
+import android.os.Environment;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.DeviceInfoUtil;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class kh9 extends CustomMessageListener {
+public class kh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public final hh9 a;
-    @NonNull
-    public final ih9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public kh9(@NonNull hh9 hh9Var, @NonNull ih9 ih9Var) {
-        super(2016311);
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hh9Var, ih9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
             }
+            int lastIndexOf = str.lastIndexOf(File.separator);
+            if (lastIndexOf == -1) {
+                return "";
+            }
+            return str.substring(0, lastIndexOf);
         }
-        this.a = hh9Var;
-        this.b = ih9Var;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        String str;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
-            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
-            Object data = customResponsedMessage.getData();
-            if (data instanceof String) {
-                String str2 = (String) data;
-                lo9.a("SplashClickListener link:" + str2);
-                if (!TextUtils.isEmpty(str2) && !TextUtils.equals("advertevent", Uri.parse(str2).getScheme())) {
-                    Intent intent = new Intent();
-                    int indexOf = str2.indexOf("&extInfo=");
-                    if (indexOf > 0) {
-                        str = str2.substring(0, indexOf);
-                    } else {
-                        str = str2;
-                    }
-                    String substring = str2.substring(str.length() + 9, str2.length());
-                    if (str.startsWith("https://") || str.startsWith("http://")) {
-                        intent.putExtra("gd_ad", true);
-                        intent.putExtra("ext_info", substring);
-                    }
-                    if (!this.a.h() && ((StringUtils.isNull(str) || !str.startsWith("bdtiebalive")) && this.a.g() != 2)) {
-                        intent.putExtra(DealIntentService.KEY_CLASS, 30);
-                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
-                        intent.putExtra("is_ad", true);
-                        TbadkCoreApplication.setIntent(intent);
-                    } else {
-                        intent.putExtra(DealIntentService.KEY_CLASS, 30);
-                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
-                        intent.putExtra("is_ad", true);
-                        UtilHelper.commenDealIntent(this.a.getActivity(), intent);
-                    }
-                }
-                this.a.e();
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
-                if (!this.a.d() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
-                    SpeedStatsManager.getInstance().setStatsFlag(-1);
-                    if (!this.a.h()) {
-                        TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click"));
-                        return;
-                    }
-                    return;
-                }
-                this.b.a();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                return Environment.getExternalStorageDirectory() + File.separator + "tieba/Logs/";
+            } catch (Exception e) {
+                BdLog.e(Log.getStackTraceString(e));
+                return null;
             }
         }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String path = Environment.getExternalStorageDirectory().getPath();
+            int length = path.length() - 1;
+            if (length > 0 && !path.substring(length).equals(File.separator)) {
+                return path + File.separator;
+            }
+            return path;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d() + "tieba/Logs/";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            String a = a(str);
+            if (TextUtils.isEmpty(a)) {
+                return false;
+            }
+            File file = new File(a);
+            if ((!file.exists() || !file.isDirectory()) && !file.mkdirs()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

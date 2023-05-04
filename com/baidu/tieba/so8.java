@@ -1,55 +1,40 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.view.ViewGroup;
+import android.widget.GridView;
+import android.widget.ListAdapter;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface so8 {
-    void a();
+public class so8 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public GridView a;
 
-    void b(boolean z);
+    public so8(ViewGroup viewGroup) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {viewGroup};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = (GridView) viewGroup.findViewById(R.id.obfuscated_res_0x7f092297);
+    }
 
-    void c(int i);
-
-    void d(jw7 jw7Var);
-
-    void destroy();
-
-    void e();
-
-    void f(boolean z);
-
-    void g(long j, long j2);
-
-    View getRootView();
-
-    jw7 h();
-
-    void i();
-
-    void j(boolean z, int i);
-
-    void k(int i);
-
-    int l();
-
-    void m();
-
-    void n(jw7 jw7Var);
-
-    void o(long j, long j2, int i);
-
-    iw7 p(int i);
-
-    void pause();
-
-    void q();
-
-    void r();
-
-    void resetView();
-
-    void resume();
-
-    void s(int i);
-
-    void t(iw7 iw7Var, boolean z, int i);
+    public void a(oo8 oo8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, oo8Var) == null) {
+            this.a.setAdapter((ListAdapter) oo8Var);
+        }
+    }
 }

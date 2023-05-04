@@ -2,21 +2,23 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ForumList;
+import tbclient.GetDislikeList.DataRes;
 /* loaded from: classes6.dex */
-public class vg9 extends xg9 {
+public class vg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String n;
+    public List<tg9> a;
+    public boolean b;
 
-    public vg9(String str, String str2) {
+    public vg9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -26,15 +28,26 @@ public class vg9 extends xg9 {
                 return;
             }
         }
-        this.n = str;
+        this.a = new ArrayList();
+        this.b = true;
     }
 
-    public String x() {
-        InterceptResult invokeV;
+    public void a(DataRes dataRes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.n;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        for (ForumList forumList : dataRes.forum_list) {
+            tg9 tg9Var = new tg9();
+            tg9Var.a = forumList.avatar;
+            tg9Var.b = forumList.forum_name;
+            tg9Var.c = String.valueOf(forumList.forum_id);
+            this.a.add(tg9Var);
+        }
+        boolean z = true;
+        if (dataRes.has_more.intValue() != 1) {
+            z = false;
+        }
+        this.b = z;
     }
 }

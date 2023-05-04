@@ -1,27 +1,121 @@
 package com.baidu.tieba;
 
-import androidx.annotation.ColorInt;
-import com.baidu.searchbox.v8engine.V8Engine;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class hk3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(@ColorInt int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) ? ((int) (((((double) ((16711680 & i) >> 16)) * 0.299d) + (((double) ((65280 & i) >> 8)) * 0.587d)) + (((double) (i & 255)) * 0.114d))) >= 220 : invokeI.booleanValue;
+    /* loaded from: classes4.dex */
+    public static class a extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ View a;
+
+        public a(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {view2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = view2;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                this.a.setTranslationX(0.0f);
+            }
+        }
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static void a(g72 g72Var, Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return V8Engine.toColorRGBA(str);
+        if (interceptable == null || interceptable.invokeLL(65536, null, g72Var, context) == null) {
+            b(g72Var, context, 2);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static void b(g72 g72Var, Context context, int i) {
+        View b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLI(65537, null, g72Var, context, i) == null) && g72Var != null && g72Var.k() >= i) {
+            d72 j = g72Var.j(g72Var.k() - i);
+            d72 m = g72Var.m();
+            if (m != null && m.E0) {
+                return;
+            }
+            float o = ol3.o(context) >> 2;
+            if (j != null && (b0 = j.b0()) != null) {
+                ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, -o, 0.0f).setDuration(300L).start();
+            }
+        }
+    }
+
+    public static void c(g72 g72Var, Context context) {
+        View b0;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65538, null, g72Var, context) == null) && g72Var != null && g72Var.k() >= 2) {
+            d72 j = g72Var.j(g72Var.k() - 2);
+            float o = ol3.o(context) >> 2;
+            if (j != null && (b0 = j.b0()) != null) {
+                ObjectAnimator ofFloat = ObjectAnimator.ofFloat(b0, Key.TRANSLATION_X, 0.0f, -o);
+                ofFloat.setDuration(300L).start();
+                ofFloat.addListener(new a(b0));
+            }
+        }
+    }
+
+    public static void d(@NonNull vl4 vl4Var, String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLII(65539, null, vl4Var, str, i, i2) != null) || vl4Var == null) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != -1876181062) {
+            if (hashCode != -983638536) {
+                if (hashCode == 1528366175 && str.equals("showModalPage")) {
+                    c = 1;
+                }
+            } else if (str.equals("navigateBack")) {
+                c = 0;
+            }
+        } else if (str.equals("hideModalPage")) {
+            c = 2;
+        }
+        if (c != 0) {
+            if (c != 1 && c != 2) {
+                vl4Var.i(i, i2);
+                return;
+            }
+            return;
+        }
+        g72 V = kt2.U().V();
+        d72 j = V.j(V.k() - 1);
+        if (j != null && j.E0) {
+            return;
+        }
+        vl4Var.i(i, i2);
     }
 }

@@ -8,15 +8,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes6.dex */
-public class rr4 extends or4 {
+public class rr4 extends qr4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.nr4
+    @Override // com.baidu.tieba.pr4
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "h" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "d" : (String) invokeV.objValue;
     }
 
     public rr4() {
@@ -33,13 +33,16 @@ public class rr4 extends or4 {
         }
     }
 
-    @Override // com.baidu.tieba.nr4
+    @Override // com.baidu.tieba.pr4
     public String a(String[] strArr, Map<String, String> map) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, strArr, map)) == null) {
             if (strArr != null && strArr.length != 0) {
-                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/home");
+                String substring = strArr[0].substring(1);
+                StringBuilder sb = new StringBuilder("com.baidu.tieba://unidispatch/pb");
+                sb.append("?ori_ugc_tid=");
+                sb.append(substring);
                 c(strArr, sb, map, 1);
                 return sb.toString();
             }

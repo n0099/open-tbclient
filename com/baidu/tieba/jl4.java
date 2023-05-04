@@ -1,27 +1,35 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import android.os.Bundle;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
 public class jl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void startActivity(Context context, Intent intent, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, context, intent, bundle) == null) {
-            context.startActivity(intent, bundle);
-        }
+    /* loaded from: classes5.dex */
+    public interface a {
+        void validateRequestPermissionsRequestCode(int i);
     }
 
-    public static void startActivityForResult(Activity activity, Intent intent, int i, Bundle bundle) {
+    public static boolean a(Activity activity, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(65537, null, activity, intent, i, bundle) == null) {
-            activity.startActivityForResult(intent, i, bundle);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, str)) == null) {
+            return activity.shouldShowRequestPermissionRationale(str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static void requestPermissions(Activity activity, String[] strArr, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65537, null, activity, strArr, i) == null) {
+            if (activity instanceof a) {
+                ((a) activity).validateRequestPermissionsRequestCode(i);
+            }
+            activity.requestPermissions(strArr, i);
         }
     }
 }

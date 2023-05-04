@@ -143,20 +143,20 @@ public class BdThumbSeekBarView extends View {
         Paint paint = new Paint();
         this.mPaint = paint;
         paint.setAntiAlias(true);
-        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060377));
+        this.mPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06037b));
         Paint paint2 = new Paint();
         this.mSeekPaint = paint2;
         paint2.setAntiAlias(true);
-        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060379));
+        this.mSeekPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06037d));
         Paint paint3 = new Paint();
         this.mBufferingPaint = paint3;
         paint3.setAntiAlias(true);
-        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f060378));
+        this.mBufferingPaint.setColor(getResources().getColor(R.color.obfuscated_res_0x7f06037c));
         this.mMax = 100.0f;
         this.mProgress = 0.0f;
         this.mBufferingProgress = 0;
         if (this.mThumb == null) {
-            this.mThumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080222);
+            this.mThumb = BitmapFactory.decodeResource(context.getResources(), R.drawable.obfuscated_res_0x7f080223);
         }
         this.mThumbPadding = BdPlayerUtils.dp2px(this, 0.0f);
         if (this.mThumbScale == null) {

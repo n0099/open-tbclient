@@ -1,175 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class am1 extends zl1 {
+public class am1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
 
-    /* loaded from: classes3.dex */
-    public class a extends zm1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ am1 c;
-
-        public a(am1 am1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {am1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = am1Var;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.zm1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.c.b(this.b);
-                } catch (Throwable th) {
-                    en1.d(th);
-                    am1 am1Var = this.c;
-                    am1Var.d(this.b, 3, 2009, am1Var.c, "cu on getToken unknown error.");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends zm1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ am1 c;
-
-        public b(am1 am1Var, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {am1Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = am1Var;
-            this.b = i;
-        }
-
-        @Override // com.baidu.tieba.zm1
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.c.g(this.b, this.c.c, this.c.h);
-                } catch (Throwable th) {
-                    en1.d(th);
-                    am1 am1Var = this.c;
-                    am1Var.n(this.b, 3, 2009, am1Var.c, "cu on getToken unknown error.");
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public am1(Context context) {
-        super(context);
+    public am1(int i, int i2, int i3, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = -1;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = str;
     }
 
-    @Override // com.baidu.tieba.zl1
-    public void j(Context context, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.j(context, i, j);
-            c(i, 2);
-            bn1.c().b(new a(this, i));
-        }
-    }
-
-    @Override // com.baidu.tieba.zl1
-    public void p(Context context, int i, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-            super.p(context, i, j);
-            c(i, 4);
-            bn1.c().b(new b(this, i));
-        }
-    }
-
-    @Override // com.baidu.tieba.zl1
-    public boolean l() {
+    public static am1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.e)) {
-                this.g = null;
-                this.f = 0L;
-                return true;
-            } else if (this.f - System.currentTimeMillis() < dn1.a) {
-                this.g = null;
-                this.f = 0L;
-                return true;
-            } else {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new am1(3, 2020, -1, "No Authorized User Privacy Agreement");
         }
-        return invokeV.booleanValue;
+        return (am1) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.zl1
-    public boolean q() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (TextUtils.isEmpty(this.h)) {
-                this.i = 0L;
-                return true;
-            } else if (this.i - System.currentTimeMillis() < dn1.a) {
-                this.i = 0L;
-                return true;
-            } else {
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "CallBackMsg{status=" + this.a + ", subStatus=" + this.b + ", op='" + this.c + "', data='" + this.d + "'}";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 }

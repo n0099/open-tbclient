@@ -1,121 +1,57 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
+import android.app.Activity;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.livesdk.api.share.Share;
-import com.baidu.sapi2.utils.ThirdPartyUtil;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.switchs.QqShareH5Switch;
-import com.baidu.tbadk.switchs.UrlNeedCuidSwitch;
-import com.baidu.tbadk.switchs.WeChatShareSmallAppToH5Switch;
-import com.baidu.tieba.ea5;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
+import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.cea.Cea708Decoder;
 /* loaded from: classes5.dex */
 public class ja5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String i;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public fa5 b;
-    public ga5 c;
-    public String d;
-    public ea5 e;
-    public ea5.b f;
-    public ea5.b g;
-    public ea5.b h;
+    public TbPageContext a;
+    public b b;
+    public z8 c;
+    public boolean d;
 
     /* loaded from: classes5.dex */
-    public class a implements ea5.b {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ja5 a;
-
-        public a(ja5 ja5Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ja5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ja5Var;
-        }
-
-        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
-            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.ja5.b(com.baidu.tieba.ja5, com.baidu.tbadk.coreExtra.share.ShareItem):com.baidu.tbadk.coreExtra.share.ShareItem
-            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
-            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
-            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
-            	... 1 more
-            */
-        @Override // com.baidu.tieba.ea5.b
-        public void a(com.baidu.tbadk.coreExtra.share.ShareItem r5) {
-            /*
-                r4 = this;
-                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.ja5.a.$ic
-                if (r0 != 0) goto L1d
-            L4:
-                com.baidu.tieba.ja5 r0 = r4.a
-                java.lang.String r1 = "weixin"
-                com.baidu.tbadk.coreExtra.share.ShareItem r5 = com.baidu.tieba.ja5.a(r0, r5, r1)
-                com.baidu.tieba.ja5 r0 = r4.a
-                com.baidu.tieba.ja5.b(r0, r5)
-                com.baidu.tieba.ja5 r0 = r4.a
-                com.baidu.tieba.ga5 r0 = com.baidu.tieba.ja5.c(r0)
-                r1 = 3
-                r2 = 0
-                r0.a(r5, r1, r2)
-                return
-            L1d:
-                r2 = r0
-                r3 = 1048576(0x100000, float:1.469368E-39)
-                com.baidu.titan.sdk.runtime.InterceptResult r0 = r2.invokeL(r3, r4, r5)
-                if (r0 == 0) goto L4
-                return
-            */
-            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.ja5.a.a(com.baidu.tbadk.coreExtra.share.ShareItem):void");
-        }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements ea5.b {
+    public class b extends BdAsyncTask<Integer, Integer, String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ja5 a;
+        public NetWork a;
+        public boolean b;
+        public String c;
+        public String d;
+        public boolean e;
+        public String f;
+        public BdUniqueId g;
+        public String h;
+        public String i;
+        public boolean j;
+        public String k;
+        public String l;
+        public final /* synthetic */ ja5 m;
 
         public b(ja5 ja5Var) {
             Interceptable interceptable = $ic;
@@ -132,590 +68,259 @@ public class ja5 {
                     return;
                 }
             }
-            this.a = ja5Var;
+            this.m = ja5Var;
+            this.a = null;
+            this.e = false;
+            this.f = "0";
+            this.h = "0";
+            this.i = null;
+            this.j = false;
         }
 
-        @Override // com.baidu.tieba.ea5.b
-        public void a(ShareItem shareItem) {
+        public /* synthetic */ b(ja5 ja5Var, a aVar) {
+            this(ja5Var);
+        }
+
+        public void b(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, shareItem) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.b = z;
             }
-            this.a.c.a(this.a.v(shareItem, Share.QQFRIEND), 8, true);
         }
-    }
 
-    /* loaded from: classes5.dex */
-    public class c implements ea5.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ja5 a;
-
-        public c(ja5 ja5Var) {
+        public void c(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ja5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                this.i = str;
+                if (str != null) {
+                    this.j = true;
                 }
             }
-            this.a = ja5Var;
         }
 
-        @Override // com.baidu.tieba.ea5.b
-        public void a(ShareItem shareItem) {
+        public void d(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, shareItem) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+                this.f = str;
             }
-            this.a.c.a(this.a.v(shareItem, "qzone"), 4, true);
+        }
+
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+                this.h = str;
+            }
+        }
+
+        public void f(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+                this.e = z;
+            }
+        }
+
+        public void g(BdUniqueId bdUniqueId) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bdUniqueId) == null) {
+                this.g = bdUniqueId;
+            }
+        }
+
+        public void h(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+                this.c = str;
+            }
+        }
+
+        public void i(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+                this.l = str;
+            }
+        }
+
+        public void j(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+                this.d = str;
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void cancel() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.cancel(true);
+                NetWork netWork = this.a;
+                if (netWork != null) {
+                    netWork.cancelNetConnect();
+                    this.a = null;
+                }
+                if (this.m.b != null) {
+                    this.m.b.cancel();
+                    this.m.b = null;
+                }
+                if (this.m.c != null) {
+                    this.m.c.c(Boolean.FALSE);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public String doInBackground(Integer... numArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, numArr)) == null) {
+                try {
+                    if (this.c != null) {
+                        NetWork netWork = new NetWork();
+                        this.a = netWork;
+                        if (this.b) {
+                            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.FOLLOW_ADDRESS);
+                            this.a.setNeedSig(true);
+                        } else {
+                            netWork.setUrl(TbConfig.SERVER_ADDRESS + TbConfig.UNFOLLOW_ADDRESS);
+                        }
+                        this.a.addPostData("portrait", this.c);
+                        if (!StringUtils.isNull(this.f)) {
+                            this.a.addPostData("from_type", this.f);
+                        }
+                        if (!StringUtils.isNull(this.i)) {
+                            this.a.addPostData("forum_id", this.i);
+                        }
+                        this.a.addPostData("in_live", this.h);
+                        this.a.addPostData("authsid", this.k);
+                        this.a.addPostData("related_tid", this.l);
+                        this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                        String postNetData = this.a.postNetData();
+                        AuthTokenData.parse(postNetData);
+                        return postNetData;
+                    }
+                    return null;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return null;
+                }
+            }
+            return (String) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+                super.onPostExecute((b) str);
+                this.m.b = null;
+                if (this.a != null) {
+                    UpdateAttentionMessage.a aVar = new UpdateAttentionMessage.a();
+                    aVar.a = this.a.getNetContext().getResponse().isRequestSuccess();
+                    aVar.b = this.a.getErrorString();
+                    aVar.d = this.b;
+                    aVar.c = this.d;
+                    aVar.f = this.e;
+                    aVar.g = this.m.d;
+                    aVar.b(str, this.j);
+                    if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                        aVar.i = null;
+                    }
+                    int serverErrorCode = this.a.getServerErrorCode();
+                    if (AntiHelper.a(this.m.getContext(), serverErrorCode, aVar.h) || hx9.b(this.m.getContext(), serverErrorCode, this.a.getErrorString())) {
+                        return;
+                    }
+                    UpdateAttentionMessage updateAttentionMessage = new UpdateAttentionMessage(aVar);
+                    updateAttentionMessage.setOrginalMessage(new CustomMessage(2001000, this.g));
+                    MessageManager.getInstance().dispatchResponsedMessageToUI(updateAttentionMessage);
+                }
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947876587, "Lcom/baidu/tieba/ja5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947876587, "Lcom/baidu/tieba/ja5;");
-                return;
-            }
-        }
-        i = TbConfig.TIEBA_ADDRESS;
-    }
-
-    public static boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return TbadkCoreApplication.getInst().appResponseToCmd(2001445);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public ja5(Context context, fa5 fa5Var) {
-        ha5 ha5Var;
+    public ja5(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, fa5Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = null;
-        this.c = null;
-        this.d = TbadkCoreApplication.getInst().getContext().getString(R.string.share_tail);
-        this.f = new a(this);
-        this.g = new b(this);
-        this.h = new c(this);
-        this.a = context;
-        this.b = fa5Var;
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001445, ha5.class);
-        if (runTask != null && runTask.getData() != null && (ha5Var = (ha5) runTask.getData()) != null) {
-            this.c = ha5Var.a(this.a, this.b);
-        }
+        this.a = tbPageContext;
     }
 
-    public static String t(String str, String str2, boolean z) {
-        InterceptResult invokeLLZ;
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65547, null, str, str2, z)) == null) {
-            return u(str, "copy", str2, z);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.d = z;
         }
-        return (String) invokeLLZ.objValue;
     }
 
-    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
-        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
-        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
-        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
-        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
-        */
-    public static /* synthetic */ com.baidu.tbadk.coreExtra.share.ShareItem b(com.baidu.tieba.ja5 r0, com.baidu.tbadk.coreExtra.share.ShareItem r1) {
-        /*
-            r0.f(r1)
-            return r1
-        */
-        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.ja5.b(com.baidu.tieba.ja5, com.baidu.tbadk.coreExtra.share.ShareItem):com.baidu.tbadk.coreExtra.share.ShareItem");
-    }
-
-    /* JADX DEBUG: Marked for inline */
-    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.ja5.a.a(com.baidu.tbadk.coreExtra.share.ShareItem):void] */
-    public static /* synthetic */ ga5 c(ja5 ja5Var) {
-        return ja5Var.c;
-    }
-
-    public static String e(String str, String str2) {
-        InterceptResult invokeLL;
-        String str3;
+    public void g(z8 z8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            if (!str.contains("?")) {
-                str = str + "?";
-                str3 = "";
-            } else {
-                str3 = "&";
-            }
-            return str + str3 + str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static String i(ThreadData threadData, int i2) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65543, null, threadData, i2)) == null) {
-            if (threadData == null) {
-                return "";
-            }
-            String title = threadData.getTitle();
-            if (i2 != 2 && i2 != 6 && i2 != 8) {
-                String str = threadData.getAbstract();
-                if (threadData.getIsNoTitle() == 0) {
-                    return title;
-                }
-                return str;
-            }
-            return title;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    public static String h(ThreadData threadData, int i2, String str, long j, String str2, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{threadData, Integer.valueOf(i2), str, Long.valueOf(j), str2, str3})) == null) {
-            if (threadData == null) {
-                return "";
-            }
-            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
-            StringBuilder sb = new StringBuilder();
-            if (i2 != 2 && i2 != 6 && i2 != 8) {
-                if (threadData.getIsNoTitle() == 0) {
-                    String str4 = threadData.getAbstract();
-                    if (!StringUtils.isNull(str4)) {
-                        str3 = str4;
-                    }
-                    if (!StringUtils.isNull(str3) && !StringUtil.NULL_STRING.equals(str3)) {
-                        if (str3.length() > 20) {
-                            sb.append(str3.substring(0, 20));
-                            sb.append(StringHelper.STRING_MORE);
-                        } else {
-                            sb.append(str3);
-                        }
-                        sb.append(StringUtils.lineSeparator);
-                    } else {
-                        String k = k(threadData, str2);
-                        if (!StringUtils.isNull(k)) {
-                            sb.append(inst.getString(R.string.post_author));
-                            sb.append(k);
-                            sb.append(StringUtils.lineSeparator);
-                        }
-                    }
-                    if (j > 0) {
-                        sb.append(inst.getString(R.string.forum_friend_looking));
-                        sb.append(StringHelper.numFormatOver10000(j));
-                    }
-                } else {
-                    String k2 = k(threadData, str2);
-                    if (!StringUtils.isNull(k2)) {
-                        sb.append(inst.getString(R.string.post_author));
-                        sb.append(k2);
-                        sb.append(StringUtils.lineSeparator);
-                    }
-                    if (j > 0) {
-                        sb.append(inst.getString(R.string.forum_friend_looking));
-                        sb.append(StringHelper.numFormatOver10000(j));
-                    }
-                }
-            } else {
-                if (j > 0) {
-                    sb.append(inst.getString(R.string.forum_friend_looking));
-                    sb.append(StringHelper.numFormatOver10000(j));
-                    sb.append(StringUtils.lineSeparator);
-                }
-                String k3 = k(threadData, str2);
-                if (!StringUtils.isNull(k3)) {
-                    sb.append(inst.getString(R.string.post_author));
-                    sb.append(k3);
-                    sb.append(StringUtils.lineSeparator);
-                }
-                if (!StringUtils.isNull(str)) {
-                    if (str.length() > 10) {
-                        str = str.substring(0, 10) + StringHelper.STRING_MORE;
-                    }
-                    sb.append(str);
-                    sb.append(inst.getString(R.string.obfuscated_res_0x7f0f06b5));
-                }
-            }
-            return sb.toString();
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static int j(ThreadData threadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, threadData)) == null) {
-            if (threadData != null) {
-                if (threadData.isRealGod()) {
-                    return 4;
-                }
-                if (threadData.getIsLive() == 1) {
-                    return 3;
-                }
-                if (threadData.isBJHArticleThreadType()) {
-                    return 5;
-                }
-                if (threadData.isBJHVideoThreadType()) {
-                    return 6;
-                }
-                if (threadData.isBJHNormalThreadType()) {
-                    return 7;
-                }
-                if (threadData.isBJHVideoDynamicThreadType()) {
-                    return 8;
-                }
-                if (threadData.isShareThread && threadData.originalThreadData != null) {
-                    return 9;
-                }
-                if (!threadData.isRealVideoThread()) {
-                    return 1;
-                }
-                return 2;
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public static String k(ThreadData threadData, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, threadData, str)) == null) {
-            if (threadData.getAuthor() != null) {
-                str2 = threadData.getAuthor().getName_show();
-                if (!StringUtils.isNull(str2) && str2.length() > 10) {
-                    str2 = str2.substring(0, 10) + StringHelper.STRING_MORE;
-                }
-            } else {
-                str2 = "";
-            }
-            if (!StringUtils.isNull(str2)) {
-                return str2;
-            }
-            return str;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final ShareItem v(ShareItem shareItem, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, shareItem, str)) == null) {
-            if (shareItem == null) {
-                return null;
-            }
-            Uri uri = shareItem.z;
-            if ((uri == null || uri.equals("")) && shareItem.d() == null) {
-                str.startsWith(ThirdPartyUtil.TYPE_WEIXIN);
-                shareItem.z = Uri.parse("https://tb5.bdstatic.com/yunying/tieba_logo.jpg");
-            }
-            if (shareItem.r0) {
-                shareItem.x = u(shareItem.x, str, shareItem.O, UtilHelper.isVideoThread(shareItem.R));
-            }
-            return shareItem;
-        }
-        return (ShareItem) invokeLL.objValue;
-    }
-
-    public static String u(String str, String str2, String str3, boolean z) {
-        InterceptResult invokeCommon;
-        String c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{str, str2, str3, Boolean.valueOf(z)})) == null) {
-            if (hi.isEmpty(str)) {
-                str = i;
-            }
-            String e = e(e(str, "sfc=" + str2), "client_type=2");
-            String e2 = e(e, "client_version=" + TbConfig.getVersion());
-            String e3 = e(e2, "st=" + (System.currentTimeMillis() / 1000));
-            String e4 = e(e3, "is_video=" + z);
-            if (str3 != null) {
-                if (SwitchManager.getInstance().findType(UrlNeedCuidSwitch.URL_NEED_CUID_SWITCH) == 1) {
-                    c2 = pi.c(str3 + TbadkCoreApplication.getInst().getCuid() + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
-                } else {
-                    c2 = pi.c(str3 + (System.currentTimeMillis() / 1000) + "6&!N_j9#");
-                }
-                return e(e4, "unique=" + c2);
-            }
-            return e4;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final String d(String str, int i2, int i3, String str2) {
-        InterceptResult invokeCommon;
-        int min;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, Integer.valueOf(i2), Integer.valueOf(i3), str2})) == null) {
-            if (str == null) {
-                return str2;
-            }
-            if (Math.min((i2 - str2.length()) - i3, str.length()) < str.length()) {
-                return str.substring(0, min - 1) + (StringHelper.STRING_MORE + str2);
-            }
-            return str + str2;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public final ShareItem f(ShareItem shareItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareItem)) == null) {
-            if (shareItem == null) {
-                return shareItem;
-            }
-            if (WeChatShareSmallAppToH5Switch.isOn() && (!StringUtils.isNull(shareItem.I0) || !StringUtils.isNull(shareItem.J0) || shareItem.K0 != null)) {
-                if (!StringUtils.isNull(shareItem.I0)) {
-                    shareItem.v = hi.cutString(shareItem.I0, 100);
-                }
-                if (!StringUtils.isNull(shareItem.J0)) {
-                    shareItem.w = hi.cutString(shareItem.J0, 100);
-                }
-                Uri uri = shareItem.K0;
-                if (uri != null) {
-                    shareItem.z = uri;
-                }
-            }
-            if (WeChatShareSmallAppToH5Switch.isOn() && !StringUtils.isNull(shareItem.x)) {
-                shareItem.x = e(shareItem.x, "&source=12_16_sharecard_a");
-            }
-            return shareItem;
-        }
-        return (ShareItem) invokeL.objValue;
-    }
-
-    public final ShareItem g(ShareItem shareItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, shareItem)) == null) {
-            if (!StringUtils.isNull(shareItem.J0)) {
-                shareItem.w = hi.cutString(shareItem.J0, 100);
-            }
-            Uri uri = shareItem.K0;
-            if (uri != null) {
-                shareItem.z = uri;
-            }
-            if (!StringUtils.isNull(shareItem.x)) {
-                shareItem.x = e(shareItem.x, "&source=12_16_sharecard_a");
-            }
-            return shareItem;
-        }
-        return (ShareItem) invokeL.objValue;
-    }
-
-    public void o(ShareItem shareItem) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, shareItem) != null) || this.c == null) {
-            return;
-        }
-        String str2 = shareItem.w;
-        if (shareItem.q0) {
-            str = this.d;
-        } else {
-            str = "";
-        }
-        shareItem.w = d(str2, Cea708Decoder.COMMAND_DLW, 20, str);
-        this.c.a(v(shareItem, "renren"), 7, true);
-    }
-
-    public void q(ShareItem shareItem) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, shareItem) != null) || this.c == null) {
-            return;
-        }
-        String str2 = shareItem.w;
-        if (shareItem.q0) {
-            str = this.d;
-        } else {
-            str = "";
-        }
-        shareItem.w = d(str2, Cea708Decoder.COMMAND_DLW, 20, str);
-        this.c.a(v(shareItem, "tencent_weibo"), 5, true);
-    }
-
-    public void s(ShareItem shareItem) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, shareItem) != null) || this.c == null || shareItem == null) {
-            return;
-        }
-        String str2 = shareItem.w;
-        if (shareItem.q0) {
-            str = this.d;
-        } else {
-            str = "";
-        }
-        shareItem.w = d(str2, 80, 20, str);
-        this.c.a(v(shareItem, Share.WEIXIN_TIMELINE), 2, false);
-    }
-
-    public void m(ShareItem shareItem) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, shareItem) == null) && this.c != null && shareItem != null) {
-            String str2 = shareItem.w;
-            if (shareItem.q0) {
-                str = this.d;
-            } else {
-                str = "";
-            }
-            shareItem.w = d(str2, 80, 32, str);
-            if (!QqShareH5Switch.isOn() && !hi.isEmpty(shareItem.t0)) {
-                shareItem.z = Uri.parse(shareItem.t0);
-                this.c.a(v(shareItem, Share.QQFRIEND), 8, true);
-            } else if (!QqShareH5Switch.isOn() && hi.isEmpty(shareItem.t0) && !hi.isEmpty(shareItem.O) && !"0".equals(shareItem.O)) {
-                if (this.e == null) {
-                    ea5 ea5Var = new ea5();
-                    this.e = ea5Var;
-                    ea5Var.c(this.g);
-                }
-                this.e.b(shareItem);
-            } else {
-                if (!QqShareH5Switch.isOn()) {
-                    if (this.e == null) {
-                        this.e = new ea5();
-                    }
-                    this.e.b(shareItem);
-                }
-                ShareItem v = v(shareItem, Share.QQFRIEND);
-                g(v);
-                this.c.a(v, 8, true);
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, z8Var) == null) {
+            this.c = z8Var;
         }
     }
 
-    public void n(ShareItem shareItem) {
-        String str;
+    public void e() {
+        b bVar;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, shareItem) != null) || this.c == null) {
-            return;
-        }
-        String str2 = shareItem.w;
-        if (shareItem.q0) {
-            str = this.d;
-        } else {
-            str = "";
-        }
-        shareItem.w = d(str2, 80, 32, str);
-        if (!QqShareH5Switch.isOn() && !hi.isEmpty(shareItem.t0)) {
-            shareItem.z = Uri.parse(shareItem.t0);
-            this.c.a(v(shareItem, "qzone"), 4, true);
-        } else if (!QqShareH5Switch.isOn() && hi.isEmpty(shareItem.t0) && !hi.isEmpty(shareItem.O) && !"0".equals(shareItem.O)) {
-            if (this.e == null) {
-                ea5 ea5Var = new ea5();
-                this.e = ea5Var;
-                ea5Var.c(this.h);
-            }
-            this.e.b(shareItem);
-        } else {
-            if (!QqShareH5Switch.isOn()) {
-                if (this.e == null) {
-                    this.e = new ea5();
-                }
-                this.e.b(shareItem);
-            }
-            this.c.a(v(shareItem, "qzone"), 4, true);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.b) != null) {
+            bVar.cancel();
         }
     }
 
-    public void p(ShareItem shareItem) {
-        String str;
+    public Activity getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, shareItem) != null) || this.c == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            TbPageContext tbPageContext = this.a;
+            if (tbPageContext != null) {
+                return tbPageContext.getPageActivity();
+            }
+            return null;
         }
-        if (!da5.b(TbadkApplication.getInst().getApplicationContext(), 6)) {
-            BdToast.b(TbadkApplication.getInst().getApplicationContext(), TbadkApplication.getInst().getApplicationContext().getText(R.string.share_sina_weibo_not_install)).o();
-            return;
-        }
-        String string = TbadkCoreApplication.getInst().getContext().getString(R.string.weibo_share_tail);
-        if (shareItem.L0 != null) {
-            str = string + TbadkCoreApplication.getInst().getContext().getString(R.string.share_group_tail);
-        } else {
-            str = string + this.d;
-        }
-        String str2 = shareItem.w;
-        if (!shareItem.q0) {
-            str = "";
-        }
-        shareItem.w = d(str2, Cea708Decoder.COMMAND_DLW, 20, str);
-        this.c.a(v(shareItem, "sina_weibo"), 6, true);
+        return (Activity) invokeV.objValue;
     }
 
-    public void r(ShareItem shareItem) {
-        String str;
+    public void h(boolean z, String str, String str2, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, shareItem) != null) || this.c == null || shareItem == null) {
-            return;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), str, str2, bdUniqueId}) == null) {
+            i(z, str, str2, false, "0", bdUniqueId, null, "0");
         }
-        if (StringUtils.isNull(shareItem.O)) {
-            String str2 = shareItem.w;
-            if (shareItem.q0) {
-                str = this.d;
-            } else {
-                str = "";
-            }
-            shareItem.w = d(str2, 80, 20, str);
+    }
+
+    public void i(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), str3, bdUniqueId, str4, str5}) == null) {
+            j(z, str, str2, z2, str3, bdUniqueId, str4, str5, null);
         }
-        if (shareItem.v0 && !hi.isEmpty(shareItem.t0)) {
-            shareItem.z = Uri.parse(shareItem.t0);
-            ShareItem v = v(shareItem, ThirdPartyUtil.TYPE_WEIXIN);
-            f(v);
-            this.c.a(v, 3, false);
-        } else if (shareItem.v0 && hi.isEmpty(shareItem.t0) && !hi.isEmpty(shareItem.O) && !"0".equals(shareItem.O)) {
-            if (this.e == null) {
-                ea5 ea5Var = new ea5();
-                this.e = ea5Var;
-                ea5Var.c(this.f);
-            }
-            this.e.b(shareItem);
-        } else {
-            if (shareItem.C == 4) {
-                if (this.e == null) {
-                    this.e = new ea5();
-                }
-                this.e.b(shareItem);
-            }
-            ShareItem v2 = v(shareItem, ThirdPartyUtil.TYPE_WEIXIN);
-            f(v2);
-            this.c.a(v2, 3, false);
+    }
+
+    public void j(boolean z, String str, String str2, boolean z2, String str3, BdUniqueId bdUniqueId, String str4, String str5, String str6) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Boolean.valueOf(z), str, str2, Boolean.valueOf(z2), str3, bdUniqueId, str4, str5, str6}) == null) && this.b == null) {
+            b bVar = new b(this, null);
+            this.b = bVar;
+            bVar.setPriority(2);
+            this.b.b(z);
+            this.b.h(str);
+            this.b.j(str2);
+            this.b.f(z2);
+            this.b.d(str3);
+            this.b.g(bdUniqueId);
+            this.b.c(str4);
+            this.b.e(str5);
+            this.b.i(str6);
+            this.b.execute(new Integer[0]);
         }
     }
 }

@@ -1,51 +1,104 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.View;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TiebaStaticHelper;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.pageInfo.TbPageTag;
+import com.baidu.tieba.hq6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ud7 implements CustomMessageTask.CustomRunnable<ThreadData>, wg6 {
+public class ud7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yf7 a;
-    public TbPageTag b;
-    public BdUniqueId c;
-    public int d;
+    public BdUniqueId a;
+    public boolean b;
+    public iq6 c;
+    public boolean d;
+    public VelocityTracker e;
+    public hq6.b f;
 
-    @Override // com.baidu.tieba.wg6
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+    /* loaded from: classes6.dex */
+    public class a implements hq6.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ud7 a;
+
+        @Override // com.baidu.tieba.hq6.b
+        public void c(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.hq6.b
+        public void d(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            }
+        }
+
+        public a(ud7 ud7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ud7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ud7Var;
+        }
+
+        public final boolean e(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
+                if (Math.abs(f) >= 10.0f) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeF.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.hq6.b
+        public void a(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && e(i2)) {
+                this.a.e(true);
+            }
+        }
+
+        @Override // com.baidu.tieba.hq6.b
+        public void b(int i, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && e(i2)) {
+                this.a.e(false);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.wg6
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
-
-    public ud7(yf7 yf7Var, TbPageTag tbPageTag, BdUniqueId bdUniqueId) {
+    public ud7(Context context, BdUniqueId bdUniqueId, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {yf7Var, tbPageTag, bdUniqueId};
+            Object[] objArr = {context, bdUniqueId, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -55,140 +108,88 @@ public class ud7 implements CustomMessageTask.CustomRunnable<ThreadData>, wg6 {
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.a = yf7Var;
-        this.b = tbPageTag;
-        this.c = bdUniqueId;
+        this.b = false;
+        this.f = new a(this);
+        this.a = bdUniqueId;
+        this.d = z;
+        if (z) {
+            iq6 iq6Var = new iq6(context);
+            this.c = iq6Var;
+            iq6Var.d(this.f);
+        }
     }
 
-    public final void b(ThreadData threadData) {
-        int i;
-        String str;
+    /* JADX WARN: Code restructure failed: missing block: B:12:0x001e, code lost:
+        if (r5 != 3) goto L12;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b(View view2, MotionEvent motionEvent) {
+        iq6 iq6Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) == null) && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
-            long j = 0;
-            if (threadData.getThreadAlaInfo().user_info != null) {
-                j = threadData.getThreadAlaInfo().user_info.ala_id;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, view2, motionEvent) == null) {
+            if (this.e == null) {
+                this.e = VelocityTracker.obtain();
             }
-            StatisticItem statisticItem = new StatisticItem("c13615");
-            statisticItem.param("uid", threadData.getAuthor().getUserId());
-            statisticItem.param("fid", threadData.getFid());
-            statisticItem.param("ab_tag", threadData.mRecomAbTag);
-            if (threadData.getThreadAlaInfo().isChushou) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            statisticItem.param("obj_type", i);
-            statisticItem.param("tid", threadData.getTid());
-            statisticItem.param("liveid", threadData.getThreadAlaInfo().live_id);
-            statisticItem.param(TiebaStatic.Params.STAR_ID, j);
-            statisticItem.param("extra", threadData.mRecomExtra);
-            statisticItem.param("source_from", threadData.mRecomSource);
-            statisticItem.param("nid", threadData.getAuthor().getAlaInfo().mYyExtData.feedId);
-            statisticItem.param("cuid", TbadkCoreApplication.getInst().getCuid());
-            int i2 = this.d;
-            if (i2 == 14) {
-                statisticItem.param("obj_locate", 1);
-            } else if (i2 == 13) {
-                statisticItem.param("obj_locate", 2);
-            }
-            if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
-                statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo()));
-                if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(statisticItem, threadData.getAuthor().getAlaInfo().mYyExtData);
-                    str = TiebaStatic.YYValues.YY_LIVE;
-                } else {
-                    str = "";
+            this.e.addMovement(motionEvent);
+            int action = motionEvent.getAction();
+            if (action != 1) {
+                if (action == 2) {
+                    this.e.computeCurrentVelocity(1000);
+                    if (Math.abs(this.e.getXVelocity()) > Math.abs(this.e.getYVelocity())) {
+                        this.d = false;
+                    } else {
+                        this.d = true;
+                    }
                 }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-            }
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public final void c(ThreadData threadData) {
-        int i;
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getAuthor() != null && threadData.getThreadAlaInfo() != null) {
-            long j = 0;
-            if (threadData.getThreadAlaInfo().user_info != null) {
-                j = threadData.getThreadAlaInfo().user_info.ala_id;
-            }
-            StatisticItem statisticItem = new StatisticItem("c13614");
-            statisticItem.param("uid", threadData.getAuthor().getUserId());
-            statisticItem.param("fid", threadData.getFid());
-            statisticItem.param("ab_tag", threadData.mRecomAbTag);
-            if (threadData.getThreadAlaInfo().isChushou) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            statisticItem.param("obj_type", i);
-            statisticItem.param("tid", threadData.getTid());
-            statisticItem.param("liveid", threadData.getThreadAlaInfo().live_id);
-            statisticItem.param(TiebaStatic.Params.STAR_ID, j);
-            statisticItem.param("extra", threadData.mRecomExtra);
-            statisticItem.param("source_from", threadData.mRecomSource);
-            statisticItem.param("nid", threadData.getAuthor().getAlaInfo().mYyExtData.feedId);
-            statisticItem.param("cuid", TbadkCoreApplication.getInst().getCuid());
-            int i2 = this.d;
-            if (i2 == 14) {
-                statisticItem.param("obj_locate", 1);
-            } else if (i2 == 13) {
-                statisticItem.param("obj_locate", 2);
-            }
-            if (threadData.getAuthor() != null && threadData.getAuthor().getAlaInfo() != null) {
-                statisticItem.param("obj_param1", YYLiveUtil.calculateLiveType(threadData.getAuthor().getAlaInfo()));
-                if (threadData.getAuthor().getAlaInfo().mYyExtData != null) {
-                    TiebaStaticHelper.addYYParam(statisticItem, threadData.getAuthor().getAlaInfo().mYyExtData);
-                    str = TiebaStatic.YYValues.YY_LIVE;
-                } else {
-                    str = "";
-                }
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str);
-            }
-            rg6.b().a(statisticItem);
-        }
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<ThreadData> customMessage) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage.getData() instanceof ThreadData)) {
-                ThreadData data = customMessage.getData();
-                if (customMessage.getCmd() == 2921018) {
-                    b(data);
-                    zf7.k().h(this.a, data, 1);
-                    xf7.e(data, 1, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921016) {
-                    b(data);
-                    zf7.k().h(this.a, data, 2);
-                    xf7.e(data, 2, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921019) {
-                    b(data);
-                    zf7.k().h(this.a, data, 4);
-                    xf7.e(data, 1, this.c, this.a, this.b);
-                } else if (customMessage.getCmd() == 2921017) {
-                    c(data);
-                    zf7.k().c(this.a, data);
-                    xf7.o(data, this.c, this.a, this.b);
+                if (!this.d && (iq6Var = this.c) != null) {
+                    iq6Var.c(motionEvent);
+                    return;
                 }
             }
-            return null;
+            c();
+            if (!this.d) {
+            }
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+    }
+
+    public final void c() {
+        VelocityTracker velocityTracker;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (velocityTracker = this.e) != null) {
+            velocityTracker.clear();
+            this.e.recycle();
+            this.e = null;
+        }
+    }
+
+    public final void d(boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            if (z) {
+                CustomMessage customMessage = new CustomMessage(2001617);
+                customMessage.setTag(this.a);
+                CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2001617, Boolean.valueOf(z2));
+                customResponsedMessage.setOrginalMessage(customMessage);
+                MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage);
+                return;
+            }
+            CustomMessage customMessage2 = new CustomMessage(2001618);
+            customMessage2.setTag(this.a);
+            CustomResponsedMessage customResponsedMessage2 = new CustomResponsedMessage(2001618, Boolean.valueOf(z2));
+            customResponsedMessage2.setOrginalMessage(customMessage2);
+            MessageManager.getInstance().dispatchResponsedMessage(customResponsedMessage2);
+        }
+    }
+
+    public final void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.b = z;
+            if (this.d) {
+                d(!z, true);
+            }
+        }
     }
 }

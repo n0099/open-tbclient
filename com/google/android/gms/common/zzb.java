@@ -4,7 +4,7 @@ import android.app.PendingIntent;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzb implements Parcelable.Creator<ConnectionResult> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator

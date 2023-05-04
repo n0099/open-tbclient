@@ -1,105 +1,55 @@
 package com.baidu.tieba;
 
+import android.graphics.Matrix;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n1b;
+import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import rx.exceptions.CompositeException;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
+import com.opensource.svgaplayer.proto.FrameEntity;
+import com.opensource.svgaplayer.proto.Layout;
+import com.opensource.svgaplayer.proto.ShapeEntity;
+import com.opensource.svgaplayer.proto.Transform;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m2b<T> implements n1b.a<T> {
+public final class m2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final o1b<? super T> a;
-    public final n1b<T> b;
+    public double a;
+    public p2b b;
+    public Matrix c;
+    public h2b d;
+    public List<SVGAVideoShapeEntity> e;
 
-    /* loaded from: classes5.dex */
-    public static final class a<T> extends t1b<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final t1b<? super T> e;
-        public final o1b<? super T> f;
-        public boolean g;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(t1b<? super T> t1bVar, o1b<? super T> o1bVar) {
-            super(t1bVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {t1bVar, o1bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((t1b) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = t1bVar;
-            this.f = o1bVar;
-        }
-
-        @Override // com.baidu.tieba.o1b
-        public void onCompleted() {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.g) {
-                return;
-            }
-            try {
-                this.f.onCompleted();
-                this.g = true;
-                this.e.onCompleted();
-            } catch (Throwable th) {
-                z1b.f(th, this);
-            }
-        }
-
-        @Override // com.baidu.tieba.o1b
-        public void onError(Throwable th) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                if (this.g) {
-                    u5b.j(th);
-                    return;
-                }
-                this.g = true;
-                try {
-                    this.f.onError(th);
-                    this.e.onError(th);
-                } catch (Throwable th2) {
-                    z1b.e(th2);
-                    this.e.onError(new CompositeException(Arrays.asList(th, th2)));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.o1b
-        public void onNext(T t) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.g) {
-                return;
-            }
-            try {
-                this.f.onNext(t);
-                this.e.onNext(t);
-            } catch (Throwable th) {
-                z1b.g(th, this, t);
-            }
-        }
-    }
-
-    public m2b(n1b<T> n1bVar, o1b<? super T> o1bVar) {
+    public m2b(FrameEntity frameEntity) {
+        float f;
+        float f2;
+        float f3;
+        float f4;
+        float f5;
+        float f6;
+        float f7;
+        float f8;
+        float f9;
+        float f10;
+        float f11;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {n1bVar, o1bVar};
+            Object[] objArr = {frameEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -109,19 +59,225 @@ public class m2b<T> implements n1b.a<T> {
                 return;
             }
         }
-        this.b = n1bVar;
-        this.a = o1bVar;
+        this.b = new p2b(0.0d, 0.0d, 0.0d, 0.0d);
+        this.c = new Matrix();
+        this.e = CollectionsKt__CollectionsKt.emptyList();
+        Float f12 = frameEntity.alpha;
+        if (f12 != null) {
+            f = f12.floatValue();
+        } else {
+            f = 0.0f;
+        }
+        this.a = f;
+        Layout layout = frameEntity.layout;
+        if (layout != null) {
+            Float f13 = layout.x;
+            if (f13 != null) {
+                f8 = f13.floatValue();
+            } else {
+                f8 = 0.0f;
+            }
+            double d = f8;
+            Float f14 = layout.y;
+            if (f14 != null) {
+                f9 = f14.floatValue();
+            } else {
+                f9 = 0.0f;
+            }
+            double d2 = f9;
+            Float f15 = layout.width;
+            if (f15 != null) {
+                f10 = f15.floatValue();
+            } else {
+                f10 = 0.0f;
+            }
+            double d3 = f10;
+            Float f16 = layout.height;
+            if (f16 != null) {
+                f11 = f16.floatValue();
+            } else {
+                f11 = 0.0f;
+            }
+            this.b = new p2b(d, d2, d3, f11);
+        }
+        Transform transform = frameEntity.transform;
+        if (transform != null) {
+            float[] fArr = new float[9];
+            Float f17 = transform.a;
+            if (f17 != null) {
+                f2 = f17.floatValue();
+            } else {
+                f2 = 1.0f;
+            }
+            Float f18 = transform.b;
+            if (f18 != null) {
+                f3 = f18.floatValue();
+            } else {
+                f3 = 0.0f;
+            }
+            Float f19 = transform.c;
+            if (f19 != null) {
+                f4 = f19.floatValue();
+            } else {
+                f4 = 0.0f;
+            }
+            Float f20 = transform.d;
+            if (f20 != null) {
+                f5 = f20.floatValue();
+            } else {
+                f5 = 1.0f;
+            }
+            Float f21 = transform.tx;
+            if (f21 != null) {
+                f6 = f21.floatValue();
+            } else {
+                f6 = 0.0f;
+            }
+            Float f22 = transform.ty;
+            if (f22 != null) {
+                f7 = f22.floatValue();
+            } else {
+                f7 = 0.0f;
+            }
+            fArr[0] = f2;
+            fArr[1] = f4;
+            fArr[2] = f6;
+            fArr[3] = f3;
+            fArr[4] = f5;
+            fArr[5] = f7;
+            fArr[6] = 0.0f;
+            fArr[7] = 0.0f;
+            fArr[8] = 1.0f;
+            this.c.setValues(fArr);
+        }
+        String str = frameEntity.clipPath;
+        if (str != null) {
+            str = str.length() > 0 ? str : null;
+            if (str != null) {
+                this.d = new h2b(str);
+            }
+        }
+        List<ShapeEntity> list = frameEntity.shapes;
+        Intrinsics.checkExpressionValueIsNotNull(list, "obj.shapes");
+        ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+        for (ShapeEntity it : list) {
+            Intrinsics.checkExpressionValueIsNotNull(it, "it");
+            arrayList.add(new SVGAVideoShapeEntity(it));
+        }
+        this.e = arrayList;
     }
 
-    public void call(t1b<? super T> t1bVar) {
+    public m2b(JSONObject jSONObject) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t1bVar) == null) {
-            this.b.B(new a(t1bVar, this.a));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r3;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        m2b m2bVar = this;
+        m2bVar.b = new p2b(0.0d, 0.0d, 0.0d, 0.0d);
+        m2bVar.c = new Matrix();
+        m2bVar.e = CollectionsKt__CollectionsKt.emptyList();
+        m2bVar.a = jSONObject.optDouble(Key.ALPHA, 0.0d);
+        JSONObject optJSONObject = jSONObject.optJSONObject(TtmlNode.TAG_LAYOUT);
+        if (optJSONObject != null) {
+            m2bVar.b = new p2b(optJSONObject.optDouble("x", 0.0d), optJSONObject.optDouble("y", 0.0d), optJSONObject.optDouble("width", 0.0d), optJSONObject.optDouble("height", 0.0d));
+        }
+        JSONObject optJSONObject2 = jSONObject.optJSONObject("transform");
+        if (optJSONObject2 != null) {
+            double optDouble = optJSONObject2.optDouble("a", 1.0d);
+            double optDouble2 = optJSONObject2.optDouble("b", 0.0d);
+            double optDouble3 = optJSONObject2.optDouble("c", 0.0d);
+            double optDouble4 = optJSONObject2.optDouble("d", 1.0d);
+            double optDouble5 = optJSONObject2.optDouble(MapBundleKey.MapObjKey.OBJ_TEXT, 0.0d);
+            double optDouble6 = optJSONObject2.optDouble("ty", 0.0d);
+            float f = (float) optDouble3;
+            z = true;
+            float f2 = (float) 0.0d;
+            float[] fArr = {(float) optDouble, f, (float) optDouble5, (float) optDouble2, (float) optDouble4, (float) optDouble6, f2, f2, (float) 1.0d};
+            m2bVar = this;
+            m2bVar.c.setValues(fArr);
+        } else {
+            z = true;
+        }
+        String optString = jSONObject.optString("clipPath");
+        if (optString != null) {
+            if (optString.length() <= 0 ? false : z) {
+                m2bVar.d = new h2b(optString);
+            }
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("shapes");
+        if (optJSONArray != null) {
+            ArrayList arrayList = new ArrayList();
+            int length = optJSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject3 = optJSONArray.optJSONObject(i3);
+                if (optJSONObject3 != null) {
+                    arrayList.add(new SVGAVideoShapeEntity(optJSONObject3));
+                }
+            }
+            m2bVar.e = CollectionsKt___CollectionsKt.toList(arrayList);
         }
     }
 
-    @Override // com.baidu.tieba.n1b.a, com.baidu.tieba.b2b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((t1b) ((t1b) obj));
+    public final double a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.doubleValue;
+    }
+
+    public final p2b b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (p2b) invokeV.objValue;
+    }
+
+    public final h2b c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return (h2b) invokeV.objValue;
+    }
+
+    public final List<SVGAVideoShapeEntity> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final Matrix e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (Matrix) invokeV.objValue;
+    }
+
+    public final void f(List<SVGAVideoShapeEntity> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+            this.e = list;
+        }
     }
 }

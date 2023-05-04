@@ -38,14 +38,14 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
     public BdListView getListView2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this : (BdTypeListView) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? this : (BdTypeListView) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView, android.widget.AdapterView
     @Deprecated
     public void setOnItemClickListener(AdapterView.OnItemClickListener onItemClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onItemClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048585, this, onItemClickListener) == null) {
         }
     }
 
@@ -53,7 +53,7 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
     @Deprecated
     public void setOnItemLongClickListener(AdapterView.OnItemLongClickListener onItemLongClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onItemLongClickListener) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, onItemLongClickListener) == null) {
         }
     }
 
@@ -86,7 +86,7 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
             TypeAdapter typeAdapter;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (typeAdapter = this.a.G) != null) {
-                typeAdapter.d(adapterView, view2, i, j);
+                typeAdapter.e(adapterView, view2, i, j);
             }
         }
     }
@@ -122,7 +122,7 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
             if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{adapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
                 TypeAdapter typeAdapter = this.a.G;
                 if (typeAdapter != null) {
-                    return typeAdapter.e(adapterView, view2, i, j);
+                    return typeAdapter.f(adapterView, view2, i, j);
                 }
                 return false;
             }
@@ -149,7 +149,7 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
             }
         }
         this.G = null;
-        G();
+        H();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -172,7 +172,7 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
             }
         }
         this.G = null;
-        G();
+        H();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -195,21 +195,49 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
             }
         }
         this.G = null;
-        G();
+        H();
     }
 
-    public in F(int i) {
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HashMap<BdUniqueId, cn> hashMap = this.I;
+            if (hashMap != null) {
+                hashMap.clear();
+            }
+            HashMap<BdUniqueId, vm> hashMap2 = this.H;
+            if (hashMap2 != null) {
+                hashMap2.clear();
+            }
+            TypeAdapter typeAdapter = this.G;
+            if (typeAdapter != null) {
+                typeAdapter.b();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.on
+    public List<in> getData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.G.c();
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public in G(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             return this.G.getItem(i);
         }
         return (in) invokeI.objValue;
     }
 
-    public final void G() {
+    public final void H() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             if (this.G == null) {
                 this.G = new TypeAdapter();
             }
@@ -227,7 +255,7 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
     @Override // com.baidu.tieba.on
     public void addAdapters(List<vm> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
             for (vm<in, TypeAdapter.ViewHolder> vmVar : list) {
                 if (vmVar != null) {
                     BdUniqueId bdUniqueId = null;
@@ -281,7 +309,7 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
     @Override // com.baidu.tieba.on
     public void setData(List<? extends in> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             ArrayList arrayList = new ArrayList();
             for (in inVar : list) {
                 if (inVar != null) {
@@ -332,17 +360,7 @@ public class BdTypeListView extends BdListView implements on<BdTypeListView> {
                     }
                 }
             }
-            this.G.f(arrayList);
+            this.G.i(arrayList);
         }
-    }
-
-    @Override // com.baidu.tieba.on
-    public List<in> getData() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.G.b();
-        }
-        return (List) invokeV.objValue;
     }
 }

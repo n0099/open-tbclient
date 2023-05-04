@@ -7,16 +7,15 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class f42 extends c32 {
+public final class f42 extends j32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String L;
-    public boolean M;
-    public boolean N;
+    public int D;
+    public String E;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public f42() {
-        super("input", "viewId");
+        super("coverView", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -31,31 +30,25 @@ public final class f42 extends c32 {
                 return;
             }
         }
+        this.E = "";
     }
 
-    @Override // com.baidu.tieba.c32, com.baidu.tieba.h32, com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.ux2
+    @Override // com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.n32, com.baidu.tieba.wx2
     public void a(JSONObject jSONObject) throws JSONException {
-        boolean z;
+        JSONObject jSONObject2;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         super.a(jSONObject);
-        if (this.h == null) {
-            this.h = new by2();
+        this.D = jSONObject.optInt("scrollTop");
+        JSONObject jSONObject3 = this.j;
+        if (jSONObject3 != null) {
+            this.E = jSONObject3.optString("overflowY");
         }
-        this.t = jSONObject.optString("value");
-        this.L = jSONObject.optString("type");
-        boolean z2 = false;
-        if (jSONObject.optInt("confirmHold") == 1) {
-            z = true;
-        } else {
-            z = false;
+        dy2 dy2Var = this.h;
+        if (dy2Var != null && (jSONObject2 = this.j) != null) {
+            dy2Var.i(jSONObject2.optBoolean("fixed", false));
         }
-        this.M = z;
-        if (jSONObject.optInt("adjustPosition", 1) == 1) {
-            z2 = true;
-        }
-        this.N = z2;
     }
 }

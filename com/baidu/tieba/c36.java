@@ -1,27 +1,81 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.process.ipc.delegate.DelegateListener;
+import com.baidu.searchbox.process.ipc.delegate.DelegateResult;
+import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
+import com.baidu.tbadk.core.atomData.QRCodeScanActivityConfig;
+import com.baidu.tieba.aiapps.apps.barcode.ScanCodeDelegateActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.charset.Charset;
+@Singleton
+@Service
 /* loaded from: classes3.dex */
-public class c36 {
+public class c36 implements bs2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile b36 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized b36 a() {
-        InterceptResult invokeV;
-        b36 b36Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (c36.class) {
-                if (a == null) {
-                    a = new b36();
+    /* loaded from: classes3.dex */
+    public class a implements DelegateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a02 a;
+
+        public a(c36 c36Var, a02 a02Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {c36Var, a02Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                b36Var = a;
             }
-            return b36Var;
+            this.a = a02Var;
         }
-        return (b36) invokeV.objValue;
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.DelegateListener
+        public void onDelegateCallBack(@NonNull DelegateResult delegateResult) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, delegateResult) == null) && delegateResult.isOk()) {
+                this.a.a(delegateResult.mResult.getString(QRCodeScanActivityConfig.RESULT_SCAN_CODE, ""), "", Charset.defaultCharset().name());
+            }
+        }
+    }
+
+    public c36() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.bs2
+    public void a(Context context, a02 a02Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, context, a02Var) != null) || !(context instanceof Activity)) {
+            return;
+        }
+        DelegateUtils.callOnMainWithActivity((Activity) context, ScanCodeDelegateActivity.class, b36.class, new Bundle(), new a(this, a02Var));
     }
 }

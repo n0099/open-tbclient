@@ -1,147 +1,72 @@
 package com.baidu.tieba;
 
-import android.graphics.Paint;
-import android.graphics.Path;
-import android.text.TextPaint;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.canvas.view.CanvasView;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Stack;
 /* loaded from: classes3.dex */
-public class c12 implements Cloneable {
+public class c12 extends u02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Stack<c12> a;
-    public Paint b;
-    public Paint c;
-    public Paint d;
-    public TextPaint e;
-    public Path f;
-    public boolean g;
-    public CanvasView h;
-    public l22 i;
-    public int j;
-    public int k;
-    public int l;
-    public int m;
 
-    public c12(CanvasView canvasView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public c12(u83 u83Var) {
+        super(u83Var, "/swanAPI/canvas/update");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {canvasView};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new Stack<>();
-        this.b = new Paint();
-        this.c = new Paint();
-        this.d = new Paint();
-        this.e = new TextPaint();
-        this.f = new Path();
-        this.g = false;
-        this.j = -1;
-        this.k = 0;
-        this.l = 0;
-        this.m = -16777216;
-        this.h = canvasView;
-        d();
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            u22 k = k(unitedSchemeEntity);
+            if (k == null) {
+                unitedSchemeEntity.result = l(201);
+                x42.c("SwanAppCanvas", "update action parse model is null");
+                return false;
+            }
+            String str = k.b;
+            dy2 dy2Var = k.h;
+            if (!TextUtils.isEmpty(str) && dy2Var != null && dy2Var.h()) {
+                x32 x32Var = (x32) k42.a(k);
+                if (x32Var == null) {
+                    x42.c("SwanAppCanvas", "update canvas fail: fina a null component");
+                    unitedSchemeEntity.result = l(1001);
+                    return false;
+                }
+                o32 update = x32Var.update((x32) k);
+                boolean a = update.a();
+                if (!a) {
+                    x42.c("SwanAppCanvas", "update canvas fail: " + update.b);
+                }
+                j(unitedSchemeEntity, callbackHandler, a);
+                return a;
+            }
+            x42.c("SwanAppCanvas", "some params invalid");
+            unitedSchemeEntity.result = l(202);
+            return false;
         }
-        return invokeV.intValue;
-    }
-
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.l = i;
-        }
-    }
-
-    public void c(Paint paint) {
-        l22 l22Var;
-        j12 j12Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, paint) != null) || paint == null) {
-            return;
-        }
-        if (this.h != null && (l22Var = this.i) != null && (j12Var = l22Var.d) != null && !j12Var.c()) {
-            l22 l22Var2 = this.i;
-            paint.setShadowLayer(l22Var2.c, l22Var2.a, l22Var2.b, l22Var2.d.a());
-        }
-        int i = this.j;
-        if (i >= 0 && i <= 255) {
-            paint.setAlpha(Math.min((paint.getAlpha() * this.j) >> 8, 255));
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.m = -16777216;
-            this.c.setStyle(Paint.Style.STROKE);
-            this.b.setColor(-16777216);
-            this.c.setColor(-16777216);
-            this.d.setColor(-16777216);
-            this.e.setColor(-16777216);
-            this.c.setStrokeWidth(ml3.g(1.0f));
-            this.c.setAntiAlias(true);
-            this.e.setAntiAlias(true);
-            this.d.setAntiAlias(true);
-            this.f.reset();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.a.empty()) {
-            return;
-        }
-        c12 pop = this.a.pop();
-        this.b = pop.b;
-        this.c = pop.c;
-        this.d = pop.d;
-        this.e = pop.e;
-        this.f = pop.f;
-        this.g = pop.g;
-        this.a = pop.a;
-        this.i = pop.i;
-        this.j = pop.j;
-        this.k = pop.k;
-        this.l = pop.l;
-        this.m = pop.m;
-    }
-
-    public void f() throws CloneNotSupportedException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            c12 c12Var = (c12) super.clone();
-            c12Var.b = new Paint(this.b);
-            c12Var.c = new Paint(this.c);
-            c12Var.d = new Paint(this.d);
-            c12Var.e = new TextPaint(this.e);
-            c12Var.f = new Path(this.f);
-            c12Var.k = this.k;
-            c12Var.l = this.l;
-            c12Var.m = this.m;
-            this.a.push(c12Var);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

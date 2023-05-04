@@ -1,30 +1,88 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.media.ExifInterface;
-import android.media.MediaMetadataRetriever;
-import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.enterForum.recforum.message.RecommendForumRespondedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import java.io.IOException;
-/* loaded from: classes6.dex */
-public class ps6 extends os6 {
+/* loaded from: classes5.dex */
+public class ps6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ks6 a;
+    public boolean b;
+    public int c;
+    public b d;
+    public final HttpMessageListener e;
 
-    public ps6(boolean z) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends HttpMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ps6 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ps6 ps6Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ps6Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ps6Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003527 && (httpResponsedMessage instanceof RecommendForumRespondedMessage)) {
+                boolean z = true;
+                this.a.b = true;
+                if (httpResponsedMessage.getError() != 0) {
+                    return;
+                }
+                this.a.a = ((RecommendForumRespondedMessage) httpResponsedMessage).getRecommendForumData();
+                if (this.a.d == null) {
+                    return;
+                }
+                b bVar = this.a.d;
+                if (this.a.c != 1) {
+                    z = false;
+                }
+                bVar.a(z);
+            }
+        }
+    }
+
+    public ps6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,141 +92,77 @@ public class ps6 extends os6 {
                 return;
             }
         }
-        this.d = z;
+        this.b = false;
+        this.c = 1;
+        this.e = new a(this, CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA);
+        f();
+        j();
     }
 
-    public final int j(String str) {
-        ExifInterface exifInterface;
-        int attributeInt;
-        InterceptResult invokeL;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            try {
-                exifInterface = new ExifInterface(str);
-            } catch (IOException unused) {
-                exifInterface = null;
-            }
-            if (exifInterface != null && (attributeInt = exifInterface.getAttributeInt(androidx.exifinterface.media.ExifInterface.TAG_ORIENTATION, -1)) != -1) {
-                if (attributeInt != 3) {
-                    if (attributeInt != 6) {
-                        if (attributeInt == 8) {
-                            return 270;
-                        }
-                    } else {
-                        return 90;
-                    }
-                } else {
-                    return 180;
-                }
-            }
-            return 0;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA, TbConfig.SERVER_ADDRESS + "c/f/forum/getRecommendForumData");
+            tbHttpMessageTask.setResponsedClass(RecommendForumRespondedMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
-        return invokeL.intValue;
     }
 
-    public Bitmap k(String str) {
-        InterceptResult invokeL;
+    public final void k(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            us6 us6Var = this.a;
-            Bitmap i = i(str, us6Var.a, us6Var.b);
-            if (i == null) {
-                return null;
-            }
-            int j = j(str);
-            Matrix matrix = new Matrix();
-            matrix.setRotate(j);
-            return Bitmap.createBitmap(i, 0, 0, i.getWidth(), i.getHeight(), matrix, true);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = false;
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_RECOMMEND_FORUM_DATA);
+            httpMessage.addParam("page", i);
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public static int h(BitmapFactory.Options options, int i, int i2) {
-        InterceptResult invokeLII;
+    public void l(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, options, i, i2)) == null) {
-            int i3 = options.outHeight;
-            int i4 = options.outWidth;
-            if (i3 <= i2 && i4 <= i) {
-                return 1;
-            }
-            int round = Math.round(i3 / i2);
-            int round2 = Math.round(i4 / i);
-            if (round >= round2) {
-                round = round2;
-            }
-            if (round >= 3) {
-                if (round < 6.5d) {
-                    return 4;
-                }
-                if (round < 8) {
-                    return 8;
-                }
-            }
-            return round;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bVar) == null) {
+            this.d = bVar;
         }
-        return invokeLII.intValue;
     }
 
-    public static Bitmap i(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public ks6 e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, str, i, i2)) == null) {
-            BitmapFactory.Options options = new BitmapFactory.Options();
-            options.inJustDecodeBounds = true;
-            options.inPreferredConfig = Bitmap.Config.RGB_565;
-            BitmapFactory.decodeFile(str, options);
-            options.inSampleSize = h(options, i, i2);
-            options.inJustDecodeBounds = false;
-            return BitmapFactory.decodeFile(str, options);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (Bitmap) invokeLII.objValue;
+        return (ks6) invokeV.objValue;
     }
 
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:25:0x0064 -> B:39:0x005f). Please submit an issue!!! */
-    @Override // com.baidu.tieba.os6
-    public void f() {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            us6 us6Var = this.a;
-            if (us6Var.e) {
-                this.b.onError(us6Var.f, "is cartoon style !!");
-                return;
-            }
-            MultiMediaData multiMediaData = us6Var.c;
-            if (multiMediaData != null && !TextUtils.isEmpty(multiMediaData.path)) {
-                String str = multiMediaData.path;
-                if (multiMediaData.type == 1) {
-                    MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            Bitmap frameAtTime = mediaMetadataRetriever.getFrameAtTime(multiMediaData.start * 1000);
-                            if (this.a.d != 0.0f) {
-                                g(new ts6(), c(frameAtTime, this.a.d, multiMediaData));
-                            } else {
-                                g(new ts6(), frameAtTime);
-                            }
-                        } catch (IllegalArgumentException e) {
-                            e.printStackTrace();
-                        } catch (Exception unused) {
-                        }
-                        return;
-                    } finally {
-                        mediaMetadataRetriever.release();
-                    }
-                }
-                Bitmap k = k(str);
-                if (k != null) {
-                    g(new ts6(), k);
-                    return;
-                }
-                return;
-            }
-            this.b.onError(this.a.f, "multiMediaData is null !!");
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            MessageManager.getInstance().registerListener(this.e);
+        }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            k(1);
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            k(i);
         }
     }
 }

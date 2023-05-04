@@ -156,7 +156,7 @@ public class e0 implements Handler.Callback {
             hashMap.put("cuid", b.f());
             b.a();
             hashMap.put("appvn", b.d.getAppVersion());
-            hashMap.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, "");
+            hashMap.put("brand", "");
             hashMap.put("model", "");
             hashMap.put("osvn", "");
             hashMap.put("phonetime", String.valueOf(System.currentTimeMillis()));

@@ -1,37 +1,87 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.app.Activity;
 import android.view.ViewGroup;
-import com.baidu.searchbox.player.helper.ViewOpUtils;
-import com.baidu.tbadk.core.data.SmallTailInfo;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jv0 {
+public class jv0 implements bv0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final os0 a;
+    public ViewGroup b;
 
-    public static boolean a(View view2) {
-        InterceptResult invokeL;
+    public jv0(@NonNull os0 os0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, view2)) == null) {
-            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) view2.getParent();
-                if (viewGroup.indexOfChild(view2) != -1) {
-                    try {
-                        d01.b(ViewOpUtils.TAG, "removeView " + view2.hashCode());
-                        viewGroup.removeView(view2);
-                        return true;
-                    } catch (Exception e) {
-                        d01.f("removeView(" + System.identityHashCode(view2) + SmallTailInfo.EMOTION_SUFFIX, e);
-                        return true;
-                    }
-                }
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {os0Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = os0Var;
+    }
+
+    public final void b(@Nullable Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
+            activity.getWindow().addFlags(128);
+        }
+    }
+
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int M = this.a.M();
+            int J = this.a.J();
+            if (M <= 0 || J <= 0 || M > J) {
+                return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bv0
+    public void switchToFullStyle() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = this.a.n();
+            this.a.Y0(true);
+            Activity activity = this.a.getActivity();
+            if (a()) {
+                wz0.a(activity, this.a.X0());
+            }
+            b(activity);
+            h01.b(activity, this.a.v());
+        }
+    }
+
+    @Override // com.baidu.tieba.bv0
+    public void switchToNormalStyle() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.b == null) {
+            return;
+        }
+        this.b = this.a.n();
+        this.a.Y0(false);
+        wz0.b(this.a.getActivity());
+        h01.k(this.a.v());
+        h01.j(this.a.n());
+        h01.c(this.a.v(), this.b);
     }
 }

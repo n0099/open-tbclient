@@ -6,40 +6,39 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
 import com.baidu.swan.apps.canvas.view.CanvasView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Calendar;
-import java.util.HashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z02 extends s02 {
+public class z02 extends u02 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    public final String n(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i != 2001 ? i != 2002 ? "error draw on canvas" : "width / height must > 0" : "data length invalid" : (String) invokeI.objValue;
+    }
 
     /* loaded from: classes7.dex */
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ x22 a;
+        public final /* synthetic */ y22 a;
         public final /* synthetic */ CanvasView b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ UnitedSchemeEntity d;
-        public final /* synthetic */ v73 e;
-        public final /* synthetic */ CallbackHandler f;
+        public final /* synthetic */ CallbackHandler c;
+        public final /* synthetic */ z02 d;
 
-        public a(z02 z02Var, x22 x22Var, CanvasView canvasView, String str, UnitedSchemeEntity unitedSchemeEntity, v73 v73Var, CallbackHandler callbackHandler) {
+        public a(z02 z02Var, y22 y22Var, CanvasView canvasView, CallbackHandler callbackHandler) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {z02Var, x22Var, canvasView, str, unitedSchemeEntity, v73Var, callbackHandler};
+                Object[] objArr = {z02Var, y22Var, canvasView, callbackHandler};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,60 +48,47 @@ public class z02 extends s02 {
                     return;
                 }
             }
-            this.a = x22Var;
+            this.d = z02Var;
+            this.a = y22Var;
             this.b = canvasView;
-            this.c = str;
-            this.d = unitedSchemeEntity;
-            this.e = v73Var;
-            this.f = callbackHandler;
+            this.c = callbackHandler;
         }
 
         @Override // java.lang.Runnable
         public void run() {
-            int i;
+            JSONObject wrapCallbackParams;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                boolean i2 = this.a.i(this.b, this.c);
-                HashMap<String, String> params = this.d.getParams();
-                if (params != null && !params.isEmpty()) {
-                    String str = params.get("params");
-                    String str2 = null;
-                    JSONObject jSONObject = new JSONObject();
-                    if (str != null) {
-                        try {
-                            str2 = new JSONObject(str).optString("cb");
-                            jSONObject.putOpt("tempFilePath", df3.J(this.c, this.e.b));
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (!TextUtils.isEmpty(str2)) {
-                        if (i2) {
-                            i = 0;
-                        } else {
-                            i = 1001;
-                        }
-                        this.f.handleSchemeDispatchCallback(str2, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, i).toString());
-                    }
+                int h = this.a.h();
+                if (h == 0) {
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(0);
+                    this.b.c(this.a.i(), this.a.j());
+                    this.b.postInvalidate();
+                } else {
+                    wrapCallbackParams = UnitedSchemeUtility.wrapCallbackParams(h, this.d.n(h));
+                }
+                String str = this.a.e;
+                if (!TextUtils.isEmpty(str)) {
+                    this.c.handleSchemeDispatchCallback(str, wrapCallbackParams.toString());
                 }
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public z02(s83 s83Var) {
-        super(s83Var, "/swanAPI/canvas/toTempFilePath");
+    public z02(u83 u83Var) {
+        super(u83Var, "/swanAPI/canvas/putImageData");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((s83) objArr2[0], (String) objArr2[1]);
+                super((u83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -110,63 +96,49 @@ public class z02 extends s02 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
-        String str;
-        d72 H;
+        f72 H;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            x22 m = m(unitedSchemeEntity);
-            if (m == null) {
-                v42.c("SwanAppCanvas", "CanvasToTempFilePath action parse model is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            y22 o = o(unitedSchemeEntity);
+            if (o == null) {
+                x42.c("SwanAppCanvas", "CanvasPutImageData action parse model is null");
                 unitedSchemeEntity.result = l(201);
                 return false;
             }
-            String x = df3.x(v73Var.b);
-            if (TextUtils.isEmpty(x)) {
-                v42.c("SwanAppCanvas", "CanvasToTempFilePath cache path is empty");
-                unitedSchemeEntity.result = l(201);
-                return false;
+            if (TextUtils.isEmpty(o.c) && (H = kt2.U().H()) != null) {
+                o.c = H.w3();
             }
-            String str2 = x + File.separator + Calendar.getInstance().getTimeInMillis();
-            if (m.h()) {
-                str = str2 + ".jpg";
-            } else {
-                str = str2 + EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX;
-            }
-            String str3 = str;
-            if (TextUtils.isEmpty(m.c) && (H = it2.U().H()) != null) {
-                m.c = H.w3();
-            }
-            if (!TextUtils.isEmpty(m.c) && !TextUtils.isEmpty(m.b)) {
-                CanvasView a2 = w32.a(m);
+            if (!TextUtils.isEmpty(o.c) && !TextUtils.isEmpty(o.b)) {
+                CanvasView a2 = y32.a(o);
                 if (a2 == null) {
-                    v42.c("SwanAppCanvas", "CanvasToTempFilePath canvas view is null");
+                    x42.c("SwanAppCanvas", "CanvasPutImageData canvas view is null");
                     unitedSchemeEntity.result = l(201);
                     return false;
                 }
-                pk3.k(new a(this, m, a2, str3, unitedSchemeEntity, v73Var, callbackHandler), "tempFilePath");
+                rk3.k(new a(this, o, a2, callbackHandler), "CanvasPutImageDataAction");
                 UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            v42.c("SwanAppCanvas", "CanvasToTempFilePath slave id = " + m.c + " ; canvas id = " + m.b);
+            x42.c("SwanAppCanvas", "CanvasPutImageData slave id = " + o.c + " ; canvas id = " + o.b);
             unitedSchemeEntity.result = l(201);
             return false;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public x22 m(UnitedSchemeEntity unitedSchemeEntity) {
+    public y22 o(UnitedSchemeEntity unitedSchemeEntity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
             String str = unitedSchemeEntity.getParams().get("params");
             if (!TextUtils.isEmpty(str)) {
-                return new x22(str);
+                return new y22(str);
             }
             return null;
         }
-        return (x22) invokeL.objValue;
+        return (y22) invokeL.objValue;
     }
 }

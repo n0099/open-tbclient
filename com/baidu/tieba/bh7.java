@@ -1,73 +1,60 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.TextView;
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.core.util.UpgradePopWindowHelper;
-import com.baidu.tbadk.data.DialogStrategiesData;
-import com.baidu.tbadk.switchs.LooperBlockSwitch;
-import com.baidu.tieba.frs.FrsActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+/* compiled from: HeaderViewLogic.java */
 /* loaded from: classes3.dex */
-public class bh7 implements a25 {
+public final /* synthetic */ class bh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public bh7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.a25
     @NonNull
-    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
-        InterceptResult invokeLLL;
+    public static ch7 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
-            HashMap hashMap = new HashMap(map);
-            hashMap.put("dialogName", "frsUpgrade");
-            hashMap.putAll(map);
-            hashMap.putAll(map2);
-            return hashMap;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new dh7();
         }
-        return (Map) invokeLLL.objValue;
+        return (ch7) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.a25
-    public boolean b(@NonNull Map<String, Object> map) {
+    public static View b(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            if (!LooperBlockSwitch.getIsOn()) {
-                return false;
-            }
-            if (!(TbadkCoreApplication.getInst().getCurrentActivity() instanceof FrsActivity)) {
-                YunDialogLog.getInstance().b("YunDialogManager", "FRS升级弹窗策略校验失败：当前Activity非FrsActivity");
-                return false;
-            }
-            z85 upgradePopWindowConfig = TbSingleton.getInstance().getUpgradePopWindowConfig();
-            if (!upgradePopWindowConfig.i() || !UpgradePopWindowHelper.isDue(upgradePopWindowConfig)) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
+            return view2.findViewById(R.id.obfuscated_res_0x7f090c74);
         }
-        return invokeL.booleanValue;
+        return (View) invokeL.objValue;
+    }
+
+    @NonNull
+    public static TextView c(@NonNull View view2, boolean z) {
+        InterceptResult invokeLZ;
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, view2, z)) == null) {
+            if (z) {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e80);
+            } else {
+                textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090e81);
+            }
+            textView.bringToFront();
+            g35.d(textView).w(R.color.CAM_X0619);
+            return textView;
+        }
+        return (TextView) invokeLZ.objValue;
+    }
+
+    public static void d(@NonNull View view2, @NonNull View view3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, view2, view3) == null) {
+            g35 d = g35.d(view2);
+            d.o(R.string.J_X11);
+            d.t(R.array.Mask_X005);
+        }
     }
 }

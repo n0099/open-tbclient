@@ -1,105 +1,228 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.os.MessageQueue;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.et4;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.common.util.UriUtil;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class dt4 extends Thread {
+public class dt4 {
     public static /* synthetic */ Interceptable $ic;
+    public static et4 a;
+    public static dt4 b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public static class a implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947716069, "Lcom/baidu/tieba/dt4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                try {
-                    new dt4("BenchmarkThread").start();
-                    return false;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                    return false;
-                }
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public dt4(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947716069, "Lcom/baidu/tieba/dt4;");
                 return;
             }
         }
+        new ArrayList(5);
     }
 
-    public static void a() {
+    public dt4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            Looper.myQueue().addIdleHandler(new a());
-        }
-    }
-
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                b();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            double nanoTime = System.nanoTime();
-            float f = 10.0f;
-            for (int i = 0; i < 1000000; i++) {
-                f = f + 1.9509029f + 98.90882f + 1998.158f + 989.98895f + 1.1599002f + 16.2098f + 8899.087f + i;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || a == null) {
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b();
+            et4 et4Var = a;
+            if (et4Var != null) {
+                et4Var.d();
+                c = false;
             }
-            BdLog.e(UriUtil.LOCAL_RESOURCE_SCHEME + f);
-            TbSingleton.getInstance().setCpuFlopsDuration((int) ((((double) System.nanoTime()) - nanoTime) / 1000000.0d));
-            qm5.a();
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b();
+            et4 et4Var = a;
+            if (et4Var != null) {
+                et4Var.c();
+                c = false;
+            }
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            b();
+            et4 et4Var = a;
+            if (et4Var != null) {
+                et4Var.h();
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            b();
+            i();
+            m();
+        }
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            b();
+            et4 et4Var = a;
+            if (et4Var != null) {
+                et4Var.m();
+                c = true;
+            }
+        }
+    }
+
+    public static dt4 a(BaseFragmentActivity baseFragmentActivity) {
+        InterceptResult invokeL;
+        et4 et4Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, baseFragmentActivity)) == null) {
+            if (b == null) {
+                synchronized (dt4.class) {
+                    if (b == null) {
+                        b = new dt4();
+                        a = et4.a(baseFragmentActivity);
+                    }
+                }
+            } else {
+                et4 et4Var2 = a;
+                if (et4Var2 != null) {
+                    et4Var2.j(baseFragmentActivity.getPageContext());
+                }
+            }
+            if (c && (et4Var = a) != null) {
+                et4Var.d();
+                a.c();
+                c = false;
+            }
+            return b;
+        }
+        return (dt4) invokeL.objValue;
+    }
+
+    public static void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            try {
+                if (a != null) {
+                    if (b != null) {
+                        b.j();
+                    }
+                    a.e();
+                    a.i();
+                    a = null;
+                }
+                if (b != null) {
+                    b = null;
+                }
+            } catch (Throwable th) {
+                th.printStackTrace();
+            }
+        }
+    }
+
+    public void e(boolean z, boolean z2, boolean z3, et4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3), aVar}) == null) {
+            b();
+            if (z) {
+                c();
+            }
+            if (z2) {
+                d();
+            }
+            l(z3);
+            k(aVar);
+        }
+    }
+
+    public void f(et4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
+            b();
+            et4 et4Var = a;
+            if (et4Var != null) {
+                if (et4Var.b()) {
+                    a.k(aVar);
+                }
+                a.f();
+            }
+        }
+    }
+
+    public void k(et4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            b();
+            et4 et4Var = a;
+            if (et4Var != null) {
+                et4Var.k(aVar);
+            }
+        }
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+            b();
+            et4 et4Var = a;
+            if (et4Var != null) {
+                et4Var.l(z);
+            }
+        }
+    }
+
+    public void g(int i, et4.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, aVar) == null) {
+            b();
+            et4 et4Var = a;
+            if (et4Var != null) {
+                if (et4Var.b()) {
+                    a.k(aVar);
+                }
+                a.g(i);
+            }
         }
     }
 }

@@ -1,31 +1,38 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes7.dex */
-public final class zt1 extends ys2<zt1> {
+public final class zt1 extends at2<zt1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
     public interface a {
-        public static final String a = ys2.r("SwanFileFetcher.Params", "file_url");
-        public static final String b = ys2.r("SwanFileFetcher.Params", "file_save_path");
-        public static final String c = ys2.r("SwanFileFetcher.Params", "file_head_map");
-        public static final String d = ys2.r("SwanFileFetcher.Params", "image_save_gallery");
-        public static final String e = ys2.r("SwanFileFetcher.Params", "file_cancel_tag");
+        public static final String a = at2.r("SwanApkFetcher.Params", "title");
+        public static final String b = at2.r("SwanApkFetcher.Params", EmotionResourceInfo.JSON_KEY_PKG_NAME);
+        public static final String c = at2.r("SwanApkFetcher.Params", "description");
+        public static final String d = at2.r("SwanApkFetcher.Params", "should_auto_install");
+        public static final String e = at2.r("SwanApkFetcher.Params", "current_swan_app");
+        public static final String f = at2.r("SwanApkFetcher.Params", "content_disposition");
+        public static final String g = at2.r("SwanApkFetcher.Params", "mime_type");
+        public static final String h = at2.r("SwanApkFetcher.Params", HttpRequest.USER_AGENT);
+        public static final String i = at2.r("SwanApkFetcher.Params", BreakpointSQLiteKey.CONTENT_LENGTH);
+        public static final String j = at2.r("SwanApkFetcher.Params", "ext_info");
     }
 
-    public zt1 J() {
+    public zt1 M() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (zt1) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? this : (zt1) invokeV.objValue;
     }
 
     public zt1() {
@@ -42,17 +49,26 @@ public final class zt1 extends ys2<zt1> {
         }
     }
 
-    @Override // com.baidu.tieba.rm3
-    public /* bridge */ /* synthetic */ rm3 d() {
-        J();
+    @Override // com.baidu.tieba.tm3
+    public /* bridge */ /* synthetic */ tm3 e() {
+        M();
         return this;
     }
 
-    public zt1 E(String str) {
+    public zt1 E(Boolean bool) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return z(a.e, str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bool)) == null) {
+            return t(a.d, bool.booleanValue());
+        }
+        return (zt1) invokeL.objValue;
+    }
+
+    public zt1 F(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return z(a.f, str);
         }
         return (zt1) invokeL.objValue;
     }
@@ -61,7 +77,7 @@ public final class zt1 extends ys2<zt1> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return z(a.b, str);
+            return z(a.i, str);
         }
         return (zt1) invokeL.objValue;
     }
@@ -70,31 +86,61 @@ public final class zt1 extends ys2<zt1> {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return z(a.e, str);
+        }
+        return (zt1) invokeL.objValue;
+    }
+
+    public zt1 I(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return z(a.c, str);
+        }
+        return (zt1) invokeL.objValue;
+    }
+
+    public zt1 J(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
+            return z(a.j, str);
+        }
+        return (zt1) invokeL.objValue;
+    }
+
+    public zt1 K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return z(a.g, str);
+        }
+        return (zt1) invokeL.objValue;
+    }
+
+    public zt1 L(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return z(a.b, str);
+        }
+        return (zt1) invokeL.objValue;
+    }
+
+    public zt1 N(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
             return z(a.a, str);
         }
         return (zt1) invokeL.objValue;
     }
 
-    public zt1 I(boolean z) {
-        InterceptResult invokeZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
-            return t(a.d, z);
-        }
-        return (zt1) invokeZ.objValue;
-    }
-
-    public zt1 F(Map<String, String> map) {
+    public zt1 O(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
-            Bundle bundle = new Bundle();
-            if (map != null && !map.isEmpty()) {
-                for (Map.Entry<String, String> entry : map.entrySet()) {
-                    bundle.putString(entry.getKey(), entry.getValue());
-                }
-            }
-            return u(a.c, bundle);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            return z(a.h, str);
         }
         return (zt1) invokeL.objValue;
     }

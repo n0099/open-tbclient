@@ -1,88 +1,86 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
-import com.fun.ad.sdk.CustomInflater;
-import com.fun.ad.sdk.ExpressInflater;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.BaseNativeAd2;
-import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
-import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
-import com.fun.ad.sdk.internal.api.ReporterPidLoader;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class koa extends FunNativeAd2Bridger<aoa, View> {
+public class koa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
     public boolean b;
-    public final /* synthetic */ goa c;
+    public float c;
+    public float d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public koa(goa goaVar, ReporterPidLoader reporterPidLoader) {
-        super(reporterPidLoader);
+    public koa(String str, boolean z, float f, float f2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {goaVar, reporterPidLoader};
+            Object[] objArr = {str, Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = goaVar;
+        this.a = str;
+        this.b = z;
+        this.c = f;
+        this.d = f2;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showCustom(Activity activity, CustomInflater customInflater, String str, aoa aoaVar, BaseNativeAd2<aoa, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, aoaVar, baseNativeAd2, funAdInteractionListener}) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
+        return invokeV.floatValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public View createExpressView(aoa aoaVar) {
-        InterceptResult invokeL;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aoaVar)) == null) {
-            return ((TTNativeExpressAd) aoaVar.a).getExpressAdView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return (View) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
-    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
-    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, aoa aoaVar, BaseNativeAd2<aoa, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, aoaVar, baseNativeAd2, funAdInteractionListener}) == null) {
-            aoa aoaVar2 = aoaVar;
-            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(aoaVar2);
-            if (expressAdListenerWrapper != null) {
-                expressAdListenerWrapper.funListener = funAdInteractionListener;
-            } else {
-                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public float d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public boolean e(boolean z, float f, float f2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f), Float.valueOf(f2)})) == null) {
+            if (z && Math.abs(this.c - f) < 0.001f && Math.abs(this.d - f2) < 0.001f) {
+                return true;
             }
-            this.c.onShowStart(aoaVar2, this.b);
-            expressInflater.inflate();
-            View expressView = expressInflater.getExpressView();
-            goa goaVar = this.c;
-            goaVar.getClass();
-            ((TTNativeExpressAd) aoaVar2.a).setDislikeCallback(activity, new joa(goaVar, expressView, aoaVar2, funAdInteractionListener, str));
-            this.b = true;
+            return false;
         }
+        return invokeCommon.booleanValue;
     }
 }

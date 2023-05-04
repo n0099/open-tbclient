@@ -1,113 +1,160 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.text.SpannableString;
+import androidx.annotation.ColorRes;
+import androidx.annotation.DrawableRes;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tbadk.switchs.CheckIsQuestionThreadSwitch;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class y3a {
+public final class y3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public SpannableString a;
+    public int b;
+    public int c;
+    @ColorRes
+    public int d;
+    @DrawableRes
+    public int e;
+    public int f;
+    public String g;
 
-    public static void a(int i, int i2) {
+    public y3a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(65536, null, i, i2) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_CLICK);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.addParam("obj_locate", i);
-            statisticItem.addParam("obj_type", i2);
-            TiebaStatic.log(statisticItem);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.a = new SpannableString("");
+        this.b = 1;
+        this.c = 3;
+        this.g = "";
     }
 
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CHECK_DIALOG_SHOW);
-            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
-            TiebaStatic.log(statisticItem);
-        }
-    }
-
-    public static boolean d() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() != 3 && CheckIsQuestionThreadSwitch.getSwitchType() != 2) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean e() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (TimeHelper.getDayDifference(System.currentTimeMillis(), q45.m().o("key_check_is_question_thread_time", 0L)) > 7) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean f() {
+    public final int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 2) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static boolean g() {
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (CheckIsQuestionThreadSwitch.getSwitchType() == 3) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public static void c(Activity activity) {
+    public final int e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, activity) != null) || activity == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.f;
         }
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).closeLoadingDialog();
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).closeLoadingDialog();
+        return invokeV.intValue;
+    }
+
+    public final SpannableString f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (SpannableString) invokeV.objValue;
+    }
+
+    public final int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            Intrinsics.checkNotNullParameter(str, "<set-?>");
+            this.g = str;
         }
     }
 
-    public static void h(Activity activity) {
+    public final void i(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, activity) != null) || activity == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            this.d = i;
         }
-        String string = activity.getString(R.string.obfuscated_res_0x7f0f03e2);
-        if (activity instanceof BaseFragmentActivity) {
-            ((BaseFragmentActivity) activity).showLoadingDialog(string);
-        } else if (activity instanceof BaseActivity) {
-            ((BaseActivity) activity).showLoadingDialog(string);
+    }
+
+    public final void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public final void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public final void l(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.f = i;
+        }
+    }
+
+    public final void m(SpannableString spannableString) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048588, this, spannableString) == null) {
+            Intrinsics.checkNotNullParameter(spannableString, "<set-?>");
+            this.a = spannableString;
+        }
+    }
+
+    public final void n(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+            this.b = i;
         }
     }
 }

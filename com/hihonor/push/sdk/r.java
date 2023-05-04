@@ -4,9 +4,9 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.RemoteException;
 import android.util.Log;
-import com.baidu.tieba.lua;
-import com.baidu.tieba.wua;
-import com.baidu.tieba.zua;
+import com.baidu.tieba.hya;
+import com.baidu.tieba.sya;
+import com.baidu.tieba.vya;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -23,14 +23,14 @@ public class r extends IPushCallback.Stub {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final Object a;
-    public final zua b;
+    public final vya b;
 
-    public r(Object obj, zua zuaVar) {
+    public r(Object obj, vya vyaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {obj, zuaVar};
+            Object[] objArr = {obj, vyaVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,7 +41,7 @@ public class r extends IPushCallback.Stub {
             }
         }
         this.a = obj;
-        this.b = zuaVar;
+        this.b = vyaVar;
     }
 
     @Override // com.hihonor.push.framework.aidl.IPushCallback
@@ -57,17 +57,17 @@ public class r extends IPushCallback.Stub {
             if (obj instanceof IMessageEntity) {
                 MessageCodec.parseMessageEntity(body, (IMessageEntity) obj);
             }
-            zua zuaVar = this.b;
+            vya vyaVar = this.b;
             ApiException apiException = new ApiException(responseHeader.getStatusCode(), responseHeader.getStatusMessage());
             Object obj2 = this.a;
-            lua.b bVar = (lua.b) zuaVar;
+            hya.b bVar = (hya.b) vyaVar;
             bVar.getClass();
-            lua luaVar = lua.c;
-            wua<?> wuaVar = bVar.a;
-            luaVar.getClass();
+            hya hyaVar = hya.c;
+            sya<?> syaVar = bVar.a;
+            hyaVar.getClass();
             Log.i("HonorApiManager", "sendResolveResult start");
-            Handler handler = luaVar.a;
-            handler.sendMessage(handler.obtainMessage(2, wuaVar));
+            Handler handler = hyaVar.a;
+            handler.sendMessage(handler.obtainMessage(2, syaVar));
             bVar.a.b(apiException, obj2);
             Log.i(IPCCallback.TAG, "onResult parse end.");
         }

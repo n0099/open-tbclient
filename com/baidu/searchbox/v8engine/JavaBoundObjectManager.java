@@ -3,7 +3,7 @@ package com.baidu.searchbox.v8engine;
 import java.util.HashMap;
 import java.util.Map;
 @NotProguard
-/* loaded from: classes2.dex */
+/* loaded from: classes3.dex */
 public class JavaBoundObjectManager {
     public static final String TAG = "JavaBoundObjectManager";
     public Map<Long, Object> mJavaBoundObjectMap = new HashMap();

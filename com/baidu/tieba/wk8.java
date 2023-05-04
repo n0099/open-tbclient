@@ -1,105 +1,181 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.pay.IPayCallback;
+import com.baidu.searchbox.live.interfaces.pay.IPayChannel;
+import com.baidu.searchbox.live.interfaces.pay.PayChannelType;
+import com.baidu.searchbox.live.interfaces.pay.YYPayResultService;
+import com.baidu.searchbox.live.interfaces.service.PayChannelService;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tieba.wallet.ITiebaPay;
+import com.baidu.tieba.wallet.ITiebaPayCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.SevenZipUtils;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetVipInfo.VipSpecialItem;
-import tbclient.GetVipInfo.VipSpecialList;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class wk8 implements in {
+public class wk8 implements PayChannelService {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId c;
-    public static int d;
-    public static boolean e;
-    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public vk8 a;
-    public List<xk8> b;
+    public ITiebaPay a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948273573, "Lcom/baidu/tieba/wk8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948273573, "Lcom/baidu/tieba/wk8;");
-                return;
-            }
-        }
-        c = BdUniqueId.gen();
-        d = 3;
-        e = false;
-    }
-
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
+    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
+    public YYPayResultService buildYYPayResChannel() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return null;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return (YYPayResultService) invokeV.objValue;
     }
 
-    public wk8(VipSpecialList vipSpecialList) {
-        List<VipSpecialItem> list;
-        String str;
+    /* loaded from: classes6.dex */
+    public class a implements IPayChannel {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wk8 a;
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void onPayResult(String str, String str2, String str3, Context context, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, str3, context, Boolean.valueOf(z)}) == null) {
+            }
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void release() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.wk8$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0475a implements ITiebaPayCallback {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ IPayCallback a;
+
+            public C0475a(a aVar, IPayCallback iPayCallback) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, iPayCallback};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = iPayCallback;
+            }
+
+            @Override // com.baidu.tieba.wallet.ITiebaPayCallback
+            public void onPayResult(int i, String str) {
+                IPayCallback iPayCallback;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) && (iPayCallback = this.a) != null) {
+                    iPayCallback.onPayResult(i, str);
+                }
+            }
+        }
+
+        public a(wk8 wk8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wk8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wk8Var;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public PayChannelType getType() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return PayChannelType.WALLET;
+            }
+            return (PayChannelType) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public String getUaForFrontPay() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return ps5.b() + " (Baidu; P1 " + ki.k() + SmallTailInfo.EMOTION_SUFFIX;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        @Override // com.baidu.searchbox.live.interfaces.pay.IPayChannel
+        public void pay(Activity activity, HashMap<String, String> hashMap, IPayCallback iPayCallback) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLLL(1048579, this, activity, hashMap, iPayCallback) == null) && hashMap != null && !hashMap.isEmpty()) {
+                this.a.c();
+                if (this.a.a != null) {
+                    this.a.a.pay(hashMap.remove("channel"), hashMap, new C0475a(this, iPayCallback));
+                } else if (iPayCallback != null) {
+                    iPayCallback.onPayResult(2, null);
+                }
+            }
+        }
+    }
+
+    public wk8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipSpecialList};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        if (vipSpecialList != null && (list = vipSpecialList.item) != null && list.size() > 0) {
-            String str2 = vipSpecialList.card_id;
-            vk8 vk8Var = new vk8();
-            this.a = vk8Var;
-            vk8Var.e(4);
-            this.a.d(vipSpecialList.class_name);
-            this.a.f(vipSpecialList.class_url_name);
-            this.a.g(vipSpecialList.class_url);
-            if (TbadkCoreApplication.isLogin()) {
-                str = TbadkCoreApplication.getCurrentAccount();
-            } else {
-                str = SevenZipUtils.FILE_NAME_TEMP;
-            }
-            if (StringUtils.isNull(f) || !f.equals(str)) {
-                e = false;
-                f = str;
-            }
-            this.b = new ArrayList();
-            for (int i3 = 0; i3 < vipSpecialList.item.size(); i3++) {
-                this.b.add(new xk8(vipSpecialList.item.get(i3)));
-                if (e) {
-                    if (i3 == vipSpecialList.item.size() - 1 && vipSpecialList.item.size() > d) {
-                        this.b.add(new xk8(true, true));
-                    }
-                } else if (i3 == d - 1 && vipSpecialList.item.size() > d) {
-                    this.b.add(new xk8(true, false));
-                    return;
-                }
-            }
+        this.a = null;
+    }
+
+    public final void c() {
+        CustomResponsedMessage runTask;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a == null && (runTask = MessageManager.getInstance().runTask(2921432, ITiebaPay.class)) != null) {
+            this.a = (ITiebaPay) runTask.getData();
         }
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.PayChannelService
+    public IPayChannel buildPayChannel(PayChannelType payChannelType) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, payChannelType)) == null) {
+            if (payChannelType == PayChannelType.WALLET) {
+                return new a(this);
+            }
+            return null;
+        }
+        return (IPayChannel) invokeL.objValue;
     }
 }

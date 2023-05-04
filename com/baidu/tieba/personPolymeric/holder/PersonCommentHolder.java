@@ -72,17 +72,17 @@ public class PersonCommentHolder extends TypeAdapter.ViewHolder implements View.
         ReplyLinearLayout replyLinearLayout = (ReplyLinearLayout) view2.findViewById(R.id.content_container);
         this.a = replyLinearLayout;
         replyLinearLayout.setIsHost(this.o);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918f1);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0918fd);
         this.h = (LinearLayout) view2.findViewById(R.id.top_line);
-        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091bbe);
-        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926db);
-        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d94);
+        this.i = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f091bce);
+        this.j = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926f7);
+        this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091da4);
         this.l = (TextView) view2.findViewById(R.id.forum_name);
-        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d85);
-        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091105);
-        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091114);
-        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09110f);
-        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091a95);
+        this.m = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091d95);
+        this.d = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091114);
+        this.e = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f091123);
+        this.f = (ColumnLayout) view2.findViewById(R.id.obfuscated_res_0x7f09111e);
+        this.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f091aa2);
         this.g = ii.d(view2.getContext(), 42.0f);
         LinearLayout linearLayout = this.d;
         if (linearLayout != null) {

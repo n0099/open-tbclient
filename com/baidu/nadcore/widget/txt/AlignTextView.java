@@ -8,7 +8,7 @@ import android.text.TextPaint;
 import android.util.AttributeSet;
 import android.view.View;
 import android.widget.TextView;
-import com.baidu.tieba.w01;
+import com.baidu.tieba.y01;
 import java.util.ArrayList;
 import java.util.List;
 @SuppressLint({"AppCompatCustomView"})
@@ -94,7 +94,7 @@ public class AlignTextView extends TextView {
 
     public final void a(Paint paint, String str) {
         if (str.length() == 0) {
-            w01.b(this.d, "\n");
+            y01.b(this.d, "\n");
             return;
         }
         this.s = 0;
@@ -110,7 +110,7 @@ public class AlignTextView extends TextView {
                 break;
             } else if (paint.measureText(str.substring(this.s, i2 + 1)) > this.c) {
                 this.s = i2;
-                w01.b(this.d, this.r.toString());
+                y01.b(this.d, this.r.toString());
                 this.r = new StringBuilder();
                 int length = str.length();
                 int i3 = this.s;
@@ -120,7 +120,7 @@ public class AlignTextView extends TextView {
                     this.r.append(str.substring(i3, i5 + i3));
                     i2 = (i2 + this.u) - 1;
                 } else {
-                    w01.b(this.d, str.substring(i3));
+                    y01.b(this.d, str.substring(i3));
                     break;
                 }
             } else {
@@ -128,9 +128,9 @@ public class AlignTextView extends TextView {
             }
         }
         if (this.r.length() > 0) {
-            w01.b(this.d, this.r.toString());
+            y01.b(this.d, this.r.toString());
         }
-        w01.b(this.e, Integer.valueOf(this.d.size() - 1));
+        y01.b(this.e, Integer.valueOf(this.d.size() - 1));
     }
 
     public final void b(String str, float f, int i) {
@@ -162,7 +162,7 @@ public class AlignTextView extends TextView {
         for (int i = 0; i < this.d.size(); i++) {
             float f2 = i;
             this.y = (this.a * f2) + this.x;
-            this.z = (String) w01.d(this.d, i);
+            this.z = (String) y01.d(this.d, i);
             this.A = getPaddingLeft();
             float measureText = this.c - this.n.measureText(this.z);
             this.B = measureText;

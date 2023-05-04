@@ -1,106 +1,217 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.annotation.SuppressLint;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ListAdapter;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.widget.ListView.BdListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.themeCenter.MemberRecommendView;
+import com.baidu.tieba.themeCenter.background.BackgroundListActivity;
+import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.TimeZone;
+@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
-public class sv9 extends BdAsyncTask<Void, Void, List<tv9>> {
+public class sv9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public Context b;
-    public int c;
-    public SimpleDateFormat d;
-    public SimpleDateFormat e;
+    public BackgroundListActivity a;
+    public View b;
+    public View c;
+    public NavigationBar d;
+    public MemberRecommendView e;
+    public BdListView f;
+    public q55 g;
+    public TextView h;
+    public rv9 i;
+    public int j;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(List<tv9> list);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948165011, "Lcom/baidu/tieba/sv9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948165011, "Lcom/baidu/tieba/sv9;");
-        }
-    }
-
-    public sv9(Context context) {
+    public sv9(BackgroundListActivity backgroundListActivity, qv9 qv9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {backgroundListActivity, qv9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = context;
-        this.c = context.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f07027b);
-        this.e = new SimpleDateFormat("mm:ss");
-        this.d = new SimpleDateFormat("HH:mm:ss");
-        TimeZone timeZone = TimeZone.getTimeZone("GMT+8");
-        this.e.setTimeZone(timeZone);
-        this.d.setTimeZone(timeZone);
+        this.g = null;
+        this.j = 0;
+        this.a = backgroundListActivity;
+        this.j = ii.g(backgroundListActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07023d);
+        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0135, (ViewGroup) null);
+        this.b = inflate;
+        this.a.setContentView(inflate);
+        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903fe);
+        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
+        this.d = navigationBar;
+        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0f68);
+        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0927e3);
+        this.e = memberRecommendView;
+        memberRecommendView.setFromType(5);
+        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0914b2);
+        q55 q55Var = new q55(this.a.getPageContext());
+        this.g = q55Var;
+        this.f.setPullRefresh(q55Var);
+        TextView textView = new TextView(this.a.getActivity());
+        this.h = textView;
+        textView.setHeight(ii.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
+        rv9 rv9Var = new rv9(this.a.getPageContext(), qv9Var);
+        this.i = rv9Var;
+        this.f.setAdapter((ListAdapter) rv9Var);
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public List<tv9> doInBackground(Void... voidArr) {
+    public final List<List<DressItemData>> a(List<DressItemData> list) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            List<tv9> a2 = uv9.a(this.b);
-            uv9.d("/sdcard", a2, false);
-            uv9.d("/sdcard/DCIM", a2, true);
-            uv9.e(a2);
-            return a2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int size = list.size();
+            for (int i = 0; i < size; i = i + 2 + 1) {
+                ArrayList arrayList2 = new ArrayList();
+                for (int i2 = 0; i2 < 3; i2++) {
+                    int i3 = i + i2;
+                    if (i3 < size) {
+                        arrayList2.add(list.get(i3));
+                    }
+                }
+                arrayList.add(arrayList2);
+            }
+            return arrayList;
         }
         return (List) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: c */
-    public void onPostExecute(List<tv9> list) {
+    public final boolean f(lw9 lw9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            super.onPostExecute(list);
-            a aVar = this.a;
-            if (aVar != null) {
-                aVar.a(list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, lw9Var)) == null) {
+            if (lw9Var != null && !StringUtils.isNull(lw9Var.c())) {
+                this.e.setVisibility(0);
+                this.e.e(lw9Var);
+                return true;
             }
+            this.e.setVisibility(8);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
+            this.a.hideNetRefreshView(this.b);
+            this.c.setVisibility(0);
         }
     }
 
-    public void d(a aVar) {
+    public View c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.f.z(0L);
+        }
+    }
+
+    public void d() {
+        rv9 rv9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            tn5.a(this.a.getPageContext(), this.b);
+            NavigationBar navigationBar = this.d;
+            if (navigationBar != null) {
+                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
+            }
+            BdListView bdListView = this.f;
+            if (bdListView != null && bdListView.getVisibility() == 0 && (rv9Var = this.i) != null) {
+                rv9Var.notifyDataSetChanged();
+            }
+            q55 q55Var = this.g;
+            if (q55Var != null) {
+                q55Var.H(TbadkApplication.getInst().getSkinType());
+            }
+            this.e.d();
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0204);
+        }
+    }
+
+    public final void e(List<List<DressItemData>> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, list) == null) {
+            if (list != null && list.size() > 0) {
+                this.f.setVisibility(0);
+                this.i.b(list);
+                this.i.notifyDataSetChanged();
+                return;
+            }
+            this.f.setVisibility(8);
+        }
+    }
+
+    public void g(BdListView.p pVar, p55.g gVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, pVar, gVar) == null) {
+            this.f.setOnSrollToBottomListener(pVar);
+            this.g.f(gVar);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.c.setVisibility(8);
+            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
+            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
+            this.a.setNetRefreshViewTopMargin(this.j);
+            this.a.showNetRefreshView(this.b, string, false);
+        }
+    }
+
+    public void i(lw9 lw9Var, List<DressItemData> list, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, lw9Var, list, z) == null) {
+            if (list != null && list.size() > 0) {
+                b();
+                if (f(lw9Var)) {
+                    this.f.removeHeaderView(this.h);
+                    this.f.addHeaderView(this.h);
+                } else {
+                    this.f.removeHeaderView(this.h);
+                }
+                e(a(list));
+                return;
+            }
+            h();
         }
     }
 }

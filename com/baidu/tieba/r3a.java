@@ -1,102 +1,73 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorBar;
-import com.baidu.tbadk.editortools.EditorTools;
+import android.graphics.Rect;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmName;
+import kotlin.jvm.internal.Intrinsics;
+@JvmName(name = "FestivalTipViewHelper")
 /* loaded from: classes6.dex */
-public class r3a {
+public final class r3a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public bk6 b;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r3a a;
+    public static final void a(String str, String str2, TbRichTextView.Position position) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, position) == null) {
+            StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_FESTIVAL_TIP_VIEW_CLICK);
+            boolean z2 = false;
+            if (str != null && str.length() != 0) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (!z) {
+                statisticItem.addParam("tid", str);
+            }
+            if (!((str2 == null || str2.length() == 0) ? true : true)) {
+                statisticItem.addParam("pid", str2);
+            }
+            if (position != null) {
+                statisticItem.addParam("obj_locate", position.getIndex());
+            }
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.eventStat();
+        }
+    }
 
-        public a(r3a r3aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r3aVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static final void b(pp9 postData, TbRichTextView richTextView, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65537, null, postData, richTextView, z) == null) {
+            Intrinsics.checkNotNullParameter(postData, "postData");
+            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
+            if (postData.z() != null) {
+                if (z) {
+                    richTextView.getLayoutStrategy().m(-1);
+                } else {
+                    richTextView.getLayoutStrategy().m(ii.g(TbadkCoreApplication.getInst(), R.dimen.M_H_X004));
                 }
             }
-            this.a = r3aVar;
         }
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.b.d();
+    public static final void c(pp9 postData, TbRichTextView richTextView) {
+        Rect rect;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, postData, richTextView) == null) {
+            Intrinsics.checkNotNullParameter(postData, "postData");
+            Intrinsics.checkNotNullParameter(richTextView, "richTextView");
+            xv5 layoutStrategy = richTextView.getLayoutStrategy();
+            if (postData.z() != null) {
+                rect = new Rect(-1, -1, -1, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds53));
+            } else {
+                rect = null;
             }
+            layoutStrategy.s(rect);
         }
-    }
-
-    public r3a(TbPageContext tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = tbPageContext;
-    }
-
-    public void b() {
-        bk6 bk6Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bk6Var = this.b) != null) {
-            bk6Var.d();
-        }
-    }
-
-    public void c(EditorTools editorTools) {
-        EditorBar editorBar;
-        View s;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, editorTools) != null) || editorTools == null || (editorBar = editorTools.a) == null || this.a == null || (s = editorBar.s(26)) == null) {
-            return;
-        }
-        if (this.b == null) {
-            bk6 bk6Var = new bk6(this.a, s);
-            this.b = bk6Var;
-            bk6Var.C(R.drawable.bg_tip_blue_down);
-            this.b.k(32);
-            this.b.h(2);
-            this.b.i(new a(this));
-            int dimensionPixelSize = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070231);
-            int dimensionPixelSize2 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701e8);
-            int dimensionPixelSize3 = this.a.getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224);
-            this.b.v(dimensionPixelSize2, dimensionPixelSize, dimensionPixelSize2, dimensionPixelSize2);
-            this.b.H(0);
-            this.b.I(-dimensionPixelSize3);
-            this.b.j(3000);
-        }
-        this.b.K(this.a.getResources().getString(R.string.hot_topic_tip), "key_show_hottopic_tip");
     }
 }

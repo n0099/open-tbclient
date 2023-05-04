@@ -1,19 +1,19 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.SwanAppActivity;
 /* loaded from: classes6.dex */
-public interface us1 extends m13 {
-    File a();
+public interface us1 {
+    void a(String str);
 
-    void e(String str, String str2);
+    void b();
 
-    void e(String str, String str2, Throwable th);
+    void c(String str);
 
-    void flush(boolean z);
+    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable us2 us2Var);
 
-    void i(String str, String str2);
+    void e(String str);
 
-    void w(String str, String str2);
-
-    void w(String str, String str2, Throwable th);
+    void f(String str);
 }

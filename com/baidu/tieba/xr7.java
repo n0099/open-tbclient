@@ -1,119 +1,178 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.ResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tieba.homepage.lowFlows.message.MoreTreasureTroveReqMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Personalized.CardForum;
-import tbclient.Personalized.PersonalForum;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class xr7 extends lh6 implements th6 {
+public class xr7 implements kr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardForum e;
+    public String a;
+    public BdUniqueId b;
+    public za c;
+    public boolean d;
+    public lr7 e;
+    public final HashMap<String, List<in>> f;
 
-    public static boolean i(int i) {
-        InterceptResult invokeI;
+    public void h(String str) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) ? i == 1 : invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.th6
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
-        return invokeV.booleanValue;
     }
 
-    public xr7() {
+    public void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends za {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xr7 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(xr7 xr7Var, int i, int i2) {
+            super(i, i2);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xr7Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i3 = newInitContext.flag;
+                if ((i3 & 1) != 0) {
+                    int i4 = i3 & 2;
+                    Object[] objArr2 = newInitContext.callArgs;
+                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xr7Var;
+        }
+
+        @Override // com.baidu.tieba.za
+        public void onMessage(ResponsedMessage<?> responsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) {
+                this.a.d = false;
+                if (this.a.e == null) {
+                    return;
+                }
+                if (!(responsedMessage instanceof wr7)) {
+                    this.a.e.c(-1);
+                } else if (responsedMessage.getOrginalMessage() != null && this.a.b == responsedMessage.getOrginalMessage().getTag()) {
+                    if (responsedMessage.hasError() && responsedMessage.getError() == 0) {
+                        this.a.e.c(responsedMessage.getError());
+                        return;
+                    }
+                    wr7 wr7Var = (wr7) responsedMessage;
+                    if (wr7Var.getDataList() != null && wr7Var.getDataList().size() > 0) {
+                        if (!StringUtils.isNull(this.a.a)) {
+                            this.a.f.put(this.a.a, wr7Var.getDataList());
+                        }
+                        this.a.e.b(responsedMessage.getError(), wr7Var);
+                        return;
+                    }
+                    this.a.e.c(-1);
+                } else {
+                    this.a.e.c(-1);
+                }
+            }
+        }
+    }
+
+    public xr7(lr7 lr7Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lr7Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        this.f = new HashMap<>();
+        this.e = lr7Var;
+        g();
     }
 
-    @Override // com.baidu.tieba.th6
-    public int getPosition() {
-        InterceptResult invokeV;
+    public void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            CardForum cardForum = this.e;
-            if (cardForum != null) {
-                return cardForum.position.intValue();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (ListUtils.getCount(getDataList()) <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.th6
-    public void J(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.showBottomDivider = z;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.a = str;
         }
     }
 
-    @Override // com.baidu.tieba.th6
-    public void g(boolean z) {
+    public void k(BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.showTopDivider = z;
+        if (interceptable == null || interceptable.invokeL(1048581, this, bdUniqueId) == null) {
+            this.b = bdUniqueId;
         }
     }
 
-    public void l(CardForum cardForum) {
+    @Override // com.baidu.tieba.kr7
+    public boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, cardForum) == null) && cardForum != null) {
-            this.e = cardForum;
-            this.mGroupTitle = cardForum.card_title;
-            if (cardForum.position != null) {
-                h(e() + cardForum.position.intValue());
-            } else {
-                h(e() + 0);
-            }
-            if (ListUtils.getCount(cardForum.forum_list) > 0) {
-                for (PersonalForum personalForum : cardForum.forum_list) {
-                    if (personalForum != null && !TextUtils.isEmpty(personalForum.forum_name) && personalForum.forum_id.longValue() > 0) {
-                        kh6 kh6Var = new kh6();
-                        kh6Var.b = personalForum.avatar;
-                        kh6Var.c = personalForum.forum_name;
-                        kh6Var.d = gg.e("" + personalForum.forum_id, -1);
-                        boolean z = true;
-                        if (personalForum.is_like.intValue() != 1) {
-                            z = false;
-                        }
-                        kh6Var.e = z;
-                        c(kh6Var);
-                    }
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, bdUniqueId, str, str2, str3)) == null) {
+            if (BdNetTypeUtil.isNetworkAvailableForImmediately() && bdUniqueId != null && !StringUtils.isNull(str) && !StringUtils.isNull(str2)) {
+                if (this.d) {
+                    return false;
                 }
+                String str4 = this.a;
+                if (str4 != null && str4.equals(str) && this.f.size() > 0) {
+                    this.e.setData(this.f.get(str));
+                    return true;
+                }
+                k(bdUniqueId);
+                i(str);
+                h(str2);
+                j(str3);
+                MoreTreasureTroveReqMsg moreTreasureTroveReqMsg = new MoreTreasureTroveReqMsg();
+                moreTreasureTroveReqMsg.setTag(bdUniqueId);
+                moreTreasureTroveReqMsg.setTabCode(str);
+                moreTreasureTroveReqMsg.setLfUser(str2);
+                moreTreasureTroveReqMsg.setTaskId(str3);
+                boolean sendMessage = MessageManager.getInstance().sendMessage(moreTreasureTroveReqMsg);
+                this.d = sendMessage;
+                return sendMessage;
             }
+            lr7 lr7Var = this.e;
+            if (lr7Var != null) {
+                lr7Var.c(-1);
+            }
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new a(this, CmdConfigHttp.CMD_LOW_FLOWS_PAGE, 309691);
+            MessageManager.getInstance().registerListener(this.c);
         }
     }
 }

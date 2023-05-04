@@ -1,45 +1,100 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wh2 a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public JSONObject g;
+    public String h;
+    public xz1 i;
 
-    public h33(String str, String str2, String str3) {
+    public h33() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        TreeMap treeMap = new TreeMap();
-        treeMap.put("functionPagePath", str);
-        treeMap.put("paymentArgs", str2);
-        treeMap.put("slaveId", str3);
-        this.a = new wh2("beforeRequestPayment", treeMap);
     }
 
-    public wh2 a() {
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            xz1 xz1Var = this.i;
+            if (xz1Var != null && !xz1Var.isSuccess()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.d) && !TextUtils.isEmpty(this.f) && !TextUtils.isEmpty(this.e)) {
+                return true;
+            }
+            return false;
         }
-        return (wh2) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        String a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append("SwanPluginFunPageModel{providerAppKey='");
+            sb.append(this.a);
+            sb.append('\'');
+            sb.append(", providerRootPath='");
+            sb.append(this.c);
+            sb.append('\'');
+            sb.append(", providerVersion='");
+            sb.append(this.d);
+            sb.append('\'');
+            sb.append(", componentId='");
+            sb.append(this.f);
+            sb.append('\'');
+            sb.append(", cb='");
+            sb.append(this.h);
+            sb.append('\'');
+            sb.append(", pageParams=");
+            sb.append(this.g);
+            sb.append(", swanApiResult=");
+            xz1 xz1Var = this.i;
+            if (xz1Var == null) {
+                a = null;
+            } else {
+                a = xz1Var.a();
+            }
+            sb.append(a);
+            sb.append('}');
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

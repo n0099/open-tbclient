@@ -10,8 +10,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fk9;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.un9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -119,7 +119,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             if (z) {
                 a = SkinManager.getColor(i3);
             } else {
-                a = fk9.a(SkinManager.getColor(i3), 0.5f);
+                a = un9.a(SkinManager.getColor(i3), 0.5f);
             }
             this.b.setStroke(i2, a);
             GradientDrawable gradientDrawable2 = new GradientDrawable();
@@ -127,7 +127,7 @@ public class AdCloseReasonCheckBox extends CheckBox {
             gradientDrawable2.setShape(0);
             this.c.setCornerRadius(f);
             if (z) {
-                color = fk9.a(SkinManager.getColor(i4), 0.5f);
+                color = un9.a(SkinManager.getColor(i4), 0.5f);
             } else {
                 color = SkinManager.getColor(i4);
             }

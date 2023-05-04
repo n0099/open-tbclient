@@ -1,6 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import androidx.annotation.AnimRes;
+import androidx.annotation.IdRes;
+import androidx.annotation.Nullable;
+import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,14 +13,25 @@ public abstract class vl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a<D> {
-        void a(bm4<D> bm4Var);
+    public abstract vl4 a(@IdRes int i, Fragment fragment);
 
-        void b(bm4<D> bm4Var, D d);
+    public abstract vl4 b(@IdRes int i, Fragment fragment, @Nullable String str);
 
-        bm4<D> onCreateLoader(int i, Bundle bundle);
-    }
+    public abstract vl4 c(Fragment fragment, String str);
+
+    public abstract vl4 d(@Nullable String str);
+
+    public abstract int e();
+
+    public abstract int f();
+
+    public abstract vl4 g(Fragment fragment);
+
+    public abstract vl4 h(Fragment fragment);
+
+    public abstract vl4 i(@AnimRes int i, @AnimRes int i2);
+
+    public abstract vl4 j(Fragment fragment);
 
     public vl4() {
         Interceptable interceptable = $ic;

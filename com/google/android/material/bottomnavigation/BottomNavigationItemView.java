@@ -284,12 +284,12 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
         super(context, attributeSet, i);
         this.itemPosition = -1;
         Resources resources = getResources();
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0229, (ViewGroup) this, true);
-        setBackgroundResource(R.drawable.obfuscated_res_0x7f0804ac);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d022c, (ViewGroup) this, true);
+        setBackgroundResource(R.drawable.obfuscated_res_0x7f0804ad);
         this.defaultMargin = resources.getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0701fb);
-        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f68);
-        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0920c8);
-        this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0913c3);
+        this.icon = (ImageView) findViewById(R.id.obfuscated_res_0x7f090f77);
+        this.smallLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0920dc);
+        this.largeLabel = (TextView) findViewById(R.id.obfuscated_res_0x7f0913d1);
         ViewCompat.setImportantForAccessibility(this.smallLabel, 2);
         ViewCompat.setImportantForAccessibility(this.largeLabel, 2);
         setFocusable(true);
@@ -366,7 +366,7 @@ public class BottomNavigationItemView extends FrameLayout implements MenuView.It
             wrap.setClickable(false);
             wrap.removeAction(AccessibilityNodeInfoCompat.AccessibilityActionCompat.ACTION_CLICK);
         }
-        wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0a5a));
+        wrap.setRoleDescription(getResources().getString(R.string.obfuscated_res_0x7f0f0a6f));
     }
 
     @Override // androidx.appcompat.view.menu.MenuView.ItemView

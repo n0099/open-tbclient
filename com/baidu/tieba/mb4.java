@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
+import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class mb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public JSONObject c;
+    public RecommendItemModel a;
+    public List<RecommendItemModel> b;
 
     public mb4() {
         Interceptable interceptable = $ic;
@@ -28,15 +27,22 @@ public class mb4 {
         }
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public mb4(RecommendItemModel recommendItemModel, List<RecommendItemModel> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a == 0) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {recommendItemModel, list};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        this.a = recommendItemModel;
+        this.b = list;
     }
 }

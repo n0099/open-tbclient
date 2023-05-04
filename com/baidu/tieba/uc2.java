@@ -1,158 +1,137 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tieba.sc2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.TreeMap;
+import com.baidu.webkit.sdk.WebResourceResponse;
+import com.baidubce.http.Headers;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.InputStream;
+import java.util.HashMap;
 /* loaded from: classes6.dex */
-public class uc2 {
+public class uc2 extends lc2 implements gc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean l;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public boolean e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
+    public dc2 b;
 
-    /* loaded from: classes6.dex */
-    public static class a extends PrefetchEvent.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(@Nullable Map<String, String> map, String str) {
-            super(map, str);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {map, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((Map) objArr2[0], (String) objArr2[1]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948206117, "Lcom/baidu/tieba/uc2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948206117, "Lcom/baidu/tieba/uc2;");
-                return;
-            }
-        }
-        l = fo1.a;
-    }
-
-    public uc2() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public uc2(@NonNull Context context, ac2 ac2Var) {
+        super(context, ac2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, ac2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (ac2) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = new vc2();
     }
 
-    public static uc2 a(bu1<?> bu1Var, PrefetchEvent prefetchEvent, v73 v73Var) {
-        InterceptResult invokeLLL;
-        long j;
+    public final WebResourceResponse b(String str, InputStream inputStream) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, bu1Var, prefetchEvent, v73Var)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
-            }
-            uc2 uc2Var = new uc2();
-            uc2Var.h = bu1Var.a();
-            uc2Var.a = prefetchEvent.appPath;
-            uc2Var.b = prefetchEvent.pageUrl;
-            uc2Var.f = prefetchEvent.rootPath;
-            SwanAppConfigData Q = v73Var.Q();
-            uc2Var.c = prefetchEvent.pageType;
-            String c = f83.c(prefetchEvent.appPath, nl3.f(nb3.b(prefetchEvent.pageUrl)));
-            uc2Var.g = c;
-            k83 b = k83.b(c, Q.e);
-            uc2Var.k = b.r;
-            uc2Var.d = b.g;
-            uc2Var.e = prefetchEvent.isT7Available;
-            uc2Var.i = prefetchEvent.sConsole;
-            if (!TextUtils.isEmpty(prefetchEvent.userActionApis)) {
-                uc2Var.j = prefetchEvent.userActionApis;
-            }
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload event cost - " + (currentTimeMillis - j) + "ms");
-            }
-            return uc2Var;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, inputStream)) == null) {
+            HashMap hashMap = new HashMap(1);
+            hashMap.put(Headers.CACHE_CONTROL, "max-age=86400");
+            return new WebResourceResponse(true, str, "UTF-8", 200, DnsModel.MSG_OK, hashMap, new BufferedInputStream(inputStream));
         }
-        return (uc2) invokeLLL.objValue;
+        return (WebResourceResponse) invokeLL.objValue;
     }
 
-    public a b() {
-        InterceptResult invokeV;
-        long j;
+    @Override // com.baidu.tieba.sc2
+    @SuppressLint({"BDThrowableCheck"})
+    public WebResourceResponse a(@NonNull sc2.a aVar) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (l) {
-                j = System.currentTimeMillis();
-            } else {
-                j = 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            String d = aVar.d();
+            if (!d(aVar)) {
+                return aVar.b(d, aVar.getRequestHeaders(), aVar.c());
             }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, this.h);
-            treeMap.put(PrefetchEvent.EVENT_KEY_APP_PATH, this.a);
-            treeMap.put("pagePath", this.b);
-            treeMap.put("pageType", this.c);
-            treeMap.put("onReachBottomDistance", this.d);
-            treeMap.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, String.valueOf(this.e));
-            treeMap.put(PrefetchEvent.EVENT_DATA_DEBUG_SCONSOLE, this.i);
-            treeMap.put("root", this.f);
-            treeMap.put(PrefetchEvent.EVENT_USER_ACTION_APIS, this.j);
-            t33.a(treeMap, "slave preload ready event");
-            nb3.a(this.b, treeMap);
-            treeMap.put("pageConfig", this.g);
-            if (l) {
-                long currentTimeMillis = System.currentTimeMillis();
-                Log.d("SlavePreloadEvent", "build slave preload msg cost - " + (currentTimeMillis - j) + "ms");
+            if (gc2.a) {
+                Log.d("HybridIntercept", "intercept file = " + d);
             }
-            return new a(treeMap, "preload");
+            String c = c(d);
+            if (TextUtils.isEmpty(c)) {
+                if (!gc2.a) {
+                    return null;
+                }
+                throw new IllegalArgumentException("file path can't be null, src = " + d);
+            }
+            File file = new File(c);
+            if (file.exists() && file.isFile()) {
+                try {
+                    FileInputStream fileInputStream = new FileInputStream(file);
+                    if (c.endsWith(FileHelper.FILE_CACHE_CSS)) {
+                        str = "text/css";
+                    } else if (c.endsWith(".js")) {
+                        str = "application/javascript";
+                    } else {
+                        str = "text/plan";
+                    }
+                    return b(str, fileInputStream);
+                } catch (Throwable th) {
+                    if (gc2.a) {
+                        Log.e("HybridIntercept", Log.getStackTraceString(th));
+                    }
+                }
+            }
+            x42.c("HybridIntercept", "file intercept error, src = " + d);
+            return null;
         }
-        return (a) invokeV.objValue;
+        return (WebResourceResponse) invokeL.objValue;
+    }
+
+    public String c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return str;
+            }
+            if (str.startsWith("interceptfile://") && str.length() > 16) {
+                str = str.substring(16);
+            }
+            if (gc2.a) {
+                Log.d("HybridIntercept", "file request url = " + str);
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean d(@NonNull sc2.a aVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, aVar)) == null) {
+            if (!aVar.c()) {
+                return true;
+            }
+            return this.b.a(aVar);
+        }
+        return invokeL.booleanValue;
     }
 }

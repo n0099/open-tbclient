@@ -35,7 +35,7 @@ public class b {
     public c.a Ce;
     public a Cf;
     @Nullable
-    public InterfaceC0555b Cg;
+    public InterfaceC0558b Cg;
     public KsAdWebView bF;
     public aa bI;
     @Nullable
@@ -78,7 +78,7 @@ public class b {
 
     /* renamed from: com.kwad.components.ad.i.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0555b {
+    public interface InterfaceC0558b {
         void hk();
     }
 
@@ -115,7 +115,7 @@ public class b {
     }
 
     public static int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0444;
+        return R.layout.obfuscated_res_0x7f0d044a;
     }
 
     private KsAdWebView.d getWebListener() {
@@ -183,8 +183,8 @@ public class b {
         this.Cf = aVar;
     }
 
-    public final void a(@Nullable InterfaceC0555b interfaceC0555b) {
-        this.Cg = interfaceC0555b;
+    public final void a(@Nullable InterfaceC0558b interfaceC0558b) {
+        this.Cg = interfaceC0558b;
         this.bS.setVisibility(4);
         this.bH = -1;
         String l = l(this.mAdTemplate);
@@ -290,7 +290,7 @@ public class b {
         this.bS.removeAllViews();
         this.bS.setVisibility(4);
         this.BT = com.kwad.sdk.b.kwai.a.a((ViewGroup) this.bS, getLayoutId(), true);
-        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0913a9);
+        KsAdWebView ksAdWebView = (KsAdWebView) this.bS.findViewById(R.id.obfuscated_res_0x7f0913b7);
         this.bF = ksAdWebView;
         ksAdWebView.setBackgroundColor(0);
         this.bF.getBackground().setAlpha(0);

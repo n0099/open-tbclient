@@ -1,23 +1,81 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class wk6 {
+public final class wk6 implements v17 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Runnable runnable, @NonNull String str, int i) {
+    @Override // com.baidu.tieba.v17
+    public String getKey() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65536, null, runnable, str, i) == null) {
-            if (!((vh) ServiceManager.getService(vh.a)).threadABTest()) {
-                new Thread(runnable).start();
-            } else {
-                ExecutorUtilsExt.postOnElastic(runnable, str, i);
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? CommonStatisticKey.KEY_CONCERN_YY_LIVE_AVATER_CLICK : (String) invokeV.objValue;
+    }
+
+    public wk6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.v17
+    public Map<String, String> a(hy6 businessInfo) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            Map<String, String> a = businessInfo.a();
+            hashMap.put("obj_type", b(businessInfo));
+            String str = a.get("live_type");
+            String str2 = "";
+            if (str == null) {
+                str = "";
+            }
+            hashMap.put("obj_param1", str);
+            String str3 = a.get("live_app_id");
+            if (str3 != null) {
+                str2 = str3;
+            }
+            hashMap.put(TiebaStatic.Params.OBJ_PARAM2, str2);
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public final String b(hy6 hy6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy6Var)) == null) {
+            Map<String, String> a = hy6Var.a();
+            if (Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_FULL_SPLIT_ORDER_MOTIFY_BTN_CLICK)) {
+                return "3";
+            }
+            if (!Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_PAGE_SHOW) && !Intrinsics.areEqual(a.get("thread_type"), "69") && !Intrinsics.areEqual(a.get("thread_type"), PayUVEventType.PAY_SPLIT_ORDER_RESULT_FAIL_CLOSE_BTN_CLICK)) {
+                return "2";
+            }
+            return "1";
+        }
+        return (String) invokeL.objValue;
     }
 }

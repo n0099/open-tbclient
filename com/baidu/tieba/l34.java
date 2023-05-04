@@ -2,14 +2,13 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import android.util.Log;
+import android.widget.Toast;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ad3;
-import com.baidu.tieba.rq2;
+import com.baidu.tieba.tq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,130 +17,69 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l34 extends s93 {
+public class l34 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public class a implements om3<yc3<ad3.e>> {
+    public class a implements tq2.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ l34 e;
 
-        public a(l34 l34Var, CallbackHandler callbackHandler, String str, Context context, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {l34Var, callbackHandler, str, context, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = l34Var;
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = context;
-            this.d = str2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (tc3.h(yc3Var)) {
-                    this.e.l(this.c, this.d, this.b, this.a);
-                } else {
-                    tc3.q(yc3Var, this.a, this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements rq2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ String c;
-
-        @Override // com.baidu.tieba.rq2.c
+        @Override // com.baidu.tieba.tq2.c
         public void a(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        public b(l34 l34Var, Context context, CallbackHandler callbackHandler, String str) {
+        public a(l34 l34Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {l34Var, context, callbackHandler, str};
+                Object[] objArr = {l34Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = context;
-            this.b = callbackHandler;
-            this.c = str;
         }
 
-        @Override // com.baidu.tieba.rq2.c
+        @Override // com.baidu.tieba.tq2.c
         public void onFailed() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                n73.f(this.a, R.string.obfuscated_res_0x7f0f0132).G();
-                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
+                Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0135, 1).show();
             }
         }
 
-        @Override // com.baidu.tieba.rq2.c
+        @Override // com.baidu.tieba.tq2.c
         public void onSuccess() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                File c = z34.c();
-                File b = z34.b();
-                if (s93.b) {
-                    Log.d("replaceGameCore", "gameCoreZipFile: " + c + " gameCoreDir: " + b);
+                File c = m34.c();
+                File b = m34.b();
+                if (c.exists() && bo4.U(c.getPath(), b.getPath())) {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0136, 1).show();
+                } else {
+                    Toast.makeText(AppRuntime.getAppContext(), (int) R.string.obfuscated_res_0x7f0f0135, 1).show();
                 }
-                if (c.exists() && zn4.U(c.getPath(), b.getPath())) {
-                    u33.L(true);
-                    n73.f(this.a, R.string.obfuscated_res_0x7f0f0133).G();
-                    this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                    return;
-                }
-                n73.f(this.a, R.string.obfuscated_res_0x7f0f0132).G();
-                this.b.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(1001).toString());
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public l34(s83 s83Var) {
-        super(s83Var, "/swanAPI/debug/replaceGameCore");
+    public l34(u83 u83Var) {
+        super(u83Var, "/swanAPI/debugGameExtensionCore");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -155,35 +93,27 @@ public class l34 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            JSONObject a2 = s93.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                n73.f(context, R.string.obfuscated_res_0x7f0f0135).G();
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "params is null");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (!u93.b) {
                 return false;
             }
-            String optString = a2.optString("url");
-            String optString2 = a2.optString("cb");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                v73Var.e0().g(context, "mapp_cts_debug", new a(this, callbackHandler, optString2, context, optString));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+            JSONObject a2 = u93.a(unitedSchemeEntity, "params");
+            if (a2 == null) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0133, 1).show();
+                return false;
             }
-            n73.f(context, R.string.obfuscated_res_0x7f0f0136).G();
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "game core url or cb is null");
+            String optString = a2.optString("downloadurl");
+            if (TextUtils.isEmpty(optString)) {
+                Toast.makeText(context, (int) R.string.obfuscated_res_0x7f0f0134, 1).show();
+                return false;
+            }
+            n44.f(optString, new a(this));
             return false;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    public final void l(Context context, String str, String str2, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, callbackHandler) == null) {
-            l44.g(str, new b(this, context, callbackHandler, str2));
-        }
     }
 }

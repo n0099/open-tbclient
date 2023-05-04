@@ -1,20 +1,19 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class s28 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile s28 c;
+    public static volatile s28 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
-    public ArrayList<String> b;
 
     public s28() {
         Interceptable interceptable = $ic;
@@ -30,67 +29,79 @@ public class s28 {
         }
     }
 
-    public static s28 d() {
+    public static s28 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
+            if (a == null) {
                 synchronized (s28.class) {
-                    if (c == null) {
-                        c = new s28();
+                    if (a == null) {
+                        a = new s28();
                     }
                 }
             }
-            return c;
+            return a;
         }
         return (s28) invokeV.objValue;
     }
 
-    public void a() {
+    public long a(@NonNull Long l) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            Map<String, String> map = this.a;
-            if (map != null) {
-                map.clear();
-                this.a = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, l)) == null) {
+            GroupChatRoomPojo c = y08.f().c(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (c != null) {
+                return c.getTopTime();
             }
-            ArrayList<String> arrayList = this.b;
-            if (arrayList != null) {
-                arrayList.clear();
-                this.b = null;
+            return 0L;
+        }
+        return invokeL.longValue;
+    }
+
+    public boolean d(@NonNull Long l) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, l)) == null) {
+            GroupChatRoomPojo c = y08.f().c(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (c == null || c.W() == 0) {
+                return true;
             }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean c(@NonNull Long l, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, l, j)) == null) {
+            GroupChatRoomPojo c = y08.f().c(TbadkCoreApplication.getCurrentAccount(), l.longValue());
+            if (c != null && c.getDeleteTime() != 0 && j <= c.getDeleteTime()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLJ.booleanValue;
+    }
+
+    public void e(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
+            y08.f().m(TbadkCoreApplication.getCurrentAccount(), l.longValue(), str, str2, j);
         }
     }
 
-    public Map<String, String> b() {
-        InterceptResult invokeV;
+    public void f(@NonNull Long l, @NonNull String str, @NonNull String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public ArrayList<String> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public void e(Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, map) == null) {
-            this.a = map;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{l, str, str2, Boolean.valueOf(z)}) == null) {
+            y08.f().p(TbadkCoreApplication.getCurrentAccount(), l.longValue(), str, str2, !z);
         }
     }
 
-    public void f(ArrayList<String> arrayList) {
+    public void g(@NonNull Long l, @NonNull String str, @NonNull String str2, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) {
-            this.b = arrayList;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{l, str, str2, Long.valueOf(j)}) == null) {
+            y08.f().r(TbadkCoreApplication.getCurrentAccount(), l.longValue(), str, str2, j);
         }
     }
 }

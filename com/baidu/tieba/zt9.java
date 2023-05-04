@@ -1,133 +1,54 @@
 package com.baidu.tieba;
 
-import android.media.MediaMetadataRetriever;
-import com.baidu.tbadk.album.VideoFileInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zt9 {
+public class zt9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final gs9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948371626, "Lcom/baidu/tieba/zt9;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zt9(MainTabActivity mainTabActivity, gs9 gs9Var) {
+        super(2007009);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948371626, "Lcom/baidu/tieba/zt9;");
-        }
-    }
-
-    public static boolean a(InputStream inputStream, String str, kga kgaVar) throws IOException {
-        double d;
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, inputStream, str, kgaVar)) == null) {
-            try {
-                if (inputStream instanceof FileInputStream) {
-                    d = ((FileInputStream) inputStream).getChannel().size();
-                } else {
-                    d = 0.0d;
-                }
-                FileOutputStream fileOutputStream = new FileOutputStream(str);
-                byte[] bArr = new byte[1444];
-                int i = 0;
-                while (true) {
-                    int read = inputStream.read(bArr);
-                    if (read == -1) {
-                        break;
-                    }
-                    i += read;
-                    if (kgaVar != null && d != 0.0d) {
-                        kgaVar.c((int) ((i / d) * 100.0d));
-                    } else if (kgaVar != null && d == 0.0d) {
-                        kgaVar.c(80);
-                    }
-                    fileOutputStream.write(bArr, 0, read);
-                }
-                return true;
-            } finally {
-                if (inputStream != null) {
-                    try {
-                        inputStream.close();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, gs9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLLL.booleanValue;
+        this.a = mainTabActivity;
+        this.b = gs9Var;
     }
 
-    public static boolean b(String str, String str2, kga kgaVar) throws IOException {
-        InterceptResult invokeLLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, kgaVar)) == null) {
-            return a(new FileInputStream(str), str2, kgaVar);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[]}, finally: {[INVOKE] complete} */
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:24:0x0082 -> B:25:0x0085). Please submit an issue!!! */
-    public static VideoFileInfo c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            File file = new File(str);
-            if (file.exists() && file.isFile()) {
-                VideoFileInfo videoFileInfo = new VideoFileInfo();
-                videoFileInfo.videoPath = str;
-                videoFileInfo.lastModified = file.lastModified();
-                MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
-                try {
-                    try {
-                        try {
-                            mediaMetadataRetriever.setDataSource(str);
-                            videoFileInfo.videoDuration = gg.e(mediaMetadataRetriever.extractMetadata(9), 0);
-                            videoFileInfo.mimeType = mediaMetadataRetriever.extractMetadata(12);
-                            videoFileInfo.videoWidth = gg.e(mediaMetadataRetriever.extractMetadata(18), 0);
-                            videoFileInfo.videoHeight = gg.e(mediaMetadataRetriever.extractMetadata(19), 0);
-                            int e = gg.e(mediaMetadataRetriever.extractMetadata(24), 0);
-                            if (e == 90 || e == 270) {
-                                int i = videoFileInfo.videoWidth;
-                                videoFileInfo.videoWidth = videoFileInfo.videoHeight;
-                                videoFileInfo.videoHeight = i;
-                            }
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e2) {
-                            e2.printStackTrace();
-                            mediaMetadataRetriever.release();
-                        }
-                    } catch (Throwable th) {
-                        try {
-                            mediaMetadataRetriever.release();
-                        } catch (Exception e3) {
-                            e3.printStackTrace();
-                        }
-                        throw th;
-                    }
-                } catch (Exception e4) {
-                    e4.printStackTrace();
-                }
-                return videoFileInfo;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage.getData() instanceof Integer)) {
+            Integer num = (Integer) customResponsedMessage.getData();
+            if (num.intValue() == 2) {
+                this.b.s(true);
+            } else if (num.intValue() == 1) {
+                this.b.s(false);
+            } else {
+                this.b.s(false);
             }
-            return null;
         }
-        return (VideoFileInfo) invokeL.objValue;
     }
 }

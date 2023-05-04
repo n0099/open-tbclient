@@ -1,29 +1,18 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public interface vr2 {
+    void a(u83 u83Var);
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(ua3 ua3Var);
+    @Nullable
+    Map<String, Object> b(@NonNull yv1 yv1Var);
 
-        void onFailed(int i);
-    }
+    @Nullable
+    Map<String, Object> c(@NonNull yv1 yv1Var);
 
-    void a();
-
-    void b(String str, boolean z, boolean z2, a aVar);
-
-    void c();
-
-    void d();
-
-    void e();
-
-    void f(a aVar);
-
-    double[] g(@NonNull ua3 ua3Var, @NonNull String str);
-
-    ua3 h();
+    @Nullable
+    Map<Class, Object> d();
 }

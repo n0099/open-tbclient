@@ -1,52 +1,56 @@
 package com.baidu.tieba;
 
-import android.app.AlarmManager;
-import android.app.PendingIntent;
-import android.content.Intent;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkSettings;
-import com.baidu.tbadk.clientConfig.ClientConfigModel;
-import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tieba.tblauncher.alarmRemind.AlarmReceiver;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.coreExtra.data.AuthTokenData;
+import com.baidu.tbadk.switchs.BarDetailForDirSwitch;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetClientConfig.DataRes;
+import java.lang.ref.WeakReference;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zo9 {
     public static /* synthetic */ Interceptable $ic;
-    public static zo9 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClientConfigModel a;
-    public d b;
-    public boolean c;
-    public final ev4 d;
-    public CustomMessageListener e;
-    public CustomMessageListener f;
+    public String a;
+    public a b;
 
     /* loaded from: classes7.dex */
-    public class a implements ev4 {
+    public interface a {
+        void a(String str, long j);
+
+        void b(String str, long j);
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b extends BdAsyncTask<Integer, Integer, Integer> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo9 a;
+        public NetWork a;
+        public String b;
+        public long c;
+        public String d;
+        public WeakReference<a> e;
+        public int f;
+        public String g;
 
-        public a(zo9 zo9Var) {
+        public b(String str, long j, String str2, a aVar, zo9 zo9Var, String str3) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {zo9Var};
+                Object[] objArr = {str, Long.valueOf(j), str2, aVar, zo9Var, str3};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -56,154 +60,91 @@ public class zo9 {
                     return;
                 }
             }
-            this.a = zo9Var;
+            this.a = null;
+            this.b = null;
+            this.c = 0L;
+            this.e = null;
+            new WeakReference(zo9Var);
+            this.b = str;
+            this.c = j;
+            this.e = new WeakReference<>(aVar);
+            this.d = str2;
+            this.g = str3;
+            setPriority(3);
         }
 
-        @Override // com.baidu.tieba.ev4
-        public void onError(String str) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Integer doInBackground(Integer... numArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
-                return;
-            }
-            this.a.c = false;
-        }
-
-        @Override // com.baidu.tieba.ev4
-        public void a(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                this.a.c = false;
-                if (obj != null && (obj instanceof DataRes)) {
-                    DataRes dataRes = (DataRes) obj;
-                    if (dataRes.local_dialog != null) {
-                        String g = yo9.g(dataRes);
-                        if (TextUtils.isEmpty(g)) {
-                            return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, numArr)) == null) {
+                try {
+                    if (this.c != 0 && this.b != null) {
+                        NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.UNFAVOLIKE_ADDRESS);
+                        this.a = netWork;
+                        netWork.addPostData("fid", String.valueOf(this.c));
+                        this.a.addPostData(TiebaStatic.Params.H5_FORUM_NAME, this.b);
+                        this.a.addPostData("favo_type", "1");
+                        this.a.addPostData("st_type", this.d);
+                        this.a.addPostData("authsid", this.g);
+                        this.a.getNetContext().getRequest().mIsNeedTbs = true;
+                        String postNetData = this.a.postNetData();
+                        if (!hi.isEmpty(postNetData)) {
+                            JSONObject jSONObject = new JSONObject(postNetData);
+                            this.f = jSONObject.optInt("error_code");
+                            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+                            AuthTokenData.parse(jSONObject);
                         }
-                        TbadkSettings.getInst().saveString(this.a.h("remind_recommend_info"), g);
-                        TbadkSettings.getInst().saveInt(this.a.h("remind_recommend_server_switch"), dataRes.local_dialog.show.intValue());
-                        TbadkSettings.getInst().saveString(this.a.h("remind_recommend_dialog_time"), dataRes.local_dialog.time);
-                        this.a.k(true);
-                        TbadkSettings.getInst().saveLong(this.a.h("remind_recommend_data_time"), System.currentTimeMillis());
+                        if (this.a.getNetContext().getResponse().isRequestSuccess()) {
+                            return 1;
+                        }
                     }
+                    return 0;
+                } catch (Exception e) {
+                    BdLog.e(e.getMessage());
+                    return 0;
                 }
             }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(zo9 zo9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo9Var;
+            return (Integer) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Integer num) {
+            String netException;
+            NetWork netWork;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || getCmd() != 2000994 || !(customResponsedMessage instanceof NetWorkChangedMessage) || customResponsedMessage.hasError() || !BdNetTypeUtil.isNetWorkAvailable() || !this.a.f()) {
-                return;
-            }
-            this.a.g();
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(zo9 zo9Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo9Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016 && this.a.f()) {
-                this.a.k(true);
-                this.a.g();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class d extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zo9 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(zo9 zo9Var) {
-            super(2001011);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zo9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zo9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Boolean data;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage instanceof BackgroundSwitchMessage) && (data = ((BackgroundSwitchMessage) customResponsedMessage).getData()) != null && !data.booleanValue()) {
-                q45.m().A("tieba_last_active_time", System.currentTimeMillis());
-                if (this.a.f()) {
-                    this.a.k(true);
-                    this.a.g();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, num) == null) {
+                super.onPostExecute((b) num);
+                if (this.e != null) {
+                    pr9 pr9Var = new pr9();
+                    pr9Var.a = this.c;
+                    a aVar = this.e.get();
+                    if (aVar == null) {
+                        return;
+                    }
+                    if (num.intValue() == 1 && (netWork = this.a) != null && netWork.getNetContext().getResponse().isRequestSuccess()) {
+                        TbadkCoreApplication.getInst().delLikeForum(this.b);
+                        aVar.b(this.b, this.c);
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001336, Long.valueOf(this.c)));
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001611, this.b));
+                        pr9Var.b = true;
+                    } else {
+                        pr9Var.b = false;
+                        NetWork netWork2 = this.a;
+                        if (netWork2 != null) {
+                            if (netWork2.isNetSuccess()) {
+                                netException = this.a.getErrorString();
+                            } else {
+                                netException = this.a.getNetException();
+                            }
+                            pr9Var.c = netException;
+                            aVar.a(netException, this.f);
+                        }
+                    }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001438, pr9Var));
                 }
             }
         }
@@ -222,106 +163,27 @@ public class zo9 {
                 return;
             }
         }
-        this.c = false;
-        this.d = new a(this);
-        this.e = new b(this, 2000994);
-        this.f = new c(this, 2005016);
+        this.a = BarDetailForDirSwitch.BAR_DETAIL_DIR;
     }
 
-    public final void g() {
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (!yo9.f(TbadkSettings.getInst().loadLong(h("remind_recommend_data_time"), 0L)) && !TbadkCoreApplication.getInst().checkInterrupt()) {
-                j();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.a = str;
         }
     }
 
-    public String h(String str) {
-        InterceptResult invokeL;
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TbadkCoreApplication.getCurrentAccount() + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static zo9 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (g == null) {
-                synchronized (zo9.class) {
-                    if (g == null) {
-                        g = new zo9();
-                    }
-                }
-            }
-            return g;
-        }
-        return (zo9) invokeV.objValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TbadkCoreApplication.isLogin()) {
-                k(false);
-                return false;
-            } else if (!yo9.e()) {
-                k(false);
-                return false;
-            } else if (!yo9.d()) {
-                k(false);
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void j() {
-        ClientConfigModel clientConfigModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (clientConfigModel = this.a) != null && !this.c) {
-            this.c = true;
-            clientConfigModel.V("local_dialog");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    public void e(BaseFragmentActivity baseFragmentActivity) {
+    public void c(String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, baseFragmentActivity) == null) {
-            d dVar = new d(this);
-            this.b = dVar;
-            baseFragmentActivity.registerListener(dVar);
-            baseFragmentActivity.registerListener(this.e);
-            baseFragmentActivity.registerListener(this.f);
-            this.a = new ClientConfigModel(baseFragmentActivity, this.d);
-            q45.m().A("tieba_last_active_time", System.currentTimeMillis());
-            if (f()) {
-                k(true);
-                g();
-            }
-        }
-    }
-
-    public final void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            AlarmManager alarmManager = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
-            PendingIntent broadcast = PendingIntent.getBroadcast(TbadkCoreApplication.getInst().getApp(), 0, new Intent(TbadkCoreApplication.getInst().getApp(), AlarmReceiver.class), 134217728);
-            try {
-                if (z) {
-                    alarmManager.setRepeating(0, yo9.b() + 86400000, 86400000L, broadcast);
-                } else {
-                    alarmManager.cancel(broadcast);
-                }
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, str, j) == null) {
+            new b(str, j, this.a, this.b, this, null).execute(new Integer[0]);
         }
     }
 }

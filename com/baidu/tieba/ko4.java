@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
+import android.os.Environment;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,8 +9,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes5.dex */
-public class ko4 implements jo4<String> {
+public class ko4 implements lo4<String> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
@@ -34,37 +34,62 @@ public class ko4 implements jo4<String> {
         this.a = context.getApplicationContext();
     }
 
-    @Override // com.baidu.tieba.jo4
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !TextUtils.equals("mounted", Environment.getExternalStorageState()) || !to4.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
+            return;
+        }
+        ro4.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
+    }
+
+    @Override // com.baidu.tieba.lo4
     public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return TextUtils.isEmpty(get());
+            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !to4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
+                return true;
+            }
+            return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
         }
         return invokeV.booleanValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jo4
+    @Override // com.baidu.tieba.lo4
     /* renamed from: b */
     public String get() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return PreferenceManager.getDefaultSharedPreferences(this.a).getString("uuid_identity", null);
+            return c();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !to4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
+                return null;
+            }
+            File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
+            if (!file.exists()) {
+                return null;
+            }
+            return ro4.c(file);
         }
         return (String) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jo4
-    /* renamed from: c */
+    @Override // com.baidu.tieba.lo4
+    /* renamed from: d */
     public void put(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            SharedPreferences.Editor edit = PreferenceManager.getDefaultSharedPreferences(this.a).edit();
-            edit.putString("uuid_identity", str);
-            edit.apply();
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            e(str);
         }
     }
 }

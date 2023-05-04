@@ -17,13 +17,13 @@ import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ala.alasquare.live_tab.message.AlaTabLiveResponsedMessage;
-import com.baidu.tieba.ch6;
-import com.baidu.tieba.h56;
+import com.baidu.tieba.i66;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.in;
-import com.baidu.tieba.k46;
-import com.baidu.tieba.r56;
-import com.baidu.tieba.w36;
+import com.baidu.tieba.l56;
+import com.baidu.tieba.ni6;
+import com.baidu.tieba.s66;
+import com.baidu.tieba.x46;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean c;
     public boolean d;
     public BdUniqueId e;
-    public h56 f;
+    public i66 f;
     public long g;
     public int h;
     public int i;
@@ -61,7 +61,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -111,19 +111,19 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021141 && (httpResponsedMessage instanceof AlaTabLiveResponsedMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaTabLiveResponsedMessage alaTabLiveResponsedMessage = (AlaTabLiveResponsedMessage) httpResponsedMessage;
                 if (alaTabLiveResponsedMessage.getError() == 0 && alaTabLiveResponsedMessage.isSuccess()) {
-                    k46 k46Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
+                    l56 l56Var = alaTabLiveResponsedMessage.tabAllLiveInfo;
                     if (this.a.d) {
                         if (this.a.f != null) {
-                            this.a.f.a(k46Var);
+                            this.a.f.a(l56Var);
                         }
                     } else {
-                        w36.a(this.a.h);
+                        x46.a(this.a.h);
                         if (this.a.f != null) {
                             this.a.f.b();
                         }
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel = this.a;
-                        alaLiveYYSubTabModel.f = new h56(k46Var, alaLiveYYSubTabModel.j, this.a.k);
-                        this.a.c0();
+                        alaLiveYYSubTabModel.f = new i66(l56Var, alaLiveYYSubTabModel.j, this.a.k);
+                        this.a.h0();
                     }
                     if (this.a.f != null) {
                         AlaLiveYYSubTabModel alaLiveYYSubTabModel2 = this.a;
@@ -168,7 +168,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         public void onSuccess(List<AlaLiveInfo> list) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-                this.a.c0();
+                this.a.h0();
                 if (this.a.m != null && this.a.f != null) {
                     this.a.m.a(this.a.c, this.a.f.d());
                 }
@@ -201,7 +201,7 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         if (this.b == null) {
             PollingModel pollingModel = new PollingModel(tbPageContext, tbPageContext.getUniqueId());
             this.b = pollingModel;
-            pollingModel.K0(new b(this));
+            pollingModel.P0(new b(this));
         }
     }
 
@@ -221,14 +221,14 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
                 this.g = currentTimeMillis;
             }
             this.d = true;
-            d0(1, w36.b(this.h) - 1);
+            i0(1, x46.b(this.h) - 1);
         }
     }
 
-    public final void c0() {
+    public final void h0() {
         String str;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.f == null) {
+        if ((interceptable != null && interceptable.invokeV(1048579, this) != null) || this.f == null) {
             return;
         }
         int i = this.i;
@@ -239,17 +239,17 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
         } else {
             str = "";
         }
-        r56 r56Var = new r56();
-        r56Var.a = new ch6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
-        this.f.g(r56Var);
+        s66 s66Var = new s66();
+        s66Var.a = new ni6(this.a.getUniqueId(), TbSingleton.getInstance().getLiveFollowSecondFloor(), str);
+        this.f.g(s66Var);
     }
 
-    public boolean d() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            h56 h56Var = this.f;
-            if (h56Var != null && !ListUtils.isEmpty(h56Var.d())) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            i66 i66Var = this.f;
+            if (i66Var != null && !ListUtils.isEmpty(i66Var.d())) {
                 return true;
             }
             return false;
@@ -282,13 +282,13 @@ public class AlaLiveYYSubTabModel extends BdBaseModel {
             this.d = false;
             PollingModel pollingModel = this.b;
             if (pollingModel != null) {
-                pollingModel.x0(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
+                pollingModel.C0(PollingModel.LIVE_FOLLOW_SECOND_FLOOR);
             }
-            d0(0, w36.b(this.h));
+            i0(0, x46.b(this.h));
         }
     }
 
-    public final void d0(int i, int i2) {
+    public final void i0(int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_GET_TAB_LIVE_INFO);

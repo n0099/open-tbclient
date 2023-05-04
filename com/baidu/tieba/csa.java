@@ -1,256 +1,176 @@
 package com.baidu.tieba;
 
-import android.os.Environment;
-import android.os.Looper;
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.gsa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.LinkedList;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import java.util.HashMap;
 import java.util.List;
 /* loaded from: classes4.dex */
-public final class csa {
+public class csa extends hra<wra> {
     public static /* synthetic */ Interceptable $ic;
-    public static csa e;
-    public static bsa f;
     public transient /* synthetic */ FieldHolder $fh;
-    public gsa a;
-    public isa b;
-    public hsa c;
-    public List<dsa> d;
+    public final HashMap<wra, ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener>> f;
 
-    /* loaded from: classes4.dex */
-    public class a implements gsa.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ csa a;
-
-        public a(csa csaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {csaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = csaVar;
-        }
-
-        @Override // com.baidu.tieba.gsa.b
-        public void a(long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
-                ArrayList<String> e = this.a.b.e(j, j2);
-                if (!e.isEmpty()) {
-                    jsa b = jsa.b();
-                    b.c(j, j2, j3, j4);
-                    b.d(this.a.c.e());
-                    b.e(e);
-                    b.a();
-                    if (csa.getContext().displayNotification()) {
-                        fsa.c(b.toString());
-                    }
-                    if (this.a.d.size() != 0) {
-                        for (dsa dsaVar : this.a.d) {
-                            dsaVar.onBlock(csa.getContext().provideContext(), b);
-                        }
-                    }
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements FilenameFilter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ".log";
-        }
-
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return str.endsWith(this.a);
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    public csa() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public csa(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new LinkedList();
-        this.b = new isa(Looper.getMainLooper().getThread(), f.provideDumpInterval());
-        this.c = new hsa(f.provideDumpInterval());
-        l(new gsa(new a(this), getContext().provideBlockThreshold(), getContext().stopWhenDebugging()));
-        fsa.b();
+        this.f = new HashMap<>();
     }
 
-    public static String h() {
-        InterceptResult invokeV;
-        String providePath;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            String externalStorageState = Environment.getExternalStorageState();
-            if (getContext() == null) {
-                providePath = "";
-            } else {
-                providePath = getContext().providePath();
-            }
-            if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
-                return Environment.getExternalStorageDirectory().getPath() + providePath;
-            }
-            return getContext().provideContext().getFilesDir() + getContext().providePath();
-        }
-        return (String) invokeV.objValue;
-    }
+    /* loaded from: classes4.dex */
+    public class a implements TTAdNative.NativeExpressAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ FunAdSlot a;
+        public final /* synthetic */ csa b;
 
-    public static void k(bsa bsaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, bsaVar) == null) {
-            f = bsaVar;
-        }
-    }
-
-    public void b(dsa dsaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, dsaVar) == null) {
-            this.d.add(dsaVar);
-        }
-    }
-
-    public final void l(gsa gsaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, gsaVar) == null) {
-            this.a = gsaVar;
-        }
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            File file = new File(h());
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static csa e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (e == null) {
-                synchronized (csa.class) {
-                    if (e == null) {
-                        e = new csa();
-                    }
+        public a(csa csaVar, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {csaVar, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return e;
+            this.b = csaVar;
+            this.a = funAdSlot;
         }
-        return (csa) invokeV.objValue;
-    }
 
-    public static File[] f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File c = c();
-            if (c.exists() && c.isDirectory()) {
-                return c.listFiles(new b());
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("CSJNativeExpressAd onError code: " + i + ", message: " + str, new Object[0]);
+                this.b.onError(i, str);
             }
-            return null;
         }
-        return (File[]) invokeV.objValue;
+
+        /* JADX DEBUG: Multi-variable search result rejected for r6v4, resolved type: com.bytedance.sdk.openadsdk.TTNativeExpressAd */
+        /* JADX WARN: Multi-variable type inference failed */
+        /* JADX WARN: Type inference failed for: r4v1, types: [A, com.bytedance.sdk.openadsdk.TTNativeExpressAd$ExpressAdInteractionListener, com.baidu.tieba.esa] */
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeExpressAdListener
+        public void onNativeExpressAdLoad(List<TTNativeExpressAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad", new Object[0]);
+                if (list != null && !list.isEmpty()) {
+                    TTNativeExpressAd tTNativeExpressAd = list.get(0);
+                    csa csaVar = this.b;
+                    wra wraVar = new wra(tTNativeExpressAd);
+                    String sid = this.a.getSid();
+                    csaVar.getClass();
+                    ExpressAdListenerWrapper expressAdListenerWrapper = new ExpressAdListenerWrapper();
+                    ?? esaVar = new esa(csaVar, wraVar, expressAdListenerWrapper, sid);
+                    expressAdListenerWrapper.listener = esaVar;
+                    tTNativeExpressAd.setExpressInteractionListener((TTNativeExpressAd.ExpressAdInteractionListener) esaVar);
+                    tTNativeExpressAd.setCanInterruptVideoPlay(true);
+                    tTNativeExpressAd.render();
+                    return;
+                }
+                LogPrinter.e("CSJNativeExpressAd onNativeExpressAdLoad error: adList is null or empty", new Object[0]);
+                this.b.onError(0, "NoFill");
+            }
+        }
     }
 
-    public static bsa getContext() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            wra wraVar = (wra) obj;
+            this.f.remove(wraVar);
+            if (wraVar != null) {
+                ((TTNativeExpressAd) wraVar.a).destroy();
+            }
         }
-        return (bsa) invokeV.objValue;
     }
 
-    public hsa d() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, obj)) == null) {
+            return new BaseNativeAd2(FunNativeAd2.NativeType.EXPRESS, (wra) obj, new gsa(this, this));
         }
-        return (hsa) invokeV.objValue;
+        return (FunNativeAd2) invokeLLL.objValue;
     }
 
-    public gsa g() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            int expressWidth = funAdSlot.getExpressWidth();
+            int expressHeight = funAdSlot.getExpressHeight();
+            if (expressWidth == 0 && expressHeight == 0 && FunAdSdk.isLogEnabled()) {
+                throw new RuntimeException("Invalid expressWidth and expressHeight.");
+            }
+            AdSlot build = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true).setAdCount(1).setExpressViewAcceptedSize(expressWidth, expressHeight).build();
+            onLoadStart(funAdSlot);
+            this.e.loadNativeExpressAd(build, new a(this, funAdSlot));
         }
-        return (gsa) invokeV.objValue;
     }
 
-    public long i() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return getContext().provideBlockThreshold() * 0.8f;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            wra wraVar = (wra) obj;
+            View expressAdView = ((TTNativeExpressAd) wraVar.a).getExpressAdView();
+            if (expressAdView != null && expressAdView.getParent() != null) {
+                ((ViewGroup) expressAdView.getParent()).removeView(expressAdView);
+            }
+            onShowStart(wraVar);
+            ((TTNativeExpressAd) wraVar.a).setDislikeCallback(activity, new fsa(this, expressAdView, wraVar, null, str));
+            viewGroup.removeAllViews();
+            viewGroup.addView(expressAdView);
+            return true;
         }
-        return invokeV.longValue;
-    }
-
-    public isa j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
-        }
-        return (isa) invokeV.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

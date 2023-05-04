@@ -4,7 +4,7 @@ import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
-import com.baidu.tieba.rq5;
+import com.baidu.tieba.jr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,7 +46,7 @@ public class DoDailyTaskRequestMessage extends NetMessage {
             DataReq.Builder builder = new DataReq.Builder();
             builder.task_id = Long.valueOf(this.taskId);
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rq5.a(builder, true);
+                jr5.a(builder, true);
             }
             DoDailyTaskReqIdl.Builder builder2 = new DoDailyTaskReqIdl.Builder();
             builder2.data = builder.build(false);

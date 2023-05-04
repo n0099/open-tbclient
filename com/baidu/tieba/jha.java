@@ -1,66 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Pair;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.LinkedList;
 /* loaded from: classes5.dex */
 public class jha {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int a = -1;
-    public static String b = "";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947884678, "Lcom/baidu/tieba/jha;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947884678, "Lcom/baidu/tieba/jha;");
-        }
-    }
-
-    public static String a(Context context) {
-        InterceptResult invokeL;
+    public static void a(String str, String str2, LinkedList<Pair<String, Object>> linkedList) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            if (!TextUtils.isEmpty(b)) {
-                return b;
-            }
-            try {
-                b = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return b;
+        if ((interceptable == null || interceptable.invokeLLL(65536, null, str, str2, linkedList) == null) && kha.c().g() != null) {
+            kha.c().g().b(54, null, null, null, null, null, str, null, str2, null, linkedList);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static int b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
-            int i = a;
-            if (i >= 0) {
-                return i;
-            }
-            try {
-                a = context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionCode;
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return a;
-        }
-        return invokeL.intValue;
     }
 }

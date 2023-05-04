@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.net.NetInfo;
+import android.text.TextUtils;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.searchbox.v8engine.net.NetRequest;
+import com.baidu.searchbox.v8engine.net.NetRequestParam;
 import com.baidu.searchbox.v8engine.net.NetRequestResult;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Observable;
-import java.util.Observer;
 /* loaded from: classes4.dex */
-public class gx1 implements Observer {
+public class gx1 implements NetRequest.RequestInterceptor {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,78 +29,52 @@ public class gx1 implements Observer {
         }
     }
 
-    public final String a(@NonNull NetInfo netInfo, @NonNull NetRequestResult netRequestResult, int i) {
-        InterceptResult invokeLLI;
-        Integer num;
+    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
+    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
+    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, netInfo, netRequestResult, i)) == null) {
-            Object obj = "";
-            if (i == 200) {
-                return "";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
+            if (netRequestParam == null) {
+                return false;
             }
-            String statusMsg = netRequestResult.getStatusMsg();
-            NetInfo.Response response = netInfo.getResponse();
-            NetInfo.Base base = netInfo.getBase();
-            StringBuilder sb = new StringBuilder();
-            sb.append(statusMsg);
-            sb.append("; code=");
-            if (response == null) {
-                num = "";
-            } else {
-                num = Integer.valueOf(response.mCode);
-            }
-            sb.append(num);
-            String sb2 = sb.toString();
-            StringBuilder sb3 = new StringBuilder();
-            sb3.append(sb2);
-            sb3.append("; status=");
-            if (base != null) {
-                obj = Integer.valueOf(base.mStatus);
-            }
-            sb3.append(obj);
-            return sb3.toString();
-        }
-        return (String) invokeLLI.objValue;
-    }
-
-    @Override // java.util.Observer
-    @SuppressLint({"BDThrowableCheck"})
-    public void update(Observable observable, Object obj) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, observable, obj) != null) || !(obj instanceof NetRequestResult)) {
-            return;
-        }
-        NetRequestResult netRequestResult = (NetRequestResult) obj;
-        String url = netRequestResult.getUrl();
-        String valueOf = String.valueOf(netRequestResult.getId());
-        int statusCode = netRequestResult.getStatusCode();
-        if (statusCode != 3) {
-            if (statusCode != 4) {
-                if (statusCode != 5) {
-                    if (statusCode == 6) {
-                        fd2.D(valueOf, netRequestResult.getCreatedTime(), 0L, 0L);
-                    }
-                } else {
-                    fd2.D(valueOf, 0L, 0L, netRequestResult.getCreatedTime());
+            String url = netRequestParam.getUrl();
+            if (TextUtils.isEmpty(url)) {
+                if (netRequestResult != null) {
+                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
                 }
-            } else if (url != null) {
-                fd2.k().q(valueOf, url);
+                return true;
             }
-        } else {
-            fd2.D(valueOf, 0L, netRequestResult.getCreatedTime(), 0L);
-        }
-        NetInfo netInfo = netRequestResult.getNetInfo();
-        int statusCode2 = netRequestResult.getStatusCode();
-        if (netRequestResult.getFromType() == 1 && url != null && netInfo != null) {
-            fd2.k().B(valueOf, url, netInfo);
-            long l = fd2.k().l(valueOf);
-            long currentTimeMillis = System.currentTimeMillis();
-            String e = pl3.n().e();
-            oe3.Q(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), oe3.l(), e, l, currentTimeMillis, valueOf);
-        } else if (netInfo != null) {
-            if (statusCode2 < 0 || statusCode2 >= 400) {
-                oe3.P(statusCode2, netRequestResult.getUrl(), 0, a(netInfo, netRequestResult, statusCode2), 0L, 0L, valueOf);
+            String str = null;
+            JsObject jsObject = netRequestParam.getJsObject();
+            if (jsObject != null) {
+                try {
+                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
+                    if (propertyIndex > 0) {
+                        str = jsObject.toString(propertyIndex);
+                    }
+                    int c = o83.c("request", url, str);
+                    if (c != 0) {
+                        xz1 Y = lx1.Y(c);
+                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
+                        return true;
+                    }
+                } finally {
+                    if (hx1.e() && jsObject != null) {
+                        jsObject.release();
+                    }
+                }
             }
+            if (hx1.e() && jsObject != null) {
+                jsObject.release();
+            }
+            if (!TextUtils.isEmpty(str)) {
+                netRequestParam.addHeader("X-SWAN-HOSTSIGN", u33.b(v33.h(str)));
+            }
+            netRequestParam.addHeader("Referer", mx1.d());
+            netRequestParam.addHeader("User-Agent", pe4.b().getUserAgent());
+            return false;
         }
+        return invokeLL.booleanValue;
     }
 }

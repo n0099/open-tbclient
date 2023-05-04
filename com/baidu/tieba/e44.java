@@ -1,78 +1,69 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import android.util.Log;
+import com.baidu.searchbox.v8engine.console.DebugConsole;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class e44 {
+public class e44 implements DebugConsole {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public df2 a;
+    public long a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947684356, "Lcom/baidu/tieba/e44;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947684356, "Lcom/baidu/tieba/e44;");
+                return;
+            }
+        }
+        b = ho1.a;
+    }
 
     public e44() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public boolean a(MotionEvent motionEvent) {
-        InterceptResult invokeL;
+    @Override // com.baidu.searchbox.v8engine.console.DebugConsole
+    public void onReceiveInfo(int i, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            df2 df2Var = this.a;
-            boolean z = false;
-            if (df2Var == null) {
-                return false;
-            }
-            boolean f = f44.f(df2Var.n());
-            boolean f2 = f44.f(this.a.v());
-            JSEvent jSEvent = null;
-            if (f || f2) {
-                jSEvent = f44.j(motionEvent);
-            }
-            if (f) {
-                z = this.a.dispatchEvent(jSEvent);
-            }
-            if (f2 && this.a.u0()) {
-                this.a.v().dispatchEvent(jSEvent);
-            }
-            f44.g(true);
-            return z;
+        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, str) != null) || !b || u84.d()) {
+            return;
         }
-        return invokeL.booleanValue;
-    }
-
-    public void b(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            f44.m(i, i2);
+        if (i != 0) {
+            if (i != 1) {
+                if (i == 2) {
+                    Log.d("arConsole", String.format("%s: %s %s", "run event end", Long.valueOf(System.currentTimeMillis() - this.a), str));
+                    return;
+                }
+                return;
+            }
+            this.a = System.currentTimeMillis();
+            Log.d("arConsole", String.format("%s: %s %s", "run event start", "", str));
+            return;
         }
-    }
-
-    public void d(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
-            f44.l(i, i2);
-        }
-    }
-
-    public void c(df2 df2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, df2Var) == null) {
-            this.a = df2Var;
-        }
+        Log.d("arConsole", String.format("%s: %s %s", "queue event", "", str));
     }
 }

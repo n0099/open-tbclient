@@ -1,172 +1,368 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ApplicationInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.net.Uri;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.os.Environment;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.security.CacheDeviceInfo;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tieba.b41;
+import android.view.KeyEvent;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.download.consts.AdDownloadStatus;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 /* loaded from: classes3.dex */
 public class cl0 {
     public static /* synthetic */ Interceptable $ic;
+    public static long b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final List<ak0> a;
 
-    public static boolean a(String str, String str2) {
-        InterceptResult invokeLL;
-        String[] split;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (TextUtils.equals(x01.c(str).optString("direct_download_switch"), "1")) {
+    /* loaded from: classes3.dex */
+    public class a implements DialogInterface.OnKeyListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ak0 a;
+        public final /* synthetic */ Activity b;
+        public final /* synthetic */ al0 c;
+        public final /* synthetic */ cl0 d;
+
+        public a(cl0 cl0Var, ak0 ak0Var, Activity activity, al0 al0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cl0Var, ak0Var, activity, al0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = cl0Var;
+            this.a = ak0Var;
+            this.b = activity;
+            this.c = al0Var;
+        }
+
+        @Override // android.content.DialogInterface.OnKeyListener
+        public boolean onKey(DialogInterface dialogInterface, int i, KeyEvent keyEvent) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, dialogInterface, i, keyEvent)) == null) {
+                cl0.a();
+                this.d.j();
+                this.d.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_KEYBACK, this.a);
+                if (zj0.b().a(this.b)) {
+                    zj0.b().e(this.b, System.currentTimeMillis());
+                    this.c.a();
+                    return true;
+                }
+                this.c.b();
                 return true;
             }
-            if (TextUtils.isEmpty(str2)) {
-                return false;
+            return invokeLIL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ al0 a;
+        public final /* synthetic */ ak0 b;
+        public final /* synthetic */ cl0 c;
+
+        public b(cl0 cl0Var, al0 al0Var, ak0 ak0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cl0Var, al0Var, ak0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            Uri parse = Uri.parse(str2);
-            HashMap hashMap = new HashMap();
-            if (parse != null) {
-                try {
-                    Set<String> queryParameterNames = parse.getQueryParameterNames();
-                    if (queryParameterNames != null) {
-                        for (String str3 : queryParameterNames) {
-                            hashMap.put(str3, parse.getQueryParameter(str3));
+            this.c = cl0Var;
+            this.a = al0Var;
+            this.b = ak0Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.c.j();
+                zj0.b().d(false);
+                this.a.a();
+                this.c.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_NEGATIVE, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ak0 a;
+        public final /* synthetic */ cl0 b;
+
+        public c(cl0 cl0Var, ak0 ak0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cl0Var, ak0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = cl0Var;
+            this.a = ak0Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.b.j();
+                zj0.b().d(false);
+                this.b.g(ClogBuilder.LogType.FREE_CLICK, ClogBuilder.Area.DIALOG_POSITIVE, this.a);
+                if (TextUtils.equals(this.a.q.o, "reminded_type_unopen")) {
+                    el0.g(this.a.d);
+                    return;
+                }
+                el0.e(this.a.h, this.a.a());
+            }
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cl0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-886754174, "Lcom/baidu/tieba/cl0$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-886754174, "Lcom/baidu/tieba/cl0$d;");
+                    return;
+                }
+            }
+            a = new cl0(null);
+        }
+    }
+
+    public cl0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+    }
+
+    public static /* synthetic */ int a() {
+        int i = c;
+        c = i + 1;
+        return i;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return l11.a().b("nad_app_quick_config").getLong("key_last_alert_dialog_show_time", 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public static cl0 f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d.a;
+        }
+        return (cl0) invokeV.objValue;
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            b = currentTimeMillis;
+            h(currentTimeMillis);
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c++;
+        }
+    }
+
+    public /* synthetic */ cl0(a aVar) {
+        this();
+    }
+
+    public static void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65543, null, j) == null) {
+            l11.a().b("nad_app_quick_config").h("key_last_alert_dialog_show_time", j);
+        }
+    }
+
+    public final ak0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ak0 ak0Var = null;
+            if (y01.g(this.a)) {
+                return null;
+            }
+            ArrayList arrayList = new ArrayList();
+            int l = y01.l(this.a) - 1;
+            ak0 ak0Var2 = null;
+            while (true) {
+                if (l < 0) {
+                    break;
+                }
+                ak0 ak0Var3 = (ak0) y01.d(this.a, l);
+                if (ak0Var3 != null) {
+                    String str = ak0Var3.d;
+                    boolean c2 = el0.c(str);
+                    boolean exists = new File(Environment.getExternalStorageDirectory().getAbsolutePath() + "/Android/data/" + str).exists();
+                    if (c2) {
+                        if (exists) {
+                            y01.b(arrayList, ak0Var3);
+                        } else {
+                            ak0Var3.q.o = "reminded_type_unopen";
+                            y01.b(arrayList, ak0Var3);
+                            ak0Var = ak0Var3;
+                            break;
                         }
+                    } else if (el0.f(ak0Var3.h) && ak0Var3.c != AdDownloadStatus.NONE && TextUtils.equals(ak0Var3.q.o, "reminded_type_none") && ak0Var2 == null) {
+                        ak0Var3.q.o = "reminded_type_uninstall";
+                        ak0Var2 = ak0Var3;
                     }
-                } catch (Exception e) {
-                    e.printStackTrace();
                 }
+                l--;
             }
-            String str4 = (String) y01.b(hashMap, CacheDeviceInfo.JSON_KEY_ANDROID_ID);
-            if (!TextUtils.isEmpty(str4) && (split = str4.split("_")) != null && split.length >= 4 && TextUtils.equals(split[3], "1")) {
-                return true;
+            y01.k(this.a, arrayList);
+            if (ak0Var != null) {
+                return ak0Var;
             }
-            return false;
+            return ak0Var2;
         }
-        return invokeLL.booleanValue;
+        return (ak0) invokeV.objValue;
     }
 
-    public static boolean e(File file, boolean z) {
-        InterceptResult invokeLZ;
+    public final void g(ClogBuilder.LogType logType, ClogBuilder.Area area, ak0 ak0Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, file, z)) == null) {
-            if (!f(file)) {
-                return false;
-            }
-            Context b = ji0.b();
-            Intent intent = new Intent("android.intent.action.VIEW");
-            try {
-                intent.setDataAndType(Uri.fromFile(file), "application/vnd.android.package-archive");
-                intent.setFlags(1342177280);
-                intent.putExtra("android.intent.extra.INSTALLER_PACKAGE_NAME", b.getPackageName());
-                if (z) {
-                    intent.putExtra("android.intent.extra.RETURN_RESULT", true);
-                }
-                if (!b41.b.e()) {
-                    intent.setComponent(new ComponentName("com.android.packageinstaller", "com.android.packageinstaller.PackageInstallerActivity"));
-                }
-                t31.a(b, file, intent);
-                t31.d(b, intent);
-            } catch (Exception unused) {
-                intent.setComponent(null);
-                t31.a(b, file, intent);
-                try {
-                    b.startActivity(intent);
-                } catch (Exception unused2) {
-                    return false;
-                }
-            }
-            return true;
+        if ((interceptable != null && interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, logType, area, ak0Var) != null) || ak0Var == null) {
+            return;
         }
-        return invokeLZ.booleanValue;
+        ClogBuilder clogBuilder = new ClogBuilder();
+        clogBuilder.u(ClogBuilder.Page.POPUP);
+        if (logType != null) {
+            clogBuilder.y(logType);
+        }
+        if (area != null) {
+            clogBuilder.i(area);
+        }
+        if (!TextUtils.isEmpty(ak0Var.p.a)) {
+            clogBuilder.p(ak0Var.p.a);
+        }
+        clogBuilder.k(String.valueOf(c));
+        clogBuilder.l(String.valueOf(d));
+        if (TextUtils.equals(ak0Var.q.o, "reminded_type_uninstall")) {
+            str = "1";
+        } else {
+            str = "2";
+        }
+        clogBuilder.m(str);
+        o11.b(clogBuilder);
     }
 
-    public static String b(File file) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
-        PackageInfo packageArchiveInfo;
-        ApplicationInfo applicationInfo;
+    public void i(Activity activity, al0 al0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file == null || TextUtils.isEmpty(file.getPath()) || (packageManager = ji0.b().getPackageManager()) == null || (packageArchiveInfo = packageManager.getPackageArchiveInfo(file.getPath(), 1)) == null || (applicationInfo = packageArchiveInfo.applicationInfo) == null) {
-                return "";
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, activity, al0Var) == null) && zj0.b().isMainActivity(activity) && al0Var != null) {
+            if (b == 0) {
+                b = e();
             }
-            return applicationInfo.packageName;
+            if (System.currentTimeMillis() - b < 600000) {
+                al0Var.a();
+                return;
+            }
+            ak0 d2 = d();
+            if (d2 == null) {
+                al0Var.a();
+                return;
+            }
+            hl0 hl0Var = new hl0(activity);
+            hl0Var.d();
+            hl0Var.e(false);
+            hl0Var.f(false);
+            hl0Var.g(d2);
+            hl0Var.j(new c(this, d2));
+            hl0Var.h(new b(this, al0Var, d2));
+            hl0Var.i(new a(this, d2, activity, al0Var));
+            hl0Var.k();
+            d++;
+            zj0.b().d(true);
+            g(ClogBuilder.LogType.FREE_SHOW, ClogBuilder.Area.DIALOG, d2);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean f(File file) {
-        InterceptResult invokeL;
-        PackageManager packageManager;
+    public void k(ak0 ak0Var) {
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, file)) == null) {
-            if (file == null || TextUtils.isEmpty(file.getAbsolutePath()) || !file.exists() || (packageManager = ji0.b().getPackageManager()) == null || packageManager.getPackageArchiveInfo(file.getAbsolutePath(), 1) == null) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                ji0.b().getPackageManager().getApplicationInfo(str, 0);
-                return true;
-            } catch (PackageManager.NameNotFoundException | Exception unused) {
-                return false;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, ak0Var) == null) && ak0Var != null && (file = ak0Var.h) != null && file.exists()) {
+            String str = ak0Var.p.h;
+            String absolutePath = ak0Var.h.getAbsolutePath();
+            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(absolutePath)) {
+                ak0Var.q.o = "reminded_type_none";
+                y01.b(this.a, ak0Var);
             }
         }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, file)) == null) {
-            return e(file, false);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean g(String str) {
-        InterceptResult invokeL;
-        ResolveInfo next;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            Intent intent = new Intent("android.intent.action.MAIN", (Uri) null);
-            intent.addCategory("android.intent.category.LAUNCHER");
-            intent.setPackage(str);
-            List<ResolveInfo> queryIntentActivities = ji0.b().getPackageManager().queryIntentActivities(intent, 0);
-            if (queryIntentActivities == null || queryIntentActivities.size() <= 0 || (next = queryIntentActivities.iterator().next()) == null) {
-                return false;
-            }
-            String str2 = next.activityInfo.name;
-            Intent intent2 = new Intent("android.intent.action.MAIN");
-            intent2.addCategory("android.intent.category.LAUNCHER");
-            intent2.setComponent(new ComponentName(str, str2));
-            intent2.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            return t31.e(ji0.b(), intent2, true);
-        }
-        return invokeL.booleanValue;
     }
 }

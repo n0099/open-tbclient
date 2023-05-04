@@ -33,7 +33,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tbadk.coreExtra.data.CombineDownload;
 import com.baidu.tbadk.coreExtra.data.VersionData;
-import com.baidu.tieba.hy5;
+import com.baidu.tieba.hz5;
 import com.baidu.tieba.service.TiebaUpdateService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -54,7 +54,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     public VersionData g;
     public CombineDownload h;
     public String i;
-    public hy5 j;
+    public hz5 j;
     public f k;
     public PermissionJudgePolicy l;
 
@@ -92,7 +92,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             public void run() {
                 Interceptable interceptable = $ic;
                 if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a.g.forceUpdate()) {
-                    l45.e(this.a.a.getPageContext().getPageActivity(), 200);
+                    a55.e(this.a.a.getPageContext().getPageActivity(), 200);
                 }
             }
         }
@@ -232,7 +232,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements hy5.f {
+    public class e implements hz5.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UpdateDialog a;
@@ -259,7 +259,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             this(updateDialog);
         }
 
-        @Override // com.baidu.tieba.hy5.f
+        @Override // com.baidu.tieba.hz5.f
         public void a(boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
@@ -267,7 +267,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                 TiebaStatic.log(new StatisticItem("c14382").addParam("obj_locate", 1));
                 this.a.a = true;
                 UpdateDialog updateDialog = this.a;
-                if (z && ky5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                if (z && kz5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
                     z2 = true;
                 } else {
                     z2 = false;
@@ -284,7 +284,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.hy5.f
+        @Override // com.baidu.tieba.hz5.f
         public void b(boolean z) {
             boolean z2;
             Interceptable interceptable = $ic;
@@ -295,7 +295,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
                     return;
                 }
                 UpdateDialog updateDialog = this.a;
-                if (z && ky5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
+                if (z && kz5.c(updateDialog.getPageContext().getPageActivity(), this.a.h)) {
                     z2 = true;
                 } else {
                     z2 = false;
@@ -308,7 +308,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.hy5.f
+        @Override // com.baidu.tieba.hz5.f
         public void c() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
@@ -317,7 +317,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.hy5.f
+        @Override // com.baidu.tieba.hz5.f
         public void d() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -327,7 +327,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             }
         }
 
-        @Override // com.baidu.tieba.hy5.f
+        @Override // com.baidu.tieba.hz5.f
         public void stopService() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
@@ -446,10 +446,10 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onDestroy();
-            a15.r("updateDialog");
-            hy5 hy5Var = this.j;
-            if (hy5Var != null) {
-                hy5Var.dismiss();
+            r15.s("updateDialog");
+            hz5 hz5Var = this.j;
+            if (hz5Var != null) {
+                hz5Var.dismiss();
             }
             f fVar = this.k;
             if (fVar != null) {
@@ -463,9 +463,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
             super.onChangeSkinType(i);
-            hy5 hy5Var = this.j;
-            if (hy5Var != null) {
-                hy5Var.m(getPageContext(), i);
+            hz5 hz5Var = this.j;
+            if (hz5Var != null) {
+                hz5Var.m(getPageContext(), i);
             }
         }
     }
@@ -569,9 +569,9 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
             if (versionData3 != null) {
                 this.f = versionData3.forceUpdate();
             }
-            hy5 hy5Var = new hy5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003b0);
-            this.j = hy5Var;
-            hy5Var.setCancelable(false);
+            hz5 hz5Var = new hz5(getPageContext().getPageActivity(), R.style.obfuscated_res_0x7f1003b0);
+            this.j = hz5Var;
+            hz5Var.setCancelable(false);
             this.j.q(this.g, this.h, new e(this, null));
             this.j.setOnCancelListener(new a(this));
             this.j.setOnDismissListener(new b(this));
@@ -633,7 +633,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bundle) == null) {
             super.onCreate(bundle);
-            a15.l("updateDialog");
+            r15.m("updateDialog");
             setSwipeBackEnabled(false);
             WindowManager.LayoutParams attributes = getWindow().getAttributes();
             attributes.alpha = 0.0f;
@@ -650,7 +650,7 @@ public class UpdateDialog extends BaseActivity<UpdateDialog> {
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onResume();
             if (TbSingleton.getInstance().isSplashShowing()) {
-                vg8 defaultLog = DefaultLog.getInstance();
+                dj8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b("BaseActivity", "resume UpdateDialog failed，because of splash showing. IS_MAIN_TAB_SPLASH_SHOW=" + MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW + ", IS_HOT_SPLASH_SHOW=" + LogoActivityConfig.IS_HOT_SPLASH_SHOW);
                 finish();
             }

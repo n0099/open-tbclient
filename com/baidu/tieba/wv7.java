@@ -1,29 +1,25 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.ActionMode;
-import android.view.Menu;
-import android.view.MenuItem;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.horizonalList.widget.AbsHListView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class wv7 implements vv7 {
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class wv7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public vv7 a;
-    public AbsHListView b;
+    public final List<ThreadData> a;
 
-    public wv7(AbsHListView absHListView) {
+    public wv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {absHListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,91 +29,57 @@ public class wv7 implements vv7 {
                 return;
             }
         }
-        this.b = absHListView;
+        this.a = new ArrayList();
     }
 
-    public void c(vv7 vv7Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vv7Var) == null) {
-            this.a = vv7Var;
-        }
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public void onDestroyActionMode(ActionMode actionMode) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, actionMode) == null) {
-            this.a.onDestroyActionMode(actionMode);
-            AbsHListView absHListView = this.b;
-            absHListView.mChoiceActionMode = null;
-            absHListView.clearChoices();
-            AbsHListView absHListView2 = this.b;
-            absHListView2.mDataChanged = true;
-            absHListView2.rememberSyncState();
-            this.b.requestLayout();
-            this.b.setLongClickable(true);
-        }
-    }
-
-    @Override // com.baidu.tieba.vv7
-    @TargetApi(11)
-    public void a(ActionMode actionMode, int i, long j, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{actionMode, Integer.valueOf(i), Long.valueOf(j), Boolean.valueOf(z)}) == null) {
-            this.a.a(actionMode, i, j, z);
-            if (this.b.getCheckedItemCount() == 0) {
-                actionMode.finish();
-            }
-        }
-    }
-
-    public boolean b() {
+    public List<ThreadData> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a != null) {
-                return true;
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<ThreadData> list = this.a;
+            if (list == null) {
+                return false;
             }
-            return false;
+            return !ListUtils.isEmpty(list);
         }
         return invokeV.booleanValue;
     }
 
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onActionItemClicked(ActionMode actionMode, MenuItem menuItem) {
-        InterceptResult invokeLL;
+    public vv7 a(boolean z, tv7 tv7Var) {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, actionMode, menuItem)) == null) {
-            return this.a.onActionItemClicked(actionMode, menuItem);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onCreateActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, actionMode, menu)) == null) {
-            if (!this.a.onCreateActionMode(actionMode, menu)) {
-                return false;
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(1048576, this, z, tv7Var)) == null) {
+            vv7 vv7Var = new vv7();
+            vv7Var.c = tv7Var.i();
+            vv7Var.e = tv7Var.a();
+            vv7Var.f = tv7Var.c();
+            ArrayList<ThreadData> h = tv7Var.h();
+            if (z) {
+                if (!ListUtils.isEmpty(h)) {
+                    this.a.clear();
+                    this.a.addAll(h);
+                }
+            } else if (!ListUtils.isEmpty(h)) {
+                this.a.addAll(h);
             }
-            this.b.setLongClickable(false);
-            return true;
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.a);
+            su7.e(true, arrayList, tv7Var.e());
+            su7.e(true, arrayList, tv7Var.f());
+            su7.e(true, arrayList, tv7Var.d());
+            su7.e(true, arrayList, tv7Var.g());
+            vv7Var.a = su7.c(arrayList);
+            return vv7Var;
         }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // android.view.ActionMode.Callback
-    @TargetApi(11)
-    public boolean onPrepareActionMode(ActionMode actionMode, Menu menu) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, actionMode, menu)) == null) {
-            return this.a.onPrepareActionMode(actionMode, menu);
-        }
-        return invokeLL.booleanValue;
+        return (vv7) invokeZL.objValue;
     }
 }

@@ -1,21 +1,17 @@
 package com.baidu.tieba;
 
-import android.app.Application;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imagepipeline.listener.RequestListener;
+@Service
 /* loaded from: classes6.dex */
-public class tt3 implements vt3 {
+public class tt3 implements jc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.vt3
-    public void a(Application application, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{application, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-        }
-    }
 
     public tt3() {
         Interceptable interceptable = $ic;
@@ -29,5 +25,15 @@ public class tt3 implements vt3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.jc2
+    public RequestListener a(kc2 kc2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kc2Var)) == null) {
+            return new st3(kc2Var);
+        }
+        return (RequestListener) invokeL.objValue;
     }
 }

@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.crius.view.AdCriusPopView;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,36 +13,49 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kj0 {
+public class kj0 extends tj1<cc1> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
+    public class a implements cc1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kj0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-659568070, "Lcom/baidu/tieba/kj0$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-659568070, "Lcom/baidu/tieba/kj0$b;");
-                    return;
+        public a(kj0 kj0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {kj0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            a = new kj0(null);
+        }
+
+        @Override // com.baidu.tieba.cc1
+        public Object a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+                return ij0.b(jSONObject);
+            }
+            return invokeL.objValue;
+        }
+
+        @Override // com.baidu.tieba.cc1
+        public qc1<View> b(@NonNull Context context) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+                return new AdCriusPopView(context);
+            }
+            return (qc1) invokeL.objValue;
         }
     }
 
@@ -60,45 +73,15 @@ public class kj0 {
         }
     }
 
-    public static kj0 a() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tj1
+    /* renamed from: a */
+    public cc1 createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (kj0) invokeV.objValue;
-    }
-
-    public /* synthetic */ kj0(a aVar) {
-        this();
-    }
-
-    public void b(yj0 yj0Var) {
-        ck0 ck0Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, yj0Var) == null) && yj0Var != null && (ck0Var = yj0Var.p) != null && yj0Var.q != null && !TextUtils.isEmpty(ck0Var.a)) {
-            zj0 zj0Var = yj0Var.q;
-            long j = zj0Var.q;
-            if (j < 0) {
-                return;
-            }
-            String str = yj0Var.d;
-            zj0Var.p = a41.c(j, System.currentTimeMillis());
-            ClogBuilder n = new ClogBuilder().y(ClogBuilder.LogType.DOWNLOAD_KEEP).p(yj0Var.p.a).k(str).n(String.valueOf(yj0Var.q.p));
-            JSONObject jSONObject = new JSONObject();
-            try {
-                PackageInfo packageInfo = ji0.b().getPackageManager().getPackageInfo(str, 0);
-                n.l(packageInfo.versionName).m(String.valueOf(packageInfo.versionCode));
-                x01.d(jSONObject, "installed", 1);
-            } catch (PackageManager.NameNotFoundException unused) {
-                x01.d(jSONObject, "installed", 0);
-                yj0Var.q.q = -2L;
-            } catch (Throwable unused2) {
-                return;
-            }
-            n.o(jSONObject.toString());
-            m11.b(n);
-            pj0.b().e(yj0Var);
-        }
+        return (cc1) invokeV.objValue;
     }
 }

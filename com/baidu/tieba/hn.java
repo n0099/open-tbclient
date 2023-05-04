@@ -199,7 +199,7 @@ public class hn {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
             if (i > 0) {
-                return lp5.p(this.a.getItem(i - this.a.getHeaderViewsCount()));
+                return eq5.p(this.a.getItem(i - this.a.getHeaderViewsCount()));
             }
             return false;
         }
@@ -278,8 +278,8 @@ public class hn {
                 if (item instanceof BaseCardInfo) {
                     return ((BaseCardInfo) item).position;
                 }
-                if (item instanceof ay4) {
-                    return ((ay4) item).p();
+                if (item instanceof qy4) {
+                    return ((qy4) item).s();
                 }
             }
             return -1;

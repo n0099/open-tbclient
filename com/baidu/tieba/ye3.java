@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
-import com.baidu.tieba.ss2;
+import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,117 +15,74 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ye3 extends xe3 {
+public class ye3 extends af3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean x;
+    public static int y;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanCoreVersion k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public String r;
-    public String s;
-    public String t;
-    public String u;
+    public boolean v;
+    public JSONObject w;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948327234, "Lcom/baidu/tieba/ye3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948327234, "Lcom/baidu/tieba/ye3;");
+                return;
+            }
+        }
+        x = ho1.a;
+        y = 35;
+    }
 
     public ye3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.l = "";
-        this.m = "";
-        this.n = "";
-        this.o = "";
-        this.p = "";
-        this.q = "";
-        this.r = "";
-        this.s = "";
-        this.t = "";
-        ne3.i(this);
-        ne3.h(this);
-        ne3.f(this);
-        ne3.g(this);
+        this.v = false;
+        this.c = "NA";
     }
 
-    @Override // com.baidu.tieba.xe3
+    @Override // com.baidu.tieba.af3, com.baidu.tieba.ze3
     public JSONObject f() {
-        int i;
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
+            }
             try {
-                v73 D = it2.U().D();
-                if (TextUtils.equals(this.a, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                String i2 = ah3.i(this.k, i);
-                if (D != null && D.Y() != null) {
-                    ss2.a Y = D.Y();
-                    if (TextUtils.isEmpty(this.l)) {
-                        this.l = D.k0();
+                if (this.w != null) {
+                    if (this.v) {
+                        String z = rl3.z(y);
+                        if (!TextUtils.isEmpty(z)) {
+                            this.w.put("stacktrace", z);
+                        }
                     }
-                    if (TextUtils.isEmpty(this.m)) {
-                        this.m = Y.w1();
-                    }
-                    Bundle P = Y.P();
-                    if (P != null) {
-                        this.o = P.getString("aiapp_extra_need_download", "");
-                    }
-                    if (TextUtils.isEmpty(this.p)) {
-                        this.p = Y.W();
-                    }
-                    this.p = ne3.b(this.p);
-                    if (TextUtils.isEmpty(this.g) && !TextUtils.isEmpty(Y.e0())) {
-                        this.s = Y.e0();
-                    }
-                    String b = ne3.b(this.s);
-                    this.s = b;
-                    if (b == null) {
-                        this.s = "";
-                    }
-                    if (TextUtils.isEmpty(this.u)) {
-                        this.u = Y.V();
+                    if (this.w.length() != 0) {
+                        this.h.put("info", this.w);
                     }
                 }
-                this.n = SwanAppNetworkUtils.f().type;
-                if (this.h == null) {
-                    this.h = new JSONObject();
-                }
-                this.h.put("swan", i2);
-                this.h.put("appversion", this.l);
-                this.h.put("thirdversion", this.m);
-                this.h.put("net", this.n);
-                this.h.put("needdown", this.o);
-                this.h.put("scheme", this.p);
-                this.h.put("page", this.s);
-                this.h.put("launchid", this.u);
-                if (!TextUtils.isEmpty(this.t)) {
-                    this.h.put("error_code", this.t);
-                }
-                if (!TextUtils.isEmpty(this.q)) {
-                    this.h.put("canceltime", this.q);
-                }
-                if (!TextUtils.isEmpty(this.r)) {
-                    this.h.put("successtime", this.r);
-                }
-                if (xe3.j) {
-                    Log.d("SwanAppUBCEvent", "SwanAppUBCEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+                ExtensionCore T = re2.U().T();
+                if (T != null) {
+                    this.h.put("extension_ver", T.extensionCoreVersionName);
                 }
             } catch (JSONException e) {
-                if (xe3.j) {
+                if (x) {
                     e.printStackTrace();
                 }
             }
@@ -135,52 +91,122 @@ public class ye3 extends xe3 {
         return (JSONObject) invokeV.objValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public ye3 l(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.u;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(vs2 vs2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, vs2Var) == null) {
-            if (vs2Var == null) {
-                if (xe3.j) {
-                    Log.w("SwanAppUBCEvent", "launchinfo is null");
-                    return;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2)) == null) {
+            if (str != null && str2 != null) {
+                if (this.w == null) {
+                    this.w = new JSONObject();
                 }
-                return;
+                try {
+                    this.w.put(str, str2);
+                } catch (JSONException e) {
+                    if (x) {
+                        e.printStackTrace();
+                    }
+                }
             }
-            this.f = vs2Var.H();
-            this.c = vs2Var.T();
-            this.o = vs2Var.s0().getString("aiapp_extra_need_download", "");
-            this.p = vs2Var.W();
-            this.s = vs2Var.e0();
-            this.u = vs2Var.V();
+            return this;
         }
+        return (ye3) invokeLL.objValue;
     }
 
-    public void i(vs2 vs2Var) {
+    public ye3 m(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, vs2Var) == null) {
-            h(vs2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.f = str;
+            return this;
         }
+        return (ye3) invokeL.objValue;
     }
 
-    public void j(vs2 vs2Var) {
+    public ye3 n(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, vs2Var) == null) {
-            h(vs2Var);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            this.v = z;
+            return this;
         }
+        return (ye3) invokeZ.objValue;
     }
 
-    public void k(String str) {
+    public ye3 o(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            this.u = str;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            this.b = String.valueOf(i);
+            return this;
         }
+        return (ye3) invokeI.objValue;
+    }
+
+    public ye3 p(@NonNull qj3 qj3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qj3Var)) == null) {
+            this.b = String.valueOf(qj3Var.a());
+            String sb = qj3Var.g().toString();
+            if (!TextUtils.isEmpty(sb)) {
+                l("detail", sb);
+            }
+            return this;
+        }
+        return (ye3) invokeL.objValue;
+    }
+
+    public ye3 q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            this.a = str;
+            return this;
+        }
+        return (ye3) invokeL.objValue;
+    }
+
+    public ye3 s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            this.g = str;
+            return this;
+        }
+        return (ye3) invokeL.objValue;
+    }
+
+    public ye3 t(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (ye3) invokeL.objValue;
+    }
+
+    public ye3 r(xs2 xs2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, xs2Var)) == null) {
+            if (xs2Var == null) {
+                return this;
+            }
+            if (!TextUtils.isEmpty(xs2Var.T())) {
+                this.c = xs2Var.T();
+            }
+            if (!TextUtils.isEmpty(xs2Var.H())) {
+                this.f = xs2Var.H();
+            }
+            if (!TextUtils.isEmpty(xs2Var.W())) {
+                this.p = xs2Var.W();
+            }
+            if (!TextUtils.isEmpty(xs2Var.e0())) {
+                this.s = xs2Var.e0();
+            }
+            return this;
+        }
+        return (ye3) invokeL.objValue;
     }
 }

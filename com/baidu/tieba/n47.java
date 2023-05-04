@@ -1,82 +1,79 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.view.NoDataView;
-import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.me;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n47 extends zf6<i47> {
+public class n47 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NoDataView i;
-    public int j;
+    public me<byte[]> a;
 
-    @Override // com.baidu.tieba.zf6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d02e5 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public n47(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public n47() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = 3;
-        NoDataView a = NoDataViewFactory.a(this.b.getPageActivity(), h(), NoDataViewFactory.d.b(NoDataViewFactory.ImgType.NODATA, ii.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070254)), NoDataViewFactory.e.a(R.string.obfuscated_res_0x7f0f119a), null);
-        this.i = a;
-        a.setVisibility(0);
-        m(this.b, TbadkCoreApplication.getInst().getSkinType());
+        b();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf6
-    /* renamed from: r */
-    public void l(i47 i47Var) {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, i47Var) == null) {
-            m(this.b, TbadkCoreApplication.getInst().getSkinType());
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            t05.d();
+            this.a = t05.b("tb.forum_member_info");
         }
     }
 
-    @Override // com.baidu.tieba.zf6
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    public byte[] a(String str) {
+        InterceptResult invokeL;
+        me.b<byte[]> bVar;
+        byte[] bArr;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.j == i) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
+            }
+            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
+            me<byte[]> meVar = this.a;
+            if (meVar != null) {
+                bVar = meVar.h(str2);
+            } else {
+                bVar = null;
+            }
+            if (bVar == null || (bArr = bVar.b) == null) {
+                return null;
+            }
+            return bArr;
         }
-        NoDataView noDataView = this.i;
-        if (noDataView != null) {
-            noDataView.f(this.b, i);
+        return (byte[]) invokeL.objValue;
+    }
+
+    public void c(String str, byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (StringUtils.isNull(str)) {
+                return;
+            }
+            b();
+            me<byte[]> meVar = this.a;
+            meVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
         }
-        this.j = i;
     }
 }

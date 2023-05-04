@@ -12,13 +12,13 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.tbadk.switchs.UseHttpAutoRetrySwitch;
 import com.baidu.tieba.ag;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.hf;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.kf;
 import com.baidu.tieba.lf;
 import com.baidu.tieba.mf;
 import com.baidu.tieba.pi;
-import com.baidu.tieba.q45;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -336,7 +336,7 @@ public class WebClient implements ag.a {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (q45.m().n("image_no_cache_switch", 0) != 1) {
+            if (f55.m().n("image_no_cache_switch", 0) != 1) {
                 return true;
             }
             return this.needCache;

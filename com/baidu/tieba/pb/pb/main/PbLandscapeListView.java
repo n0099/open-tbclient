@@ -13,7 +13,7 @@ import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jw5;
+import com.baidu.tieba.jx5;
 import com.baidu.tieba.ln;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class PbLandscapeListView extends BdTypeListView {
     public boolean S;
     public boolean T;
     @NonNull
-    public jw5 U;
+    public jx5 U;
     public boolean V;
     public boolean W;
     public boolean a0;
@@ -150,8 +150,8 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new jw5(this);
-        G();
+        this.U = new jx5(this);
+        H();
     }
 
     @Override // android.view.ViewGroup, android.view.View
@@ -172,7 +172,7 @@ public class PbLandscapeListView extends BdTypeListView {
                         int i2 = (int) (rawY - this.N);
                         int abs = Math.abs(i);
                         if (abs > this.J && abs > Math.abs(i2) && !this.V) {
-                            K(i, i2, this.M, this.N, rawX, rawY);
+                            L(i, i2, this.M, this.N, rawX, rawY);
                             this.T = true;
                             return false;
                         }
@@ -220,8 +220,8 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new jw5(this);
-        G();
+        this.U = new jx5(this);
+        H();
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -250,18 +250,18 @@ public class PbLandscapeListView extends BdTypeListView {
         this.R = false;
         this.S = false;
         this.T = false;
-        this.U = new jw5(this);
-        G();
+        this.U = new jx5(this);
+        H();
     }
 
-    private void G() {
+    private void H() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
             this.U.d(false);
         }
     }
 
-    public boolean I() {
+    public boolean J() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -270,7 +270,7 @@ public class PbLandscapeListView extends BdTypeListView {
         return invokeV.booleanValue;
     }
 
-    public void J() {
+    public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.O = null;
@@ -362,7 +362,7 @@ public class PbLandscapeListView extends BdTypeListView {
         }
     }
 
-    public final void K(int i, int i2, float f, float f2, float f3, float f4) {
+    public final void L(int i, int i2, float f, float f2, float f3, float f4) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
             this.Q.removeMessages(0);

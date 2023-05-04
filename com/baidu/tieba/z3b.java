@@ -1,101 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.AbstractQueue;
-import java.util.Iterator;
-import java.util.concurrent.atomic.AtomicReferenceArray;
 /* loaded from: classes7.dex */
-public abstract class z3b<E> extends AbstractQueue<E> {
+public final class z3b {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] a;
+    public static final int[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicReferenceArray<E> a;
-    public final int b;
 
-    public final int b(long j, int i) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i)})) == null) ? ((int) j) & i : invokeCommon.intValue;
-    }
-
-    public z3b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310432, "Lcom/baidu/tieba/z3b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948310432, "Lcom/baidu/tieba/z3b;");
                 return;
             }
         }
-        int b = n4b.b(i);
-        this.b = b - 1;
-        this.a = new AtomicReferenceArray<>(b);
+        a = new byte[1024];
+        b = new int[1024];
     }
 
-    public final int a(long j) {
-        InterceptResult invokeJ;
+    public static void a(byte[] bArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return this.b & ((int) j);
-        }
-        return invokeJ.intValue;
-    }
-
-    public final E c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return d(this.a, i);
-        }
-        return (E) invokeI.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
+        if (interceptable == null || interceptable.invokeLII(65537, null, bArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(a, 0, bArr, i + i3, min);
+                i3 += min;
             }
         }
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
-        InterceptResult invokeV;
+    public static void b(int[] iArr, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            throw new UnsupportedOperationException();
-        }
-        return (Iterator) invokeV.objValue;
-    }
-
-    public final E d(AtomicReferenceArray<E> atomicReferenceArray, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, atomicReferenceArray, i)) == null) {
-            return atomicReferenceArray.get(i);
-        }
-        return (E) invokeLI.objValue;
-    }
-
-    public final void e(AtomicReferenceArray<E> atomicReferenceArray, int i, E e) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048581, this, atomicReferenceArray, i, e) == null) {
-            atomicReferenceArray.lazySet(i, e);
+        if (interceptable == null || interceptable.invokeLII(65538, null, iArr, i, i2) == null) {
+            int i3 = 0;
+            while (i3 < i2) {
+                int min = Math.min(i3 + 1024, i2) - i3;
+                System.arraycopy(b, 0, iArr, i + i3, min);
+                i3 += min;
+            }
         }
     }
 }

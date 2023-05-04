@@ -1,121 +1,82 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Rect;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.AdapterViewHolder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rv7 {
+public class rv7 extends vm<vq8, AdapterViewHolder<NearbyForumFriendCardView>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public AdapterViewHolder<NearbyForumFriendCardView> b;
 
-    public static void a(fh6 fh6Var, StatisticItem statisticItem) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public rv7(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), vq8.d);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, fh6Var, statisticItem) == null) && fh6Var != null && fh6Var.getThreadData() != null && statisticItem != null) {
-            if (fh6Var.getThreadData().getBaijiahaoData() != null) {
-                BaijiahaoData baijiahaoData = fh6Var.getThreadData().getBaijiahaoData();
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
-                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData.oriUgcVid);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
         }
+        this.a = tbPageContext;
     }
 
-    public static boolean b(ThreadData threadData) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public AdapterViewHolder<NearbyForumFriendCardView> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
-            if (threadData == null || threadData.isShareThread) {
-                return false;
-            }
-            int i = threadData.threadType;
-            if (i != 0 && i != 11 && i != 40 && !threadData.isUgcThreadType()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.a.getPageActivity()));
+            this.b = adapterViewHolder;
+            return adapterViewHolder;
         }
-        return invokeL.booleanValue;
+        return (AdapterViewHolder) invokeL.objValue;
     }
 
-    public static void c(kw4 kw4Var, Context context, int i, boolean z, Rect rect) {
+    public void u(boolean z) {
+        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{kw4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) && kw4Var != null && kw4Var.getThreadData() != null && context != null) {
-            ThreadData threadData = kw4Var.getThreadData();
-            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
-            createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
-            createFromThreadCfg.setFrom("from_video_tab");
-            createFromThreadCfg.setForumName(threadData.getForum_name());
-            createFromThreadCfg.setStartFrom(i);
-            createFromThreadCfg.setVideoOriginArea(rect);
-            if (kw4Var.getPbInputLocate() != null) {
-                createFromThreadCfg.addLocateParam(kw4Var.getPbInputLocate());
-            }
-            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && b(threadData)) {
-                createFromThreadCfg.setNeedPreLoad(true);
-                a57.update(threadData);
-            }
-            createFromThreadCfg.setVideo_source("video_tab");
-            createFromThreadCfg.setJumpGodReply(z);
-            kg6.a(threadData.getTid());
-            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
+        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (adapterViewHolder = this.b) != null) {
+            adapterViewHolder.a().setNeedCompleteProfile(z);
         }
     }
 
-    public static void d(fh6 fh6Var) {
-        StatisticItem o;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vq8 vq8Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, fh6Var) == null) && fh6Var != null && (o = fh6Var.o("c13583", true)) != null) {
-            a(fh6Var, o);
-            TiebaStatic.log(o);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vq8Var, adapterViewHolder})) == null) {
+            NearbyForumFriendCardView a = adapterViewHolder.a();
+            a.a(vq8Var);
+            a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return adapterViewHolder.getView();
         }
-    }
-
-    public static void e(fh6 fh6Var) {
-        StatisticItem o;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, fh6Var) == null) && fh6Var != null && (o = fh6Var.o("c13584", true)) != null) {
-            a(fh6Var, o);
-            o.param(TiebaStatic.Params.OBJ_FLOOR, fh6Var.position + 1);
-            TiebaStatic.log(o);
-        }
-    }
-
-    public static void f(fh6 fh6Var) {
-        StatisticItem o;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, fh6Var) == null) && fh6Var != null && (o = fh6Var.o("c13585", true)) != null) {
-            a(fh6Var, o);
-            TiebaStatic.log(o);
-        }
-    }
-
-    public static void g(fh6 fh6Var) {
-        StatisticItem o;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, fh6Var) == null) && fh6Var != null && (o = fh6Var.o("c13586", true)) != null) {
-            a(fh6Var, o);
-            TiebaStatic.log(o);
-        }
-    }
-
-    public static void h(fh6 fh6Var) {
-        StatisticItem o;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, fh6Var) == null) && fh6Var != null && (o = fh6Var.o("c13587", true)) != null) {
-            a(fh6Var, o);
-            TiebaStatic.log(o);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

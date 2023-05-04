@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.internal.common.zzc;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IFragmentWrapper extends IInterface {
     boolean zzA() throws RemoteException;
 
@@ -71,7 +71,7 @@ public interface IFragmentWrapper extends IInterface {
 
     boolean zzz() throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends com.google.android.gms.internal.common.zzb implements IFragmentWrapper {
         public Stub() {
             super("com.google.android.gms.dynamic.IFragmentWrapper");

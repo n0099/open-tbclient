@@ -9,8 +9,8 @@ import android.widget.TextView;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fy3;
-import com.baidu.tieba.ry3;
+import com.baidu.tieba.hy3;
+import com.baidu.tieba.ty3;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
@@ -26,7 +26,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
 
         public a(GamenowRecommendPopViewAdapter gamenowRecommendPopViewAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09091e);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f090921);
             this.b = (TextView) view2.findViewById(R.id.tv_name);
         }
     }
@@ -53,7 +53,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: l */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00ae, viewGroup, false));
+        a aVar = new a(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d00af, viewGroup, false));
         aVar.itemView.setOnClickListener(this);
         return aVar;
     }
@@ -73,7 +73,7 @@ public class GamenowRecommendPopViewAdapter extends RecyclerView.Adapter<a> impl
         if (TextUtils.isEmpty(recommendGameInfo.appKey)) {
             return;
         }
-        ry3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
-        fy3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
+        ty3.n().b("gbBDialogClick", "3", recommendGameInfo.appKey, String.valueOf(intValue));
+        hy3.n().A(recommendGameInfo.appKey, recommendGameInfo.appName, recommendGameInfo.iconUrl, intValue);
     }
 }

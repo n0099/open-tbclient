@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.mainTab.FragmentTabIndicator;
 import com.baidu.tbadk.mainTab.TbFragmentTabIndicator;
 import com.baidu.tieba.R;
-import com.baidu.tieba.vg5;
-import com.baidu.tieba.wg5;
-import com.baidu.tieba.z57;
+import com.baidu.tieba.oh5;
+import com.baidu.tieba.p77;
+import com.baidu.tieba.ph5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -22,11 +22,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class FrsGameStrategyFragmentDelegateStatic extends vg5 {
+public class FrsGameStrategyFragmentDelegateStatic extends oh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.vg5
+    @Override // com.baidu.tieba.oh5
     public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -64,19 +64,19 @@ public class FrsGameStrategyFragmentDelegateStatic extends vg5 {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            wg5 b;
+            ph5 b;
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2001616 || customResponsedMessage.getData() == null) {
                 return;
             }
-            z57 z57Var = (z57) customResponsedMessage.getData();
+            p77 p77Var = (p77) customResponsedMessage.getData();
             FrsGameStrategyFragmentDelegateStatic frsGameStrategyFragmentDelegateStatic = new FrsGameStrategyFragmentDelegateStatic();
-            z57Var.a(frsGameStrategyFragmentDelegateStatic);
-            if (z57Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
+            p77Var.a(frsGameStrategyFragmentDelegateStatic);
+            if (p77Var.getContext() == null || (b = frsGameStrategyFragmentDelegateStatic.b()) == null) {
                 return;
             }
             Bundle bundle = new Bundle();
-            bundle.putString("name", z57Var.d());
+            bundle.putString("name", p77Var.d());
             bundle.putString("from", "game_frs");
             bundle.putBoolean("back_special", false);
             bundle.putLong("TibaStatic.StartTime", System.currentTimeMillis());
@@ -114,21 +114,21 @@ public class FrsGameStrategyFragmentDelegateStatic extends vg5 {
         }
     }
 
-    @Override // com.baidu.tieba.vg5
-    public wg5 a() {
+    @Override // com.baidu.tieba.oh5
+    public ph5 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            wg5 wg5Var = new wg5();
-            wg5Var.a = new FrsGameStrategyMainFragment();
-            wg5Var.e = 3;
-            wg5Var.i = wg5.k;
-            return wg5Var;
+            ph5 ph5Var = new ph5();
+            ph5Var.a = new FrsGameStrategyMainFragment();
+            ph5Var.e = 3;
+            ph5Var.i = ph5.k;
+            return ph5Var;
         }
-        return (wg5) invokeV.objValue;
+        return (ph5) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vg5
+    @Override // com.baidu.tieba.oh5
     public TbFragmentTabIndicator c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;

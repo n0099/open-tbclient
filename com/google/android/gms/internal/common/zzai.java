@@ -1,5 +1,5 @@
 package com.google.android.gms.internal.common;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzai<E> extends zzag<E> {
     public static final zzag<Object> zza = new zzai(new Object[0], 0);
     public final transient Object[] zzb;

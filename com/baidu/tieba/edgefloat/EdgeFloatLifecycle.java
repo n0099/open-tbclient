@@ -23,7 +23,7 @@ import kotlin.Metadata;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\b\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 \u001c2\u00020\u0001:\u0001\u001cB\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nJ\u0006\u0010\u000b\u001a\u00020\bJ\u000e\u0010\f\u001a\u00020\b2\u0006\u0010\r\u001a\u00020\u000eJ\u0016\u0010\u000f\u001a\u00020\b2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u000eJ\u000e\u0010\u0013\u001a\u00020\b2\u0006\u0010\u0014\u001a\u00020\u0011J\u000e\u0010\u0015\u001a\u00020\b2\u0006\u0010\u0016\u001a\u00020\u0005J\u0006\u0010\u0017\u001a\u00020\bJ\u000e\u0010\u0018\u001a\u00020\b2\u0006\u0010\u0019\u001a\u00020\u001aJ\u000e\u0010\u001b\u001a\u00020\u00112\u0006\u0010\u0016\u001a\u00020\u0005R\u001e\u0010\u0003\u001a\u0012\u0012\u0004\u0012\u00020\u00050\u0004j\b\u0012\u0004\u0012\u00020\u0005`\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/edgefloat/EdgeFloatLifecycle;", "", "()V", "floatList", "Ljava/util/ArrayList;", "Lcom/baidu/tieba/edgefloat/EdgeFloat;", "Lkotlin/collections/ArrayList;", "dispatchTouchEvent", "", Config.EVENT_PART, "Landroid/view/MotionEvent;", "onBackPressed", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onKeyboardVisibilityChanged", "isVisible", "", "keyboardHeight", "onWindowFocusChanged", "hasFocus", MiPushClient.COMMAND_REGISTER, "edgeFloat", "release", "switchActivity", "activity", "Landroid/app/Activity;", "unRegister", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0003\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000b\n\u0002\b\u000b\n\u0002\u0018\u0002\n\u0002\b\u0003\u0018\u0000 \u001f2\u00020\u0001:\u0001\u001fB\u0005¢\u0006\u0002\u0010\u0002J\u000e\u0010\u0007\u001a\u00020\b2\u0006\u0010\t\u001a\u00020\nJ\u0006\u0010\u000b\u001a\u00020\bJ\u000e\u0010\f\u001a\u00020\b2\u0006\u0010\r\u001a\u00020\u000eJ\u0016\u0010\u000f\u001a\u00020\b2\u0006\u0010\u0010\u001a\u00020\u00112\u0006\u0010\u0012\u001a\u00020\u000eJ\u0016\u0010\u0013\u001a\u00020\b2\u0006\u0010\u0014\u001a\u00020\u000e2\u0006\u0010\u0015\u001a\u00020\u000eJ\u000e\u0010\u0016\u001a\u00020\b2\u0006\u0010\u0017\u001a\u00020\u0011J\u000e\u0010\u0018\u001a\u00020\b2\u0006\u0010\u0019\u001a\u00020\u0005J\u0006\u0010\u001a\u001a\u00020\bJ\u000e\u0010\u001b\u001a\u00020\b2\u0006\u0010\u001c\u001a\u00020\u001dJ\u000e\u0010\u001e\u001a\u00020\u00112\u0006\u0010\u0019\u001a\u00020\u0005R\u001e\u0010\u0003\u001a\u0012\u0012\u0004\u0012\u00020\u00050\u0004j\b\u0012\u0004\u0012\u00020\u0005`\u0006X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006 "}, d2 = {"Lcom/baidu/tieba/edgefloat/EdgeFloatLifecycle;", "", "()V", "floatList", "Ljava/util/ArrayList;", "Lcom/baidu/tieba/edgefloat/EdgeFloat;", "Lkotlin/collections/ArrayList;", "dispatchTouchEvent", "", Config.EVENT_PART, "Landroid/view/MotionEvent;", "onBackPressed", "onChangeSkinType", WriteMulitImageActivityConfig.SKIN_TYPE, "", "onKeyboardVisibilityChanged", "isVisible", "", "keyboardHeight", "onScreenSizeChanged", "screenWidth", "screenHeight", "onWindowFocusChanged", "hasFocus", MiPushClient.COMMAND_REGISTER, "edgeFloat", "release", "switchActivity", "activity", "Landroid/app/Activity;", "unRegister", "Companion", "tbadkcore_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes4.dex */
 public final class EdgeFloatLifecycle {
     public static /* synthetic */ Interceptable $ic;
@@ -108,7 +108,7 @@ public final class EdgeFloatLifecycle {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.s();
+                edgeFloat.v();
             }
         }
     }
@@ -118,7 +118,7 @@ public final class EdgeFloatLifecycle {
         if (interceptable == null || interceptable.invokeL(1048576, this, ev) == null) {
             Intrinsics.checkNotNullParameter(ev, "ev");
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.f(ev);
+                edgeFloat.g(ev);
             }
         }
     }
@@ -132,18 +132,18 @@ public final class EdgeFloatLifecycle {
         }
     }
 
-    public final void g(boolean z) {
+    public final void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.v(z);
+                edgeFloat.z(z);
             }
         }
     }
 
-    public final void h(EdgeFloat edgeFloat) {
+    public final void i(EdgeFloat edgeFloat) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, edgeFloat) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, edgeFloat) == null) {
             Intrinsics.checkNotNullParameter(edgeFloat, "edgeFloat");
             if (this.a.contains(edgeFloat)) {
                 return;
@@ -152,20 +152,20 @@ public final class EdgeFloatLifecycle {
         }
     }
 
-    public final void j(Activity activity) {
+    public final void k(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, activity) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity) == null) {
             Intrinsics.checkNotNullParameter(activity, "activity");
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.z(activity);
+                edgeFloat.D(activity);
             }
         }
     }
 
-    public final boolean k(EdgeFloat edgeFloat) {
+    public final boolean l(EdgeFloat edgeFloat) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, edgeFloat)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, edgeFloat)) == null) {
             Intrinsics.checkNotNullParameter(edgeFloat, "edgeFloat");
             if (!this.a.contains(edgeFloat)) {
                 return false;
@@ -179,20 +179,29 @@ public final class EdgeFloatLifecycle {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
             for (EdgeFloat edgeFloat : this.a) {
-                edgeFloat.t(z, i);
+                edgeFloat.w(z, i);
             }
         }
     }
 
-    public final void i() {
+    public final void g(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeII(1048580, this, i, i2) == null) {
+            for (EdgeFloat edgeFloat : this.a) {
+                edgeFloat.x(i, i2);
+            }
+        }
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             Iterator<EdgeFloat> it = this.a.iterator();
             Intrinsics.checkNotNullExpressionValue(it, "floatList.iterator()");
             while (it.hasNext()) {
                 EdgeFloat next = it.next();
                 Intrinsics.checkNotNullExpressionValue(next, "iterator.next()");
-                next.w();
+                next.A();
                 it.remove();
             }
         }

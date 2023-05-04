@@ -1,131 +1,71 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
 import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.collections.SetsKt___SetsKt;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public final class n25 {
+public class n25 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Class<? extends b25>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: Code restructure failed: missing block: B:40:0x00e6, code lost:
-        if (d(r3, r4) == true) goto L39;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void b(List<? extends DialogStrategiesData> list, List<? extends DialogStrategiesData> list2) {
-        DialogStrategiesData.StrategiesConfigData strategiesConfigData;
-        Object obj;
-        Object obj2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, list, list2) == null) {
-            ArrayList arrayList = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            for (DialogStrategiesData dialogStrategiesData : list) {
-                arrayList.add(dialogStrategiesData.getDialogName());
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947950584, "Lcom/baidu/tieba/n25;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            Set set = CollectionsKt___CollectionsKt.toSet(arrayList);
-            ArrayList arrayList2 = new ArrayList(CollectionsKt__IterablesKt.collectionSizeOrDefault(list2, 10));
-            for (DialogStrategiesData dialogStrategiesData2 : list2) {
-                arrayList2.add(dialogStrategiesData2.getDialogName());
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947950584, "Lcom/baidu/tieba/n25;");
+                return;
             }
-            for (String name : SetsKt___SetsKt.plus(set, (Iterable) CollectionsKt___CollectionsKt.toSet(arrayList2))) {
-                Iterator<T> it = list.iterator();
-                while (true) {
-                    strategiesConfigData = null;
-                    if (it.hasNext()) {
-                        obj = it.next();
-                        if (Intrinsics.areEqual(((DialogStrategiesData) obj).getDialogName(), name)) {
-                            break;
-                        }
-                    } else {
-                        obj = null;
-                        break;
-                    }
-                }
-                DialogStrategiesData dialogStrategiesData3 = (DialogStrategiesData) obj;
-                Iterator<T> it2 = list2.iterator();
-                while (true) {
-                    if (it2.hasNext()) {
-                        obj2 = it2.next();
-                        if (Intrinsics.areEqual(((DialogStrategiesData) obj2).getDialogName(), name)) {
-                            break;
-                        }
-                    } else {
-                        obj2 = null;
-                        break;
-                    }
-                }
-                DialogStrategiesData dialogStrategiesData4 = (DialogStrategiesData) obj2;
-                if (dialogStrategiesData3 == null || dialogStrategiesData4 == null) {
-                    YunDialogLog.getInstance().c("YunDialogManager", "本地或远程没有弹窗 " + name + " ，准备重置频次");
-                    l25 l25Var = l25.a;
-                    Intrinsics.checkNotNullExpressionValue(name, "name");
-                    l25Var.b(name);
-                }
-                boolean z = true;
-                if (dialogStrategiesData3 != null && (r3 = c(dialogStrategiesData3, "FREQUENCE_STRATEGY")) != null) {
-                    if (dialogStrategiesData4 != null) {
-                        strategiesConfigData = c(dialogStrategiesData4, "FREQUENCE_STRATEGY");
-                    }
-                }
-                z = false;
-                if (z) {
-                    YunDialogLog.getInstance().c("YunDialogManager", "云弹窗 " + name + " 频次配置更新，准备重置频次");
-                    l25 l25Var2 = l25.a;
-                    Intrinsics.checkNotNullExpressionValue(name, "name");
-                    l25Var2.b(name);
-                }
+        }
+        ArrayMap arrayMap = new ArrayMap();
+        a = arrayMap;
+        arrayMap.put("WebViewYunDialog", m25.class);
+        a.put("userIcon", l25.class);
+        a.put("userGrowth", k25.class);
+        a.put("newGod", h25.class);
+        a.put("operateNew", i25.class);
+        a.put("homeLiveRemind", g25.class);
+        a.put("updateDialog", j25.class);
+        a.put("lcUpdateDialog", f25.class);
+        c25 c25Var = new c25();
+        hj1<d25> hj1Var = c25Var.a;
+        if (hj1Var != null && !ListUtils.isEmpty(hj1Var.getList())) {
+            for (d25 d25Var : c25Var.a.getList()) {
+                a.put(d25Var.name(), d25Var.a());
             }
         }
     }
 
-    public static final DialogStrategiesData.StrategiesConfigData c(DialogStrategiesData dialogStrategiesData, String str) {
-        InterceptResult invokeLL;
-        Object obj;
+    public static void a(@NonNull Context context, @NonNull String str, @NonNull String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, dialogStrategiesData, str)) == null) {
-            List<DialogStrategiesData.StrategiesConfigData> dialogStrategy = dialogStrategiesData.getDialogStrategy();
-            Intrinsics.checkNotNullExpressionValue(dialogStrategy, "dialogStrategy");
-            Iterator<T> it = dialogStrategy.iterator();
-            while (true) {
-                if (it.hasNext()) {
-                    obj = it.next();
-                    if (Intrinsics.areEqual(str, ((DialogStrategiesData.StrategiesConfigData) obj).getType())) {
-                        break;
-                    }
-                } else {
-                    obj = null;
-                    break;
+        if (interceptable == null || interceptable.invokeLLL(65537, null, context, str, str2) == null) {
+            t15 b = t15.b(str, str2);
+            try {
+                String a2 = b.a("yun_dialogClass");
+                if (TextUtils.isEmpty(a2)) {
+                    return;
                 }
+                a.get(a2).getConstructor(new Class[0]).newInstance(new Object[0]).a(context, b);
+            } catch (Exception e) {
+                dj8 yunDialogLog = YunDialogLog.getInstance();
+                yunDialogLog.b("YunDialogManager", "云弹窗 " + str + " 渲染失败：" + e.getMessage());
+                r15.s(str);
+                e.printStackTrace();
             }
-            return (DialogStrategiesData.StrategiesConfigData) obj;
         }
-        return (DialogStrategiesData.StrategiesConfigData) invokeLL.objValue;
-    }
-
-    public static final boolean d(DialogStrategiesData.StrategiesConfigData strategiesConfigData, DialogStrategiesData.StrategiesConfigData strategiesConfigData2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, strategiesConfigData, strategiesConfigData2)) == null) {
-            if (strategiesConfigData2 != null) {
-                if (!Intrinsics.areEqual(strategiesConfigData.R().get("startTimestamp"), strategiesConfigData2.R().get("startTimestamp")) || !Intrinsics.areEqual(strategiesConfigData.R().get("endTimestamp"), strategiesConfigData2.R().get("endTimestamp")) || !Intrinsics.areEqual(strategiesConfigData.R().get("frequence"), strategiesConfigData2.R().get("frequence"))) {
-                    return true;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

@@ -2,102 +2,36 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 /* loaded from: classes6.dex */
 public class ss3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String[] d;
     public transient /* synthetic */ FieldHolder $fh;
-    public Method a;
+    public Object a;
     public Method b;
-    public Object c;
+    public Method c;
+    public Method d;
+    public Method e;
+    public String f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948161942, "Lcom/baidu/tieba/ss3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948161942, "Lcom/baidu/tieba/ss3;");
-                return;
-            }
-        }
-        d = new String[]{"android.util.BoostFramework", "com.qualcomm.qti.Performance", "org.codeaurora.Performance"};
-    }
-
-    public static Class<?> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String[] strArr = d;
-            for (int i = 0; i < strArr.length; i++) {
-                try {
-                    return zb4.a(strArr[i]);
-                } catch (Throwable unused) {
-                }
-            }
-            return null;
-        }
-        return (Class) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c != null && this.a != null && this.b != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!c()) {
-                return -1;
-            }
-            try {
-                Object invoke = this.b.invoke(this.c, new Object[0]);
-                if (invoke == null) {
-                    return -1;
-                }
-                return ((Integer) invoke).intValue();
-            } catch (Throwable unused) {
-                return -1;
-            }
-        }
-        return invokeV.intValue;
-    }
-
-    public ss3(Class<?> cls, Context context) {
+    public ss3(Class<?> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {cls, context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {cls};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
@@ -105,81 +39,145 @@ public class ss3 {
             return;
         }
         try {
-            this.c = a(context, cls);
-            Method i3 = zb4.i(cls, "perfLockAcquire", Integer.TYPE, int[].class);
-            this.a = i3;
-            if (i3 != null) {
-                i3.setAccessible(true);
-            }
-            Method i4 = zb4.i(cls, "perfLockRelease", new Class[0]);
-            this.b = i4;
-            if (i4 != null) {
-                i4.setAccessible(true);
+            Object m = bc4.m(cls);
+            this.a = m;
+            if (m != null) {
+                Method i3 = bc4.i(cls, "hypnusSetAction", Integer.TYPE, Integer.TYPE);
+                this.b = i3;
+                if (i3 != null) {
+                    i3.setAccessible(true);
+                }
+                Method i4 = bc4.i(cls, "hypnusSetSignatureAction", Integer.TYPE, Integer.TYPE, String.class);
+                this.c = i4;
+                if (i4 != null) {
+                    i4.setAccessible(true);
+                }
+                Method i5 = bc4.i(cls, "isHypnusOK", new Class[0]);
+                this.e = i5;
+                if (i5 != null) {
+                    i5.setAccessible(true);
+                }
+                f();
             }
         } catch (Throwable unused) {
         }
     }
 
-    public static ss3 b(@NonNull Context context) {
+    public static ss3 a(@NonNull Context context) {
         Class<?> cls;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                cls = d();
-                try {
-                    xb4.c(cls);
-                } catch (Throwable unused) {
-                }
-            } catch (Throwable unused2) {
+                cls = bc4.b("com.oppo.hypnus.HypnusManager", true);
+            } catch (Throwable unused) {
                 cls = null;
             }
-            return new ss3(cls, context);
+            return new ss3(cls);
         }
         return (ss3) invokeL.objValue;
     }
 
-    public final Object a(@Nullable Context context, @NonNull Class<?> cls) {
-        InterceptResult invokeLL;
+    public final String b() {
+        InterceptResult invokeV;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, cls)) == null) {
-            Object obj = null;
-            try {
-                Constructor c = zb4.c(cls, Context.class);
-                if (c != null) {
-                    obj = c.newInstance(context);
-                }
-            } catch (Throwable unused) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String str2 = this.f;
+            if (str2 != null) {
+                return str2;
             }
-            if (obj == null) {
+            Method method = this.d;
+            if (method != null) {
                 try {
-                    return zb4.m(cls);
-                } catch (Throwable unused2) {
-                    return obj;
+                    Object invoke = method.invoke(null, new Object[0]);
+                    if (invoke == null) {
+                        str = "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4";
+                    } else {
+                        str = (String) invoke;
+                    }
+                    this.f = str;
+                } catch (Throwable unused) {
+                    this.f = "308203633082024ba00302010202040875ec17300d06092a864886f70d01010b05003062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d301e170d3135303130373036343930325a170d3235303130343036343930325a3062310b300906035504061302383631123010060355040813096775616e67646f6e673111300f060355040713087368656e7a68656e310e300c060355040a13056368696e61310e300c060355040b13056368696e61310c300a06035504031303726f6d30820122300d06092a864886f70d01010105000382010f003082010a0282010100a4677dd7cdd8d842b767d4a4";
                 }
             }
-            return obj;
+            return this.f;
         }
-        return invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public int e(int i, int... iArr) {
-        InterceptResult invokeIL;
+    public boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_SEND_USER_MSG, this, i, iArr)) == null) {
-            if (!c()) {
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c != null && b() != null) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             try {
-                Object invoke = this.a.invoke(this.c, Integer.valueOf(i), iArr);
-                if (invoke == null) {
-                    return -1;
+                Class<?> b = bc4.b("com.oppo.hypnus.Hypnus", true);
+                if (b != null) {
+                    Method i = bc4.i(b, "getLocalSignature", new Class[0]);
+                    this.d = i;
+                    if (i != null) {
+                        i.setAccessible(true);
+                    }
                 }
-                return ((Integer) invoke).intValue();
             } catch (Throwable unused) {
-                return -1;
             }
         }
-        return invokeIL.intValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            Object obj = this.a;
+            if (obj == null) {
+                return false;
+            }
+            Method method = this.e;
+            if (method == null) {
+                return true;
+            }
+            try {
+                Object invoke = method.invoke(obj, new Object[0]);
+                if (invoke != null) {
+                    return ((Boolean) invoke).booleanValue();
+                }
+            } catch (Throwable unused) {
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(int i, int i2) {
+        Object obj;
+        Method method;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && (obj = this.a) != null && (method = this.b) != null) {
+            try {
+                method.invoke(obj, Integer.valueOf(i), Integer.valueOf(i2));
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) && this.a != null && this.c != null && b() != null) {
+            try {
+                this.c.invoke(this.a, Integer.valueOf(i), Integer.valueOf(i2), this.f);
+            } catch (Throwable unused) {
+            }
+        }
     }
 }

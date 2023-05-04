@@ -4,7 +4,7 @@ import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class hz implements is<hz, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */

@@ -1,388 +1,79 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.ActivityManager;
-import android.os.Handler;
-import android.os.Message;
-import android.os.Process;
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.Choreographer;
+import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sj3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.concurrent.ConcurrentMap;
 /* loaded from: classes6.dex */
-public class s52 {
+public class s52 implements z42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean i;
-    public static final String j;
-    public static final String k;
-    public static final String l;
-    public static final String m;
-    public static final String n;
-    public static final String o;
-    public static final String p;
-    public static final String q;
-    public static final String r;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
-    public e a;
-    public f b;
-    public c c;
-    public b d;
-    public ConcurrentMap<String, Object> e;
-    public boolean f;
-    public int g;
-    public int h;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public boolean a;
-        public final /* synthetic */ s52 b;
-
-        public b(s52 s52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = s52Var;
-        }
-
-        public /* synthetic */ b(s52 s52Var, a aVar) {
-            this(s52Var);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a = true;
-                String a = u52.a();
-                if (!TextUtils.isEmpty(a)) {
-                    this.b.e.put("cpu", a);
-                }
-                this.a = false;
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements Choreographer.FrameCallback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public int b;
-        public final /* synthetic */ s52 c;
-
-        public c(s52 s52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = s52Var;
-            this.a = -1L;
-            this.b = -1;
-        }
-
-        public /* synthetic */ c(s52 s52Var, a aVar) {
-            this(s52Var);
-        }
-
-        @Override // android.view.Choreographer.FrameCallback
-        public void doFrame(long j) {
-            int i;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !this.c.f) {
-                return;
-            }
-            long j2 = this.a;
-            if (j2 > 0 && this.b != (i = (int) ((1.0d / (j - j2)) * 1.0E9d))) {
-                this.b = i;
-                this.c.e.put("frame", Integer.valueOf(i));
-            }
-            this.a = j;
-            Choreographer.getInstance().postFrameCallback(this);
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final s52 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-479421831, "Lcom/baidu/tieba/s52$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-479421831, "Lcom/baidu/tieba/s52$d;");
-                    return;
-                }
-            }
-            a = new s52(null);
-        }
-    }
-
-    @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes6.dex */
-    public class e extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s52 a;
-
-        public e(s52 s52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s52Var;
-        }
-
-        public /* synthetic */ e(s52 s52Var, a aVar) {
-            this(s52Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.e != null) {
-                this.a.f();
-                this.a.e.put("mem", Long.valueOf(((ActivityManager) cr2.c().getSystemService("activity")).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
-                if (this.a.a != null) {
-                    this.a.a.sendEmptyMessageDelayed(0, this.a.g);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class f implements sj3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ s52 a;
-
-        public f(s52 s52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {s52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = s52Var;
-        }
-
-        public /* synthetic */ f(s52 s52Var, a aVar) {
-            this(s52Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(Set<qj3<?>> set) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) && set != null && set.size() > 0) {
-                for (qj3<?> qj3Var : set) {
-                    this.a.e.put(qj3Var.a, qj3Var.a());
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102329, "Lcom/baidu/tieba/s52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948102329, "Lcom/baidu/tieba/s52;");
-                return;
-            }
-        }
-        i = fo1.a;
-        j = rj3.d.a;
-        k = rj3.b.a;
-        l = rj3.c.a;
-        String str = rj3.g.a;
-        m = rj3.i.a;
-        n = rj3.e.a;
-        o = rj3.f.a;
-        p = rj3.h.a;
-        q = rj3.j.a;
-        r = rj3.k.a;
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (!this.f) {
-                if (i) {
-                    Log.d("PropertyMonitor", "System monitor not started yet");
-                    return;
-                }
-                return;
-            }
-            this.f = false;
-            e eVar = this.a;
-            if (eVar != null) {
-                eVar.removeMessages(0);
-                this.a = null;
-            }
-            if (this.b != null) {
-                sj3.a().j(this.b, new qj3[0]);
-                this.b = null;
-            }
-            this.c = null;
-            this.d = null;
-            if (i) {
-                Log.d("PropertyMonitor", "Stop system monitor");
-            }
-        }
-    }
 
     public s52() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.e = new ConcurrentHashMap();
-        this.g = 1000;
     }
 
-    public static s52 g() {
+    public static void d() {
+        x73 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || (M = x73.M()) == null) {
+            return;
+        }
+        gk3.j(M.getActivity());
+        System.exit(0);
+    }
+
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return d.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (s52) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.d.a) {
-            pk3.k(this.d, "swanAppCpuMonitor");
-        }
-    }
-
-    public Map<String, Object> h() {
+    @Override // com.baidu.tieba.z42
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            this.h++;
-            j();
-            return this.e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return q52.e().getPath();
         }
-        return (Map) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void i() {
+    @Override // com.baidu.tieba.z42
+    public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            int i2 = this.h - 1;
-            this.h = i2;
-            if (i2 <= 0) {
-                k();
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = wk3.i(bundle, "extraWSUrl");
+            a52.i(wk3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            a52.j(wk3.i(bundle, "slavePreload"));
         }
     }
 
-    public /* synthetic */ s52(a aVar) {
-        this();
-    }
-
-    public final void j() {
+    @Override // com.baidu.tieba.z42
+    public void b(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.f) {
-                if (i) {
-                    Log.d("PropertyMonitor", "System monitor already started");
-                    return;
-                }
-                return;
-            }
-            this.f = true;
-            this.c = new c(this, null);
-            Choreographer.getInstance().postFrameCallback(this.c);
-            this.d = new b(this, null);
-            this.b = new f(this, null);
-            sj3.a().g(this.b, rj3.d, rj3.b, rj3.c, rj3.i, rj3.e, rj3.f, rj3.g, rj3.h, rj3.j, rj3.k);
-            e eVar = new e(this, null);
-            this.a = eVar;
-            eVar.sendEmptyMessage(0);
-            if (i) {
-                Log.d("PropertyMonitor", "Start system monitor");
-            }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("extraWSUrl", a);
+            bundle.putString("slavePreload", a52.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, a52.a());
         }
     }
 }

@@ -9,8 +9,8 @@ import androidx.annotation.ColorRes;
 import androidx.annotation.Px;
 import androidx.core.content.ContextCompat;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.tieba.b41;
-import com.baidu.tieba.ji0;
+import com.baidu.tieba.d41;
+import com.baidu.tieba.li0;
 import java.util.Set;
 import kotlin.Metadata;
 import kotlin.Result;
@@ -85,7 +85,7 @@ public final class ExtensionsKt {
     @Px
     public static final int d(int i, Context context) {
         Intrinsics.checkNotNullParameter(context, "context");
-        return b41.c.a(context, i);
+        return d41.c.a(context, i);
     }
 
     public static final void e(View isVisible, boolean z) {
@@ -122,7 +122,7 @@ public final class ExtensionsKt {
             Result.Companion companion2 = Result.Companion;
             m770constructorimpl = Result.m770constructorimpl(ResultKt.createFailure(th));
         }
-        Integer valueOf = Integer.valueOf(ContextCompat.getColor(ji0.b(), i));
+        Integer valueOf = Integer.valueOf(ContextCompat.getColor(li0.b(), i));
         if (Result.m776isFailureimpl(m770constructorimpl)) {
             m770constructorimpl = valueOf;
         }

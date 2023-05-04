@@ -1,50 +1,223 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xq0 extends sq0 {
+public class xq0 {
     public static /* synthetic */ Interceptable $ic;
+    public static gr0 a;
+    public static gr0 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final cr0 b;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948308882, "Lcom/baidu/tieba/xq0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948308882, "Lcom/baidu/tieba/xq0;");
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public er0 a;
+        public er0 b;
+
+        /* loaded from: classes7.dex */
+        public class a implements gr0 {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ er0 b;
+
+            public a(b bVar, er0 er0Var) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar, er0Var};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = er0Var;
+            }
+
+            @Override // com.baidu.tieba.gr0
+            public er0 a() {
+                InterceptResult invokeV;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                    return this.b;
+                }
+                return (er0) invokeV.objValue;
+            }
+        }
+
+        /* renamed from: com.baidu.tieba.xq0$b$b  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public static class C0490b {
+            public static /* synthetic */ Interceptable $ic;
+            public static final b a;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(614514582, "Lcom/baidu/tieba/xq0$b$b;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(614514582, "Lcom/baidu/tieba/xq0$b$b;");
+                        return;
+                    }
+                }
+                a = new b(null);
+            }
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            this.b = null;
+        }
+
+        public static b b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                return C0490b.a;
+            }
+            return (b) invokeV.objValue;
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        public gr0 a(String str) {
+            InterceptResult invokeL;
+            char c;
+            er0 er0Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                int hashCode = str.hashCode();
+                if (hashCode != -1015101340) {
+                    if (hashCode == 1544803905 && str.equals("default")) {
+                        c = 0;
+                    }
+                    c = 65535;
+                } else {
+                    if (str.equals("okhttp")) {
+                        c = 1;
+                    }
+                    c = 65535;
+                }
+                if (c != 0) {
+                    if (c == 1) {
+                        if (this.b == null) {
+                            synchronized (xq0.class) {
+                                if (this.b == null) {
+                                    this.b = vq0.a.b(str);
+                                }
+                            }
+                        }
+                        er0Var = this.b;
+                    } else {
+                        throw new IllegalStateException("Unexpected type:" + str);
+                    }
+                } else {
+                    if (this.a == null) {
+                        synchronized (xq0.class) {
+                            if (this.a == null) {
+                                this.a = vq0.a.b(str);
+                            }
+                        }
+                    }
+                    er0Var = this.a;
+                }
+                return new a(this, er0Var);
+            }
+            return (gr0) invokeL.objValue;
+        }
+    }
 
     public xq0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.b = b("okhttp");
     }
 
-    @Override // com.baidu.tieba.er0
-    public cr0 a() {
+    public static gr0 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (b == null) {
+                synchronized (xq0.class) {
+                    if (b == null) {
+                        if (a == null) {
+                            a = (gr0) ServiceManager.getService(gr0.a);
+                        }
+                        b = a;
+                    }
+                    if (b != null) {
+                        return b;
+                    }
+                    if (TextUtils.equals("okhttp", "mixed")) {
+                        b = b.b().a("okhttp");
+                    } else {
+                        b = vq0.a;
+                    }
+                }
+            }
+            return b;
         }
-        return (cr0) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.sq0
-    public cr0 b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return new pr0();
-        }
-        return (cr0) invokeL.objValue;
+        return (gr0) invokeV.objValue;
     }
 }

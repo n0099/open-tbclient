@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class he {
     public static HashMap<String, ArrayList<hl>> a(Context context, List<hl> list) {
         if (list == null || list.size() == 0) {

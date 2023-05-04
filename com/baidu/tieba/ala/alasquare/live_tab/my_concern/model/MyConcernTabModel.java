@@ -16,7 +16,7 @@ import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.ala.alasquare.live_tab.my_concern.data.AlaLiveTabMyConcernResponse;
 import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.tieba.in;
-import com.baidu.tieba.x46;
+import com.baidu.tieba.y56;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,7 +30,7 @@ public class MyConcernTabModel extends BdBaseModel {
     public int a;
     public TbPageContext b;
     public b c;
-    public x46 d;
+    public y56 d;
     public HttpMessageListener e;
 
     /* loaded from: classes3.dex */
@@ -44,7 +44,7 @@ public class MyConcernTabModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -102,13 +102,13 @@ public class MyConcernTabModel extends BdBaseModel {
                     z = false;
                 }
                 if (alaLiveTabMyConcernResponse.getError() == 0 && alaLiveTabMyConcernResponse.isSuccess() && !z) {
-                    x46 x46Var = this.a.d;
+                    y56 y56Var = this.a.d;
                     if (this.a.a == 1) {
                         z2 = true;
                     } else {
                         z2 = false;
                     }
-                    x46Var.e(alaLiveTabMyConcernResponse, z2);
+                    y56Var.e(alaLiveTabMyConcernResponse, z2);
                     if (this.a.c != null) {
                         b bVar = this.a.c;
                         List<in> h = this.a.d.h();
@@ -148,12 +148,12 @@ public class MyConcernTabModel extends BdBaseModel {
         this.a = 1;
         this.e = new a(this, AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
         this.b = tbPageContext;
-        this.d = new x46(this.b);
-        X();
+        this.d = new y56(this.b);
+        c0();
         MessageManager.getInstance().registerListener(this.e);
     }
 
-    public final void U(int i) {
+    public final void Z(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             HttpMessage httpMessage = new HttpMessage(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST);
@@ -162,33 +162,33 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public void Y(Class<? extends BaseCardInfo> cls) {
+    public void d0(Class<? extends BaseCardInfo> cls) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, cls) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, cls) == null) {
             this.d.j(cls);
         }
     }
 
-    public void Z(b bVar) {
+    public void e0(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
             this.c = bVar;
         }
     }
 
-    public void V() {
+    public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            U(this.a);
+            Z(this.a);
         }
     }
 
-    public void W() {
+    public void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a = 1;
             this.d.a();
-            U(1);
+            Z(1);
         }
     }
 
@@ -202,7 +202,7 @@ public class MyConcernTabModel extends BdBaseModel {
         }
     }
 
-    public final void X() {
+    public final void c0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.CMD_ALA_TAB_SUB_MY_CONCERN_LIST, TbConfig.SERVER_ADDRESS + AlaConfig.ALA_TAB_SUB_MY_CONCERN_LIST);

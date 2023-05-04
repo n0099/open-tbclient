@@ -1,12 +1,16 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lg2 {
+public abstract class lg2 implements wt2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -24,30 +28,44 @@ public class lg2 {
                 return;
             }
         }
-        boolean z = fo1.a;
-        a = b("swan_clean_pkg_opt", 0);
+        a = ho1.a;
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
+    public lg2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean b(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
-            cr2.g0().getSwitch(str, i);
-            v42.k("CleanPkgSwitcher", str + " value from AB : " + i);
-            if (i == 1) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return false;
         }
-        return invokeLI.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.wt2
+    public void a(boolean z, Activity activity) {
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(1048576, this, z, activity) == null) && ng2.a() && !z) {
+            if (a) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            boolean B = ol3.B();
+            if (a) {
+                long currentTimeMillis = System.currentTimeMillis();
+                Log.d("DiskCleanerLifecycleObserver", "detect all process is on baground cost - " + (currentTimeMillis - j) + "ms");
+            }
+            if (B) {
+                boolean n = pg2.n();
+                x42.k("DiskCleanerLifecycleObserver", "all app process in background，run clean task");
+                jg2.c().d().u(null, n, 16);
+                pg2.p(false);
+            }
+        }
     }
 }

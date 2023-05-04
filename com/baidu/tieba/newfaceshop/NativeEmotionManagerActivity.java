@@ -19,13 +19,13 @@ import com.baidu.tbadk.core.view.CommonPagerSlidingTabStrip;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eq8;
-import com.baidu.tieba.gq8;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iv4;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.CreateNewEmotionFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.MyEmotionManagerFragment;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.SingleThreadEmotionFragment;
+import com.baidu.tieba.ns8;
+import com.baidu.tieba.ps8;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -34,7 +34,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class NativeEmotionManagerActivity extends BaseFragmentActivity implements gq8<Boolean> {
+public class NativeEmotionManagerActivity extends BaseFragmentActivity implements ps8<Boolean> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public FragmentPagerAdapter a;
@@ -153,7 +153,7 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
                     return;
                 }
                 this.a.o = i;
-                this.a.w1();
+                this.a.y1();
             }
         }
     }
@@ -177,36 +177,86 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
         this.o = 0;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
-    public void onCreate(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
-            super.onCreate(bundle);
-            setSwipeBackEnabled(false);
-            setContentView(R.layout.obfuscated_res_0x7f0d0275);
-            x1();
-        }
-    }
-
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.gq8
-    /* renamed from: z1 */
+    @Override // com.baidu.tieba.ps8
+    /* renamed from: B1 */
     public void onUpdate(Boolean bool) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, bool) != null) || bool == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) != null) || bool == null) {
             return;
         }
         this.n = bool.booleanValue();
-        w1();
+        y1();
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
+    public void onCreate(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+            super.onCreate(bundle);
+            setSwipeBackEnabled(false);
+            setContentView(R.layout.obfuscated_res_0x7f0d0278);
+            A1();
+        }
+    }
+
+    public final void A1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.j = getIntent().getIntExtra("is_bazhu", 0);
+            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09098f);
+            this.d.add("我的表情");
+            MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
+            this.l = myEmotionManagerFragment;
+            myEmotionManagerFragment.L1(this);
+            this.b.add(this.l);
+            if (this.j == 1) {
+                this.d.add("单吧表情");
+                SingleThreadEmotionFragment singleThreadEmotionFragment = new SingleThreadEmotionFragment();
+                this.m = singleThreadEmotionFragment;
+                this.b.add(singleThreadEmotionFragment);
+            }
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
+            TextView textView = new TextView(getPageContext().getPageActivity());
+            this.i = textView;
+            textView.setPadding(0, ii.g(this, R.dimen.obfuscated_res_0x7f0701d5), ii.g(this, R.dimen.obfuscated_res_0x7f07029c), ii.g(this, R.dimen.obfuscated_res_0x7f0701d5));
+            this.i.setClickable(true);
+            this.i.setLayoutParams(layoutParams);
+            this.i.setText(R.string.obfuscated_res_0x7f0f05a5);
+            this.i.setOnClickListener(this);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0917fe);
+            this.e = navigationBar;
+            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, (View.OnClickListener) null);
+            this.g = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
+            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d027b, (View.OnClickListener) null);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.e.findViewById(R.id.obfuscated_res_0x7f090983);
+            this.f = commonPagerSlidingTabStrip;
+            commonPagerSlidingTabStrip.k(ii.g(this, R.dimen.obfuscated_res_0x7f070207), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f070303), ii.g(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090986);
+            this.h = bdBaseViewPager;
+            bdBaseViewPager.setmDisallowSlip(true);
+            this.h.setOffscreenPageLimit(1);
+            a aVar = new a(this, getSupportFragmentManager());
+            this.a = aVar;
+            this.h.setAdapter(aVar);
+            this.f.setViewPager(this.h);
+            this.f.setOnPageChangeListener(new b(this));
+            this.c = new CreateNewEmotionFragment();
+            Bundle bundle = new Bundle();
+            bundle.putInt("is_bazhu", this.j);
+            this.c.setArguments(bundle);
+            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f090982, this.c).commit();
+        }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.mSkinType = i;
-            iv4 layoutMode = getLayoutMode();
+            yv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -231,79 +281,29 @@ public class NativeEmotionManagerActivity extends BaseFragmentActivity implement
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.i) {
-                boolean z = !eq8.b().a();
-                eq8.b().d(z);
+                boolean z = !ns8.b().a();
+                ns8.b().d(z);
                 if (z) {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f0599);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f05a6);
                 } else {
-                    this.i.setText(R.string.obfuscated_res_0x7f0f0598);
+                    this.i.setText(R.string.obfuscated_res_0x7f0f05a5);
                 }
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921310));
             }
         }
     }
 
-    public final void w1() {
+    public final void y1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             if (this.o == 0 && this.n) {
                 this.i.setVisibility(0);
             } else {
                 this.i.setVisibility(4);
             }
-        }
-    }
-
-    public final void x1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.j = getIntent().getIntExtra("is_bazhu", 0);
-            this.k = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09098c);
-            this.d.add("我的表情");
-            MyEmotionManagerFragment myEmotionManagerFragment = new MyEmotionManagerFragment();
-            this.l = myEmotionManagerFragment;
-            myEmotionManagerFragment.K1(this);
-            this.b.add(this.l);
-            if (this.j == 1) {
-                this.d.add("单吧表情");
-                SingleThreadEmotionFragment singleThreadEmotionFragment = new SingleThreadEmotionFragment();
-                this.m = singleThreadEmotionFragment;
-                this.b.add(singleThreadEmotionFragment);
-            }
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
-            TextView textView = new TextView(getPageContext().getPageActivity());
-            this.i = textView;
-            textView.setPadding(0, ii.g(this, R.dimen.obfuscated_res_0x7f0701d5), ii.g(this, R.dimen.obfuscated_res_0x7f07029c), ii.g(this, R.dimen.obfuscated_res_0x7f0701d5));
-            this.i.setClickable(true);
-            this.i.setLayoutParams(layoutParams);
-            this.i.setText(R.string.obfuscated_res_0x7f0f0598);
-            this.i.setOnClickListener(this);
-            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0302);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0917f0);
-            this.e = navigationBar;
-            navigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.i, (View.OnClickListener) null);
-            this.g = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.e.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0278, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) this.e.findViewById(R.id.obfuscated_res_0x7f090980);
-            this.f = commonPagerSlidingTabStrip;
-            commonPagerSlidingTabStrip.k(ii.g(this, R.dimen.obfuscated_res_0x7f070207), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f070303), ii.g(this, R.dimen.obfuscated_res_0x7f070261), R.color.CAM_X0107, R.color.CAM_X0105);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090983);
-            this.h = bdBaseViewPager;
-            bdBaseViewPager.setmDisallowSlip(true);
-            this.h.setOffscreenPageLimit(1);
-            a aVar = new a(this, getSupportFragmentManager());
-            this.a = aVar;
-            this.h.setAdapter(aVar);
-            this.f.setViewPager(this.h);
-            this.f.setOnPageChangeListener(new b(this));
-            this.c = new CreateNewEmotionFragment();
-            Bundle bundle = new Bundle();
-            bundle.putInt("is_bazhu", this.j);
-            this.c.setArguments(bundle);
-            getSupportFragmentManager().beginTransaction().replace(R.id.obfuscated_res_0x7f09097f, this.c).commit();
         }
     }
 }

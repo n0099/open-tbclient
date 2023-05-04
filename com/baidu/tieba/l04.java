@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import com.baidu.appsearchlib.Info;
+import com.baidu.tieba.kd3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,13 +10,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.meizu.cloud.pushsdk.platform.message.BasicPushStatus;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l04 extends b04 {
+public class l04 extends d04 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes5.dex */
+    public class a implements kd3.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bl2 a;
+
+        public a(l04 l04Var, bl2 bl2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {l04Var, bl2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bl2Var;
+        }
+
+        @Override // com.baidu.tieba.kd3.f
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i == -1) {
+                    l04.c(this.a, "202");
+                } else if (i == 1) {
+                    l04.c(this.a, BasicPushStatus.SUCCESS_CODE);
+                } else {
+                    this.a.onFail(101, "noPermission");
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -31,12 +71,12 @@ public class l04 extends b04 {
                 return;
             }
         }
-        c = fo1.a;
+        c = ho1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public l04() {
-        super("GetSwanGameDuration");
+        super("addShortcutToDesktop");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,55 +92,42 @@ public class l04 extends b04 {
         }
     }
 
-    public static boolean b(Long l, Long l2) {
-        InterceptResult invokeLL;
+    public static void c(bl2 bl2Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
-            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
-                return true;
+        if (interceptable == null || interceptable.invokeLL(65539, null, bl2Var, str) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", str);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
             }
-            return false;
+            bl2Var.a(jSONObject);
         }
-        return invokeLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.b04
-    public vz1 a(@NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
+    @Override // com.baidu.tieba.d04
+    public xz1 a(JSONObject jSONObject, bl2 bl2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
-            if (jSONObject == null) {
-                zk2Var.onFail(202, "params may be error");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
+            x73 b0 = x73.b0();
+            if (b0 != null && b0.w() != null && b0.W() != null) {
+                if (kd3.s(b0.w(), b0.W().K(), b0.W().H()) == 1) {
+                    c(bl2Var, Info.kBaiduPIDValue);
+                    return null;
+                }
+                kd3.j(b0.w(), b0.W(), 1, new a(this, bl2Var));
                 return null;
             }
+            bl2Var.onFail(100, "swan or activity is null");
             if (c) {
-                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
-            }
-            String optString = jSONObject.optString("swanGameId");
-            if (TextUtils.isEmpty(optString)) {
-                zk2Var.onFail(202, "params may be error");
-            } else {
-                dg3 a = jg3.a();
-                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
-                    dg3 a2 = jg3.a();
-                    a2.putLong(optString + "_Duration", 0L);
-                }
-                dg3 a3 = jg3.a();
-                long j = a3.getLong(optString + "_Duration", 0L);
-                JSONObject jSONObject2 = new JSONObject();
-                JSONObject jSONObject3 = new JSONObject();
-                try {
-                    jSONObject3.put("swanGameDuration", j);
-                    jSONObject2.put("data", jSONObject3);
-                } catch (JSONException e) {
-                    if (c) {
-                        e.printStackTrace();
-                    }
-                }
-                zk2Var.a(jSONObject2);
+                Log.d("AddShortcutToDesktop", "swan or activity is null");
+                return null;
             }
             return null;
         }
-        return (vz1) invokeLL.objValue;
+        return (xz1) invokeLL.objValue;
     }
 }

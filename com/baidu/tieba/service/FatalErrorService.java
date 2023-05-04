@@ -17,9 +17,9 @@ import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.ei;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.ji;
 import com.baidu.tieba.ki;
-import com.baidu.tieba.q45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -223,20 +223,22 @@ public class FatalErrorService extends BdBaseService {
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_FILE), TbConfig.ERROR_UPLOAD_SERVER, "0", true, true);
                     e(FileHelper.GetFileByAbsolutePath(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.LOG_ERROR_FILE), "c/s/clientlog", "0", false, false);
                     f();
-                    if (TbConfig.getVersion().equals(q45.m().s("native_crash_dump_version", ""))) {
+                    if (TbConfig.getVersion().equals(f55.m().s("native_crash_dump_version", ""))) {
                         z = true;
                     } else {
-                        q45.m().B("native_crash_dump_version", TbConfig.getVersion());
+                        f55.m().B("native_crash_dump_version", TbConfig.getVersion());
                         z = false;
                     }
                     File GetFile = FileHelper.GetFile(TbConfig.FATAL_ERROR_NATIVE_DIR);
-                    if (GetFile != null) {
-                        for (File file : GetFile.listFiles()) {
-                            if (file.length() >= 1024 && z) {
-                                c(file);
-                                e(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
-                            } else {
-                                file.delete();
+                    if (GetFile != null && (listFiles = GetFile.listFiles()) != null) {
+                        for (File file : listFiles) {
+                            if (file != null) {
+                                if (file.length() >= 1024 && z) {
+                                    c(file);
+                                    e(file, TbConfig.ERROR_UPLOAD_SERVER, "4", true, true);
+                                } else {
+                                    file.delete();
+                                }
                             }
                         }
                         return null;

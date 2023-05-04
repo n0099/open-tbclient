@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import java.io.Serializable;
 import java.util.BitSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ht implements is<ht, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */

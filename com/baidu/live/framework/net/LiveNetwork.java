@@ -5,9 +5,9 @@ import android.os.Looper;
 import com.baidu.searchbox.live.interfaces.net.INetWork;
 import com.baidu.searchbox.live.interfaces.net.NetResponse;
 import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tieba.db0;
 import com.baidu.tieba.fb0;
 import com.baidu.tieba.hb0;
+import com.baidu.tieba.jb0;
 import com.baidu.webkit.sdk.WebChromeClient;
 import java.util.List;
 import java.util.Map;
@@ -33,7 +33,7 @@ public final class LiveNetwork {
             return new Handler(Looper.getMainLooper());
         }
     });
-    public INetWork c = fb0.a();
+    public INetWork c = hb0.a();
 
     public final Handler c() {
         Lazy lazy = this.a;
@@ -44,13 +44,13 @@ public final class LiveNetwork {
     /* loaded from: classes2.dex */
     public static final class b implements Runnable {
         public final /* synthetic */ Map b;
-        public final /* synthetic */ db0 c;
+        public final /* synthetic */ fb0 c;
         public final /* synthetic */ List d;
 
-        public b(Map map, db0 db0Var, List list) {
+        public b(Map map, fb0 fb0Var, List list) {
             LiveNetwork.this = r1;
             this.b = map;
-            this.c = db0Var;
+            this.c = fb0Var;
             this.d = list;
         }
 
@@ -66,8 +66,8 @@ public final class LiveNetwork {
             @Override // java.lang.Runnable
             public final void run() {
                 NetResponse netResponse;
-                db0 db0Var = b.this.c;
-                if (db0Var != null) {
+                fb0 fb0Var = b.this.c;
+                if (fb0Var != null) {
                     a aVar = this.b;
                     Object obj = null;
                     if (aVar != null) {
@@ -80,7 +80,7 @@ public final class LiveNetwork {
                         obj = aVar2.a();
                     }
                     b bVar = b.this;
-                    db0Var.onNetResponse(netResponse, obj, bVar.b, bVar.d);
+                    fb0Var.onNetResponse(netResponse, obj, bVar.b, bVar.d);
                 }
             }
         }
@@ -94,9 +94,9 @@ public final class LiveNetwork {
             NetResponse res = iNetWork.postSync(this.b);
             Object obj = null;
             try {
-                db0 db0Var = this.c;
-                if (db0Var != null) {
-                    obj = db0Var.onParseResponseInBackground(res);
+                fb0 fb0Var = this.c;
+                if (fb0Var != null) {
+                    obj = fb0Var.onParseResponseInBackground(res);
                 }
             } catch (Exception e) {
                 e.printStackTrace();
@@ -164,17 +164,17 @@ public final class LiveNetwork {
 
     /* JADX DEBUG: Multi-variable search result rejected for r0v0, resolved type: com.baidu.live.framework.net.LiveNetwork */
     /* JADX WARN: Multi-variable type inference failed */
-    public static /* synthetic */ void e(LiveNetwork liveNetwork, Map map, db0 db0Var, List list, int i, Object obj) {
+    public static /* synthetic */ void e(LiveNetwork liveNetwork, Map map, fb0 fb0Var, List list, int i, Object obj) {
         if ((i & 4) != 0) {
             list = null;
         }
-        liveNetwork.d(map, db0Var, list);
+        liveNetwork.d(map, fb0Var, list);
     }
 
-    public final <ResponseDataT> void d(Map<String, String> map, db0<ResponseDataT> db0Var, List<String> list) {
+    public final <ResponseDataT> void d(Map<String, String> map, fb0<ResponseDataT> fb0Var, List<String> list) {
         String str = this.b;
         if (str != null && (!StringsKt__StringsJVMKt.isBlank(str)) && this.c != null) {
-            hb0.b(new b(map, db0Var, list), "live-feedpage-net", 0);
+            jb0.b(new b(map, fb0Var, list), "live-feedpage-net", 0);
         }
     }
 }

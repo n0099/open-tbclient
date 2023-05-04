@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jt4;
+import com.baidu.tieba.pt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -65,7 +65,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || TextUtils.isEmpty(this.a.url)) {
                 return;
             }
-            jt4.v(this.b.getContext(), null, this.a.url, true);
+            pt4.v(this.b.getContext(), null, this.a.url, true);
         }
     }
 
@@ -130,7 +130,7 @@ public class FrsHeaderPraiseView extends RelativeLayout {
                 return;
             }
         }
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033b, this);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d033e, this);
         a();
     }
 
@@ -139,9 +139,9 @@ public class FrsHeaderPraiseView extends RelativeLayout {
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             this.a = findViewById(R.id.divider_top);
             this.b = findViewById(R.id.divider_bottom);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090cd9);
-            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090cd8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cd6);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090ce1);
+            this.d = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090ce0);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090cde);
             this.e = imageView;
             SkinManager.setImageResource(imageView, R.drawable.icon_arrow_more_gray_n);
         }

@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.xiaomi.push.iz;
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class jj extends iz {
     public static int b = 10000;
     public static int c = 10000;
@@ -11,7 +11,7 @@ public class jj extends iz {
     public static int e = 10485760;
     public static int f = 104857600;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends iz.a {
         public a() {
             super(false, true);

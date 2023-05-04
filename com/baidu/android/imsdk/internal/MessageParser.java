@@ -32,8 +32,8 @@ import com.baidu.lcp.sdk.client.bean.BLCPRequest;
 import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.tbadk.core.atomData.AlaLiveRoomActivityConfig;
-import com.baidu.tieba.r70;
-import com.baidu.tieba.v70;
+import com.baidu.tieba.t70;
+import com.baidu.tieba.x70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -1417,7 +1417,7 @@ public class MessageParser {
                     bLCPRequest.b = 95L;
                     bLCPRequest.c = newAckMessage.getBody().getBytes();
                     bLCPRequest.d = System.nanoTime();
-                    r70.c(bLCPRequest, new v70(newAckMessage, context, list, z) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
+                    t70.c(bLCPRequest, new x70(newAckMessage, context, list, z) { // from class: com.baidu.android.imsdk.internal.MessageParser.2
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ Context val$context;
@@ -1425,7 +1425,7 @@ public class MessageParser {
                         public final /* synthetic */ List val$lt;
                         public final /* synthetic */ NewAckMessage val$msg;
 
-                        @Override // com.baidu.tieba.x70
+                        @Override // com.baidu.tieba.z70
                         public void onResponse(int i, String str, long j2, long j3, long j4, byte[] bArr) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4), bArr}) == null) {
@@ -1453,8 +1453,8 @@ public class MessageParser {
                             this.val$isReliable = z;
                         }
 
-                        @Override // com.baidu.tieba.v70
-                        public void onResponse(int i, String str, @NonNull v70.a aVar) {
+                        @Override // com.baidu.tieba.x70
+                        public void onResponse(int i, String str, @NonNull x70.a aVar) {
                             Interceptable interceptable2 = $ic;
                             if (interceptable2 == null || interceptable2.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, aVar) == null) {
                                 LogUtils.d(MessageParser.TAG, "MessageParser Ack Response err :" + i + ", methodId :" + aVar.a + ", data :" + new String(aVar.c));

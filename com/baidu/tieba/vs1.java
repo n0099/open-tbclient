@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Message;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface vs1 {
-    boolean a(Message message);
+    void a(Context context);
 }

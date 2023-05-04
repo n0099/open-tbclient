@@ -1,129 +1,93 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.Fragment;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ala.alasquare.livetab.SecondFloorFragment;
-import com.baidu.tieba.xh5;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernItemViewLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p56 implements sj1<xh5> {
+public class p56 extends vm<m56, LiveTabConcernItemViewLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public c66 b;
+    public h66 c;
+    public String d;
 
-    /* loaded from: classes5.dex */
-    public class a implements xh5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public SecondFloorFragment b;
-
-        public a(p56 p56Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p56Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.xh5
-        public void d(@Nullable xh5.a aVar) {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.O1(aVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.xh5
-        @NonNull
-        public Fragment f(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (this.b == null) {
-                    SecondFloorFragment secondFloorFragment = new SecondFloorFragment();
-                    this.b = secondFloorFragment;
-                    secondFloorFragment.P1(str);
-                }
-                return this.b;
-            }
-            return (Fragment) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.xh5
-        public void c() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.J1();
-            }
-        }
-
-        @Override // com.baidu.tieba.xh5
-        public void e() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.I1();
-            }
-        }
-
-        @Override // com.baidu.tieba.xh5
-        public void hide() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.M1();
-            }
-        }
-
-        @Override // com.baidu.tieba.xh5
-        public void show() {
-            SecondFloorFragment secondFloorFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (secondFloorFragment = this.b) != null) {
-                secondFloorFragment.Q1();
-            }
-        }
-    }
-
-    public p56() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public p56(TbPageContext tbPageContext, String str) {
+        super(tbPageContext.getPageActivity(), m56.d);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.d = "";
+        this.a = tbPageContext;
+        this.d = str;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public LiveTabConcernItemViewLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            c66 c66Var = new c66(this.a, viewGroup, this.d);
+            this.b = c66Var;
+            h66 h66Var = this.c;
+            if (h66Var != null) {
+                c66Var.s(h66Var);
+            }
+            return new LiveTabConcernItemViewLineHolder(this.b);
+        }
+        return (LiveTabConcernItemViewLineHolder) invokeL.objValue;
+    }
+
+    public void u(h66 h66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, h66Var) == null) {
+            this.c = h66Var;
+            c66 c66Var = this.b;
+            if (c66Var != null) {
+                c66Var.s(h66Var);
             }
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sj1
-    /* renamed from: a */
-    public xh5 getService() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, m56 m56Var, LiveTabConcernItemViewLineHolder liveTabConcernItemViewLineHolder) {
+        InterceptResult invokeCommon;
+        c66 c66Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, m56Var, liveTabConcernItemViewLineHolder})) == null) {
+            if (liveTabConcernItemViewLineHolder != null && (c66Var = liveTabConcernItemViewLineHolder.a) != null) {
+                c66Var.i(m56Var);
+                return liveTabConcernItemViewLineHolder.getView();
+            }
+            return null;
         }
-        return (xh5) invokeV.objValue;
+        return (View) invokeCommon.objValue;
     }
 }

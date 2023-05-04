@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.ParcelFileDescriptor;
 import android.os.Parcelable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.c9a;
+import com.baidu.tieba.yca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -206,7 +206,7 @@ public abstract class Linker {
                     fromFd.writeToParcel(parcel, 0);
                     fromFd.close();
                 } catch (IOException e) {
-                    c9a.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
+                    yca.c("LibraryLoader", "Can't write LibInfo file descriptor to parcel", e);
                 }
             }
         }

@@ -1,45 +1,15 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class pj4 {
+public class pj4 extends fj4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile pj4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final a a;
-    public oj4 b;
-
-    /* loaded from: classes5.dex */
-    public static class a extends fo4 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a() {
-            super("swan_clean_stratey");
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((String) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-    }
 
     public pj4() {
         Interceptable interceptable = $ic;
@@ -51,67 +21,16 @@ public class pj4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new a();
     }
 
-    public static pj4 b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.fj4, com.baidu.tieba.ij4
+    public void b(JSONObject jSONObject, sf4 sf4Var, @Nullable sf4 sf4Var2, @Nullable sf4 sf4Var3) {
+        mj4 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (pj4.class) {
-                    if (c == null) {
-                        c = new pj4();
-                    }
-                }
-            }
-            return c;
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, jSONObject, sf4Var, sf4Var2, sf4Var3) == null) && jSONObject != null && (d = nj4.c().d(jSONObject)) != null) {
+            if4.b().D(d);
         }
-        return (pj4) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.getString("version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public oj4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b == null) {
-                synchronized (pj4.class) {
-                    if (this.b == null) {
-                        this.b = oj4.b(this.a.getString("data", ""));
-                    }
-                }
-            }
-            return this.b;
-        }
-        return (oj4) invokeV.objValue;
-    }
-
-    public void d(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString)) {
-            return;
-        }
-        String optString2 = jSONObject.optString("data");
-        if (TextUtils.isEmpty(optString2)) {
-            return;
-        }
-        this.a.edit().putString("version", optString).putString("data", optString2).apply();
     }
 }

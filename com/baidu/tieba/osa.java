@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.Context;
+import android.view.ViewGroup;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,15 +9,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.internal.api.channel.GdtHelper;
+import com.qq.e.ads.nativ.widget.NativeAdContainer;
+import java.lang.ref.WeakReference;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class osa {
+public class osa implements GdtHelper.GdtNativeContainerCreator {
     public static /* synthetic */ Interceptable $ic;
-    public static final osa e;
+    public static final osa b;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public float c;
-    public float d;
+    public final Set<WeakReference<NativeAdContainer>> a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,7 +34,7 @@ public class osa {
                 return;
             }
         }
-        e = new osa();
+        b = new osa();
     }
 
     public osa() {
@@ -47,65 +50,18 @@ public class osa {
                 return;
             }
         }
-        this.a = 0.0f;
-        this.b = 0.0f;
-        this.c = 0.0f;
-        this.d = 1.0f;
-        b(0.0f, 0.0f, 0.0f, 1.0f);
+        this.a = new HashSet();
     }
 
-    public final float a() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.channel.GdtHelper.GdtNativeContainerCreator
+    public ViewGroup generateGdtNativeContainer(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            NativeAdContainer nativeAdContainer = new NativeAdContainer(context);
+            this.a.add(new WeakReference<>(nativeAdContainer));
+            return nativeAdContainer;
         }
-        return invokeV.floatValue;
-    }
-
-    public final float c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
-        }
-        return invokeV.floatValue;
-    }
-
-    public final void b(float f, float f2, float f3, float f4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)}) == null) {
-            this.a = f;
-            this.b = f2;
-            this.c = f3;
-            this.d = f4;
-        }
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return String.format("[%.3f, %.3f, %.3f, %.3f]", Float.valueOf(this.a), Float.valueOf(this.b), Float.valueOf(this.c), Float.valueOf(this.d));
-        }
-        return (String) invokeV.objValue;
+        return (ViewGroup) invokeL.objValue;
     }
 }

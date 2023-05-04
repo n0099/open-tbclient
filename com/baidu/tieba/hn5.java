@@ -1,21 +1,31 @@
 package com.baidu.tieba;
 
+import android.os.Process;
+import android.os.SystemClock;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.template.model.LoadType;
-import com.baidu.tieba.jo5;
-import com.baidu.tieba.ko5;
+import com.baidu.android.util.io.Closeables;
+import com.baidu.android.util.soloader.SoLoader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.launch.stats.ZygoteSpeedStats;
+import com.baidu.searchbox.launch.utils.LaunchNativeUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStreamReader;
 /* loaded from: classes4.dex */
-public class hn5<Q extends jo5, P extends ko5> implements in5<Q, P> {
+public final class hn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
+    public long a;
+    public long b;
 
     public hn5() {
         Interceptable interceptable = $ic;
@@ -30,65 +40,111 @@ public class hn5<Q extends jo5, P extends ko5> implements in5<Q, P> {
                 return;
             }
         }
-        this.a = true;
-        this.b = 1;
-        this.c = 1;
+        this.a = -1L;
+        this.b = -1L;
     }
 
-    public boolean c() {
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a = SystemClock.elapsedRealtime();
+            Process.getElapsedCpuTime();
+        }
+    }
+
+    public long c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            if (this.b == -1) {
+                b();
+            }
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.in5
-    public void a(Q q, P p) {
+    /* JADX WARN: Not initialized variable reg: 6, insn: 0x00b5: MOVE  (r3 I:??[OBJECT, ARRAY]) = (r6 I:??[OBJECT, ARRAY]), block:B:44:0x00b5 */
+    /* JADX WARN: Removed duplicated region for block: B:41:0x00ae  */
+    /* JADX WARN: Removed duplicated region for block: B:56:? A[RETURN, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void b() {
+        BufferedReader bufferedReader;
+        NumberFormatException e;
+        IOException e2;
+        FileNotFoundException e3;
+        Closeable closeable;
+        long j;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, q, p) != null) || p == null) {
-            return;
-        }
-        if (p.getPageInfo() != null) {
-            eo5 pageInfo = p.getPageInfo();
-            this.c = pageInfo.a;
-            this.a = pageInfo.b;
-            if (q != null && q.c() != null) {
-                q.c().d = pageInfo.c;
-            }
-        }
-        if (this.c <= 0 && q != null && q.c() != null && q.c().c > 0) {
-            this.c = q.c().c;
-            this.a = true;
-        }
-        zo5.b("onResp--->pn=" + this.c + ",hasMore=" + this.a);
-    }
-
-    @Override // com.baidu.tieba.in5
-    public void b(Q q, boolean z) {
-        LoadType loadType;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, q, z) == null) && q != null && q.c() != null) {
-            do5 c = q.c();
-            if (z) {
-                if (!c.a()) {
-                    this.c = this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            fn5.b().d();
+            Closeable closeable2 = null;
+            long j2 = -1;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream("/proc/self/stat")), 1000);
+                    try {
+                        String[] split = bufferedReader.readLine().split(" ");
+                        if (split.length > 21 && split[0].equals(String.valueOf(Process.myPid()))) {
+                            String str = split[21];
+                            try {
+                                SoLoader.load(AppRuntime.getAppContext(), "launch_native");
+                                j = LaunchNativeUtils.getClkTck();
+                            } catch (UnsatisfiedLinkError e4) {
+                                Log.e(ZygoteSpeedStats.TAG, "load so failed, UnsatisfiedLinkError", e4);
+                                j = 0;
+                            }
+                            Log.d(ZygoteSpeedStats.TAG, "_SC_CLK_TCK " + j);
+                            if (j <= 0) {
+                                j = 100;
+                            }
+                            j2 = (Long.parseLong(str) * 1000) / j;
+                        }
+                    } catch (FileNotFoundException e5) {
+                        e3 = e5;
+                        Log.e(ZygoteSpeedStats.TAG, "can't read process status file", e3);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    } catch (IOException e6) {
+                        e2 = e6;
+                        Log.e(ZygoteSpeedStats.TAG, "read process status failed", e2);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    } catch (NumberFormatException e7) {
+                        e = e7;
+                        Log.e(ZygoteSpeedStats.TAG, "parse status file failed", e);
+                        Closeables.closeSafely(bufferedReader);
+                        if (j2 <= 0) {
+                        }
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    closeable2 = closeable;
+                    Closeables.closeSafely(closeable2);
+                    throw th;
                 }
-                if (c.a()) {
-                    loadType = LoadType.PREPEND;
-                } else {
-                    loadType = LoadType.REFRESH;
-                }
-                c.b = loadType;
-                c.c = this.c;
-            } else {
-                int i = this.c + 1;
-                this.c = i;
-                c.b = LoadType.APPEND;
-                c.c = i;
+            } catch (FileNotFoundException e8) {
+                bufferedReader = null;
+                e3 = e8;
+            } catch (IOException e9) {
+                bufferedReader = null;
+                e2 = e9;
+            } catch (NumberFormatException e10) {
+                bufferedReader = null;
+                e = e10;
+            } catch (Throwable th2) {
+                th = th2;
+                Closeables.closeSafely(closeable2);
+                throw th;
             }
-            zo5.b("onReq--->pn=" + this.c + ",hasMore=" + this.a + ",isPullRefresh=" + z + ",loadType=" + c.b);
+            Closeables.closeSafely(bufferedReader);
+            if (j2 <= 0) {
+                this.b = this.a - j2;
+            }
         }
     }
 }

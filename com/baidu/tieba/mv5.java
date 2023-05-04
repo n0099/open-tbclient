@@ -1,57 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mv5 implements cw5 {
+public abstract class mv5 implements lv5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public pv5 a;
+    public ev5 b;
 
-    public mv5(int i, int i2) {
+    @Override // com.baidu.tieba.lv5
+    public abstract void dismiss();
+
+    public abstract void e();
+
+    public abstract void f();
+
+    public abstract void g();
+
+    public abstract void h(jv5 jv5Var);
+
+    public mv5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = i;
-        this.b = i2;
     }
 
-    @Override // com.baidu.tieba.cw5
-    public int a() {
-        InterceptResult invokeV;
+    public void d(pv5 pv5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return (this.b - this.a) + 1;
+        if (interceptable == null || interceptable.invokeL(1048576, this, pv5Var) == null) {
+            this.a = pv5Var;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.cw5
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= 0 && i < a()) {
-                return Integer.valueOf(this.a + i);
-            }
-            return 0;
-        }
-        return invokeI.objValue;
     }
 }

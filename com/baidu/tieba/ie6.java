@@ -1,49 +1,82 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.content.Context;
-import android.content.ContextWrapper;
+import android.net.Uri;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.InputStream;
+import okio.Okio;
 /* loaded from: classes4.dex */
-public final class ie6 {
+public class ie6 implements he6<String, Pair<InputStream, Long>> {
     public static /* synthetic */ Interceptable $ic;
-    public static Application a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static Activity a(Context context) {
+    public ie6() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public final File c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (context instanceof Activity) {
-                return (Activity) context;
-            }
-            while (context instanceof ContextWrapper) {
-                if (context instanceof Activity) {
-                    return (Activity) context;
-                }
-                context = ((ContextWrapper) context).getBaseContext();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            File file = new File(Uri.parse(str).getPath());
+            if (file.exists() && file.isFile()) {
+                return file;
             }
             return null;
         }
-        return (Activity) invokeL.objValue;
+        return (File) invokeL.objValue;
     }
 
-    public static void b(Application application) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.he6
+    @Nullable
+    /* renamed from: d */
+    public Pair<InputStream, Long> a(String str) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, application) == null) {
-            a = application;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            File c = c(str);
+            if (c != null) {
+                return Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length()));
+            }
+            return null;
         }
+        return (Pair) invokeL.objValue;
     }
 
-    public static Context getContext() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.he6
+    /* renamed from: e */
+    public void b(String str, y5b<Pair<InputStream, Long>, Exception> y5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, y5bVar) == null) {
+            try {
+                File c = c(str);
+                if (c != null) {
+                    y5bVar.call(Pair.create(Okio.buffer(Okio.source(c)).inputStream(), Long.valueOf(c.length())), null);
+                } else {
+                    y5bVar.call(null, new IllegalArgumentException(str + "file not exist !"));
+                }
+            } catch (Exception e) {
+                y5bVar.call(null, e);
+            }
         }
-        return (Context) invokeV.objValue;
     }
 }

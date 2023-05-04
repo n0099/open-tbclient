@@ -1,17 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.util.Log;
+import android.text.TextUtils;
+import android.util.DisplayMetrics;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.coreExtra.service.DealIntentService;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,152 +20,384 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.List;
-@Singleton
-@Service
+import org.aspectj.runtime.reflect.SignatureImpl;
 /* loaded from: classes4.dex */
-public class f26 implements ss1 {
+public class f26 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public String j;
+    public String k;
+    public String l;
 
-    @Override // com.baidu.tieba.ss1
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // com.baidu.tieba.ss1
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ss1
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-        }
-    }
-
-    public String g() {
+    @NonNull
+    public String f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? "a061" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (String) invokeV.objValue;
     }
 
-    public nl5 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (nl5) invokeV.objValue;
-    }
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final f26 a;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947712287, "Lcom/baidu/tieba/f26;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-854252255, "Lcom/baidu/tieba/f26$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-854252255, "Lcom/baidu/tieba/f26$b;");
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947712287, "Lcom/baidu/tieba/f26;");
-                return;
-            }
+            a = new f26(null);
         }
-        b = fo1.a;
     }
 
     public f26() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        try {
+            this.a = TbConfig.getVersion();
+            this.b = ki.k();
+            this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            this.d = r();
+            this.e = s();
+            this.f = ki.g();
+            this.g = TbadkCoreApplication.getInst().getImei();
+            this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+            this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            this.j = BdBaseApplication.getInst().getPackageName();
+            this.k = TbadkCoreApplication.getInst().getAndroidId();
+            this.l = "com.baidu.tieba.fileprovider";
+        } catch (Exception e) {
+            BdLog.e(e);
         }
     }
 
-    public List<String> h() {
+    @NonNull
+    public final String r() {
+        InterceptResult invokeV;
+        String sb;
+        String replace;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            String property = System.getProperty("http.agent");
+            if (TextUtils.isEmpty(property)) {
+                sb = "";
+            } else {
+                StringBuilder sb2 = new StringBuilder();
+                int length = property.length();
+                for (int i = 0; i < length; i++) {
+                    char charAt = property.charAt(i);
+                    if (charAt > 31 && charAt < 127) {
+                        sb2.append(charAt);
+                    } else {
+                        sb2.append(String.format("\\u%04x", Integer.valueOf(charAt)));
+                    }
+                }
+                sb = sb2.toString();
+            }
+            String k = ki.k();
+            if (TextUtils.isEmpty(k)) {
+                replace = "0.0";
+            } else {
+                replace = k.replace("_", "-");
+            }
+            return sb + " baiduboxapp/" + TbConfig.getVersion() + " (Baidu; P1 " + replace + SmallTailInfo.EMOTION_SUFFIX;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public /* synthetic */ f26(a aVar) {
+        this();
+    }
+
+    public static f26 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (f26) invokeV.objValue;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (StringUtils.isNull(this.k)) {
+                try {
+                    this.k = TbadkCoreApplication.getInst().getAndroidId();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.k;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String baiduIdForAnti = TbSingleton.getInstance().getBaiduIdForAnti();
+            if (baiduIdForAnti == null) {
+                return "";
+            }
+            return baiduIdForAnti;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (StringUtils.isNull(this.a)) {
+                try {
+                    this.a = TbConfig.getVersion();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (StringUtils.isNull(this.c)) {
+                try {
+                    this.c = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.l == null) {
+                this.l = "com.baidu.tieba.fileprovider";
+            }
+            return this.l;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (StringUtils.isNull(this.g)) {
+                try {
+                    this.g = TbadkCoreApplication.getInst().getImei();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add("a001");
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ss1
-    public void a(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppBackground");
-            }
-            long o = q45.m().o("smart_app_tid", 0L);
-            String s = q45.m().s("smart_app_id", "");
-            String s2 = q45.m().s("smart_app_name", "");
-            if (this.a != 0 && o != 0) {
-                long currentTimeMillis = System.currentTimeMillis() - this.a;
-                pl5 pl5Var = new pl5();
-                pl5Var.y(currentTimeMillis);
-                pl5Var.s(g());
-                pl5Var.C(o);
-                pl5Var.i = s;
-                pl5Var.j = s2;
-                pl5Var.x(h());
-                ql5.b().j(true);
-                ql5.b().k(TbadkApplication.getInst().getApplicationContext(), pl5Var, i());
-                q45.m().A("smart_app_tid", 0L);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ss1
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppForeground" + v73.M().b);
-            }
-            File file = new File(am.b("libBaiduMapSDK.so"));
-            if (file.exists() && file.isFile() && BdBaseApplication.getInst().getResHashMap().get("libBaiduMapSDK.so") == null && cm.a(BdBaseApplication.getInst().getContext(), am.a("libBaiduMapSDK.so"))) {
+            if (StringUtils.isNull(this.i)) {
                 try {
-                    System.loadLibrary("BaiduMapSDK");
-                } catch (Throwable unused) {
+                    this.i = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
                 }
-                BdBaseApplication.getInst().getResHashMap().put("libBaiduMapSDK.so", am.a("libBaiduMapSDK.so"));
             }
-            this.a = System.currentTimeMillis();
+            return this.i;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ss1
-    public void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable ss2 ss2Var) {
+    public String j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048579, this, swanAppActivity, i, ss2Var) == null) {
-            if (b) {
-                Log.e("DefaultSwanAppLifecycle", "onAppExit");
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (StringUtils.isNull(this.f)) {
+                this.f = ki.g();
             }
-            if (q45.m().i("key_ai_app_guide_display", true)) {
-                Intent intent = new Intent(swanAppActivity, DealIntentService.class);
-                intent.putExtra(DealIntentService.KEY_CLASS, 38);
-                swanAppActivity.startService(intent);
-            }
+            return this.f;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            if (StringUtils.isNull(this.h)) {
+                try {
+                    this.h = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.h;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            if (StringUtils.isNull(this.b)) {
+                this.b = ki.k();
+            }
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (StringUtils.isNull(this.j)) {
+                try {
+                    this.j = BdBaseApplication.getInst().getPackageName();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.j;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            if (StringUtils.isNull(this.e)) {
+                try {
+                    this.e = s();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            String sampleId = TbSingleton.getInstance().getSampleId();
+            if (sampleId == null) {
+                return "";
+            }
+            return sampleId.replace(SignatureImpl.SEP, ',');
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return TbadkCoreApplication.getCurrentAccount();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (StringUtils.isNull(this.d)) {
+                try {
+                    this.d = r();
+                } catch (Exception e) {
+                    BdLog.e(e);
+                    return "";
+                }
+            }
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            DisplayMetrics displayMetrics = TbadkCoreApplication.getInst().getResources().getDisplayMetrics();
+            int i = 0;
+            String[] strArr = {String.valueOf(displayMetrics.widthPixels), String.valueOf(displayMetrics.heightPixels), "android", TbConfig.getVersion(), String.valueOf(displayMetrics.densityDpi)};
+            StringBuilder sb = new StringBuilder();
+            String str = "";
+            while (i < 5) {
+                String str2 = strArr[i];
+                sb.append(str);
+                sb.append(str2);
+                i++;
+                str = "_";
+            }
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

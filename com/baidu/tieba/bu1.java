@@ -1,66 +1,101 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
-import com.baidu.tieba.cu1;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public interface bu1<T extends cu1> extends du1<T>, kt1 {
-    void C(int i);
+public final class bu1 extends at2<bu1> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean I();
+    /* loaded from: classes3.dex */
+    public interface a {
+        public static final String a = at2.r("SwanFileFetcher.Params", "file_url");
+        public static final String b = at2.r("SwanFileFetcher.Params", "file_save_path");
+        public static final String c = at2.r("SwanFileFetcher.Params", "file_head_map");
+        public static final String d = at2.r("SwanFileFetcher.Params", "image_save_gallery");
+        public static final String e = at2.r("SwanFileFetcher.Params", "file_cancel_tag");
+    }
 
-    boolean J();
+    public bu1 J() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this : (bu1) invokeV.objValue;
+    }
 
-    void K(me2 me2Var);
+    public bu1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    mu1 M();
+    @Override // com.baidu.tieba.tm3
+    public /* bridge */ /* synthetic */ tm3 e() {
+        J();
+        return this;
+    }
 
-    void O(FrameLayout frameLayout, k83 k83Var);
+    public bu1 E(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return z(a.e, str);
+        }
+        return (bu1) invokeL.objValue;
+    }
 
-    int Q();
+    public bu1 G(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return z(a.b, str);
+        }
+        return (bu1) invokeL.objValue;
+    }
 
-    void R(String str);
+    public bu1 H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return z(a.a, str);
+        }
+        return (bu1) invokeL.objValue;
+    }
 
-    void T();
+    public bu1 I(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048580, this, z)) == null) {
+            return t(a.d, z);
+        }
+        return (bu1) invokeZ.objValue;
+    }
 
-    boolean W(tb3 tb3Var);
-
-    boolean X(tb3 tb3Var);
-
-    void Y(j92 j92Var);
-
-    void Z(k92 k92Var);
-
-    boolean c();
-
-    @Nullable
-    l42 c0();
-
-    int f0();
-
-    void h(vx2 vx2Var);
-
-    PullToRefreshBaseWebView h0();
-
-    boolean i0();
-
-    void j(ViewGroup viewGroup, View view2);
-
-    @Nullable
-    String j0();
-
-    eu1 k();
-
-    String m();
-
-    boolean s(int i);
-
-    void x(String str);
-
-    boolean y(tb3 tb3Var);
-
-    void z(FrameLayout frameLayout, k83 k83Var);
+    public bu1 F(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Bundle bundle = new Bundle();
+            if (map != null && !map.isEmpty()) {
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    bundle.putString(entry.getKey(), entry.getValue());
+                }
+            }
+            return u(a.c, bundle);
+        }
+        return (bu1) invokeL.objValue;
+    }
 }

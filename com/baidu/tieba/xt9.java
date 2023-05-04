@@ -1,89 +1,52 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.adp.log.DefaultLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tieba.be0;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xt9 {
+public class xt9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public MainTabActivity a;
 
-    /* loaded from: classes7.dex */
-    public static class a implements be0.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ du9 a;
-
-        @Override // com.baidu.tieba.be0.a
-        public void onProgress(int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xt9(MainTabActivity mainTabActivity) {
+        super(2921654);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity;
+    }
 
-        public a(du9 du9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {du9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getData() != null) {
+            oe5 oe5Var = null;
+            if (customResponsedMessage.getData() instanceof oe5) {
+                oe5Var = (oe5) customResponsedMessage.getData();
             }
-            this.a = du9Var;
-        }
-
-        @Override // com.baidu.tieba.be0.a
-        public void onResult(boolean z, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str) == null) {
-                vg8 defaultLog = DefaultLog.getInstance();
-                defaultLog.c("write", "打开视频编辑页2，Ar下载:" + z + " " + str);
-                if (z) {
-                    this.a.a();
-                } else {
-                    this.a.b();
-                }
+            if (oe5Var != null && oe5Var.b() == 0) {
+                MainTabActivity mainTabActivity = this.a;
+                new ne5(mainTabActivity, mainTabActivity.findViewById(R.id.obfuscated_res_0x7f0921fb), oe5Var).m();
             }
-        }
-    }
-
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return be0.n();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void b(Context context, du9 du9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, du9Var) == null) {
-            c(context);
-            be0.p(new a(du9Var));
-        }
-    }
-
-    public static void c(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            new ye0(context).a("cover_style", FileHelper.CreateFileIfNotFound(".cover_style"));
-            FileHelper.makeDirectory(".stickers");
-            FileHelper.makeDirectory(".filters");
         }
     }
 }

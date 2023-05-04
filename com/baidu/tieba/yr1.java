@@ -1,22 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.w62;
-import com.baidu.webkit.sdk.VideoPlayerFactory;
+import android.content.Context;
+import android.content.DialogInterface;
+import com.baidu.tieba.b73;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public interface yr1 {
-    int a();
-
-    VideoPlayerFactory b();
-
-    int c();
-
-    void d(boolean z);
-
-    boolean e();
-
-    boolean f();
-
-    void g(int i);
-
-    void h(w62.c cVar);
+    b73.a a(Context context, x73 x73Var, xc3 xc3Var, JSONObject jSONObject, DialogInterface.OnClickListener onClickListener);
 }

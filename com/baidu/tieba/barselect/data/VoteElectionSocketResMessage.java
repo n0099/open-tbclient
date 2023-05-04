@@ -3,9 +3,9 @@ package com.baidu.tieba.barselect.data;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ua6;
-import com.baidu.tieba.va6;
-import com.baidu.tieba.wa6;
+import com.baidu.tieba.ub6;
+import com.baidu.tieba.vb6;
+import com.baidu.tieba.wb6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,7 +22,7 @@ import tbclient.Myrecord;
 public class VoteElectionSocketResMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public wa6 mVoteData;
+    public wb6 mVoteData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public VoteElectionSocketResMessage() {
@@ -42,13 +42,13 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
         }
     }
 
-    public wa6 getVoteData() {
+    public wb6 getVoteData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mVoteData;
         }
-        return (wa6) invokeV.objValue;
+        return (wb6) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -69,30 +69,30 @@ public class VoteElectionSocketResMessage extends SocketResponsedMessage {
                     return electionInfoResIdl;
                 }
                 if (this.mVoteData == null) {
-                    this.mVoteData = new wa6();
+                    this.mVoteData = new wb6();
                 }
                 if (electionInfoResIdl.data.election_list != null) {
-                    ArrayList<ua6> arrayList = new ArrayList<>();
+                    ArrayList<ub6> arrayList = new ArrayList<>();
                     for (ElectionList electionList : electionInfoResIdl.data.election_list) {
-                        arrayList.add(ua6.o(electionList));
+                        arrayList.add(ub6.o(electionList));
                     }
                     this.mVoteData.h(arrayList);
                 }
                 Basic basic = electionInfoResIdl.data.basic;
                 if (basic != null) {
-                    this.mVoteData.m(va6.j(basic));
+                    this.mVoteData.m(vb6.j(basic));
                 }
                 Myrecord myrecord = electionInfoResIdl.data.my_record;
                 if (myrecord != null) {
-                    this.mVoteData.n(ua6.p(myrecord));
+                    this.mVoteData.n(ub6.p(myrecord));
                 }
                 Integer num = electionInfoResIdl.data.has_more;
                 if (num != null) {
-                    wa6 wa6Var = this.mVoteData;
+                    wb6 wb6Var = this.mVoteData;
                     if (num.intValue() == 1) {
                         z = true;
                     }
-                    wa6Var.j(z);
+                    wb6Var.j(z);
                 }
                 ManagerElection managerElection = electionInfoResIdl.data.vote_limit;
                 if (managerElection != null) {

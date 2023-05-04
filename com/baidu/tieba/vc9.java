@@ -1,230 +1,107 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.stats.request.ClogBuilder;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.core.view.RoundTbImageView;
-import com.baidu.tieba.recapp.widget.CountDownTextView;
+import android.graphics.Bitmap;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.EncodeHintType;
+import com.google.zxing.MultiFormatWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.decoder.ErrorCorrectionLevel;
+import java.util.EnumMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class vc9 extends xc9 {
+public class vc9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<EncodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public RelativeLayout h;
-    public RoundTbImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public TextView m;
-    public CountDownTextView n;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            }
-        }
-
-        public a(vc9 vc9Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948236125, "Lcom/baidu/tieba/vc9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vc9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948236125, "Lcom/baidu/tieba/vc9;");
+                return;
             }
         }
+        EnumMap enumMap = new EnumMap(EncodeHintType.class);
+        a = enumMap;
+        enumMap.put((EnumMap) EncodeHintType.CHARACTER_SET, (EncodeHintType) IMAudioTransRequest.CHARSET);
+        a.put(EncodeHintType.ERROR_CORRECTION, ErrorCorrectionLevel.H);
+        a.put(EncodeHintType.MARGIN, 0);
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vc9 a;
-
-        public b(vc9 vc9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vc9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static Bitmap a(Bitmap bitmap, Bitmap bitmap2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bitmap, bitmap2)) == null) {
+            if (bitmap != null && bitmap2 != null) {
+                int width = bitmap.getWidth();
+                int height = bitmap.getHeight();
+                int width2 = bitmap2.getWidth();
+                int height2 = bitmap2.getHeight();
+                float f = ((width * 1.0f) / 5.0f) / width2;
+                Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
+                try {
+                    Canvas canvas = new Canvas(createBitmap);
+                    canvas.drawBitmap(bitmap, 0.0f, 0.0f, (Paint) null);
+                    canvas.scale(f, f, width / 2, height / 2);
+                    canvas.drawBitmap(bitmap2, (width - width2) / 2, (height - height2) / 2, (Paint) null);
+                    canvas.save();
+                    canvas.restore();
+                    return createBitmap;
+                } catch (Exception unused) {
+                    return null;
                 }
             }
-            this.a = vc9Var;
+            return bitmap;
         }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            View.OnClickListener onClickListener;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (onClickListener = this.a.g) != null) {
-                onClickListener.onClick(view2);
-                this.a.n.c();
-            }
-        }
+        return (Bitmap) invokeLL.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public class c implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ hc9 a;
-        public final /* synthetic */ vc9 b;
-
-        public c(vc9 vc9Var, hc9 hc9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vc9Var, hc9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vc9Var;
-            this.a = hc9Var;
+    public static Bitmap b(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, str, i)) == null) {
+            return c(str, i, -16777216, -1, null);
         }
+        return (Bitmap) invokeLI.objValue;
+    }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            boolean z;
-            int i;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                hc9 hc9Var = this.a;
-                String str2 = hc9Var.d;
-                if (!gi0.n(hc9Var.j)) {
-                    z = fi0.b(this.b.e.getPageActivity(), this.b.c.p);
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    AdvertAppInfo advertAppInfo = this.b.c;
-                    String str3 = advertAppInfo.g;
-                    if (advertAppInfo.e()) {
-                        str = this.b.c.getDownloadId();
-                    } else {
-                        str = this.b.c.a;
+    public static Bitmap c(String str, int i, int i2, int i3, Bitmap bitmap) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{str, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), bitmap})) == null) {
+            try {
+                BitMatrix encode = new MultiFormatWriter().encode(str, BarcodeFormat.QR_CODE, i, i, a);
+                int[] iArr = new int[i * i];
+                for (int i4 = 0; i4 < i; i4++) {
+                    for (int i5 = 0; i5 < i; i5++) {
+                        if (encode.get(i5, i4)) {
+                            iArr[(i4 * i) + i5] = i2;
+                        } else {
+                            iArr[(i4 * i) + i5] = i3;
+                        }
                     }
-                    i = eb9.b(this.b.e, str2, str, str3, this.a.j);
-                } else {
-                    i = 3;
                 }
-                if (i == 0) {
-                    return;
-                }
-                ClogBuilder clogBuilder = new ClogBuilder();
-                clogBuilder.y(ClogBuilder.LogType.CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.b.c.position + 1)).p(this.b.c.g);
-                m11.b(clogBuilder);
-                pe8.c(this.b.c);
-                this.b.n.c();
+                Bitmap createBitmap = Bitmap.createBitmap(i, i, Bitmap.Config.ARGB_8888);
+                createBitmap.setPixels(iArr, 0, i, 0, 0, i, i);
+                return a(createBitmap, bitmap);
+            } catch (Exception unused) {
+                return null;
             }
         }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vc9(View view2, String str) {
-        super(view2, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((View) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        l();
-    }
-
-    @Override // com.baidu.tieba.xc9
-    public void j(CountDownTextView.c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            super.j(cVar);
-            this.n.setTimeoutListener(cVar);
-        }
-    }
-
-    @Override // com.baidu.tieba.xc9
-    public void c(hc9 hc9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, hc9Var) == null) {
-            super.c(hc9Var);
-            if (hc9Var == null) {
-                return;
-            }
-            this.i.N(hc9Var.c, 30, false);
-            this.j.setText(hc9Var.b);
-            this.k.setText(hc9Var.i);
-            this.l.setText(hc9Var.e);
-            this.m.setOnClickListener(new b(this));
-            this.n.setFormatString(this.e.getResources().getString(R.string.obfuscated_res_0x7f0f00bc));
-            this.h.setOnClickListener(new c(this, hc9Var));
-        }
-    }
-
-    @Override // com.baidu.tieba.xc9
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.d();
-            this.n.update(5);
-            this.n.e();
-            ClogBuilder clogBuilder = new ClogBuilder();
-            clogBuilder.y(ClogBuilder.LogType.FREE_SHOW).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.c.position + 1)).p(this.c.g);
-            m11.b(clogBuilder);
-        }
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.setOnClickListener(new a(this));
-            this.h = (RelativeLayout) a(R.id.obfuscated_res_0x7f09009d);
-            this.i = (RoundTbImageView) a(R.id.user_head);
-            this.j = (TextView) a(R.id.user_name);
-            this.k = (TextView) a(R.id.obfuscated_res_0x7f092683);
-            this.l = (TextView) a(R.id.obfuscated_res_0x7f09250b);
-            this.m = (TextView) a(R.id.replay_btn);
-            this.n = (CountDownTextView) a(R.id.obfuscated_res_0x7f0907b0);
-        }
+        return (Bitmap) invokeCommon.objValue;
     }
 }

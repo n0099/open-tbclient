@@ -17,12 +17,12 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.dg5;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.rf5;
+import com.baidu.tieba.kg5;
+import com.baidu.tieba.ng5;
 import com.baidu.tieba.tm;
-import com.baidu.tieba.uf5;
+import com.baidu.tieba.wg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -126,7 +126,7 @@ public class RichImageItem extends FrameLayout {
     }
 
     /* loaded from: classes6.dex */
-    public class c implements rf5 {
+    public class c implements kg5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ RichImageItem a;
@@ -149,7 +149,7 @@ public class RichImageItem extends FrameLayout {
             this.a = richImageItem;
         }
 
-        @Override // com.baidu.tieba.rf5
+        @Override // com.baidu.tieba.kg5
         public void a(tm tmVar, String str, boolean z) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLLZ(1048576, this, tmVar, str, z) != null) || tmVar == null) {
@@ -322,8 +322,8 @@ public class RichImageItem extends FrameLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07e6, this);
-            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091155);
+            FrameLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d07f2, this);
+            TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091164);
             this.a = tbImageView;
             tbImageView.setTagTextSize(ii.g(getContext(), R.dimen.T_X10));
             this.a.setDrawBorder(true);
@@ -331,13 +331,13 @@ public class RichImageItem extends FrameLayout {
             this.a.setAutoChangeStyle(true);
             this.a.setConrers(15);
             this.a.setRadiusById(R.string.J_X05);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f09083b);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090834);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f09083e);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f090837);
             this.a.setVisibility(0);
             findViewById.setVisibility(0);
             this.a.setGifIconSupport(true);
             this.a.setLongIconSupport(true);
-            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0563));
+            this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0570));
             setOnClickListener(new a(this));
             findViewById.setOnClickListener(new b(this));
             f();
@@ -367,16 +367,16 @@ public class RichImageItem extends FrameLayout {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.a.setIsLongPic(this.d.isLong());
             int i = this.e;
-            ImageOperation g = dg5.g(i, i * 2);
+            ImageOperation g = wg5.g(i, i * 2);
             this.d.clearPageActions();
             this.d.addPageAction(g);
             if (this.d.getImageType() == 0) {
                 this.a.setTag(this.d.toCachedKey(true));
-                tm d2 = new uf5().d(this.d, new c(this), true);
+                tm d2 = new ng5().d(this.d, new c(this), true);
                 if (d2 != null && d2.r() > 0 && d2.m() > 0) {
                     post(new d(this, d2));
                 }
-                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0563));
+                this.a.setTagStr(getContext().getString(R.string.obfuscated_res_0x7f0f0570));
             } else if (this.d.getImageType() == 1) {
                 String filePath = this.d.getFilePath();
                 if (!hi.isEmpty(filePath) && filePath.startsWith(SmallTailInfo.EMOTION_PREFIX)) {

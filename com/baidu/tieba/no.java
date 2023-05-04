@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class no implements sn9 {
+public class no implements hr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public yi a;
@@ -69,7 +69,7 @@ public class no implements sn9 {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     no noVar = this.a.c;
-                    noVar.a.onShowErr(4, noVar.g.getString(R.string.obfuscated_res_0x7f0f16a1));
+                    noVar.a.onShowErr(4, noVar.g.getString(R.string.obfuscated_res_0x7f0f16ba));
                     aj.a = 1;
                 }
             }
@@ -77,13 +77,13 @@ public class no implements sn9 {
 
         /* renamed from: com.baidu.tieba.no$b$b  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class RunnableC0353b implements Runnable {
+        public class RunnableC0371b implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ b b;
 
-            public RunnableC0353b(b bVar, String str) {
+            public RunnableC0371b(b bVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -137,13 +137,13 @@ public class no implements sn9 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                String d = z65.c(x65.d(this.a)).d();
+                String d = p75.c(n75.d(this.a)).d();
                 if (this.c.b != null) {
                     this.c.b.removeCallbacks(this.c.f);
                     if (StringUtils.isNull(d)) {
                         this.c.b.post(new a(this));
                     } else {
-                        this.c.b.post(new RunnableC0353b(this, d));
+                        this.c.b.post(new RunnableC0371b(this, d));
                     }
                 }
             }
@@ -273,7 +273,7 @@ public class no implements sn9 {
                         return;
                     }
                     if (i <= 1000) {
-                        yiVar.onShowErr(2, aj.a(R.string.obfuscated_res_0x7f0f16a6));
+                        yiVar.onShowErr(2, aj.a(R.string.obfuscated_res_0x7f0f16bf));
                         FieldBuilder fieldBuilder = new FieldBuilder();
                         fieldBuilder.append("file", str);
                         fieldBuilder.append("dur", Integer.valueOf(i));
@@ -319,7 +319,7 @@ public class no implements sn9 {
                     if (noVar.c == null) {
                         TiebaStatic.voiceError(i, "RecoreCallback.error data err: " + str, "errCode == BdRecordingResult.TIME_OUT");
                     } else if (this.a.a.isOnCancle()) {
-                        di.k(x65.c(this.a.c));
+                        di.k(n75.c(this.a.c));
                         this.a.c = null;
                         this.a.a.onStopingRecorder();
                         aj.a = 1;
@@ -329,13 +329,13 @@ public class no implements sn9 {
                         this.a.c = null;
                         if (this.a.d == wi.b) {
                             no noVar3 = this.a;
-                            noVar3.a.onShowErr(3, noVar3.g.getString(R.string.obfuscated_res_0x7f0f16a8));
+                            noVar3.a.onShowErr(3, noVar3.g.getString(R.string.obfuscated_res_0x7f0f16c1));
                         } else if (this.a.d == wi.c) {
                             no noVar4 = this.a;
-                            noVar4.a.onShowErr(3, noVar4.g.getString(R.string.obfuscated_res_0x7f0f16a7));
+                            noVar4.a.onShowErr(3, noVar4.g.getString(R.string.obfuscated_res_0x7f0f16c0));
                         } else {
                             no noVar5 = this.a;
-                            noVar5.a.onShowErr(3, noVar5.g.getString(R.string.obfuscated_res_0x7f0f16a9));
+                            noVar5.a.onShowErr(3, noVar5.g.getString(R.string.obfuscated_res_0x7f0f16c2));
                         }
                     }
                 } else {
@@ -375,7 +375,7 @@ public class no implements sn9 {
         return (no) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public void cancelRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -383,7 +383,7 @@ public class no implements sn9 {
         }
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -396,7 +396,7 @@ public class no implements sn9 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public void stopRecord() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
@@ -428,7 +428,7 @@ public class no implements sn9 {
         this.b = new Handler();
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public void release() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
@@ -447,7 +447,7 @@ public class no implements sn9 {
         }
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public void a(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
@@ -455,7 +455,7 @@ public class no implements sn9 {
         }
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public void b(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -473,7 +473,7 @@ public class no implements sn9 {
         }
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public void d(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
@@ -486,7 +486,7 @@ public class no implements sn9 {
         }
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public void e(yi yiVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, yiVar) == null) {
@@ -505,11 +505,11 @@ public class no implements sn9 {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLI(1048583, this, str, i) == null) && str != null && i >= 1) {
             aj.a = 3;
-            wk6.a(new b(this, str, i), "RecorderManager", 1);
+            km6.a(new b(this, str, i), "RecorderManager", 1);
         }
     }
 
-    @Override // com.baidu.tieba.sn9
+    @Override // com.baidu.tieba.hr9
     public boolean c(yi yiVar, int i) {
         InterceptResult invokeLI;
         TbPageContext<?> tbPageContext;
@@ -528,9 +528,9 @@ public class no implements sn9 {
                 return false;
             }
             o(true);
-            String e = x65.e();
+            String e = n75.e();
             this.c = e;
-            String c2 = x65.c(e);
+            String c2 = n75.c(e);
             if (this.e == null) {
                 this.e = new d(this, null);
             }

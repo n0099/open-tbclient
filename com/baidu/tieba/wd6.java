@@ -1,28 +1,25 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.webkit.JsPromptResult;
 import android.webkit.WebView;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.offline.data.OfflineBridgeData;
+import com.baidu.tbadk.core.log.HybridLog;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Iterator;
-import org.json.JSONObject;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class wd6 implements se6 {
+public class wd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.se6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        re6.a(this, webView, str, jSONObject);
-    }
+    public ArrayList<fq9> a;
 
     public wd6() {
         Interceptable interceptable = $ic;
@@ -34,81 +31,129 @@ public class wd6 implements se6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList<>();
+    }
+
+    public void a(fq9 fq9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, fq9Var) == null) {
+            this.a.add(fq9Var);
+        }
+    }
+
+    public void f(List<Pair<String, String>> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, list) == null) && list != null && !list.isEmpty()) {
+            Iterator<fq9> it = this.a.iterator();
+            while (it.hasNext()) {
+                fq9 next = it.next();
+                next.removeObserverBridge(list);
+                next.onDestroy();
             }
         }
     }
 
-    @Override // com.baidu.tieba.se6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public final boolean b(WebView webView, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (TextUtils.equals("requestByNative", str2)) {
-                try {
-                    OfflineBridgeData offlineBridgeData = (OfflineBridgeData) OrmObject.objectWithJsonStr(str3, OfflineBridgeData.class);
-                    offlineBridgeData.begin = System.currentTimeMillis();
-                    vd6.g().j(webView, offlineBridgeData, offlineBridgeData.callBack);
-                    jsPromptResult.confirm();
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    return false;
-                }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2)) == null) {
+            dj8 hybridLog = HybridLog.getInstance();
+            hybridLog.c("JsBridge", "callJsMethod methodName:" + str + " param:" + str2);
+            if (webView != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + str2 + "')", null);
+                return true;
             }
             return false;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public sm9 d(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
+    public hq9 c(WebView webView, jq9 jq9Var, hq9 hq9Var) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, str2, str3, jSONObject)) == null) {
-            sm9 sm9Var = new sm9();
-            final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
-            offlineBridgeData.url = str;
-            offlineBridgeData.type = str2;
-            offlineBridgeData.module = str3;
-            if (jSONObject != null) {
-                HashMap hashMap = new HashMap();
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    hashMap.put(next, jSONObject.optString(next));
-                }
-                offlineBridgeData.data = hashMap;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, jq9Var, hq9Var)) == null) {
+            if (hq9Var == null) {
+                hq9Var = new hq9();
             }
-            offlineBridgeData.begin = System.currentTimeMillis();
-            jg.a().post(new Runnable() { // from class: com.baidu.tieba.rd6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        vd6.g().k(webView, r1, offlineBridgeData.callBack, true);
+            if ("notification".equals(jq9Var.c()) && "addObserver".equals(jq9Var.a())) {
+                Iterator<fq9> it = this.a.iterator();
+                while (it.hasNext()) {
+                    hq9Var = it.next().addObserver(webView, jq9Var.d(), hq9Var, true);
+                    if (hq9Var.j()) {
+                        return hq9Var;
                     }
                 }
-            });
-            sm9Var.w(str);
-            return sm9Var;
+                if (!hq9Var.j()) {
+                    hq9Var.z(202);
+                    hq9Var.v(mf6.getContext().getString(R.string.can_find_notification_name));
+                }
+            } else {
+                Iterator<fq9> it2 = this.a.iterator();
+                while (it2.hasNext()) {
+                    hq9Var = it2.next().dispatch(webView, jq9Var, hq9Var);
+                    if (hq9Var.i()) {
+                        return hq9Var;
+                    }
+                }
+                if (!hq9Var.i()) {
+                    hq9Var.z(202);
+                }
+            }
+            return hq9Var;
         }
-        return (sm9) invokeLLLLL.objValue;
+        return (hq9) invokeLLL.objValue;
     }
 
-    public sm9 e(WebView webView, HashMap<String, String> hashMap) {
+    public void d(WebView webView, hq9 hq9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, webView, hq9Var) != null) || webView == null || hq9Var == null || !hq9Var.k()) {
+            return;
+        }
+        b(webView, hq9Var.c(), hq9Var.d());
+    }
+
+    public boolean e(WebView webView, List<hq9> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, hashMap)) == null) {
-            sm9 sm9Var = new sm9();
-            if (hashMap != null && hashMap.get("result") != null) {
-                sm9Var.o(hashMap.get("result"));
-                sm9Var.w(hashMap.get("NotificationKey"));
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, list)) == null) {
+            if (webView == null || ListUtils.isEmpty(list)) {
+                return false;
             }
-            sm9Var.z(true);
-            return sm9Var;
+            while (true) {
+                boolean z = false;
+                for (hq9 hq9Var : list) {
+                    if (hq9Var != null && hq9Var.k()) {
+                        if (z || b(webView, hq9Var.c(), hq9Var.d())) {
+                            z = true;
+                        }
+                    }
+                }
+                return z;
+            }
         }
-        return (sm9) invokeLL.objValue;
+        return invokeLL.booleanValue;
+    }
+
+    public List<hq9> g(WebView webView, String str, HashMap hashMap) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, webView, str, hashMap)) == null) {
+            List<hq9> list = null;
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            Iterator<fq9> it = this.a.iterator();
+            while (it.hasNext()) {
+                list = it.next().processNotification(webView, str, hashMap);
+                if (!ListUtils.isEmpty(list)) {
+                    break;
+                }
+            }
+            return list;
+        }
+        return (List) invokeLLL.objValue;
     }
 }

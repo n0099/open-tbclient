@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.max.event.PanelEventTypeEnum;
+import com.baidu.nadcore.max.event.NestedEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,12 +9,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class go0 implements hi0 {
+public final class go0 implements ji0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final PanelEventTypeEnum a;
+    public final NestedEvent a;
 
-    public go0(PanelEventTypeEnum type) {
+    public go0(NestedEvent type) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,24 +33,24 @@ public final class go0 implements hi0 {
         this.a = type;
     }
 
-    @Override // com.baidu.tieba.hi0
+    @Override // com.baidu.tieba.ji0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String simpleName = go0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "PanelViewEvent::class.java.simpleName");
+            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedScrollEvent::class.java.simpleName");
             return simpleName;
         }
         return (String) invokeV.objValue;
     }
 
-    public final PanelEventTypeEnum getType() {
+    public final NestedEvent getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
-        return (PanelEventTypeEnum) invokeV.objValue;
+        return (NestedEvent) invokeV.objValue;
     }
 }

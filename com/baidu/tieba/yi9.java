@@ -1,40 +1,27 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetForumSquare.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
 /* loaded from: classes7.dex */
 public class yi9 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile xi9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public yi9() {
+    public static synchronized xi9 a() {
+        InterceptResult invokeV;
+        xi9 xi9Var;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (yi9.class) {
+                if (a == null) {
+                    a = new xi9();
+                }
+                xi9Var = a;
             }
+            return xi9Var;
         }
-    }
-
-    public void a(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        String str = dataRes.class_name;
-        Page page = dataRes.page;
-        List<String> list = dataRes.page_structure;
-        List<RecommendForumInfo> list2 = dataRes.forum_info;
+        return (xi9) invokeV.objValue;
     }
 }

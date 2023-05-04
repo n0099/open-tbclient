@@ -1,7 +1,8 @@
 package com.baidu.tieba;
+
+import android.app.Activity;
+import android.os.Bundle;
 /* loaded from: classes4.dex */
 public interface es1 {
-    float a();
-
-    String processUrl(String str);
+    void a(Activity activity, Bundle bundle, tv2 tv2Var);
 }

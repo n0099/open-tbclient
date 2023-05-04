@@ -1,78 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Resources;
-import android.text.TextUtils;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import android.os.Handler;
+import android.os.HandlerThread;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes3.dex */
-public class awa implements uva {
+public final class awa {
     public static /* synthetic */ Interceptable $ic;
+    public static a a;
+    public static a b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final String b;
 
-    public awa(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Handler a;
+
+        public a(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = null;
+            HandlerThread handlerThread = new HandlerThread("BlockCanary-" + str);
+            handlerThread.start();
+            this.a = new Handler(handlerThread.getLooper());
+        }
+
+        public Handler a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return (Handler) invokeV.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947630974, "Lcom/baidu/tieba/awa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947630974, "Lcom/baidu/tieba/awa;");
                 return;
             }
         }
-        this.a = context;
-        this.b = str;
+        a = new a("loop");
+        b = new a("writer");
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static Handler a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return "agc_" + pva.c(b(str.getBytes("UTF-8")));
-            } catch (UnsupportedEncodingException | NoSuchAlgorithmException unused) {
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a();
         }
-        return (String) invokeL.objValue;
+        return (Handler) invokeV.objValue;
     }
 
-    public static byte[] b(byte[] bArr) throws NoSuchAlgorithmException {
-        InterceptResult invokeL;
+    public static Handler b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bArr)) == null) ? MessageDigest.getInstance("SHA-256").digest(bArr) : (byte[]) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.uva
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        int identifier;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            String a = a(str);
-            if (TextUtils.isEmpty(a) || (identifier = this.a.getResources().getIdentifier(a, EMABTest.TYPE_STRING, this.b)) == 0) {
-                return str2;
-            }
-            try {
-                return this.a.getResources().getString(identifier);
-            } catch (Resources.NotFoundException unused) {
-                return str2;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a();
         }
-        return (String) invokeLL.objValue;
+        return (Handler) invokeV.objValue;
     }
 }

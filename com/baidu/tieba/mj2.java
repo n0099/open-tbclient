@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.swan.apps.extcore.cores.SwanAppCores;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import com.baidu.tieba.gj2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,28 +15,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FilenameFilter;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class mj2 {
+public class mj2<T extends gj2> extends ii2<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @NonNull
-    public static String c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i == 1 ? "key_is_need_update_game_ext_preset" : "key_is_need_update_preset" : (String) invokeI.objValue;
-    }
-
     /* loaded from: classes5.dex */
-    public static class a implements FilenameFilter {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public String b;
 
         public a() {
             Interceptable interceptable = $ic;
@@ -49,58 +38,61 @@ public class mj2 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = 0;
         }
 
-        @Override // java.io.FilenameFilter
-        public boolean accept(File file, String str) {
-            InterceptResult invokeLL;
+        public static a d() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
-                return TextUtils.isDigitsOnly(str);
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                return a(0, "");
             }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
+            return (a) invokeV.objValue;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
+        public boolean c() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                long lastModified = file.lastModified();
-                long lastModified2 = file2.lastModified();
-                if (lastModified == lastModified2) {
-                    return 0;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (this.a == 0) {
+                    return true;
                 }
-                if (lastModified - lastModified2 > 0) {
-                    return -1;
-                }
-                return 1;
+                return false;
             }
-            return invokeLL.intValue;
+            return invokeV.booleanValue;
+        }
+
+        public static a a(int i, String str) {
+            InterceptResult invokeIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+                a aVar = new a();
+                aVar.a = i;
+                aVar.b = str;
+                return aVar;
+            }
+            return (a) invokeIL.objValue;
+        }
+
+        public static a b(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+                return a(1, str);
+            }
+            return (a) invokeL.objValue;
+        }
+
+        public String toString() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return "RemoteExtensionCoreUpdateStatus{statusCode=" + this.a + ", message='" + this.b + "'}";
+            }
+            return (String) invokeV.objValue;
         }
     }
 
@@ -117,152 +109,156 @@ public class mj2 {
                 return;
             }
         }
-        a = fo1.a;
+        b = ho1.a;
     }
 
-    public static void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, bundle) != null) || bundle == null) {
-            return;
-        }
-        if (!ProcessUtils.isMainProcess()) {
-            l43 e = l43.e();
-            n43 n43Var = new n43(18, bundle);
-            n43Var.f(true);
-            e.h(n43Var);
-            return;
-        }
-        String string = bundle.getString("arg_dst_folder");
-        if (!TextUtils.isEmpty(string)) {
-            b(new File(string), bundle.getLongArray("arg_ignore_vers"));
-        }
-    }
-
-    public static void b(File file, long... jArr) {
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, file, jArr) == null) {
-            if (!ProcessUtils.isMainProcess()) {
-                Bundle bundle = new Bundle();
-                bundle.putString("arg_dst_folder", file.getPath());
-                if (jArr != null && jArr.length > 0) {
-                    bundle.putLongArray("arg_ignore_vers", jArr);
-                }
-                a(bundle);
-            } else if (file != null && file.exists() && file.isDirectory()) {
-                ArrayList arrayList = new ArrayList();
-                if (jArr != null) {
-                    for (long j : jArr) {
-                        if (j > 0) {
-                            arrayList.add(Long.valueOf(j));
-                        }
-                    }
-                }
-                arrayList.addAll(e());
-                arrayList.addAll(d(file, 3));
-                if (a) {
-                    Log.d("ExtCore-Utils", "deleteOldExtensionCores dstFolder: " + file.getPath() + " ignoreVersions: " + Arrays.toString(arrayList.toArray()));
-                }
-                for (File file2 : file.listFiles()) {
-                    if (!g(file2, arrayList)) {
-                        if (a) {
-                            Log.d("ExtCore-Utils", "deleteOldExtensionCores deleteFolder: " + file2);
-                        }
-                        zn4.L(file2);
-                    }
-                }
-            }
-        }
-    }
-
-    public static List<Long> d(File file, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, file, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i > 0 && file != null && file.exists() && file.isDirectory()) {
-                File[] listFiles = file.listFiles(new a());
-                if (listFiles == null) {
-                    return arrayList;
-                }
-                Arrays.sort(listFiles, new b());
-                int min = Math.min(listFiles.length, i);
-                for (int i2 = 0; i2 < min; i2++) {
-                    try {
-                        arrayList.add(Long.valueOf(Long.parseLong(listFiles[i2].getName())));
-                    } catch (NumberFormatException e) {
-                        v42.l("ExtCore-Utils", "get extension version fail", e);
-                    }
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeLI.objValue;
-    }
-
-    public static ArrayList<Long> e() {
+    @Override // com.baidu.tieba.ii2
+    public File a() {
         InterceptResult invokeV;
-        ExtensionCore extensionCore;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            ArrayList<Long> arrayList = new ArrayList<>();
-            for (u43 u43Var : w43.k().q()) {
-                SwanAppCores m = u43Var.m();
-                if (m != null && u43Var.T() && (extensionCore = m.getExtensionCore()) != null && !arrayList.contains(Long.valueOf(extensionCore.extensionCoreVersionCode))) {
-                    arrayList.add(Long.valueOf(extensionCore.extensionCoreVersionCode));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new File(super.a(), "remote");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            k("0");
+            j(0L);
+        }
+    }
+
+    @NonNull
+    public ExtensionCore f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ExtensionCore extensionCore = new ExtensionCore();
+            long g = g();
+            extensionCore.extensionCoreVersionCode = g;
+            extensionCore.extensionCoreVersionName = h();
+            extensionCore.extensionCorePath = b(g).getPath();
+            extensionCore.extensionCoreType = 1;
+            return extensionCore;
+        }
+        return (ExtensionCore) invokeV.objValue;
+    }
+
+    public long g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return lg3.a().getLong(this.a.b(), 0L);
+        }
+        return invokeV.longValue;
+    }
+
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return lg3.a().getString(this.a.e(), "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mj2(@NonNull T t) {
+        super(t);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {t};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((gj2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        bo4.k(str);
+    }
+
+    public void j(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j) == null) {
+            lg3.a().putLong(this.a.b(), j);
+        }
+    }
+
+    public void k(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+            lg3.a().putString(this.a.e(), str);
+        }
+    }
+
+    /* JADX WARN: Incorrect types in method signature: <T:Lcom/baidu/tieba/dj2;>(TT;)Ljava/lang/Exception; */
+    public Exception e(@NonNull dj2 dj2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, dj2Var)) == null) {
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doUpdate: remote");
+            }
+            if (TextUtils.isEmpty(dj2Var.c)) {
+                if (b) {
+                    Log.e("ExtCore-RemoteControl", "doUpdate: remote with null coreFilePath");
                 }
+                return new Exception("ExtCore-RemoteControl doUpdate: failed by updateInfo.coreFilePath empty");
             }
-            if (a) {
-                Log.d("ExtCore-Utils", "SwanCoreVersion usedVersions: " + Arrays.toString(arrayList.toArray()));
+            a i = i(dj2Var);
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doUpdate: remote status: " + i);
             }
-            return arrayList;
+            d(dj2Var.c);
+            if (i.c()) {
+                return null;
+            }
+            return new Exception("ExtCore-RemoteControl doUpdate: failed by " + i.toString());
         }
-        return (ArrayList) invokeV.objValue;
+        return (Exception) invokeL.objValue;
     }
 
-    public static boolean f(int i) {
-        InterceptResult invokeI;
+    public final a i(@NonNull dj2 dj2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65542, null, i)) == null) {
-            if (i == 1) {
-                return u33.z();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, dj2Var)) == null) {
+            if (b) {
+                Log.d("ExtCore-RemoteControl", "doRemoteUpdate start.");
+                Log.d("ExtCore-RemoteControl", "doRemoteUpdate version: " + dj2Var.a + " ,filePath: " + dj2Var.c + " ,sign:" + dj2Var.d);
             }
-            return u33.y();
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean h(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
-            return jg3.a().getBoolean(c(i), false);
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean g(File file, List<Long> list) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, file, list)) == null) {
-            if (list == null) {
-                return false;
-            }
-            String name = file.getName();
-            for (Long l : list) {
-                if (TextUtils.equals(name, String.valueOf(l.longValue()))) {
-                    return true;
+            long j = dj2Var.b;
+            if (j == 0) {
+                return a.b("invalid version code : " + dj2Var.a);
+            } else if (!kl3.a(new File(dj2Var.c), dj2Var.d)) {
+                return a.b("sign failed.");
+            } else {
+                if (!bo4.U(dj2Var.c, b(j).getPath())) {
+                    return a.b("unzip bundle failed.");
                 }
+                oj2.b(a(), g(), j);
+                j(j);
+                k(dj2Var.a);
+                if (b) {
+                    Log.d("ExtCore-RemoteControl", "doRemoteUpdate end. version = " + j);
+                }
+                return a.d();
             }
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static void i(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            jg3.a().putBoolean(c(i), z);
-        }
+        return (a) invokeL.objValue;
     }
 }

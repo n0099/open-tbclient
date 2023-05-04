@@ -26,17 +26,17 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ax4;
 import com.baidu.tieba.cg;
+import com.baidu.tieba.es5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.mr5;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.ji6;
+import com.baidu.tieba.kx;
 import com.baidu.tieba.rm;
-import com.baidu.tieba.sv4;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.tm;
-import com.baidu.tieba.xt5;
-import com.baidu.tieba.yg6;
+import com.baidu.tieba.wu5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,7 +47,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
-public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4> {
+public class MutiImgSingleVerticalLayout extends LinearLayout implements kx<ax4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int o;
     public transient /* synthetic */ FieldHolder $fh;
@@ -57,9 +57,9 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
     public TbImageView d;
     public String e;
     public boolean f;
-    public yg6<kw4> g;
-    public kw4 h;
-    public xt5 i;
+    public ji6<ax4> g;
+    public ax4 h;
+    public wu5 i;
     public LinkedList<MediaData> j;
     public boolean k;
     public boolean l;
@@ -98,7 +98,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            yg6<kw4> subClickListener;
+            ji6<ax4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -108,7 +108,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
     }
 
     /* loaded from: classes2.dex */
-    public class b implements xt5 {
+    public class b implements wu5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ MutiImgSingleVerticalLayout a;
@@ -131,12 +131,12 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
             this.a = mutiImgSingleVerticalLayout;
         }
 
-        @Override // com.baidu.tieba.xt5
+        @Override // com.baidu.tieba.wu5
         public void a(View view2, int i, boolean z) {
             Context context;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-                yg6<kw4> subClickListener = this.a.getSubClickListener();
+                ji6<ax4> subClickListener = this.a.getSubClickListener();
                 if (subClickListener != null) {
                     view2.setTag("1");
                     this.a.h.objType = 2;
@@ -155,13 +155,13 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
                         return;
                     }
                 }
-                if (mr5.c()) {
+                if (es5.c()) {
                     if (view2.getContext() instanceof Activity) {
                         context = view2.getContext();
                     } else {
                         context = this.a.m;
                     }
-                    if (mr5.b(context, this.a.e, this.a.h)) {
+                    if (es5.b(context, this.a.e, this.a.h)) {
                         return;
                     }
                 }
@@ -220,11 +220,11 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
                 } else {
                     i = 14;
                 }
-                tm w = TbImageMemoryCache.s().w(cg.h().g(tbImageView.getUrl(), i));
+                tm A = TbImageMemoryCache.v().A(cg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (w != null) {
-                    i3 = w.r();
-                    i2 = w.m();
+                if (A != null) {
+                    i3 = A.r();
+                    i2 = A.m();
                 } else {
                     i2 = 0;
                 }
@@ -355,14 +355,14 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
             if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || this.d.i == null) {
                 return;
             }
-            xt5 xt5Var = this.d.i;
+            wu5 wu5Var = this.d.i;
             int i = this.a;
             if (this.b && this.c) {
                 z = true;
             } else {
                 z = false;
             }
-            xt5Var.a(view2, i, z);
+            wu5Var.a(view2, i, z);
         }
     }
 
@@ -507,10 +507,10 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
         }
     }
 
-    public void setSubClickListener(yg6<kw4> yg6Var) {
+    public void setSubClickListener(ji6<ax4> ji6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, yg6Var) == null) {
-            this.g = yg6Var;
+        if (interceptable == null || interceptable.invokeL(1048589, this, ji6Var) == null) {
+            this.g = ji6Var;
         }
     }
 
@@ -518,7 +518,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65547, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (sv4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (iw4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList<MediaData> linkedList = new LinkedList<>();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -561,15 +561,15 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.kx
     /* renamed from: i */
-    public void a(kw4 kw4Var) {
+    public void a(ax4 ax4Var) {
         boolean z;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kw4Var) == null) {
-            this.h = kw4Var;
-            ThreadData threadData = kw4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(1048579, this, ax4Var) == null) {
+            this.h = ax4Var;
+            ThreadData threadData = ax4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData, this.l);
             ThreadCardUtils.setAbstract(this.b, this.a, threadData, o, this.l);
             TextView textView = this.a;
@@ -595,13 +595,13 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
         }
     }
 
-    public yg6<kw4> getSubClickListener() {
+    public ji6<ax4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.g;
         }
-        return (yg6) invokeV.objValue;
+        return (ji6) invokeV.objValue;
     }
 
     public final void h() {
@@ -653,6 +653,7 @@ public class MutiImgSingleVerticalLayout extends LinearLayout implements ix<kw4>
             } else {
                 i2 = 47;
             }
+            mediaData.setLoadUrlType(i2);
             if (!StringHelper.equals(thumbnailsUrl, tbImageView.getUrl())) {
                 tbImageView.H();
             }

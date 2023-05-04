@@ -23,14 +23,14 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a49;
-import com.baidu.tieba.bq5;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qg5;
-import com.baidu.tieba.t39;
-import com.baidu.tieba.u16;
-import com.baidu.tieba.z39;
+import com.baidu.tieba.jh5;
+import com.baidu.tieba.m69;
+import com.baidu.tieba.s69;
+import com.baidu.tieba.t69;
+import com.baidu.tieba.uq5;
+import com.baidu.tieba.v26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,21 +45,21 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     public FrameLayout b;
     public BdRecyclerView c;
     public NoNetworkView d;
-    public qg5 e;
+    public jh5 e;
     public NoDataView f;
     public TextView g;
     public SmartAppBrowseHistoryAdapter h;
-    public z39 i;
-    public a49 j;
-    public z39.b k;
-    public a49.b l;
+    public s69 i;
+    public t69 j;
+    public s69.b k;
+    public t69.b l;
     public View.OnClickListener m;
     public View.OnLongClickListener n;
     public View.OnClickListener o;
     public View.OnClickListener p;
 
     /* loaded from: classes5.dex */
-    public class a implements z39.b {
+    public class a implements s69.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SmartAppBrowseHistoryActivity a;
@@ -82,17 +82,17 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             this.a = smartAppBrowseHistoryActivity;
         }
 
-        @Override // com.baidu.tieba.z39.b
-        public void a(boolean z, t39 t39Var) {
+        @Override // com.baidu.tieba.s69.b
+        public void a(boolean z, m69 m69Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(1048576, this, z, t39Var) == null) {
-                if (!z || t39Var == null) {
+            if (interceptable == null || interceptable.invokeZL(1048576, this, z, m69Var) == null) {
+                if (!z || m69Var == null) {
                     this.a.K1(true);
                     this.a.L1(0);
                 } else if (this.a.h != null) {
-                    this.a.K1(ListUtils.isEmpty(t39Var.a()));
-                    this.a.L1(ListUtils.getCount(t39Var.a()));
-                    this.a.h.p(t39Var.a());
+                    this.a.K1(ListUtils.isEmpty(m69Var.a()));
+                    this.a.L1(ListUtils.getCount(m69Var.a()));
+                    this.a.h.p(m69Var.a());
                     this.a.h.notifyDataSetChanged();
                 }
             }
@@ -100,7 +100,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
     }
 
     /* loaded from: classes5.dex */
-    public class b implements a49.b {
+    public class b implements t69.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SmartAppBrowseHistoryActivity a;
@@ -123,7 +123,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             this.a = smartAppBrowseHistoryActivity;
         }
 
-        @Override // com.baidu.tieba.a49.b
+        @Override // com.baidu.tieba.t69.b
         public void a(String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a.h != null) {
@@ -167,7 +167,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (view2.getTag() instanceof SmartApp)) {
                 SmartApp smartApp = (SmartApp) view2.getTag();
-                if (!u16.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
+                if (!v26.b(smartApp.id, smartApp.link, "1191000600000000", smartApp.is_game)) {
                     if (hi.isEmpty(smartApp.h5_url)) {
                         return;
                     }
@@ -219,7 +219,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
                 if (view2.getTag() instanceof SmartApp) {
                     SmartApp smartApp = (SmartApp) view2.getTag();
                     if (this.a.j == null) {
-                        this.a.j = new a49(this.a.getPageContext());
+                        this.a.j = new t69(this.a.getPageContext());
                         this.a.j.e();
                         this.a.j.f(this.a.l);
                     }
@@ -298,7 +298,7 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || bq5.a() || !BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || uq5.a() || !BdNetTypeUtil.isNetworkAvailableForImmediately()) {
                 return;
             }
             this.a.a();
@@ -335,10 +335,10 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             }
             this.c.setVisibility(8);
             if (this.e == null) {
-                this.e = new qg5(getActivity(), this.o);
+                this.e = new jh5(getActivity(), this.o);
             }
             this.e.k(getActivity().getResources().getDimensionPixelSize(R.dimen.tbds340));
-            this.e.m(getString(R.string.obfuscated_res_0x7f0f0d1b));
+            this.e.m(getString(R.string.obfuscated_res_0x7f0f0d30));
             this.e.attachView(this.b, true);
             this.e.p();
             this.e.onChangeSkinType();
@@ -393,9 +393,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.i == null) {
-                z39 z39Var = new z39();
-                this.i = z39Var;
-                z39Var.h(this.k);
+                s69 s69Var = new s69();
+                this.i = s69Var;
+                s69Var.h(this.k);
             }
             this.i.g();
         }
@@ -406,9 +406,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            z39 z39Var = this.i;
-            if (z39Var != null) {
-                z39Var.c();
+            s69 s69Var = this.i;
+            if (s69Var != null) {
+                s69Var.c();
             }
         }
     }
@@ -445,15 +445,15 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             setContentView(R.layout.obfuscated_res_0x7f0d0054);
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0917e5);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f0917f3);
             this.a = navigationBar;
             navigationBar.setCenterTextTitle(getResources().getString(R.string.history_smart_app));
             this.a.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0920cd);
-            this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.d(null, getString(R.string.no_history_now)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getResources().getString(R.string.obfuscated_res_0x7f0f1095), this.p)));
+            this.d = (NoNetworkView) findViewById(R.id.obfuscated_res_0x7f0920e1);
+            this.f = NoDataViewFactory.a(getActivity(), null, NoDataViewFactory.d.a(NoDataViewFactory.ImgType.NODATA), NoDataViewFactory.e.d(null, getString(R.string.no_history_now)), NoDataViewFactory.c.a(new NoDataViewFactory.b(getResources().getString(R.string.obfuscated_res_0x7f0f10ad), this.p)));
             this.f.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0920cc);
-            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f0920cb);
+            this.b = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0920e0);
+            BdRecyclerView bdRecyclerView = (BdRecyclerView) findViewById(R.id.obfuscated_res_0x7f0920df);
             this.c = bdRecyclerView;
             bdRecyclerView.setLayoutManager(new LinearLayoutManager(this));
             SmartAppBrowseHistoryAdapter smartAppBrowseHistoryAdapter = new SmartAppBrowseHistoryAdapter(getActivity());
@@ -476,9 +476,9 @@ public class SmartAppBrowseHistoryActivity extends BaseActivity {
             super.onChangeSkinType(i);
             this.a.onChangeSkinType(getPageContext(), i);
             this.d.d(getPageContext(), i);
-            qg5 qg5Var = this.e;
-            if (qg5Var != null) {
-                qg5Var.onChangeSkinType();
+            jh5 jh5Var = this.e;
+            if (jh5Var != null) {
+                jh5Var.onChangeSkinType();
             }
             NoDataView noDataView = this.f;
             if (noDataView != null) {

@@ -176,7 +176,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     /* JADX INFO: Access modifiers changed from: private */
     public void updateHeader() {
         String headerText = getHeaderText();
-        this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0bce), headerText));
+        this.headerSelectionText.setContentDescription(String.format(getString(R.string.obfuscated_res_0x7f0f0be3), headerText));
         this.headerSelectionText.setText(headerText);
     }
 
@@ -214,8 +214,8 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     @NonNull
     public static Drawable createHeaderToggleDrawable(Context context) {
         StateListDrawable stateListDrawable = new StateListDrawable();
-        stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dc5));
-        stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080dc7));
+        stateListDrawable.addState(new int[]{16842912}, AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080df3));
+        stateListDrawable.addState(new int[0], AppCompatResources.getDrawable(context, R.drawable.obfuscated_res_0x7f080df5));
         return stateListDrawable;
     }
 
@@ -260,7 +260,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     }
 
     public static boolean isFullscreen(@NonNull Context context) {
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404b8, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f0404c1, MaterialCalendar.class.getCanonicalName()), new int[]{16843277});
         boolean z = obtainStyledAttributes.getBoolean(0, false);
         obtainStyledAttributes.recycle();
         return z;
@@ -270,9 +270,9 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     public void updateToggleContentDescription(@NonNull CheckableImageButton checkableImageButton) {
         String string;
         if (this.headerToggleButton.isChecked()) {
-            string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0be7);
+            string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0bfc);
         } else {
-            string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0be9);
+            string = checkableImageButton.getContext().getString(R.string.obfuscated_res_0x7f0f0bfe);
         }
         this.headerToggleButton.setContentDescription(string);
     }
@@ -390,7 +390,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         this.pickerFragment = pickerFragment;
         updateHeader();
         FragmentTransaction beginTransaction = getChildFragmentManager().beginTransaction();
-        beginTransaction.replace(R.id.obfuscated_res_0x7f09170d, this.pickerFragment);
+        beginTransaction.replace(R.id.obfuscated_res_0x7f09171b, this.pickerFragment);
         beginTransaction.commitNow();
         this.pickerFragment.addOnSelectionChangedListener(new OnSelectionChangedListener<S>() { // from class: com.google.android.material.datepicker.MaterialDatePicker.3
             @Override // com.google.android.material.datepicker.OnSelectionChangedListener
@@ -430,7 +430,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
         Context context = dialog.getContext();
         this.fullscreen = isFullscreen(context);
         int resolveOrThrow = MaterialAttributes.resolveOrThrow(context, R.attr.obfuscated_res_0x7f040180, MaterialDatePicker.class.getCanonicalName());
-        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f0404b8, R.style.obfuscated_res_0x7f100371);
+        MaterialShapeDrawable materialShapeDrawable = new MaterialShapeDrawable(context, null, R.attr.obfuscated_res_0x7f0404c1, R.style.obfuscated_res_0x7f100371);
         this.background = materialShapeDrawable;
         materialShapeDrawable.initializeElevationOverlay(context);
         this.background.setFillColor(ColorStateList.valueOf(resolveOrThrow));
@@ -443,25 +443,25 @@ public final class MaterialDatePicker<S> extends DialogFragment {
     public final View onCreateView(@NonNull LayoutInflater layoutInflater, @Nullable ViewGroup viewGroup, @Nullable Bundle bundle) {
         int i;
         if (this.fullscreen) {
-            i = R.layout.obfuscated_res_0x7f0d05ff;
+            i = R.layout.obfuscated_res_0x7f0d0608;
         } else {
-            i = R.layout.obfuscated_res_0x7f0d05fe;
+            i = R.layout.obfuscated_res_0x7f0d0607;
         }
         View inflate = layoutInflater.inflate(i, viewGroup);
         Context context = inflate.getContext();
         if (this.fullscreen) {
-            inflate.findViewById(R.id.obfuscated_res_0x7f09170d).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
+            inflate.findViewById(R.id.obfuscated_res_0x7f09171b).setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -2));
         } else {
-            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09170e);
-            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09170d);
+            View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f09171c);
+            View findViewById2 = inflate.findViewById(R.id.obfuscated_res_0x7f09171b);
             findViewById.setLayoutParams(new LinearLayout.LayoutParams(getPaddedPickerWidth(context), -1));
             findViewById2.setMinimumHeight(getDialogPickerHeight(requireContext()));
         }
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091719);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091727);
         this.headerSelectionText = textView;
         ViewCompat.setAccessibilityLiveRegion(textView, 1);
-        this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f09171b);
-        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09171f);
+        this.headerToggleButton = (CheckableImageButton) inflate.findViewById(R.id.obfuscated_res_0x7f091729);
+        TextView textView2 = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09172d);
         CharSequence charSequence = this.titleText;
         if (charSequence != null) {
             textView2.setText(charSequence);
@@ -469,7 +469,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
             textView2.setText(this.titleTextResId);
         }
         initHeaderToggle(context);
-        this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090765);
+        this.confirmButton = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090768);
         if (this.dateSelector.isSelectionComplete()) {
             this.confirmButton.setEnabled(true);
         } else {
@@ -488,7 +488,7 @@ public final class MaterialDatePicker<S> extends DialogFragment {
                 MaterialDatePicker.this.dismiss();
             }
         });
-        Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f09050d);
+        Button button = (Button) inflate.findViewById(R.id.obfuscated_res_0x7f090510);
         button.setTag(CANCEL_BUTTON_TAG);
         button.setOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.datepicker.MaterialDatePicker.2
             @Override // android.view.View.OnClickListener

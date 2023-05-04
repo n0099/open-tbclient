@@ -14,10 +14,10 @@ import com.baidu.tbadk.core.data.RecommendTopicData;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.switchs.NewWebHotTopicPageSwitch;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.tq5;
+import com.baidu.tieba.lr5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -69,7 +69,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            r25 d = r25.d(this);
+            g35 d = g35.d(this);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0304);
@@ -159,7 +159,7 @@ public class TopicEnterButton extends AppCompatTextView implements View.OnClickL
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) && (recommendTopicListData = this.a) != null && !hi.isEmpty(recommendTopicListData.getTopicName())) {
             if (NewWebHotTopicPageSwitch.isOn()) {
                 if (view2.getContext() instanceof BaseActivity) {
-                    tq5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
+                    lr5.e(((BaseActivity) view2.getContext()).getPageContext(), null, this.a.getTopicName());
                     return;
                 }
                 return;

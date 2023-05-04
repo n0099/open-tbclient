@@ -1,55 +1,91 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ThreadData;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a66 {
+public class a66 extends kh6<f76> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ThreadData> a;
+    public TextView i;
+    public ImageView j;
+    public View k;
+    public View l;
 
-    public a66() {
+    @Override // com.baidu.tieba.kh6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d08c5 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public a66(TbPageContext tbPageContext, ViewGroup viewGroup) {
+        super(tbPageContext, viewGroup);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (ViewGroup) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.k = h();
+        this.i = (TextView) h().findViewById(R.id.obfuscated_res_0x7f092594);
+        this.j = (ImageView) h().findViewById(R.id.obfuscated_res_0x7f091181);
+        this.l = h().findViewById(R.id.obfuscated_res_0x7f090fb1);
+        j(tbPageContext, TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    @Override // com.baidu.tieba.kh6
+    public void j(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundResource(this.k, R.color.CAM_X0201);
+            SkinManager.setViewTextColor(this.i, (int) R.color.CAM_X0109);
+            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_08);
+            SkinManager.setBackgroundResource(this.l, R.color.CAM_X0204);
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kh6
+    /* renamed from: r */
+    public void i(f76 f76Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        jSONObject.optString("head_pic");
-        jSONObject.optString("url_type");
-        jSONObject.optString("url");
-        jSONObject.optInt("head_type", 0);
-        jSONObject.optInt("is_set", -1);
-        JSONArray optJSONArray = jSONObject.optJSONArray("head_thread");
-        if (optJSONArray != null && optJSONArray.length() > 0) {
-            this.a = new ArrayList(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject jSONObject2 = (JSONObject) optJSONArray.opt(i);
-                if (jSONObject2 != null) {
-                    ThreadData threadData = new ThreadData();
-                    threadData.parserJson(jSONObject2);
-                    this.a.add(threadData);
-                }
+        if (interceptable == null || interceptable.invokeL(1048580, this, f76Var) == null) {
+            if (f76Var.a == 1) {
+                this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0aec));
+                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
+                return;
             }
+            this.i.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f0aeb));
+            SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_06);
         }
     }
 }

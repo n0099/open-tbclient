@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.os.Bundle;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class gl extends gm {
     public boolean a;
     public String b;

@@ -1,31 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
-import tbclient.ThemeElement;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface lf7 {
-    @Nullable
-    <T> T a(@NonNull LogicField logicField);
+public class lf7 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
-    void b(@NonNull ThemeElement themeElement);
-
-    void c(float f);
-
-    void d(int i, boolean z);
-
-    @NonNull
-    NavigationBar e();
-
-    void f(boolean z);
-
-    int g();
-
-    void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener);
-
-    void onChangeSkinType(int i);
+    public lf7(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+        this.c = str3;
+    }
 }

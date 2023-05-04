@@ -1,28 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.searchbox.live.interfaces.net.NetResponse;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class fb0 {
-    public static /* synthetic */ Interceptable $ic;
-    public static INetWork a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface fb0<T> {
+    void onNetResponse(NetResponse netResponse, T t, Map<String, String> map, List<String> list);
 
-    public static INetWork a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
-        }
-        return (INetWork) invokeV.objValue;
-    }
-
-    public static void b(INetWork iNetWork) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, iNetWork) == null) {
-            a = iNetWork;
-        }
-    }
+    T onParseResponseInBackground(NetResponse netResponse);
 }

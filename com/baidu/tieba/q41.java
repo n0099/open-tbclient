@@ -1,146 +1,260 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.res.TypedArray;
 import android.os.Build;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.Locale;
 /* loaded from: classes6.dex */
 public class q41 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(@NonNull Activity activity, int i) {
+    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
+    public static String a() {
+        InterceptResult invokeV;
+        char c;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, activity, i) == null) && i != -1 && Build.VERSION.SDK_INT == 26 && activity.getApplicationInfo().targetSdkVersion > 26 && c(activity) && !b(activity)) {
-            try {
-                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                declaredField.setAccessible(true);
-                Object obj = declaredField.get(activity);
-                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
-                declaredField2.setAccessible(true);
-                if (declaredField2.getInt(obj) == -1) {
-                    declaredField2.setInt(obj, i);
-                }
-            } catch (IllegalAccessException | NoSuchFieldException unused) {
-            }
-        }
-    }
-
-    @SuppressLint({"SoonBlockedPrivateApi"})
-    public static boolean b(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
-            try {
-                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                declaredField.setAccessible(true);
-                Object obj = declaredField.get(activity);
-                Method declaredMethod = ActivityInfo.class.getDeclaredMethod("isFixedOrientation", new Class[0]);
-                declaredMethod.setAccessible(true);
-                return ((Boolean) declaredMethod.invoke(obj, new Object[0])).booleanValue();
-            } catch (IllegalAccessException | NoSuchFieldException | NoSuchMethodException | InvocationTargetException unused) {
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"PrivateApi"})
-    public static boolean c(@NonNull Activity activity) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, activity)) == null) {
-            try {
-                Class<?> cls = Class.forName("com.android.internal.R$styleable");
-                Field declaredField = cls.getDeclaredField("Window");
-                declaredField.setAccessible(true);
-                TypedArray obtainStyledAttributes = activity.obtainStyledAttributes((int[]) declaredField.get(null));
-                Field declaredField2 = cls.getDeclaredField("Window_windowIsTranslucent");
-                declaredField2.setAccessible(true);
-                Field declaredField3 = cls.getDeclaredField("Window_windowSwipeToDismiss");
-                declaredField3.setAccessible(true);
-                Field declaredField4 = cls.getDeclaredField("Window_windowIsFloating");
-                declaredField4.setAccessible(true);
-                Object obj = declaredField2.get(null);
-                Object obj2 = declaredField3.get(null);
-                if (obj instanceof Integer) {
-                    z2 = obtainStyledAttributes.getBoolean(((Integer) obj).intValue(), false);
-                    if ((obj2 instanceof Integer) && !obtainStyledAttributes.hasValue(((Integer) obj).intValue()) && obtainStyledAttributes.getBoolean(((Integer) obj2).intValue(), false)) {
-                        z = true;
-                    } else {
-                        z = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            String lowerCase = Build.MANUFACTURER.toLowerCase(Locale.getDefault());
+            switch (lowerCase.hashCode()) {
+                case -1443430368:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_SMARTISAN)) {
+                        c = 4;
+                        break;
                     }
-                } else {
-                    z = false;
-                    z2 = false;
-                }
-                Object obj3 = declaredField4.get(null);
-                if (obj3 instanceof Integer) {
-                    z3 = obtainStyledAttributes.getBoolean(((Integer) obj3).intValue(), false);
-                } else {
-                    z3 = false;
-                }
-                obtainStyledAttributes.recycle();
-                if (!z3 && !z2 && !z) {
-                    return false;
-                }
-                return true;
-            } catch (ClassNotFoundException | IllegalAccessException | NoSuchFieldException unused) {
-                return false;
+                    c = 65535;
+                    break;
+                case -1245779295:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_GIONEE)) {
+                        c = 5;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -1206476313:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_HUAWEI)) {
+                        c = 0;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case -759499589:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_XIAOMI)) {
+                        c = 1;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3418016:
+                    if (lowerCase.equals("oppo")) {
+                        c = 2;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 3620012:
+                    if (lowerCase.equals("vivo")) {
+                        c = 3;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 103777484:
+                    if (lowerCase.equals("meizu")) {
+                        c = 7;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                case 105170387:
+                    if (lowerCase.equals(RomUtils.MANUFACTURER_NUBIA)) {
+                        c = 6;
+                        break;
+                    }
+                    c = 65535;
+                    break;
+                default:
+                    c = 65535;
+                    break;
+            }
+            switch (c) {
+                case 0:
+                    String e = e("ro.build.version.emui");
+                    b = e;
+                    if (!TextUtils.isEmpty(e)) {
+                        a = "EMUI";
+                        return "EMUI";
+                    }
+                    return d();
+                case 1:
+                    String e2 = e("ro.miui.ui.version.name");
+                    b = e2;
+                    if (!TextUtils.isEmpty(e2)) {
+                        a = "MIUI";
+                        return "MIUI";
+                    }
+                    return d();
+                case 2:
+                    String e3 = e("ro.build.version.opporom");
+                    b = e3;
+                    if (!TextUtils.isEmpty(e3)) {
+                        a = "OPPO";
+                        return "OPPO";
+                    }
+                    return d();
+                case 3:
+                    String e4 = e("ro.vivo.os.version");
+                    b = e4;
+                    if (!TextUtils.isEmpty(e4)) {
+                        a = "VIVO";
+                        return "VIVO";
+                    }
+                    return d();
+                case 4:
+                    String e5 = e("ro.smartisan.version");
+                    b = e5;
+                    if (!TextUtils.isEmpty(e5)) {
+                        a = "SMARTISAN";
+                        return "SMARTISAN";
+                    }
+                    return d();
+                case 5:
+                    String e6 = e(RomUtils.KEY_VERSION_GIONEE);
+                    b = e6;
+                    if (!TextUtils.isEmpty(e6)) {
+                        a = RomUtils.ROM_GIONEE;
+                        return RomUtils.ROM_GIONEE;
+                    }
+                    return d();
+                case 6:
+                    String e7 = e(RomUtils.KEY_VERSION_NUBIA);
+                    b = e7;
+                    if (!TextUtils.isEmpty(e7)) {
+                        a = RomUtils.ROM_NUBIA;
+                        return RomUtils.ROM_NUBIA;
+                    }
+                    return d();
+                case 7:
+                    if (Build.DISPLAY.toUpperCase(Locale.getDefault()).contains("FLYME")) {
+                        a = "FLYME";
+                        return "FLYME";
+                    }
+                    return d();
+                default:
+                    return d();
             }
         }
-        return invokeL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int d(@NonNull Activity activity) {
-        InterceptResult invokeL;
+    public static String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, activity)) == null) {
-            int i = -1;
-            if (Build.VERSION.SDK_INT != 26 || activity.getApplicationInfo().targetSdkVersion <= 26 || !c(activity) || !b(activity)) {
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return Build.PRODUCT;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = a;
+            if (str == null) {
+                return a();
             }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String str = Build.DISPLAY;
+            b = str;
+            if (str.toUpperCase(Locale.getDefault()).contains("FLYME")) {
+                a = "FLYME";
+            } else {
+                b = "unknown";
+                a = Build.MANUFACTURER.toUpperCase(Locale.getDefault());
+            }
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX WARN: Not initialized variable reg: 2, insn: 0x0064: MOVE  (r0 I:??[OBJECT, ARRAY]) = (r2 I:??[OBJECT, ARRAY]), block:B:26:0x0064 */
+    /* JADX WARN: Removed duplicated region for block: B:42:0x0067 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String e(String str) {
+        InterceptResult invokeL;
+        BufferedReader bufferedReader;
+        BufferedReader bufferedReader2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            BufferedReader bufferedReader3 = null;
             try {
-                Field declaredField = Activity.class.getDeclaredField("mActivityInfo");
-                declaredField.setAccessible(true);
-                Object obj = declaredField.get(activity);
-                Field declaredField2 = ActivityInfo.class.getDeclaredField("screenOrientation");
-                declaredField2.setAccessible(true);
-                int i2 = declaredField2.getInt(obj);
-                if (i2 != -1) {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec("getprop " + str).getInputStream()));
                     try {
-                        declaredField2.setInt(obj, -1);
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        i = i2;
-                        e.printStackTrace();
-                        return i;
-                    } catch (NoSuchFieldException e2) {
+                        String readLine = bufferedReader.readLine();
+                        bufferedReader.close();
+                        try {
+                            bufferedReader.close();
+                        } catch (IOException e) {
+                            e.printStackTrace();
+                        }
+                        return readLine;
+                    } catch (IOException e2) {
                         e = e2;
-                        i = i2;
-                        e.printStackTrace();
-                        return i;
+                        Log.e("Rom", "Unable to read prop " + str, e);
+                        if (bufferedReader != null) {
+                            try {
+                                bufferedReader.close();
+                            } catch (IOException e3) {
+                                e3.printStackTrace();
+                            }
+                        }
+                        return null;
                     }
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedReader3 = bufferedReader2;
+                    if (bufferedReader3 != null) {
+                        try {
+                            bufferedReader3.close();
+                        } catch (IOException e4) {
+                            e4.printStackTrace();
+                        }
+                    }
+                    throw th;
                 }
-                return i2;
-            } catch (IllegalAccessException e3) {
-                e = e3;
-            } catch (NoSuchFieldException e4) {
-                e = e4;
+            } catch (IOException e5) {
+                e = e5;
+                bufferedReader = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (bufferedReader3 != null) {
+                }
+                throw th;
             }
         } else {
-            return invokeL.intValue;
+            return (String) invokeL.objValue;
         }
     }
 }

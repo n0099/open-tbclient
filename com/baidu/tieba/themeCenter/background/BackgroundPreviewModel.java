@@ -6,7 +6,7 @@ import com.baidu.adp.framework.message.ResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.il9;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -120,7 +120,7 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
         registerListener(this.e);
     }
 
-    public void V(b bVar) {
+    public void a0(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bVar) == null) {
             this.d = bVar;
@@ -150,8 +150,8 @@ public class BackgroundPreviewModel extends BdBaseModel<BackgroundPreviewModel> 
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            il9.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
-            il9.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
+            xo9.h(309023, BackgroundGetSocketResponseMessage.class, false, false);
+            xo9.c(309023, CmdConfigHttp.CMD_PERSONAL_BACKGROUND_GET, TbConfig.PERSONAL_BACKGROUND_GET, BackgroundGetHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

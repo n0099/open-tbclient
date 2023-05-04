@@ -1,241 +1,33 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.content.DialogInterface;
-import android.view.View;
-import android.view.Window;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.poly.widget.coupon.CouponListView;
-import com.baidu.tieba.fh1;
-import com.baidu.tieba.ph1;
+import android.content.res.ColorStateList;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.baidubce.auth.NTLMEngineImpl;
 /* loaded from: classes5.dex */
-public class nh1 extends Dialog {
+public class nh1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CouponListView a;
-    public ImageView b;
-    public FrameLayout c;
-    public d d;
 
-    /* loaded from: classes5.dex */
-    public interface d {
-        void a(boolean z, ph1.a aVar);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nh1 a;
-
-        public a(nh1 nh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nh1Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.a != null && this.a.d != null) {
-                    this.a.d.a(false, this.a.a.getSelectedItem());
-                }
-                this.a.dismiss();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnCancelListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nh1 a;
-
-        public b(nh1 nh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nh1Var;
-        }
-
-        @Override // android.content.DialogInterface.OnCancelListener
-        public void onCancel(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) && this.a.a != null && this.a.d != null) {
-                this.a.d.a(false, this.a.a.getSelectedItem());
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements CouponListView.h {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nh1 a;
-
-        @Override // com.baidu.poly.widget.coupon.CouponListView.h
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
-
-        @Override // com.baidu.poly.widget.coupon.CouponListView.h
-        public void onDetach() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            }
-        }
-
-        public c(nh1 nh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nh1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = nh1Var;
-        }
-
-        @Override // com.baidu.poly.widget.coupon.CouponListView.h
-        public void c(ph1.a aVar, fh1 fh1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, fh1Var) == null) {
-                fh1.a aVar2 = new fh1.a();
-                aVar2.a = 0;
-                fh1Var.a(aVar2);
-            }
-        }
-
-        @Override // com.baidu.poly.widget.coupon.CouponListView.h
-        public void d(boolean z, ph1.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZL(Constants.METHOD_SEND_USER_MSG, this, z, aVar) == null) {
-                this.a.dismiss();
-                if (this.a.d != null) {
-                    this.a.d.a(z, aVar);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public nh1(Context context) {
-        this(context, R.style.obfuscated_res_0x7f100101);
+    public static ColorStateList a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
+            int i2 = i - (-805306368);
+            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842912, 16842919}, new int[]{-16842912, 16842919}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-520093696), LaunchTaskConstants.OTHER_PROCESS, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH, i2, NTLMEngineImpl.FLAG_REQUEST_128BIT_KEY_EXCH});
         }
+        return (ColorStateList) invokeI.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public nh1(Context context, int i) {
-        super(context, i);
+    public static ColorStateList b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            int i2 = i - (-1728053248);
+            return new ColorStateList(new int[][]{new int[]{-16842910, 16842912}, new int[]{-16842910}, new int[]{16842919, -16842912}, new int[]{16842919, 16842912}, new int[]{16842912}, new int[]{-16842912}}, new int[]{i - (-1442840576), -4539718, i2, i2, i | (-16777216), -1118482});
         }
-        c();
-    }
-
-    public void d(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            this.d = dVar;
-        }
-    }
-
-    public void update(List<ph1.a> list) {
-        CouponListView couponListView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (couponListView = this.a) != null) {
-            couponListView.update(list);
-            this.a.setListener(new c(this));
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0240);
-            Window window = getWindow();
-            if (window != null) {
-                window.setGravity(80);
-                window.setWindowAnimations(R.style.obfuscated_res_0x7f1003ad);
-                window.setLayout(-1, -2);
-            }
-            this.a = (CouponListView) findViewById(R.id.obfuscated_res_0x7f090614);
-            FrameLayout frameLayout = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f090615);
-            this.c = frameLayout;
-            frameLayout.setVisibility(8);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091166);
-            this.b = imageView;
-            imageView.setOnClickListener(new a(this));
-            setOnCancelListener(new b(this));
-        }
+        return (ColorStateList) invokeI.objValue;
     }
 }

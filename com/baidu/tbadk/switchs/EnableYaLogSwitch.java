@@ -39,7 +39,7 @@ public class EnableYaLogSwitch extends te {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return 0;
+            return 1;
         }
         return invokeV.intValue;
     }

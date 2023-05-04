@@ -1,6 +1,12 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -8,20 +14,86 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.File;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public class r24 {
+public class r24 implements gp1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile boolean a;
-    public static volatile boolean b;
-    public static volatile List<wh2> c;
+    public static final boolean a;
+    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) ? i != 2 ? i != 3 ? i != 4 ? i != 5 ? i != 6 ? "log" : "debug" : "warn" : "error" : "info" : "debug" : (String) invokeI.objValue;
+    /* loaded from: classes6.dex */
+    public class a extends v24 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(r24 r24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.v24
+        @NonNull
+        public File a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return y42.a();
+            }
+            return (File) invokeV.objValue;
+        }
+
+        @Override // com.baidu.tieba.v24
+        public void b(@NonNull String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+                y42.e(str, j);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements m24 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(r24 r24Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {r24Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.m24
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && r24.a) {
+                String str = r24.b;
+                Log.d(str, "download sConsole result: " + z);
+            }
+        }
     }
 
     static {
@@ -37,7 +109,8 @@ public class r24 {
                 return;
             }
         }
-        c = new ArrayList();
+        a = ho1.a;
+        b = r24.class.getSimpleName();
     }
 
     public r24() {
@@ -54,73 +127,55 @@ public class r24 {
         }
     }
 
-    public static void c() {
+    @Override // com.baidu.tieba.gp1
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            synchronized (r24.class) {
-                c = new ArrayList();
-            }
-            b = false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return o24.m().e();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gp1
+    public sf4 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return new u24(new a(this), new b(this));
+        }
+        return (sf4) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.gp1
+    public void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, onClickListener) == null) {
+            o24.m().p(activity, onClickListener);
         }
     }
 
-    public static void a() {
+    @Override // com.baidu.tieba.gp1
+    public void e(int i, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && a && !b) {
-            synchronized (r24.class) {
-                if (c != null) {
-                    for (int i = 0; i < c.size(); i++) {
-                        it2.U().m("console", c.get(i));
-                    }
-                    c.clear();
-                    c = null;
-                }
-            }
-            b = true;
+        if (interceptable == null || interceptable.invokeIL(1048580, this, i, str) == null) {
+            t24.d(i, str);
         }
     }
 
-    public static void d(int i, String str) {
+    @Override // com.baidu.tieba.gp1
+    public void c(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(65541, null, i, str) == null) {
-            e(b(i), str);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            q24.h(jSONObject);
         }
     }
 
-    public static void e(String str, String str2) {
+    @Override // com.baidu.tieba.gp1
+    public void f(qm3<Boolean> qm3Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && a) {
-            f(l24.t(str, str2));
-        }
-    }
-
-    public static void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) && a) {
-            f(l24.v(str, str2));
-        }
-    }
-
-    public static void f(wh2 wh2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, wh2Var) == null) {
-            if (!b) {
-                synchronized (r24.class) {
-                    if (c != null) {
-                        c.add(wh2Var);
-                        return;
-                    }
-                }
-            }
-            it2.U().m("console", wh2Var);
-        }
-    }
-
-    public static void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
-            a = z;
-            v42.n(z);
+        if (interceptable == null || interceptable.invokeL(1048581, this, qm3Var) == null) {
+            o24.m().o(qm3Var);
         }
     }
 }

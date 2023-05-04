@@ -29,11 +29,11 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.w55;
+import com.baidu.tieba.lx;
+import com.baidu.tieba.m65;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -43,7 +43,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.AlbumElement;
 /* loaded from: classes4.dex */
-public class CardItemInfoAlbumLayout extends LinearLayout implements jx {
+public class CardItemInfoAlbumLayout extends LinearLayout implements lx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdRecyclerView a;
@@ -90,18 +90,18 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements jx {
                         return;
                     }
                 }
-                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c71);
+                TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c79);
                 this.a = tbImageView;
                 tbImageView.setConrers(15);
                 this.a.setRadiusById(R.string.J_X05);
                 this.a.setDrawCorner(true);
                 this.a.setPlaceHolder(3);
                 this.a.setPageId(g9.a(view2.getContext()).getUniqueId());
-                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090c72);
+                View findViewById = view2.findViewById(R.id.obfuscated_res_0x7f090c7a);
                 this.b = findViewById;
-                r25.d(findViewById).t(R.array.Mask_X001);
-                r25.d(this.b).o(R.string.J_X05);
-                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c73);
+                g35.d(findViewById).t(R.array.Mask_X001);
+                g35.d(this.b).o(R.string.J_X05);
+                this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090c7b);
             }
 
             public void a(AlbumElement albumElement) {
@@ -192,7 +192,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements jx {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, viewGroup, i)) == null) {
-                a aVar = new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0348, (ViewGroup) null));
+                a aVar = new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d034b, (ViewGroup) null));
                 aVar.c(TbadkCoreApplication.getInst().getSkinType());
                 return aVar;
             }
@@ -292,7 +292,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements jx {
                     x.getIntent().putExtra("from", "index");
                     MessageManager.getInstance().sendMessage(new CustomMessage(2010000, x));
                 }
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new w55(1, i + 1, albumElement.album_type.intValue())));
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new m65(1, i + 1, albumElement.album_type.intValue())));
             }
         }
     }
@@ -415,7 +415,7 @@ public class CardItemInfoAlbumLayout extends LinearLayout implements jx {
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.lx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {

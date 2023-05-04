@@ -1,36 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes5.dex */
-public interface nm0 {
+public final class nm0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public interface a {
+    @NonNull
+    @Inject(force = false)
+    public static mm0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new gw0();
+        }
+        return (mm0) invokeV.objValue;
     }
 
-    void a(@Nullable String str, @Nullable String str2, @Nullable a aVar);
-
-    @Autowired
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Singleton
-        @Inject(force = false)
-        public static nm0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-                return pw0.a();
-            }
-            return (nm0) invokeV.objValue;
+    public static cz0 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a().create();
         }
+        return (cz0) invokeV.objValue;
     }
 }

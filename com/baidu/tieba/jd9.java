@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.BroadcastReceiver;
-import android.content.Context;
-import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jd9 extends BroadcastReceiver {
+public class jd9 implements hy5<id9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,19 +25,15 @@ public class jd9 extends BroadcastReceiver {
         }
     }
 
-    @Override // android.content.BroadcastReceiver
-    public void onReceive(Context context, Intent intent) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hy5
+    /* renamed from: b */
+    public id9 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
-            String action = intent.getAction();
-            if (action.equals("android.intent.action.SCREEN_ON")) {
-                id9.j().e = 1;
-            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
-                id9.j().e = 1;
-                id9.j().d.d();
-            } else if (action.equals("android.intent.action.USER_PRESENT")) {
-                id9.j().e = 0;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new id9();
         }
+        return (id9) invokeV.objValue;
     }
 }

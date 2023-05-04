@@ -1,5 +1,14 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.ComponentName;
+import android.content.Intent;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,99 +20,232 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class xl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean f;
+    public static c g;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    @NonNull
+    public final Application a;
+    @Nullable
+    public ft2 b;
+    public boolean c;
+    public boolean d;
+    public int e;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    public interface c {
+        void a(boolean z, int i);
     }
 
     /* loaded from: classes7.dex */
-    public static class b {
+    public class a extends ft2 {
         public static /* synthetic */ Interceptable $ic;
-        public static final xl3 a;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xl3 a;
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-285452692, "Lcom/baidu/tieba/xl3$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
+        /* renamed from: com.baidu.tieba.xl3$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class RunnableC0489a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Activity a;
+            public final /* synthetic */ a b;
+
+            public RunnableC0489a(a aVar, Activity activity) {
+                Interceptable interceptable = $ic;
                 if (interceptable != null) {
-                    $ic = interceptable;
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, activity};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-285452692, "Lcom/baidu/tieba/xl3$b;");
+                this.b = aVar;
+                this.a = activity;
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                boolean u;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    Intent intent = this.a.getIntent();
+                    hs1 o = er2.o();
+                    ComponentName component = intent.getComponent();
+                    if (this.b.a.c && intent.hasCategory("android.intent.category.LAUNCHER") && "android.intent.action.MAIN".equals(intent.getAction()) && o != null && component != null && TextUtils.equals(o.A(), component.getClassName())) {
+                        if (this.b.a.d) {
+                            if (xl3.f) {
+                                Log.w("SwanHomeScreenLaunch", "SwanApp is Foreground Now");
+                                return;
+                            }
+                            return;
+                        }
+                        dk3 m = dk3.m();
+                        if (ek3.a() && dk3.k()) {
+                            u = m.w(this.a, this.b.a.e, false);
+                        } else {
+                            u = m.u(this.b.a.e, false, false);
+                        }
+                        if (xl3.f) {
+                            Log.d("SwanHomeScreenLaunch", "moveTaskToFront " + u + ", taskId=" + this.b.a.e);
+                        }
+                        m.i();
+                    }
+                    if (xl3.f) {
+                        Log.d("SwanHomeScreenLaunch", "class=" + this.a + ", swanAppForeground=" + this.b.a.c + ", flag=" + intent.getFlags() + ", ComponentName=" + component);
+                    }
+                }
+            }
+        }
+
+        public a(xl3 xl3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xl3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            a = new xl3(null);
+            this.a = xl3Var;
+        }
+
+        @Override // com.baidu.tieba.ft2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(Activity activity) {
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                super.onActivityStarted(activity);
+                xl3 xl3Var = this.a;
+                if (xl3Var.c && activity != null && activity.getTaskId() == this.a.e) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                xl3Var.c = z;
+            }
+        }
+
+        @Override // com.baidu.tieba.ft2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(Activity activity, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || !dk3.j()) {
+                return;
+            }
+            super.onActivityCreated(activity, bundle);
+            if (activity != null && activity.getIntent() != null) {
+                RunnableC0489a runnableC0489a = new RunnableC0489a(this, activity);
+                if (ek3.a()) {
+                    runnableC0489a.run();
+                } else {
+                    rk3.j(runnableC0489a, "moveTaskToFront");
+                }
+            }
         }
     }
 
-    public xl3() {
+    /* loaded from: classes7.dex */
+    public class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ xl3 a;
+
+        public b(xl3 xl3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xl3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = xl3Var;
+        }
+
+        @Override // com.baidu.tieba.xl3.c
+        public void a(boolean z, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
+                if (!z) {
+                    if (this.a.c && i == 1) {
+                        this.a.c = false;
+                    }
+                } else {
+                    this.a.c = true;
+                    this.a.e = i;
+                }
+                this.a.d = z;
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948304170, "Lcom/baidu/tieba/xl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948304170, "Lcom/baidu/tieba/xl3;");
+                return;
+            }
+        }
+        f = ho1.a;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            g = null;
+            this.a.unregisterActivityLifecycleCallbacks(this.b);
+        }
+    }
+
+    public xl3(@NonNull Application application) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {application};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
+        this.a = application;
+        this.b = new a(this);
+        g = new b(this);
+        application.registerActivityLifecycleCallbacks(this.b);
     }
 
-    public static xl3 b() {
-        InterceptResult invokeV;
+    public static void h(boolean z, int i) {
+        c cVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (xl3) invokeV.objValue;
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c() ? 1 : 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a != 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = 0;
-        }
-    }
-
-    public /* synthetic */ xl3(a aVar) {
-        this();
-    }
-
-    public void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (cVar = g) != null) {
+            cVar.a(z, i);
         }
     }
 }

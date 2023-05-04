@@ -19,7 +19,7 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.switchs.CreateBarTipSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -86,7 +86,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            iv4 layoutMode = getLayoutMode();
+            yv4 layoutMode = getLayoutMode();
             int i4 = 0;
             if (i == 4) {
                 z = true;
@@ -98,9 +98,9 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             boolean isOn = new CreateBarTipSwitch().isOn();
             TbPageContext<CreateBarSuccessActivity> pageContext2 = getPageContext();
             if (isOn) {
-                i2 = R.string.obfuscated_res_0x7f0f0499;
+                i2 = R.string.obfuscated_res_0x7f0f04a1;
             } else {
-                i2 = R.string.obfuscated_res_0x7f0f0496;
+                i2 = R.string.obfuscated_res_0x7f0f049e;
             }
             String string = pageContext2.getString(i2);
             int length = string.length();
@@ -109,13 +109,13 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i3 = R.string.obfuscated_res_0x7f0f049a;
+                i3 = R.string.obfuscated_res_0x7f0f04a2;
             } else {
                 sb = new StringBuilder();
                 sb.append(string);
                 sb.append(this.a);
                 pageContext = getPageContext();
-                i3 = R.string.obfuscated_res_0x7f0f0497;
+                i3 = R.string.obfuscated_res_0x7f0f049f;
             }
             sb.append(pageContext.getString(i3));
             SpannableString spannableString = new SpannableString(sb.toString());
@@ -135,7 +135,7 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0215);
+            setContentView(R.layout.obfuscated_res_0x7f0d0218);
             initData();
             x1();
         }
@@ -144,8 +144,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090772);
-            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0923f2);
+            this.d = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090775);
+            RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09240b);
             if (UtilHelper.canUseStyleImmersiveSticky()) {
                 ViewGroup.LayoutParams layoutParams = relativeLayout.getLayoutParams();
                 layoutParams.height = UtilHelper.getStatusBarHeight() + layoutParams.height;
@@ -155,8 +155,8 @@ public class CreateBarSuccessActivity extends BaseActivity<CreateBarSuccessActiv
             this.e = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.e.setTitleText(getPageContext().getString(R.string.create_bar));
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ef);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092315);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f092307);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f09232d);
         }
     }
 }

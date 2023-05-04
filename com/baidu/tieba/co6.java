@@ -1,86 +1,124 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class co6 {
+public final class co6 extends gn6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public String d;
-    public View e;
+    public sm6 e;
 
-    public co6(int i, int i2, int i3, String str, View view2) {
+    @Override // com.baidu.tieba.a0
+    public void c(x engine) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, engine) == null) {
+            Intrinsics.checkNotNullParameter(engine, "engine");
+        }
+    }
+
+    @Override // com.baidu.tieba.gn6
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public co6(dn6 context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str, view2};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i4 = newInitContext.flag;
-            if ((i4 & 1) != 0) {
-                int i5 = i4 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((dn6) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = i;
-        this.b = i2;
-        this.c = i3;
-        this.d = str;
-        this.e = view2;
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    public View a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int c() {
+    public final sm6 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+            return this.e;
         }
-        return invokeV.intValue;
+        return (sm6) invokeV.objValue;
     }
 
-    public int d() {
-        InterceptResult invokeV;
+    public final void l() {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            sm6 sm6Var = this.e;
+            if (sm6Var != null) {
+                sm6 c = i().c();
+                if (c.j() != sm6Var.j() || c.g() != sm6Var.g()) {
+                    BdLog.w("DanmakuEngine [Config] density from " + c.j() + " to " + sm6Var.j());
+                    sm6Var.G();
+                    sm6Var.I();
+                    sm6Var.F();
+                    sm6Var.C();
+                }
+                boolean z2 = true;
+                if (c.v() == sm6Var.v()) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                if (!z) {
+                    BdLog.w("DanmakuEngine [Config] textSizeScale change from " + c.v() + " to " + sm6Var.v());
+                    sm6Var.I();
+                    sm6Var.F();
+                    sm6Var.G();
+                    sm6Var.C();
+                }
+                if (c.w() != sm6Var.w()) {
+                    sm6Var.J();
+                }
+                if (c.u() != sm6Var.u()) {
+                    z2 = false;
+                }
+                if (!z2 || c.e() != sm6Var.e()) {
+                    sm6Var.F();
+                    sm6Var.J();
+                    sm6Var.I();
+                }
+                if (c.n().size() != sm6Var.n().size() || c.l() != sm6Var.l()) {
+                    sm6Var.D();
+                }
+                i().h(sm6Var);
+            }
+            this.e = null;
         }
-        return invokeV.intValue;
     }
 
-    public int e() {
-        InterceptResult invokeV;
+    public final void m(sm6 danmakuConfig) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(1048580, this, danmakuConfig) == null) {
+            Intrinsics.checkNotNullParameter(danmakuConfig, "danmakuConfig");
+            this.e = danmakuConfig;
         }
-        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.a0
+    public void update(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048581, this, f) == null) {
+            l();
+        }
     }
 }

@@ -174,9 +174,9 @@ public class ClearTextEndIconDelegate extends EndIconDelegate {
 
     @Override // com.google.android.material.textfield.EndIconDelegate
     public void initialize() {
-        this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080df5));
+        this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f080e23));
         TextInputLayout textInputLayout = this.textInputLayout;
-        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0410));
+        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0418));
         this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.textfield.ClearTextEndIconDelegate.5
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

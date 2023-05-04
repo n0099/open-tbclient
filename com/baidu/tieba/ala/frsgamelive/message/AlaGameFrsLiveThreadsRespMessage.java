@@ -4,8 +4,8 @@ import com.baidu.ala.AlaCmdConfigHttp;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.i76;
 import com.baidu.tieba.in;
+import com.baidu.tieba.j86;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -66,11 +66,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i2 = 0; i2 < length; i2++) {
                     JSONObject optJSONObject2 = optJSONArray.optJSONObject(i2);
                     if (optJSONObject2 != null) {
-                        i76 i76Var = new i76();
+                        j86 j86Var = new j86();
                         ThreadData threadData = new ThreadData();
                         threadData.parserJson(optJSONObject2);
-                        i76Var.a = threadData;
-                        this.liveList.add(i76Var);
+                        j86Var.a = threadData;
+                        this.liveList.add(j86Var);
                     }
                 }
             }
@@ -80,11 +80,11 @@ public class AlaGameFrsLiveThreadsRespMessage extends JsonHttpResponsedMessage {
                 for (int i3 = 0; i3 < length2; i3++) {
                     JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i3);
                     if (optJSONObject3 != null) {
-                        i76 i76Var2 = new i76();
+                        j86 j86Var2 = new j86();
                         ThreadData threadData2 = new ThreadData();
                         threadData2.parserJson(optJSONObject3);
-                        i76Var2.a = threadData2;
-                        this.recommandList.add(i76Var2);
+                        j86Var2.a = threadData2;
+                        this.recommandList.add(j86Var2);
                     }
                 }
             }

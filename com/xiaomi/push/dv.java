@@ -3,10 +3,10 @@ package com.xiaomi.push;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class dv {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class a extends e {
 
         /* renamed from: a  reason: collision with other field name */

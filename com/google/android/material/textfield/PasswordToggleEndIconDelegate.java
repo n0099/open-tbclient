@@ -74,9 +74,9 @@ public class PasswordToggleEndIconDelegate extends EndIconDelegate {
 
     @Override // com.google.android.material.textfield.EndIconDelegate
     public void initialize() {
-        this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f0804b0));
+        this.textInputLayout.setEndIconDrawable(AppCompatResources.getDrawable(this.context, R.drawable.obfuscated_res_0x7f0804b1));
         TextInputLayout textInputLayout = this.textInputLayout;
-        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0e45));
+        textInputLayout.setEndIconContentDescription(textInputLayout.getResources().getText(R.string.obfuscated_res_0x7f0f0e5c));
         this.textInputLayout.setEndIconOnClickListener(new View.OnClickListener() { // from class: com.google.android.material.textfield.PasswordToggleEndIconDelegate.4
             @Override // android.view.View.OnClickListener
             public void onClick(View view2) {

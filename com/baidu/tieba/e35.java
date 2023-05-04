@@ -1,70 +1,33 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.app.Application;
+import android.content.res.ColorStateList;
+import android.graphics.Typeface;
+import android.graphics.drawable.Drawable;
+import android.graphics.drawable.GradientDrawable;
+import android.graphics.drawable.StateListDrawable;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.framework.cmdRouter.MultiDexHelper;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.tbadk.core.util.TiebaStaticClassesArray;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.elementsMaven.Direction;
+import com.baidu.tbadk.core.elementsMaven.EMABTest;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import java.util.Arrays;
+import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class e35 {
     public static /* synthetic */ Interceptable $ic;
-    public static String[] a;
-    public static boolean b;
+    public static final HashMap<String, HashMap<String, Integer>> a;
+    public static final HashMap<Integer, String> b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ TiebaStaticClassesArray b;
-
-        public a(boolean z, TiebaStaticClassesArray tiebaStaticClassesArray) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Boolean.valueOf(z), tiebaStaticClassesArray};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = z;
-            this.b = tiebaStaticClassesArray;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    if (this.a) {
-                        MultiDexHelper.loadClass(BdBaseApplication.getInst());
-                        return;
-                    }
-                    Log.e("TiebaStaticClassesArray", "load from dex fail ");
-                    if (!this.b.loadStaticClasses()) {
-                        MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -79,62 +42,518 @@ public class e35 {
                 return;
             }
         }
-        a = new String[]{"com.baidu.tieba.livesdk.AlaLiveSdkStatic", "com.baidu.tieba.aiapps.apps.abtest.SwanAppAbTestStatic", "com.baidu.tieba.ad.browser.AdStatic", "com.baidu.tieba.recapp.lego.RecAppLegoStatic", "com.baidu.tieba.recapp.RecAppStatic", "com.baidu.tieba.lego.activity.LegoListActivityStatic", "com.baidu.tbadk.core.LaunchStatic", "com.baidu.tieba.wallet.PayStatic", "com.baidu.tieba.image.ImageViewerActivityStatic", "com.baidu.tieba.im.TiebaIMActivityStatic", "com.baidu.tieba.immessagecenter.im.chat.notify.ImMessageCenterDelegateStatic", "com.baidu.tieba.enterForum.home.EnterForumDelegateStatic", "com.baidu.tieba.videoplay.fragment.VideoChannelDelegateStatic", "com.baidu.tieba.emotion.editortool.EmotionIntefaceStatic", "com.baidu.tieba.homepage.framework.RecommendFrsDelegateStatic", "com.baidu.tieba.personCenter.PersonInfoDelegateStatic", "com.baidu.tieba.write.bottomButton.WriteThreadDelegateStatic", "com.baidu.tieba.ala.livecard.Static", "com.baidu.tieba.flutter.FlutterStatic", "com.baidu.tieba.flutter.FlutterPluginStatic", "com.baidu.tieba.homepage.topic.TopicStatic", "com.baidu.tieba.quickWebView.QuickWebViewStatic", "com.baidu.tbadk.core.util.schemeaction.SchemeActionStatic", "com.baidu.tieba.hottopic.controller.HotTopicStatic", "com.baidu.tieba.myAttentionAndFans.PersonListActivityStatic", "com.baidu.tieba.sharesdk.ShareStatic"};
+        a = new HashMap<>();
+        b = new HashMap<>();
     }
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            try {
-                TiebaStaticClassesArray tiebaStaticClassesArray = new TiebaStaticClassesArray();
-                boolean z = true;
-                try {
-                    Class<?> cls = Class.forName("com.baidu.tbadk.core.util.TiebaStaticArray");
-                    Object newInstance = cls.newInstance();
-                    Field declaredField = cls.getDeclaredField("staticClassesArray");
-                    declaredField.setAccessible(true);
-                    tiebaStaticClassesArray.staticClassesArray = (String[]) declaredField.get(newInstance);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                Log.e("staticClassesArray: ", "" + tiebaStaticClassesArray.staticClassesArray.length);
-                if (q45.m().n("static_opt_open", 0) <= 0) {
-                    z = false;
-                }
-                b = z;
-                long currentTimeMillis = System.currentTimeMillis();
-                if (b) {
-                    qb.b().a("MultiDexHelper", new a(b(), tiebaStaticClassesArray));
-                } else if (!tiebaStaticClassesArray.loadStaticClasses()) {
-                    MultiDexHelper.loadStaticClass(BdBaseApplication.getInst());
-                }
-                Log.e("Tasks", "load from dex coast time " + (System.currentTimeMillis() - currentTimeMillis));
-            } catch (Exception e2) {
-                e2.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(65549, null) == null) {
+            a.clear();
+            b.clear();
         }
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public static float A(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String[] strArr = a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str.endsWith("H")) {
+                return Float.parseFloat(str.substring(0, str.length() - 1));
+            }
+            return q(str);
+        }
+        return invokeL.floatValue;
+    }
+
+    public static String H(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65544, null, i)) == null) {
+            int idByABTest = EMABTest.getIdByABTest(i, EMABTest.TYPE_STRING);
+            if (idByABTest == 0) {
+                return "";
+            }
+            return TbadkCoreApplication.getInst().getResources().getString(idByABTest);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public static String[] I(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65545, null, i)) == null) {
+            return TbadkCoreApplication.getInst().getResources().getStringArray(EMABTest.getIdByABTest(i, "array"));
+        }
+        return (String[]) invokeI.objValue;
+    }
+
+    public static ColorStateList J(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
+            return SkinManager.createColorStateList(i);
+        }
+        return (ColorStateList) invokeI.objValue;
+    }
+
+    public static Typeface K(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            if ("bold".equals(str)) {
+                return Typeface.DEFAULT_BOLD;
+            }
+            return Typeface.DEFAULT;
+        }
+        return (Typeface) invokeL.objValue;
+    }
+
+    public static float[] L(float f) {
+        InterceptResult invokeF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65548, null, f)) == null) {
+            float[] fArr = new float[8];
+            Arrays.fill(fArr, f);
+            return fArr;
+        }
+        return (float[]) invokeF.objValue;
+    }
+
+    public static float b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
+            return gg.d(H(i), 0.0f);
+        }
+        return invokeI.floatValue;
+    }
+
+    public static f35 d(Drawable drawable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, drawable)) == null) {
+            if (drawable instanceof f35) {
+                return (f35) drawable;
+            }
+            return f35.y();
+        }
+        return (f35) invokeL.objValue;
+    }
+
+    public static f35 e(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, view2)) == null) {
+            Drawable background = view2.getBackground();
+            if (background instanceof f35) {
+                return (f35) background;
+            }
+            return f35.y();
+        }
+        return (f35) invokeL.objValue;
+    }
+
+    public static int i(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65557, null, i)) == null) {
+            return SkinManager.getColor(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            return un9.f(str);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+            return i(v(str, "color"));
+        }
+        return invokeL.intValue;
+    }
+
+    public static int p(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65564, null, i)) == null) {
+            return UtilHelper.getDimenPixelSize(i);
+        }
+        return invokeI.intValue;
+    }
+
+    public static int q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65565, null, str)) == null) {
+            return p(v("tbds" + str, EMABTest.TYPE_DIMEN));
+        }
+        return invokeL.intValue;
+    }
+
+    public static int[] t(int[] iArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65568, null, iArr)) == null) {
+            int length = iArr.length;
+            for (int i = 0; i < length; i++) {
+                iArr[i] = i(iArr[i]);
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static int[] u(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65569, null, strArr)) == null) {
+            int length = strArr.length;
+            int[] iArr = new int[length];
+            for (int i = 0; i < length; i++) {
+                iArr[i] = m(strArr[i]);
+            }
+            return iArr;
+        }
+        return (int[]) invokeL.objValue;
+    }
+
+    public static float[] x(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65572, null, strArr)) == null) {
+            int min = Math.min(strArr.length, 4);
+            float[] fArr = new float[min];
+            for (int i = 0; i < min; i++) {
+                fArr[i] = gg.d(strArr[i], 0.0f);
+            }
+            return fArr;
+        }
+        return (float[]) invokeL.objValue;
+    }
+
+    public static float[] B(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            Application app = BdBaseApplication.getInst().getApp();
+            if (app == null) {
+                return L(0.0f);
+            }
+            String[] split = app.getString(i).split(",");
+            int min = Math.min(split.length, 4);
+            float[] fArr = new float[8];
+            for (int i2 = 0; i2 < min; i2++) {
+                float A = A(split[i2]);
+                int i3 = i2 * 2;
+                fArr[i3] = A;
+                fArr[i3 + 1] = A;
+            }
+            return fArr;
+        }
+        return (float[]) invokeI.objValue;
+    }
+
+    public static float[] C(String[] strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, strArr)) == null) {
+            int min = Math.min(strArr.length, 4);
+            float[] fArr = new float[8];
+            for (int i = 0; i < min; i++) {
+                float A = A(strArr[i]);
+                int i2 = i * 2;
+                fArr[i2] = A;
+                fArr[i2 + 1] = A;
+            }
+            return fArr;
+        }
+        return (float[]) invokeL.objValue;
+    }
+
+    public static String r(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65566, null, i)) == null) {
             try {
-                if (strArr.length <= 0) {
-                    return false;
+                String str = b.get(Integer.valueOf(i));
+                if (str == null) {
+                    if (i == 0) {
+                        str = "";
+                    } else {
+                        str = TbadkCoreApplication.getInst().getResources().getResourceEntryName(i);
+                    }
+                    b.put(Integer.valueOf(i), str);
                 }
-                for (String str : strArr) {
-                    long currentTimeMillis = System.currentTimeMillis();
-                    Class.forName(str);
-                    Log.e("TiebaStaticClassesArray", str + " " + (System.currentTimeMillis() - currentTimeMillis));
-                }
-                return true;
-            } catch (Throwable th) {
-                BdLog.e(th, true);
-                return false;
+                return str;
+            } catch (ArrayIndexOutOfBoundsException e) {
+                hla.g(e);
+                return "";
             }
         }
-        return invokeV.booleanValue;
+        return (String) invokeI.objValue;
+    }
+
+    public static Drawable D(View view2, Drawable drawable, String[] strArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, view2, drawable, strArr)) == null) {
+            if (strArr != null && strArr.length == 3) {
+                String[] split = strArr[2].split(",");
+                if (split.length == 2) {
+                    f35 f35Var = (f35) d(drawable).clone();
+                    f35Var.L(m(strArr[0]));
+                    f35Var.M(q(strArr[1]));
+                    f35Var.I(q(split[0]));
+                    f35Var.J(q(split[1]));
+                    return f35Var.n(view2);
+                }
+                throw new IndexOutOfBoundsException("Please check the number of xy resource!");
+            }
+            throw new IndexOutOfBoundsException("Please check the number of shadow resource!");
+        }
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public static float[] E(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65541, null, i)) == null) {
+            String[] I = I(i);
+            float[] fArr = new float[4];
+            if (I != null && I.length == 3) {
+                String[] split = I[2].split(",");
+                if (split.length == 2) {
+                    fArr[0] = m(I[0]);
+                    fArr[1] = q(I[1]);
+                    fArr[2] = q(split[0]);
+                    fArr[3] = q(split[1]);
+                    if (fArr[1] == 0.0f) {
+                        fArr[1] = 0.01f;
+                    }
+                    return fArr;
+                }
+                throw new IndexOutOfBoundsException("Please check the number of xy resource!");
+            }
+            throw new IndexOutOfBoundsException("Please check the number of shadow resource!");
+        }
+        return (float[]) invokeI.objValue;
+    }
+
+    public static Drawable F(Drawable drawable, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65542, null, drawable, i, i2)) == null) {
+            f35 d = d(drawable);
+            d.z();
+            GradientDrawable l = d.l(i2);
+            l.setColor(i(i));
+            l.setStroke((int) d.t(), un9.a(d.s(), d.r()));
+            GradientDrawable l2 = d.l(i2);
+            l2.setColor(un9.a(i(i), SkinManager.RESOURCE_ALPHA_PRESS));
+            l2.setStroke((int) d.t(), un9.a(d.s(), SkinManager.RESOURCE_ALPHA_PRESS * d.r()));
+            GradientDrawable l3 = d.l(i2);
+            l3.setColor(un9.a(i(i), SkinManager.RESOURCE_ALPHA_DISABLE));
+            l3.setStroke((int) d.t(), un9.a(d.s(), SkinManager.RESOURCE_ALPHA_DISABLE * d.r()));
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
+            stateListDrawable.addState(new int[]{16842910, 16842908}, l2);
+            stateListDrawable.addState(new int[]{-16842910}, l3);
+            stateListDrawable.addState(new int[0], l);
+            return stateListDrawable;
+        }
+        return (Drawable) invokeLII.objValue;
+    }
+
+    public static Drawable G(Drawable drawable, int i, int i2, int i3) {
+        InterceptResult invokeLIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIII = interceptable.invokeLIII(65543, null, drawable, i, i2, i3)) == null) {
+            f35 d = d(drawable);
+            d.z();
+            GradientDrawable l = d.l(i3);
+            l.setColor(i(i));
+            l.setStroke((int) d.t(), un9.a(d.s(), d.r()));
+            GradientDrawable l2 = d.l(i3);
+            l2.setColor(i(i2));
+            l2.setStroke((int) d.t(), un9.a(d.s(), SkinManager.RESOURCE_ALPHA_PRESS * d.r()));
+            StateListDrawable stateListDrawable = new StateListDrawable();
+            stateListDrawable.addState(new int[]{16842910, 16842919}, l2);
+            stateListDrawable.addState(new int[]{16842910, 16842908}, l2);
+            stateListDrawable.addState(new int[0], l);
+            return stateListDrawable;
+        }
+        return (Drawable) invokeLIII.objValue;
+    }
+
+    public static Drawable c(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65551, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.A(b(i));
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable f(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65554, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.D(b(i));
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable g(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65555, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.E(i(i));
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable h(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65556, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.F(p(i));
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable k(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65559, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.B(i(i));
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable l(Drawable drawable, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65560, null, drawable, str)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.B(j(str));
+            return f35Var;
+        }
+        return (Drawable) invokeLL.objValue;
+    }
+
+    public static Drawable n(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65562, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.P(C(H(i).split(",")));
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable o(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65563, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.G(i);
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable y(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65573, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.E(i);
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable z(Drawable drawable, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65574, null, drawable, i)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            f35Var.B(i);
+            return f35Var;
+        }
+        return (Drawable) invokeLI.objValue;
+    }
+
+    public static Drawable s(Drawable drawable, Direction direction, int[] iArr) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65567, null, drawable, direction, iArr)) == null) {
+            f35 f35Var = (f35) d(drawable).clone();
+            t(iArr);
+            f35Var.C(iArr);
+            f35Var.H(direction);
+            return f35Var;
+        }
+        return (Drawable) invokeLLL.objValue;
+    }
+
+    public static int v(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65570, null, str, str2)) == null) {
+            HashMap<String, Integer> hashMap = a.get(str2);
+            if (hashMap == null) {
+                hashMap = new HashMap<>();
+                a.put(str2, hashMap);
+            }
+            Integer num = hashMap.get(str);
+            if (num == null) {
+                num = Integer.valueOf(TbadkCoreApplication.getInst().getResources().getIdentifier(str, str2, TbadkCoreApplication.getInst().getPackageName()));
+                hashMap.put(str, num);
+            }
+            return num.intValue();
+        }
+        return invokeLL.intValue;
+    }
+
+    public static Drawable w(Drawable drawable, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65571, null, drawable, strArr)) == null) {
+            if (strArr != null && strArr.length == 3) {
+                String[] split = strArr[0].split(",");
+                String[] split2 = strArr[1].split(",");
+                String str = strArr[2];
+                f35 f35Var = (f35) d(drawable).clone();
+                if (!TextUtils.isEmpty(str)) {
+                    f35Var.H(Direction.valueOf(str.toUpperCase()));
+                }
+                f35Var.C(u(split));
+                f35Var.K(x(split2));
+                return f35Var;
+            }
+            throw new IndexOutOfBoundsException("Please check the number of mask resource!");
+        }
+        return (Drawable) invokeLL.objValue;
     }
 }

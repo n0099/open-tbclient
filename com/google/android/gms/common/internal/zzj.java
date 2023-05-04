@@ -9,7 +9,7 @@ import com.google.android.gms.common.internal.safeparcel.AbstractSafeParcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 @SafeParcelable.Class(creator = "ConnectionInfoCreator")
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzj extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzj> CREATOR = new zzk();
     @SafeParcelable.Field(id = 1)

@@ -7,7 +7,7 @@ import androidx.annotation.NonNull;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.api.Result;
 import com.google.android.gms.common.internal.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class ResolvingResultCallbacks<R extends Result> extends ResultCallbacks<R> {
     public final Activity zza;
     public final int zzb;

@@ -13,12 +13,10 @@ import java.lang.reflect.Method;
 public class ks3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Method b;
-    public Object c;
+    public Method a;
+    public Object b;
 
     public ks3(Class<?> cls) {
-        int intValue;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -33,24 +31,13 @@ public class ks3 {
                 return;
             }
         }
-        this.a = 4099;
         if (cls == null) {
             return;
         }
         try {
-            Object k = zb4.k(cls, "getInstance", new Object[0]);
-            this.c = k;
-            if (k != null) {
-                Object h = zb4.h(k, "UNIPERF_EVENT_APP_START");
-                if (h == null) {
-                    intValue = this.a;
-                } else {
-                    intValue = ((Integer) h).intValue();
-                }
-                this.a = intValue;
-            }
-            Method i3 = zb4.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
-            this.b = i3;
+            this.b = bc4.m(cls);
+            Method i3 = bc4.i(cls, "perfEvent", Integer.TYPE, String.class, int[].class);
+            this.a = i3;
             if (i3 != null) {
                 i3.setAccessible(true);
             }
@@ -58,13 +45,13 @@ public class ks3 {
         }
     }
 
-    public static ks3 b(@NonNull Context context) {
+    public static ks3 a(@NonNull Context context) {
         Class<?> cls;
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
             try {
-                cls = zb4.b("android.iawareperf.UniPerf", true);
+                cls = bc4.b("com.hisi.perfhub.PerfHub", true);
             } catch (Throwable unused) {
                 cls = null;
             }
@@ -73,20 +60,11 @@ public class ks3 {
         return (ks3) invokeL.objValue;
     }
 
-    public int a() {
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.c != null && this.b != null) {
+            if (this.b != null && this.a != null) {
                 return true;
             }
             return false;
@@ -94,15 +72,15 @@ public class ks3 {
         return invokeV.booleanValue;
     }
 
-    public int d(int i, String str, int... iArr) {
+    public int c(int i, String str, int... iArr) {
         InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iArr)) == null) {
-            if (!c()) {
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, iArr)) == null) {
+            if (!b()) {
                 return -1;
             }
             try {
-                Object invoke = this.b.invoke(this.c, Integer.valueOf(i), str, iArr);
+                Object invoke = this.a.invoke(this.b, Integer.valueOf(i), str, iArr);
                 if (invoke == null) {
                     return -1;
                 }

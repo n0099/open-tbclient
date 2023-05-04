@@ -1,102 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.kwad.sdk.api.KsInterstitialAd;
+import com.fun.ad.sdk.FunAdSdk;
 /* loaded from: classes5.dex */
-public class mqa implements KsInterstitialAd.AdInteractionListener {
+public class mqa {
     public static /* synthetic */ Interceptable $ic;
+    public static final SharedPreferences a;
+    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ KsInterstitialAd a;
-    public final /* synthetic */ lqa b;
 
-    public mqa(lqa lqaVar, KsInterstitialAd ksInterstitialAd) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {lqaVar, ksInterstitialAd};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982700, "Lcom/baidu/tieba/mqa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947982700, "Lcom/baidu/tieba/mqa;");
                 return;
             }
         }
-        this.b = lqaVar;
-        this.a = ksInterstitialAd;
+        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
+        a = sharedPreferences;
+        b = sharedPreferences.edit();
     }
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdClicked() {
+    public static double a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.d();
-            this.b.onAdClicked(this.a, false, new String[0]);
-        }
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
     }
 
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdClosed() {
+    public static double b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            SharedPreferences sharedPreferences = a;
+            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
         }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onAdShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            LogPrinter.d();
-            this.b.onAdShow(this.a, false, new String[0]);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onPageDismiss() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            LogPrinter.d();
-            this.b.onAdClose(this.a);
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onSkippedAd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            LogPrinter.d();
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayError(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048582, this, i, i2) == null) {
-            LogPrinter.e("onVideoPlayError code:%d extra:%d", Integer.valueOf(i), Integer.valueOf(i2));
-            this.b.onAdError(this.a, i, String.valueOf(i2));
-        }
-    }
-
-    @Override // com.kwad.sdk.api.KsInterstitialAd.AdInteractionListener
-    public void onVideoPlayStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            LogPrinter.d();
-        }
+        return invokeL.doubleValue;
     }
 }

@@ -160,17 +160,17 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
 
     /* JADX INFO: Access modifiers changed from: private */
     public void initNativeLandPage() {
-        findViewById(R.id.obfuscated_res_0x7f0911c2).setVisibility(0);
-        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f0911f5);
+        findViewById(R.id.obfuscated_res_0x7f0911d0).setVisibility(0);
+        ComplianceTextView complianceTextView = (ComplianceTextView) findViewById(R.id.obfuscated_res_0x7f091203);
         complianceTextView.setVisibility(0);
         complianceTextView.setAdTemplate(this.mAdTemplate);
-        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f0911b4);
-        KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f09122d);
-        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091257);
-        DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0913ac);
+        RoundAngleImageView roundAngleImageView = (RoundAngleImageView) findViewById(R.id.obfuscated_res_0x7f0911c2);
+        KSLinearLayout kSLinearLayout = (KSLinearLayout) findViewById(R.id.obfuscated_res_0x7f09123b);
+        KsLogoView ksLogoView = (KsLogoView) findViewById(R.id.obfuscated_res_0x7f091265);
+        DownloadProgressBar downloadProgressBar = (DownloadProgressBar) findViewById(R.id.obfuscated_res_0x7f0913ba);
         AdInfo bQ = com.kwad.sdk.core.response.a.d.bQ(this.mAdTemplate);
-        setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f0911c9), bQ);
-        ((TextView) findViewById(R.id.obfuscated_res_0x7f0911bf)).setText(bQ.adBaseInfo.adDescription);
+        setAdTitle((TextView) findViewById(R.id.obfuscated_res_0x7f0911d7), bQ);
+        ((TextView) findViewById(R.id.obfuscated_res_0x7f0911cd)).setText(bQ.adBaseInfo.adDescription);
         roundAngleImageView.setRadius(32.0f);
         if (!TextUtils.isEmpty(com.kwad.sdk.core.response.a.a.bn(bQ))) {
             KSImageLoader.loadImage(roundAngleImageView, com.kwad.sdk.core.response.a.a.bn(bQ), this.mAdTemplate);
@@ -180,13 +180,13 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
     }
 
     private void initView() {
-        this.mRootContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091341);
-        this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091380);
-        this.mDetailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091397);
-        this.mVideoBlurBg = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09137c);
-        this.mBackIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911de);
-        this.mCloseIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09133f);
-        this.mVideoCover = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09138b);
+        this.mRootContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09134f);
+        this.mKsadVideoContainer = (KSRelativeLayout) findViewById(R.id.obfuscated_res_0x7f09138e);
+        this.mDetailVideoView = (DetailVideoView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0913a5);
+        this.mVideoBlurBg = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09138a);
+        this.mBackIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f0911ec);
+        this.mCloseIcon = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f09134d);
+        this.mVideoCover = (ImageView) this.mRootContainer.findViewById(R.id.obfuscated_res_0x7f091399);
         if (this.mAdTemplate.adInfoList.size() > 0) {
             loadBlurImage(com.kwad.sdk.core.response.a.a.K(this.mAdTemplate.adInfoList.get(0)), this.mVideoBlurBg);
         }
@@ -281,7 +281,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
                 @Override // android.view.View.OnClickListener
                 public final void onClick(View view2) {
                     com.kwad.sdk.core.report.a.r(DownloadLandPageActivity.this.mAdTemplate, Cea708Decoder.COMMAND_DF0);
-                    DownloadLandPageActivity.this.mApkDownloadHelper.m(new a.C0593a(DownloadLandPageActivity.this.getActivity()).aj(true).ak(false).L(DownloadLandPageActivity.this.mAdTemplate).am(false));
+                    DownloadLandPageActivity.this.mApkDownloadHelper.m(new a.C0596a(DownloadLandPageActivity.this.getActivity()).aj(true).ak(false).L(DownloadLandPageActivity.this.mAdTemplate).am(false));
                     if (DownloadLandPageActivity.this.mIsRewardLandPage) {
                         com.kwad.sdk.core.report.a.a(DownloadLandPageActivity.this.mAdTemplate, new com.kwad.sdk.core.report.f(), (JSONObject) null);
                     }
@@ -317,7 +317,7 @@ public class DownloadLandPageActivity extends com.kwad.components.core.g.b<com.k
         Context wrapContextIfNeed = Wrapper.wrapContextIfNeed(getActivity());
         this.mContext = wrapContextIfNeed;
         showingAdWebViewLandPage = true;
-        setContentView(ag.cB(wrapContextIfNeed) ? R.layout.obfuscated_res_0x7f0d0436 : R.layout.obfuscated_res_0x7f0d043c);
+        setContentView(ag.cB(wrapContextIfNeed) ? R.layout.obfuscated_res_0x7f0d043c : R.layout.obfuscated_res_0x7f0d0442);
         if (!initData()) {
             finish();
             return;

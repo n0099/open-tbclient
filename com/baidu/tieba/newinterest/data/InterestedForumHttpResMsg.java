@@ -3,7 +3,7 @@ package com.baidu.tieba.newinterest.data;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.br8;
+import com.baidu.tieba.kt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetVerticalForumList.GetVerticalForumListResIdl;
 public class InterestedForumHttpResMsg extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public br8 pageData;
+    public kt8 pageData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public InterestedForumHttpResMsg() {
@@ -36,13 +36,13 @@ public class InterestedForumHttpResMsg extends HttpResponsedMessage {
         }
     }
 
-    public br8 getPageData() {
+    public kt8 getPageData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.pageData;
         }
-        return (br8) invokeV.objValue;
+        return (kt8) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -61,8 +61,8 @@ public class InterestedForumHttpResMsg extends HttpResponsedMessage {
             }
             setErrorString(getVerticalForumListResIdl.error.usermsg);
         }
-        br8 br8Var = new br8();
-        this.pageData = br8Var;
-        br8Var.a(getVerticalForumListResIdl.data);
+        kt8 kt8Var = new kt8();
+        this.pageData = kt8Var;
+        kt8Var.a(getVerticalForumListResIdl.data);
     }
 }

@@ -1,153 +1,156 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.util.Pair;
+import android.widget.ListAdapter;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.widget.ListView.BdListView;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.pb.account.forbid.ForbidResultData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.newfaceshop.nativemotionmanager.managers.MyEmotionHorizontalAdater;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class qs8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
+    public BdListView a;
+    public MyEmotionHorizontalAdater b;
+    public List<EmotionPackageData> c;
+    public final List<a> d;
+    public vs8 e;
+    public os8 f;
 
     /* loaded from: classes6.dex */
-    public interface b {
-        void a(ForbidResultData forbidResultData);
-
-        void b(ForbidResultData forbidResultData);
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a extends BdAsyncTask<String, Object, ForbidResultData> {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public String c;
-        public String d;
-        public String e;
-        public String f;
-        public String g;
-        public String h;
-        public String i;
-        public WeakReference<b> j;
+        public int a;
+        public int b;
+        public int c;
 
-        public a(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, str2, str3, str4, str5, str6, str7, str8, str9, bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = str;
-            this.b = str2;
-            this.c = str3;
-            this.d = str4;
-            this.g = str6;
-            this.e = str8;
-            this.f = str9;
-            this.h = str7;
-            this.i = str5;
-            this.j = new WeakReference<>(bVar);
-            setPriority(3);
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public ForbidResultData doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        public String toString() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                NetWork netWork = new NetWork(qs8.a);
-                netWork.addPostData("day", this.g);
-                netWork.addPostData("un", this.d);
-                netWork.addPostData("fid", this.a);
-                netWork.addPostData("word", this.b);
-                netWork.addPostData("z", this.c);
-                netWork.addPostData("reason", this.h);
-                netWork.addPostData("ntn", "banid");
-                netWork.addPostData("post_id", this.i);
-                netWork.addPostData("nick_name", this.e);
-                netWork.addPostData("portrait", this.f);
-                netWork.getNetContext().getRequest().mIsNeedTbs = true;
-                String postNetData = netWork.postNetData();
-                if (netWork.getNetContext().getResponse().isRequestSuccess()) {
-                    try {
-                        return (ForbidResultData) OrmObject.objectWithJsonStr(postNetData, ForbidResultData.class);
-                    } catch (Exception e) {
-                        BdLog.detailException(e);
-                        ForbidResultData forbidResultData = new ForbidResultData();
-                        forbidResultData.error_code = -1000;
-                        return forbidResultData;
-                    }
-                }
-                ForbidResultData forbidResultData2 = new ForbidResultData();
-                forbidResultData2.error_code = netWork.getServerErrorCode();
-                forbidResultData2.error_msg = netWork.getErrorString();
-                return forbidResultData2;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return "id: " + this.a + StringUtil.ARRAY_ELEMENT_SEPARATOR + "firstVisibleItem: " + this.b + StringUtil.ARRAY_ELEMENT_SEPARATOR + "padX: " + this.c;
             }
-            return (ForbidResultData) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(ForbidResultData forbidResultData) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forbidResultData) == null) {
-                super.onPostExecute(forbidResultData);
-                b bVar = this.j.get();
-                if (bVar != null) {
-                    if (forbidResultData.error_code == 0 && hi.isEmpty(forbidResultData.error_msg)) {
-                        bVar.a(forbidResultData);
-                    } else {
-                        bVar.b(forbidResultData);
-                    }
-                }
-            }
+            return (String) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948102515, "Lcom/baidu/tieba/qs8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948102515, "Lcom/baidu/tieba/qs8;");
+    public qs8(TbPageContext<?> tbPageContext, BdListView bdListView, os8 os8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdListView, os8Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = TbConfig.SERVER_ADDRESS + TbConfig.FORBID_USER_ADDRESS;
+        this.a = bdListView;
+        vs8 vs8Var = new vs8(tbPageContext);
+        this.e = vs8Var;
+        vs8Var.b(TbadkCoreApplication.getInst().getSkinType());
+        this.a.addHeaderView(this.e.a());
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        MyEmotionHorizontalAdater myEmotionHorizontalAdater = new MyEmotionHorizontalAdater(this.c, this.d, tbPageContext);
+        this.b = myEmotionHorizontalAdater;
+        this.f = os8Var;
+        this.a.setAdapter((ListAdapter) myEmotionHorizontalAdater);
     }
 
-    public static void b(String str, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9, b bVar) {
+    public void a(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, str4, str5, str6, str7, str8, str9, bVar}) == null) {
-            new a(str, str2, str3, str4, str5, str6, str7, str8, str9, bVar).execute(new String[0]);
+        if ((interceptable == null || interceptable.invokeII(1048576, this, i, i2) == null) && i >= 0 && i < this.c.size() && i2 >= 0 && i2 < this.c.size()) {
+            List<EmotionPackageData> list = this.c;
+            list.add(i2, list.remove(i));
+            List<a> list2 = this.d;
+            list2.add(i2, list2.remove(i));
+            this.b.notifyDataSetChanged();
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921312, new Pair(Integer.valueOf(i), Integer.valueOf(i2))));
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ArrayList arrayList = new ArrayList(this.d);
+            this.d.clear();
+            for (EmotionPackageData emotionPackageData : this.c) {
+                a aVar = null;
+                Iterator it = arrayList.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    a aVar2 = (a) it.next();
+                    if (aVar2 != null && aVar2.a == emotionPackageData.id) {
+                        aVar = aVar2;
+                        break;
+                    }
+                }
+                if (aVar == null) {
+                    aVar = new a();
+                    aVar.a = emotionPackageData.id;
+                }
+                this.d.add(aVar);
+            }
+        }
+    }
+
+    public void update() {
+        vs8 vs8Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.b != null && this.a != null && this.c != null && (vs8Var = this.e) != null && this.f != null) {
+            vs8Var.c();
+            this.f.b(0, this.b.b());
+            this.f.a(ns8.b().a());
+            this.b.notifyDataSetChanged();
+        }
+    }
+
+    public void update(List<EmotionPackageData> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, list) == null) && this.a != null && this.b != null) {
+            this.c.clear();
+            this.c.addAll(list);
+            b();
+            this.b.d();
+            this.e.update(Integer.valueOf(this.b.b()));
+            this.f.b(0, this.b.b());
+            this.f.a(ns8.b().a());
+            this.b.notifyDataSetChanged();
         }
     }
 }

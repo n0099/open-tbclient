@@ -1,64 +1,93 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.player.ExtAction;
+import com.baidu.searchbox.player.BDVideoPlayer;
+import com.baidu.searchbox.player.event.SystemEvent;
+import com.baidu.searchbox.player.event.VideoEvent;
+import com.baidu.searchbox.player.plugin.AbsPlugin;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class vl8 {
+public final class vl8 extends AbsPlugin {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948244743, "Lcom/baidu/tieba/vl8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948244743, "Lcom/baidu/tieba/vl8;");
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    public void onPlayerEventNotify(VideoEvent event) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vl8(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new a(null);
+        Intrinsics.checkNotNullParameter(context, "context");
     }
 
-    /* loaded from: classes6.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    @Override // com.baidu.searchbox.player.interfaces.INeuron
+    public int[] getSubscribeEvent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new int[]{1, 4};
         }
+        return (int[]) invokeV.objValue;
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    @Override // com.baidu.searchbox.player.plugin.AbsPlugin, com.baidu.searchbox.player.interfaces.INeuron
+    @SuppressLint({"WrongConstant"})
+    public void onSystemEventNotify(VideoEvent event) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, event) == null) {
+            Intrinsics.checkNotNullParameter(event, "event");
+            String action = event.getAction();
+            if (action.hashCode() == 1822725860 && action.equals(SystemEvent.ACTION_VOLUME_CHANGED)) {
+                BDVideoPlayer bindPlayer = getBindPlayer();
+                boolean z2 = true;
+                if (bindPlayer != null) {
+                    z = bindPlayer.isStop();
+                } else {
+                    z = true;
                 }
-            }
-        }
-
-        public final void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                new StatisticItem("c15102").param("uid", TbadkCoreApplication.getCurrentAccount()).eventStat();
+                if (!z) {
+                    BDVideoPlayer bindPlayer2 = getBindPlayer();
+                    if (bindPlayer2 != null) {
+                        z2 = bindPlayer2.isComplete();
+                    }
+                    if (!z2) {
+                        ExtAction extAction = new ExtAction(event.getAction());
+                        extAction.put(5, Integer.valueOf(event.getIntExtra(5)));
+                        BDVideoPlayer bindPlayer3 = getBindPlayer();
+                        if (bindPlayer3 != null) {
+                            bindPlayer3.onInfo(0, 0, extAction);
+                        }
+                    }
+                }
             }
         }
     }

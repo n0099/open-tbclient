@@ -1,82 +1,112 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+import android.content.Context;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zr9 {
+public class zr9 implements z45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public View b;
-    public TextView c;
-    public TbImageView d;
-    public TextView e;
+    public yr9 a;
 
-    public zr9(TbPageContext<?> tbPageContext) {
+    public zr9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
-        b();
     }
 
-    public void d(DressItemData dressItemData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, dressItemData) != null) || dressItemData == null) {
-            return;
-        }
-        this.c.setText(dressItemData.getTitle());
-        this.d.N(dressItemData.getPermissionImgUrl(), 10, false);
-        this.e.setText(dressItemData.getDescription());
-    }
-
-    public View a() {
+    @Override // com.baidu.tieba.z45
+    public Class<?> d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return MainTabActivity.class;
         }
-        return (View) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.z45
+    public String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            an5.a(this.a, this.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return MainTabActivity.class.getName();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.z45
+    public int getCurrentTabType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            yr9 yr9Var = this.a;
+            if (yr9Var != null) {
+                return yr9Var.getCurrentTabType();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.z45
+    public void a(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
+            String currentAccount = TbadkCoreApplication.getCurrentAccount();
+            if (currentAccount != null && currentAccount.length() > 0) {
+                b(context, 1);
+            } else {
+                b(context, 0);
+            }
         }
     }
 
-    public final void b() {
+    public void g(yr9 yr9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d0134, (ViewGroup) null);
-            this.b = inflate;
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922fd);
-            this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0903c8);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0922fc);
-            c();
+        if (interceptable == null || interceptable.invokeL(1048582, this, yr9Var) == null) {
+            this.a = yr9Var;
+        }
+    }
+
+    @Override // com.baidu.tieba.z45
+    public void b(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i)));
+        }
+    }
+
+    @Override // com.baidu.tieba.z45
+    public void c(Context context, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createNormalCfg(i, z)));
+        }
+    }
+
+    @Override // com.baidu.tieba.z45
+    public void e(Context context, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(context).createRefreshCfg(i, z)));
         }
     }
 }

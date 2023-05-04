@@ -1,286 +1,41 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.down.request.db.DownloadDataConstants;
-import com.baidu.tbadk.TiebaDatabase;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import java.io.File;
 /* loaded from: classes7.dex */
 public class yp4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final yp4 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-253099697, "Lcom/baidu/tieba/yp4$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-253099697, "Lcom/baidu/tieba/yp4$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948337836, "Lcom/baidu/tieba/yp4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            a = new yp4();
-        }
-    }
-
-    public yp4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948337836, "Lcom/baidu/tieba/yp4;");
+                return;
             }
         }
+        a = AppRuntime.getAppContext().getFilesDir().getAbsolutePath() + File.separator + ZeusWebViewPreloadClass.ZEUS_FILE_DIR + File.separator + "libs";
     }
 
-    public static final yp4 g() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+            return new File(a + File.separator + "libzeuswebviewchromium.so").exists();
         }
-        return (yp4) invokeV.objValue;
-    }
-
-    public synchronized long a(aq4 aq4Var) {
-        InterceptResult invokeL;
-        long h;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aq4Var)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                h = h(f, aq4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-            return h;
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized long i(aq4 aq4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, aq4Var)) == null) {
-            synchronized (this) {
-                if (aq4Var == null) {
-                    return -1L;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                long j = j(f, aq4Var);
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                return j;
-            }
-        }
-        return invokeL.longValue;
-    }
-
-    public synchronized void b(List<aq4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (aq4 aq4Var : list) {
-                    h(f, aq4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-        }
-    }
-
-    public synchronized boolean e(aq4 aq4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, aq4Var)) == null) {
-            synchronized (this) {
-                boolean z = false;
-                if (aq4Var == null) {
-                    return false;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                int delete = f.delete("activity_mission_info", "activityid = ? and missionid = ?", new String[]{String.valueOf(aq4Var.d()), String.valueOf(aq4Var.q())});
-                f.setTransactionSuccessful();
-                f.endTransaction();
-                if (delete >= 0) {
-                    z = true;
-                }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized void k(List<aq4> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, list) == null) {
-            synchronized (this) {
-                if (ListUtils.isEmpty(list)) {
-                    return;
-                }
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                for (aq4 aq4Var : list) {
-                    j(f, aq4Var);
-                }
-                f.setTransactionSuccessful();
-                f.endTransaction();
-            }
-        }
-    }
-
-    public final ContentValues c(aq4 aq4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, aq4Var)) == null) {
-            if (aq4Var == null) {
-                return null;
-            }
-            ContentValues contentValues = new ContentValues();
-            contentValues.put("activityid", Integer.valueOf(aq4Var.d()));
-            contentValues.put("missionid", Integer.valueOf(aq4Var.q()));
-            contentValues.put("activitysource", aq4Var.e());
-            contentValues.put("calltype", Integer.valueOf(aq4Var.i()));
-            contentValues.put(DownloadDataConstants.Columns.COLUMN_TASK_TYPE, Integer.valueOf(aq4Var.x()));
-            contentValues.put("browsetimepage", aq4Var.g());
-            contentValues.put("browsetime", Long.valueOf(aq4Var.f()));
-            contentValues.put("threadnum", Integer.valueOf(aq4Var.A()));
-            contentValues.put("forumnum", Integer.valueOf(aq4Var.p()));
-            contentValues.put("cleartype", Integer.valueOf(aq4Var.k()));
-            contentValues.put("cleartime", Long.valueOf(aq4Var.j()));
-            contentValues.put("specificcleartime", Long.valueOf(aq4Var.t()));
-            contentValues.put("tid", Long.valueOf(aq4Var.C()));
-            contentValues.put("fid", Long.valueOf(aq4Var.o()));
-            contentValues.put("threadtext", aq4Var.B());
-            contentValues.put("threadimg", aq4Var.z());
-            contentValues.put("threadforum", Long.valueOf(aq4Var.y()));
-            contentValues.put("totalLimit", Integer.valueOf(aq4Var.F()));
-            contentValues.put("completedLimitCount", Integer.valueOf(aq4Var.w()));
-            contentValues.put("token", aq4Var.E());
-            contentValues.put("executingMissionList", aq4Var.b());
-            return contentValues;
-        }
-        return (ContentValues) invokeL.objValue;
-    }
-
-    public final aq4 d(Cursor cursor) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, cursor)) == null) {
-            if (cursor != null && !cursor.isClosed()) {
-                aq4 aq4Var = new aq4();
-                aq4Var.T(cursor.getInt(cursor.getColumnIndex("activityid")));
-                aq4Var.c0(cursor.getInt(cursor.getColumnIndex("missionid")));
-                aq4Var.U(cursor.getString(cursor.getColumnIndex("activitysource")));
-                aq4Var.X(cursor.getInt(cursor.getColumnIndex("calltype")));
-                aq4Var.g0(cursor.getInt(cursor.getColumnIndex(DownloadDataConstants.Columns.COLUMN_TASK_TYPE)));
-                aq4Var.W(cursor.getString(cursor.getColumnIndex("browsetimepage")));
-                aq4Var.V(cursor.getLong(cursor.getColumnIndex("browsetime")));
-                aq4Var.j0(cursor.getInt(cursor.getColumnIndex("threadnum")));
-                aq4Var.b0(cursor.getInt(cursor.getColumnIndex("forumnum")));
-                aq4Var.Z(cursor.getInt(cursor.getColumnIndex("cleartype")));
-                aq4Var.Y(cursor.getLong(cursor.getColumnIndex("cleartime")));
-                aq4Var.e0(cursor.getLong(cursor.getColumnIndex("specificcleartime")));
-                aq4Var.l0(cursor.getLong(cursor.getColumnIndex("tid")));
-                aq4Var.a0(cursor.getLong(cursor.getColumnIndex("fid")));
-                aq4Var.k0(cursor.getString(cursor.getColumnIndex("threadtext")));
-                aq4Var.i0(cursor.getString(cursor.getColumnIndex("threadimg")));
-                aq4Var.h0(cursor.getInt(cursor.getColumnIndex("threadforum")));
-                aq4Var.n0(cursor.getInt(cursor.getColumnIndex("totalLimit")));
-                aq4Var.f0(cursor.getInt(cursor.getColumnIndex("completedLimitCount")));
-                aq4Var.Q(aq4Var.x(), cursor.getString(cursor.getColumnIndex("executingMissionList")));
-                aq4Var.m0(cursor.getString(cursor.getColumnIndex("token")));
-                return aq4Var;
-            }
-            return null;
-        }
-        return (aq4) invokeL.objValue;
-    }
-
-    public synchronized List<aq4> f() {
-        InterceptResult invokeV;
-        LinkedList linkedList;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this) {
-                SQLiteDatabase f = TiebaDatabase.getInstance().getMainDBDatabaseManager().f();
-                f.beginTransaction();
-                linkedList = new LinkedList();
-                Cursor rawQuery = f.rawQuery("SELECT * FROM activity_mission_info", null);
-                while (rawQuery.moveToNext()) {
-                    aq4 d = d(rawQuery);
-                    if (d != null) {
-                        linkedList.add(d);
-                    }
-                }
-                f.setTransactionSuccessful();
-                ji.a(rawQuery);
-                f.endTransaction();
-            }
-            return linkedList;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final long h(SQLiteDatabase sQLiteDatabase, aq4 aq4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, sQLiteDatabase, aq4Var)) == null) {
-            try {
-                return sQLiteDatabase.insert("activity_mission_info", null, c(aq4Var));
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
-            }
-        }
-        return invokeLL.longValue;
-    }
-
-    public final long j(SQLiteDatabase sQLiteDatabase, aq4 aq4Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, sQLiteDatabase, aq4Var)) == null) {
-            try {
-                return sQLiteDatabase.update("activity_mission_info", c(aq4Var), "activityid = ? and missionid = ?", new String[]{String.valueOf(aq4Var.d()), String.valueOf(aq4Var.q())});
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return -1L;
-            }
-        }
-        return invokeLL.longValue;
+        return invokeV.booleanValue;
     }
 }

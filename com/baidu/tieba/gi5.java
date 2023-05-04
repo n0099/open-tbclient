@@ -1,17 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import com.baidu.android.imsdk.chatmessage.response.SendMsgResponse;
 /* loaded from: classes4.dex */
-public interface gi5 extends li5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("ImMessageCenter", "ChatBoxDialogService");
+public interface gi5 {
+    void a(ChatMsg chatMsg);
 
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    void b(int i, String str, SendMsgResponse sendMsgResponse);
 }

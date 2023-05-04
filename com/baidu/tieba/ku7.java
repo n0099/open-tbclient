@@ -1,278 +1,116 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.App;
+import tbclient.BannerList;
+import tbclient.Personalized.DataRes;
 /* loaded from: classes5.dex */
-public class ku7 extends vm<pu7, CardViewHolder<xu7>> {
+public class ku7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public xf<ConstrainImageLayout> b;
-    public xf<TbImageView> c;
 
-    /* loaded from: classes5.dex */
-    public class a implements yf<ConstrainImageLayout> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku7 a;
-
-        public ConstrainImageLayout e(ConstrainImageLayout constrainImageLayout) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
-        }
-
-        public ConstrainImageLayout h(ConstrainImageLayout constrainImageLayout) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, constrainImageLayout)) == null) ? constrainImageLayout : (ConstrainImageLayout) invokeL.objValue;
-        }
-
-        public a(ku7 ku7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+    public static void a(String str, List<in> list) {
+        np9 np9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, str, list) == null) && list != null && list.size() > 0 && !TextUtils.isEmpty(str)) {
+            Iterator<in> it = list.iterator();
+            int i = 0;
+            AdvertAppInfo advertAppInfo = null;
+            int i2 = 0;
+            int i3 = 0;
+            while (it.hasNext()) {
+                i++;
+                in next = it.next();
+                if ((i2 + 1 == i || i3 + 1 == i) && (next instanceof x06)) {
+                    it.remove();
                 }
-            }
-            this.a = ku7Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ ConstrainImageLayout a(ConstrainImageLayout constrainImageLayout) {
-            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
-            e(constrainImageLayout2);
-            return constrainImageLayout2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ ConstrainImageLayout c(ConstrainImageLayout constrainImageLayout) {
-            ConstrainImageLayout constrainImageLayout2 = constrainImageLayout;
-            h(constrainImageLayout2);
-            return constrainImageLayout2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: f */
-        public void b(ConstrainImageLayout constrainImageLayout) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, constrainImageLayout) == null) {
-                constrainImageLayout.removeAllViews();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: g */
-        public ConstrainImageLayout d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return new ConstrainImageLayout(this.a.a.getPageActivity());
-            }
-            return (ConstrainImageLayout) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements yf<TbImageView> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ku7 a;
-
-        public TbImageView e(TbImageView tbImageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tbImageView)) == null) ? tbImageView : (TbImageView) invokeL.objValue;
-        }
-
-        public b(ku7 ku7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+                if (next instanceof rt7) {
+                    advertAppInfo = ((rt7) next).c();
+                } else if (next instanceof ry4) {
+                    ry4 ry4Var = (ry4) next;
+                    if (ry4Var.c() instanceof AdvertAppInfo.ILegoAdvert) {
+                        advertAppInfo = ((AdvertAppInfo.ILegoAdvert) ry4Var.c()).getAdvertAppInfo();
+                    }
+                } else if ((next instanceof ThreadData) && (np9Var = ((ThreadData) next).funAdData) != null && np9Var.i()) {
+                    it.remove();
+                    i3 = i;
                 }
-            }
-            this.a = ku7Var;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ TbImageView a(TbImageView tbImageView) {
-            TbImageView tbImageView2 = tbImageView;
-            e(tbImageView2);
-            return tbImageView2;
-        }
-
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
-        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-        @Override // com.baidu.tieba.yf
-        public /* bridge */ /* synthetic */ TbImageView c(TbImageView tbImageView) {
-            TbImageView tbImageView2 = tbImageView;
-            h(tbImageView2);
-            return tbImageView2;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: f */
-        public void b(TbImageView tbImageView) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048581, this, tbImageView) == null) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-            }
-        }
-
-        public TbImageView h(TbImageView tbImageView) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, tbImageView)) == null) {
-                tbImageView.setOnClickListener(null);
-                tbImageView.setForegroundColor(0);
-                return tbImageView;
-            }
-            return (TbImageView) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yf
-        /* renamed from: g */
-        public TbImageView d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                TbImageView tbImageView = new TbImageView(this.a.a.getPageActivity());
-                tbImageView.setDrawBorder(true);
-                tbImageView.setBorderColor(SkinManager.getColor(R.color.common_color_10043));
-                tbImageView.setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070198));
-                return tbImageView;
-            }
-            return (TbImageView) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements sn {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(ku7 ku7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ku7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+                if (advertAppInfo != null && str.equals(advertAppInfo.a)) {
+                    it.remove();
+                    advertAppInfo = null;
+                    i2 = i;
                 }
             }
         }
+    }
 
-        @Override // com.baidu.tieba.sn
-        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            xu7 xu7Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (view2.getTag() instanceof CardViewHolder) && (xu7Var = (xu7) ((CardViewHolder) view2.getTag()).a()) != null) {
-                xu7Var.u();
+    public static void b(List<in> list, DataRes.Builder builder, ds7 ds7Var, ot7 ot7Var) {
+        np9 np9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, list, builder, ds7Var, ot7Var) == null) {
+            if (list != null && list.size() > 0) {
+                Iterator<in> it = list.iterator();
+                while (it.hasNext()) {
+                    in next = it.next();
+                    if (!(next instanceof rt7) && !(next instanceof ry4) && !(next instanceof x06)) {
+                        if ((next instanceof ThreadData) && (np9Var = ((ThreadData) next).funAdData) != null) {
+                            np9Var.p(true);
+                            it.remove();
+                        }
+                    } else {
+                        it.remove();
+                    }
+                }
+            }
+            if (builder != null && ListUtils.getCount(builder.thread_list) > 0) {
+                BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
+                List<App> list2 = builder2.app;
+                if (list2 != null) {
+                    list2.clear();
+                }
+                builder.banner_list = builder2.build(false);
+                DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
+                builder3.banner_list = builder2.build(true);
+                if (ds7Var != null) {
+                    ds7Var.a(builder3);
+                }
+            }
+            if (ot7Var != null) {
+                ot7Var.y(list);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ku7(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), pu7.g);
+    public static void c(String str, DataRes.Builder builder, ds7 ds7Var) {
+        BannerList bannerList;
+        List<App> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, builder, ds7Var) == null) && !TextUtils.isEmpty(str) && builder != null && (bannerList = builder.banner_list) != null && (list = bannerList.app) != null && list.size() > 0) {
+            ArrayList arrayList = new ArrayList();
+            for (App app : builder.banner_list.app) {
+                if (app != null && str.equals(ed9.a(app))) {
+                    arrayList.add(app);
+                }
+            }
+            BannerList.Builder builder2 = new BannerList.Builder(builder.banner_list);
+            List<App> list2 = builder2.app;
+            if (list2 != null) {
+                list2.removeAll(arrayList);
+            }
+            builder.banner_list = builder2.build(false);
+            DataRes.Builder builder3 = new DataRes.Builder(builder.build(true));
+            builder3.banner_list = builder2.build(true);
+            if (ds7Var != null) {
+                ds7Var.a(builder3);
             }
         }
-        this.b = new xf<>(new a(this), 6, 0);
-        this.c = new xf<>(new b(this), 12, 0);
-        this.a = tbPageContext;
-        setOnAdapterItemClickListener(new c(this));
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public CardViewHolder<xu7> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            xu7 xu7Var = new xu7(this.a);
-            xu7Var.D(this.b);
-            xu7Var.C(this.c);
-            xu7Var.o(this.mPageId);
-            return new CardViewHolder<>(xu7Var);
-        }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pu7 pu7Var, CardViewHolder<xu7> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pu7Var, cardViewHolder})) == null) {
-            if (pu7Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().l(pu7Var);
-                return cardViewHolder.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
     }
 }

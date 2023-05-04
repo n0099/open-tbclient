@@ -49,8 +49,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.io9;
 import com.baidu.tieba.ki;
+import com.baidu.tieba.xr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -1323,12 +1323,12 @@ public class TbTabLayout extends HorizontalScrollView {
                 boolean z = false;
                 if (this.d == null) {
                     if (this.c == null) {
-                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022d, (ViewGroup) this, false);
+                        ImageView imageView2 = (ImageView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0230, (ViewGroup) this, false);
                         addView(imageView2, 0);
                         this.c = imageView2;
                     }
                     if (this.b == null) {
-                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d022e, (ViewGroup) this, false);
+                        TextView textView3 = (TextView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0231, (ViewGroup) this, false);
                         addView(textView3);
                         this.b = textView3;
                         this.i = TextViewCompat.getMaxLines(textView3);
@@ -1650,7 +1650,7 @@ public class TbTabLayout extends HorizontalScrollView {
         this.c = eVar;
         super.addView(eVar, 0, new FrameLayout.LayoutParams(-2, -1));
         TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, com.google.android.material.R.styleable.TabLayout, i, R.style.obfuscated_res_0x7f10033f);
-        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, io9.TbTabLayout);
+        TypedArray obtainStyledAttributes2 = context.obtainStyledAttributes(attributeSet, xr9.TbTabLayout);
         this.c.h(obtainStyledAttributes.getDimensionPixelSize(10, 0));
         this.c.i(obtainStyledAttributes2.getDimensionPixelSize(0, 0));
         this.c.g(obtainStyledAttributes.getColor(7, 0));

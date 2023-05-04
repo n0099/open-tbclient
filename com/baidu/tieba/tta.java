@@ -1,307 +1,195 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.content.SharedPreferences;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.content.pm.SigningInfo;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.view.LayoutInflater;
+import android.view.ViewGroup;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.hihonor.push.framework.aidl.entity.RequestHeader;
-import com.hihonor.push.sdk.common.data.ApiException;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.nio.charset.StandardCharsets;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.util.ArrayList;
-import java.util.Locale;
-import java.util.UUID;
-import java.util.concurrent.Callable;
-import java.util.concurrent.ExecutionException;
-import java.util.concurrent.ExecutorService;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.FunAdSdk;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.channel.model.jy.JYNativeAdView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.GlideHelper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.win.opensdk.PBError;
+import com.win.opensdk.PBNative;
+import com.win.opensdk.PBNativeListener;
 /* loaded from: classes6.dex */
-public class tta {
+public class tta extends ReporterPidLoader<PBNative> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final FunNativeAdListenerHelper<PBNative, PBNativeListener> e;
 
-    public static String f(byte[] bArr) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tta(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.NATIVE), pid, true, true);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.e = new FunNativeAdListenerHelper<>(this);
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, context, funAdSlot) == null) {
+            onLoadStart(funAdSlot);
+            PBNative pBNative = new PBNative(context.getApplicationContext(), this.mPid.pid);
+            pBNative.setNativeListener(new a(this, pBNative));
+            pBNative.load();
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements PBNativeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ PBNative a;
+        public final /* synthetic */ tta b;
+
+        public a(tta ttaVar, PBNative pBNative) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ttaVar, pBNative};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ttaVar;
+            this.a = pBNative;
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onFail(PBError pBError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pBError) == null) {
+                LogPrinter.e("onFail code: " + pBError.getCode() + ", message: " + pBError.getMsg(), new Object[0]);
+                this.b.onError(pBError.getCode(), pBError.getMsg());
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onLoaded() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.b.onAdLoaded((tta) this.a);
+            }
+        }
+
+        @Override // com.win.opensdk.PBListener
+        public void onClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.win.opensdk.PBNativeListener
+        public void onDisplayed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.b.e.onAdShow(this.a);
+            }
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        PBNative pBNative;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (pBNative = (PBNative) obj) != null) {
+            this.e.destroy(pBNative);
+            pBNative.destroy();
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean isAdAvailable(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
-            if (bArr.length != 0) {
-                StringBuilder sb = new StringBuilder();
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb.append(TransactionIdCreater.FILL_BYTE);
-                    }
-                    sb.append(hexString);
-                }
-                return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            if (pBNative != null && pBNative.isReady()) {
+                return true;
             }
-            return "";
+            return false;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public static byte[] h(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return new byte[0];
-            }
-            String upperCase = str.toUpperCase(Locale.ENGLISH);
-            int length = upperCase.length() / 2;
-            byte[] bArr = new byte[length];
-            try {
-                byte[] bytes = upperCase.getBytes(StandardCharsets.UTF_8);
-                for (int i2 = 0; i2 < length; i2++) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("0x");
-                    sb.append(new String(new byte[]{bytes[i2 * 2]}, StandardCharsets.UTF_8));
-                    bArr[i2] = (byte) (((byte) (Byte.decode(sb.toString()).byteValue() << 4)) ^ Byte.decode("0x" + new String(new byte[]{bytes[i + 1]}, StandardCharsets.UTF_8)).byteValue());
-                }
-            } catch (NumberFormatException e) {
-                String str2 = "hex string 2 byte array exception : " + e.getMessage();
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] i(byte[] bArr, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65544, null, bArr, i)) == null) {
-            if (bArr == null) {
-                return bArr;
-            }
-            for (int i2 = 0; i2 < bArr.length; i2++) {
-                if (i < 0) {
-                    bArr[i2] = (byte) (bArr[i2] << (-i));
-                } else {
-                    bArr[i2] = (byte) (bArr[i2] >> i);
-                }
-            }
-            return bArr;
-        }
-        return (byte[]) invokeLI.objValue;
-    }
-
-    public static byte[] j(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bArr, bArr2)) == null) {
-            byte[] bArr3 = null;
-            if (bArr != null) {
-                int length = bArr.length;
-                if (length != bArr2.length) {
-                    return null;
-                }
-                bArr3 = new byte[length];
-                for (int i = 0; i < length; i++) {
-                    bArr3[i] = (byte) (bArr[i] ^ bArr2[i]);
-                }
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static RequestHeader a() throws ApiException {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = aua.e.a();
-            String str2 = null;
-            try {
-                Object obj = a.getPackageManager().getApplicationInfo(a.getPackageName(), 128).metaData.get("com.hihonor.push.app_id");
-                if (obj != null) {
-                    str2 = String.valueOf(obj);
-                }
-            } catch (PackageManager.NameNotFoundException e) {
-                vta.b("ConfigUtils", "getPushAppId", e);
-            }
-            if (!TextUtils.isEmpty(str2)) {
-                String str3 = "checkPushAppId Parameter is " + str2;
-                String e2 = e(a, a.getPackageName());
-                if (!TextUtils.isEmpty(e2)) {
-                    String str4 = "checkPushCertFingerprint Parameter is " + e2;
-                    RequestHeader requestHeader = new RequestHeader();
-                    requestHeader.setPackageName(a.getPackageName());
-                    requestHeader.setAppId(str2);
-                    requestHeader.setCertificateFingerprint(e2);
-                    yta ytaVar = yta.b;
-                    requestHeader.setPushToken(ytaVar.c(a));
-                    synchronized (ytaVar) {
-                        ytaVar.a(a);
-                        SharedPreferences sharedPreferences = yta.a.a;
-                        if (sharedPreferences != null) {
-                            str = sharedPreferences.getString("key_aaid", "");
-                        } else {
-                            str = "";
-                        }
-                        if (TextUtils.isEmpty(str)) {
-                            str = UUID.randomUUID().toString().replace("-", "");
-                            String str5 = "getRandomUUID UUID =" + str;
-                            yta.a.b("key_aaid", str);
-                        }
-                    }
-                    requestHeader.setAAID(str);
-                    requestHeader.setSdkVersion(70001103);
-                    return requestHeader;
-                }
-                vta.a("checkPushConfig Parameter is missing.");
-                throw HonorPushErrorEnum.ERROR_CERT_FINGERPRINT_EMPTY.toApiException();
-            }
-            vta.a("checkPushConfig Parameter is missing");
-            throw HonorPushErrorEnum.ERROR_NO_APPID.toApiException();
-        }
-        return (RequestHeader) invokeV.objValue;
-    }
-
-    public static ApiException b(Exception exc) {
+    public JYNativeAdView e(PBNative pBNative) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, exc)) == null) {
-            if (exc.getCause() instanceof ApiException) {
-                return (ApiException) exc.getCause();
-            }
-            if (exc instanceof ApiException) {
-                return (ApiException) exc;
-            }
-            return new ApiException(-1, exc.getMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pBNative)) == null) {
+            JYNativeAdView jYNativeAdView = (JYNativeAdView) LayoutInflater.from(FunAdSdk.getAppContext()).inflate(R.layout.fun_jy_ad_native_view, (ViewGroup) null, false);
+            jYNativeAdView.a.setText(pBNative.getBody());
+            jYNativeAdView.d.setText(pBNative.getHeadline());
+            GlideHelper.get().load(jYNativeAdView.getContext(), pBNative.getIcon(), jYNativeAdView.e);
+            jYNativeAdView.f.setText(pBNative.getCallToAction());
+            jYNativeAdView.g = (pBNative.getMediaViewWidth() * 1.0f) / (pBNative.getMediaViewHeight() * 1.0f);
+            pBNative.registerViewForInteraction(jYNativeAdView, jYNativeAdView.c);
+            return jYNativeAdView;
         }
-        return (ApiException) invokeL.objValue;
+        return (JYNativeAdView) invokeL.objValue;
     }
 
-    public static <TResult> mua<TResult> c(Callable<TResult> callable) {
-        InterceptResult invokeL;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, callable)) == null) {
-            ExecutorService executorService = fva.c.b;
-            eva evaVar = new eva();
-            try {
-                executorService.execute(new jua(evaVar, callable));
-            } catch (Exception e) {
-                evaVar.a(e);
-            }
-            return evaVar.a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, str, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            xta xtaVar = new xta(context, pBNative);
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, pBNative, xtaVar, new uta(this, this, xtaVar));
         }
-        return (mua) invokeL.objValue;
+        return (FunNativeAd2) invokeLLL.objValue;
     }
 
-    public static void g(Handler handler) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, handler) != null) || Looper.myLooper() == handler.getLooper()) {
-            return;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, activity, viewGroup, str, obj)) == null) {
+            PBNative pBNative = (PBNative) obj;
+            this.e.startShow(pBNative, str, this.mPid, null, null);
+            JYNativeAdView e = e(pBNative);
+            viewGroup.removeAllViews();
+            viewGroup.addView(e);
+            return true;
         }
-        throw new IllegalStateException("Must be called on the handler thread");
-    }
-
-    public static <TResult> TResult d(mua<TResult> muaVar) throws ExecutionException, InterruptedException {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, muaVar)) == null) {
-            if (Looper.myLooper() != Looper.getMainLooper()) {
-                synchronized (muaVar.a) {
-                    z = muaVar.b;
-                }
-                if (z) {
-                    if (muaVar.f()) {
-                        return muaVar.d();
-                    }
-                    throw new ExecutionException(muaVar.c());
-                }
-                qua quaVar = new qua();
-                fva fvaVar = fva.c;
-                muaVar.a(new hua(fvaVar.a, quaVar));
-                muaVar.a(new dua(fvaVar.a, quaVar));
-                muaVar.a(new uta(fvaVar.a, quaVar));
-                quaVar.a.await();
-                if (muaVar.f()) {
-                    return muaVar.d();
-                }
-                throw new ExecutionException(muaVar.c());
-            }
-            throw new IllegalStateException("await must not be called on the UI thread");
-        }
-        return (TResult) invokeL.objValue;
-    }
-
-    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:19:0x0054 -> B:20:0x0055). Please submit an issue!!! */
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
-        Signature[] signatureArr;
-        String str2;
-        SigningInfo signingInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            String str3 = "getCertFingerprint pkgName=" + str + "onlyOne=true";
-            ArrayList arrayList = new ArrayList();
-            PackageManager packageManager = context.getPackageManager();
-            if (Build.VERSION.SDK_INT >= 30) {
-                PackageInfo packageInfo = packageManager.getPackageInfo(str, 134217728);
-                if (packageInfo != null && (signingInfo = packageInfo.signingInfo) != null) {
-                    if (signingInfo.hasMultipleSigners()) {
-                        signatureArr = signingInfo.getApkContentsSigners();
-                    } else {
-                        signatureArr = signingInfo.getSigningCertificateHistory();
-                    }
-                }
-                signatureArr = null;
-            } else {
-                PackageInfo packageInfo2 = packageManager.getPackageInfo(str, 64);
-                if (packageInfo2 != null) {
-                    signatureArr = packageInfo2.signatures;
-                }
-                signatureArr = null;
-            }
-            if (signatureArr != null && signatureArr.length > 0) {
-                int length = signatureArr.length;
-                int i = 0;
-                while (true) {
-                    if (i >= length) {
-                        break;
-                    }
-                    try {
-                        byte[] digest = MessageDigest.getInstance("SHA256").digest(signatureArr[i].toByteArray());
-                        StringBuilder sb = new StringBuilder();
-                        for (byte b : digest) {
-                            String upperCase = Integer.toHexString(b & 255).toUpperCase(Locale.US);
-                            if (upperCase.length() == 1) {
-                                sb.append("0");
-                            }
-                            sb.append(upperCase);
-                        }
-                        str2 = sb.toString();
-                    } catch (NoSuchAlgorithmException unused) {
-                        str2 = null;
-                    }
-                    if (str2 != null) {
-                        arrayList.add(str2);
-                        break;
-                    }
-                    i++;
-                }
-            }
-            if (arrayList.isEmpty()) {
-                return null;
-            }
-            return (String) arrayList.get(0);
-        }
-        return (String) invokeLL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

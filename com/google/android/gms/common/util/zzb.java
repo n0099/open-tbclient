@@ -1,7 +1,7 @@
 package com.google.android.gms.common.util;
 
 import android.os.Looper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzb {
     public static boolean zza() {
         if (Looper.getMainLooper() == Looper.myLooper()) {

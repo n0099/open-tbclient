@@ -15,7 +15,7 @@ import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.dg;
-import com.baidu.tieba.kq5;
+import com.baidu.tieba.dr5;
 import com.baidu.tieba.tm;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.yb;
@@ -163,7 +163,7 @@ public class BigdayImageLoaderProc implements dg<tm> {
             if (StringUtils.isNull(str)) {
                 return null;
             }
-            kq5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
+            dr5.g(BigdayImageLoaderProc.class.getSimpleName(), str);
             WebClient webClient = new WebClient();
             if (agVar != null) {
                 agVar.a = webClient;
@@ -196,7 +196,7 @@ public class BigdayImageLoaderProc implements dg<tm> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            return TbImageMemoryCache.s().w(str);
+            return TbImageMemoryCache.v().A(str);
         }
         return (tm) invokeCommon.objValue;
     }
@@ -207,7 +207,7 @@ public class BigdayImageLoaderProc implements dg<tm> {
         if ((interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, obj, Integer.valueOf(i), Integer.valueOf(i2), objArr}) == null) && obj != null && (obj instanceof tm)) {
             tm tmVar = (tm) obj;
             if (tmVar.u()) {
-                TbImageMemoryCache.s().k(str, tmVar);
+                TbImageMemoryCache.v().m(str, tmVar);
             }
         }
     }

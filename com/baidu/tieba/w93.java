@@ -7,27 +7,26 @@ import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
-public class w93 extends s93 {
+public class w93 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public w93(s83 s83Var) {
-        super(s83Var, "/swanAPI/setBackgroundColor");
+    public w93(u83 u83Var) {
+        super(u83Var, "/swanAPI/ubcFlowJar");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,48 +40,96 @@ public class w93 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("SwanAppAction", "start ubc flor jar");
+            }
+            if (x73Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+                return false;
+            }
             JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
             if (optParamsAsJo == null) {
-                v42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
                 return false;
             }
-            if (s93.b) {
-                Log.d(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, optParamsAsJo.toString());
-            }
-            e72 V = it2.U().V();
-            if (V == null) {
-                v42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            String optString = optParamsAsJo.optString("flowId");
+            if (TextUtils.isEmpty(optString)) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
                 return false;
             }
-            String optString = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
-            if (TextUtils.isEmpty(optString) && (!TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorTop")) || !TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorBottom")))) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101);
-                return false;
+            char c = 65535;
+            switch (optString.hashCode()) {
+                case 53647:
+                    if (optString.equals("670")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case 53648:
+                    if (optString.equals("671")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 55357:
+                    if (optString.equals("805")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 56506:
+                    if (optString.equals("967")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 1508542:
+                    if (optString.equals("1153")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 1529139648:
+                    if (optString.equals("renderMonitorLog")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
             }
-            d72 o = V.o();
-            if (o == null) {
-                v42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "slave container is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (TextUtils.equals("7", o.Q1().l())) {
-                v42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "this page is from showModalPage api");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
-                return false;
-            } else if (!o.O2(o.A3(), SwanAppConfigData.t(optString), true)) {
-                v42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "set window background fail");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                if (c != 5) {
+                                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
+                                    return false;
+                                }
+                                iz1.C(optParamsAsJo);
+                            } else if (x73Var.W().p0()) {
+                                g52.g(optParamsAsJo.optJSONArray("data"));
+                            } else {
+                                n52.i(optParamsAsJo.optJSONArray("data"));
+                            }
+                        } else {
+                            iz1.D(optParamsAsJo);
+                        }
+                    } else {
+                        iz1.E(optParamsAsJo.optJSONArray("data"));
+                    }
+                } else {
+                    iz1.F(optParamsAsJo.optJSONArray("data"));
+                }
             } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
+                iz1.B(optParamsAsJo, x73Var);
             }
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+            return true;
         }
         return invokeLLLL.booleanValue;
     }

@@ -1,200 +1,109 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.UUID;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import kotlin.jvm.internal.Intrinsics;
+import kotlin.text.StringsKt__StringsJVMKt;
 import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yz2 {
+public final class yz2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static final yz2 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<a03> a;
-    public final Map<String, a03> b;
-    public boolean c;
-    public xz2 d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347384, "Lcom/baidu/tieba/yz2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes7.dex */
+    public static final class a implements uz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Function1 a;
+        public final /* synthetic */ String b;
+
+        public a(Function1 function1, String str) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948347384, "Lcom/baidu/tieba/yz2;");
-                return;
-            }
-        }
-        e = fo1.a;
-        f = new yz2();
-    }
-
-    public static yz2 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return f;
-        }
-        return (yz2) invokeV.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = true;
-            synchronized (this.a) {
-                this.a.clear();
-                this.b.clear();
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "done");
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c = false;
-            synchronized (this.a) {
-                this.a.clear();
-                this.b.clear();
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "reset");
-            }
-        }
-    }
-
-    public yz2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        this.b = new HashMap();
-        this.c = false;
-    }
-
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hybridUbcFlow) != null) || hybridUbcFlow == null) {
-            return;
-        }
-        JSONArray e2 = e();
-        if (e2 != null && e2.length() > 0) {
-            hybridUbcFlow.D("ma_update_recorder", e2.toString());
-        }
-        c();
-    }
-
-    public void h(xz2 xz2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, xz2Var) == null) {
-            this.d = xz2Var;
-        }
-    }
-
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (this.c) {
-                return null;
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "begin update scope id - " + str);
-            }
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String str2 = Thread.currentThread().getName() + "-" + UUID.randomUUID().toString();
-            a03 a03Var = new a03(str);
-            a03Var.a(currentTimeMillis);
-            synchronized (this.a) {
-                this.b.put(str2, a03Var);
-            }
-            if (e) {
-                Log.d("MaUpdateRecorder", "begin update uni tag - " + str2);
-                Log.d("MaUpdateRecorder", "begin update ts - " + currentTimeMillis);
-            }
-            return str2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, str) != null) || this.c) {
-            return;
-        }
-        if (e) {
-            Log.d("MaUpdateRecorder", "end update uni tag - " + str);
-        }
-        if (TextUtils.isEmpty(str)) {
-            return;
-        }
-        long currentTimeMillis = System.currentTimeMillis();
-        synchronized (this.a) {
-            a03 a03Var = this.b.get(str);
-            if (a03Var != null) {
-                a03Var.c(currentTimeMillis);
-                this.a.add(a03Var);
-                this.b.remove(str);
-            }
-        }
-        if (e) {
-            Log.d("MaUpdateRecorder", "end update ts - " + currentTimeMillis);
-        }
-    }
-
-    public final JSONArray e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONArray jSONArray = new JSONArray();
-            synchronized (this.a) {
-                try {
-                    for (a03 a03Var : this.a) {
-                        if (a03Var != null && (this.d == null || this.d.a(a03Var))) {
-                            jSONArray.put(a03Var.d());
-                        }
-                    }
-                } catch (Exception e2) {
-                    if (e) {
-                        e2.printStackTrace();
-                    }
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {function1, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            if (e) {
-                Log.d("MaUpdateRecorder", jSONArray.toString());
+            this.a = function1;
+            this.b = str;
+        }
+
+        @Override // com.baidu.tieba.uz2
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                JSONArray a = yz2.a();
+                if (a != null && a.length() != 0) {
+                    int length = a.length();
+                    for (int i = 0; i < length; i++) {
+                        if (Intrinsics.areEqual(this.b, a.get(i))) {
+                            Function1 function1 = this.a;
+                            if (function1 != null) {
+                                Unit unit = (Unit) function1.invoke(Boolean.TRUE);
+                                return;
+                            }
+                            return;
+                        }
+                    }
+                    Function1 function12 = this.a;
+                    if (function12 != null) {
+                        Unit unit2 = (Unit) function12.invoke(Boolean.FALSE);
+                        return;
+                    }
+                    return;
+                }
+                Function1 function13 = this.a;
+                if (function13 != null) {
+                    Unit unit3 = (Unit) function13.invoke(Boolean.TRUE);
+                }
             }
-            return jSONArray;
+        }
+    }
+
+    public static final /* synthetic */ JSONArray a() {
+        return c();
+    }
+
+    public static final void b(String str, Function1<? super Boolean, Unit> function1) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, function1) == null) {
+            tz2.g().z(new a(function1, str));
+        }
+    }
+
+    public static final JSONArray c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            x73 b0 = x73.b0();
+            if (b0 == null) {
+                return null;
+            }
+            String q = b0.e0().q("note_data_pay_check_list", "");
+            if (q != null && !StringsKt__StringsJVMKt.isBlank(q)) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return null;
+            }
+            return new JSONObject(q).optJSONArray("pay_keys");
         }
         return (JSONArray) invokeV.objValue;
     }

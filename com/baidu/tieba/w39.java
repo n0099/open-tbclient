@@ -1,39 +1,52 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.tbadk.ala.AlaLiveInfoCoreData;
+import java.util.List;
+import tbclient.Anti;
+import tbclient.DynamicInfo;
+import tbclient.ForumDynamic;
+import tbclient.HotUserRankEntry;
+import tbclient.PostInfoList;
+import tbclient.Profile.NicknameInfo;
+import tbclient.Profile.TAInfo;
+import tbclient.Profile.UserAgreeInfo;
+import tbclient.Profile.UserGodInfo;
+import tbclient.TbBookrack;
+import tbclient.ThreadInfo;
+import tbclient.User;
 /* loaded from: classes6.dex */
-public class w39 implements oi5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface w39 {
+    Anti GetAntiStat();
 
-    public w39() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    List<PostInfoList> GetPostList();
 
-    @Override // com.baidu.tieba.oi5
-    @NonNull
-    public pi5 a(@NonNull TbPageContext tbPageContext) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
-            return new b49(tbPageContext);
-        }
-        return (pi5) invokeL.objValue;
-    }
+    User GetUser();
+
+    TbBookrack getBookrackData();
+
+    List<ForumDynamic> getConcernedForumList();
+
+    List<DynamicInfo> getDynamicInfoList();
+
+    int getErrorCode();
+
+    dn7 getGoodsWindowInfo();
+
+    HotUserRankEntry getHotRankEntry();
+
+    AlaLiveInfoCoreData getLiveInfo();
+
+    List<AlaLiveInfoCoreData> getLiveReplayInfo();
+
+    int getMaskType();
+
+    List<ThreadInfo> getNewestThreadList();
+
+    NicknameInfo getNicknameInfo();
+
+    TAInfo getTaInfo();
+
+    UserAgreeInfo getUserAgreeInfo();
+
+    UserGodInfo getUserGodInfo();
 }

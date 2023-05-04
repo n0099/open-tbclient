@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class f {
     public static final int a = a(1, 3);
     public static final int b = a(1, 4);

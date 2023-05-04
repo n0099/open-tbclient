@@ -18,7 +18,7 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.f55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -89,7 +89,7 @@ public class BigdayActivity extends BaseActivity {
                 calendar.set(12, 59);
                 calendar.set(13, 59);
                 calendar.set(14, 0);
-                q45.m().A("key_bigday_next_showtime_home", calendar.getTimeInMillis());
+                f55.m().A("key_bigday_next_showtime_home", calendar.getTimeInMillis());
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921349, null));
                 finish();
             }
@@ -102,7 +102,7 @@ public class BigdayActivity extends BaseActivity {
         if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0169);
+            setContentView(R.layout.obfuscated_res_0x7f0d016c);
             TbImageView tbImageView = (TbImageView) findViewById(R.id.obfuscated_res_0x7f0903dc);
             this.a = tbImageView;
             tbImageView.setAutoChangeStyle(false);

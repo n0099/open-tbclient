@@ -65,7 +65,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public com.kwad.components.core.widget.b dV;
     public a dW;
     public ViewGroup.MarginLayoutParams dX;
-    public b.InterfaceC0617b dY;
+    public b.InterfaceC0620b dY;
 
     /* renamed from: do  reason: not valid java name */
     public ImageView f5do;
@@ -74,7 +74,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
     public d dr;
     public boolean ds;
     public boolean dt;
-    public final a.InterfaceC0604a du;
+    public final a.InterfaceC0607a du;
     public h.a dv;
     public KsAdWebView mAdWebView;
     @Nullable
@@ -109,15 +109,15 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
             public final void bl() {
             }
         };
-        this.dY = new b.InterfaceC0617b() { // from class: com.kwad.components.ad.feed.a.l.10
-            @Override // com.kwad.components.core.widget.b.InterfaceC0617b
+        this.dY = new b.InterfaceC0620b() { // from class: com.kwad.components.ad.feed.a.l.10
+            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
             public final void onAdClicked() {
                 if (l.this.lp != null) {
                     l.this.lp.onAdClicked();
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0617b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
             public final void onAdShow() {
                 if (l.this.lp != null) {
                     l.this.lp.onAdShow();
@@ -135,21 +135,21 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0617b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
             public final void onDislikeClicked() {
                 if (l.this.lp != null) {
                     l.this.lp.onDislikeClicked();
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0617b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
             public final void onDownloadTipsDialogDismiss() {
                 if (l.this.lp != null) {
                     l.this.lp.onDownloadTipsDialogDismiss();
                 }
             }
 
-            @Override // com.kwad.components.core.widget.b.InterfaceC0617b
+            @Override // com.kwad.components.core.widget.b.InterfaceC0620b
             public final void onDownloadTipsDialogShow() {
                 if (l.this.lp != null) {
                     l.this.lp.onDownloadTipsDialogShow();
@@ -178,8 +178,8 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
                 }
             }
         };
-        this.du = new a.InterfaceC0604a() { // from class: com.kwad.components.ad.feed.a.l.7
-            @Override // com.kwad.components.core.video.a.InterfaceC0604a
+        this.du = new a.InterfaceC0607a() { // from class: com.kwad.components.ad.feed.a.l.7
+            @Override // com.kwad.components.core.video.a.InterfaceC0607a
             public final void a(int i, aa.a aVar) {
                 int i2;
                 int i3 = 2;
@@ -198,7 +198,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
                 u.b bVar = new u.b();
                 bVar.gL = aVar;
                 bVar.gJ = i2;
-                com.kwad.components.core.c.a.a.a(new a.C0593a(com.kwad.sdk.b.kwai.a.x(l.this.dp)).L(l.this.mAdTemplate).b(l.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).an(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.l.7.1
+                com.kwad.components.core.c.a.a.a(new a.C0596a(com.kwad.sdk.b.kwai.a.x(l.this.dp)).L(l.this.mAdTemplate).b(l.this.mApkDownloadHelper).ae(i3).aj(z).al(true).a(bVar).an(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.l.7.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         l.this.dx();
@@ -292,7 +292,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
             this.dq.setAutoRelease(false);
             AdVideoPlayerViewCache.getInstance().a(A, this.dp);
             FeedType fromInt = FeedType.fromInt(this.mAdTemplate.type);
-            a.C0593a ae = new a.C0593a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2);
+            a.C0596a ae = new a.C0596a(com.kwad.sdk.b.kwai.a.x(this)).L(this.mAdTemplate).b(this.mApkDownloadHelper).ae(2);
             if ((fromInt == FeedType.FEED_TYPE_TEXT_BELOW || fromInt == FeedType.FEED_TYPE_TEXT_ABOVE) && com.kwad.sdk.core.response.a.a.aB(this.mAdInfo)) {
                 z = true;
             }
@@ -419,7 +419,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
                 if (cVar != null && !TextUtils.isEmpty(cVar.Mn)) {
                     bVar.Mn = aVar.My.Mn;
                 }
-                com.kwad.components.core.c.a.a.a(new a.C0593a(com.kwad.sdk.b.kwai.a.x(l.this)).L(l.this.mAdTemplate).b(l.this.mApkDownloadHelper).aj(l.a(l.this, aVar)).ae(i).ao(aVar.DS).an(z).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.l.2.1
+                com.kwad.components.core.c.a.a.a(new a.C0596a(com.kwad.sdk.b.kwai.a.x(l.this)).L(l.this.mAdTemplate).b(l.this.mApkDownloadHelper).aj(l.a(l.this, aVar)).ae(i).ao(aVar.DS).an(z).a(bVar).al(true).a(new a.b() { // from class: com.kwad.components.ad.feed.a.l.2.1
                     @Override // com.kwad.components.core.c.a.a.b
                     public final void onAdClicked() {
                         if (l.this.lp != null) {
@@ -435,7 +435,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
         return new w.a() { // from class: com.kwad.components.ad.feed.a.l.15
             @Override // com.kwad.components.core.webview.jshandler.w.a
             public final void a(com.kwad.components.core.webview.a.b bVar) {
-                AdWebViewActivityProxy.launch(l.this.mContext, new AdWebViewActivityProxy.a.C0600a().ao(bVar.title).ap(bVar.url).N(l.this.mAdTemplate).nx());
+                AdWebViewActivityProxy.launch(l.this.mContext, new AdWebViewActivityProxy.a.C0603a().ao(bVar.title).ap(bVar.url).N(l.this.mAdTemplate).nx());
             }
         };
     }
@@ -676,20 +676,20 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
 
     @Override // com.kwad.components.core.widget.b
     public final void bg() {
-        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913a9);
+        KsAdWebView ksAdWebView = (KsAdWebView) findViewById(R.id.obfuscated_res_0x7f0913b7);
         this.mAdWebView = ksAdWebView;
         ksAdWebView.setVisibility(4);
-        this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f0911f6);
-        this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f091380);
-        this.f5do = (ImageView) findViewById(R.id.obfuscated_res_0x7f091390);
+        this.dL = (RatioFrameLayout) findViewById(R.id.obfuscated_res_0x7f091204);
+        this.dN = (KSFrameLayout) findViewById(R.id.obfuscated_res_0x7f09138e);
+        this.f5do = (ImageView) findViewById(R.id.obfuscated_res_0x7f09139e);
     }
 
     @Override // com.kwad.components.core.widget.b
     public final void br() {
         com.kwad.components.core.webview.jshandler.aa aaVar;
-        b.InterfaceC0617b interfaceC0617b;
-        if (!this.mAdTemplate.mPvReported && (interfaceC0617b = this.lp) != null) {
-            interfaceC0617b.onAdShow();
+        b.InterfaceC0620b interfaceC0620b;
+        if (!this.mAdTemplate.mPvReported && (interfaceC0620b = this.lp) != null) {
+            interfaceC0620b.onAdShow();
         }
         if (this.dU || (aaVar = this.dP) == null) {
             return;
@@ -730,7 +730,7 @@ public final class l extends com.kwad.components.core.widget.b<AdTemplate> imple
 
     @Override // com.kwad.components.core.widget.b
     public final int getLayoutId() {
-        return R.layout.obfuscated_res_0x7f0d0463;
+        return R.layout.obfuscated_res_0x7f0d0469;
     }
 
     @Override // android.view.View.OnClickListener

@@ -1,55 +1,58 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.util.Enumeration;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipException;
-import java.util.zip.ZipFile;
 /* loaded from: classes4.dex */
 public final class gf0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(File file, File file2) throws ZipException, IOException {
+    public static void a(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, file, file2) == null) {
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-            String absolutePath = file2.getAbsolutePath();
-            ZipFile zipFile = new ZipFile(file);
-            Enumeration<? extends ZipEntry> entries = zipFile.entries();
-            while (entries.hasMoreElements()) {
-                ZipEntry nextElement = entries.nextElement();
-                String name = nextElement.getName();
-                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
-                    InputStream inputStream = zipFile.getInputStream(nextElement);
-                    File file3 = new File(absolutePath + File.separator + name);
-                    if (!file3.exists()) {
-                        File parentFile = file3.getParentFile();
-                        if (!parentFile.exists()) {
-                            parentFile.mkdirs();
-                        }
-                        file3.createNewFile();
+        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
+            if (str2.length() > 2001) {
+                int i = 0;
+                while (i < str2.length()) {
+                    int i2 = i + 2001;
+                    if (i2 < str2.length()) {
+                        b(3, str, str2.substring(i, i2));
+                    } else {
+                        b(3, str, str2.substring(i));
                     }
-                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
-                    byte[] bArr = new byte[10240];
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read <= 0) {
-                            break;
-                        }
-                        fileOutputStream.write(bArr, 0, read);
-                    }
-                    inputStream.close();
-                    fileOutputStream.close();
+                    i = i2;
                 }
+                return;
             }
+            b(3, str, str2);
+        }
+    }
+
+    public static void b(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeILL(65537, null, i, str, str2) == null) {
+            if (i != 2) {
+                if (i != 3) {
+                    if (i != 4) {
+                        if (i != 5) {
+                            if (i != 6) {
+                                Log.d(str, str2);
+                                return;
+                            } else {
+                                Log.e(str, str2);
+                                return;
+                            }
+                        }
+                        Log.w(str, str2);
+                        return;
+                    }
+                    Log.i(str, str2);
+                    return;
+                }
+                Log.d(str, str2);
+                return;
+            }
+            Log.v(str, str2);
         }
     }
 }

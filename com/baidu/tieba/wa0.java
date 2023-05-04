@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.Rect;
-import android.graphics.RectF;
+import android.animation.AnimatorInflater;
+import android.animation.ObjectAnimator;
+import android.animation.StateListAnimator;
+import android.content.Context;
+import android.content.res.TypedArray;
+import android.util.AttributeSet;
 import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewParent;
-import androidx.annotation.RestrictTo;
+import android.view.ViewOutlineProvider;
+import androidx.annotation.RequiresApi;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-@RestrictTo({RestrictTo.Scope.LIBRARY})
+@RequiresApi(21)
 /* loaded from: classes6.dex */
 public class wa0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ThreadLocal<Matrix> a;
-    public static final ThreadLocal<RectF> b;
+    public static final int[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,53 +35,44 @@ public class wa0 {
                 return;
             }
         }
-        a = new ThreadLocal<>();
-        b = new ThreadLocal<>();
+        a = new int[]{16843848};
     }
 
-    public static void a(ViewGroup viewGroup, View view2, Rect rect) {
+    public static void a(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, viewGroup, view2, rect) == null) {
-            rect.set(0, 0, view2.getWidth(), view2.getHeight());
-            c(viewGroup, view2, rect);
+        if (interceptable == null || interceptable.invokeL(65537, null, view2) == null) {
+            view2.setOutlineProvider(ViewOutlineProvider.BOUNDS);
         }
     }
 
-    public static void b(ViewParent viewParent, View view2, Matrix matrix) {
+    public static void b(View view2, float f) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, viewParent, view2, matrix) == null) {
-            ViewParent parent = view2.getParent();
-            if ((parent instanceof View) && parent != viewParent) {
-                View view3 = (View) parent;
-                b(viewParent, view3, matrix);
-                matrix.preTranslate(-view3.getScrollX(), -view3.getScrollY());
-            }
-            matrix.preTranslate(view2.getLeft(), view2.getTop());
-            if (!view2.getMatrix().isIdentity()) {
-                matrix.preConcat(view2.getMatrix());
-            }
+        if (interceptable == null || interceptable.invokeLF(65538, null, view2, f) == null) {
+            int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0011);
+            StateListAnimator stateListAnimator = new StateListAnimator();
+            long j = integer;
+            stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f04049d, -2130969758}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
+            stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
+            stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
+            view2.setStateListAnimator(stateListAnimator);
         }
     }
 
-    public static void c(ViewGroup viewGroup, View view2, Rect rect) {
+    public static void c(View view2, AttributeSet attributeSet, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, viewGroup, view2, rect) == null) {
-            Matrix matrix = a.get();
-            if (matrix == null) {
-                matrix = new Matrix();
-                a.set(matrix);
-            } else {
-                matrix.reset();
+        if (interceptable == null || interceptable.invokeLLII(65539, null, view2, attributeSet, i, i2) == null) {
+            Context context = view2.getContext();
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, a, i, i2);
+            try {
+                if (obtainStyledAttributes.hasValue(0)) {
+                    view2.setStateListAnimator(AnimatorInflater.loadStateListAnimator(context, obtainStyledAttributes.getResourceId(0, 0)));
+                }
+            } catch (Exception unused) {
+            } catch (Throwable th) {
+                obtainStyledAttributes.recycle();
+                throw th;
             }
-            b(viewGroup, view2, matrix);
-            RectF rectF = b.get();
-            if (rectF == null) {
-                rectF = new RectF();
-                b.set(rectF);
-            }
-            rectF.set(rect);
-            matrix.mapRect(rectF);
-            rect.set((int) (rectF.left + 0.5f), (int) (rectF.top + 0.5f), (int) (rectF.right + 0.5f), (int) (rectF.bottom + 0.5f));
+            obtainStyledAttributes.recycle();
         }
     }
 }

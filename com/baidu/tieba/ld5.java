@@ -1,33 +1,45 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.img.WriteImagesInfo;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ld5 {
+public abstract class ld5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WriteImagesInfo a;
-    public boolean b;
 
-    public ld5(WriteImagesInfo writeImagesInfo, boolean z) {
+    public abstract nd5 b(Context context);
+
+    public abstract void c(nd5 nd5Var);
+
+    public abstract void d(nd5 nd5Var);
+
+    public ld5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {writeImagesInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = writeImagesInfo;
-        this.b = z;
+    }
+
+    public nd5 a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            nd5 b = b(context);
+            d(b);
+            c(b);
+            return b;
+        }
+        return (nd5) invokeL.objValue;
     }
 }

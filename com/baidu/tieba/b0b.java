@@ -1,157 +1,327 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.iza;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import org.brotli.dec.BrotliRuntimeException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public final class b0b {
+public class b0b extends fza {
     public static /* synthetic */ Interceptable $ic;
+    public static List<yza> c;
+    public static final Object d;
+    public static final Map<String, fza> e;
+    public static String f;
     public transient /* synthetic */ FieldHolder $fh;
-    public byte[] A;
-    public int B;
-    public int C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public byte[] H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public int Q;
-    public long R;
-    public byte[] S;
-    public int T;
-    public int U;
-    public int V;
-    public int W;
-    public int X;
-    public int Y;
-    public byte[] Z;
-    public int a;
-    public int b;
-    public final sza c;
-    public byte[] d;
-    public final int[] e;
-    public final int[] f;
-    public int g;
-    public boolean h;
-    public boolean i;
-    public boolean j;
-    public final yza k;
-    public final yza l;
-    public final yza m;
-    public final int[] n;
-    public final int[] o;
-    public final int[] p;
-    public final int[] q;
-    public int r;
-    public int s;
-    public int t;
-    public boolean u;
-    public int v;
-    public int w;
-    public int x;
-    public int y;
-    public byte[] z;
+    public final gza a;
+    public final c0b b;
 
-    public b0b() {
+    /* loaded from: classes3.dex */
+    public static class a implements iza.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.iza.a
+        public String a(gza gzaVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gzaVar)) == null) {
+                if (gzaVar.b().equals(dza.c)) {
+                    str = "/agcgw_all/CN";
+                } else if (gzaVar.b().equals(dza.e)) {
+                    str = "/agcgw_all/RU";
+                } else if (gzaVar.b().equals(dza.d)) {
+                    str = "/agcgw_all/DE";
+                } else if (!gzaVar.b().equals(dza.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG";
+                }
+                return gzaVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class b implements iza.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.iza.a
+        public String a(gza gzaVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gzaVar)) == null) {
+                if (gzaVar.b().equals(dza.c)) {
+                    str = "/agcgw_all/CN_back";
+                } else if (gzaVar.b().equals(dza.e)) {
+                    str = "/agcgw_all/RU_back";
+                } else if (gzaVar.b().equals(dza.d)) {
+                    str = "/agcgw_all/DE_back";
+                } else if (!gzaVar.b().equals(dza.f)) {
+                    return null;
+                } else {
+                    str = "/agcgw_all/SG_back";
+                }
+                return gzaVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class c implements iza.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.iza.a
+        public String a(gza gzaVar) {
+            InterceptResult invokeL;
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gzaVar)) == null) {
+                if (gzaVar.b().equals(dza.c)) {
+                    str = "/service/analytics/collector_url_cn";
+                } else if (gzaVar.b().equals(dza.e)) {
+                    str = "/service/analytics/collector_url_ru";
+                } else if (gzaVar.b().equals(dza.d)) {
+                    str = "/service/analytics/collector_url_de";
+                } else if (!gzaVar.b().equals(dza.f)) {
+                    return null;
+                } else {
+                    str = "/service/analytics/collector_url_sg";
+                }
+                return gzaVar.a(str);
+            }
+            return (String) invokeL.objValue;
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947592565, "Lcom/baidu/tieba/b0b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947592565, "Lcom/baidu/tieba/b0b;");
+                return;
+            }
+        }
+        d = new Object();
+        e = new HashMap();
+    }
+
+    public b0b(gza gzaVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gzaVar};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 0;
-        this.c = new sza();
-        this.e = new int[3240];
-        this.f = new int[3240];
-        this.k = new yza();
-        this.l = new yza();
-        this.m = new yza();
-        this.n = new int[3];
-        this.o = new int[3];
-        this.p = new int[6];
-        this.q = new int[]{16, 15, 11, 4};
-        this.r = 0;
-        this.s = 0;
-        this.t = 0;
-        this.u = false;
-        this.v = 0;
-        this.Q = 0;
-        this.R = 0L;
-        this.S = new byte[0];
-        this.T = 0;
+        this.a = gzaVar;
+        if (c == null) {
+            Log.e("AGConnectInstance", "please call `initialize()` first");
+        }
+        new c0b(c, gzaVar.getContext());
+        c0b c0bVar = new c0b(null, gzaVar.getContext());
+        this.b = c0bVar;
+        if (gzaVar instanceof oza) {
+            c0bVar.c(((oza) gzaVar).d(), gzaVar.getContext());
+        }
     }
 
-    public static void a(b0b b0bVar) throws IOException {
+    public static fza e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, b0bVar) == null) {
-            int i = b0bVar.a;
-            if (i != 0) {
-                if (i == 11) {
-                    return;
-                }
-                b0bVar.a = 11;
-                sza.b(b0bVar.c);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            String str = f;
+            if (str == null) {
+                str = "DEFAULT_INSTANCE";
             }
-            throw new IllegalStateException("State MUST be initialized");
+            return h(str);
         }
+        return (fza) invokeV.objValue;
     }
 
-    public static int b(sza szaVar) {
+    public static fza f(gza gzaVar) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, szaVar)) == null) {
-            if (sza.i(szaVar, 1) == 0) {
-                return 16;
-            }
-            int i = sza.i(szaVar, 3);
-            if (i != 0) {
-                return i + 17;
-            }
-            int i2 = sza.i(szaVar, 3);
-            if (i2 == 0) {
-                return 17;
-            }
-            return i2 + 8;
-        }
-        return invokeL.intValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, gzaVar)) == null) ? g(gzaVar, false) : (fza) invokeL.objValue;
     }
 
-    public static void c(b0b b0bVar, InputStream inputStream) {
+    public static fza g(gza gzaVar, boolean z) {
+        InterceptResult invokeLZ;
+        fza fzaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, b0bVar, inputStream) == null) {
-            if (b0bVar.a == 0) {
-                sza.e(b0bVar.c, inputStream);
-                int b = b(b0bVar.c);
-                if (b != 9) {
-                    int i = 1 << b;
-                    b0bVar.P = i;
-                    b0bVar.O = i - 16;
-                    b0bVar.a = 1;
-                    return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, gzaVar, z)) == null) {
+            synchronized (d) {
+                fzaVar = e.get(gzaVar.getIdentifier());
+                if (fzaVar == null || z) {
+                    fzaVar = new b0b(gzaVar);
+                    e.put(gzaVar.getIdentifier(), fzaVar);
                 }
-                throw new BrotliRuntimeException("Invalid 'windowBits' code");
             }
-            throw new IllegalStateException("State MUST be uninitialized");
+            return fzaVar;
         }
+        return (fza) invokeLZ.objValue;
+    }
+
+    public static fza h(String str) {
+        InterceptResult invokeL;
+        fza fzaVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            synchronized (d) {
+                fzaVar = e.get(str);
+                if (fzaVar == null) {
+                    if ("DEFAULT_INSTANCE".equals(str)) {
+                        Log.w("AGC_Instance", "please call `initialize()` first");
+                    } else {
+                        Log.w("AGC_Instance", "not find instance for : " + str);
+                    }
+                }
+            }
+            return fzaVar;
+        }
+        return (fza) invokeL.objValue;
+    }
+
+    public static synchronized void i(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
+            synchronized (b0b.class) {
+                if (e.size() > 0) {
+                    Log.w("AGC_Instance", "Repeated invoking initialize");
+                } else {
+                    j(context, jza.c(context));
+                }
+            }
+        }
+    }
+
+    public static synchronized void j(Context context, gza gzaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65543, null, context, gzaVar) == null) {
+            synchronized (b0b.class) {
+                Context applicationContext = context.getApplicationContext();
+                if (applicationContext == null) {
+                    Log.w("AGC_Instance", "context.getApplicationContext null");
+                } else {
+                    context = applicationContext;
+                }
+                k();
+                l();
+                nza.a(context);
+                if (c == null) {
+                    c = new com.huawei.agconnect.core.a.c(context).b();
+                }
+                g(gzaVar, true);
+                f = gzaVar.getIdentifier();
+                Log.i("AGC_Instance", "AGC SDK initialize end, default route:" + gzaVar.b().a());
+                a0b.a();
+            }
+        }
+    }
+
+    public static void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
+            iza.b("/agcgw/url", new a());
+            iza.b("/agcgw/backurl", new b());
+        }
+    }
+
+    public static void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            iza.b("/service/analytics/collector_url", new c());
+        }
+    }
+
+    @Override // com.baidu.tieba.fza
+    public gza c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (gza) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fza
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fza
+    public String getIdentifier() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIdentifier() : (String) invokeV.objValue;
     }
 }

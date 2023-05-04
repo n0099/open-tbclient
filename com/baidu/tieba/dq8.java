@@ -1,195 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.CheckBox;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.BarImageView;
-import com.baidu.tbadk.data.BazhuInfoData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.animation.Animation;
+import android.view.animation.Transformation;
+import android.widget.FrameLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes4.dex */
-public class dq8 extends BaseAdapter {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int c = 3;
+public class dq8 extends Animation {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public List<BazhuInfoData.BaInfo> b;
+    public View a;
+    public int b;
+    public int c;
+    public FrameLayout.LayoutParams d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947713310, "Lcom/baidu/tieba/dq8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947713310, "Lcom/baidu/tieba/dq8;");
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public CheckBox b;
-        public BarImageView c;
-        public int d;
-        public Drawable e;
-
-        public a(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = 3;
-            if (view2 == null) {
-                return;
-            }
-            this.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092516);
-            this.b = (CheckBox) view2.findViewById(R.id.obfuscated_res_0x7f092513);
-            this.c = (BarImageView) view2.findViewById(R.id.forum_avatar);
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (dq8.c != this.d) {
-                    SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
-                    this.e = SkinManager.getDrawable(R.drawable.transmit_check_box);
-                }
-                this.d = dq8.c;
-            }
-        }
-
-        public void b(BazhuInfoData.BaInfo baInfo) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baInfo) == null) && baInfo != null) {
-                this.a.setText(baInfo.forum_name);
-                this.b.setChecked(baInfo.isChecked);
-                this.c.N(baInfo.forum_Avatar, 10, false);
-                this.b.setButtonDrawable(this.e);
-            }
-        }
-    }
-
-    public dq8(Context context) {
+    public dq8(View view2, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {view2, Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = new ArrayList();
-        this.a = context;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b.size();
+        if (view2 == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    public void b(List<BazhuInfoData.BaInfo> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
-            this.b.clear();
-            this.b.addAll(list);
-            notifyDataSetChanged();
+        this.a = view2;
+        if (view2.getVisibility() == 8 && i2 > 0) {
+            this.b = i2;
+        } else {
+            this.b = this.a.getMeasuredHeight();
+        }
+        FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) view2.getLayoutParams();
+        this.d = layoutParams;
+        this.c = i;
+        if (i == 0) {
+            layoutParams.bottomMargin = -this.b;
+        } else {
+            layoutParams.bottomMargin = 0;
         }
     }
 
-    public void c(int i) {
+    @Override // android.view.animation.Animation
+    public void applyTransformation(float f, Transformation transformation) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (c != i) {
-                notifyDataSetChanged();
-            }
-            c = i;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
-            a aVar = null;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0549, (ViewGroup) null);
-                aVar = new a(view2);
-                view2.setTag(aVar);
-            } else {
-                Object tag = view2.getTag();
-                if (tag instanceof a) {
-                    aVar = (a) tag;
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Float.valueOf(f), transformation}) == null) {
+            super.applyTransformation(f, transformation);
+            if (f < 1.0f) {
+                if (this.c == 0) {
+                    FrameLayout.LayoutParams layoutParams = this.d;
+                    int i = this.b;
+                    layoutParams.bottomMargin = (-i) + ((int) (i * f));
+                } else {
+                    this.d.bottomMargin = -((int) (this.b * f));
                 }
+                this.a.requestLayout();
+            } else if (this.c == 0) {
+                this.d.bottomMargin = 0;
+                this.a.requestLayout();
+                this.b = this.a.getMeasuredHeight();
+            } else {
+                this.d.bottomMargin = -this.b;
+                this.a.setVisibility(8);
+                this.a.requestLayout();
             }
-            if (aVar != null) {
-                aVar.a();
-                aVar.b(this.b.get(i));
-            }
-            return view2;
         }
-        return (View) invokeILL.objValue;
     }
 }

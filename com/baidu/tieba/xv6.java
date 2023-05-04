@@ -1,84 +1,36 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.widget.BaseAdapter;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.helper.CommonOnClickKt;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.faceshop.EmotionPackageData;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionCategoryAdapter;
+import com.baidu.tieba.faceshop.emotioncenter.adapter.EmotionHorizontalAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class xv6 implements c07<xv6> {
+public class xv6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final Function2<View, String, Unit> c;
-    public final vx6 d;
+    public a9 a;
+    public BdTypeListView b;
+    public final List<vm> c;
+    public EmotionCategoryAdapter d;
+    public EmotionHorizontalAdapter e;
+    public List<in> f;
 
-    @Override // com.baidu.tieba.c07
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "feed_entrybar" : (String) invokeV.objValue;
-    }
-
-    public xv6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (xv6) invokeV.objValue;
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            if (obj instanceof xv6) {
-                xv6 xv6Var = (xv6) obj;
-                return Intrinsics.areEqual(this.a, xv6Var.a) && Intrinsics.areEqual(this.b, xv6Var.b) && Intrinsics.areEqual(this.c, xv6Var.c) && Intrinsics.areEqual(this.d, xv6Var.d);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
-            vx6 vx6Var = this.d;
-            return hashCode + (vx6Var == null ? 0 : vx6Var.hashCode());
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "CardForumEnterUiState(forumName=" + this.a + ", jumpSchema=" + this.b + ", onClick=" + this.c + ", statData=" + this.d + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @JvmOverloads
-    public xv6(String forumName, String jumpSchema, Function2<? super View, ? super String, Unit> onClick, vx6 vx6Var) {
+    public xv6(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {forumName, jumpSchema, onClick, vx6Var};
+            Object[] objArr = {tbPageContext, bdTypeListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -88,50 +40,74 @@ public final class xv6 implements c07<xv6> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(forumName, "forumName");
-        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
-        Intrinsics.checkNotNullParameter(onClick, "onClick");
-        this.a = forumName;
-        this.b = jumpSchema;
-        this.c = onClick;
-        this.d = vx6Var;
+        this.c = new ArrayList();
+        this.f = new ArrayList();
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        b();
     }
 
-    public /* synthetic */ xv6(String str, String str2, Function2 function2, vx6 vx6Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(str, str2, (i & 4) != 0 ? CommonOnClickKt.b() : function2, (i & 8) != 0 ? null : vx6Var);
-    }
-
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.c07
-    public /* bridge */ /* synthetic */ xv6 b() {
+    public void a(List<in> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
+        }
+        if (this.b != null) {
+            this.f.addAll(list);
+            this.b.setData(this.f);
+        }
         c();
-        return this;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d = new EmotionCategoryAdapter((TbPageContext) this.a, yv6.a);
+            this.e = new EmotionHorizontalAdapter((TbPageContext) this.a, zv6.b);
+            this.c.add(this.d);
+            this.c.add(this.e);
+            this.b.addAdapters(this.c);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final String e() {
-        InterceptResult invokeV;
+    public void c() {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (bdTypeListView = this.b) != null && bdTypeListView.getAdapter2() != null && (this.b.getAdapter2() instanceof BaseAdapter)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (String) invokeV.objValue;
     }
 
-    public final Function2<View, String, Unit> f() {
-        InterceptResult invokeV;
+    public void d(List<in> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, list) != null) || ListUtils.isEmpty(list)) {
+            return;
         }
-        return (Function2) invokeV.objValue;
+        if (!ListUtils.isEmpty(this.f)) {
+            this.f.clear();
+        }
+        BdTypeListView bdTypeListView = this.b;
+        if (bdTypeListView != null) {
+            bdTypeListView.setData(list);
+            this.f.addAll(list);
+        }
+        c();
+    }
+
+    public void e(EmotionPackageData emotionPackageData) {
+        zv6 zv6Var;
+        EmotionPackageData emotionPackageData2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, emotionPackageData) != null) || emotionPackageData == null || ListUtils.isEmpty(this.f)) {
+            return;
+        }
+        for (in inVar : this.f) {
+            if ((inVar instanceof zv6) && (zv6Var = (zv6) inVar) != null && (emotionPackageData2 = zv6Var.a) != null && emotionPackageData2.id == emotionPackageData.id) {
+                emotionPackageData2.download = emotionPackageData.download;
+                emotionPackageData2.share = emotionPackageData.share;
+                c();
+                return;
+            }
+        }
     }
 }

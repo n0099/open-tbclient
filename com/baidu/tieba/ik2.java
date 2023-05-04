@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -13,11 +14,9 @@ public class ik2 {
     public int a;
     public int b;
     @V8JavascriptField
-    public String digest;
+    public JsArrayBuffer data;
     @V8JavascriptField
     public String errMsg;
-    @V8JavascriptField
-    public int size;
 
     public ik2() {
         Interceptable interceptable = $ic;
@@ -41,7 +40,7 @@ public class ik2 {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "GetFileInfoCallBack" + this.b;
+            return "ArrayBufferCallBack" + this.b;
         }
         return (String) invokeV.objValue;
     }

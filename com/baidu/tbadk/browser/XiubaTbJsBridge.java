@@ -3,6 +3,7 @@ package com.baidu.tbadk.browser;
 import android.content.Intent;
 import android.text.TextUtils;
 import android.webkit.JsPromptResult;
+import android.webkit.WebView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
@@ -15,14 +16,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.tbadk.download.DownloadData;
 import com.baidu.tbadk.download.DownloadMessage;
 import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.browser.TbWebView;
+import com.baidu.tieba.cd5;
+import com.baidu.tieba.dq9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.jc5;
-import com.baidu.tieba.om9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +34,7 @@ import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class XiubaTbJsBridge implements om9 {
+public class XiubaTbJsBridge implements dq9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String INTERFACE_NAME = "XiubaJSBridge";
     public static final String METHOD_CHECK_APK_INSTALL = "checkAPKInstall";
@@ -46,8 +47,9 @@ public class XiubaTbJsBridge implements om9 {
     public transient /* synthetic */ FieldHolder $fh;
     public final CustomMessageListener downloadListener;
     public final CustomMessageListener installListener;
-    public BaseWebView mBaseWebView;
+    public WebView mBaseWebView;
     public final TbPageContext<?> mTbPageContext;
+    public TbWebView tbWebView;
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -252,14 +254,14 @@ public class XiubaTbJsBridge implements om9 {
     private void startDownload(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65548, this, str) == null) {
-            jc5.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
+            cd5.q().z("com.xiu8.baidu.activity", str, TbadkCoreApplication.getInst().getResources().getString(R.string.xiuba_apk_name), -1, -1);
         }
     }
 
-    public void setBaseWebView(BaseWebView baseWebView) {
+    public void setBaseWebView(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseWebView) == null) {
-            this.mBaseWebView = baseWebView;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView) == null) {
+            this.mBaseWebView = webView;
         }
     }
 
@@ -279,9 +281,14 @@ public class XiubaTbJsBridge implements om9 {
                 ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('download'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
                 return;
             }
-            BaseWebView baseWebView = this.mBaseWebView;
-            if (baseWebView != null) {
-                baseWebView.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
+            WebView webView = this.mBaseWebView;
+            if (webView != null) {
+                webView.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
+                return;
+            }
+            TbWebView tbWebView = this.tbWebView;
+            if (tbWebView != null) {
+                tbWebView.loadUrl("javascript:addEventLisener('download'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
             }
         }
     }
@@ -302,9 +309,14 @@ public class XiubaTbJsBridge implements om9 {
                 ((BaseWebViewActivity) this.mTbPageContext.getOrignalPage()).loadUrl("javascript:addEventLisener('install'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
                 return;
             }
-            BaseWebView baseWebView = this.mBaseWebView;
-            if (baseWebView != null) {
-                baseWebView.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
+            WebView webView = this.mBaseWebView;
+            if (webView != null) {
+                webView.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
+                return;
+            }
+            TbWebView tbWebView = this.tbWebView;
+            if (tbWebView != null) {
+                tbWebView.loadUrl("javascript:addEventLisener('install'," + jsonWithObject + SmallTailInfo.EMOTION_SUFFIX);
             }
         }
     }
@@ -382,7 +394,7 @@ public class XiubaTbJsBridge implements om9 {
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.om9
+    @Override // com.baidu.tieba.dq9
     public boolean dealJsInterface(String str, String str2, String str3, JsPromptResult jsPromptResult) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
@@ -429,5 +441,12 @@ public class XiubaTbJsBridge implements om9 {
             return false;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public void setBaseWebView(TbWebView tbWebView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbWebView) == null) {
+            this.tbWebView = tbWebView;
+        }
     }
 }

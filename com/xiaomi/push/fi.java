@@ -5,14 +5,14 @@ import com.xiaomi.push.fe;
 import com.xiaomi.push.service.XMPushService;
 import com.xiaomi.push.service.bg;
 import java.util.Hashtable;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fi {
     public static final int a = ey.PING_RTT.a();
 
     /* renamed from: a  reason: collision with other field name */
     public static long f371a = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static Hashtable<Integer, Long> a = new Hashtable<>();
     }

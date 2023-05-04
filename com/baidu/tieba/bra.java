@@ -1,92 +1,263 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.widget.Button;
+import android.app.Activity;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.kwad.sdk.api.KsAppDownloadListener;
+import com.bytedance.sdk.openadsdk.AdSlot;
+import com.bytedance.sdk.openadsdk.TTAdNative;
+import com.bytedance.sdk.openadsdk.TTAdSdk;
+import com.bytedance.sdk.openadsdk.TTNativeAd;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunNativeAd;
+import com.fun.ad.sdk.FunNativeAd2;
+import com.fun.ad.sdk.FunNativeView;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.FunNativeAdListenerHelper;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.NumberUtils;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class bra implements KsAppDownloadListener {
+public class bra extends hra<ora> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Button a;
-    public String b;
+    public final FunNativeAdListenerHelper<ora, TTNativeAd.AdInteractionListener> f;
 
-    public bra(String str, Button button) {
+    /* loaded from: classes3.dex */
+    public class a implements TTAdNative.NativeAdListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bra a;
+
+        public a(bra braVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {braVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = braVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener, com.bytedance.sdk.openadsdk.common.CommonListener
+        public void onError(int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+                LogPrinter.e("onError code: " + i + ", message: " + str, new Object[0]);
+                this.a.onError(i, str);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTAdNative.NativeAdListener
+        public void onNativeAdLoad(List<TTNativeAd> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+                LogPrinter.d("onNativeAdLoad", new Object[0]);
+                if (list == null || list.isEmpty()) {
+                    LogPrinter.e("onNativeAdLoad error: list is null or empty", new Object[0]);
+                    this.a.onError(0, "NoFill");
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (TTNativeAd tTNativeAd : list) {
+                    arrayList.add(new ora(tTNativeAd));
+                }
+                this.a.onAdLoaded((List) arrayList);
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bra(FunAdType funAdType, Ssp.Pid pid) {
+        super(funAdType, pid, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, button};
+            Object[] objArr = {funAdType, pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = str;
-        this.a = button;
+        this.f = new FunNativeAdListenerHelper<>(this);
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFailed() {
+    public void h(FunAdSlot funAdSlot) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f07d4);
-            } else {
-                this.a.setText(this.b);
+        if (interceptable == null || interceptable.invokeL(1048581, this, funAdSlot) == null) {
+            AdSlot.Builder supportDeepLink = new AdSlot.Builder().setCodeId(this.mPid.pid).setSupportDeepLink(true);
+            Ssp.Pid pid = this.mPid;
+            this.e.loadNativeAd(supportDeepLink.setImageAcceptedSize(pid.width, pid.height).setNativeAdType(1).setAdCount(NumberUtils.adjustInt(funAdSlot.getAdCount(), 1, 3)).build(), new a(this));
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements TTNativeAd.AdInteractionListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final ora a;
+        public final /* synthetic */ bra b;
+
+        public b(bra braVar, ora oraVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {braVar, oraVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = braVar;
+            this.a = oraVar;
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdClicked(View view2, TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdCreativeClick(View view2, TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdClick(this.a);
+            }
+        }
+
+        @Override // com.bytedance.sdk.openadsdk.TTNativeAd.AdInteractionListener
+        public void onAdShow(TTNativeAd tTNativeAd) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tTNativeAd) == null) {
+                LogPrinter.d();
+                this.b.f.onAdShow(this.a);
             }
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadFinished() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f07d7);
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            this.f.destroy((ora) obj);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onDownloadStarted() {
+    public void f(Activity activity, ora oraVar, ViewGroup viewGroup, com.fun.module.csj.g0 g0Var, TTNativeAd.AdInteractionListener adInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, oraVar, viewGroup, g0Var, adInteractionListener) == null) {
+            ((TTNativeAd) oraVar.a).setActivityForDownloadApp(activity);
+            ((TTNativeAd) oraVar.a).registerViewForInteraction(viewGroup, g0Var.getClickViews(), g0Var.getCreativeViews(), adInteractionListener);
+            ((TTNativeAd) oraVar.a).setDownloadListener(g0Var.getDownloadListener());
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onIdle() {
+    public final void g(Context context, ora oraVar, String str, ViewGroup viewGroup, List<View> list, List<View> list2, TTNativeAd.AdInteractionListener adInteractionListener, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.a.setText(R.string.obfuscated_res_0x7f0f07d4);
-            } else {
-                this.a.setText(this.b);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{context, oraVar, str, viewGroup, list, list2, adInteractionListener, funAdInteractionListener}) == null) {
+            if (viewGroup instanceof FunNativeView) {
+                viewGroup = ((FunNativeView) viewGroup).getRoot();
             }
+            this.f.startShow(oraVar, str, this.mPid, adInteractionListener, funAdInteractionListener);
+            if (context instanceof Activity) {
+                ((TTNativeAd) oraVar.a).setActivityForDownloadApp((Activity) context);
+            }
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (list2 == null) {
+                list2 = new ArrayList<>();
+            }
+            ((TTNativeAd) oraVar.a).registerViewForInteraction(viewGroup, list, list2, adInteractionListener);
         }
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onInstalled() {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd getNativeAdInternal(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.setText(R.string.obfuscated_res_0x7f0f07d8);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, str, obj)) == null) {
+            return new era((ora) obj, str, this.mPid, this);
         }
+        return (FunNativeAd) invokeLLL.objValue;
     }
 
-    @Override // com.kwad.sdk.api.KsAppDownloadListener
-    public void onProgressUpdate(int i) {
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunNativeAd2 getNativeAdInternal2(Context context, String str, Object obj) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            Button button = this.a;
-            button.setText(button.getContext().getResources().getString(R.string.obfuscated_res_0x7f0f07d5, String.format("%s/100", Integer.valueOf(i))));
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, obj)) == null) {
+            ora oraVar = (ora) obj;
+            return new BaseNativeAd2(FunNativeAd2.NativeType.BOTH, oraVar, new era(oraVar, str, this.mPid, this), new fra(this, this, oraVar));
+        }
+        return (FunNativeAd2) invokeLLL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    /* renamed from: l */
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, ora oraVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, activity, viewGroup, str, oraVar)) == null) {
+            onShowStart(oraVar);
+            com.fun.module.csj.g0 a2 = cra.a((TTNativeAd) oraVar.a);
+            if (a2 == null) {
+                onAdError(oraVar, 0, "AdView present failed");
+                return false;
+            }
+            viewGroup.removeAllViews();
+            viewGroup.addView(a2);
+            f(activity, oraVar, viewGroup, a2, new dra(this, oraVar, null, str));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, context, funAdSlot) == null) {
+            if (this.e == null) {
+                this.e = TTAdSdk.getAdManager().createAdNative(context.getApplicationContext());
+            }
+            onLoadStart(funAdSlot);
+            h(funAdSlot);
         }
     }
 }

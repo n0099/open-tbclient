@@ -92,7 +92,7 @@ public class nm {
     public static void b(Context context, jm jmVar, PackageInfo packageInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, jmVar, packageInfo, Boolean.valueOf(z)}) == null) {
-            vg8 defaultLog = DefaultLog.getInstance();
+            dj8 defaultLog = DefaultLog.getInstance();
             defaultLog.c(TitanDownloadService.TAG, "install file: " + packageInfo.filePath);
             PatchManager.getInstance().installPatch(Uri.fromFile(new File(packageInfo.filePath)), null, new a(jmVar, packageInfo, z));
         }

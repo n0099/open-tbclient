@@ -40,7 +40,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     public OnCheckedChangeListener onCheckedChangeListener;
     public static final int[] CHECKABLE_STATE_SET = {16842911};
     public static final int[] CHECKED_STATE_SET = {16842912};
-    public static final int[] DRAGGED_STATE_SET = {R.attr.obfuscated_res_0x7f04066a};
+    public static final int[] DRAGGED_STATE_SET = {R.attr.obfuscated_res_0x7f040673};
 
     /* loaded from: classes8.dex */
     public interface OnCheckedChangeListener {
@@ -347,7 +347,7 @@ public class MaterialCardView extends CardView implements Checkable, Shapeable {
     }
 
     public MaterialCardView(Context context, AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404ba);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0404c3);
     }
 
     @Override // androidx.cardview.widget.CardView, android.widget.FrameLayout, android.view.View

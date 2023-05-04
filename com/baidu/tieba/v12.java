@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Path;
+import android.graphics.RectF;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,10 +10,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes6.dex */
-public class v12 extends b12 {
+public class v12 extends d12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
+    public RectF a;
 
     public v12() {
         Interceptable interceptable = $ic;
@@ -27,24 +29,30 @@ public class v12 extends b12 {
         }
     }
 
-    @Override // com.baidu.tieba.b12
-    public void a(c12 c12Var, Canvas canvas) {
+    @Override // com.baidu.tieba.d12
+    public void a(e12 e12Var, Canvas canvas) {
+        RectF rectF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, c12Var, canvas) == null) {
-            if (c12Var.a() == 0) {
-                c12Var.b(canvas.save());
-            }
-            canvas.rotate(this.a);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, e12Var, canvas) == null) && (rectF = this.a) != null) {
+            e12Var.f.addRect(rectF, Path.Direction.CW);
         }
     }
 
-    @Override // com.baidu.tieba.b12
+    @Override // com.baidu.tieba.d12
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            float optDouble = (float) jSONArray.optDouble(0);
-            this.a = optDouble;
-            this.a = (float) Math.toDegrees(optDouble);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = ol3.g((float) jSONArray.optDouble(0));
+                    int g2 = ol3.g((float) jSONArray.optDouble(1));
+                    this.a = new RectF(g, g2, g + ol3.g((float) jSONArray.optDouble(2)), g2 + ol3.g((float) jSONArray.optDouble(3)));
+                }
+            } catch (Exception e) {
+                if (ho1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

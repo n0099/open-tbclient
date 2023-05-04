@@ -94,11 +94,11 @@ public class StringHelper extends hi {
         HOUR_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour_before);
         MIN_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_min_before);
         SEC_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_sec_before);
-        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04b8);
+        TIME_DAY = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f04c2);
         TIME_HOUR = TbadkCoreApplication.getInst().getApp().getString(R.string.time_hour);
         TIME_MINUTE = TbadkCoreApplication.getInst().getApp().getString(R.string.time_minute);
         TIME_SECOND = TbadkCoreApplication.getInst().getApp().getString(R.string.time_second);
-        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0b9e);
+        String string = TbadkCoreApplication.getInst().getApp().getString(R.string.obfuscated_res_0x7f0f0bb3);
         TIME_MINUTE_SINGLE = string;
         TIME_STR = new String[]{TIME_DAY, TIME_HOUR, string, TIME_SECOND};
         ALA_CARD_DAY_BEFORE = TbadkCoreApplication.getInst().getApp().getString(R.string.ala_card_create_day);
@@ -1783,11 +1783,11 @@ public class StringHelper extends hi {
         if (interceptable == null || (invokeI = interceptable.invokeI(65617, null, i)) == null) {
             if (i != 1) {
                 if (i != 2) {
-                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08e3);
+                    return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08f4);
                 }
-                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f1254);
+                return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f126d);
             }
-            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08e3);
+            return TbadkCoreApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f08f4);
         }
         return (String) invokeI.objValue;
     }

@@ -1,126 +1,301 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.os.Build;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.pms.model.PMSPkgStatus;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collections;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.Set;
 /* loaded from: classes4.dex */
-public class fl4 extends yl4 {
+public class fl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Set<a> a;
 
     /* loaded from: classes4.dex */
-    public interface b {
-        void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr);
-    }
-
-    /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String[] a;
-        public final /* synthetic */ Activity b;
-        public final /* synthetic */ int c;
+        public vg4 a;
+        public PMSPkgStatus b;
 
-        public a(String[] strArr, Activity activity, int i) {
+        public a(vg4 vg4Var, PMSPkgStatus pMSPkgStatus) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {strArr, activity, Integer.valueOf(i)};
+                Object[] objArr = {vg4Var, pMSPkgStatus};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = strArr;
-            this.b = activity;
-            this.c = i;
+            this.a = vg4Var;
+            this.b = pMSPkgStatus;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public boolean equals(Object obj) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int[] iArr = new int[this.a.length];
-                PackageManager packageManager = this.b.getPackageManager();
-                String packageName = this.b.getPackageName();
-                int length = this.a.length;
-                for (int i = 0; i < length; i++) {
-                    iArr[i] = packageManager.checkPermission(this.a[i], packageName);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+                if (super.equals(obj)) {
+                    return true;
                 }
-                ((b) this.b).onRequestPermissionsResult(this.c, this.a, iArr);
+                if (obj == null || !(obj instanceof a)) {
+                    return false;
+                }
+                return this.a.equals(((a) obj).a);
             }
+            return invokeL.booleanValue;
+        }
+
+        public int hashCode() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return Objects.hash(this.a);
+            }
+            return invokeV.intValue;
         }
     }
 
-    public static void e(Activity activity) {
+    public fl4() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
-            if (Build.VERSION.SDK_INT >= 21) {
-                gl4.a(activity);
-            } else {
-                activity.finish();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = Collections.synchronizedSet(new HashSet());
     }
 
-    public static boolean f(@NonNull Activity activity, @NonNull String str) {
-        InterceptResult invokeLL;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, activity, str)) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                return hl4.a(activity, str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof yg4)) {
+                    return true;
+                }
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static void requestPermissions(@NonNull Activity activity, @NonNull String[] strArr, int i) {
+    public boolean d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65538, null, activity, strArr, i) == null) {
-            if (Build.VERSION.SDK_INT >= 23) {
-                hl4.requestPermissions(activity, strArr, i);
-            } else if (activity instanceof b) {
-                new Handler(Looper.getMainLooper()).post(new a(strArr, activity, i));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof sg4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof ug4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof wg4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof zg4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            for (a aVar : this.a) {
+                if (aVar != null && (aVar.a instanceof xg4)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.a.isEmpty();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a.size();
+        }
+        return invokeV.intValue;
+    }
+
+    public void a(vg4 vg4Var, PMSPkgStatus pMSPkgStatus) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, vg4Var, pMSPkgStatus) == null) {
+            this.a.add(new a(vg4Var, pMSPkgStatus));
+        }
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                for (a aVar : this.a) {
+                    if (aVar != null && (aVar.a instanceof yg4) && aVar.b == PMSPkgStatus.WAIT) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            synchronized (this) {
+                for (a aVar : this.a) {
+                    if (aVar != null && (aVar.a instanceof xg4) && aVar.b == PMSPkgStatus.WAIT) {
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
+
+    public synchronized Set<vg4> j() {
+        InterceptResult invokeV;
+        HashSet hashSet;
+        a[] aVarArr;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            synchronized (this) {
+                hashSet = new HashSet();
+                for (a aVar : (a[]) this.a.toArray(new a[0])) {
+                    if (aVar != null && aVar.a != null) {
+                        hashSet.add(aVar.a);
+                    }
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
+        r1.b = com.baidu.swan.pms.model.PMSPkgStatus.ERROR;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void l(vg4 vg4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, vg4Var) == null) {
+            synchronized (this) {
+                if (vg4Var == null) {
+                    return;
+                }
+                Iterator<a> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    a next = it.next();
+                    if (next != null && next.a.equals(vg4Var)) {
+                        break;
+                    }
+                }
             }
         }
     }
 
-    public static void startActivity(Activity activity, Intent intent, @Nullable Bundle bundle) {
+    /* JADX WARN: Code restructure failed: missing block: B:15:0x0025, code lost:
+        r1.b = com.baidu.swan.pms.model.PMSPkgStatus.FINISH;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public synchronized void m(vg4 vg4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, activity, intent, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                jl4.startActivity(activity, intent, bundle);
-            } else {
-                activity.startActivity(intent);
-            }
-        }
-    }
-
-    public static void startActivityForResult(Activity activity, Intent intent, int i, @Nullable Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLIL(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, intent, i, bundle) == null) {
-            if (Build.VERSION.SDK_INT >= 16) {
-                jl4.startActivityForResult(activity, intent, i, bundle);
-            } else {
-                activity.startActivityForResult(intent, i);
+        if (interceptable == null || interceptable.invokeL(1048588, this, vg4Var) == null) {
+            synchronized (this) {
+                if (vg4Var == null) {
+                    return;
+                }
+                Iterator<a> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    }
+                    a next = it.next();
+                    if (next != null && next.a.equals(vg4Var)) {
+                        break;
+                    }
+                }
             }
         }
     }

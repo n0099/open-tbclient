@@ -1,15 +1,24 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.tieba.sc2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vc2 implements om3<HybridUbcFlow> {
+public class vc2 implements dc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @NonNull
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileStrategyImpl" : (String) invokeV.objValue;
+    }
 
     public vc2() {
         Interceptable interceptable = $ic;
@@ -25,17 +34,13 @@ public class vc2 implements om3<HybridUbcFlow> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
+    @Override // com.baidu.tieba.dc2
+    public boolean a(@NonNull sc2.a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            hybridUbcFlow.J("3334");
-            hybridUbcFlow.I(HybridUbcFlow.SubmitStrategy.PREFETCH_NA);
-            hybridUbcFlow.E("from", "swan");
-            hybridUbcFlow.E("type", "unknown");
-            hybridUbcFlow.E("source", "unknown");
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) {
+            return aVar.d().startsWith("interceptfile://");
         }
+        return invokeL.booleanValue;
     }
 }

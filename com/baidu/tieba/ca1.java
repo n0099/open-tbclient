@@ -1,695 +1,246 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
-import android.graphics.Bitmap;
-import android.graphics.Rect;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.webkit.WebView;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.net.util.NetUtil;
-import com.baidu.nadcore.webviewx.container.BaseNativeBrowserContainer;
+import com.baidu.searchbox.bddownload.core.breakpoint.sqlite.BreakpointSQLiteKey;
+import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
 import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tieba.aa1;
-import com.baidu.tieba.ba1;
-import com.baidu.tieba.u51;
-import com.baidu.tieba.w91;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Serializable;
 import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class ca1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public BaseNativeBrowserContainer a;
-    public WebView b;
-    public aa1 c;
-    public x91 d;
-    public final v91 e;
-    public h91 f;
-    public boolean g;
-    public ViewTreeObserver.OnGlobalLayoutListener h;
-    public View.OnLayoutChangeListener i;
-    public boolean j;
-    public final Object k;
-    public long l;
-    public int m;
-    public da1 n;
-    public final fa1 o;
-
-    public void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public void x(WebView webView, String str, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048601, this, webView, str, bitmap) == null) {
-        }
-    }
+    public String a;
+    public c b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
+    public String h;
+    public String i;
+    public a j;
+    public b k;
 
     /* loaded from: classes3.dex */
-    public class d implements ba1.a {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ ca1 b;
+        public String a;
+        public int b;
+        public double c;
 
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ d a;
-
-            public a(d dVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {dVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = dVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (this.a.b.b.canGoBack()) {
-                        this.a.b.b.goBack();
-                    } else {
-                        this.a.a.finish();
-                    }
-                }
-            }
-        }
-
-        public d(ca1 ca1Var, Activity activity) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca1Var, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = ca1Var;
-            this.a = activity;
         }
 
-        @Override // com.baidu.tieba.ba1.a
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b.post(new a(this));
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class a implements fa1 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ca1 a;
-
-        public a(ca1 ca1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ca1Var;
-        }
-
-        @Override // com.baidu.tieba.fa1
-        public void loadUrl(String str, Map<String, String> map) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, str, map) == null) && this.a.b != null) {
-                this.a.b.loadUrl(str, map);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements u51.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ca1 a;
-
-        public b(ca1 ca1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ca1Var;
-        }
-
-        @Override // com.baidu.tieba.u51.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.a.l(str);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class c implements w91.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ WebView a;
-        public final /* synthetic */ ca1 b;
-
-        public c(ca1 ca1Var, WebView webView) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca1Var, webView};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ca1Var;
-            this.a = webView;
-        }
-
-        @Override // com.baidu.tieba.w91.a
-        public String a() {
+        public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Rect rect = new Rect();
-                this.a.getWindowVisibleDisplayFrame(rect);
-                int i = this.b.a.getResources().getDisplayMetrics().heightPixels - rect.bottom;
-                if (i < 0) {
-                    i = 0;
+                int i = this.b;
+                if ((i == 2 || i == 3) && this.c > 0.0d && !TextUtils.isEmpty(this.a)) {
+                    return true;
                 }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("visibleHeight", this.a.getHeight() - i);
-                    jSONObject.put("keyboardHeight", i);
-                    jSONObject.put("webviewHeight", this.a.getHeight());
-                    jSONObject.put("videoHeight", 0);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                return jSONObject.toString();
+                return false;
             }
-            return (String) invokeV.objValue;
+            return invokeV.booleanValue;
+        }
+
+        public static a b(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                a aVar = new a();
+                JSONObject c = z01.c(str);
+                aVar.a = c.optString("defer_charge_url");
+                aVar.b = c.optInt("defer_type", 3);
+                aVar.c = c.optDouble("defer_time", 0.0d);
+                return aVar;
+            }
+            return (a) invokeL.objValue;
         }
     }
 
     /* loaded from: classes3.dex */
-    public class e implements View.OnLayoutChangeListener {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public final /* synthetic */ ca1 b;
+        public String a;
+        public String b;
+        public String c;
+        public String d;
+        public String e;
 
-        public e(ca1 ca1Var) {
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ca1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.b = ca1Var;
         }
 
-        @Override // android.view.View.OnLayoutChangeListener
-        public void onLayoutChange(View view2, int i, int i2, int i3, int i4, int i5, int i6, int i7, int i8) {
+        public static b a(@NonNull String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), Integer.valueOf(i8)}) == null) {
-                Rect rect = new Rect();
-                view2.getWindowVisibleDisplayFrame(rect);
-                int i9 = rect.bottom;
-                int i10 = this.a;
-                if (i9 != i10 && i10 != 0) {
-                    LinearLayout P = this.b.a.P();
-                    int i11 = this.a - rect.bottom;
-                    if (i11 <= 200) {
-                        if (i3 == i7 && this.b.j) {
-                            P.setPadding(P.getPaddingLeft(), P.getPaddingTop(), P.getPaddingRight(), 0);
-                            m91.b(this.b.o, P.getHeight(), 0, P.getHeight(), 0);
-                            ca1 ca1Var = this.b;
-                            ca1Var.E(ca1Var.b, -1, -1);
-                        }
-                        this.b.j = false;
-                    } else {
-                        this.b.j = true;
-                        if (i3 == i7) {
-                            P.setPadding(P.getPaddingLeft(), P.getPaddingTop(), P.getPaddingRight(), i11);
-                            m91.b(this.b.o, P.getHeight() - i11, i11, P.getHeight(), 0);
-                            ca1 ca1Var2 = this.b;
-                            ca1Var2.E(ca1Var2.b, -1, -1);
-                        }
-                    }
-                    this.a = rect.bottom;
-                    return;
-                }
-                this.a = rect.bottom;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                b bVar = new b();
+                JSONObject c = z01.c(str);
+                bVar.e = c.optString("key");
+                c.optString(EmotionResourceInfo.JSON_KEY_PKG_NAME);
+                bVar.a = c.optString("download_url");
+                c.optString(BreakpointSQLiteKey.CONTENT_LENGTH);
+                bVar.b = c.optString("close_virtual_progress");
+                bVar.c = c.optString("apk_label");
+                bVar.d = c.optString("apk_icon");
+                return bVar;
             }
+            return (b) invokeL.objValue;
         }
     }
 
-    public ca1(@NonNull BaseNativeBrowserContainer baseNativeBrowserContainer) {
+    /* loaded from: classes3.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static c a(@NonNull String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                c cVar = new c();
+                JSONObject c = z01.c(str);
+                cVar.a = c.optString("receive_title_script");
+                c.optString("start_load_script");
+                return cVar;
+            }
+            return (c) invokeL.objValue;
+        }
+    }
+
+    public ca1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseNativeBrowserContainer};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new v91();
-        this.g = true;
-        this.h = null;
-        this.k = new Object();
-        this.l = 0L;
-        this.n = null;
-        this.o = new a(this);
-        this.a = baseNativeBrowserContainer;
-    }
-
-    public void A(String str) {
-        aa1 aa1Var;
-        aa1.c cVar;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (aa1Var = this.c) != null && (cVar = aa1Var.b) != null && !TextUtils.isEmpty(cVar.a)) {
-            this.a.l(this.c.b.a);
-        }
-    }
-
-    public void m(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, intent) == null) {
-            this.c = aa1.b(intent);
-        }
-    }
-
-    public void w(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, str) == null) {
-            if (this.l == 0) {
-                this.l = System.currentTimeMillis();
-            }
-            da1 da1Var = this.n;
-            if (da1Var != null) {
-                da1Var.e(this.b);
             }
         }
     }
 
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            x91 x91Var = this.d;
-            if (x91Var != null) {
-                x91Var.e();
-            }
-            da1 da1Var = this.n;
-            if (da1Var != null) {
-                da1Var.h();
-            }
-        }
-    }
-
-    public void C() {
-        x91 x91Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (x91Var = this.d) != null) {
-            x91Var.f();
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a.P() != null && this.i != null) {
-            this.a.P().removeOnLayoutChangeListener(this.i);
-        }
-    }
-
-    public final void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.d = null;
-            h91 h91Var = this.f;
-            if (h91Var != null) {
-                h91Var.d();
-                this.f = null;
-            }
-        }
-    }
-
-    @Nullable
-    public final Intent i() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.f();
-        }
-        return (Intent) invokeV.objValue;
-    }
-
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            aa1 aa1Var = this.c;
-            if (aa1Var == null) {
-                return null;
-            }
-            return aa1Var.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            aa1 aa1Var = this.c;
-            if (aa1Var == null) {
-                return null;
-            }
-            return aa1Var.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            if (this.f == null) {
-                this.f = new h91();
-            }
-            aa1 aa1Var = this.c;
-            if (aa1Var != null) {
-                this.f.b(aa1Var.j);
-            }
-        }
-    }
-
-    public final void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.i = new e(this);
-            if (this.a.P() != null) {
-                this.a.P().addOnLayoutChangeListener(this.i);
-            }
-        }
-    }
-
-    public final void s() {
-        Intent i;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048596, this) != null) || (i = i()) == null) {
-            return;
-        }
-        m(i);
-        n();
-        this.d = new x91();
-        a61.a().a(this.k, new b(this));
-    }
-
-    public void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            s();
-            da1 da1Var = new da1(this.c);
-            this.n = da1Var;
-            da1Var.c();
-        }
-    }
-
-    public void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            x91 x91Var = this.d;
-            if (x91Var != null) {
-                x91Var.d();
-            }
-            da1 da1Var = this.n;
-            if (da1Var != null) {
-                da1Var.f();
-            }
-        }
-    }
-
-    public void E(@NonNull View view2, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLII(1048580, this, view2, i, i2) == null) {
-            if (view2.getLayoutParams() instanceof FrameLayout.LayoutParams) {
-                view2.setLayoutParams(new FrameLayout.LayoutParams(i, i2));
-            } else if (view2.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                view2.setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-            } else if (view2.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                view2.setLayoutParams(new RelativeLayout.LayoutParams(i, i2));
-            } else if (view2.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                view2.setLayoutParams(new ViewGroup.MarginLayoutParams(i, i2));
-            } else if (view2.getLayoutParams() instanceof ViewGroup.LayoutParams) {
-                view2.setLayoutParams(new ViewGroup.LayoutParams(i, i2));
-            }
-        }
-    }
-
-    public boolean F(@NonNull WebView webView, String str, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, webView, str, str2)) == null) {
-            G(webView, str2);
-            aa1 aa1Var = this.c;
-            if (aa1Var == null || !aa1Var.a()) {
-                return true;
-            }
-            return !ei0.a(webView.getContext(), str2);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void G(@NonNull WebView webView, String str) {
-        aa1 aa1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048582, this, webView, str) == null) && !TextUtils.isEmpty(str) && str.startsWith("tel:") && webView.getContext() != null && (aa1Var = this.c) != null && !TextUtils.isEmpty(aa1Var.f)) {
-            new qc1().p(webView.getContext(), this.c.f, "tel");
-        }
-    }
-
-    public void p(@NonNull Activity activity, @NonNull WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048593, this, activity, webView) == null) {
-            w91 w91Var = new w91(0);
-            w91Var.a(this.e);
-            w91Var.b(new c(this, webView));
-            this.a.H(w91Var, "NadJsControl");
-            this.a.H(new ba1(new d(this, activity)), "go_back_js_interface_name");
-        }
-    }
-
-    public final void f() {
-        ViewTreeObserver viewTreeObserver;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.a.P() != null && this.h != null && (viewTreeObserver = this.a.P().getViewTreeObserver()) != null && viewTreeObserver.isAlive()) {
-            viewTreeObserver.removeOnGlobalLayoutListener(this.h);
-        }
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            this.d.g();
-            if (i() != null) {
-                String j = j();
-                if (!TextUtils.isEmpty(j)) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("Referer", j);
-                    this.a.h0(hashMap);
-                    return true;
-                }
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return !TextUtils.equals(this.e, "0");
         }
         return invokeV.booleanValue;
     }
 
-    public final void q() {
+    public static ca1 b(@NonNull Intent intent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || this.a.P() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, intent)) == null) {
+            Bundle extras = intent.getExtras();
+            ca1 ca1Var = null;
+            if (extras == null) {
+                return null;
+            }
+            Serializable serializable = extras.getSerializable("map");
+            if (!(serializable instanceof HashMap)) {
+                return null;
+            }
+            HashMap hashMap = (HashMap) serializable;
+            if (hashMap != null && !hashMap.isEmpty()) {
+                ca1Var = new ca1();
+                ca1Var.c = (String) a11.b(hashMap, LegoListActivityConfig.AD_ID);
+                ca1Var.a = (String) a11.b(hashMap, "url");
+                ca1Var.f = (String) a11.b(hashMap, "ext_info");
+                ca1Var.g = (String) a11.b(hashMap, TiebaStatic.Params.REFER);
+                ca1Var.d = (String) a11.b(hashMap, "charge_url");
+                ca1Var.e = (String) a11.b(hashMap, "ad_invoke_flag");
+                ca1Var.h = (String) a11.b(hashMap, "lp_real_url");
+                String str = (String) a11.b(hashMap, "log_switch");
+                if (TextUtils.isEmpty(str)) {
+                    str = "1";
+                }
+                ca1Var.i = str;
+                String str2 = (String) a11.b(hashMap, "sdk_script");
+                if (!TextUtils.isEmpty(str2)) {
+                    ca1Var.b = c.a(str2);
+                }
+                String str3 = (String) a11.b(hashMap, "defer_charge");
+                if (!TextUtils.isEmpty(str3)) {
+                    ca1Var.j = a.b(str3);
+                }
+                String str4 = (String) a11.b(hashMap, "download");
+                if (!TextUtils.isEmpty(str4)) {
+                    ca1Var.k = b.a(str4);
+                }
+                ca1Var.c();
+            }
+            return ca1Var;
+        }
+        return (ca1) invokeL.objValue;
+    }
+
+    public final void c() {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || TextUtils.isEmpty(this.g)) {
             return;
         }
-        if (this.h == null) {
-            this.h = new ka1(this.a.P());
+        if (this.g.contains("__CHARGE_URL__") && !TextUtils.isEmpty(this.d)) {
+            this.g = this.g.replace("__CHARGE_URL__", this.d);
         }
-        ViewTreeObserver viewTreeObserver = this.a.P().getViewTreeObserver();
-        if (viewTreeObserver != null && viewTreeObserver.isAlive()) {
-            viewTreeObserver.addOnGlobalLayoutListener(this.h);
-        }
-    }
-
-    public final void o() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048592, this) != null) || this.a.N() == null) {
-            return;
-        }
-        RelativeLayout relativeLayout = new RelativeLayout(this.a.P().getContext());
-        FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -2);
-        layoutParams.gravity = 80;
-        relativeLayout.setBackgroundColor(0);
-        relativeLayout.setVisibility(8);
-        this.a.N().addView(relativeLayout, layoutParams);
-        this.a.m0(relativeLayout);
-        String str = null;
-        if (this.c != null) {
-            JSONObject jSONObject = new JSONObject();
-            x01.f(jSONObject, LegoListActivityConfig.AD_ID, this.c.c);
-            x01.f(jSONObject, "lp_url", this.c.a);
-            x01.f(jSONObject, "log_ext", this.c.f);
-            x01.f(jSONObject, "business", "native_ads");
-            aa1.b bVar = this.c.k;
-            if (bVar != null) {
-                x01.f(jSONObject, "key", bVar.e);
-                x01.f(jSONObject, "url", this.c.k.a);
-                x01.f(jSONObject, "close_v_dl", this.c.k.b);
-                x01.f(jSONObject, "app_icon", this.c.k.d);
-                x01.f(jSONObject, "app_name", this.c.k.c);
-            }
-            str = jSONObject.toString();
-        }
-        if (!TextUtils.isEmpty(str)) {
-            this.a.p0(str);
-        }
-    }
-
-    public void t(Context context, ViewGroup viewGroup, WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048597, this, context, viewGroup, webView) == null) {
-            this.b = webView;
-            o();
-            if (o91.g()) {
-                f();
-                g();
-            } else if (this.g) {
-                f();
-                r();
-            } else {
-                q();
-                g();
-            }
-        }
-    }
-
-    public void v() {
-        x91 x91Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            aa1 aa1Var = this.c;
-            if (aa1Var != null && TextUtils.equals(aa1Var.i, "1") && (x91Var = this.d) != null) {
-                this.d.b(this.e.a(), x91Var.a(this.c.f, this.l, this.m, false), this.c.a, this.a.L(), 0L);
-            }
-            x91 x91Var2 = this.d;
-            if (x91Var2 != null) {
-                x91Var2.c();
-            }
-            a61.a().release();
-            h();
-            f();
-            g();
-            if (this.i != null) {
-                this.a.P().removeOnLayoutChangeListener(this.i);
-            }
-            ol0.a().unregister(this.k);
-            da1 da1Var = this.n;
-            if (da1Var != null) {
-                da1Var.d();
-            }
-        }
-    }
-
-    public void z(WebView webView, int i, String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLILL(1048603, this, webView, i, str, str2) == null) {
-            if (!NetUtil.a(this.a.P().getContext())) {
-                this.m = -1000;
-            } else {
-                this.m = i;
-            }
-            da1 da1Var = this.n;
-            if (da1Var != null) {
-                da1Var.g(this.m);
-            }
+        if (this.g.contains("__DEFER_CHARGE_URL__") && (aVar = this.j) != null && !TextUtils.isEmpty(aVar.a)) {
+            this.g = this.g.replace("__DEFER_CHARGE_URL__", this.j.a);
         }
     }
 }

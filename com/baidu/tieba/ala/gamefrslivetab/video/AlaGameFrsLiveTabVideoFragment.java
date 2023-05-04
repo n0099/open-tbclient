@@ -12,37 +12,37 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.i67;
-import com.baidu.tieba.q45;
-import com.baidu.tieba.s76;
+import com.baidu.tieba.pt4;
+import com.baidu.tieba.y77;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 {
+public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements y77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean a;
     public String b;
     public boolean c;
-    public s76 d;
+    public IGameFrsLiveTabVideoView d;
     public CustomMessageListener e;
     public CustomMessageListener f;
 
-    public void H1(String str) {
+    public void I1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
         }
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.core.BaseFragment, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return null;
         }
         return (String) invokeV.objValue;
@@ -86,10 +86,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
                 }
                 if ("FrsGameLive".equals(split[0]) && 8 == gg.e(split[1], 0)) {
                     if (this.a.d != null) {
-                        this.a.d.i();
+                        this.a.d.h();
                     }
                 } else if ("FrsGameLiveLive".equals(split[0]) && 3 == gg.e(split[1], 0) && this.a.d != null) {
-                    this.a.d.i();
+                    this.a.d.h();
                 }
             }
         }
@@ -128,8 +128,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2921023 && (customResponsedMessage.getData() instanceof String)) {
                 String str = (String) customResponsedMessage.getData();
-                if (this.a.F1().contains(str) || str.contains(this.a.F1())) {
-                    this.a.d.l();
+                if (this.a.G1().contains(str) || str.contains(this.a.G1())) {
+                    this.a.d.c();
                 }
             }
         }
@@ -154,26 +154,14 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
         this.f = new b(this, 2921023);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragment
-    public void onPrimary() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            super.onPrimary();
-            if (this.c || StringUtils.isNull(this.d.k().getUrl())) {
-                this.d.y(F1());
-                this.c = false;
-            }
-        }
-    }
-
-    public void G1(String str) {
+    public void H1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
             this.b = str;
         }
     }
 
-    public void I1(boolean z) {
+    public void J1(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
             this.a = z;
@@ -185,7 +173,7 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onActivityCreated(bundle);
-            this.d.o(this);
+            this.d.y(this);
             registerListener(this.f);
         }
     }
@@ -198,8 +186,8 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
             if (this.c) {
                 return;
             }
-            this.d.y(F1());
-            this.d.A(i);
+            this.d.loadUrl(G1());
+            this.d.onChangeSkinType(i);
         }
     }
 
@@ -212,11 +200,11 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
         }
     }
 
-    public String F1() {
+    public String G1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String s = q45.m().s("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
+            String s = f55.m().s("ala_game_frs_live_tab_video_url", "https://tieba.baidu.com/n/interact/video/game?");
             if (s != null) {
                 StringBuilder sb = new StringBuilder(s);
                 if (s.endsWith("?")) {
@@ -233,12 +221,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.i67
-    public NavigationBar V0() {
+    @Override // com.baidu.tieba.y77
+    public NavigationBar n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d.j();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.d.n();
         }
         return (NavigationBar) invokeV.objValue;
     }
@@ -248,9 +236,9 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             super.onDestroy();
-            s76 s76Var = this.d;
-            if (s76Var != null) {
-                s76Var.C();
+            IGameFrsLiveTabVideoView iGameFrsLiveTabVideoView = this.d;
+            if (iGameFrsLiveTabVideoView != null) {
+                iGameFrsLiveTabVideoView.onDestroy();
             }
         }
     }
@@ -260,6 +248,22 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
+            IGameFrsLiveTabVideoView iGameFrsLiveTabVideoView = this.d;
+            if (iGameFrsLiveTabVideoView != null) {
+                iGameFrsLiveTabVideoView.onPause();
+            }
+        }
+    }
+
+    @Override // com.baidu.tbadk.core.BaseFragment
+    public void onPrimary() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            super.onPrimary();
+            if (this.c || StringUtils.isNull(this.d.getUrl())) {
+                this.d.loadUrl(G1());
+                this.c = false;
+            }
         }
     }
 
@@ -268,6 +272,10 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
+            IGameFrsLiveTabVideoView iGameFrsLiveTabVideoView = this.d;
+            if (iGameFrsLiveTabVideoView != null) {
+                iGameFrsLiveTabVideoView.onResume();
+            }
         }
     }
 
@@ -276,9 +284,12 @@ public class AlaGameFrsLiveTabVideoFragment extends BaseFragment implements i67 
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048585, this, layoutInflater, viewGroup, bundle)) == null) {
-            s76 s76Var = new s76(this.a);
-            this.d = s76Var;
-            return s76Var.B(layoutInflater, viewGroup);
+            if (pt4.b(G1())) {
+                this.d = new NewAlaGameFrsLiveTabVideoView(this.a);
+            } else {
+                this.d = new AlaGameFrsLiveTabVideoView(this.a);
+            }
+            return this.d.L(layoutInflater, viewGroup);
         }
         return (View) invokeLLL.objValue;
     }

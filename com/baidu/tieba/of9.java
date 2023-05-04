@@ -1,28 +1,24 @@
 package com.baidu.tieba;
 
+import android.app.ActivityManager;
+import android.os.Process;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.bdutil.cuid.sdk.AppCuidRuntime;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.TbSingleton;
+import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import com.huawei.hms.framework.network.grs.GrsBaseInfo;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
-public class of9 implements y00, ILokiIdentityContext, t00 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class of9 {
+    public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,147 +36,249 @@ public class of9 implements y00, ILokiIdentityContext, t00 {
         }
     }
 
-    @Override // com.baidu.tieba.t00
-    public String getAppName() {
-        InterceptResult invokeV;
+    public static void a(ClogBuilder clogBuilder, int i) {
+        boolean z;
+        String str;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tieba" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.y00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getBDVCInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        if (interceptable == null || interceptable.invokeLI(65537, null, clogBuilder, i) == null) {
+            clogBuilder.y(ClogBuilder.LogType.DEEP_LINK);
+            if (i == 1000) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (z) {
+                str = GrsBaseInfo.CountryCodeSource.APP;
+            } else {
+                str = "URL";
+            }
+            clogBuilder.j(str);
+            if (!z) {
+                clogBuilder.l(String.valueOf(i));
+            }
+            clogBuilder.v("DEEPLINK");
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getDeviceScore() {
+    public static String b(HashMap hashMap) {
+        InterceptResult invokeL;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, hashMap)) == null) {
+            if (hashMap != null) {
+                str = String.valueOf(hashMap.get("da_area"));
+            } else {
+                str = null;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "hotarea";
+            }
+            return str;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void l(AdvertAppInfo advertAppInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65548, null, advertAppInfo) == null) {
+            m(advertAppInfo, 0, "");
+        }
+    }
+
+    public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.y00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getSchemeHeader() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.y00
-    public String processUrlExternal(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048588, this, str, z)) == null) ? str : (String) invokeLZ.objValue;
-    }
-
-    public of9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            try {
+                int myPid = Process.myPid();
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : ((ActivityManager) TbadkCoreApplication.getInst().getContext().getSystemService("activity")).getRunningAppProcesses()) {
+                    if (runningAppProcessInfo.pid == myPid) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return "GET_PROCESS_NAME_FAIL";
+            } catch (Exception unused) {
+                return "GET_PROCESS_NAME_FAIL";
             }
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getC3Aid() {
-        InterceptResult invokeV;
+    public static void d(String str, @NonNull String str2, int i, int i2, String str3, String str4, String str5, String str6, String str7, String str8) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (hasPrivacyAuthority()) {
-                return TbadkCoreApplication.getInst().getCuidGalaxy3();
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), str3, str4, str5, str6, str7, str8}) == null) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.z(String.valueOf(i2)).q(String.valueOf(i)).v(str).j(str3).k(str4).l(str5).m(str6).n(str7).o(str8).p(str2);
+            o11.b(clogBuilder);
+        }
+    }
+
+    public static void e(AdvertAppInfo advertAppInfo, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65541, null, advertAppInfo, i) == null) {
+            f(advertAppInfo, 0, "", i);
+        }
+    }
+
+    public static void j(op9 op9Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65546, null, op9Var, i) == null) {
+            k(op9Var, i, -999, -999);
+        }
+    }
+
+    public static void f(AdvertAppInfo advertAppInfo, int i, String str, int i2) {
+        int i3;
+        oh0 oh0Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65542, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || advertAppInfo == null) {
+            return;
+        }
+        if (TextUtils.isEmpty(str)) {
+            str = "hotarea";
+        }
+        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
+        ClogBuilder clogBuilder = new ClogBuilder();
+        ClogBuilder y = clogBuilder.y(ClogBuilder.LogType.CLICK);
+        if (equals) {
+            i3 = -1;
+        } else {
+            i3 = advertAppInfo.position + 1;
+        }
+        ClogBuilder q = y.q(String.valueOf(i3));
+        if (equals) {
+            i = -1;
+        }
+        q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
+        if (advertAppInfo != null && (oh0Var = advertAppInfo.r) != null) {
+            clogBuilder.m(oh0Var.a());
+        }
+        o11.b(clogBuilder);
+        a(clogBuilder, i2);
+        o11.b(clogBuilder);
+    }
+
+    public static void g(AdvertAppInfo advertAppInfo, int i, HashMap hashMap, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{advertAppInfo, Integer.valueOf(i), hashMap, Integer.valueOf(i2)}) == null) {
+            f(advertAppInfo, i, b(hashMap), i2);
+        }
+    }
+
+    public static void h(AdvertAppInfo advertAppInfo, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(65544, null, advertAppInfo, i, i2) == null) {
+            i(advertAppInfo, i, i2, -999, -999);
+        }
+    }
+
+    public static void i(AdvertAppInfo advertAppInfo, int i, int i2, int i3, int i4) {
+        int i5;
+        int i6;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{advertAppInfo, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) && advertAppInfo != null && (i5 = advertAppInfo.c) != 1001 && i5 != -1001) {
+            boolean equals = "PB_BANNER".equals(advertAppInfo.j);
+            ClogBuilder clogBuilder = new ClogBuilder();
+            ClogBuilder k = clogBuilder.y(ClogBuilder.LogType.DISCARD).k(String.valueOf(i2));
+            if (equals) {
+                i6 = -1;
+            } else {
+                i6 = advertAppInfo.position + 1;
             }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.y00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getCfrom() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return TbConfig.getCurrentFrom();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.y00
-    public String getDeviceId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (hasPrivacyAuthority()) {
-                return AppCuidRuntime.getAppCuidManager().getCuid();
+            ClogBuilder q = k.q(String.valueOf(i6));
+            if (equals) {
+                i = -1;
             }
-            return null;
+            q.w(String.valueOf(i)).v(advertAppInfo.j).p(advertAppInfo.g);
+            if (i3 != -999) {
+                clogBuilder.l(String.valueOf(i3));
+            }
+            if (i4 != -999) {
+                clogBuilder.m(String.valueOf(i4));
+            }
+            if (i2 == 31) {
+                if (TextUtils.isEmpty(a)) {
+                    a = c();
+                }
+                clogBuilder.o(a);
+            }
+            o11.b(clogBuilder);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getFrom() {
-        InterceptResult invokeV;
+    public static void k(op9 op9Var, int i, int i2, int i3) {
+        int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return TbConfig.getFrom();
+        if ((interceptable == null || interceptable.invokeLIII(65547, null, op9Var, i, i2, i3) == null) && op9Var != null && op9Var.getAdvertAppInfo() != null && op9Var.getAdvertAppInfo().c != 1001 && op9Var.getAdvertAppInfo().c != -1001) {
+            AdvertAppInfo advertAppInfo = op9Var.getAdvertAppInfo();
+            ClogBuilder clogBuilder = new ClogBuilder();
+            ClogBuilder k = clogBuilder.y(ClogBuilder.LogType.DISCARD).k(String.valueOf(i));
+            int i5 = -1;
+            if (op9Var.c1) {
+                i4 = -1;
+            } else {
+                i4 = op9Var.j1 + 1;
+            }
+            ClogBuilder q = k.q(String.valueOf(i4));
+            if (!op9Var.c1) {
+                i5 = op9Var.h1;
+            }
+            q.w(String.valueOf(i5)).v(op9Var.u1()).r(op9Var.e1).s(op9Var.f1).t(op9Var.d1).p(advertAppInfo.g);
+            if (i2 != -999) {
+                clogBuilder.l(String.valueOf(i2));
+            }
+            if (i3 != -999) {
+                clogBuilder.m(String.valueOf(i3));
+            }
+            o11.b(clogBuilder);
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.y00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getSid() {
-        InterceptResult invokeV;
+    public static void m(AdvertAppInfo advertAppInfo, int i, String str) {
+        int i2;
+        oh0 oh0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return TbSingleton.getInstance().getSampleId();
+        if ((interceptable != null && interceptable.invokeLIL(65549, null, advertAppInfo, i, str) != null) || advertAppInfo == null) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (TextUtils.isEmpty(str)) {
+            str = "hotarea";
+        }
+        boolean equals = "PB_BANNER".equals(advertAppInfo.j);
+        ClogBuilder clogBuilder = new ClogBuilder();
+        ClogBuilder y = clogBuilder.y(ClogBuilder.LogType.CLICK);
+        if (equals) {
+            i2 = -1;
+        } else {
+            i2 = advertAppInfo.position + 1;
+        }
+        ClogBuilder q = y.q(String.valueOf(i2));
+        if (equals) {
+            i = -1;
+        }
+        q.w(String.valueOf(i)).v(advertAppInfo.j).j(str).p(advertAppInfo.g);
+        if (advertAppInfo != null && (oh0Var = advertAppInfo.r) != null) {
+            clogBuilder.m(oh0Var.a());
+        }
+        o11.b(clogBuilder);
     }
 
-    @Override // com.baidu.tieba.y00, com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public String getZid() {
-        InterceptResult invokeV;
+    public static void n(AdvertAppInfo advertAppInfo, int i, String str, String str2, HashMap hashMap) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return a;
+        if (interceptable == null || interceptable.invokeCommon(65550, null, new Object[]{advertAppInfo, Integer.valueOf(i), str, str2, hashMap}) == null) {
+            m(advertAppInfo, i, b(hashMap));
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.logsystem.basic.upload.identity.ILokiIdentityContext
-    public boolean hasPrivacyAuthority() {
-        InterceptResult invokeV;
+    public static void o(AdvertAppInfo advertAppInfo) {
+        fx4 fx4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return PermissionUtil.isAgreePrivacyPolicy();
+        if ((interceptable == null || interceptable.invokeL(65551, null, advertAppInfo) == null) && advertAppInfo != null && (fx4Var = advertAppInfo.i) != null && !fx4Var.h) {
+            fx4Var.h = true;
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.SHOW).q(String.valueOf(advertAppInfo.position + 1)).w(String.valueOf(-1)).v(advertAppInfo.j).p(advertAppInfo.g);
+            o11.b(clogBuilder);
+            xg8.b(xg8.a(advertAppInfo));
         }
-        return invokeV.booleanValue;
     }
 }

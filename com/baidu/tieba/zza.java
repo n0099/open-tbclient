@@ -1,47 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.content.Context;
+import java.util.List;
 /* loaded from: classes7.dex */
-public final class zza {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public byte[] a;
-    public int[] b;
+public interface zza {
+    void a(Context context);
 
-    public zza() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static void a(zza zzaVar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, zzaVar, i) == null) {
-            for (int i2 = 0; i2 < i; i2++) {
-                int[] iArr = zzaVar.b;
-                byte[] bArr = zzaVar.a;
-                int i3 = i2 * 4;
-                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
-            }
-        }
-    }
-
-    public static void b(zza zzaVar, byte[] bArr, int[] iArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, zzaVar, bArr, iArr) == null) {
-            zzaVar.a = bArr;
-            zzaVar.b = iArr;
-        }
-    }
+    List<yza> b(Context context);
 }

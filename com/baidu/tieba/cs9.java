@@ -1,97 +1,222 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.tblauncher.MainTabScheduleStrategy;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.PriorityQueue;
 /* loaded from: classes4.dex */
 public class cs9 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static MainTabScheduleStrategy b;
+    public static boolean c;
+    public static final PriorityQueue<is9> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public int b;
 
-    public cs9(TbPageContext<?> tbPageContext) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                cs9.d();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                cs9.d();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ is9 a;
+
+        public c(is9 is9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {is9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = is9Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947685472, "Lcom/baidu/tieba/cs9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947685472, "Lcom/baidu/tieba/cs9;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        b = MainTabScheduleStrategy.FLUSHING;
+        c = false;
+        d = new PriorityQueue<>();
     }
 
-    public final boolean a(DressItemData dressItemData) {
-        InterceptResult invokeL;
+    public static void b(MainTabScheduleStrategy mainTabScheduleStrategy) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dressItemData)) == null) {
-            if (TbadkCoreApplication.getCurrentMemberType() == 1 && dressItemData.getFreeUserLevel() == 1) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(65538, null, mainTabScheduleStrategy) == null) {
+            as9.a("MainTabScheduler changeScheduleStrategy:" + mainTabScheduleStrategy);
+            b = mainTabScheduleStrategy;
+            if (mainTabScheduleStrategy != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+                g(true);
             }
-            return false;
         }
-        return invokeL.booleanValue;
     }
 
-    public void b(DressItemData dressItemData, boolean z) {
-        String string;
-        String str;
-        int i;
-        String str2;
+    public static void c(is9 is9Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dressItemData, z) != null) || dressItemData == null) {
+        if (interceptable == null || interceptable.invokeL(65539, null, is9Var) == null) {
+            as9.a("MainTabScheduler execStep onStep:" + is9Var.a);
+            System.nanoTime();
+            is9Var.b();
+            jg.a().postAtFrontOfQueue(new c(is9Var));
+        }
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || c) {
             return;
         }
-        boolean a = mr9.a(dressItemData);
-        if (!a) {
-            a = a(dressItemData);
-        }
-        if (a) {
-            this.b = dressItemData.getPropsId();
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_BUBBLE_SET);
-            httpMessage.setExtra(Integer.valueOf(this.b));
-            httpMessage.addParam("bcode", String.valueOf(this.b));
-            MessageManager.getInstance().sendMessage(httpMessage);
-        } else if (dressItemData.getFreeUserLevel() == 100) {
-            if (dressItemData.getActivityFinish() == 0) {
-                mr9.b(this.a, 5, dressItemData.getActivityUrl());
-            }
+        c = true;
+        if (z) {
+            jg.a().postAtFrontOfQueue(new a());
         } else {
-            if (dressItemData.getFreeUserLevel() == 101) {
-                str = this.a.getString(R.string.obfuscated_res_0x7f0f0313);
-                i = 9;
-            } else {
-                if (dressItemData.getFreeUserLevel() > 1) {
-                    string = String.format(this.a.getString(R.string.obfuscated_res_0x7f0f0319), Integer.valueOf(dressItemData.getFreeUserLevel()));
-                } else {
-                    string = this.a.getString(R.string.obfuscated_res_0x7f0f0315);
+            jg.a().post(new b());
+        }
+    }
+
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            c = false;
+            if (d.isEmpty() || b == MainTabScheduleStrategy.UNSCHEDULE) {
+                return;
+            }
+            if (b == MainTabScheduleStrategy.FLUSHING) {
+                e();
+                return;
+            }
+            if (d.peek() != null && a >= d.peek().a) {
+                is9 poll = d.poll();
+                if (poll == null) {
+                    return;
                 }
-                str = string;
-                i = 0;
+                c(poll);
             }
-            if (z) {
-                str2 = MemberPayStatistic.REFER_PAGE_POST_BUBBLE;
-            } else {
-                str2 = MemberPayStatistic.REFER_PAGE_ALL_BUBBLE;
+            if (b == MainTabScheduleStrategy.SCHEDULE) {
+                g(false);
             }
-            mr9.d(this.a, 5, str, i, str2, MemberPayStatistic.CLICK_ZONE_POP_UPS_OPENDE_RENEWWALFEE_BUTTON);
+        }
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
+            while (!d.isEmpty()) {
+                is9 poll = d.poll();
+                if (poll != null) {
+                    as9.a("MainTabScheduler flushAllSteps onStep:" + poll.a);
+                    poll.b();
+                    poll.c();
+                }
+            }
+        }
+    }
+
+    public static void f(is9 is9Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, is9Var) != null) || is9Var == null) {
+            return;
+        }
+        if (b == MainTabScheduleStrategy.FLUSHING) {
+            if (!(is9Var instanceof js9)) {
+                as9.a("MainTabScheduler registerNextStep onStep:" + is9Var.a);
+                is9Var.d();
+                is9Var.b();
+            }
+            is9Var.c();
+            return;
+        }
+        is9Var.d();
+        as9.a("MainTabScheduler registerNextStep:" + is9Var.a);
+        d.add(is9Var);
+        if (b != MainTabScheduleStrategy.UNSCHEDULE && !c) {
+            g(false);
         }
     }
 }

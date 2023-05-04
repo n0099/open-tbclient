@@ -1,69 +1,67 @@
 package com.baidu.tieba;
 
+import android.webkit.JavascriptInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Map;
+import java.lang.annotation.Annotation;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
-public class zd6 {
+public abstract class zd6 implements xd6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final File a;
-    public final Map<String, ee6> b;
-    public final String c;
 
-    public zd6(File file, String str, Map<String, ee6> map) {
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public zd6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {file, str, map};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = file;
-        this.b = map;
-        this.c = str;
     }
 
-    public Map<String, ee6> a() {
-        InterceptResult invokeV;
+    public boolean c(Class<?> cls) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            File file = this.a;
-            if (file != null && file.exists() && this.a.isDirectory() && !ef6.b(this.b)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, cls)) == null) {
+            boolean z = false;
+            for (Method method : cls.getMethods()) {
+                Annotation[] annotations = method.getAnnotations();
+                int length = annotations.length;
+                int i = 0;
+                while (true) {
+                    if (i >= length) {
+                        break;
+                    } else if (annotations[i] instanceof JavascriptInterface) {
+                        z = true;
+                        break;
+                    } else {
+                        i++;
+                    }
+                }
+                if (z) {
+                    break;
+                }
             }
-            return false;
+            return z;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 }

@@ -1,105 +1,115 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.WebView;
+import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class vb3 extends s93 {
+public final class vb3 extends n32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public eu1 c;
+    public String j;
+    public String k;
+    public String l;
+    public boolean m;
+    public List<String> n;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vb3(s83 s83Var) {
-        super(s83Var, "/swanAPI/webviewPostMessage");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948234978, "Lcom/baidu/tieba/vb3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948234978, "Lcom/baidu/tieba/vb3;");
                 return;
             }
         }
+        boolean z = ho1.a;
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("WebViewPostMsgAction", "handle entity: " + unitedSchemeEntity.toString());
-            }
-            v42.i("webviewPostMsg", "start post webview msg");
-            eu1 eu1Var = this.c;
-            if (eu1Var == null) {
-                v42.c("webviewPostMsg", "none webview widget");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none webview widget");
-                return false;
-            }
-            tb3 params = eu1Var.getParams();
-            if (params == null) {
-                v42.c("webviewPostMsg", "none WWWParams");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none WWWParams");
-                return false;
-            }
-            JSONObject a = s93.a(unitedSchemeEntity, "params");
-            if (a == null) {
-                v42.c("webviewPostMsg", "none params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none params");
-                return false;
-            } else if (!a.has("data")) {
-                v42.c("webviewPostMsg", "none param data");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "none param data");
-                return false;
-            } else {
-                String optString = a.optString("data");
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("data", optString);
-                    jSONObject.put("eventType", "message");
-                    jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, params.c);
-                    jSONObject.put("webviewId", params.b);
-                } catch (JSONException e) {
-                    if (s93.b) {
-                        e.printStackTrace();
-                    }
-                    v42.c("webviewPostMsg", "meet json exception");
-                }
-                cn3.c(params.c, params.b, AlbumActivityConfig.FROM_WEB_VIEW, "message", jSONObject);
-                v42.i("webviewPostMsg", "post webview msg success");
-                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return !TextUtils.isEmpty(this.c);
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public vb3() {
+        super("webView", "viewId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return invokeLLLL.booleanValue;
+        this.m = true;
     }
 
-    public void j(eu1 eu1Var) {
+    public static vb3 h(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eu1Var) == null) {
-            this.c = eu1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, unitedSchemeEntity)) == null) {
+            if (unitedSchemeEntity == null) {
+                return null;
+            }
+            String str = unitedSchemeEntity.getParams().get("params");
+            vb3 vb3Var = new vb3();
+            try {
+                vb3Var.a(new JSONObject(str));
+                return vb3Var;
+            } catch (JSONException e) {
+                x42.d(WebView.LOGTAG, "parsing params occurs exception", e);
+                return null;
+            }
+        }
+        return (vb3) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        super.a(jSONObject);
+        this.j = jSONObject.optString("src");
+        this.k = jSONObject.optString(TTDownloadField.TT_USERAGENT);
+        this.l = jSONObject.optString("type");
+        JSONArray optJSONArray = jSONObject.optJSONArray("targetUrls");
+        if (optJSONArray != null && optJSONArray.length() != 0) {
+            this.n = new ArrayList();
+            int length = optJSONArray.length();
+            for (int i = 0; i < length; i++) {
+                this.n.add(optJSONArray.optString(i));
+            }
         }
     }
 }

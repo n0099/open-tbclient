@@ -1,76 +1,94 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.emotion.editortool.EmotionTabHost;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wq6 {
+public class wq6 extends ud5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-        }
-    }
-
-    public void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-        }
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-        }
-    }
-
-    public void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-        }
-    }
-
-    public wq6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wq6(Context context, int i) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.d = R.drawable.icon_pure_post_expression24;
+        this.e = R.drawable.icon_mask_post_keyboard24_selection;
+        this.h = R.drawable.icon_pure_post_expression64_big;
+        this.i = false;
+        this.j = true;
+        this.m = new EmotionTabHost(context);
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1, 34, 35};
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wq6(Context context, int i, boolean z) {
+        super(context, TbadkCoreApplication.getInst().getString(R.string.editor_express), 5, i);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, Integer.valueOf(i), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.d = R.drawable.icon_pure_post_expression24;
+        this.e = R.drawable.icon_pure_post_expression24_selection;
+        this.h = R.drawable.icon_pure_post_expression64_big;
+        this.i = false;
+        this.j = true;
+        EmotionTabHost emotionTabHost = new EmotionTabHost(context);
+        emotionTabHost.setShowBigEmotion(z);
+        this.m = emotionTabHost;
+        this.o = true;
+        this.n = 6;
+        this.p = new int[]{1, 34, 35};
+    }
+
+    @Override // com.baidu.tieba.ud5
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            ((EmotionTabHost) this.m).setShowUserCollect(z);
         }
     }
 
-    public static wq6 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ud5
+    public void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            wq6 wq6Var = new wq6();
-            wq6Var.b(jSONObject.optString("common_color"));
-            wq6Var.c(jSONObject.optString("dark_color"));
-            wq6Var.d(jSONObject.optString("font_color"));
-            wq6Var.e(jSONObject.optString("light_color"));
-            wq6Var.f(jSONObject.optString("pattern_image"));
-            return wq6Var;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            ((EmotionTabHost) this.m).setShowDiyEmotion(z);
+            super.f(z);
         }
-        return (wq6) invokeL.objValue;
     }
 }

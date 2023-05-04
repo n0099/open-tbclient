@@ -1,227 +1,118 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Build;
-import android.view.View;
-import android.view.Window;
-import android.view.WindowManager;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.m5b;
+import com.baidu.tieba.n5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
-import java.lang.reflect.InvocationTargetException;
-import java.lang.reflect.Method;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c7b {
+public final class c7b<T> implements n5b.c<T> {
     public static /* synthetic */ Interceptable $ic;
-    public static Method a;
-    public static Method b;
-    public static Field c;
-    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final n5b.c<T> a;
+    public final m5b b;
 
-    public static int j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) ? (((((i & 16711680) >> 16) * 38) + (((65280 & i) >> 8) * 75)) + ((i & 255) * 15)) >> 7 : invokeI.intValue;
-    }
+    /* loaded from: classes3.dex */
+    public static final class a<T> extends o5b<T> implements w5b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final o5b<? super T> b;
+        public final m5b.a c;
+        public T d;
+        public Throwable e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629083, "Lcom/baidu/tieba/c7b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+        public a(o5b<? super T> o5bVar, m5b.a aVar) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947629083, "Lcom/baidu/tieba/c7b;");
-                return;
-            }
-        }
-        try {
-            a = Activity.class.getMethod("setStatusBarDarkIcon", Integer.TYPE);
-        } catch (NoSuchMethodException unused) {
-        }
-        try {
-            b = Activity.class.getMethod("setStatusBarDarkIcon", Boolean.TYPE);
-        } catch (NoSuchMethodException unused2) {
-        }
-        try {
-            c = WindowManager.LayoutParams.class.getField("statusBarColor");
-        } catch (NoSuchFieldException unused3) {
-        }
-        try {
-            d = View.class.getField("SYSTEM_UI_FLAG_LIGHT_STATUS_BAR").getInt(null);
-        } catch (IllegalAccessException | NoSuchFieldException unused4) {
-        }
-    }
-
-    public static boolean a(WindowManager.LayoutParams layoutParams, String str, boolean z) {
-        int i;
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, layoutParams, str, z)) == null) {
-            try {
-                Field declaredField = layoutParams.getClass().getDeclaredField(str);
-                declaredField.setAccessible(true);
-                int i2 = declaredField.getInt(layoutParams);
-                Field declaredField2 = layoutParams.getClass().getDeclaredField("meizuFlags");
-                declaredField2.setAccessible(true);
-                int i3 = declaredField2.getInt(layoutParams);
-                if (z) {
-                    i = i2 | i3;
-                } else {
-                    i = (~i2) & i3;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {o5bVar, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-                if (i3 != i) {
-                    declaredField2.setInt(layoutParams, i);
-                    return true;
-                }
-                return false;
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-                return false;
-            } catch (IllegalArgumentException e2) {
-                e2.printStackTrace();
-                return false;
-            } catch (NoSuchFieldException e3) {
-                e3.printStackTrace();
-                return false;
-            } catch (Throwable th) {
-                th.printStackTrace();
-                return false;
+            }
+            this.b = o5bVar;
+            this.c = aVar;
+        }
+
+        @Override // com.baidu.tieba.o5b
+        public void b(Throwable th) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, th) == null) {
+                this.e = th;
+                this.c.b(this);
             }
         }
-        return invokeLLZ.booleanValue;
-    }
 
-    public static void f(Activity activity, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{activity, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            Method method = b;
-            if (method != null) {
+        @Override // com.baidu.tieba.o5b
+        public void c(T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+                this.d = t;
+                this.c.b(this);
+            }
+        }
+
+        @Override // com.baidu.tieba.w5b
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
                 try {
-                    method.invoke(activity, Boolean.valueOf(z));
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                } catch (InvocationTargetException e2) {
-                    e2.printStackTrace();
-                }
-            } else if (z2) {
-                i(activity.getWindow(), z);
-            }
-        }
-    }
-
-    public static boolean b(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65538, null, i, i2)) == null) {
-            if (j(i) < i2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeII.booleanValue;
-    }
-
-    public static void c(Window window, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65539, null, window, i) == null) {
-            WindowManager.LayoutParams attributes = window.getAttributes();
-            Field field = c;
-            if (field != null) {
-                try {
-                    if (field.getInt(attributes) != i) {
-                        c.set(attributes, Integer.valueOf(i));
-                        window.setAttributes(attributes);
+                    Throwable th = this.e;
+                    if (th != null) {
+                        this.e = null;
+                        this.b.b(th);
+                    } else {
+                        T t = this.d;
+                        this.d = null;
+                        this.b.c(t);
                     }
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
+                } finally {
+                    this.c.unsubscribe();
                 }
             }
         }
     }
 
-    public static void e(Activity activity, boolean z) {
+    public c7b(n5b.c<T> cVar, m5b m5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65541, null, activity, z) == null) {
-            f(activity, z, true);
-        }
-    }
-
-    public static void g(View view2, boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65543, null, view2, z) == null) {
-            int systemUiVisibility = view2.getSystemUiVisibility();
-            if (z) {
-                i = d | systemUiVisibility;
-            } else {
-                i = (~d) & systemUiVisibility;
-            }
-            if (i != systemUiVisibility) {
-                view2.setSystemUiVisibility(i);
-            }
-        }
-    }
-
-    public static void h(Window window, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65544, null, window, i) == null) {
-            try {
-                c(window, i);
-                if (Build.VERSION.SDK_INT > 22) {
-                    g(window.getDecorView(), true);
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static void i(Window window, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65545, null, window, z) == null) {
-            if (Build.VERSION.SDK_INT < 23) {
-                a(window.getAttributes(), "MEIZU_FLAG_DARK_STATUS_BAR_ICON", z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cVar, m5bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            View decorView = window.getDecorView();
-            if (decorView != null) {
-                g(decorView, z);
-                c(window, 0);
-            }
+        }
+        this.a = cVar;
+        this.b = m5bVar;
+    }
+
+    public void call(o5b<? super T> o5bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, o5bVar) == null) {
+            m5b.a createWorker = this.b.createWorker();
+            a aVar = new a(o5bVar, createWorker);
+            o5bVar.a(createWorker);
+            o5bVar.a(aVar);
+            this.a.call(aVar);
         }
     }
 
-    public static void d(Activity activity, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) {
-            Method method = a;
-            if (method != null) {
-                try {
-                    method.invoke(activity, Integer.valueOf(i));
-                    return;
-                } catch (IllegalAccessException e) {
-                    e.printStackTrace();
-                    return;
-                } catch (InvocationTargetException e2) {
-                    e2.printStackTrace();
-                    return;
-                }
-            }
-            boolean b2 = b(i, 50);
-            if (c != null) {
-                f(activity, b2, b2);
-                h(activity.getWindow(), i);
-                return;
-            }
-            e(activity, b2);
-        }
+    @Override // com.baidu.tieba.n5b.c, com.baidu.tieba.x5b
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((o5b) ((o5b) obj));
     }
 }

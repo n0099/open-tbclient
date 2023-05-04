@@ -16,7 +16,7 @@ import androidx.annotation.StyleableRes;
 import androidx.collection.SimpleArrayMap;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class MotionSpec {
     public static final String TAG = "MotionSpec";
     public final SimpleArrayMap<String, MotionTiming> timings = new SimpleArrayMap<>();

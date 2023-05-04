@@ -3,11 +3,11 @@ package com.google.android.gms.common.internal;
 import androidx.annotation.NonNull;
 import com.google.android.gms.common.annotation.KeepForSdk;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class ServiceSpecificExtraArgs {
 
     @KeepForSdk
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface CastExtraArgs {
         @NonNull
         @KeepForSdk
@@ -15,7 +15,7 @@ public final class ServiceSpecificExtraArgs {
     }
 
     @KeepForSdk
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface GamesExtraArgs {
         @NonNull
         @KeepForSdk
@@ -32,7 +32,7 @@ public final class ServiceSpecificExtraArgs {
     }
 
     @KeepForSdk
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface PlusExtraArgs {
         @NonNull
         @KeepForSdk

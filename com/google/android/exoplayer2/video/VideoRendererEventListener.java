@@ -6,7 +6,7 @@ import androidx.annotation.Nullable;
 import com.google.android.exoplayer2.Format;
 import com.google.android.exoplayer2.decoder.DecoderCounters;
 import com.google.android.exoplayer2.util.Assertions;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface VideoRendererEventListener {
     void onDroppedFrames(int i, long j);
 
@@ -22,7 +22,7 @@ public interface VideoRendererEventListener {
 
     void onVideoSizeChanged(int i, int i2, int i3, float f);
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class EventDispatcher {
         @Nullable
         public final Handler handler;

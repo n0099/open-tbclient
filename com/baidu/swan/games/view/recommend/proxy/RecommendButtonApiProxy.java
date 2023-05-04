@@ -15,35 +15,35 @@ import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.searchbox.v8engine.event.EventTargetImpl;
 import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
-import com.baidu.tieba.bb4;
-import com.baidu.tieba.c02;
-import com.baidu.tieba.cb4;
 import com.baidu.tieba.db4;
-import com.baidu.tieba.e24;
+import com.baidu.tieba.e02;
 import com.baidu.tieba.eb4;
 import com.baidu.tieba.fb4;
-import com.baidu.tieba.ff2;
-import com.baidu.tieba.fo1;
+import com.baidu.tieba.g24;
 import com.baidu.tieba.gb4;
-import com.baidu.tieba.kb4;
-import com.baidu.tieba.lb4;
+import com.baidu.tieba.hb4;
+import com.baidu.tieba.hf2;
+import com.baidu.tieba.ho1;
+import com.baidu.tieba.ib4;
 import com.baidu.tieba.mb4;
-import com.baidu.tieba.pa4;
-import com.baidu.tieba.pl3;
-import com.baidu.tieba.sb4;
-import com.baidu.tieba.um3;
+import com.baidu.tieba.nb4;
+import com.baidu.tieba.ob4;
+import com.baidu.tieba.ra4;
+import com.baidu.tieba.rl3;
+import com.baidu.tieba.ub4;
+import com.baidu.tieba.wm3;
 import java.util.Locale;
 /* loaded from: classes3.dex */
-public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, cb4.b, bb4, um3 {
-    public static final boolean g = fo1.a;
-    public db4 a;
-    public eb4 b;
+public class RecommendButtonApiProxy extends EventTargetImpl implements hb4.a, eb4.b, db4, wm3 {
+    public static final boolean g = ho1.a;
+    public fb4 a;
+    public gb4 b;
     public int c;
     public RecommendButtonState d;
-    public kb4 e;
-    public ff2 f;
+    public mb4 e;
+    public hf2 f;
     @V8JavascriptField
-    public final fb4 style;
+    public final hb4 style;
 
     /* loaded from: classes3.dex */
     public enum RecommendButtonState {
@@ -127,7 +127,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
 
         @Override // com.baidu.swan.games.view.recommend.proxy.RecommendButtonApiProxy.c
         public void b(String str) {
-            mb4 c = lb4.c(str);
+            ob4 c = nb4.c(str);
             if (RecommendButtonApiProxy.g) {
                 Log.d("RecommendButtonApiProxy", "load: onSuccess-" + c.a());
             }
@@ -136,7 +136,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
             }
             if (c.a()) {
                 RecommendButtonApiProxy.this.d = RecommendButtonState.HIDE;
-                RecommendButtonApiProxy.this.e = lb4.b(c.c);
+                RecommendButtonApiProxy.this.e = nb4.b(c.c);
                 RecommendButtonApiProxy.this.a.d(RecommendButtonApiProxy.this.e);
                 RecommendButtonApiProxy.this.J();
                 return;
@@ -171,9 +171,9 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
             return;
         }
         this.d = recommendButtonState2;
-        db4 db4Var = this.a;
-        if (db4Var != null) {
-            db4Var.destroy();
+        fb4 fb4Var = this.a;
+        if (fb4Var != null) {
+            fb4Var.destroy();
         }
         this.e = null;
     }
@@ -186,25 +186,25 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
         return true;
     }
 
-    @Override // com.baidu.tieba.cb4.b
+    @Override // com.baidu.tieba.eb4.b
     @UiThread
     public void b() {
-        this.b.d(this.c, "list", eb4.b);
+        this.b.d(this.c, "list", gb4.b);
     }
 
-    @Override // com.baidu.tieba.bb4
+    @Override // com.baidu.tieba.db4
     @JavascriptInterface
     public void destroy() {
         K();
-        pa4.e(this);
+        ra4.e(this);
     }
 
-    @Override // com.baidu.tieba.um3
-    public void e() {
+    @Override // com.baidu.tieba.wm3
+    public void f() {
         m(false);
     }
 
-    @Override // com.baidu.tieba.bb4
+    @Override // com.baidu.tieba.db4
     @JavascriptInterface
     public void hide() {
         if (g) {
@@ -216,7 +216,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
         }
     }
 
-    @Override // com.baidu.tieba.um3
+    @Override // com.baidu.tieba.wm3
     public void l() {
         m(true);
     }
@@ -230,37 +230,37 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
             return;
         }
         this.d = RecommendButtonState.LOADING;
-        gb4.b(this.c, new a());
+        ib4.b(this.c, new a());
     }
 
-    @Override // com.baidu.tieba.cb4.b
+    @Override // com.baidu.tieba.eb4.b
     @UiThread
     public void o() {
-        kb4 kb4Var = this.e;
-        if (kb4Var != null) {
-            P(kb4Var.a, "game_center");
+        mb4 mb4Var = this.e;
+        if (mb4Var != null) {
+            P(mb4Var.a, "game_center");
         }
     }
 
-    @Override // com.baidu.tieba.um3
+    @Override // com.baidu.tieba.wm3
     public void onViewDestroy() {
         K();
     }
 
-    public RecommendButtonApiProxy(ff2 ff2Var, JsObject jsObject) {
-        super(ff2Var);
-        this.b = new eb4();
-        this.style = new fb4();
-        this.f = ff2Var;
+    public RecommendButtonApiProxy(hf2 hf2Var, JsObject jsObject) {
+        super(hf2Var);
+        this.b = new gb4();
+        this.style = new hb4();
+        this.f = hf2Var;
         if (N(jsObject)) {
-            pa4.c(this);
+            ra4.c(this);
         }
     }
 
-    public final boolean L(c02 c02Var, String str) {
+    public final boolean L(e02 e02Var, String str) {
         int i;
-        if (c02Var != null) {
-            i = c02Var.getType(str);
+        if (e02Var != null) {
+            i = e02Var.getType(str);
         } else {
             i = 12;
         }
@@ -271,21 +271,21 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
     }
 
     public final void I(String str) {
-        e24 e24Var = new e24();
-        e24Var.errMsg = str;
-        dispatchEvent(new JSEvent("error", e24Var));
+        g24 g24Var = new g24();
+        g24Var.errMsg = str;
+        dispatchEvent(new JSEvent("error", g24Var));
     }
 
-    public final boolean O(c02 c02Var) {
-        if (c02Var == null) {
+    public final boolean O(e02 e02Var) {
+        if (e02Var == null) {
             return true;
         }
         try {
-            if (L(c02Var, "left")) {
-                this.style.left = (float) c02Var.c("left");
+            if (L(e02Var, "left")) {
+                this.style.left = (float) e02Var.c("left");
             }
-            if (L(c02Var, "top")) {
-                this.style.top = (float) c02Var.c("top");
+            if (L(e02Var, "top")) {
+                this.style.top = (float) e02Var.c("top");
             }
             return true;
         } catch (Exception unused) {
@@ -304,11 +304,11 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
         }
     }
 
-    @Override // com.baidu.tieba.cb4.b
+    @Override // com.baidu.tieba.eb4.b
     @UiThread
     public void u(int i) {
-        kb4 kb4Var = this.e;
-        if (kb4Var != null && i >= 0 && i < kb4Var.b.size()) {
+        mb4 mb4Var = this.e;
+        if (mb4Var != null && i >= 0 && i < mb4Var.b.size()) {
             P(this.e.b.get(i), "game");
         }
     }
@@ -316,9 +316,9 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
     public final boolean N(JsObject jsObject) {
         this.d = RecommendButtonState.IDLE;
         this.style.b(this);
-        c02 F = c02.F(jsObject);
+        e02 F = e02.F(jsObject);
         if (F == null) {
-            F = new c02();
+            F = new e02();
         }
         String B = F.B("type");
         if (L(F, "type")) {
@@ -331,7 +331,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
             return false;
         }
         if (L(F, "style")) {
-            c02 w = F.w("style");
+            e02 w = F.w("style");
             if (w == null) {
                 Q("createRecommendationButton failed,parameter error: the 'style' is invalid.");
                 return false;
@@ -343,15 +343,15 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
         if (g) {
             Log.d("RecommendButtonApiProxy", "init: style-" + this.style);
         }
-        this.a = new sb4(this.c, this.style, this);
+        this.a = new ub4(this.c, this.style, this);
         return true;
     }
 
     @UiThread
     public final void P(RecommendItemModel recommendItemModel, String str) {
         if (recommendItemModel != null && !TextUtils.isEmpty(recommendItemModel.appKey) && !TextUtils.isEmpty(recommendItemModel.scheme)) {
-            gb4.d(this.c, recommendItemModel.appKey);
-            SchemeRouter.invokeScheme(pa4.b(), Uri.parse(recommendItemModel.scheme), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
+            ib4.d(this.c, recommendItemModel.appKey);
+            SchemeRouter.invokeScheme(ra4.b(), Uri.parse(recommendItemModel.scheme), UnitedSchemeConstants.SCHEME_INVOKE_TYPE_INSIDE);
             this.b.d(this.c, str, recommendItemModel.appKey);
         }
     }
@@ -381,7 +381,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
         return 2;
     }
 
-    @Override // com.baidu.tieba.bb4
+    @Override // com.baidu.tieba.db4
     @JavascriptInterface
     public void show() {
         if (g) {
@@ -389,7 +389,7 @@ public class RecommendButtonApiProxy extends EventTargetImpl implements fb4.a, c
         }
         if (this.d == RecommendButtonState.HIDE) {
             this.d = RecommendButtonState.SHOW;
-            pl3.e0(new b());
+            rl3.e0(new b());
             this.a.show();
         }
     }

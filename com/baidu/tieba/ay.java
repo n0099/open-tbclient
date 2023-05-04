@@ -5,19 +5,19 @@ import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.SingleLinkCardView;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.TbLabelWidget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ay extends xw {
+public class ay extends yw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SingleLinkCardView h;
+    public TbLabelWidget h;
+    public ThreadData i;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ay(Context context) {
@@ -37,72 +37,80 @@ public class ay extends xw {
                 return;
             }
         }
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().m instanceof SingleLinkCardView) && TbadkCoreApplication.getInst().getPersonalizeViewData().m.getParent() == null) {
-            this.h = (SingleLinkCardView) TbadkCoreApplication.getInst().getPersonalizeViewData().m;
+        int g = ii.g(context, R.dimen.M_H_X003);
+        int g2 = ii.g(context, R.dimen.tbds0);
+        x(g);
+        u(g2);
+        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().s instanceof TbLabelWidget) && TbadkCoreApplication.getInst().getPersonalizeViewData().s.getParent() == null) {
+            this.h = (TbLabelWidget) TbadkCoreApplication.getInst().getPersonalizeViewData().s;
         } else {
-            this.h = new SingleLinkCardView(context);
+            this.h = new TbLabelWidget(context);
         }
-        v(UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
-    /* renamed from: y */
-    public void a(kw4 kw4Var) {
+    @Override // com.baidu.tieba.kx
+    /* renamed from: A */
+    public void a(ax4 ax4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, kw4Var) == null) {
-            if (!x(kw4Var) && kw4Var != null && kw4Var.getThreadData() != null && !w(kw4Var) && ListUtils.getCount(kw4Var.getThreadData().getLinkDataList()) + ListUtils.getCount(kw4Var.getThreadData().getGoodsDataList()) == 1) {
-                if (kw4Var.getThreadData().getLinkDataList().size() >= 1) {
-                    this.h.a((gh6) ListUtils.getItem(kw4Var.getThreadData().getLinkDataList(), 0));
-                } else if (kw4Var.getThreadData().getGoodsDataList().size() >= 1) {
-                    this.h.a((gh6) ListUtils.getItem(kw4Var.getThreadData().getGoodsDataList(), 0));
-                }
-                this.h.setVisibility(0);
-                return;
+        if (interceptable == null || interceptable.invokeL(1048576, this, ax4Var) == null) {
+            if (ax4Var != null) {
+                this.i = ax4Var.getThreadData();
             }
-            this.h.setVisibility(8);
+            this.h.setData(ax4Var);
         }
     }
 
-    public final boolean w(kw4 kw4Var) {
-        InterceptResult invokeL;
+    public void B(TbLabelWidget.b bVar) {
+        TbLabelWidget tbLabelWidget;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, kw4Var)) == null) {
-            if (kw4Var != null && kw4Var.getThreadData() != null && kw4Var.getThreadData().isVideoThreadType() && kw4Var.getThreadData().getThreadVideoInfo() != null) {
-                return true;
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) && (tbLabelWidget = this.h) != null) {
+            tbLabelWidget.setEventCallback(bVar);
         }
-        return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.qw
+    public void C(TbPageContext tbPageContext) {
+        TbLabelWidget tbLabelWidget;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbPageContext) == null) && (tbLabelWidget = this.h) != null) {
+            tbLabelWidget.setPageContext(tbPageContext);
+        }
+    }
+
+    @Override // com.baidu.tieba.rw
     public View k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.h;
         }
         return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public void y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.h.d();
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            int g = ii.g(this.b, R.dimen.M_H_X003);
+            int g2 = ii.g(this.b, R.dimen.tbds0);
+            x(g);
+            u(g2);
         }
     }
 
-    public final boolean x(kw4 kw4Var) {
-        InterceptResult invokeL;
+    public ThreadData z() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, kw4Var)) == null) {
-            if (kw4Var != null && kw4Var.getThreadData() != null && kw4Var.getThreadData().getPollData() != null && kw4Var.getThreadData().getPollData().getOptions() != null && kw4Var.getThreadData().getPollData().getOptions().size() > 0) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
         }
-        return invokeL.booleanValue;
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.lx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, tbPageContext, i) == null) {
+            this.h.k();
+        }
     }
 }

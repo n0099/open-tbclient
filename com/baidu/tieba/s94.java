@@ -1,23 +1,23 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
 /* loaded from: classes6.dex */
-public final class s94 {
+public final class s94 extends Thread {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public byte[] c;
-    public int d;
-    public int e;
+    public y94 a;
+    public volatile boolean b;
 
+    @SuppressLint({"MobilebdThread"})
     public s94() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -28,90 +28,58 @@ public final class s94 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = "";
     }
 
-    public final String a() {
+    public final boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.b;
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    public final void f(String str) {
+    public final void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.a = str;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            this.b = z;
         }
     }
 
-    public final void g(byte[] bArr) {
+    public final void c(y94 y94Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, bArr) == null) {
-            this.c = bArr;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y94Var) == null) {
+            this.a = y94Var;
         }
     }
 
-    public final void h(int i) {
+    @Override // java.lang.Thread, java.lang.Runnable
+    public void run() {
+        DatagramSocket C;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public final void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            while (this.b) {
+                try {
+                    DatagramPacket datagramPacket = new DatagramPacket(new byte[4096], 4096);
+                    y94 y94Var = this.a;
+                    if (y94Var != null && (C = y94Var.C()) != null) {
+                        C.receive(datagramPacket);
+                    }
+                    y94 y94Var2 = this.a;
+                    if (y94Var2 != null) {
+                        y94Var2.z(datagramPacket);
+                    }
+                } catch (InterruptedException unused) {
+                    return;
+                } catch (Throwable unused2) {
+                    y94 y94Var3 = this.a;
+                    if (y94Var3 != null) {
+                        y94Var3.D(StatConstants.VALUE_TYPE_RECEIVE, "receive failed");
+                    }
+                }
+            }
         }
     }
 }

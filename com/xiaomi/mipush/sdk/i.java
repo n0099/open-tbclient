@@ -198,20 +198,20 @@ public class i {
         ApplicationInfo applicationInfo = null;
         if (i != 1) {
             if (i == 2) {
-                a = new t.a(":", Constants.WAVE_SEPARATOR).a(Constants.PHONE_BRAND, ag.FCM.name()).a("token", a(context, eVar, false)).a("package_name", context.getPackageName());
+                a = new t.a(":", Constants.WAVE_SEPARATOR).a("brand", ag.FCM.name()).a("token", a(context, eVar, false)).a("package_name", context.getPackageName());
                 a2 = a();
                 if (a2 == 0) {
                     a2 = 50005;
                 }
             } else if (i != 3) {
                 if (i == 4) {
-                    a = new t.a(":", Constants.WAVE_SEPARATOR).a(Constants.PHONE_BRAND, ag.VIVO.name()).a("token", a(context, eVar, true)).a("package_name", context.getPackageName());
+                    a = new t.a(":", Constants.WAVE_SEPARATOR).a("brand", ag.VIVO.name()).a("token", a(context, eVar, true)).a("package_name", context.getPackageName());
                     a2 = a();
                 }
                 hashMap.put(Constants.ASSEMBLE_PUSH_REG_INFO, str);
                 return hashMap;
             } else {
-                a = new t.a(":", Constants.WAVE_SEPARATOR).a(Constants.PHONE_BRAND, ag.OPPO.name()).a("token", a(context, eVar, true)).a("package_name", context.getPackageName());
+                a = new t.a(":", Constants.WAVE_SEPARATOR).a("brand", ag.OPPO.name()).a("token", a(context, eVar, true)).a("package_name", context.getPackageName());
             }
             a.a("version", Integer.valueOf(a2));
         } else {
@@ -220,7 +220,7 @@ public class i {
             } catch (Exception e) {
                 com.xiaomi.channel.commonutils.logger.b.d(e.toString());
             }
-            a = new t.a(":", Constants.WAVE_SEPARATOR).a(Constants.PHONE_BRAND, ag.HUAWEI.name()).a("token", a(context, eVar, true)).a("package_name", context.getPackageName()).a("app_id", Integer.valueOf(applicationInfo != null ? applicationInfo.metaData.getInt(Constants.HUAWEI_HMS_CLIENT_APPID) : -1));
+            a = new t.a(":", Constants.WAVE_SEPARATOR).a("brand", ag.HUAWEI.name()).a("token", a(context, eVar, true)).a("package_name", context.getPackageName()).a("app_id", Integer.valueOf(applicationInfo != null ? applicationInfo.metaData.getInt(Constants.HUAWEI_HMS_CLIENT_APPID) : -1));
         }
         str = a.toString();
         hashMap.put(Constants.ASSEMBLE_PUSH_REG_INFO, str);

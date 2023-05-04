@@ -1,6 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,57 +8,124 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class hia {
+public class hia implements pia {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
+    public uha a;
+    public float b;
+    public boolean c;
 
-    public hia(boolean z, boolean z2, String str, String str2, String str3, int i) {
+    public hia() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z), Boolean.valueOf(z2), str, str2, str3, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = z;
-        this.b = z2;
-        this.c = str;
-        this.d = str2;
-        this.e = str3;
-        this.f = i;
+        this.b = 1.0f;
+        this.c = true;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.pia
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.c)) {
-                return this.c;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            uha uhaVar = this.a;
+            if (uhaVar == null || !uhaVar.putBytes(bArr, i)) {
+                return 0;
             }
-            return new yia("ABCDEFGHIJKLMNOPQRSTUVWXYZ234567=", false, false).b(this.c.getBytes());
+            return i;
         }
-        return (String) invokeV.objValue;
+        return invokeLI.intValue;
     }
 
-    public String toString() {
+    @Override // com.baidu.tieba.pia
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "UnionIDInfo{isTrackLimited=" + this.a + ", isSupport=" + this.b + ", OAID='" + this.c + "', EncodedOAID='" + a() + "', AAID='" + this.d + "', VAID='" + this.e + "', StatusCode='" + this.f + "'}";
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pia
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            if (this.a == null) {
+                this.a = (uha) xla.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
+            }
+            uha uhaVar = this.a;
+            if (uhaVar != null) {
+                uhaVar.init(i3, i2);
+                this.a.setSpeed(1.0f);
+                return false;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pia
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            uha uhaVar = this.a;
+            return uhaVar != null ? uhaVar.getOutPutBytes() : new byte[0];
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.b = f;
+            uha uhaVar = this.a;
+            if (uhaVar != null) {
+                uhaVar.setSpeed(f);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.pia
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pia
+    public void c() {
+        uha uhaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (uhaVar = this.a) == null) {
+            return;
+        }
+        uhaVar.flush();
+    }
+
+    @Override // com.baidu.tieba.pia
+    public void d() {
+        uha uhaVar;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (uhaVar = this.a) == null) {
+            return;
+        }
+        uhaVar.close();
+        this.a = null;
+    }
+
+    @Override // com.baidu.tieba.pia
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        }
     }
 }

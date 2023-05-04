@@ -9,9 +9,9 @@ import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.e99;
-import com.baidu.tieba.g99;
-import com.baidu.tieba.j99;
+import com.baidu.tieba.cc9;
+import com.baidu.tieba.xb9;
+import com.baidu.tieba.zb9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,8 +21,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PostSearchActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public j99 a;
-    public g99 b;
+    public cc9 a;
+    public zb9 b;
     public String c;
     public String d;
     public String e;
@@ -72,7 +72,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
             if (interceptable != null && interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) != null) {
                 return;
             }
-            this.a.C1(i);
+            this.a.F1(i);
         }
     }
 
@@ -92,46 +92,53 @@ public class PostSearchActivity extends BaseFragmentActivity {
         this.f = new a(this);
     }
 
+    public void A1() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.i(this.b.j);
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            j99 j99Var = this.a;
-            if (j99Var != null) {
-                j99Var.h();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            cc9 cc9Var = this.a;
+            if (cc9Var != null) {
+                cc9Var.h();
             }
             super.onDestroy();
         }
     }
 
-    public g99 s1() {
+    public zb9 u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.b;
         }
-        return (g99) invokeV.objValue;
+        return (zb9) invokeV.objValue;
     }
 
-    public j99 t1() {
+    public cc9 v1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.a;
         }
-        return (j99) invokeV.objValue;
+        return (cc9) invokeV.objValue;
     }
 
-    public void u1() {
+    public void w1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
             this.a.d();
         }
     }
 
-    public final void v1() {
+    public final void x1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             Intent intent = getIntent();
             if (intent != null) {
                 this.d = intent.getStringExtra("forum_name");
@@ -141,32 +148,39 @@ public class PostSearchActivity extends BaseFragmentActivity {
         }
     }
 
-    public boolean w1() {
+    public boolean y1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.a.f();
         }
         return invokeV.booleanValue;
     }
 
-    public void x1() {
+    public void B1(int i, xb9 xb9Var, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.i(this.b.j);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), xb9Var, Boolean.valueOf(z)}) == null) {
+            if (i == 1 && (xb9Var == null || !xb9Var.a())) {
+                this.a.c();
+                this.a.n();
+                return;
+            }
+            this.a.c();
+            this.a.b();
+            this.a.j(i, xb9Var, z);
         }
     }
 
-    public void A1(String str) {
+    public void C1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
             this.a.k(str);
         }
     }
 
-    public void B1(String str) {
+    public void D1(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             this.c = str;
             this.a.o(1);
             this.b.q();
@@ -177,7 +191,7 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             this.a.g(i);
         }
     }
@@ -185,21 +199,21 @@ public class PostSearchActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            j99 j99Var = new j99(this);
-            this.a = j99Var;
-            j99Var.e();
+            cc9 cc9Var = new cc9(this);
+            this.a = cc9Var;
+            cc9Var.e();
             this.a.l(this.f);
             addGlobalLayoutListener();
-            this.b = new g99(this);
-            v1();
+            this.b = new zb9(this);
+            x1();
         }
     }
 
-    public final void C1(int i) {
+    public final void F1(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             int i2 = 2;
             if (i != 0) {
                 if (i != 1) {
@@ -217,20 +231,6 @@ public class PostSearchActivity extends BaseFragmentActivity {
                 param.param(TiebaStatic.Params.TAB_ID, i2);
             }
             TiebaStatic.log(param);
-        }
-    }
-
-    public void z1(int i, e99 e99Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{Integer.valueOf(i), e99Var, Boolean.valueOf(z)}) == null) {
-            if (i == 1 && (e99Var == null || !e99Var.a())) {
-                this.a.c();
-                this.a.n();
-                return;
-            }
-            this.a.c();
-            this.a.b();
-            this.a.j(i, e99Var, z);
         }
     }
 }

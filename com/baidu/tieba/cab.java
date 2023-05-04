@@ -1,68 +1,96 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class cab {
+public class cab<T, R> extends dab<T, R> {
     public static /* synthetic */ Interceptable $ic;
-    public static cab a;
-    public static SharedPreferences b;
-    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final n9b<T> b;
 
-    public cab(Context context, String str) {
+    /* loaded from: classes3.dex */
+    public class a implements j5b.a<R> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ dab a;
+
+        public a(dab dabVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {dabVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = dabVar;
+        }
+
+        public void call(p5b<? super R> p5bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, p5bVar) == null) {
+                this.a.D(p5bVar);
+            }
+        }
+
+        @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
+        public /* bridge */ /* synthetic */ void call(Object obj) {
+            call((p5b) ((p5b) obj));
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cab(dab<T, R> dabVar) {
+        super(new a(dabVar));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
+            Object[] objArr = {dabVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((j5b.a) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        c = str;
-        b = context.getSharedPreferences(str, 0);
+        this.b = new n9b<>(dabVar);
     }
 
-    public static cab b(Context context, String str) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.k5b
+    public void onCompleted() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, str)) == null) {
-            if (str == null) {
-                str = "midPay";
-            }
-            if (a == null || !str.equals(c)) {
-                a = new cab(context, str);
-            }
-            return a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b.onCompleted();
         }
-        return (cab) invokeLL.objValue;
     }
 
-    public boolean a(String str, boolean z) {
-        InterceptResult invokeLZ;
+    @Override // com.baidu.tieba.k5b
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, str, z)) == null) {
-            return b.getBoolean(str, z);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            this.b.onError(th);
         }
-        return invokeLZ.booleanValue;
     }
 
-    public void c(String str, boolean z) {
+    @Override // com.baidu.tieba.k5b
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
-            b.edit().putBoolean(str, z).apply();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            this.b.onNext(t);
         }
     }
 }

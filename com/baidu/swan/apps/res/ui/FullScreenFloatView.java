@@ -14,11 +14,11 @@ import android.widget.FrameLayout;
 import com.baidu.pass.biometrics.base.utils.SapiSystemBarTintManager;
 import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fo1;
-import com.baidu.tieba.ml3;
+import com.baidu.tieba.ho1;
+import com.baidu.tieba.ol3;
 /* loaded from: classes3.dex */
 public class FullScreenFloatView extends FrameLayout {
-    public static final boolean n = fo1.a;
+    public static final boolean n = ho1.a;
     public View a;
     public int b;
     public int c;
@@ -190,7 +190,7 @@ public class FullScreenFloatView extends FrameLayout {
         if (this.a != null) {
             int dimensionPixelOffset = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f070669);
             int dimensionPixelOffset2 = getResources().getDimensionPixelOffset(R.dimen.obfuscated_res_0x7f07066a);
-            this.a.animate().x((ml3.o(getContext()) - dimensionPixelOffset) - this.b).y((ml3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
+            this.a.animate().x((ol3.o(getContext()) - dimensionPixelOffset) - this.b).y((ol3.n(getContext()) - dimensionPixelOffset2) - this.c).setInterpolator(new AccelerateInterpolator()).setDuration(300L).start();
         }
     }
 
@@ -201,7 +201,7 @@ public class FullScreenFloatView extends FrameLayout {
             float y = motionEvent.getY();
             Rect rect = new Rect();
             if (this.a == null) {
-                View findViewById = findViewById(R.id.obfuscated_res_0x7f090aeb);
+                View findViewById = findViewById(R.id.obfuscated_res_0x7f090af3);
                 this.a = findViewById;
                 b(findViewById);
             }
@@ -326,14 +326,14 @@ public class FullScreenFloatView extends FrameLayout {
     }
 
     public void setFloatButtonText(String str) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090aeb);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090af3);
         if (findViewById instanceof Button) {
             ((Button) findViewById).setText(str);
         }
     }
 
     public void setFloatImageBackground(int i) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090aeb);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090af3);
         if (findViewById != null) {
             findViewById.setBackgroundResource(i);
         }

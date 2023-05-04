@@ -1,82 +1,167 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
-import com.fun.ad.sdk.internal.api.ripper.RippedAd;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.ReflectionUtils;
-import java.lang.reflect.Field;
-import org.json.JSONObject;
+import com.caverock.androidsvg.CSSParser;
+import com.caverock.androidsvg.PreserveAspectRatio;
+import com.caverock.androidsvg.SVG;
 /* loaded from: classes7.dex */
-public class xoa extends BaseAdRipper {
+public class xoa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public CSSParser.n a;
+    public PreserveAspectRatio b;
+    public String c;
+    public SVG.b d;
+    public String e;
+    public SVG.b f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xoa(Ssp.Pid pid) {
-        super(pid);
+    public xoa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
     }
 
-    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
-    public RippedAd getRippedAdInternal(Object obj) {
-        InterceptResult invokeL;
-        Object findField;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            if (obj == null) {
-                return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            CSSParser.n nVar = this.a;
+            if (nVar != null && nVar.f() > 0) {
+                return true;
             }
-            try {
-                Field declaredField = obj.getClass().getSuperclass().getSuperclass().getDeclaredField("a");
-                declaredField.setAccessible(true);
-                Object obj2 = declaredField.get(obj);
-                if (obj2 == null) {
-                    return null;
-                }
-                Field declaredField2 = obj2.getClass().getDeclaredField("b");
-                declaredField2.setAccessible(true);
-                Object obj3 = declaredField2.get(obj2);
-                if (obj3 == null || (findField = ReflectionUtils.findField("com.qq.e.comm.plugin.intersitial2.i", obj3)) == null) {
-                    return null;
-                }
-                Field declaredField3 = findField.getClass().getDeclaredField("x");
-                declaredField3.setAccessible(true);
-                Object obj4 = declaredField3.get(findField);
-                if (obj4 == null) {
-                    return null;
-                }
-                Field declaredField4 = obj4.getClass().getDeclaredField("L");
-                declaredField4.setAccessible(true);
-                JSONObject jSONObject = (JSONObject) declaredField4.get(obj4);
-                if (jSONObject == null) {
-                    return null;
-                }
-                return roa.a(jSONObject);
-            } catch (Exception e) {
-                LogPrinter.e(e);
-                return null;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.b != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (this.c != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.e != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.d != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (this.f != null) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public xoa(xoa xoaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {xoaVar};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        return (RippedAd) invokeL.objValue;
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = null;
+        if (xoaVar == null) {
+            return;
+        }
+        this.a = xoaVar.a;
+        this.b = xoaVar.b;
+        this.d = xoaVar.d;
+        this.e = xoaVar.e;
+        this.f = xoaVar.f;
+    }
+
+    public xoa a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            this.a = new CSSParser(CSSParser.Source.RenderOptions).d(str);
+            return this;
+        }
+        return (xoa) invokeL.objValue;
+    }
+
+    public xoa h(float f, float f2, float f3, float f4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048583, this, new Object[]{Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3), Float.valueOf(f4)})) == null) {
+            this.f = new SVG.b(f, f2, f3, f4);
+            return this;
+        }
+        return (xoa) invokeCommon.objValue;
     }
 }

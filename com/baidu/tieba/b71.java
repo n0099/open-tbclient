@@ -1,33 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.c71;
-import com.baidu.tieba.f91;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.PopupWindow;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public final class b71 {
+public class b71 {
     public static /* synthetic */ Interceptable $ic;
-    public static final f91.a a;
-    public static final c71.a b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947597773, "Lcom/baidu/tieba/b71;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947597773, "Lcom/baidu/tieba/b71;");
-                return;
-            }
+    public static void a(Context context, PopupWindow popupWindow) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65536, null, context, popupWindow) != null) || !(context instanceof Activity)) {
+            return;
         }
-        a = new g91();
-        b = new d71();
+        popupWindow.getContentView().setSystemUiVisibility(((Activity) context).getWindow().getDecorView().getSystemUiVisibility() | 512 | 2);
+    }
+
+    public static ViewGroup b(Context context, ViewGroup viewGroup, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65537, null, context, viewGroup, z)) == null) {
+            if (!(context instanceof Activity)) {
+                return null;
+            }
+            if (viewGroup == null) {
+                viewGroup = new FrameLayout(context);
+                viewGroup.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+                ColorDrawable colorDrawable = new ColorDrawable(-16777216);
+                colorDrawable.setAlpha(86);
+                viewGroup.setBackground(colorDrawable);
+            }
+            ViewGroup viewGroup2 = (ViewGroup) ((Activity) context).getWindow().getDecorView();
+            if (viewGroup.getParent() != null) {
+                viewGroup2.removeView(viewGroup);
+            }
+            if (z) {
+                viewGroup2.addView(viewGroup);
+            }
+            return viewGroup;
+        }
+        return (ViewGroup) invokeLLZ.objValue;
     }
 }

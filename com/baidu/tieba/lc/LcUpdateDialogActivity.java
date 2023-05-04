@@ -32,8 +32,8 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.permission.PermissionJudgePolicy;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a15;
-import com.baidu.tieba.vg8;
+import com.baidu.tieba.dj8;
+import com.baidu.tieba.r15;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -185,10 +185,10 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            a15.l("lcUpdateDialog");
+            r15.m("lcUpdateDialog");
             setSwipeBackEnabled(false);
             setContentView(R.layout.activity_lc_update_layout);
-            E1(bundle);
+            D1(bundle);
             initView();
             registerReceiver();
         }
@@ -257,7 +257,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         }
     }
 
-    public final void E1(Bundle bundle) {
+    public final void D1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             if (bundle != null) {
@@ -301,7 +301,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
             ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelDownload(this.m);
             ClientUpdater.getInstance(TbadkCoreApplication.getInst()).cancelAutoCheckUpdate();
             unregisterReceiver(this.p);
-            a15.r("lcUpdateDialog");
+            r15.s("lcUpdateDialog");
             super.onDestroy();
         }
     }
@@ -312,7 +312,7 @@ public class LcUpdateDialogActivity extends BaseActivity<LcUpdateDialogActivity>
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             super.onResume();
             if (TbSingleton.getInstance().isSplashShowing()) {
-                vg8 defaultLog = DefaultLog.getInstance();
+                dj8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b("BaseActivity", "resume LcUpdateDialogActivity failed，because of splash showing. IS_MAIN_TAB_SPLASH_SHOW=" + MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW + ", IS_HOT_SPLASH_SHOW=" + LogoActivityConfig.IS_HOT_SPLASH_SHOW);
                 finish();
             }

@@ -1,43 +1,42 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.math.BigInteger;
-/* loaded from: classes6.dex */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
 public class wz {
     public static /* synthetic */ Interceptable $ic;
-    public static byte[] a;
-    public static byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public vz a;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public wz() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            byte[] bArr = a;
-            if (bArr != null) {
-                return bArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            byte[] byteArray = new BigInteger(vz.a).modPow(new BigInteger(vz.b), new BigInteger(vz.e)).toByteArray();
-            a = byteArray;
-            return byteArray;
         }
-        return (byte[]) invokeV.objValue;
+        this.a = new vz(32);
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            byte[] bArr = b;
-            if (bArr != null) {
-                return bArr;
-            }
-            byte[] byteArray = new BigInteger(vz.c).modPow(new BigInteger(vz.d), new BigInteger(vz.e)).toByteArray();
-            b = byteArray;
-            return byteArray;
-        }
-        return (byte[]) invokeV.objValue;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) ? this.a.j(bArr) : (byte[]) invokeL.objValue;
+    }
+
+    public byte[] b(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) ? this.a.m(bArr) : (byte[]) invokeL.objValue;
     }
 }

@@ -1,75 +1,269 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import android.app.Activity;
+import android.content.DialogInterface;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.HttpMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.livesdk.api.share.Share;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.ala.alasquare.live_tab.view.OfficialRecommendLiveViewHolder;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class a46 extends vm<e46, OfficialRecommendLiveViewHolder> {
+public class a46 extends ActivityDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public i56 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a46(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), e46.b);
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    /* loaded from: classes3.dex */
+    public class a implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a46 a;
+
+        public a(a46 a46Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a46Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a46Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.f(true);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class b implements DialogInterface.OnCancelListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ a46 a;
+
+        public b(a46 a46Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a46Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = a46Var;
+        }
+
+        @Override // android.content.DialogInterface.OnCancelListener
+        public void onCancel(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.f(false);
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public class c implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
+            }
+        }
+
+        public c(a46 a46Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {a46Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public a46() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onAttachedToWindow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            e();
+            g(getAgent(), this.mParams.getString("options"));
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public void onSelfFinish() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            h();
+        }
+    }
+
+    public final int d(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
+            if (str.equals(Share.WEIXIN_FRIEND)) {
+                return 3;
+            }
+            if (str.equals(Share.WEIXIN_TIMELINE)) {
+                return 2;
+            }
+            if (str.equals(Share.QQFRIEND)) {
+                return 8;
+            }
+            if (str.equals(Share.QQDENGLU)) {
+                return 4;
+            }
+            if (str.equals(Share.SINAWEIBO)) {
+                return 6;
+            }
+            return i;
+        }
+        return invokeIL.intValue;
+    }
+
+    public final void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            this.mResult.putBoolean("share_result", z);
+            h();
+            finish();
+        }
+    }
+
+    public final void g(Activity activity, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, activity, str) == null) {
+            if (activity == null) {
+                f(false);
                 return;
             }
-        }
-        this.a = tbPageContext;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public OfficialRecommendLiveViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new i56(this.a, viewGroup);
-            return new OfficialRecommendLiveViewHolder(this.b);
-        }
-        return (OfficialRecommendLiveViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, e46 e46Var, OfficialRecommendLiveViewHolder officialRecommendLiveViewHolder) {
-        InterceptResult invokeCommon;
-        i56 i56Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, e46Var, officialRecommendLiveViewHolder})) == null) {
-            if (officialRecommendLiveViewHolder != null && (i56Var = officialRecommendLiveViewHolder.a) != null) {
-                i56Var.l(e46Var);
-                officialRecommendLiveViewHolder.a.m(this.a, TbadkCoreApplication.getInst().getSkinType());
-                return officialRecommendLiveViewHolder.getView();
+            z36 z36Var = new z36();
+            try {
+                z36Var.q(new JSONObject(str));
+                TbadkCoreApplication.getInst().setCurAiAppid(z36Var.x0);
+                if (!TextUtils.isEmpty(z36Var.o())) {
+                    int d = d(-1, z36Var.o());
+                    if (!TextUtils.isEmpty(z36Var.n()) && !TextUtils.isEmpty(z36Var.m())) {
+                        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
+                        httpMessage.addParam("scheme", z36Var.n());
+                        httpMessage.setExtra(new sw4(z36Var, activity, d, new a(this)));
+                        MessageManager.getInstance().sendMessage(httpMessage);
+                        return;
+                    }
+                    MessageManager.getInstance().sendMessage(new ImplicitShareMessage(activity, d, z36Var, true));
+                    f(ua5.b(activity, d));
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c13530").param("obj_id", z36Var.x0).param("obj_type", z36Var.y0).param("obj_source", z36Var.z0));
+                ShareDialogConfig shareDialogConfig = new ShareDialogConfig(activity, z36Var, false);
+                shareDialogConfig.onCancelListener = new b(this);
+                shareDialogConfig.onDismissListener = new c(this);
+                JSONArray p = z36Var.p();
+                if (p != null && !TextUtils.isEmpty(z36Var.n()) && !TextUtils.isEmpty(z36Var.m())) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < p.length(); i++) {
+                        try {
+                            arrayList.add(Integer.valueOf(d(-1, p.getString(i))));
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    if (!ListUtils.isEmpty(arrayList)) {
+                        z36Var.i(arrayList);
+                    }
+                    HttpMessage httpMessage2 = new HttpMessage(CmdConfigHttp.CMD_SHARE_COMMAND_GENERATE);
+                    httpMessage2.addParam("scheme", z36Var.n());
+                    httpMessage2.setExtra(new sw4(z36Var, activity, shareDialogConfig.onCancelListener));
+                    MessageManager.getInstance().sendMessage(httpMessage2);
+                    return;
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
+            } catch (JSONException unused) {
+                f(false);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 }

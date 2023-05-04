@@ -27,8 +27,8 @@ import com.baidu.tbadk.core.util.TiebaStaticHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.util.YYLiveUtil;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -143,7 +143,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 setVisibility(0);
                 f();
                 TextView textView = this.f;
-                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, StringHelper.STRING_MORE) + this.b.getString(R.string.obfuscated_res_0x7f0f06b5));
+                textView.setText(StringHelper.cutForumNameWithSuffix(forum_name, 14, StringHelper.STRING_MORE) + this.b.getString(R.string.obfuscated_res_0x7f0f06c2));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(forum_name)) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -201,8 +201,8 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
                 }
                 setVisibility(0);
                 f();
-                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f06b5));
-                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f06b5));
+                float measureText = (i - (paddingLeft * 2)) - this.f.getPaint().measureText(getResources().getString(R.string.obfuscated_res_0x7f0f06c2));
+                this.f.setText(((Object) TextUtils.ellipsize(forum_name, this.f.getPaint(), measureText, TextUtils.TruncateAt.END)) + getResources().getString(R.string.obfuscated_res_0x7f0f06c2));
                 this.f.setVisibility(0);
                 if (YYLiveUtil.isLiveRoom(threadData.getForum_name())) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_CARD_ENTER_FORUM_SHOW);
@@ -245,7 +245,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
         }
         this.i = skinType;
         if (this.e) {
-            r25 d = r25.d(this.f);
+            g35 d = g35.d(this.f);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X09);
             d.w(R.color.CAM_X0304);
@@ -254,7 +254,7 @@ public class ThreadForumEnterButton extends RelativeLayout implements View.OnCli
             d.m(R.dimen.L_X01);
             d.l(R.color.CAM_X0304);
         } else {
-            r25 d2 = r25.d(this.f);
+            g35 d2 = g35.d(this.f);
             d2.C(R.string.F_X01);
             d2.B(R.dimen.T_X09);
             d2.w(R.color.CAM_X0304);

@@ -1,197 +1,50 @@
 package com.baidu.tieba;
 
-import android.content.res.Configuration;
-import android.os.Looper;
-import android.os.MessageQueue;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsManager;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.os.Build;
+import com.baidu.android.common.security.AESUtil;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.unitedscheme.SchemeDescPatchListener;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class fh9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public hh9 a;
-    public gh9 b;
-    public ih9 c;
 
-    /* loaded from: classes4.dex */
-    public class a implements MessageQueue.IdleHandler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(fh9 fh9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fh9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.os.MessageQueue.IdleHandler
-        public boolean queueIdle() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_IDLE_END_STAMP_KEY);
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(fh9 fh9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {fh9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_HANDLER_END_STAMP_KEY);
-            }
-        }
-    }
-
-    public fh9() {
+    public static String a(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            im imVar = new im();
+            String version = TbConfig.getVersion();
+            if (TbConfig.getVersionType() == 1 && !hi.isEmpty(TbConfig.getSubVersion())) {
+                version = version + "." + TbConfig.getSubVersion();
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(HttpRequest.CLIENT_TYPE, "Android");
+                jSONObject.put(HttpConstants.HTTP_ENGINE_VERSION, "1.0.14");
+                jSONObject.put("uid", TbadkCoreApplication.getCurrentAccount());
+                jSONObject.put("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+                jSONObject.put("_client_version", version);
+                jSONObject.put("cuid", TbadkCoreApplication.getInst().getCuid());
+                jSONObject.put(HttpRequest.OS_VERSION, ki.k());
+                jSONObject.put(Config.DEVICE_PART, ki.g() + " " + Build.BRAND + " " + DeviceInfoUtil.getDevicesManufacturer() + " " + Build.BOARD + " " + Build.HARDWARE);
+                jSONObject.put(SchemeDescPatchListener.PATCH, imVar.a(context));
+                return ai.j(AESUtil.encrypt("tbpatch-iv-value", "tbpatch1tbpatch2tbpatch3tbpatch4", jSONObject.toString().getBytes()));
+            } catch (Exception e) {
+                e.printStackTrace();
+                return "";
             }
         }
-    }
-
-    public void e() {
-        hh9 hh9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (hh9Var = this.a) != null) {
-            hh9Var.a(false);
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            gh9 gh9Var = this.b;
-            if (gh9Var != null) {
-                gh9Var.a();
-            }
-            MessageManager.getInstance().runTask(2921555, (Class) null);
-        }
-    }
-
-    public void a(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(1048576, this, baseFragmentActivity, viewGroup, i) != null) || baseFragmentActivity == null) {
-            return;
-        }
-        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_START_STAMP_KEY);
-        b(baseFragmentActivity, viewGroup, i);
-        c();
-        SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_LOAD_METHOD_END_STAMP_KEY);
-    }
-
-    public final void b(@NonNull BaseFragmentActivity baseFragmentActivity, @NonNull ViewGroup viewGroup, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, baseFragmentActivity, viewGroup, i) == null) {
-            lh9 lh9Var = new lh9(baseFragmentActivity, viewGroup, i);
-            this.a = lh9Var;
-            mh9 mh9Var = new mh9(lh9Var);
-            this.c = mh9Var;
-            this.b = new ph9(this.a, mh9Var);
-            viewGroup.setBackgroundResource(R.drawable.pic_splash_logo);
-            ck9.g().i(this.a.getUniqueId());
-            MessageManager.getInstance().runTask(2921668, (Class) null);
-            baseFragmentActivity.registerListener(new kh9(this.a, this.c));
-        }
-    }
-
-    public final void c() {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            boolean q = lp5.q();
-            StatisticItem param = StatisticItem.make(TbadkCoreStatisticKey.REQUEST_AD_TIME).param("obj_type", "a064").param("tid", q ? 1 : 0).param(TiebaStatic.Params.BEAR_CONFIG, q ? 1 : 0).param(TiebaStatic.Params.PLG_CONFIG, lp5.w() ? 1 : 0);
-            int i2 = 2;
-            if (this.a.h()) {
-                i = 2;
-            } else {
-                i = 1;
-            }
-            StatisticItem param2 = param.param("obj_param1", i);
-            if (!this.a.h()) {
-                i2 = 1;
-            }
-            param2.param(TiebaStatic.Params.OBJ_PARAM2, i2).param(TiebaStatic.Params.OBJ_DURATION, System.currentTimeMillis()).param(TiebaStatic.Params.SPLASH_UNI, this.a.i()).eventStat();
-            Looper.myQueue().addIdleHandler(new a(this));
-            jg.a().post(new b(this));
-            this.b.b();
-        }
-    }
-
-    public void d(Configuration configuration) {
-        gh9 gh9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, configuration) == null) && (gh9Var = this.b) != null) {
-            gh9Var.onConfigurationChanged(configuration);
-        }
-    }
-
-    public void f() {
-        hh9 hh9Var;
-        ih9 ih9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (hh9Var = this.a) != null) {
-            hh9Var.a(true);
-            pl5 pageStayDurationItem = this.a.getActivity().getPageStayDurationItem();
-            if (pageStayDurationItem != null) {
-                pageStayDurationItem.r(this.a.getAdSource());
-            }
-            if (this.a.f() && (ih9Var = this.c) != null) {
-                ih9Var.a();
-            }
-        }
+        return (String) invokeL.objValue;
     }
 }

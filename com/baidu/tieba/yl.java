@@ -62,11 +62,11 @@ public class yl extends DefaultDownloadCallback {
                 if (file2.exists() && !file2.delete()) {
                     return;
                 }
-                sl.a(packageInfo, "download success");
+                sl.b(packageInfo.name, packageInfo.toString(), "download success");
                 if (file.renameTo(file2)) {
                     if (b.contains(".so")) {
                         if (cm.a(BdBaseApplication.getInst().getContext(), am.a(packageInfo.name))) {
-                            sl.a(packageInfo, "load success2");
+                            sl.b(packageInfo.name, packageInfo.toString(), "load success2");
                             ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
                             String str = packageInfo.name;
                             resHashMap.put(str, am.a(str));

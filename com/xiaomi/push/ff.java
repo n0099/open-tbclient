@@ -6,7 +6,7 @@ import android.os.Process;
 import android.os.SystemClock;
 import android.text.TextUtils;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ff implements fy {
     public int a;
 

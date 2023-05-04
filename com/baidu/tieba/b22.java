@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes3.dex */
-public class b22 extends b12 {
+public class b22 extends d12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Cap a;
+    public int a;
 
     public b22() {
         Interceptable interceptable = $ic;
@@ -29,26 +27,27 @@ public class b22 extends b12 {
         }
     }
 
-    @Override // com.baidu.tieba.b12
-    public void a(c12 c12Var, Canvas canvas) {
-        Paint.Cap cap;
+    @Override // com.baidu.tieba.d12
+    public void a(e12 e12Var, Canvas canvas) {
+        int i;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, c12Var, canvas) == null) && (cap = this.a) != null) {
-            c12Var.c.setStrokeCap(cap);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, e12Var, canvas) == null) && (i = this.a) > 0) {
+            e12Var.e.setTextSize(i);
         }
     }
 
-    @Override // com.baidu.tieba.b12
+    @Override // com.baidu.tieba.d12
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) && jSONArray.length() > 0) {
-            String optString = jSONArray.optString(0);
-            if (TextUtils.equals(optString, "butt")) {
-                this.a = Paint.Cap.BUTT;
-            } else if (TextUtils.equals(optString, "round")) {
-                this.a = Paint.Cap.ROUND;
-            } else if (TextUtils.equals(optString, "square")) {
-                this.a = Paint.Cap.SQUARE;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() > 0) {
+                    this.a = ol3.g((float) jSONArray.optDouble(0));
+                }
+            } catch (Exception e) {
+                if (ho1.a) {
+                    e.printStackTrace();
+                }
             }
         }
     }

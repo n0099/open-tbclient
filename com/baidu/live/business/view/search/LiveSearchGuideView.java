@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.tieba.R;
-import com.baidu.tieba.xb0;
+import com.baidu.tieba.zb0;
 /* loaded from: classes2.dex */
 public class LiveSearchGuideView extends FrameLayout {
     public ImageView a;
@@ -30,32 +30,32 @@ public class LiveSearchGuideView extends FrameLayout {
     }
 
     public final void a() {
-        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d058b, this);
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914d4);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0914d5);
+        LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0594, this);
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0914e2);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0914e3);
         c();
     }
 
     public void c() {
         TextView textView = this.b;
         if (textView != null) {
-            xb0.h(textView, 1, 12.0f);
+            zb0.h(textView, 1, 12.0f);
         }
     }
 
     public void b(String str, boolean z) {
         if (this.b != null) {
             if (z) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d6f);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d6d);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d9d);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d9b);
                 this.b.setTextColor(-1);
             } else if ("day".equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d6e);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d6c);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d9c);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d9a);
                 this.b.setTextColor(-1);
             } else if (LiveFeedPageSdk.UI_MODE_NIGHT.equals(str)) {
-                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d6f);
-                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d6d);
+                this.a.setImageResource(R.drawable.obfuscated_res_0x7f080d9d);
+                this.b.setBackgroundResource(R.drawable.obfuscated_res_0x7f080d9b);
                 this.b.setTextColor(-1);
             }
         }

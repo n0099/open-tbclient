@@ -1,69 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ky0 {
+public final class ky0 {
     public static /* synthetic */ Interceptable $ic;
+    public static py0 a;
+    public static final ky0 b;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947929287, "Lcom/baidu/tieba/ky0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947929287, "Lcom/baidu/tieba/ky0;");
+                return;
+            }
+        }
+        b = new ky0();
+    }
 
     public ky0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static ky0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final py0 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject != null) {
-                ky0 ky0Var = new ky0();
-                jSONObject.optString("type_text");
-                jSONObject.optString("text");
-                jSONObject.optString(NotificationCompat.CarExtender.KEY_AUTHOR);
-                jSONObject.optString("cmd");
-                return ky0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (a == null) {
+                a = new py0();
             }
-            return null;
+            return a;
         }
-        return (ky0) invokeL.objValue;
+        return (py0) invokeV.objValue;
     }
 
-    public static List<ky0> b(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        ky0 a;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (jSONArray != null && jSONArray.length() != 0) {
-                int length = jSONArray.length();
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null && (a = a(optJSONObject)) != null) {
-                        arrayList.add(a);
-                    }
-                }
-                return arrayList;
-            }
-            return null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a = null;
         }
-        return (List) invokeL.objValue;
+    }
+
+    public final void c(py0 py0Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, py0Var) == null) && py0Var != null && py0Var.a()) {
+            a = py0Var;
+        }
     }
 }

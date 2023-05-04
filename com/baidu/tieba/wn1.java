@@ -1,44 +1,48 @@
 package com.baidu.tieba;
 
-import android.database.ContentObserver;
-import android.os.Handler;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class wn1 extends ContentObserver {
+public class wn1 implements rn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yn1 a;
+    public vn1 a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wn1(yn1 yn1Var) {
-        super(null);
+    public wn1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {yn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = yn1Var;
+        this.a = null;
     }
 
-    @Override // android.database.ContentObserver
-    public void onChange(boolean z) {
-        yn1 yn1Var;
+    @Override // com.baidu.tieba.rn1
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (yn1Var = this.a) != null) {
-            yn1Var.b = yn1Var.a.a(0, null);
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a.a("OUID") : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.rn1
+    public void a(Context context, sn1 sn1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sn1Var) == null) {
+            vn1 vn1Var = new vn1(context);
+            this.a = vn1Var;
+            vn1Var.b();
         }
     }
 }

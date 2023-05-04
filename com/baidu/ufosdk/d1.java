@@ -102,7 +102,7 @@ public class d1 extends BaseAdapter {
         if (interceptable == null || (invokeILL = interceptable.invokeILL(1048579, this, i, view2, viewGroup)) == null) {
             if (view2 == null) {
                 aVar = new a();
-                view3 = this.c.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d091d, (ViewGroup) null);
+                view3 = this.c.inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0929, (ViewGroup) null);
                 Context context = this.a;
                 if (this.d) {
                     i3 = BDEmotionBagVerticalLayout.NIGHT_COLOR_EMOTION_BAG;
@@ -110,7 +110,7 @@ public class d1 extends BaseAdapter {
                     i3 = -1;
                 }
                 view3.setBackgroundDrawable(p1.a(context, i3, "ufo_list_press.png"));
-                aVar.a = (TextView) view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091c32);
+                aVar.a = (TextView) view3.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f091c42);
                 view3.setTag(aVar);
             } else {
                 view3 = view2;

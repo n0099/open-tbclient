@@ -1,14 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import java.util.List;
+import android.widget.FrameLayout;
+import com.baidu.tieba.homepage.framework.indicator.ScrollFragmentTabHost;
 /* loaded from: classes6.dex */
 public interface qp7 {
-    boolean a(BdUniqueId bdUniqueId, String str, String str2, String str3);
+    void a();
 
-    boolean b(int i, bq7 bq7Var);
+    void b(ScrollFragmentTabHost.r rVar);
 
-    boolean c(int i);
+    void c();
 
-    void setData(List<in> list);
+    int d(int i);
+
+    void e(ScrollFragmentTabHost.r rVar);
+
+    void f(boolean z);
+
+    int getCurrentTabType();
+
+    FrameLayout getFrameLayout();
+
+    void setOnTabSelectedListener(ScrollFragmentTabHost.s sVar);
 }

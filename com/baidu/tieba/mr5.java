@@ -1,84 +1,79 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Rect;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.atomData.ImageViewerConfig;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.switchs.ThreadCardImgClickToPBSwitch;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class mr5 {
+public class mr5<KEY> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Set<KEY> a;
 
-    public static boolean a(Context context, String str, kw4 kw4Var) {
-        InterceptResult invokeLLL;
-        int i;
+    public mr5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, context, str, kw4Var)) == null) {
-            if (context == null || kw4Var == null) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else if ("frs".equals(str)) {
-                i = 3;
-            } else {
-                i = -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(kw4Var.getThreadData().originalThreadData, context, i, (Rect) null, kw4Var.getThreadData().getForum_name());
-            return true;
         }
-        return invokeLLL.booleanValue;
+        this.a = new HashSet();
     }
 
-    public static boolean b(Context context, String str, kw4 kw4Var) {
-        InterceptResult invokeLLL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, str, kw4Var)) == null) {
-            if (context == null || kw4Var == null) {
-                return false;
-            }
-            if ("index".equals(str)) {
-                i = 2;
-            } else if (ImageViewerConfig.FROM_CONCERN.equals(str)) {
-                i = 1;
-            } else if ("hot_topic".equals(str)) {
-                i = 0;
-            } else if ("frs".equals(str)) {
-                i = 3;
-            } else {
-                i = -1;
-            }
-            if (i == -1) {
-                return false;
-            }
-            ThreadCardUtils.jumpToPB(kw4Var, context, i, false);
-            return true;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean c() {
+    public static <T> mr5<T> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (ThreadCardImgClickToPBSwitch.getIsOn() && UbsABTestHelper.isImgClickToPb()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new mr5<>();
+        }
+        return (mr5) invokeV.objValue;
+    }
+
+    public synchronized boolean a(@NonNull KEY key) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                if (this.a.contains(key)) {
+                    return false;
+                }
+                this.a.add(key);
                 return true;
             }
-            return false;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public synchronized boolean b(@NonNull KEY key) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, key)) == null) {
+            synchronized (this) {
+                z = !this.a.contains(key);
+            }
+            return z;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized void d(@NonNull KEY key) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, key) == null) {
+            synchronized (this) {
+                this.a.remove(key);
+            }
+        }
     }
 }

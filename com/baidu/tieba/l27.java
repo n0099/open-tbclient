@@ -1,69 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tieba.me;
+import com.baidu.tieba.feed.component.CardTitleView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class l27 {
+public class l27 extends c17<CardTitleView, vx6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public me<byte[]> a;
 
-    public l27() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public l27(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b();
     }
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            c05.d();
-            this.a = c05.b("tb.bawu_team_info");
-        }
-    }
-
-    public byte[] a(String str) {
+    @Override // com.baidu.tieba.c17, com.baidu.tieba.r17
+    @NonNull
+    public View a(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
-        me.b<byte[]> bVar;
-        byte[] bArr;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            me<byte[]> meVar = this.a;
-            if (meVar != null && str != null) {
-                bVar = meVar.h(str);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            View a = super.a(viewGroup);
+            z27.l(a, null, Integer.valueOf(ii.g(pw6.a, R.dimen.M_H_X001)));
+            return a;
         }
-        return (byte[]) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public void c(String str, byte[] bArr) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r17
+    /* renamed from: e */
+    public void b(@NonNull CardTitleView cardTitleView, @NonNull vx6 vx6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) && !StringUtils.isNull(str)) {
-            b();
-            this.a.e(str, bArr, TbConfig.MILLS_7DAYS);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardTitleView, vx6Var) == null) {
+            cardTitleView.f(vx6Var);
         }
     }
 }

@@ -18,14 +18,14 @@ public final class ke3 {
     public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ we3 a;
+        public final /* synthetic */ ze3 a;
 
-        public a(we3 we3Var) {
+        public a(ze3 ze3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {we3Var};
+                Object[] objArr = {ze3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -35,14 +35,14 @@ public final class ke3 {
                     return;
                 }
             }
-            this.a = we3Var;
+            this.a = ze3Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                ce3.k("671", this.a.f());
+                ee3.k("1719", this.a.f());
             }
         }
     }
@@ -60,47 +60,20 @@ public final class ke3 {
                 return;
             }
         }
-        a = fo1.a;
+        a = ho1.a;
     }
 
-    public static void a(nf4 nf4Var, int i, boolean z) {
+    public static void onEvent(ze3 ze3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{nf4Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            if (nf4Var == null) {
+        if (interceptable == null || interceptable.invokeL(65537, null, ze3Var) == null) {
+            if (ze3Var == null) {
                 if (a) {
-                    Log.d("SwanStabilityUbc", "pms callback is null");
+                    Log.w("SwanAppPermissionDialogUbc", "event is null");
                     return;
                 }
                 return;
             }
-            oj3 oj3Var = new oj3();
-            oj3Var.k(11L);
-            oj3Var.i(2331L);
-            oj3Var.f("Retry=" + z + ", Scene=" + nf4Var.getClass().getName());
-            we3 we3Var = new we3();
-            we3Var.q(oe3.n(i));
-            we3Var.p(oj3Var);
-            if (nf4Var instanceof wa2) {
-                we3Var.r(((wa2) nf4Var).I0());
-            }
-            b(we3Var);
-            if (a) {
-                Log.d("SwanStabilityUbc", "Statis: Retry=" + z + ", Scene=" + nf4Var.getClass().getSimpleName());
-            }
-        }
-    }
-
-    public static void b(we3 we3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, we3Var) == null) {
-            if (we3Var == null) {
-                if (a) {
-                    Log.d("SwanStabilityUbc", "event is null");
-                    return;
-                }
-                return;
-            }
-            pk3.k(new a(we3Var), "SwanStabilityUBC");
+            rk3.j(new a(ze3Var), "SwanAppPermissionDialogUbc");
         }
     }
 }

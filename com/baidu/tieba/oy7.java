@@ -1,47 +1,58 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.im.data.GroupMsgData;
-import com.baidu.tieba.im.db.pojo.GroupNewsPojo;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
-import com.baidu.tieba.im.message.PushMessage;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.ky7;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.LinkedList;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oy7 {
+public class oy7 extends p67<ThreadData, CardViewHolder<fi6>> implements gi6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext l;
+    public ji6<ThreadData> m;
+
+    @Override // com.baidu.tieba.gi6
+    public String from() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "FrsHottopicVideoDelegateAdapter" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p67
+    public void setFrom(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+        }
+    }
 
     /* loaded from: classes5.dex */
-    public static class a implements ky7.c {
+    public class a extends ji6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.ky7.c
-        public boolean a(String str) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ji6
+        /* renamed from: d */
+        public void b(View view2, ThreadData threadData, Object obj) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return true;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData, obj) == null) {
             }
-            return invokeL.booleanValue;
         }
 
-        public a() {
+        public a(oy7 oy7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oy7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,91 +64,65 @@ public class oy7 {
         }
     }
 
-    public static GroupNewsPojo a(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public oy7(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, chatMessage)) == null) {
-            String content = chatMessage.getContent();
-            if (TextUtils.isEmpty(content)) {
-                return null;
-            }
-            try {
-                if (content.startsWith(PreferencesUtil.LEFT_MOUNT)) {
-                    return null;
-                }
-                String optString = new JSONObject(content).optString("eventId");
-                if (TextUtils.isEmpty(optString)) {
-                    return null;
-                }
-                GroupNewsPojo groupNewsPojo = new GroupNewsPojo(chatMessage, optString);
-                groupNewsPojo.setOriginalPushMsg(chatMessage);
-                return groupNewsPojo;
-            } catch (JSONException e) {
-                e.printStackTrace();
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (GroupNewsPojo) invokeL.objValue;
+        this.m = new a(this);
+        this.l = tbPageContext;
     }
 
-    public static LinkedList<GroupNewsPojo> b(LinkedList<ChatMessage> linkedList) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: G */
+    public CardViewHolder<fi6> onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, linkedList)) == null) {
-            if (linkedList != null && linkedList.size() != 0) {
-                LinkedList<GroupNewsPojo> linkedList2 = new LinkedList<>();
-                Iterator<ChatMessage> it = linkedList.iterator();
-                while (it.hasNext()) {
-                    GroupNewsPojo a2 = a(it.next());
-                    if (a2 != null) {
-                        linkedList2.add(a2);
-                    }
-                }
-                return linkedList2;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new fi6(this.l, viewGroup));
+        }
+        return (CardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p67, com.baidu.tieba.vm
+    /* renamed from: H */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ThreadData threadData, CardViewHolder<fi6> cardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), view2, viewGroup, threadData, cardViewHolder})) == null) {
+            if (cardViewHolder != null && cardViewHolder.a() != null) {
+                cardViewHolder.a().k(this.m);
+                cardViewHolder.a().i(threadData);
+                return cardViewHolder.getView();
             }
             return null;
         }
-        return (LinkedList) invokeL.objValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public static void c(GroupMsgData groupMsgData, ImMessageCenterPojo imMessageCenterPojo, ky7.b bVar) {
+    @Override // com.baidu.tieba.p67
+    public void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, groupMsgData, imMessageCenterPojo, bVar) == null) {
-            ky7.d(groupMsgData, imMessageCenterPojo, bVar, new a(), false);
-        }
-    }
-
-    public static void d(GroupMsgData groupMsgData) {
-        LinkedList<GroupNewsPojo> b;
-        PushMessage newInstance;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65539, null, groupMsgData) == null) && (b = b(groupMsgData.getListMessage())) != null && !b.isEmpty()) {
-            long j = 0;
-            LinkedList<GroupNewsPojo> linkedList = new LinkedList<>();
-            Iterator<GroupNewsPojo> it = b.iterator();
-            while (it.hasNext()) {
-                GroupNewsPojo next = it.next();
-                if (!TextUtils.isEmpty(next.getNotice_id())) {
-                    long parseLong = Long.parseLong(next.getNotice_id());
-                    if (parseLong > j) {
-                        j = parseLong;
-                    }
-                }
-            }
-            cz7.c().i(linkedList);
-            ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-            imMessageCenterPojo.setGid(String.valueOf(groupMsgData.getGroupInfo().getGroupId()));
-            imMessageCenterPojo.setIs_hidden(1);
-            imMessageCenterPojo.setCustomGroupType(-2);
-            imMessageCenterPojo.setPulled_msgId(j);
-            iz7.f().k(imMessageCenterPojo);
-            Iterator<GroupNewsPojo> it2 = b.iterator();
-            while (it2.hasNext()) {
-                GroupNewsPojo next2 = it2.next();
-                if (next2 != null && (newInstance = PushMessage.newInstance(next2)) != null) {
-                    MessageManager.getInstance().dispatchResponsedMessageToUI(newInstance);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, tbPageContext, bdUniqueId) == null) && tbPageContext != null) {
+            this.mContext = tbPageContext.getPageActivity();
+            this.l = tbPageContext;
+            this.mPageId = bdUniqueId;
         }
     }
 }

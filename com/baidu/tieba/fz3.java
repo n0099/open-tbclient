@@ -1,67 +1,73 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.util.KVStorageFactory;
+import android.content.IntentFilter;
+import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fz3 {
+public class fz3 extends d04 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile fz3 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SharedPreferences a;
+    public AppDownloadNetworkStateReceiver c;
 
-    public fz3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947781386, "Lcom/baidu/tieba/fz3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947781386, "Lcom/baidu/tieba/fz3;");
                 return;
             }
         }
-        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
+        boolean z = ho1.a;
     }
 
-    public static fz3 a() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public fz3() {
+        super("resumeAllDownloadWhileWifi");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (fz3.class) {
-                    if (b == null) {
-                        b = new fz3();
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return b;
         }
-        return (fz3) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.d04
+    public xz1 a(JSONObject jSONObject, bl2 bl2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getBoolean("gamecenter_wifi_resume_download_flag", false);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
+            if (jSONObject == null) {
+                bl2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (this.c == null) {
+                this.c = new AppDownloadNetworkStateReceiver();
+            }
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
+            er2.c().registerReceiver(this.c, intentFilter);
+            bl2Var.a(null);
+            return null;
         }
-        return invokeV.booleanValue;
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            SharedPreferences.Editor edit = this.a.edit();
-            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
-            edit.apply();
-        }
+        return (xz1) invokeLL.objValue;
     }
 }

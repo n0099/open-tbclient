@@ -1,62 +1,56 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kl5 {
+public abstract class kl5<T> extends ll5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageTag a;
-    public TbPageTag b;
+    public String b;
+    public Class<T> c;
 
-    public kl5(BdUniqueId bdUniqueId, TbPageTag tbPageTag, Intent intent) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kl5(int i, String str, Class<T> cls) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdUniqueId, tbPageTag, intent};
+            Object[] objArr = {Integer.valueOf(i), str, cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageTag;
-        c(intent);
+        this.b = str;
+        this.c = cls;
     }
 
-    public TbPageTag a() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            try {
+                return this.c.newInstance();
+            } catch (ExceptionInInitializerError e) {
+                e.printStackTrace();
+                return null;
+            } catch (IllegalAccessException e2) {
+                e2.printStackTrace();
+                return null;
+            } catch (InstantiationException e3) {
+                e3.printStackTrace();
+                return null;
+            }
         }
-        return (TbPageTag) invokeV.objValue;
-    }
-
-    public TbPageTag b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (TbPageTag) invokeV.objValue;
-    }
-
-    public final void c(Intent intent) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
-            this.a = (TbPageTag) intent.getParcelableExtra("tb_page_tag_source_trace");
-        }
+        return (T) invokeV.objValue;
     }
 }

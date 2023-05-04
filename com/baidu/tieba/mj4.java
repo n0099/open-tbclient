@@ -1,48 +1,53 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mj4 extends ej4 {
+public class mj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public JSONArray a;
+    public JSONObject b;
 
-    public mj4() {
+    public mj4(JSONArray jSONArray, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONArray, jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = jSONArray;
+        this.b = jSONObject;
     }
 
-    @Override // com.baidu.tieba.ej4
-    public JSONObject d() {
+    public JSONArray a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            lj4 c = lj4.c();
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("version", c.a());
-                jSONObject.put("ceres_info", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                jSONObject3.put("version", c.b());
-                jSONObject.put("global_info", jSONObject3);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+            return this.a;
+        }
+        return (JSONArray) invokeV.objValue;
+    }
+
+    public JSONObject b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
         return (JSONObject) invokeV.objValue;
     }

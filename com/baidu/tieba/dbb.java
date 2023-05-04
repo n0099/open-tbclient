@@ -1,433 +1,202 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Looper;
-import android.webkit.JavascriptInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.devices.RomUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.model.NativeOperationParams;
-import tv.athena.revenue.payui.webview.UrlPageParams;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
 /* loaded from: classes4.dex */
 public class dbb {
     public static /* synthetic */ Interceptable $ic;
-    public static Gson c;
     public transient /* synthetic */ FieldHolder $fh;
-    public h a;
-    public Handler b;
 
-    /* loaded from: classes4.dex */
-    public interface h {
-        void b(NativeOperationParams nativeOperationParams);
-
-        void c(UrlPageParams urlPageParams);
-
-        void e(UrlPageParams urlPageParams);
-
-        String getToken();
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ UrlPageParams b;
-        public final /* synthetic */ dbb c;
-
-        public a(dbb dbbVar, int i, UrlPageParams urlPageParams) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbbVar, Integer.valueOf(i), urlPageParams};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = dbbVar;
-            this.a = i;
-            this.b = urlPageParams;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c.a != null) {
-                if (this.a == 1) {
-                    this.c.a.e(this.b);
-                }
-                if (this.a == 3) {
-                    this.c.a.c(this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dbb b;
-
-        public b(dbb dbbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dbbVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.b(new NativeOperationParams(5, this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dbb b;
-
-        public c(dbb dbbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dbbVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.b(new NativeOperationParams(4, this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dbb b;
-
-        public d(dbb dbbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dbbVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.b(new NativeOperationParams(6, this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dbb b;
-
-        public e(dbb dbbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dbbVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.b(new NativeOperationParams(7, this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dbb b;
-
-        public f(dbb dbbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dbbVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.b(new NativeOperationParams(8, this.a));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ dbb b;
-
-        public g(dbb dbbVar, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dbbVar, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = dbbVar;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
-                this.b.a.b(new NativeOperationParams(9, this.a));
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947700197, "Lcom/baidu/tieba/dbb;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947700197, "Lcom/baidu/tieba/dbb;");
-                return;
-            }
-        }
-        c = new Gson();
-    }
-
-    @JavascriptInterface
-    public String getToken() {
+    public static int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            h hVar = this.a;
-            if (hVar != null) {
-                return hVar.getToken();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                String str = (String) cls.getDeclaredMethod("get", String.class).invoke(cls, "ro.build.hw_emui_api_level");
+                if (TextUtils.isEmpty(str) || !TextUtils.isDigitsOnly(str)) {
+                    return 0;
+                }
+                return Integer.parseInt(str);
+            } catch (Exception unused) {
+                return 0;
             }
-            RLog.error("YYPaySdkJsInterface", "getToken() mOnJsCallInterface null", new Object[0]);
-            return "";
+        }
+        return invokeV.intValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (!g()) {
+                return "";
+            }
+            return f("ro.build.version.emui", "");
         }
         return (String) invokeV.objValue;
     }
 
-    public dbb(h hVar) {
+    public static String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {hVar};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
         }
-        this.b = new Handler(Looper.getMainLooper());
-        this.a = hVar;
+        return (String) invokeV.objValue;
     }
 
-    public final void b(Runnable runnable) {
+    public static String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            if (Looper.myLooper() == Looper.getMainLooper()) {
-                runnable.run();
-            } else {
-                this.b.post(runnable);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!j()) {
+                return "";
             }
+            return f(RomUtils.PROP_RO_BUILD_DISPLAY_ID, "");
         }
+        return (String) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:39:0x00ae  */
-    /* JADX WARN: Removed duplicated region for block: B:60:? A[RETURN, SYNTHETIC] */
-    @JavascriptInterface
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void callAndroid(int i, String str) {
-        String str2;
-        UrlPageParams urlPageParams;
+    public static String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            RLog.info("YYPaySdkJsInterface", "callAndroid: code=" + i);
-            switch (i) {
-                case 1:
-                case 3:
-                    if (i == 1) {
-                        str2 = "CODE_OPEN_URL_PAGE";
-                    } else {
-                        str2 = "CODE_UPFATE_TOP_INFO";
-                    }
-                    UrlPageParams urlPageParams2 = null;
-                    try {
-                        urlPageParams = (UrlPageParams) c.fromJson(str, (Class<Object>) UrlPageParams.class);
-                        try {
-                            RLog.info("YYPaySdkJsInterface", "%s params: %s", str2, urlPageParams);
-                        } catch (Throwable th) {
-                            th = th;
-                            urlPageParams2 = urlPageParams;
-                            RLog.error("YYPaySdkJsInterface", str2 + " error,", th);
-                            urlPageParams = urlPageParams2;
-                            if (this.a == null) {
-                            }
-                        }
-                    } catch (Throwable th2) {
-                        th = th2;
-                    }
-                    if (this.a == null) {
-                        b(new a(this, i, urlPageParams));
-                        return;
-                    }
-                    return;
-                case 2:
-                default:
-                    return;
-                case 4:
-                    if (this.a != null) {
-                        b(new c(this, str));
-                        return;
-                    }
-                    return;
-                case 5:
-                    if (this.a != null) {
-                        b(new b(this, str));
-                        return;
-                    }
-                    return;
-                case 6:
-                    if (this.a != null) {
-                        b(new d(this, str));
-                        return;
-                    }
-                    return;
-                case 7:
-                    if (this.a != null) {
-                        b(new e(this, str));
-                        return;
-                    }
-                    return;
-                case 8:
-                    if (this.a != null) {
-                        b(new f(this, str));
-                        return;
-                    }
-                    return;
-                case 9:
-                    if (this.a != null) {
-                        b(new g(this, str));
-                        return;
-                    }
-                    return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (!l()) {
+                return "";
+            }
+            return f("ro.miui.ui.version.name", "");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (a() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (b().contains("EmotionUI_3.0")) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            String b = b();
+            if (!"EmotionUI 3".equals(b) && !b.contains("EmotionUI_3.1")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return c().toLowerCase().contains("flyme");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            return !TextUtils.isEmpty(f("ro.miui.ui.version.name", ""));
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            String e = e();
+            if (e.isEmpty()) {
+                return false;
+            }
+            try {
+                if (Integer.valueOf(e.substring(1)).intValue() < 6) {
+                    return false;
+                }
+                return true;
+            } catch (NumberFormatException unused) {
+                return false;
             }
         }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            return "OPPO".equals(Build.MANUFACTURER);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String f(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                return (String) cls.getMethod("get", String.class, String.class).invoke(cls, str, str2);
+            } catch (Exception unused) {
+                return str2;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        int intValue;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            String d = d();
+            if (d.isEmpty()) {
+                return false;
+            }
+            try {
+                if (d.toLowerCase().contains("os")) {
+                    intValue = Integer.valueOf(d.substring(9, 10)).intValue();
+                } else {
+                    intValue = Integer.valueOf(d.substring(6, 7)).intValue();
+                }
+                if (intValue < 4) {
+                    return false;
+                }
+                return true;
+            } catch (NumberFormatException unused) {
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
     }
 }

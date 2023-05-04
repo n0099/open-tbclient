@@ -1,279 +1,186 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.data.AtSelectData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Build;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.ScheduleStrategy;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.TiebaIMConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.PermissionUtil;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.List;
-import java.util.regex.Matcher;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.Regex;
-import kotlin.text.StringsKt__StringsJVMKt;
+import java.lang.reflect.Field;
+import tbclient.CommonReq;
 /* loaded from: classes5.dex */
-public final class jr5 {
+public class jr5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947892924, "Lcom/baidu/tieba/jr5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947892924, "Lcom/baidu/tieba/jr5;");
-                return;
-            }
+    public static void a(Object obj, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65536, null, obj, z) == null) {
+            b(obj, z, false);
         }
-        a = new a(null);
     }
 
-    /* loaded from: classes5.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
+    public static void b(Object obj, boolean z, boolean z2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            c(obj, z, z2, false);
         }
+    }
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    public static void c(Object obj, boolean z, boolean z2, boolean z3) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{obj, Boolean.valueOf(z), Boolean.valueOf(z2), Boolean.valueOf(z3)}) != null) || obj == null) {
+            return;
+        }
+        try {
+            Field field = obj.getClass().getField("common");
+            int i = 1;
+            if (!field.isAccessible()) {
+                field.setAccessible(true);
+            }
+            CommonReq.Builder builder = new CommonReq.Builder();
+            builder._client_type = 2;
+            builder._client_version = TbConfig.getVersion();
+            builder._client_id = TbadkCoreApplication.getClientId();
+            if (!TextUtils.isEmpty(TbConfig.getSubappType())) {
+                builder.subapp_type = TbConfig.getSubappType();
+            }
+            if (!TbadkCoreApplication.getInst().isOfficial()) {
+                builder.apid = TbConfig.SW_APID;
+            }
+            builder.from = TbadkCoreApplication.getFrom();
+            builder.cuid = TbadkCoreApplication.getInst().getCuid();
+            builder.cuid_galaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+            builder.c3_aid = TbadkCoreApplication.getInst().getCuidGalaxy3();
+            builder.cuid_gid = TbadkCoreApplication.getInst().getCuidGid();
+            builder._timestamp = Long.valueOf(System.currentTimeMillis());
+            builder.user_agent = ps5.b();
+            if (z) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.BDUSS = tj5.b();
+                    if (!StringUtils.isNull(tj5.e())) {
+                        builder.stoken = tj5.e();
+                    }
+                } else {
+                    AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
+                    if (currentAccountInfo != null) {
+                        builder.BDUSS = currentAccountInfo.getBDUSS();
+                        String a = mw4.a(currentAccountInfo);
+                        if (!StringUtils.isNull(a)) {
+                            builder.stoken = a;
+                        }
+                    }
                 }
             }
-        }
-
-        public final String a(String str, int i, String str2) {
-            InterceptResult invokeLIL;
-            boolean z;
-            boolean z2;
-            int i2;
-            String str3;
-            int i3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, str, i, str2)) == null) {
-                String str4 = str;
-                String str5 = "";
-                if (str4 == null || i <= 0) {
-                    return "";
+            if (z2) {
+                if (!TbadkCoreApplication.getInst().isMainProcess(false)) {
+                    builder.tbs = tj5.f();
+                } else {
+                    builder.tbs = TbadkCoreApplication.getInst().getTbs();
                 }
-                int d = d(str);
-                if (d <= i) {
-                    return str4;
-                }
-                int b = dt6.b(str);
-                if (b == 0) {
-                    String cutChineseAndEnglishWithEmoji = StringHelper.cutChineseAndEnglishWithEmoji(str, i, str2);
-                    Intrinsics.checkNotNullExpressionValue(cutChineseAndEnglishWithEmoji, "cutChineseAndEnglishWithEmoji(string, length, end)");
-                    return cutChineseAndEnglishWithEmoji;
-                }
-                Object[] array = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").split(str4, 0).toArray(new String[0]);
-                if (array != null) {
-                    String[] strArr = (String[]) array;
-                    if (strArr.length == 0) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (z) {
-                        if (i < 2) {
-                            if (str2 == null) {
-                                return "";
-                            }
-                            return str2;
-                        }
-                        return str4;
-                    }
-                    String[] b2 = b(str4, strArr, b);
-                    int length = b2.length;
-                    int i4 = 0;
-                    int i5 = 0;
-                    int i6 = 0;
-                    int i7 = 0;
-                    while (i4 < length) {
-                        String str6 = b2[i4];
-                        Intrinsics.checkNotNull(str6);
-                        if (StringsKt__StringsJVMKt.startsWith$default(str6, "2", false, 2, null)) {
-                            String substring = str6.substring(1);
-                            Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String).substring(startIndex)");
-                            b2[i4] = substring;
-                            i7 = -1;
-                            i5 += 2;
-                            if (i5 > i) {
-                                break;
-                            }
-                        } else {
-                            String substring2 = str6.substring(1);
-                            Intrinsics.checkNotNullExpressionValue(substring2, "this as java.lang.String).substring(startIndex)");
-                            b2[i4] = substring2;
-                            String str7 = b2[i4];
-                            Intrinsics.checkNotNull(str7);
-                            int length2 = str7.length();
-                            int i8 = 0;
-                            while (i8 < length2) {
-                                if (hi.isChinese(str7.charAt(i8))) {
-                                    i3 = 2;
-                                } else {
-                                    i3 = 1;
-                                }
-                                i5 += i3;
-                                if (i5 > i) {
-                                    break;
-                                }
-                                i8++;
-                            }
-                            i7 = i8;
-                        }
-                        if (i5 > i) {
-                            break;
-                        }
-                        i4++;
-                        i6 = i5;
-                    }
-                    if (i6 + i7 + 1 <= d) {
-                        StringBuilder sb = new StringBuilder();
-                        for (int i9 = 0; i9 < i4; i9++) {
-                            sb.append(b2[i9]);
-                        }
-                        if (i4 < length && (str3 = b2[i4]) != null) {
-                            str5 = str3;
-                        }
-                        if (str5.length() > 0) {
-                            z2 = true;
-                        } else {
-                            z2 = false;
-                        }
-                        if (z2 && (i2 = i7 + 1) > 0 && i2 < str5.length()) {
-                            String substring3 = str5.substring(0, str5.offsetByCodePoints(0, str5.codePointCount(0, i2)));
-                            Intrinsics.checkNotNullExpressionValue(substring3, "this as java.lang.String…ing(startIndex, endIndex)");
-                            sb.append(substring3);
-                        }
-                        if (!Intrinsics.areEqual(str4, sb.toString())) {
-                            str4 = sb.toString() + str2;
-                        }
-                        Intrinsics.checkNotNullExpressionValue(str4, "{\n                val re…          }\n            }");
-                    }
-                    return str4;
-                }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
             }
-            return (String) invokeLIL.objValue;
-        }
-
-        public final String[] b(String str, String[] strArr, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, strArr, i)) == null) {
-                String[] strArr2 = new String[strArr.length + i];
-                Matcher matcher = dt6.a.matcher(str);
-                int i2 = 0;
-                int i3 = 0;
-                while (matcher.find()) {
-                    if (i2 < strArr.length) {
-                        strArr2[i3] = '1' + strArr[i2];
-                        i3++;
-                        i2++;
-                    }
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null) {
-                        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004608, Boolean.TYPE, group);
-                        if (runTask != null && runTask.getData() != null) {
-                            Object data = runTask.getData();
-                            Intrinsics.checkNotNull(data);
-                            if (((Boolean) data).booleanValue()) {
-                                strArr2[i3] = '2' + group;
-                                i3++;
-                            }
-                        }
-                        strArr2[i3] = '1' + group;
-                        i3++;
-                    }
-                }
-                if (i2 < strArr.length) {
-                    strArr2[i3] = '1' + strArr[i2];
-                }
-                return strArr2;
+            if (z3) {
+                builder.applist = TbadkCoreApplication.getInst().getInstalledAppIds();
             }
-            return (String[]) invokeLLI.objValue;
-        }
-
-        public final int c(List<? extends AtSelectData> atInfoList) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, atInfoList)) == null) {
-                Intrinsics.checkNotNullParameter(atInfoList, "atInfoList");
-                int i = 0;
-                if (ListUtils.isEmpty(atInfoList)) {
-                    return 0;
-                }
-                for (AtSelectData atSelectData : atInfoList) {
-                    if (atSelectData != null) {
-                        i += d('@' + atSelectData.getNameShow() + WebvttCueParser.CHAR_SPACE);
-                    }
-                }
-                return i;
+            builder.pversion = TiebaIMConfig.PROTOBUF_VERSION;
+            builder.lego_lib_version = TbConfig.getLegoLibVersion();
+            if (f55.m().n("android_safe_sdk_open", 0) == 1) {
+                builder.z_id = TbadkCoreApplication.getInst().getZid();
             }
-            return invokeL.intValue;
-        }
-
-        public final int d(String str) {
-            InterceptResult invokeL;
-            int chineseAndEnglishLength;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                if (str == null) {
-                    return 0;
+            builder.net_type = Integer.valueOf(BdNetTypeUtil.netType());
+            builder.sample_id = TbSingleton.getInstance().getSampleId();
+            builder.is_teenager = 0;
+            if (fc9.b()) {
+                builder._phone_imei = TbadkCoreApplication.getInst().getImei();
+                builder.model = ki.g();
+                builder._os_version = ki.k();
+                builder.brand = Build.BRAND;
+                builder.oaid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
+                builder.android_id = TbadkCoreApplication.getInst().getAndroidId();
+            } else {
+                builder.need_decrypt = Integer.valueOf(gg.e(fc9.c(), 0));
+                String g = fc9.g(HttpRequest.PHONE_IMEI);
+                if (HttpRequest.PHONE_IMEI.equals(g)) {
+                    builder._phone_imei = fc9.f();
+                } else if (HttpRequest.PHONE_IMEI_REVERSAL.equals(g)) {
+                    builder.iemi = fc9.f();
                 }
-                Matcher matcher = dt6.a.matcher(str);
-                int i = 0;
-                while (matcher.find()) {
-                    String group = matcher.group();
-                    if (MessageManager.getInstance().findTask(2004608) != null) {
-                        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2004608, Boolean.TYPE, group);
-                        if (runTask != null && runTask.getData() != null) {
-                            Object data = runTask.getData();
-                            Intrinsics.checkNotNull(data);
-                            if (((Boolean) data).booleanValue()) {
-                                chineseAndEnglishLength = 2;
-                                i += chineseAndEnglishLength;
-                            }
-                        }
-                        chineseAndEnglishLength = StringHelper.getChineseAndEnglishLength(group);
-                        i += chineseAndEnglishLength;
-                    }
+                String g2 = fc9.g("model");
+                if ("model".equals(g2)) {
+                    builder.model = fc9.h();
+                } else if ("ledom".equals(g2)) {
+                    builder.ledom = fc9.h();
                 }
-                Object[] array = new Regex("#\\([a-zA-Z0-9_~！\\-\\u4E00-\\u9FA5]+\\)").split(str, 0).toArray(new String[0]);
-                if (array != null) {
-                    for (String str2 : (String[]) array) {
-                        i += StringHelper.getChineseAndEnglishLength(str2);
-                    }
-                    return i;
+                String g3 = fc9.g(HttpRequest.OS_VERSION);
+                if (HttpRequest.OS_VERSION.equals(g3)) {
+                    builder._os_version = fc9.j();
+                } else if ("noisrev_so".equals(g3)) {
+                    builder.noisrev_so = fc9.j();
                 }
-                throw new NullPointerException("null cannot be cast to non-null type kotlin.Array<T of kotlin.collections.ArraysKt__ArraysJVMKt.toTypedArray>");
+                String g4 = fc9.g("brand");
+                if ("brand".equals(g4)) {
+                    builder.brand = fc9.e();
+                } else if ("dnarb".equals(g4)) {
+                    builder.dnarb = fc9.e();
+                }
+                String g5 = fc9.g("oaid");
+                if ("oaid".equals(g5)) {
+                    builder.oaid = fc9.i();
+                } else if ("diao".equals(g5)) {
+                    builder.diao = fc9.i();
+                }
+                String g6 = fc9.g(HttpRequest.ANDROID_ID);
+                if (HttpRequest.ANDROID_ID.equals(g6)) {
+                    builder.android_id = fc9.d();
+                } else if (HttpRequest.ANDROID_ID_REVERSAL.equals(g6)) {
+                    builder.di_diordna = fc9.d();
+                }
             }
-            return invokeL.intValue;
+            if (ec9.b()) {
+                builder.mac = PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst());
+            } else {
+                builder.need_cam_decrypt = Integer.valueOf(gg.e(ec9.c(), 0));
+                String d = ec9.d("mac");
+                if ("mac".equals(d)) {
+                    builder.mac = ec9.e();
+                } else if (HttpRequest.MAC_REVERSAL.equals(d)) {
+                    builder.cam = ec9.e();
+                }
+            }
+            builder.sdk_ver = TbadkCoreApplication.getInst().getSdk_ver();
+            builder.framework_ver = TbadkCoreApplication.getInst().getFramework_ver();
+            builder.naws_game_ver = TbadkCoreApplication.getInst().getNaws_game_ver();
+            builder.q_type = Integer.valueOf(iw4.c().e());
+            builder.scr_h = Integer.valueOf(ii.j(TbadkCoreApplication.getInst()));
+            builder.scr_w = Integer.valueOf(ii.l(TbadkCoreApplication.getInst()));
+            builder.scr_dip = Double.valueOf(ii.i(TbadkCoreApplication.getInst()));
+            builder.active_timestamp = Long.valueOf(TbSingleton.getInstance().getActiveTimeStamp());
+            builder.first_install_time = Long.valueOf(TbSingleton.getInstance().getAppFirstInstallTime());
+            builder.last_update_time = Long.valueOf(TbSingleton.getInstance().getAppLastUpdateTime());
+            builder.event_day = TbSingleton.getInstance().getData();
+            if (!PermissionUtil.isAgreePrivacyPolicy()) {
+                i = 2;
+            }
+            builder.cmode = Integer.valueOf(i);
+            builder.start_type = Integer.valueOf(u35.f);
+            builder.start_scheme = u35.e();
+            builder.extra = f55.m().s("key_sync_extra_field", "");
+            builder.personalized_rec_switch = Integer.valueOf(TbSingleton.getInstance().getPersonalizedRecSwitch());
+            builder.device_score = String.valueOf(ScheduleStrategy.getDeviceScore());
+            field.set(obj, builder.build(false));
+        } catch (Throwable th) {
+            if (BdLog.isDebugMode()) {
+                th.printStackTrace();
+            }
         }
     }
 }

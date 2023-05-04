@@ -1,69 +1,75 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.os.Build;
 import android.os.Bundle;
 import android.text.TextUtils;
-import com.baidu.searchbox.datacollector.growth.utils.GrowthConstant;
+import android.util.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONArray;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class zg1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, Bundle bundle) {
+    public static Bundle a(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, context, bundle) != null) || bundle == null) {
-            return;
-        }
-        try {
-            String string = bundle.getString("zid");
-            if (!TextUtils.isEmpty(string)) {
-                bundle.remove("zid");
-                JSONObject jSONObject = new JSONObject();
-                jSONObject.put("c", bundle.getString("cuid"));
-                jSONObject.put("z", string);
-                jSONObject.put("mac", pg1.c());
-                jSONObject.put("app", "android");
-                jSONObject.put("ver", qg1.a(context));
-                bundle.putString(GrowthConstant.UBC_VALUE_TYPE_DEVICE_INFO, jSONObject.toString());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, map)) == null) {
+            Bundle bundle = new Bundle();
+            for (String str : map.keySet()) {
+                bundle.putString(str, map.get(str));
             }
-        } catch (Exception e) {
-            wg1.b(e.getMessage());
-        }
-    }
-
-    public static Bundle b(Context context, Bundle bundle) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, context, bundle)) == null) {
-            if (bundle == null) {
-                return new Bundle();
-            }
-            ng1.a = bundle.getString("bduss");
-            ng1.b = bundle.getString("tpOrderId");
-            ng1.g = bundle.getString("nativeAppId");
-            ng1.h = bundle.getString("sceneSource");
-            ng1.c = bundle.getString("appKey");
-            ng1.d = bundle.getString("dealId");
-            bundle.putString("deviceType", "ANDROID");
-            bundle.putString("channel", "cashiersdk");
-            bundle.putString(com.heytap.mcssdk.constant.b.C, "2.8.7.9");
-            String[] stringArray = bundle.getStringArray("blockedPayChannels");
-            if (stringArray != null && stringArray.length > 0) {
-                bundle.remove("blockedPayChannels");
-                JSONArray jSONArray = new JSONArray();
-                for (String str : stringArray) {
-                    jSONArray.put(str);
-                }
-                bundle.putString("bannedChannels", jSONArray.toString());
-            }
-            a(context, bundle);
             return bundle;
         }
-        return (Bundle) invokeLL.objValue;
+        return (Bundle) invokeL.objValue;
+    }
+
+    public static JSONObject b(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, map)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            for (String str : map.keySet()) {
+                jSONObject.put(str, map.get(str));
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static Map<String, String> d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            Map<String, String> c = c();
+            if (jSONObject != null) {
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    if (!TextUtils.isEmpty(next)) {
+                        c.put(next, jSONObject.optString(next));
+                    }
+                }
+            }
+            return c;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static <K, V> Map<K, V> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                return new ArrayMap();
+            }
+            return new HashMap();
+        }
+        return (Map) invokeV.objValue;
     }
 }

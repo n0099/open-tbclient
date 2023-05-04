@@ -1,10 +1,13 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
@@ -13,12 +16,7 @@ public abstract class vh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Nullable
     public abstract String a();
-
-    public abstract String b();
-
-    public abstract boolean d(Context context, xh0 xh0Var, @Nullable Map<String, Object> map, @Nullable bi0 bi0Var);
 
     public vh0() {
         Interceptable interceptable = $ic;
@@ -34,10 +32,28 @@ public abstract class vh0 {
         }
     }
 
-    public void c(bi0 bi0Var, @Nullable xh0 xh0Var, int i, boolean z) {
+    @CallSuper
+    public boolean b(@NonNull Context context, @NonNull zh0 zh0Var, @Nullable Map<String, Object> map, @Nullable di0 di0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bi0Var, xh0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-            gi0.b(bi0Var, xh0Var, i, z);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zh0Var, map, di0Var)) == null) {
+            p11.b((String) a11.b(zh0Var.d(), "charge_url"));
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public void c(di0 di0Var, @Nullable zh0 zh0Var, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{di0Var, zh0Var, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            ii0.b(di0Var, zh0Var, i, z);
+        }
+    }
+
+    public void d(di0 di0Var, @Nullable zh0 zh0Var, @Nullable String str, int i, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{di0Var, zh0Var, str, Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
+            ii0.c(di0Var, zh0Var, str, i, z);
         }
     }
 }

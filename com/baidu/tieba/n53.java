@@ -1,38 +1,63 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import android.content.Context;
+import android.content.SharedPreferences;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class n53 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final View a;
 
-    public n53(View view2) {
+    public n53() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = view2;
     }
 
-    public void a(boolean z) {
+    public static int a(Context context, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && !z && this.a.getVisibility() == 4) {
-            this.a.setVisibility(8);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
+            return c(context).getInt("softinput.height", i);
         }
+        return invokeLI.intValue;
+    }
+
+    public static boolean b(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, context, i)) == null) {
+            return c(context).edit().putInt("softinput.height", i).commit();
+        }
+        return invokeLI.booleanValue;
+    }
+
+    public static SharedPreferences c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (a == null) {
+                synchronized (n53.class) {
+                    if (a == null) {
+                        a = new kg3("swan.publisher", false);
+                    }
+                }
+            }
+            return a;
+        }
+        return (SharedPreferences) invokeL.objValue;
     }
 }

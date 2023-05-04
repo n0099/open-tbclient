@@ -1,80 +1,83 @@
 package com.baidu.tieba;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Base64;
+import android.util.Log;
+import com.airbnb.lottie.ImageAssetDelegate;
+import com.airbnb.lottie.LottieImageAsset;
+import com.baidu.searchbox.v8engine.WebGLImageLoader;
+import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes6.dex */
-public final class q32 extends j32 {
+public class q32 implements ImageAssetDelegate {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String t;
-    public boolean u;
-    public boolean v;
-    public String w;
+    public String a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q32() {
-        super("animateview", "sanId");
+    public q32(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.u = false;
-        this.v = true;
-        this.w = null;
-    }
-
-    @Override // com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.ux2
-    public void a(JSONObject jSONObject) throws JSONException {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        PathType s = ff3.s(str);
+        if (s == PathType.BD_FILE || s == PathType.RELATIVE) {
+            this.a = new File(kt2.U().G().a(str)).getParent();
         }
-        super.a(jSONObject);
-        this.t = jSONObject.optString("path");
-        this.u = jSONObject.optBoolean("loop");
-        this.v = jSONObject.optBoolean("autoPlay");
-        this.w = jSONObject.optString("action");
     }
 
-    @Override // com.baidu.tieba.l32, com.baidu.tieba.ux2
-    public boolean isValid() {
-        InterceptResult invokeV;
+    @Override // com.airbnb.lottie.ImageAssetDelegate
+    public Bitmap fetchBitmap(LottieImageAsset lottieImageAsset) {
+        InterceptResult invokeL;
+        File file;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, lottieImageAsset)) == null) {
+            if (lottieImageAsset == null) {
+                return null;
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (isValid() && !TextUtils.isEmpty(this.t)) {
-                return true;
+            String fileName = lottieImageAsset.getFileName();
+            if (TextUtils.isEmpty(fileName)) {
+                return null;
             }
-            return false;
+            if (fileName.startsWith(WebGLImageLoader.DATA_URL) && fileName.indexOf("base64,") > 0) {
+                try {
+                    byte[] decode = Base64.decode(fileName.substring(fileName.indexOf(44) + 1), 0);
+                    BitmapFactory.Options options = new BitmapFactory.Options();
+                    options.inScaled = true;
+                    options.inDensity = 160;
+                    return BitmapFactory.decodeByteArray(decode, 0, decode.length, options);
+                } catch (IllegalArgumentException e) {
+                    Log.w("SwanAppAnimationViewAss", "data URL did not have correct base64 format.", e);
+                    return null;
+                }
+            } else if (TextUtils.isEmpty(this.a)) {
+                return null;
+            } else {
+                String dirName = lottieImageAsset.getDirName();
+                if (TextUtils.isEmpty(dirName)) {
+                    file = new File(this.a);
+                } else {
+                    file = new File(this.a, dirName);
+                }
+                return BitmapFactory.decodeFile(new File(file, lottieImageAsset.getFileName()).getAbsolutePath());
+            }
         }
-        return invokeV.booleanValue;
+        return (Bitmap) invokeL.objValue;
     }
 }

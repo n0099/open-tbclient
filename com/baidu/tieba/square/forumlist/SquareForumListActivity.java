@@ -30,12 +30,12 @@ import com.baidu.tbadk.core.view.NoDataView;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a55;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.dj9;
+import com.baidu.tieba.cm9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jt4;
-import com.baidu.tieba.z45;
+import com.baidu.tieba.p55;
+import com.baidu.tieba.pt4;
+import com.baidu.tieba.q55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -63,14 +63,14 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
     public boolean mHasMore;
     public boolean mIsLoading;
     public CustomMessageListener mLikeForumListener;
-    public dj9 mListAdapter;
+    public cm9 mListAdapter;
     public final List<ForumSpaceForumInfo> mListData;
     public View mListFooter;
     public NavigationBar mNavigationBar;
     public NoDataView mNoDataView;
     public int mPageNum;
     public int mPageType;
-    public a55 mPullView;
+    public q55 mPullView;
     public View mRootView;
     public CustomMessageListener mUnlikeForumListener;
 
@@ -295,13 +295,13 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
                     str = SquareForumListActivity.RULE_URL_HOT;
                     TiebaStatic.log("c10564");
                 }
-                jt4.s(this.a.getBaseContext(), str);
+                pt4.s(this.a.getBaseContext(), str);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class f implements z45.g {
+    public class f implements p55.g {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SquareForumListActivity a;
@@ -324,13 +324,13 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             this.a = squareForumListActivity;
         }
 
-        @Override // com.baidu.tieba.z45.g
+        @Override // com.baidu.tieba.p55.g
         public void f(boolean z) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
                 if (this.a.mIsLoading || !BdNetTypeUtil.isNetWorkAvailable()) {
                     this.a.mForumListView.z(0L);
-                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d1b);
+                    this.a.showToast(R.string.obfuscated_res_0x7f0f0d30);
                     return;
                 }
                 this.a.mPageNum = 1;
@@ -423,12 +423,12 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65552, this) == null) {
-            setContentView(R.layout.obfuscated_res_0x7f0d0855);
-            this.mRootView = findViewById(R.id.obfuscated_res_0x7f092112);
+            setContentView(R.layout.obfuscated_res_0x7f0d0861);
+            this.mRootView = findViewById(R.id.obfuscated_res_0x7f092126);
             if (this.mPageType == 1) {
-                i = R.string.obfuscated_res_0x7f0f12ba;
+                i = R.string.obfuscated_res_0x7f0f12d3;
             } else {
-                i = R.string.obfuscated_res_0x7f0f12bb;
+                i = R.string.obfuscated_res_0x7f0f12d4;
             }
             e eVar = new e(this);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
@@ -436,23 +436,23 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.mNavigationBar.setTitleText(getPageContext().getString(i));
             this.mNavigationBar.addTextButton(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, getPageContext().getString(R.string.hot_topic_rule), eVar);
-            this.mPullView = new a55(getPageContext());
-            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f090b85);
+            this.mPullView = new q55(getPageContext());
+            BdListView bdListView = (BdListView) findViewById(R.id.obfuscated_res_0x7f090b8d);
             this.mForumListView = bdListView;
             bdListView.setPullRefresh(this.mPullView);
             TextView textView = new TextView(getActivity());
             textView.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ii.g(getActivity(), R.dimen.obfuscated_res_0x7f070282)));
             this.mForumListView.w(textView, 0);
             this.mPullView.f(new f(this));
-            View inflate = LayoutInflater.from(getBaseContext()).inflate(R.layout.obfuscated_res_0x7f0d0856, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getBaseContext()).inflate(R.layout.obfuscated_res_0x7f0d0862, (ViewGroup) null);
             this.mListFooter = inflate;
             this.mFooterText = (TextView) inflate.findViewById(R.id.footer_text);
             this.mListFooter.setOnClickListener(new g(this));
             this.mForumListView.addFooterView(this.mListFooter);
             this.mListFooter.setVisibility(8);
-            dj9 dj9Var = new dj9(getPageContext(), this.mPageType);
-            this.mListAdapter = dj9Var;
-            this.mForumListView.setAdapter((ListAdapter) dj9Var);
+            cm9 cm9Var = new cm9(getPageContext(), this.mPageType);
+            this.mListAdapter = cm9Var;
+            this.mForumListView.setAdapter((ListAdapter) cm9Var);
         }
     }
 
@@ -573,7 +573,7 @@ public class SquareForumListActivity extends BaseActivity<SquareForumListActivit
             getLayoutMode().k(this.mRootView);
             getLayoutMode().k(this.mListFooter);
             SkinManager.setBackgroundColor(this.mRootView, R.color.CAM_X0201);
-            SkinManager.setBackgroundColor(this.mListFooter.findViewById(R.id.obfuscated_res_0x7f090b38), R.color.CAM_X0204);
+            SkinManager.setBackgroundColor(this.mListFooter.findViewById(R.id.obfuscated_res_0x7f090b3f), R.color.CAM_X0204);
             if (this.mHasMore) {
                 SkinManager.setBackgroundResource(this.mListFooter, R.drawable.square_list_item_bg_selector);
             } else {

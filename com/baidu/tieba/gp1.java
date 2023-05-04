@@ -1,20 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import android.app.Activity;
+import android.content.DialogInterface;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public interface gp1 {
-    JSONObject a();
+    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
 
-    void b(String str);
+    String b();
 
-    void c(CallbackHandler callbackHandler, String str);
+    void c(JSONObject jSONObject);
 
-    void d(CallbackHandler callbackHandler, String str);
+    sf4 d();
 
-    void e(String str);
+    void e(int i, String str);
 
-    void f(CallbackHandler callbackHandler, String str);
-
-    void g(CallbackHandler callbackHandler, String str);
+    void f(@NonNull qm3<Boolean> qm3Var);
 }

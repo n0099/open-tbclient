@@ -347,7 +347,7 @@ public class NavigationView extends ScrimInsetsFrameLayout {
     }
 
     public NavigationView(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040500);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040509);
     }
 
     @Override // android.widget.FrameLayout, android.view.View

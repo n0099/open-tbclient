@@ -1,56 +1,62 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uv7;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.sprite.FunnySpriteResDownloadUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xv7 extends uv7.b {
+public final class xv7 extends LaunchTask {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xv7(View view2) {
-        super(view2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948313904, "Lcom/baidu/tieba/xv7;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948313904, "Lcom/baidu/tieba/xv7;");
+        }
+    }
+
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public String getName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "funnySpriteResDownloadTask" : (String) invokeV.objValue;
+    }
+
+    public xv7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    @Override // com.baidu.tieba.uv7.b, com.baidu.tieba.uv7.a
-    @TargetApi(11)
-    public boolean a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
+    public void execute() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.isHardwareAccelerated();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.uv7.b, com.baidu.tieba.uv7.a
-    @TargetApi(14)
-    public void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.a.setScrollX(i);
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(true)) {
+            FunnySpriteResDownloadUtil.h();
         }
     }
 }

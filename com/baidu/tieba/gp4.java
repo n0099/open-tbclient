@@ -1,20 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.util.SparseArray;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.cyberplayer.sdk.rtc.RTCConst;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.text.DecimalFormat;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gp4 {
+public final class gp4 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static final SparseArray<Integer> b;
+    public static final SparseArray<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,73 +33,89 @@ public class gp4 {
                 return;
             }
         }
-        a = fo1.a;
+        a = ho1.a;
+        SparseArray<Integer> sparseArray = new SparseArray<>(32);
+        b = sparseArray;
+        sparseArray.put(10015, 2001);
+        b.put(10013, 2002);
+        b.put(904, 2003);
+        b.put(10012, 2004);
+        b.put(10004, 2006);
+        b.put(701, 2007);
+        b.put(10005, 2008);
+        b.put(10006, 2009);
+        b.put(10007, -2301);
+        b.put(10008, 2101);
+        b.put(923, 2103);
+        b.put(10009, 2105);
+        b.put(10010, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL6));
+        b.put(10003, Integer.valueOf((int) RTCConst.RTC_STATE_STREAM_SLOW_LINK_LEVEL7));
+        b.put(10011, 2108);
+        b.put(10014, 3001);
+        b.put(3002, 3002);
+        b.put(3003, 3003);
+        b.put(3004, 3005);
+        SparseArray<String> sparseArray2 = new SparseArray<>();
+        c = sparseArray2;
+        sparseArray2.put(10007, "MEDIA_ERR_NETWORK");
+        c.put(10014, "MEDIA_ERR_NETWORK");
+        c.put(3002, "MEDIA_ERR_NETWORK");
+        c.put(3003, "MEDIA_ERR_NETWORK");
+        c.put(3004, "MEDIA_ERR_NETWORK");
+        c.put(-2022, "MEDIA_ERR_NETWORK");
+        c.put(-111, "MEDIA_ERR_NETWORK");
+        c.put(10008, "MEDIA_ERR_DECODE");
     }
 
-    public static void a(String str, String str2, String str3, JSONObject jSONObject) {
+    public static String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, str3, jSONObject) == null) {
-            if (!TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    jSONObject2.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str2);
-                    jSONObject2.put("vtype", str3);
-                    jSONObject.putOpt("videoId", str);
-                    jSONObject2.put("data", jSONObject.toString());
-                } catch (JSONException e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
-                v42.b("VideoStatusEventHelper", "Video dispatch Params : " + jSONObject2.toString());
-                cn3.d(str2, str, "video", str3, jSONObject2);
-            } else if (a) {
-                Log.e("VideoStatusEventHelper", "dispatchNetStatusEvent failed slaveId: " + str2 + " ,videoId: " + str);
-            }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            return c.get(i, "MEDIA_ERR_SRC_NOT_SUPPORTED");
         }
+        return (String) invokeI.objValue;
     }
 
-    public static void b(String str, String str2, String str3, int i, int i2) {
-        String format;
+    public static JSONObject c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                format = "0";
-            } else {
-                format = new DecimalFormat("#.###").format(Double.parseDouble(str3) / 1000.0d);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
+            return d(StatConstants.KEY_EXT_ERR_MSG, a(i));
+        }
+        return (JSONObject) invokeI.objValue;
+    }
+
+    public static int b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (b.indexOfKey(i) < 0) {
+                if (a) {
+                    Log.e("LiveStatusCodeAdapter", "Please check sStatusCodeMap already putted correct K,V pair. what: " + i);
+                    return 100;
+                }
+                return 100;
             }
+            return b.get(i).intValue();
+        }
+        return invokeI.intValue;
+    }
+
+    public static JSONObject d(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, obj)) == null) {
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.putOpt("duration", Float.valueOf(Float.parseFloat(format)));
-                jSONObject.putOpt("width", Integer.valueOf(ml3.O(i)));
-                jSONObject.putOpt("height", Integer.valueOf(ml3.O(i2)));
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
+                if (obj instanceof Integer) {
+                    jSONObject.put(str, ((Integer) obj).intValue());
+                } else if (obj instanceof String) {
+                    jSONObject.put(str, obj);
                 }
+            } catch (JSONException unused) {
             }
-            a(str, str2, "loadedmetadata", jSONObject);
+            return jSONObject;
         }
-    }
-
-    public static void c(String str, String str2, boolean z) {
-        String str3;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65539, null, str, str2, z) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (z) {
-                str3 = "1";
-            } else {
-                str3 = "0";
-            }
-            try {
-                jSONObject.putOpt("fullscreen", str3);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            a(str, str2, "fullscreenchange", jSONObject);
-        }
+        return (JSONObject) invokeLL.objValue;
     }
 }

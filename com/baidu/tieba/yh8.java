@@ -1,28 +1,12 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.webkit.WebView;
-import com.baidu.tieba.mainentrance.HotSearchInfoData;
-import tbclient.SearchSug.DataRes;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.tbadk.TbPageContext;
 /* loaded from: classes7.dex */
 public interface yh8 {
-    void a(String str, boolean z, int i);
+    qh8 a(uh8 uh8Var);
 
-    void b();
+    ug8 b(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, int i);
 
-    WebView c();
-
-    void d(HotSearchInfoData hotSearchInfoData);
-
-    View e();
-
-    void f(DataRes dataRes, String str);
-
-    void onChangeSkinType(int i);
-
-    void onDestroy();
-
-    void onPause();
-
-    void onResume();
+    ai8 c(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
 }

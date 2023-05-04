@@ -42,7 +42,7 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -191,25 +191,25 @@ public class SignSingleModel extends BdBaseModel<SignAllForumActivity> {
         this.c = null;
     }
 
-    public void Z(b bVar) {
+    public void e0(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.d = bVar;
         }
     }
 
-    public void Y() {
+    public void d0() {
         c cVar;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.c) != null) {
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (cVar = this.c) != null) {
             cVar.cancel();
             this.c = null;
         }
     }
 
-    public void a0(String str, String str2) {
+    public void f0(String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) && str != null && str.length() > 0 && str2 != null && str2.length() > 0 && this.c == null) {
             this.a = str;
             this.b = str2;
             c cVar = new c(this, null);

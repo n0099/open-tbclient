@@ -33,7 +33,7 @@ public class TooltipDrawable extends MaterialShapeDrawable implements TextDrawab
     @StyleRes
     public static final int DEFAULT_STYLE = 2131755937;
     @AttrRes
-    public static final int DEFAULT_THEME_ATTR = 2130970437;
+    public static final int DEFAULT_THEME_ATTR = 2130970446;
     public int arrowSize;
     @NonNull
     public final View.OnLayoutChangeListener attachedViewLayoutChangeListener;

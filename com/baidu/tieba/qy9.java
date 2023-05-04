@@ -1,42 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextPaint;
-import android.text.style.ClickableSpan;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.graphics.Bitmap;
+import com.baidu.tieba.video.editvideo.data.PendantData;
+import java.util.List;
 /* loaded from: classes6.dex */
-public abstract class qy9 extends ClickableSpan {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
+public interface qy9 {
+    void T();
 
-    public abstract void a(TextPaint textPaint, boolean z);
+    void g0(String str);
 
-    public qy9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void h();
 
-    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-    public void updateDrawState(TextPaint textPaint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-            super.updateDrawState(textPaint);
-            a(textPaint, this.a);
-            textPaint.setUnderlineText(false);
-            textPaint.clearShadowLayer();
-        }
-    }
+    void m();
+
+    void m0(String str);
+
+    void n1(Bitmap bitmap);
+
+    void onNext();
+
+    void s(List<PendantData> list);
+
+    void z();
 }

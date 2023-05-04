@@ -1,69 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BookInfo;
+import tbclient.TbBookrack;
 /* loaded from: classes4.dex */
-public class h49 extends vm<s59, CardViewHolder<v69>> {
+public class h49 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
+    public String a;
+    public int b;
+    public List<i49> c;
+    public String d;
+    public String e;
+    public String f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h49(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), s59.d);
+    public h49() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = tbPageContext;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public CardViewHolder<v69> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void a(TbBookrack tbBookrack) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new CardViewHolder<>(new v69(this.a));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbBookrack) != null) || tbBookrack == null) {
+            return;
         }
-        return (CardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, s59 s59Var, CardViewHolder<v69> cardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s59Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(s59Var);
-            cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.getView();
+        this.a = tbBookrack.booktown;
+        this.b = tbBookrack.num.intValue();
+        this.d = tbBookrack.title;
+        this.e = tbBookrack.icon;
+        this.f = tbBookrack.tip;
+        this.c = new ArrayList();
+        List<BookInfo> list = tbBookrack.book_list;
+        if (list != null) {
+            for (BookInfo bookInfo : list) {
+                if (bookInfo != null) {
+                    i49 i49Var = new i49();
+                    i49Var.a(bookInfo);
+                    this.c.add(i49Var);
+                }
+            }
         }
-        return (View) invokeCommon.objValue;
     }
 }

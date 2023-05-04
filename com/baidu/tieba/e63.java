@@ -1,44 +1,90 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
-import com.baidu.swan.apps.res.ui.FullScreenFloatView;
+import androidx.annotation.Nullable;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class e63 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<a> a;
+    public String b;
 
-    public static FullScreenFloatView a(Context context, ViewGroup viewGroup, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, viewGroup, i)) == null) {
-            if (context != null && viewGroup != null) {
-                FullScreenFloatView b = b(context, i);
-                viewGroup.addView(b);
-                return b;
+    /* loaded from: classes4.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public String c;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return null;
         }
-        return (FullScreenFloatView) invokeLLI.objValue;
     }
 
-    public static FullScreenFloatView b(Context context, int i) {
-        InterceptResult invokeLI;
+    public e63() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, context, i)) == null) {
-            if (context == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    @Nullable
+    public static e63 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        int length;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
                 return null;
             }
-            int i2 = R.layout.obfuscated_res_0x7f0d00a9;
-            if (i != 1 && i == 2) {
-                i2 = R.layout.obfuscated_res_0x7f0d00aa;
+            e63 e63Var = new e63();
+            e63Var.b = jSONObject.optString("more");
+            JSONArray optJSONArray = jSONObject.optJSONArray("bind_app_list");
+            if (optJSONArray == null || (length = optJSONArray.length()) <= 0) {
+                return null;
             }
-            return (FullScreenFloatView) LayoutInflater.from(context.getApplicationContext()).inflate(i2, (ViewGroup) null);
+            ArrayList arrayList = new ArrayList();
+            for (int i = 0; i < length; i++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                if (optJSONObject != null) {
+                    a aVar = new a();
+                    optJSONObject.optString(GameGuideConfigInfo.KEY_APP_KEY);
+                    aVar.b = optJSONObject.optString("app_name");
+                    aVar.a = optJSONObject.optString("photo_addr");
+                    aVar.c = optJSONObject.optString("scheme");
+                    arrayList.add(aVar);
+                }
+            }
+            e63Var.a = arrayList;
+            return e63Var;
         }
-        return (FullScreenFloatView) invokeLI.objValue;
+        return (e63) invokeL.objValue;
     }
 }

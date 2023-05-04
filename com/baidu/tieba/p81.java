@@ -1,116 +1,89 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
-import android.widget.Toast;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
+@Service
 /* loaded from: classes5.dex */
-public final class p81 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final int a = 3072;
-    public static final p81 b;
+public final class p81 extends vh0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948015808, "Lcom/baidu/tieba/p81;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948015808, "Lcom/baidu/tieba/p81;");
-                return;
-            }
-        }
-        b = new p81();
+    @Override // com.baidu.tieba.vh0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "prerender" : (String) invokeV.objValue;
     }
 
     public p81() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    @JvmStatic
-    public static final void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65538, null, str, str2) != null) || str == null) {
-            return;
-        }
-        if (str2 == null) {
-            if (q81.a()) {
-                Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + str2);
-            }
-        } else if (q81.a()) {
-            if (str2.length() <= a) {
-                Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + str2);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            String str3 = str2;
-            while (true) {
-                int length = str3.length();
-                int i = a;
-                if (length > i) {
-                    if (str3 != null) {
-                        String substring = str3.substring(0, i);
-                        Intrinsics.checkNotNullExpressionValue(substring, "(this as java.lang.Strin…ing(startIndex, endIndex)");
-                        str3 = StringsKt__StringsJVMKt.replace$default(str3, substring, "", false, 4, (Object) null);
-                        Log.d("NadBrowser@DEBUG@" + str, " >>>>>>>> " + substring);
-                    } else {
-                        throw new NullPointerException("null cannot be cast to non-null type java.lang.String");
-                    }
-                } else {
-                    return;
+        }
+        this.a = "PreRenderAction";
+    }
+
+    @Override // com.baidu.tieba.vh0
+    public boolean b(Context context, zh0 schemeModel, Map<String, Object> map, di0 di0Var) {
+        InterceptResult invokeLLLL;
+        boolean z;
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, schemeModel, map, di0Var)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(schemeModel, "schemeModel");
+            super.b(context, schemeModel, map, di0Var);
+            if (fm0.b().a().a("ad_do_prerender", 1) == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                l81 c = j81.c();
+                if (c != null) {
+                    c.c();
                 }
+                return false;
             }
-        }
-    }
-
-    @JvmStatic
-    public static final void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && q81.a()) {
-            Log.e("NadBrowser@ERROR@" + str, "printLog: >>>>>>>> " + str2);
-        }
-    }
-
-    @JvmStatic
-    public static final void c(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str) == null) && context != null && q81.a()) {
-            Toast.makeText(context, str, 0).show();
-        }
-    }
-
-    @JvmStatic
-    public static final void d(Exception exception) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, exception) == null) {
-            Intrinsics.checkNotNullParameter(exception, "exception");
-            if (!q81.a()) {
-                return;
+            HashMap<String, String> d = schemeModel.d();
+            Intrinsics.checkNotNullExpressionValue(d, "schemeModel.params");
+            String str = d.get("url");
+            if (str != null && str.length() != 0) {
+                z2 = false;
+            } else {
+                z2 = true;
             }
-            throw exception;
+            if (z2) {
+                r81.a("PreRender_" + this.a, "URL 为空，协议错误，无法预渲染");
+                return false;
+            }
+            d.get("web_type");
+            String str2 = d.get(TiebaStatic.Params.REFER);
+            l81 c2 = j81.c();
+            if (c2 != null) {
+                c2.b(str, null, str2);
+            }
+            return true;
         }
+        return invokeLLLL.booleanValue;
     }
 }

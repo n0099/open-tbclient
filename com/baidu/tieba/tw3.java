@@ -1,265 +1,65 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
+import android.os.Build;
 import android.text.TextUtils;
+import android.webkit.ValueCallback;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.swan.game.ad.entity.AdElementInfo;
-import com.baidu.swan.game.ad.entity.AdResponseInfo;
-import com.baidu.swan.game.ad.utils.NetworkUtils;
-import com.baidu.tieba.ww3;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
+import com.baidu.swan.game.ad.view.RewardWebView;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class tw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public hw3 b;
-    public boolean c;
+    public hw3 a;
+    public RewardWebView b;
+    public Context c;
+    public String d;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public class a implements ValueCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yw3 a;
-        public final /* synthetic */ mw3 b;
-        public final /* synthetic */ tw3 c;
 
-        /* renamed from: com.baidu.tieba.tw3$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0427a extends ResponseCallback<AdResponseInfo> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public int a;
-            public final /* synthetic */ a b;
-
-            /* renamed from: com.baidu.tieba.tw3$a$a$a  reason: collision with other inner class name */
-            /* loaded from: classes6.dex */
-            public class RunnableC0428a implements Runnable {
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-                public final /* synthetic */ AdElementInfo a;
-                public final /* synthetic */ C0427a b;
-
-                public RunnableC0428a(C0427a c0427a, AdElementInfo adElementInfo) {
-                    Interceptable interceptable = $ic;
-                    if (interceptable != null) {
-                        InitContext newInitContext = TitanRuntime.newInitContext();
-                        newInitContext.initArgs = r2;
-                        Object[] objArr = {c0427a, adElementInfo};
-                        interceptable.invokeUnInit(65536, newInitContext);
-                        int i = newInitContext.flag;
-                        if ((i & 1) != 0) {
-                            int i2 = i & 2;
-                            newInitContext.thisArg = this;
-                            interceptable.invokeInitBody(65536, newInitContext);
-                            return;
-                        }
-                    }
-                    this.b = c0427a;
-                    this.a = adElementInfo;
-                }
-
-                @Override // java.lang.Runnable
-                public void run() {
-                    Interceptable interceptable = $ic;
-                    if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b.c.b != null) {
-                        this.b.b.c.b.c(this.a);
-                    }
-                }
-            }
-
-            public C0427a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.b = aVar;
-                this.a = 0;
-            }
-
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            public void onFail(Exception exc) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) != null) {
-                    return;
-                }
-                this.b.c.g("3010002");
-                a aVar = this.b;
-                aVar.c.j(aVar.a, "requestFail", aVar.b);
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: a */
-            public void onSuccess(AdResponseInfo adResponseInfo, int i) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeLI(1048576, this, adResponseInfo, i) == null) {
-                    a aVar = this.b;
-                    aVar.c.j(aVar.a, "requestSuccess", aVar.b);
-                    if (adResponseInfo != null) {
-                        if (adResponseInfo.getAdInstanceList().size() > 0) {
-                            kx3.c(new RunnableC0428a(this, adResponseInfo.getPrimaryAdInstanceInfo()));
-                            return;
-                        }
-                        if (!this.b.c.c) {
-                            a aVar2 = this.b;
-                            aVar2.c.j(aVar2.a, "requestNoAd", aVar2.b);
-                        }
-                        if (this.a == 1 && this.b.a.i.c() == "video" && px3.h()) {
-                            a aVar3 = this.b;
-                            aVar3.c.h(aVar3.b, aVar3.a, this);
-                            return;
-                        }
-                        this.a = 0;
-                        String errorCode = adResponseInfo.getErrorCode();
-                        if (errorCode.equals("0")) {
-                            errorCode = "201000";
-                        }
-                        this.b.c.g(errorCode);
-                        return;
-                    }
-                    this.b.c.g("200000");
-                }
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.searchbox.http.callback.ResponseCallback
-            /* renamed from: b */
-            public AdResponseInfo parseResponse(Response response, int i) {
-                InterceptResult invokeLI;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                    if (response != null && response.body() != null) {
-                        this.a++;
-                        if (!response.isSuccessful()) {
-                            return null;
-                        }
-                        try {
-                            String string = response.body().string();
-                            if (!TextUtils.isEmpty(string)) {
-                                if (this.b.c.c) {
-                                    return new AdResponseInfo(string, this.b.c.c);
-                                }
-                                return new AdResponseInfo(string);
-                            }
-                        } catch (Exception | OutOfMemoryError unused) {
-                        }
-                    }
-                    return null;
-                }
-                return (AdResponseInfo) invokeLI.objValue;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.webkit.ValueCallback
+        /* renamed from: a */
+        public void onReceiveValue(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        public a(tw3 tw3Var, yw3 yw3Var, mw3 mw3Var) {
+        public a(tw3 tw3Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {tw3Var, yw3Var, mw3Var};
+                Object[] objArr = {tw3Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
-            }
-            this.c = tw3Var;
-            this.a = yw3Var;
-            this.b = mw3Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            yw3 yw3Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (yw3Var = this.a) != null && yw3Var.i != null) {
-                C0427a c0427a = new C0427a(this);
-                if (NetworkUtils.f(this.c.a)) {
-                    if (this.c.c) {
-                        yw3 yw3Var2 = this.a;
-                        if (yw3Var2 instanceof zw3) {
-                            zw3 zw3Var = (zw3) yw3Var2;
-                            if (this.b != null && zw3Var.i() != null) {
-                                this.b.a(zw3Var.g(), zw3Var.i(), c0427a);
-                                return;
-                            }
-                            return;
-                        }
-                    }
-                    this.c.c = false;
-                    String g = this.a.g();
-                    mw3 mw3Var = this.b;
-                    if (mw3Var != null) {
-                        mw3Var.f(g, c0427a);
-                    }
-                    this.c.j(this.a, "request", this.b);
-                    return;
-                }
-                this.c.g("3010003");
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ tw3 b;
-
-        public b(tw3 tw3Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tw3Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = tw3Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.b != null) {
-                this.b.b.a(this.a);
-            }
-        }
-    }
-
-    public tw3(Context context) {
+    public tw3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -269,85 +69,135 @@ public class tw3 {
                 return;
             }
         }
-        this.a = context;
+        this.d = null;
     }
 
-    public final void g(String str) {
+    public void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            kx3.c(new b(this, str));
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && h() && !TextUtils.isEmpty(this.d)) {
+            a(this.d);
         }
     }
 
-    public void k(hw3 hw3Var) {
+    public boolean h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, hw3Var) == null) {
-            this.b = hw3Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (Build.VERSION.SDK_INT < 24 && d(this.c) < 24) {
+                return false;
+            }
+            return true;
         }
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public tw3(Context context, boolean z) {
-        this(context);
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this((Context) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.b != null) {
+            try {
+                if (!str.startsWith("javascript:")) {
+                    str = "javascript:" + str;
+                }
+                this.b.evaluateJavascript(str, new a(this));
+            } catch (Exception unused) {
             }
         }
-        this.c = z;
     }
 
-    public void i(yw3 yw3Var, mw3 mw3Var) {
+    public boolean e(Uri uri) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, yw3Var, mw3Var) == null) {
-            jx3.d(new a(this, yw3Var, mw3Var), "execAdRequest");
-        }
-    }
-
-    public void h(mw3 mw3Var, yw3 yw3Var, ResponseCallback<AdResponseInfo> responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, mw3Var, yw3Var, responseCallback) == null) {
-            if (NetworkUtils.f(this.a)) {
-                this.c = true;
-                if (yw3Var instanceof zw3) {
-                    zw3 zw3Var = (zw3) yw3Var;
-                    if (mw3Var != null && zw3Var.i() != null) {
-                        mw3Var.a(zw3Var.g(), zw3Var.i(), responseCallback);
-                        return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, uri)) == null) {
+            if (uri == null) {
+                return false;
+            }
+            String scheme = uri.getScheme();
+            String host = uri.getHost();
+            CommandType fromJavascriptString = CommandType.fromJavascriptString(host);
+            try {
+                if ("mobadssdk".equals(scheme)) {
+                    if (this.a != null) {
+                        this.a.b(fromJavascriptString, uri);
                     }
-                    return;
+                    try {
+                        c(host);
+                    } catch (Exception unused) {
+                    }
+                    return true;
                 }
-                ww3.b bVar = new ww3.b();
-                bVar.m(px3.c());
-                bVar.j(px3.d());
-                bVar.o(yw3Var.i.g());
-                bVar.l(ox3.i(this.a));
-                bVar.i(ox3.h(this.a));
-                zw3 zw3Var2 = new zw3(this.a, bVar.h(), 5, 5);
-                if (mw3Var != null && zw3Var2.i() != null) {
-                    mw3Var.a(zw3Var2.g(), zw3Var2.i(), responseCallback);
-                    return;
+            } catch (Exception unused2) {
+            } catch (Throwable th) {
+                try {
+                    c(host);
+                } catch (Exception unused3) {
                 }
-                return;
+                throw th;
             }
-            g("3010003");
+            try {
+                c(host);
+            } catch (Exception unused4) {
+                return false;
+            }
+        } else {
+            return invokeL.booleanValue;
         }
     }
 
-    public final void j(yw3 yw3Var, String str, mw3 mw3Var) {
+    public void j(RewardWebView rewardWebView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, yw3Var, str, mw3Var) == null) {
-            ex3.n(str, ex3.a(yw3Var.i.c(), yw3Var.i.f(), yw3Var.i.e(), yw3Var.i.b(), false), mw3Var);
+        if ((interceptable != null && interceptable.invokeL(1048585, this, rewardWebView) != null) || rewardWebView == null) {
+            return;
+        }
+        this.b = rewardWebView;
+        this.c = rewardWebView.getContext().getApplicationContext();
+        this.b.loadUrl("javascript:(function(){})()");
+        f();
+        a(String.format("javascript:(function(){window.mobadssdkbridge.setPlacementType('%s');})()", "inline"));
+    }
+
+    public void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) == null) && !TextUtils.isEmpty(str)) {
+            a("window.mobadssdkbridge.fireAnonymousEvent('" + str + "', '" + str2 + "')");
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            a("window.mobadssdkbridge && window.mobadssdkbridge.nativeCallComplete && window.mobadssdkbridge.nativeCallComplete(" + JSONObject.quote(str) + SmallTailInfo.EMOTION_SUFFIX);
+        }
+    }
+
+    public final int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
+            try {
+                return context.getApplicationContext().getApplicationInfo().targetSdkVersion;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    public void i(hw3 hw3Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, hw3Var) == null) {
+            this.a = hw3Var;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = uw3.a + ";}());";
+            if (!h()) {
+                a("javascript:(function() {\n    window.baidu = {};\n    window.baidu.mobads = {};\n    window.baidu.mobads.Sdk = {\n        isIOS: false\n    };\n    window.mobadssdkbridge = window.mobadssdkbridge || {} \n    var Sdk = window.baidu.mobads.Sdk;\n    Sdk.isIOS = (/iphone|ipad|ipod/i).test(window.navigator.userAgent.toLowerCase());\n    var mob = window.baidu.mobads;\n    mob.Act = {\n        LP: 1,\n        DL: 2,\n        MAP: 4,\n        SMS: 8,\n        MAIL: 16,\n        PHONE: 32,\n        VIDEO: 64,\n        RM: 128,\n        NA: 256,\n        APO: 512\n    };\n    var win = window;\n    win.MobadsSdk = win.MobadsSdk || {};\n    var MobadsSdk = win.MobadsSdk;\n    var send3rdLog = function(isShowLog, ad) {\n        if (!ad || !ad.mon) {\n            return;\n        }\n        var url;\n        for (var i = 0; i < ad.mon.length; ++i) {\n            url = isShowLog ? ad.mon[i].s: ad.mon[i].c;\n            if (!url) {\n                continue;\n            }\n            new Image().src = url;\n        }\n    };\n     function createUniqueId(n = 12) { // 生成n位长度的字符串\n         var str = 'abcdefghijklmnopqrstuvwxyz0123456789'; // 可以作为常量放到random外面 \n         let result = '';\n         for (let i = 0; i < n; i++) {\n             result += str[parseInt(Math.random() * str.length, 10)];\n         } \n         return result;\n     };\n     // 执行回调 \n     window.mobadssdkbridge.fireAnonymousEvent = function (token = '', res = '') { \n         var jssdkNamespace = window['__baidu_adserv'] || {};\n         var callback = jssdkNamespace['baidu_' + token];\n         if (callback) { \n             let callbackRes; \n             try {\n                 callbackRes = res && JSON.parse(res); \n             } catch (e) { \n                 callbackRes = res;\n             }\n             callback(callbackRes); \n             delete jssdkNamespace['baidu_' + token]; \n         }\n     };     Sdk.device = 'baidubox';\n     Sdk.isSupportPause = 'YES';\n    Sdk.setPrivacyActionUrl = function (jsonStr) {\n        var args = ['setPrivacyActionUrl',\n            'json', jsonStr\n        ];\n        MobadsSdk.setPrivacyActionUrl(JSON.stringify(args));\n    };\n    Sdk.setPermissionActionUrl = function (jsonStr) {\n        var args = ['setPermissionActionUrl',\n            'json', jsonStr\n        ];\n        MobadsSdk.setPermissionActionUrl(JSON.stringify(args));\n    };\n    Sdk.setActionUrl = function(url, inapp, act, title, close) {\n        var opt = {};\n        if (\"[object Object]\" === Object.prototype.toString.call(url)) {\n            opt = url;\n            url = opt.url;\n            inapp = opt.inapp;\n            act = opt.act;\n            title = opt.title;\n            close = opt.close;\n               if (opt.allParamsJson) {\n                   if (opt.allParamsJson.action) {\n                       opt.action = opt.allParamsJson.action;\n                       opt.v_video = opt.allParamsJson.v_video || \"\";\n                       opt.v_video_w = opt.allParamsJson.v_video_w || \"\";\n                       opt.v_video_h = opt.allParamsJson.v_video_h || \"\";\n                       opt.v_image = opt.allParamsJson.v_image || \"\";\n                       opt.v_url = opt.allParamsJson.v_url || \"\";\n                       opt.allParamsJson = null;\n                   }\n               }\n        }\n        opt.url = url || \"\";\n        opt.inapp = inapp || false;\n        opt.act = act || 1;\n        opt.title = title || \"\";\n        opt.close = close || false;\n        opt.logurl = opt.logurl || \"\";\n        opt.weibo = opt.weibo || \"\";\n        opt.map = opt.map || \"\";\n        opt.search = opt.search || \"\";\n        opt.sms = opt.sms || \"\";\n        opt.at = opt.at || 1;\n        opt.tid = opt.tid || \"\";\n        if (MobadsSdk.setActionUrl) {\n            var DUMP_PAR = opt.inapp;\n            MobadsSdk.setActionUrl(JSON.stringify(opt), DUMP_PAR)\n        }\n    };\n    Sdk.sendClickLog = function(logurl) {\n        new Image().src = logurl;\n    };\n    Sdk.onAdPlayEnd = function() {\n        if (MobadsSdk.onAdPlayEnd) {\n            setTimeout(function() {\n                MobadsSdk.onAdPlayEnd();\n            },\n            300);\n        }\n    };\n    Sdk.open = function(url, options) {\n        var option = {\n            url: url,\n            inapp: true,\n            act: mob.Act.LP,\n            allParamsJson: options\n        };\n        Sdk.setActionUrl(option);\n        send3rdLog(false, options);\n    };\n    Sdk.startDownload = function(url, options) {\n        var ad = {};\n        ad = options || {};\n        ad.tit = options && options.tit || options.appname || \"应用\";\n        var mobadsJumpUrl = url;\n        if (/^itms-services:\\/\\//.test(url)) {\n            Sdk.setActionUrl(url, false, mob.Act.DL, ad.tit, true);\n            return;\n        }\n        if (Sdk.isIOS) {\n            var tid = options && options.pinfo && options.pinfo.tid;\n            if (tid) {\n                Sdk.sendClickLog(mobadsJumpUrl);\n            }\n            Sdk.setActionUrl({\n                url: url,\n                tid: tid || \"\",\n                inapp: true,\n                act: mob.Act.DL\n            });\n            return;\n        }\n        var mon = options && options.mon || [];\n        var id = options && options.id || 1;\n        var pk = options && options.pk || \"\";\n        var qk = options && options.qk || \"\";\n        var exp2 = options && options.exp2 || {};\n        var apoObj = options && options.apo || {};\n        var wi = options && options.wi ? true: false;\n        var title = ad.tit;\n        Sdk.setActionUrl({\n            url: mobadsJumpUrl,\n            act: mob.Act.DL,\n            apo: JSON.stringify(apoObj),\n            close: true,\n            adid: id,\n            originUrl: mobadsJumpUrl,\n            dlTunnel: 3,\n            autoOpen: true,\n            popNotif: true,\n            canCancel: true,\n            canDelete: 5,\n            mon: mon,\n            pk: pk,\n            qk: qk,\n            adid: id,\n            title: ad.tit,\n            action: options.action,\n            allParamsJson: options \n        });\n        send3rdLog(false, options);\n    };\n    Sdk.openScheme = function(url, options) {\n        var ad = {};\n        ad = options || {};\n        ad.tit = options && options.tit || \"应用\";\n        var pk = options && options.pk || \"\";\n        var option = {\n            url: url,\n            inapp: true,\n            act: ad.act,\n            title: ad.tit,\n            close: true,\n            pk: pk\n        };\n        Sdk.setActionUrl(option);\n        send3rdLog(false, options);\n    };\n    Sdk.handleClick = function(options) {\n        var ad = options || {};\n        var Act = mob.Act;\n        if (Act.LP === ad.act) {\n            Sdk.open(ad.curl, ad);\n        } else if (Act.DL === ad.act) {\n            Sdk.startDownload(ad.curl, ad);\n        } else if (Act.APO === ad.act) {\n            new Image().src = ad.curl;\n            Sdk.openScheme(ad.apo, ad);\n        }\n    };\n    Sdk.onAdPlayEnd = function() {\n        if (MobadsSdk.onAdPlayEnd) {\n            MobadsSdk.onAdPlayEnd();\n        }\n    };\n    Sdk.needsAdIcon = function() {\n        return true;\n    };\n    Sdk.getAdViewState = function(callback) {\n        if (!MobadsSdk || !MobadsSdk.getAdViewState) {\n            callback('BaiduMobAdSpamOK');\n            return;\n        }\n        MobadsSdk.getAdViewState(MobadsSdk.addAnonymousEvent(function(state) {\n            var iState = parseInt(state);\n            var sState = 'BaiduMobAdSpamOK';\n            if (iState != 0) {\n                sState = 'BaiduMobAdSpamNotOK';\n            }\n            callback(sState);\n        }));\n    };\n     // 注册回调 \n    Sdk.natRegEv = function (callback) { \n         var mobadsSdk = window['MobadsSdk'] || {};\n         var jssdkNamespace = mobadsSdk.__anoymousEvents || {}\n         var token = createUniqueId(14); \n         jssdkNamespace[token] = callback || function () { \n         }\n         mobadsSdk.__anoymousEvents = jssdkNamespace\n         return token;\n     };\n     // 获取下载状态 \n    Sdk.getDownloadStatus = function (callback, pkg) { \n         if (MobadsSdk.getDownloadStatus) {\n             var token = Sdk.natRegEv(callback);\n             MobadsSdk.getDownloadStatus(token, pkg);\n         } \n     };\n     Sdk.pauseDownload = function (pkg) { \n         if (MobadsSdk.pauseDownload) { \n             MobadsSdk.pauseDownload(pkg); \n         } \n     };\n})();");
+                a(this.d);
+            }
         }
     }
 }

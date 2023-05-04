@@ -1,12 +1,27 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.webkit.sdk.WebView;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface nf6 {
-    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrefetchManager");
+public class nf6 {
+    public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    List<Pair<String, Long>> a(String str);
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            a = z;
+        }
+    }
 }

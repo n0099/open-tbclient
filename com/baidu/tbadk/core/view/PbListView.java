@@ -16,8 +16,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
 import com.baidu.tieba.wm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -29,7 +29,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class PbListView extends wm {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final int B = 2131234513;
+    public static final int B = 2131234559;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public final int b;
@@ -230,7 +230,7 @@ public class PbListView extends wm {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             this.e.setVisibility(0);
-            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0b02));
+            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0b17));
             e(TbadkCoreApplication.getInst().getSkinType());
         }
     }
@@ -528,7 +528,7 @@ public class PbListView extends wm {
                 return;
             }
             this.d.setVisibility(0);
-            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0b02));
+            this.d.setText(this.c.getText(R.string.obfuscated_res_0x7f0f0b17));
         }
     }
 
@@ -564,11 +564,11 @@ public class PbListView extends wm {
             } else {
                 this.n.setVisibility(8);
             }
-            this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091c37);
+            this.e = (ProgressBar) this.g.findViewById(R.id.obfuscated_res_0x7f091c47);
             this.t = (ImageView) this.g.findViewById(R.id.pb_more_view_top_line);
             this.h = this.g.findViewById(R.id.empty_view);
             this.v = (LinearLayout) this.g.findViewById(R.id.pb_more_top_extra_view);
-            r25 d = r25.d(this.p);
+            g35 d = g35.d(this.p);
             d.B(R.dimen.T_X12);
             d.C(R.string.F_X01);
             d.w(R.color.CAM_X0107);
@@ -592,7 +592,7 @@ public class PbListView extends wm {
             boolean z = false;
             if (charSequence.equals(this.c.getText(R.string.pb_load_more))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
-            } else if (charSequence.equals(this.c.getText(R.string.obfuscated_res_0x7f0f0b02))) {
+            } else if (charSequence.equals(this.c.getText(R.string.obfuscated_res_0x7f0f0b17))) {
                 color = SkinManager.getColor(i, (int) R.color.CAM_X0109);
             } else if (!charSequence.equals(this.c.getText(R.string.list_no_more)) && !charSequence.equals(this.c.getText(R.string.list_has_no_more)) && !charSequence.equals(this.c.getText(R.string.sub_pb_list_no_more)) && !this.u) {
                 if (charSequence.equals(this.c.getText(R.string.list_no_more_new))) {

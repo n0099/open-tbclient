@@ -1,27 +1,44 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class ig9 {
+public class ig9 extends BroadcastReceiver {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile hg9 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized hg9 a() {
-        InterceptResult invokeV;
-        hg9 hg9Var;
+    public ig9() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (ig9.class) {
-                if (a == null) {
-                    a = new hg9();
-                }
-                hg9Var = a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return hg9Var;
         }
-        return (hg9) invokeV.objValue;
+    }
+
+    @Override // android.content.BroadcastReceiver
+    public void onReceive(Context context, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+            String action = intent.getAction();
+            if (action.equals("android.intent.action.SCREEN_ON")) {
+                hg9.j().e = 1;
+            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+                hg9.j().e = 1;
+                hg9.j().d.d();
+            } else if (action.equals("android.intent.action.USER_PRESENT")) {
+                hg9.j().e = 0;
+            }
+        }
     }
 }

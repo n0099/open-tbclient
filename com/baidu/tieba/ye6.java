@@ -1,73 +1,66 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
 public class ye6 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948327327, "Lcom/baidu/tieba/ye6;")) == null) {
-            return;
+    public static zc9 a(if6 if6Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, if6Var)) == null) {
+            zc9 zc9Var = new zc9();
+            if (if6Var != null) {
+                zc9Var.b = if6Var.c;
+                zc9Var.e = if6Var.g;
+                zc9Var.f = if6Var.i;
+                zc9Var.c = if6Var.d;
+                if (!mg6.a(if6Var.b)) {
+                    ArrayList<String> arrayList = new ArrayList<>();
+                    zc9Var.a = arrayList;
+                    arrayList.addAll(if6Var.b);
+                }
+                if (!mg6.a(if6Var.f)) {
+                    ArrayList<String> arrayList2 = new ArrayList<>();
+                    zc9Var.d = arrayList2;
+                    arrayList2.addAll(if6Var.f);
+                }
+            }
+            return zc9Var;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948327327, "Lcom/baidu/tieba/ye6;");
-        }
+        return (zc9) invokeL.objValue;
     }
 
-    public static void a(String str, String str2) {
+    public static void b(df6 df6Var, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && a && b >= 1) {
-            Log.d(str, str2);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && a && b >= 3) {
-            Log.e(str, str2);
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && a && b >= 0) {
-            Log.i(str, str2);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && a && b >= 2) {
-            Log.w(str, str2);
-        }
-    }
-
-    public static void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) {
-            b = i;
-        }
-    }
-
-    public static void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65542, null, z) == null) {
-            a = z;
+        if (interceptable == null || interceptable.invokeLL(65537, null, df6Var, str) == null) {
+            try {
+                if (df6Var != null) {
+                    xc9.n().z(str, df6Var.b());
+                    xc9.n().x();
+                    if (!mg6.b(df6Var.a())) {
+                        HashMap<String, zc9> hashMap = new HashMap<>();
+                        for (Map.Entry<String, if6> entry : df6Var.a().entrySet()) {
+                            hashMap.put(entry.getKey(), a(entry.getValue()));
+                        }
+                        yc9.a().l(str, hashMap);
+                    }
+                    yc9.a().h(true, str);
+                    return;
+                }
+                xc9.n().h(str);
+                xc9.n().x();
+                yc9.a().f(str);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
         }
     }
 }

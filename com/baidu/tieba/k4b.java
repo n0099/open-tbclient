@@ -2,148 +2,178 @@ package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
+import java.nio.ByteBuffer;
+import org.java_websocket.exceptions.InvalidDataException;
+import org.java_websocket.exceptions.InvalidFrameException;
+import org.java_websocket.framing.Framedata;
 /* loaded from: classes5.dex */
-public abstract class k4b<E> extends l4b<E> {
+public class k4b extends m4b {
     public static /* synthetic */ Interceptable $ic;
-    public static final int c;
-    public static final long d;
-    public static final int e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final long a;
-    public final E[] b;
+    public int h;
+    public String i;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864528, "Lcom/baidu/tieba/k4b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947864528, "Lcom/baidu/tieba/k4b;");
-                return;
-            }
-        }
-        c = Integer.getInteger("sparse.shift", 0).intValue();
-        int b = k5b.a.b(Object[].class);
-        if (4 == b) {
-            e = c + 2;
-        } else if (8 == b) {
-            e = c + 3;
-        } else {
-            throw new IllegalStateException("Unknown pointer size");
-        }
-        d = k5b.a.a(Object[].class) + (32 << (e - c));
-    }
-
-    public k4b(int i) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public k4b() {
+        super(Framedata.Opcode.CLOSING);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Framedata.Opcode) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        int b = n4b.b(i);
-        this.a = b - 1;
-        this.b = (E[]) new Object[(b << c) + 64];
+        r("");
+        q(1000);
     }
 
-    public final long a(long j) {
-        InterceptResult invokeJ;
+    public final void s() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return b(j, this.a);
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            byte[] f = f5b.f(this.i);
+            ByteBuffer allocate = ByteBuffer.allocate(4);
+            allocate.putInt(this.h);
+            allocate.position(2);
+            ByteBuffer allocate2 = ByteBuffer.allocate(f.length + 2);
+            allocate2.put(allocate);
+            allocate2.put(f);
+            allocate2.rewind();
+            super.j(allocate2);
         }
-        return invokeJ.longValue;
     }
 
-    public final E d(long j) {
-        InterceptResult invokeJ;
+    @Override // com.baidu.tieba.o4b, org.java_websocket.framing.Framedata
+    public ByteBuffer a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048580, this, j)) == null) {
-            return e(this.b, j);
-        }
-        return (E) invokeJ.objValue;
-    }
-
-    public final long b(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            return d + ((j & j2) << e);
-        }
-        return invokeCommon.longValue;
-    }
-
-    public final E c(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, eArr, j)) == null) {
-            return (E) k5b.a.e(eArr, j);
-        }
-        return (E) invokeLJ.objValue;
-    }
-
-    public final E e(E[] eArr, long j) {
-        InterceptResult invokeLJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, eArr, j)) == null) {
-            return (E) k5b.a.f(eArr, j);
-        }
-        return (E) invokeLJ.objValue;
-    }
-
-    @Override // java.util.AbstractQueue, java.util.AbstractCollection, java.util.Collection
-    public void clear() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048579, this) != null) {
-            return;
-        }
-        while (true) {
-            if (poll() == null && isEmpty()) {
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == 1005) {
+                return e5b.a();
             }
+            return super.a();
         }
+        return (ByteBuffer) invokeV.objValue;
     }
 
-    @Override // java.util.AbstractCollection, java.util.Collection, java.lang.Iterable
-    public Iterator<E> iterator() {
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public String p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.o4b
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            throw new UnsupportedOperationException();
+            return super.toString() + "code: " + this.h;
         }
-        return (Iterator) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void f(E[] eArr, long j, E e2) {
+    @Override // com.baidu.tieba.m4b, com.baidu.tieba.o4b
+    public void h() throws InvalidDataException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            k5b.a.j(eArr, j, e2);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.h();
+            if (this.h == 1007 && this.i == null) {
+                throw new InvalidDataException(1007, "Received text is no valid utf8 string!");
+            }
+            if (this.h == 1005 && this.i.length() > 0) {
+                throw new InvalidDataException(1002, "A close frame must have a closecode if it has a reason");
+            }
+            int i = this.h;
+            if (i > 1015 && i < 3000) {
+                throw new InvalidDataException(1002, "Trying to send an illegal close code!");
+            }
+            int i2 = this.h;
+            if (i2 != 1006 && i2 != 1015 && i2 != 1005 && i2 <= 4999 && i2 >= 1000 && i2 != 1004) {
+                return;
+            }
+            throw new InvalidFrameException("closecode must not be sent over the wire: " + this.h);
         }
     }
 
-    public final void g(E[] eArr, long j, E e2) {
+    @Override // com.baidu.tieba.o4b
+    public void j(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{eArr, Long.valueOf(j), e2}) == null) {
-            k5b.a.h(eArr, j, e2);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, byteBuffer) == null) {
+            this.h = 1005;
+            this.i = "";
+            byteBuffer.mark();
+            if (byteBuffer.remaining() == 0) {
+                this.h = 1000;
+            } else if (byteBuffer.remaining() == 1) {
+                this.h = 1002;
+            } else {
+                if (byteBuffer.remaining() >= 2) {
+                    ByteBuffer allocate = ByteBuffer.allocate(4);
+                    allocate.position(2);
+                    allocate.putShort(byteBuffer.getShort());
+                    allocate.position(0);
+                    this.h = allocate.getInt();
+                }
+                byteBuffer.reset();
+                try {
+                    int position = byteBuffer.position();
+                    try {
+                        byteBuffer.position(byteBuffer.position() + 2);
+                        this.i = f5b.e(byteBuffer);
+                        byteBuffer.position(position);
+                    } catch (IllegalArgumentException unused) {
+                        throw new InvalidDataException(1007);
+                    }
+                } catch (InvalidDataException unused2) {
+                    this.h = 1007;
+                    this.i = null;
+                }
+            }
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.h = i;
+            if (i == 1015) {
+                this.h = 1005;
+                this.i = "";
+            }
+            s();
+        }
+    }
+
+    public void r(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            if (str == null) {
+                str = "";
+            }
+            this.i = str;
+            s();
         }
     }
 }

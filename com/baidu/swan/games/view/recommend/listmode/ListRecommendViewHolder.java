@@ -15,9 +15,9 @@ public class ListRecommendViewHolder extends RecyclerView.ViewHolder {
 
     public ListRecommendViewHolder(View view2) {
         super(view2);
-        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0921ca);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921cb);
-        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921c9);
-        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f0921cc);
+        this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f0921df);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921e0);
+        this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0921de);
+        this.d = (Button) view2.findViewById(R.id.obfuscated_res_0x7f0921e1);
     }
 }

@@ -6,7 +6,7 @@ import android.content.pm.ServiceInfo;
 import android.os.Build;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.xiaomi.push.service.XMJobService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class et {
 
     /* renamed from: a  reason: collision with other field name */
@@ -16,7 +16,7 @@ public final class et {
     public static final String f330a = XMJobService.class.getCanonicalName();
     public static int a = 0;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
 

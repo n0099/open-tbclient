@@ -12,23 +12,23 @@ import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
 import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.tieba.ao0;
-import com.baidu.tieba.cq0;
-import com.baidu.tieba.dq0;
-import com.baidu.tieba.hp0;
-import com.baidu.tieba.ji0;
-import com.baidu.tieba.kq0;
-import com.baidu.tieba.lg0;
-import com.baidu.tieba.ln0;
-import com.baidu.tieba.lp0;
+import com.baidu.tieba.co0;
+import com.baidu.tieba.eq0;
+import com.baidu.tieba.fq0;
+import com.baidu.tieba.jp0;
+import com.baidu.tieba.li0;
 import com.baidu.tieba.mq0;
-import com.baidu.tieba.ol0;
-import com.baidu.tieba.pp0;
-import com.baidu.tieba.pq0;
-import com.baidu.tieba.sl0;
-import com.baidu.tieba.tp0;
-import com.baidu.tieba.vl0;
-import com.baidu.tieba.xh0;
-import com.baidu.tieba.yn0;
+import com.baidu.tieba.ng0;
+import com.baidu.tieba.nn0;
+import com.baidu.tieba.np0;
+import com.baidu.tieba.oq0;
+import com.baidu.tieba.ql0;
+import com.baidu.tieba.rp0;
+import com.baidu.tieba.rq0;
+import com.baidu.tieba.ul0;
+import com.baidu.tieba.vp0;
+import com.baidu.tieba.xl0;
+import com.baidu.tieba.zh0;
 import java.util.HashMap;
 import kotlin.Metadata;
 import kotlin.Result;
@@ -43,8 +43,8 @@ import org.json.JSONObject;
 public final class NadRewardTaskHelper {
     public Context a;
     public Handler b;
-    public tp0 c;
-    public ln0 d;
+    public vp0 c;
+    public nn0 d;
     public boolean e;
     public boolean f;
     public boolean g;
@@ -62,9 +62,9 @@ public final class NadRewardTaskHelper {
 
         @Override // java.lang.Runnable
         public final void run() {
-            mq0 h;
-            tp0 tp0Var = NadRewardTaskHelper.this.c;
-            if (tp0Var != null && (h = tp0Var.h()) != null && h.a()) {
+            oq0 h;
+            vp0 vp0Var = NadRewardTaskHelper.this.c;
+            if (vp0Var != null && (h = vp0Var.h()) != null && h.a()) {
                 return;
             }
             NadRewardTaskHelper.this.i = true;
@@ -95,20 +95,20 @@ public final class NadRewardTaskHelper {
     }
 
     /* loaded from: classes2.dex */
-    public static final class d extends sl0<vl0> {
+    public static final class d extends ul0<xl0> {
         public d(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sl0
-        public void onEvent(vl0 event) {
-            tp0 tp0Var;
-            cq0 c;
+        @Override // com.baidu.tieba.ul0
+        public void onEvent(xl0 event) {
+            vp0 vp0Var;
+            eq0 c;
             Long k;
-            pp0 pp0Var;
-            tp0 tp0Var2;
-            cq0 c2;
+            rp0 rp0Var;
+            vp0 vp0Var2;
+            eq0 c2;
             Long g;
             Intrinsics.checkNotNullParameter(event, "event");
             String str = null;
@@ -120,17 +120,17 @@ public final class NadRewardTaskHelper {
             }
             if (!NadRewardTaskHelper.this.g && NadRewardTaskHelper.this.e && !NadRewardTaskHelper.this.f) {
                 NadRewardTaskHelper nadRewardTaskHelper = NadRewardTaskHelper.this;
-                if (nadRewardTaskHelper.x(nadRewardTaskHelper.a) && (tp0Var2 = NadRewardTaskHelper.this.c) != null && (c2 = tp0Var2.c()) != null && (g = c2.g()) != null) {
+                if (nadRewardTaskHelper.x(nadRewardTaskHelper.a) && (vp0Var2 = NadRewardTaskHelper.this.c) != null && (c2 = vp0Var2.c()) != null && (g = c2.g()) != null) {
                     NadRewardTaskHelper.this.b.postDelayed(NadRewardTaskHelper.this.h, g.longValue());
                 }
             }
             if (!NadRewardTaskHelper.this.k && NadRewardTaskHelper.this.i && !NadRewardTaskHelper.this.j) {
                 NadRewardTaskHelper nadRewardTaskHelper2 = NadRewardTaskHelper.this;
-                tp0 tp0Var3 = nadRewardTaskHelper2.c;
-                if (tp0Var3 != null && (pp0Var = tp0Var3.f) != null) {
-                    str = pp0Var.c;
+                vp0 vp0Var3 = nadRewardTaskHelper2.c;
+                if (vp0Var3 != null && (rp0Var = vp0Var3.f) != null) {
+                    str = rp0Var.c;
                 }
-                if (nadRewardTaskHelper2.y(str, NadRewardTaskHelper.this.a) && (tp0Var = NadRewardTaskHelper.this.c) != null && (c = tp0Var.c()) != null && (k = c.k()) != null) {
+                if (nadRewardTaskHelper2.y(str, NadRewardTaskHelper.this.a) && (vp0Var = NadRewardTaskHelper.this.c) != null && (c = vp0Var.c()) != null && (k = c.k()) != null) {
                     NadRewardTaskHelper.this.b.postDelayed(NadRewardTaskHelper.this.l, k.longValue());
                 }
             }
@@ -138,7 +138,7 @@ public final class NadRewardTaskHelper {
     }
 
     public NadRewardTaskHelper() {
-        Context b2 = ji0.b();
+        Context b2 = li0.b();
         Intrinsics.checkNotNullExpressionValue(b2, "AdRuntime.applicationContext()");
         this.a = b2;
         this.b = new Handler(this.a.getMainLooper());
@@ -154,12 +154,12 @@ public final class NadRewardTaskHelper {
     }
 
     public final void E() {
-        ol0.a().b(this, new d(vl0.class));
+        ql0.a().b(this, new d(xl0.class));
     }
 
     public final void F() {
         this.b.removeCallbacksAndMessages(null);
-        ol0.a().unregister(this);
+        ql0.a().unregister(this);
     }
 
     public final void G() {
@@ -174,14 +174,14 @@ public final class NadRewardTaskHelper {
     }
 
     public final void u() {
-        cq0 c2;
+        eq0 c2;
         Long k;
         if (!B()) {
             return;
         }
         this.m = new a();
-        tp0 tp0Var = this.c;
-        if (tp0Var != null && (c2 = tp0Var.c()) != null && (k = c2.k()) != null) {
+        vp0 vp0Var = this.c;
+        if (vp0Var != null && (c2 = vp0Var.c()) != null && (k = c2.k()) != null) {
             long longValue = k.longValue();
             Handler handler = this.b;
             Runnable runnable = this.m;
@@ -191,7 +191,7 @@ public final class NadRewardTaskHelper {
         E();
     }
 
-    public final void H(tp0 adModel) {
+    public final void H(vp0 adModel) {
         Intrinsics.checkNotNullParameter(adModel, "adModel");
         this.c = adModel;
         G();
@@ -201,57 +201,57 @@ public final class NadRewardTaskHelper {
     public final boolean B() {
         int i;
         String str;
-        pq0 pq0Var;
-        kq0 g;
-        kq0 g2;
-        cq0 c2;
-        pp0 pp0Var;
-        pp0 pp0Var2;
-        kq0 g3;
-        pq0 q;
-        tp0 tp0Var = this.c;
-        if (tp0Var != null && (g3 = tp0Var.g()) != null && (q = g3.q()) != null) {
+        rq0 rq0Var;
+        mq0 g;
+        mq0 g2;
+        eq0 c2;
+        rp0 rp0Var;
+        rp0 rp0Var2;
+        mq0 g3;
+        rq0 q;
+        vp0 vp0Var = this.c;
+        if (vp0Var != null && (g3 = vp0Var.g()) != null && (q = g3.q()) != null) {
             i = q.b();
         } else {
             i = -1;
         }
-        dq0 dq0Var = null;
+        fq0 fq0Var = null;
         r2 = null;
         String str2 = null;
-        dq0Var = null;
+        fq0Var = null;
         if (i <= 0) {
-            tp0 tp0Var2 = this.c;
-            if (tp0Var2 != null && (pp0Var2 = tp0Var2.f) != null) {
-                str2 = pp0Var2.d;
+            vp0 vp0Var2 = this.c;
+            if (vp0Var2 != null && (rp0Var2 = vp0Var2.f) != null) {
+                str2 = rp0Var2.d;
             }
-            ao0.e(str2, "18", "18002");
+            co0.e(str2, "18", "18002");
             return false;
         }
-        tp0 tp0Var3 = this.c;
-        if (tp0Var3 != null && (pp0Var = tp0Var3.f) != null) {
-            str = pp0Var.c;
+        vp0 vp0Var3 = this.c;
+        if (vp0Var3 != null && (rp0Var = vp0Var3.f) != null) {
+            str = rp0Var.c;
         } else {
             str = null;
         }
         if (!y(str, this.a)) {
             return false;
         }
-        tp0 tp0Var4 = this.c;
-        if (tp0Var4 != null && (c2 = tp0Var4.c()) != null && c2.l() == 0) {
+        vp0 vp0Var4 = this.c;
+        if (vp0Var4 != null && (c2 = vp0Var4.c()) != null && c2.l() == 0) {
             return false;
         }
-        tp0 tp0Var5 = this.c;
-        if (tp0Var5 != null && (g2 = tp0Var5.g()) != null) {
-            pq0Var = g2.q();
+        vp0 vp0Var5 = this.c;
+        if (vp0Var5 != null && (g2 = vp0Var5.g()) != null) {
+            rq0Var = g2.q();
         } else {
-            pq0Var = null;
+            rq0Var = null;
         }
-        if (pq0Var != null) {
-            tp0 tp0Var6 = this.c;
-            if (tp0Var6 != null && (g = tp0Var6.g()) != null) {
-                dq0Var = g.f();
+        if (rq0Var != null) {
+            vp0 vp0Var6 = this.c;
+            if (vp0Var6 != null && (g = vp0Var6.g()) != null) {
+                fq0Var = g.f();
             }
-            if (dq0Var != null) {
+            if (fq0Var != null) {
                 return true;
             }
         }
@@ -264,82 +264,82 @@ public final class NadRewardTaskHelper {
         String str2;
         String str3;
         String str4;
-        pp0 pp0Var;
-        lp0 lp0Var;
-        lp0 lp0Var2;
-        lp0 lp0Var3;
-        lp0 lp0Var4;
-        kq0 g;
-        pq0 q;
-        lg0 lg0Var = new lg0();
-        lg0Var.a = "4";
-        tp0 tp0Var = this.c;
+        rp0 rp0Var;
+        np0 np0Var;
+        np0 np0Var2;
+        np0 np0Var3;
+        np0 np0Var4;
+        mq0 g;
+        rq0 q;
+        ng0 ng0Var = new ng0();
+        ng0Var.a = "4";
+        vp0 vp0Var = this.c;
         String str5 = null;
-        if (tp0Var != null && (g = tp0Var.g()) != null && (q = g.q()) != null) {
+        if (vp0Var != null && (g = vp0Var.g()) != null && (q = g.q()) != null) {
             num = Integer.valueOf(q.b());
         } else {
             num = null;
         }
-        lg0Var.c = String.valueOf(num);
-        tp0 tp0Var2 = this.c;
-        if (tp0Var2 != null && (lp0Var4 = tp0Var2.m) != null) {
-            str = lp0Var4.k;
+        ng0Var.c = String.valueOf(num);
+        vp0 vp0Var2 = this.c;
+        if (vp0Var2 != null && (np0Var4 = vp0Var2.m) != null) {
+            str = np0Var4.k;
         } else {
             str = null;
         }
-        lg0Var.d = str;
-        tp0 tp0Var3 = this.c;
-        if (tp0Var3 != null && (lp0Var3 = tp0Var3.m) != null) {
-            str2 = lp0Var3.l;
+        ng0Var.d = str;
+        vp0 vp0Var3 = this.c;
+        if (vp0Var3 != null && (np0Var3 = vp0Var3.m) != null) {
+            str2 = np0Var3.l;
         } else {
             str2 = null;
         }
-        lg0Var.e = str2;
-        tp0 tp0Var4 = this.c;
-        if (tp0Var4 != null && (lp0Var2 = tp0Var4.m) != null) {
-            str3 = lp0Var2.m;
+        ng0Var.e = str2;
+        vp0 vp0Var4 = this.c;
+        if (vp0Var4 != null && (np0Var2 = vp0Var4.m) != null) {
+            str3 = np0Var2.m;
         } else {
             str3 = null;
         }
-        lg0Var.f = str3;
-        tp0 tp0Var5 = this.c;
-        if (tp0Var5 != null && (lp0Var = tp0Var5.m) != null) {
-            str4 = lp0Var.n;
+        ng0Var.f = str3;
+        vp0 vp0Var5 = this.c;
+        if (vp0Var5 != null && (np0Var = vp0Var5.m) != null) {
+            str4 = np0Var.n;
         } else {
             str4 = null;
         }
-        lg0Var.g = str4;
-        lg0Var.h = this.j;
-        tp0 tp0Var6 = this.c;
-        if (tp0Var6 != null && (pp0Var = tp0Var6.f) != null) {
-            str5 = pp0Var.d;
+        ng0Var.g = str4;
+        ng0Var.h = this.j;
+        vp0 vp0Var6 = this.c;
+        if (vp0Var6 != null && (rp0Var = vp0Var6.f) != null) {
+            str5 = rp0Var.d;
         }
-        lg0Var.i = str5;
-        ol0.a().a(lg0Var);
+        ng0Var.i = str5;
+        ql0.a().a(ng0Var);
     }
 
     public final void v() {
-        kq0 kq0Var;
-        kq0 g;
+        mq0 mq0Var;
+        mq0 g;
         if (this.g) {
             return;
         }
-        ln0 ln0Var = this.d;
-        if (!this.e || ln0Var == null || !ln0Var.a() || !x(this.a)) {
+        nn0 nn0Var = this.d;
+        if (!this.e || nn0Var == null || !nn0Var.a() || !x(this.a)) {
             return;
         }
         if (this.f) {
-            yn0 yn0Var = yn0.a;
-            tp0 tp0Var = this.c;
-            if (tp0Var != null) {
-                kq0Var = tp0Var.g();
+            ao0 ao0Var = ao0.a;
+            vp0 vp0Var = this.c;
+            if (vp0Var != null) {
+                mq0Var = vp0Var.g();
             } else {
-                kq0Var = null;
+                mq0Var = null;
             }
-            kq0 kq0Var2 = kq0Var;
-            String g2 = ln0Var.g();
-            tp0 tp0Var2 = this.c;
-            yn0Var.c(kq0Var2, g2, (tp0Var2 == null || (g = tp0Var2.g()) == null || (r0 = g.e()) == null) ? "" : "", new Function2<String, String, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkDownloadTaskComplete$1
+            mq0 mq0Var2 = mq0Var;
+            String g2 = nn0Var.g();
+            vp0 vp0Var2 = this.c;
+            ao0Var.c(mq0Var2, g2, (vp0Var2 == null || (g = vp0Var2.g()) == null || (r0 = g.e()) == null) ? "" : "", new Function2<String, String, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkDownloadTaskComplete$1
                 {
                     super(2);
                 }
@@ -355,17 +355,17 @@ public final class NadRewardTaskHelper {
                 /* renamed from: invoke  reason: avoid collision after fix types in other method */
                 public final void invoke2(String coin, String str) {
                     String str2;
-                    pp0 pp0Var;
+                    rp0 rp0Var;
                     Intrinsics.checkNotNullParameter(coin, "coin");
                     Intrinsics.checkNotNullParameter(str, "<anonymous parameter 1>");
                     Toast.makeText(NadRewardTaskHelper.this.a, "恭喜！成功领取金币啦～", 0).show();
-                    tp0 tp0Var3 = NadRewardTaskHelper.this.c;
-                    if (tp0Var3 != null && (pp0Var = tp0Var3.f) != null) {
-                        str2 = pp0Var.d;
+                    vp0 vp0Var3 = NadRewardTaskHelper.this.c;
+                    if (vp0Var3 != null && (rp0Var = vp0Var3.f) != null) {
+                        str2 = rp0Var.d;
                     } else {
                         str2 = null;
                     }
-                    ao0.g(str2, "2", coin);
+                    co0.g(str2, "2", coin);
                 }
             }, new Function2<Throwable, Integer, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkDownloadTaskComplete$2
                 {
@@ -382,25 +382,25 @@ public final class NadRewardTaskHelper {
 
                 public final void invoke(Throwable th, int i) {
                     String str;
-                    pp0 pp0Var;
-                    pp0 pp0Var2;
+                    rp0 rp0Var;
+                    rp0 rp0Var2;
                     Intrinsics.checkNotNullParameter(th, "<anonymous parameter 0>");
                     String str2 = null;
                     if (i == 1) {
-                        tp0 tp0Var3 = NadRewardTaskHelper.this.c;
-                        if (tp0Var3 != null && (pp0Var2 = tp0Var3.f) != null) {
-                            str2 = pp0Var2.d;
+                        vp0 vp0Var3 = NadRewardTaskHelper.this.c;
+                        if (vp0Var3 != null && (rp0Var2 = vp0Var3.f) != null) {
+                            str2 = rp0Var2.d;
                         }
-                        ao0.n(str2, "2");
+                        co0.n(str2, "2");
                         return;
                     }
-                    tp0 tp0Var4 = NadRewardTaskHelper.this.c;
-                    if (tp0Var4 != null && (pp0Var = tp0Var4.f) != null) {
-                        str = pp0Var.d;
+                    vp0 vp0Var4 = NadRewardTaskHelper.this.c;
+                    if (vp0Var4 != null && (rp0Var = vp0Var4.f) != null) {
+                        str = rp0Var.d;
                     } else {
                         str = null;
                     }
-                    ao0.m(str, "2", null, 4, null);
+                    co0.m(str, "2", null, 4, null);
                 }
             });
             this.g = true;
@@ -412,35 +412,35 @@ public final class NadRewardTaskHelper {
 
     public final void C() {
         Integer num;
-        lp0 lp0Var;
+        np0 np0Var;
         String str;
-        lp0 lp0Var2;
-        cq0 c2;
-        lg0 lg0Var = new lg0();
-        lg0Var.a = "2";
-        tp0 tp0Var = this.c;
+        np0 np0Var2;
+        eq0 c2;
+        ng0 ng0Var = new ng0();
+        ng0Var.a = "2";
+        vp0 vp0Var = this.c;
         String str2 = null;
-        if (tp0Var != null && (c2 = tp0Var.c()) != null) {
+        if (vp0Var != null && (c2 = vp0Var.c()) != null) {
             num = Integer.valueOf(c2.h());
         } else {
             num = null;
         }
-        lg0Var.b = String.valueOf(num);
-        ln0 ln0Var = this.d;
-        if (ln0Var != null) {
-            str2 = ln0Var.h();
+        ng0Var.b = String.valueOf(num);
+        nn0 nn0Var = this.d;
+        if (nn0Var != null) {
+            str2 = nn0Var.h();
         }
-        lg0Var.c = str2;
-        tp0 tp0Var2 = this.c;
+        ng0Var.c = str2;
+        vp0 vp0Var2 = this.c;
         String str3 = "";
-        lg0Var.d = (tp0Var2 == null || (lp0Var2 = tp0Var2.m) == null || (r1 = lp0Var2.i) == null) ? "" : "";
-        tp0 tp0Var3 = this.c;
-        if (tp0Var3 != null && (lp0Var = tp0Var3.m) != null && (str = lp0Var.j) != null) {
+        ng0Var.d = (vp0Var2 == null || (np0Var2 = vp0Var2.m) == null || (r1 = np0Var2.i) == null) ? "" : "";
+        vp0 vp0Var3 = this.c;
+        if (vp0Var3 != null && (np0Var = vp0Var3.m) != null && (str = np0Var.j) != null) {
             str3 = str;
         }
-        lg0Var.e = str3;
+        ng0Var.e = str3;
         AdDownloadStatus adDownloadStatus = AdDownloadStatus.NONE;
-        lg0Var.h = this.f;
+        ng0Var.h = this.f;
         new Function0<Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$postDownloadTaskEvent$1
             {
                 super(0);
@@ -456,21 +456,21 @@ public final class NadRewardTaskHelper {
             /* JADX DEBUG: Possible override for method kotlin.jvm.functions.Function0.invoke()Ljava/lang/Object; */
             /* renamed from: invoke  reason: avoid collision after fix types in other method */
             public final void invoke2() {
-                tp0 tp0Var4;
-                cq0 c3;
+                vp0 vp0Var4;
+                eq0 c3;
                 Long g;
-                if (NadRewardTaskHelper.this.e && !NadRewardTaskHelper.this.f && (tp0Var4 = NadRewardTaskHelper.this.c) != null && (c3 = tp0Var4.c()) != null && (g = c3.g()) != null) {
+                if (NadRewardTaskHelper.this.e && !NadRewardTaskHelper.this.f && (vp0Var4 = NadRewardTaskHelper.this.c) != null && (c3 = vp0Var4.c()) != null && (g = c3.g()) != null) {
                     NadRewardTaskHelper.this.b.postDelayed(NadRewardTaskHelper.this.h, g.longValue());
                 }
             }
         };
-        ol0.a().a(lg0Var);
+        ql0.a().a(ng0Var);
     }
 
-    public final void t(ln0 response, AdDownloadStatus downloadStatus, String ext) {
+    public final void t(nn0 response, AdDownloadStatus downloadStatus, String ext) {
         boolean z;
         String str;
-        pp0 pp0Var;
+        rp0 rp0Var;
         Intrinsics.checkNotNullParameter(response, "response");
         Intrinsics.checkNotNullParameter(downloadStatus, "downloadStatus");
         Intrinsics.checkNotNullParameter(ext, "ext");
@@ -480,7 +480,7 @@ public final class NadRewardTaskHelper {
             z = false;
         }
         if (z) {
-            ao0.e(ext, "18", "18001");
+            co0.e(ext, "18", "18001");
         }
         if (!response.a() || !z(this.a) || downloadStatus != AdDownloadStatus.NONE) {
             return;
@@ -488,70 +488,70 @@ public final class NadRewardTaskHelper {
         this.d = response;
         C();
         this.e = true;
-        tp0 tp0Var = this.c;
-        if (tp0Var != null && (pp0Var = tp0Var.f) != null) {
-            str = pp0Var.d;
+        vp0 vp0Var = this.c;
+        if (vp0Var != null && (rp0Var = vp0Var.f) != null) {
+            str = rp0Var.d;
         } else {
             str = null;
         }
-        ao0.c(str, "2", response.h());
+        co0.c(str, "2", response.h());
         E();
     }
 
     public final void w() {
-        kq0 g;
-        pq0 pq0Var;
-        dq0 dq0Var;
-        kq0 kq0Var;
-        pq0 pq0Var2;
-        dq0 dq0Var2;
-        kq0 g2;
-        kq0 g3;
-        kq0 g4;
-        kq0 g5;
-        kq0 g6;
+        mq0 g;
+        rq0 rq0Var;
+        fq0 fq0Var;
+        mq0 mq0Var;
+        rq0 rq0Var2;
+        fq0 fq0Var2;
+        mq0 g2;
+        mq0 g3;
+        mq0 g4;
+        mq0 g5;
+        mq0 g6;
         if (this.k || !this.i) {
             return;
         }
         String str = null;
         if (this.j) {
-            tp0 tp0Var = this.c;
-            if (tp0Var != null && (g6 = tp0Var.g()) != null) {
-                pq0Var = g6.q();
+            vp0 vp0Var = this.c;
+            if (vp0Var != null && (g6 = vp0Var.g()) != null) {
+                rq0Var = g6.q();
             } else {
-                pq0Var = null;
+                rq0Var = null;
             }
-            if (pq0Var != null) {
-                tp0 tp0Var2 = this.c;
-                if (tp0Var2 != null && (g5 = tp0Var2.g()) != null) {
-                    dq0Var = g5.f();
+            if (rq0Var != null) {
+                vp0 vp0Var2 = this.c;
+                if (vp0Var2 != null && (g5 = vp0Var2.g()) != null) {
+                    fq0Var = g5.f();
                 } else {
-                    dq0Var = null;
+                    fq0Var = null;
                 }
-                if (dq0Var != null) {
-                    yn0 yn0Var = yn0.a;
-                    tp0 tp0Var3 = this.c;
-                    if (tp0Var3 != null) {
-                        kq0Var = tp0Var3.g();
+                if (fq0Var != null) {
+                    ao0 ao0Var = ao0.a;
+                    vp0 vp0Var3 = this.c;
+                    if (vp0Var3 != null) {
+                        mq0Var = vp0Var3.g();
                     } else {
-                        kq0Var = null;
+                        mq0Var = null;
                     }
-                    tp0 tp0Var4 = this.c;
-                    if (tp0Var4 != null && (g4 = tp0Var4.g()) != null) {
-                        pq0Var2 = g4.q();
+                    vp0 vp0Var4 = this.c;
+                    if (vp0Var4 != null && (g4 = vp0Var4.g()) != null) {
+                        rq0Var2 = g4.q();
                     } else {
-                        pq0Var2 = null;
+                        rq0Var2 = null;
                     }
-                    Intrinsics.checkNotNull(pq0Var2);
-                    String a2 = pq0Var2.a();
-                    tp0 tp0Var5 = this.c;
-                    if (tp0Var5 != null && (g3 = tp0Var5.g()) != null) {
-                        dq0Var2 = g3.f();
+                    Intrinsics.checkNotNull(rq0Var2);
+                    String a2 = rq0Var2.a();
+                    vp0 vp0Var5 = this.c;
+                    if (vp0Var5 != null && (g3 = vp0Var5.g()) != null) {
+                        fq0Var2 = g3.f();
                     } else {
-                        dq0Var2 = null;
+                        fq0Var2 = null;
                     }
-                    Intrinsics.checkNotNull(dq0Var2);
-                    yn0Var.c(kq0Var, a2, dq0Var2.d(), new Function2<String, String, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkInvokeTaskComplete$1
+                    Intrinsics.checkNotNull(fq0Var2);
+                    ao0Var.c(mq0Var, a2, fq0Var2.d(), new Function2<String, String, Unit>() { // from class: com.baidu.nadcore.lp.reward.util.NadRewardTaskHelper$checkInvokeTaskComplete$1
                         {
                             super(2);
                         }
@@ -567,19 +567,19 @@ public final class NadRewardTaskHelper {
                         /* renamed from: invoke  reason: avoid collision after fix types in other method */
                         public final void invoke2(String coin, String nextCoin) {
                             String str2;
-                            kq0 g7;
-                            pp0 pp0Var;
+                            mq0 g7;
+                            rp0 rp0Var;
                             Intrinsics.checkNotNullParameter(coin, "coin");
                             Intrinsics.checkNotNullParameter(nextCoin, "nextCoin");
-                            tp0 tp0Var6 = NadRewardTaskHelper.this.c;
-                            if (tp0Var6 != null && (pp0Var = tp0Var6.f) != null) {
-                                str2 = pp0Var.d;
+                            vp0 vp0Var6 = NadRewardTaskHelper.this.c;
+                            if (vp0Var6 != null && (rp0Var = vp0Var6.f) != null) {
+                                str2 = rp0Var.d;
                             } else {
                                 str2 = null;
                             }
-                            ao0.g(str2, "4", coin);
-                            tp0 tp0Var7 = NadRewardTaskHelper.this.c;
-                            if (tp0Var7 != null && (g7 = tp0Var7.g()) != null) {
+                            co0.g(str2, "4", coin);
+                            vp0 vp0Var7 = NadRewardTaskHelper.this.c;
+                            if (vp0Var7 != null && (g7 = vp0Var7.g()) != null) {
                                 g7.D(nextCoin);
                             }
                         }
@@ -598,30 +598,30 @@ public final class NadRewardTaskHelper {
 
                         public final void invoke(Throwable th, int i) {
                             String str2;
-                            pp0 pp0Var;
-                            pp0 pp0Var2;
+                            rp0 rp0Var;
+                            rp0 rp0Var2;
                             Intrinsics.checkNotNullParameter(th, "<anonymous parameter 0>");
                             String str3 = null;
                             if (i == 1) {
-                                tp0 tp0Var6 = NadRewardTaskHelper.this.c;
-                                if (tp0Var6 != null && (pp0Var2 = tp0Var6.f) != null) {
-                                    str3 = pp0Var2.d;
+                                vp0 vp0Var6 = NadRewardTaskHelper.this.c;
+                                if (vp0Var6 != null && (rp0Var2 = vp0Var6.f) != null) {
+                                    str3 = rp0Var2.d;
                                 }
-                                ao0.n(str3, "4");
+                                co0.n(str3, "4");
                                 return;
                             }
-                            tp0 tp0Var7 = NadRewardTaskHelper.this.c;
-                            if (tp0Var7 != null && (pp0Var = tp0Var7.f) != null) {
-                                str2 = pp0Var.d;
+                            vp0 vp0Var7 = NadRewardTaskHelper.this.c;
+                            if (vp0Var7 != null && (rp0Var = vp0Var7.f) != null) {
+                                str2 = rp0Var.d;
                             } else {
                                 str2 = null;
                             }
-                            ao0.m(str2, "4", null, 4, null);
+                            co0.m(str2, "4", null, 4, null);
                         }
                     });
                     Context context = this.a;
-                    tp0 tp0Var6 = this.c;
-                    if (tp0Var6 != null && (g2 = tp0Var6.g()) != null) {
+                    vp0 vp0Var6 = this.c;
+                    if (vp0Var6 != null && (g2 = vp0Var6.g()) != null) {
                         str = g2.g();
                     }
                     Toast.makeText(context, String.valueOf(str), 0).show();
@@ -634,8 +634,8 @@ public final class NadRewardTaskHelper {
             return;
         }
         Context context2 = this.a;
-        tp0 tp0Var7 = this.c;
-        if (tp0Var7 != null && (g = tp0Var7.g()) != null) {
+        vp0 vp0Var7 = this.c;
+        if (vp0Var7 != null && (g = vp0Var7.g()) != null) {
             str = g.h();
         }
         Toast.makeText(context2, String.valueOf(str), 0).show();
@@ -645,14 +645,14 @@ public final class NadRewardTaskHelper {
         String str;
         boolean z;
         String str2;
-        lp0 lp0Var;
-        hp0 hp0Var;
-        lp0 lp0Var2;
-        hp0 hp0Var2;
-        tp0 tp0Var = this.c;
+        np0 np0Var;
+        jp0 jp0Var;
+        np0 np0Var2;
+        jp0 jp0Var2;
+        vp0 vp0Var = this.c;
         PackageInfo packageInfo = null;
-        if (tp0Var != null && (lp0Var2 = tp0Var.m) != null && (hp0Var2 = lp0Var2.p) != null) {
-            str = hp0Var2.a;
+        if (vp0Var != null && (np0Var2 = vp0Var.m) != null && (jp0Var2 = np0Var2.p) != null) {
+            str = jp0Var2.a;
         } else {
             str = null;
         }
@@ -666,9 +666,9 @@ public final class NadRewardTaskHelper {
         }
         try {
             PackageManager packageManager = context.getPackageManager();
-            tp0 tp0Var2 = this.c;
-            if (tp0Var2 != null && (lp0Var = tp0Var2.m) != null && (hp0Var = lp0Var.p) != null) {
-                str2 = hp0Var.a;
+            vp0 vp0Var2 = this.c;
+            if (vp0Var2 != null && (np0Var = vp0Var2.m) != null && (jp0Var = np0Var.p) != null) {
+                str2 = jp0Var.a;
             } else {
                 str2 = null;
             }
@@ -688,7 +688,7 @@ public final class NadRewardTaskHelper {
         if (TextUtils.isEmpty(str)) {
             return false;
         }
-        HashMap<String, String> d2 = new xh0(str).d();
+        HashMap<String, String> d2 = new zh0(str).d();
         Intrinsics.checkNotNullExpressionValue(d2, "entity.params");
         String str2 = d2.get("params");
         if (TextUtils.isEmpty(str2)) {
@@ -718,39 +718,39 @@ public final class NadRewardTaskHelper {
     }
 
     public final boolean z(Context context) {
-        cq0 cq0Var;
-        cq0 cq0Var2;
+        eq0 eq0Var;
+        eq0 eq0Var2;
         String str;
         boolean z;
         boolean z2;
-        kq0 g;
-        kq0 g2;
-        tp0 tp0Var = this.c;
-        if ((tp0Var != null && !tp0Var.m()) || x(context)) {
+        mq0 g;
+        mq0 g2;
+        vp0 vp0Var = this.c;
+        if ((vp0Var != null && !vp0Var.m()) || x(context)) {
             return false;
         }
-        tp0 tp0Var2 = this.c;
+        vp0 vp0Var2 = this.c;
         String str2 = null;
-        if (tp0Var2 != null) {
-            cq0Var = tp0Var2.c();
+        if (vp0Var2 != null) {
+            eq0Var = vp0Var2.c();
         } else {
-            cq0Var = null;
+            eq0Var = null;
         }
-        if (cq0Var == null) {
+        if (eq0Var == null) {
             return false;
         }
-        tp0 tp0Var3 = this.c;
-        if (tp0Var3 != null) {
-            cq0Var2 = tp0Var3.c();
+        vp0 vp0Var3 = this.c;
+        if (vp0Var3 != null) {
+            eq0Var2 = vp0Var3.c();
         } else {
-            cq0Var2 = null;
+            eq0Var2 = null;
         }
-        Intrinsics.checkNotNull(cq0Var2);
-        if (cq0Var2.h() <= 0) {
+        Intrinsics.checkNotNull(eq0Var2);
+        if (eq0Var2.h() <= 0) {
             return false;
         }
-        tp0 tp0Var4 = this.c;
-        if (tp0Var4 != null && (g2 = tp0Var4.g()) != null) {
+        vp0 vp0Var4 = this.c;
+        if (vp0Var4 != null && (g2 = vp0Var4.g()) != null) {
             str = g2.d();
         } else {
             str = null;
@@ -763,8 +763,8 @@ public final class NadRewardTaskHelper {
         if (z) {
             return false;
         }
-        tp0 tp0Var5 = this.c;
-        if (tp0Var5 != null && (g = tp0Var5.g()) != null) {
+        vp0 vp0Var5 = this.c;
+        if (vp0Var5 != null && (g = vp0Var5.g()) != null) {
             str2 = g.e();
         }
         if (str2 != null && str2.length() != 0) {

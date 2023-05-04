@@ -1,82 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.AdapterViewHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.homepage.tabfeed.view.NearbyForumFriendCardView;
+import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class wt7 extends vm<mo8, AdapterViewHolder<NearbyForumFriendCardView>> {
+import tbclient.ActiveCenter;
+/* loaded from: classes7.dex */
+public class wt7 extends qi6 implements ej6 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId T;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext a;
-    public AdapterViewHolder<NearbyForumFriendCardView> b;
+    public int R;
+    public ActiveCenterData S;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wt7(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), mo8.d);
+    @Override // com.baidu.tieba.ej6
+    public void O(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ej6
+    public void i(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ej6
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948282191, "Lcom/baidu/tieba/wt7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948282191, "Lcom/baidu/tieba/wt7;");
                 return;
             }
         }
-        this.a = tbPageContext;
+        T = BdUniqueId.gen();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public AdapterViewHolder<NearbyForumFriendCardView> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public wt7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder = new AdapterViewHolder<>(new NearbyForumFriendCardView(this.a.getPageActivity()));
-            this.b = adapterViewHolder;
-            return adapterViewHolder;
-        }
-        return (AdapterViewHolder) invokeL.objValue;
-    }
-
-    public void u(boolean z) {
-        AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048580, this, z) == null) && (adapterViewHolder = this.b) != null) {
-            adapterViewHolder.a().setNeedCompleteProfile(z);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, mo8 mo8Var, AdapterViewHolder<NearbyForumFriendCardView> adapterViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ej6
+    public int getPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, mo8Var, adapterViewHolder})) == null) {
-            NearbyForumFriendCardView a = adapterViewHolder.a();
-            a.a(mo8Var);
-            a.onChangeSkinType(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return adapterViewHolder.getView();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.R;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return T;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void J(ActiveCenter activeCenter) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, activeCenter) == null) && activeCenter != null) {
+            ActiveCenterData activeCenterData = new ActiveCenterData();
+            this.S = activeCenterData;
+            activeCenterData.parseProto(activeCenter);
+        }
     }
 }

@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.tbadk.core.atomData.AlbumActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class wj4 {
@@ -45,29 +44,30 @@ public class wj4 {
         return (wj4) invokeV.objValue;
     }
 
-    public void b(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        boolean z;
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (if4.b() == null) {
+                return "0";
+            }
+            return if4.b().i().getString("local_debug_version", "0");
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         String optString = jSONObject.optString("version");
-        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && gf4.b() != null && gf4.b().i() != null) {
-            JSONArray optJSONArray = optJSONObject.optJSONArray(AlbumActivityConfig.FROM_WEB_VIEW);
-            JSONArray optJSONArray2 = optJSONObject.optJSONArray("js");
-            boolean z2 = true;
-            if (optJSONArray != null) {
-                z = gf4.b().o(false, optJSONArray);
-            } else {
-                z = true;
-            }
-            if (optJSONArray2 != null) {
-                z2 = gf4.b().o(true, optJSONArray2);
-            }
-            if (z && z2) {
-                gf4.b().i().putString("key_online_description_fix_version", optString);
-            }
+        if (!TextUtils.isEmpty(optString) && (optJSONObject = jSONObject.optJSONObject("data")) != null && if4.b() != null) {
+            if4.b().i().putString("local_debug_version", optString);
+            if4.b().i().putString("enable_local_debug_switch", optJSONObject.optString("enable_local_debug_switch"));
+            if4.b().i().putString("error_url", optJSONObject.optString("error_url"));
+            if4.b().i().putString("auth_white_list", optJSONObject.optString("auth_white_list"));
         }
     }
 }

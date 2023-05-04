@@ -1,37 +1,34 @@
 package com.baidu.tieba;
 
-import androidx.annotation.AnimRes;
-import androidx.annotation.IdRes;
-import androidx.annotation.Nullable;
 import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
+import java.util.List;
 /* loaded from: classes6.dex */
 public abstract class tl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract tl4 a(@IdRes int i, Fragment fragment);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onBackStackChanged();
+    }
 
-    public abstract tl4 b(@IdRes int i, Fragment fragment, @Nullable String str);
+    public abstract vl4 a();
 
-    public abstract tl4 c(Fragment fragment, String str);
+    public abstract void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr);
 
-    public abstract tl4 d(@Nullable String str);
+    public abstract boolean c();
 
-    public abstract int e();
+    public abstract List<Fragment> d();
 
-    public abstract int f();
+    public abstract void e(int i, int i2);
 
-    public abstract tl4 g(Fragment fragment);
-
-    public abstract tl4 h(Fragment fragment);
-
-    public abstract tl4 i(@AnimRes int i, @AnimRes int i2);
-
-    public abstract tl4 j(Fragment fragment);
+    public abstract boolean f();
 
     public tl4() {
         Interceptable interceptable = $ic;

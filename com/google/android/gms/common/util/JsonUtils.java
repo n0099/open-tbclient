@@ -13,7 +13,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 @VisibleForTesting
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class JsonUtils {
     public static final Pattern zza = Pattern.compile("\\\\.");
     public static final Pattern zzb = Pattern.compile("[\\\\\"/\b\f\n\r\t]");

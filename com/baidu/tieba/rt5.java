@@ -1,61 +1,95 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.BitmapRegionDecoder;
+import android.util.SparseArray;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
 public class rt5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final int[] a;
-    public Context b;
+    public SparseArray<WeakReference<View>> a;
+    public View b;
 
-    public rt5(Context context) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public rt5(View view2) {
+        this(view2, -1);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((View) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new int[2];
-        this.b = context;
     }
 
-    public BitmapRegionDecoder a(byte[] bArr) throws IOException {
-        InterceptResult invokeL;
+    public <T extends View> T b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
-            if (bArr != null && bArr.length > 0) {
-                BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
-                this.a[0] = newInstance.getWidth();
-                this.a[1] = newInstance.getHeight();
-                return newInstance;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            WeakReference<View> weakReference = this.a.get(i);
+            if (weakReference == null) {
+                T t = (T) this.b.findViewById(i);
+                if (t != null) {
+                    this.a.put(i, new WeakReference<>(t));
+                    return t;
+                }
+                return t;
             }
-            return null;
+            return (T) weakReference.get();
         }
-        return (BitmapRegionDecoder) invokeL.objValue;
+        return (T) invokeI.objValue;
     }
 
-    public int[] b() {
+    public rt5(View view2, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = view2;
+        this.a = new SparseArray<>();
+    }
+
+    public View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (int[]) invokeV.objValue;
+        return (View) invokeV.objValue;
+    }
+
+    public rt5 c(View.OnClickListener onClickListener) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
+            this.b.setOnClickListener(onClickListener);
+            return this;
+        }
+        return (rt5) invokeL.objValue;
     }
 }

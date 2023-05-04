@@ -11,7 +11,7 @@ import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ha {
 
     /* renamed from: a  reason: collision with other field name */
@@ -33,7 +33,7 @@ public class ha {
     /* renamed from: a  reason: collision with other field name */
     public static com.xiaomi.push.providers.a f457a = null;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public int a;
 

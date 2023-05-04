@@ -1,29 +1,11 @@
 package com.baidu.tieba;
+
+import java.lang.reflect.Type;
 /* loaded from: classes6.dex */
 public interface sia {
-    void a(int i);
+    String a(Object obj);
 
-    void b(String str);
+    <T> T b(String str, Class<T> cls);
 
-    boolean c();
-
-    sia d();
-
-    void e(boolean z);
-
-    void f(String str);
-
-    void g(String str);
-
-    String getAAID();
-
-    String getOAID();
-
-    int getStatusCode();
-
-    String getVAID();
-
-    void h(boolean z);
-
-    boolean isSupport();
+    <T> T c(String str, Type type);
 }

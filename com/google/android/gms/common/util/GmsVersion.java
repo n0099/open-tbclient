@@ -2,7 +2,7 @@ package com.google.android.gms.common.util;
 
 import com.google.android.gms.common.annotation.KeepForSdk;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class GmsVersion {
     @KeepForSdk
     public static final int VERSION_HALLOUMI = 4100000;

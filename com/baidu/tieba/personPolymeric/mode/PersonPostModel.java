@@ -32,11 +32,11 @@ import com.baidu.tieba.bb;
 import com.baidu.tieba.card.data.CardPersonDynamicThreadData;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.in;
+import com.baidu.tieba.p89;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageHttpResponseMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageRequestMessage;
 import com.baidu.tieba.personPolymeric.mode.message.UserPostPageSocketResponsedMessage;
-import com.baidu.tieba.w59;
-import com.baidu.tieba.x59;
+import com.baidu.tieba.q89;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -71,7 +71,7 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
     public Map<String, Object> dataResMap;
     public int hide_post;
     public boolean isShowRecycleBinRedTip;
-    public w59 mCardNullPolymericData;
+    public p89 mCardNullPolymericData;
     public int mFrom;
     public boolean mIsHost;
     public boolean mIsReset;
@@ -86,12 +86,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
 
     /* loaded from: classes5.dex */
     public interface c {
-        void q0(PersonPostModel personPostModel, boolean z);
+        void r0(PersonPostModel personPostModel, boolean z);
     }
 
     /* loaded from: classes5.dex */
     public interface d {
-        void w0(PersonPostModel personPostModel, boolean z);
+        void x0(PersonPostModel personPostModel, boolean z);
     }
 
     static {
@@ -903,12 +903,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageSocketResponsedMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.q0(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.r0(userPostPageSocketResponsedMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                     return;
                 }
                 return;
             }
-            this.a.mOnResult.w0(null, this.a.mIsReset);
+            this.a.mOnResult.x0(null, this.a.mIsReset);
         }
     }
 
@@ -954,12 +954,12 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
                 UserPostPageRequestMessage userPostPageRequestMessage = (UserPostPageRequestMessage) userPostPageHttpResponseMessage.getOrginalMessage().getExtra();
                 c callback = userPostPageRequestMessage.getCallback();
                 if (callback != null) {
-                    callback.q0(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
+                    callback.r0(userPostPageHttpResponseMessage.getPersonPostModel(), userPostPageRequestMessage.isReset());
                     return;
                 }
                 return;
             }
-            this.a.mOnResult.w0(null, this.a.mIsReset);
+            this.a.mOnResult.x0(null, this.a.mIsReset);
         }
     }
 
@@ -1110,15 +1110,15 @@ public class PersonPostModel extends BdBaseModel<BaseFragmentActivity> implement
         this.dataResMap = DataExt.toMap(dataRes);
         this.hide_post = dataRes.hide_post.intValue();
         if (this.mIsHost && ((2 == dataRes.mask_type.intValue() || 3 == dataRes.mask_type.intValue() || 4 == dataRes.mask_type.intValue()) && i == 1)) {
-            this.postList.add(new x59());
+            this.postList.add(new q89());
             z = false;
         } else {
             z = true;
         }
         if (ListUtils.isEmpty(dataRes.post_list) && z) {
-            w59 w59Var = new w59();
-            this.mCardNullPolymericData = w59Var;
-            this.postList.add(w59Var);
+            p89 p89Var = new p89();
+            this.mCardNullPolymericData = p89Var;
+            this.postList.add(p89Var);
             return;
         }
         for (tbclient.PostInfoList postInfoList : dataRes.post_list) {

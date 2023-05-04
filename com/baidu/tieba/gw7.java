@@ -1,85 +1,70 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.TopicList.TopicList;
-import tbclient.TopicList.TopicListModule;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gw7 implements in {
+public class gw7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public List<vm> b;
+    public on c;
+    public hw7 d;
+    public fw7 e;
+    public ww7 f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947808418, "Lcom/baidu/tieba/gw7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947808418, "Lcom/baidu/tieba/gw7;");
-                return;
-            }
-        }
-        a = BdUniqueId.gen();
-    }
-
-    public gw7() {
+    public gw7(TbPageContext tbPageContext, on onVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, onVar};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = tbPageContext;
+        this.c = onVar;
+        a();
+        this.c.addAdapters(this.b);
     }
 
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return a;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void a(TopicList topicList) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, topicList) == null) && topicList != null) {
-            topicList.topic_id.longValue();
-            String str = topicList.topic_name;
-            topicList.tag.intValue();
-            topicList.discuss_num.longValue();
-            String str2 = topicList.topic_desc;
-            String str3 = topicList.topic_pic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.b = new ArrayList();
+            this.d = new hw7(this.a);
+            this.e = new fw7(this.a);
+            this.f = new ww7(this.a);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.b.add(this.f);
         }
     }
 
-    public void b(TopicListModule topicListModule) {
+    public void b() {
+        on onVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicListModule) == null) {
-            try {
-                String str = topicListModule.module_title;
-                String str2 = topicListModule.tips;
-                String str3 = topicListModule.rule_jump_url;
-            } catch (Exception e) {
-                BdLog.e(e.toString());
-            }
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (onVar = this.c) != null) {
+            onVar.getListAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<in> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.c.setData(list);
         }
     }
 }

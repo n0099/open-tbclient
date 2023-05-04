@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Printer;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.looper.ioc.ILooperNeedContext;
+import com.baidu.searchbox.performance.speed.task.LaunchTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
 @Service
 /* loaded from: classes3.dex */
-public class cg9 implements ILooperNeedContext {
+public final class cg9 implements ti5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -31,19 +29,13 @@ public class cg9 implements ILooperNeedContext {
         }
     }
 
-    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
-    public void addLooperPrinter(Printer printer) {
+    @Override // com.baidu.tieba.ti5
+    public List<LaunchTask> asyncList() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, printer) == null) && printer != null) {
-            Looper.getMainLooper().setMessageLogging(printer);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return CollectionsKt__CollectionsKt.mutableListOf(new dg9());
         }
-    }
-
-    @Override // com.baidu.searchbox.looper.ioc.ILooperNeedContext
-    public void removeLooperPrinter(Printer printer) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, printer) == null) {
-            Looper.getMainLooper().setMessageLogging(null);
-        }
+        return (List) invokeV.objValue;
     }
 }

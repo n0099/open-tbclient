@@ -26,6 +26,7 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public String forumName;
     public String from;
     public String id;
+    public String imageThumbUrl;
     public String imageUrl;
     public boolean isBlockedPic;
     public boolean isFirstPost;
@@ -49,6 +50,7 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
     public String qrInfo;
     public String richTextArray;
     public long threadId;
+    public int urlThumbType;
     public int urlType;
     public String userId;
     public String userNameShow;
@@ -66,6 +68,7 @@ public class ImageUrlData extends OrmObject implements Serializable, Comparable<
                 return;
             }
         }
+        this.urlThumbType = -1;
         this.mIsShowOrigonButton = true;
         this.isLongPic = false;
         this.originalSize = 0L;

@@ -1,46 +1,32 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.adp.widget.ListView.BdTypeListView;
+import android.text.TextUtils;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.abtest.UbsABTestDataManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.CommonStatisticKey;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class xx8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public View a;
-    public ViewGroup b;
-    public EMTextView c;
-    @NonNull
-    public yq5<String> d;
-    public boolean e;
+    public TbPageContext a;
 
-    /* loaded from: classes7.dex */
-    public interface a {
-        void a(boolean z);
-    }
-
-    public xx8(@NonNull Context context) {
+    public xx8(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -50,98 +36,80 @@ public class xx8 {
                 return;
             }
         }
-        this.d = yq5.b();
-        this.e = false;
-        this.a = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d069a, (ViewGroup) null);
-        b();
+        this.a = tbPageContext;
     }
 
-    public void a(@NonNull BdTypeListView bdTypeListView) {
+    public final void a(PbModel pbModel, int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, bdTypeListView) == null) && !this.e) {
-            this.e = true;
-            this.a.setVisibility(0);
-            bdTypeListView.w(this.a, 1);
-        }
-    }
-
-    public void d(@NonNull BdTypeListView bdTypeListView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, bdTypeListView) == null) && this.e) {
-            this.e = false;
-            this.a.setVisibility(8);
-            bdTypeListView.removeHeaderView(this.a);
-        }
-    }
-
-    public final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b = (ViewGroup) this.a.findViewById(R.id.obfuscated_res_0x7f090772);
-            EMTextView eMTextView = (EMTextView) this.a.findViewById(R.id.obfuscated_res_0x7f0925ca);
-            this.c = eMTextView;
-            r25 d = r25.d(eMTextView);
-            d.y(R.dimen.M_H_X003);
-            d.w(R.color.CAM_X0109);
-            d.C(R.string.F_X01);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            r25 d = r25.d(this.b);
-            d.o(R.string.J_X05);
-            d.f(R.color.CAM_X0206);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-        }
-    }
-
-    public void e(@NonNull ht8 ht8Var, int i, @Nullable a aVar) {
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, ht8Var, i, aVar) == null) {
-            boolean z3 = true;
-            if (i == 4) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (i == 25) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            if (!z && !z2) {
-                z3 = false;
-            }
-            boolean s0 = ht8Var.s0(z3);
-            if (s0) {
-                this.c.setText(ht8Var.x());
-                this.a.setVisibility(0);
-                f(ht8Var.O(), ht8Var.l(), ht8Var.m(), z, z2);
-            } else {
-                this.a.setVisibility(8);
-            }
-            if (aVar != null) {
-                aVar.a(s0);
-            }
-        }
-    }
-
-    public final void f(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || !this.d.a(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR)) {
+        if ((interceptable != null && interceptable.invokeLI(1048576, this, pbModel, i) != null) || pbModel == null) {
             return;
         }
-        int i = 2;
-        if (z) {
-            i = 1;
+        StatisticItem statisticItem = new StatisticItem("c13719");
+        statisticItem.param("fid", pbModel.G.l());
+        statisticItem.param("tid", pbModel.G.O());
+        statisticItem.param("obj_type", i);
+        if (pbModel.y1() == 5) {
+            statisticItem.param("obj_source", 1);
+        } else if (pbModel.y1() == 7) {
+            statisticItem.param("obj_source", 2);
+        } else {
+            statisticItem.param("obj_source", 3);
         }
-        if (z2) {
-            i = 3;
+        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        TiebaStatic.log(statisticItem);
+    }
+
+    public boolean b(PbModel pbModel) {
+        InterceptResult invokeL;
+        qv8 qv8Var;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pbModel)) == null) {
+            int i = 0;
+            if (this.a.getPageActivity() != null && pbModel != null && (qv8Var = pbModel.G) != null) {
+                if ("3".equals(qv8Var.e0)) {
+                    MainTabActivityConfig createNormalCfg = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg.setSubTabName(this.a.getString(R.string.tab_name_topic_rank));
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg));
+                    return true;
+                }
+                String s = f55.m().s("key_pb_back_sid1", "");
+                String s2 = f55.m().s("key_pb_back_sid2", "");
+                if (!TextUtils.isEmpty(s) && UbsABTestDataManager.getInstance().getABTestSwitchData(s) != null) {
+                    str = "1";
+                } else if (!TextUtils.isEmpty(s2) && UbsABTestDataManager.getInstance().getABTestSwitchData(s2) != null) {
+                    str = "2";
+                } else {
+                    str = null;
+                }
+                if (str == null && (str2 = pbModel.G.d0) != null) {
+                    str = str2;
+                }
+                if (str == null) {
+                    return false;
+                }
+                if (str.equals("1")) {
+                    MainTabActivityConfig createNormalCfg2 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(2);
+                    createNormalCfg2.setSubTab(1, null);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg2));
+                    a(pbModel, 1);
+                    return true;
+                } else if (str.equals("2")) {
+                    MainTabActivityConfig createNormalCfg3 = new MainTabActivityConfig(this.a.getPageActivity()).createNormalCfg(1);
+                    createNormalCfg3.setSubTab(0, pbModel.G.e0);
+                    this.a.sendMessage(new CustomMessage(2015002, createNormalCfg3));
+                    if ("游戏".equals(pbModel.G.e0)) {
+                        i = 2;
+                    } else if ("数码".equals(pbModel.G.e0)) {
+                        i = 3;
+                    }
+                    a(pbModel, i);
+                    return true;
+                }
+            }
+            return false;
         }
-        TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_SHOW_PB_HEAD_NOTICE_BAR).param("tid", str).param("fid", str2).param("fname", str3).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_source", i));
+        return invokeL.booleanValue;
     }
 }

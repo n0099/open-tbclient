@@ -1,53 +1,72 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.text.SpannableStringBuilder;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.im.data.GroupMsgData;
+import com.baidu.tieba.im.message.ResponseUnLoginMessage;
+import com.baidu.tieba.im.push.PushResponseMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class i28 {
+public class i28 extends xa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(final String str, final boolean z, int i, int i2, final boolean z2) {
-        final boolean z3;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public i28() {
+        super(202009);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z2)}) == null) {
-            final Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
-            if (i == 3) {
-                z3 = true;
-            } else {
-                z3 = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            jg.a().post(new Runnable() { // from class: com.baidu.tieba.w18
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        i28.b(currentActivity, z, z2, z3, str);
-                    }
-                }
-            });
         }
     }
 
-    public static /* synthetic */ void b(Activity activity, boolean z, boolean z2, boolean z3, String str) {
-        if (activity != null) {
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            if (z) {
-                if (z2 && !z3 && eq4.d().b("share_thread")) {
-                    return;
-                }
-                spannableStringBuilder.append((CharSequence) str);
-            } else {
-                spannableStringBuilder.append((CharSequence) str);
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ua
+    /* renamed from: c */
+    public SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
+            if (!(socketResponsedMessage instanceof PushResponseMessage)) {
+                return null;
             }
-            BdToast.b(TbadkCoreApplication.getInst().getContext(), spannableStringBuilder).o();
+            if (socketResponsedMessage.getError() == 110000) {
+                MessageManager.getInstance().dispatchResponsedMessage(new ResponseUnLoginMessage());
+            }
+            PushResponseMessage pushResponseMessage = (PushResponseMessage) socketResponsedMessage;
+            if (pushResponseMessage.getNotificationData() != null && TbadkCoreApplication.getInst().isInBackground()) {
+                CustomMessage customMessage = new CustomMessage(2012100);
+                customMessage.setData(pushResponseMessage.getNotificationData());
+                MessageManager.getInstance().sendMessage(customMessage);
+                return null;
+            }
+            List<GroupMsgData> groupMsg = pushResponseMessage.getGroupMsg();
+            if (groupMsg != null && groupMsg.size() > 0) {
+                for (GroupMsgData groupMsgData : groupMsg) {
+                    if (groupMsgData != null && groupMsgData.getGroupInfo() != null) {
+                        MessageManager.getInstance().dispatchResponsedMessage(groupMsgData);
+                    }
+                }
+            }
+            return socketResponsedMessage;
         }
+        return (SocketResponsedMessage) invokeL.objValue;
     }
 }

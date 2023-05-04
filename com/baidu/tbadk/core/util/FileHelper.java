@@ -1018,13 +1018,13 @@ public class FileHelper {
             }
             File[] listFiles = file.listFiles();
             String prefixByType = getPrefixByType(i);
-            for (int i2 = 0; i2 < listFiles.length; i2++) {
-                if (listFiles[i2] != null && listFiles[i2].getName().startsWith(prefixByType)) {
-                    if (listFiles[i2].getName().endsWith(str)) {
-                        return listFiles[i2].getAbsolutePath();
+            for (File file2 : listFiles) {
+                if (file2 != null && !TextUtils.isEmpty(file2.getName()) && file2.getName().startsWith(prefixByType)) {
+                    if (file2.getName().endsWith(str)) {
+                        return file2.getAbsolutePath();
                     }
                     if (z) {
-                        listFiles[i2].delete();
+                        file2.delete();
                     }
                 }
             }

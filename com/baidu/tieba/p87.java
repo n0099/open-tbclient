@@ -1,49 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.atomData.AcceleratorActivityConfig;
 import com.baidu.tbadk.core.dialog.BdToast;
-import com.baidu.tbadk.core.util.ItemClickJumpUtil;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tbadk.core.view.itemcard.ItemCardHelper;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.py;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.accelerator.AcceleratorData;
+import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
+import com.baidu.tieba.frs.accelerator.model.AcceleratorNetModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p87 extends vm<pz4, ThreadCardViewHolder<ThreadData>> {
+public class p87 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public BdTypeRecyclerView c;
+    public FrsFragment a;
+    public AcceleratorNetModel b;
+    public g5a c;
+    public f5a d;
+    public AcceleratorNetModel.b e;
+    public q87 f;
+    public f15.f g;
+    public AcceleratorData h;
+    public int i;
+    public int j;
+    public boolean k;
 
     /* loaded from: classes5.dex */
-    public class a implements sn {
+    public class a implements f5a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lx a;
-        public final /* synthetic */ p87 b;
+        public final /* synthetic */ p87 a;
 
-        public a(p87 p87Var, lx lxVar) {
+        /* renamed from: com.baidu.tieba.p87$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class View$OnClickListenerC0382a implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public View$OnClickListenerC0382a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                    this.a.a.c.b(this.a.a.d);
+                }
+            }
+        }
+
+        /* loaded from: classes5.dex */
+        public class b implements View.OnClickListener {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public b(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // android.view.View.OnClickListener
+            public void onClick(View view2) {
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a.f != null) {
+                    this.a.a.f.b();
+                }
+            }
+        }
+
+        public a(p87 p87Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {p87Var, lxVar};
+                Object[] objArr = {p87Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -53,118 +124,344 @@ public class p87 extends vm<pz4, ThreadCardViewHolder<ThreadData>> {
                     return;
                 }
             }
-            this.b = p87Var;
-            this.a = lxVar;
+            this.a = p87Var;
         }
 
-        @Override // com.baidu.tieba.sn
-        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.f5a
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                boolean z = inVar instanceof pz4;
-                int i2 = 0;
-                if (z) {
-                    pz4 pz4Var = (pz4) inVar;
-                    if (pz4Var.t.getType() == ThreadData.TYPE_FAKE_VIDEO) {
-                        BdToast b = BdToast.b(this.b.b.getContext(), this.b.b.getString(R.string.video_is_checking));
-                        b.g(BdToast.ToastIcon.FAILURE);
-                        b.o();
-                        return;
-                    }
-                    ThreadData threadData = pz4Var.t;
-                    if (threadData != null && pz4Var.n && threadData.getItem() != null) {
-                        int intValue = pz4Var.t.getItem().button_link_type.intValue();
-                        if (pz4Var.t.getItem().apk_detail != null) {
-                            i2 = pz4Var.t.getItem().apk_detail.pkg_source.intValue();
-                        }
-                        int a = x55.a(intValue, i2);
-                        ItemData itemData = new ItemData();
-                        itemData.parseProto(pz4Var.t.getItem());
-                        ItemCardHelper.q(this.a.y(), pz4Var.t.getItem().item_id.longValue(), this.a.x(itemData), pz4Var.t.getTid(), a, "", 2);
-                        ItemClickJumpUtil.itemClickJump(pz4Var.t.getItem().forum_name, String.valueOf(pz4Var.t.getItem().item_id), 10, 10);
-                        return;
-                    }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (1 == this.a.j || 3 == this.a.j) {
+                    this.a.A();
+                } else if (2 == this.a.j) {
+                    this.a.z();
                 }
-                if (z && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                    ThreadData threadData2 = ((pz4) inVar).t;
-                    threadData2.objType = 1;
-                    ThreadCardUtils.jumpToPB((kw4) threadData2, view2.getContext(), 2, false);
-                    ((ThreadCardViewHolder) view2.getTag()).a().p(new py.a(1));
+            }
+        }
+
+        @Override // com.baidu.tieba.f5a
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                nk7.h(this.a.a.getActivity(), new View$OnClickListenerC0382a(this), new b(this));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements AcceleratorNetModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p87 a;
+
+        public b(p87 p87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p87Var;
+        }
+
+        @Override // com.baidu.tieba.frs.accelerator.model.AcceleratorNetModel.b
+        public void a(AcceleratorData acceleratorData) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, acceleratorData) == null) {
+                this.a.s();
+                this.a.h = acceleratorData;
+                if (this.a.a != null && this.a.h != null && this.a.h.getTokenInfo() != null && StringUtils.isNull(this.a.h.getTokenInfo().getToken())) {
+                    BdToast.b(this.a.a.getContext(), this.a.h.getTokenInfo().getFailContent()).o();
+                } else if (2 == this.a.j && this.a.a != null && this.a.h != null && !ListUtils.isEmpty(this.a.h.getAvailableTornadoNodeInfoList())) {
+                    this.a.x();
+                    p87 p87Var = this.a;
+                    p87Var.f = q87.c(p87Var.a.getPageContext());
+                    String[] b = s87.b(this.a.h.getAvailableTornadoNodeInfoList(), this.a.h.getAvailableNodesNum());
+                    String str = b[0];
+                    if (this.a.h.getItemData() != null) {
+                        String acceleratorServer = TbSingleton.getInstance().getAcceleratorServer(String.valueOf(this.a.h.getItemData().itemId));
+                        if (!StringUtils.isNull(acceleratorServer)) {
+                            str = acceleratorServer;
+                        }
+                    }
+                    this.a.f.d(str);
+                    q87 q87Var = this.a.f;
+                    q87Var.e(this.a.g);
+                    q87Var.f(b);
+                    q87Var.g(this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0063));
+                    q87Var.h();
+                } else if (3 == this.a.j || 1 == this.a.j) {
+                    this.a.z();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.frs.accelerator.model.AcceleratorNetModel.b
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.a.s();
+                if (this.a.a != null) {
+                    BdToast.b(this.a.a.getContext(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0062)).o();
                 }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p87(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes5.dex */
+    public class c implements f15.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p87 a;
+
+        public c(p87 p87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p87Var;
+        }
+
+        @Override // com.baidu.tieba.f15.f
+        public void N0(f15 f15Var, int i, View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeLIL(1048576, this, f15Var, i, view2) != null) {
+                return;
+            }
+            this.a.i = i;
+            this.a.B();
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p87 a;
+
+        public d(p87 p87Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {p87Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = p87Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, view2) != null) {
+                return;
+            }
+            this.a.k = true;
+            this.a.u();
+        }
+    }
+
+    public p87(FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = tbPageContext;
-        this.a = bdUniqueId2;
+        this.i = 0;
+        this.a = frsFragment;
+        this.b = new AcceleratorNetModel();
+        this.c = g5a.c(this.a);
+        w();
+        y();
     }
 
-    public void x(BdTypeRecyclerView bdTypeRecyclerView) {
+    public final void A() {
+        FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bdTypeRecyclerView) == null) {
-            this.c = bdTypeRecyclerView;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (frsFragment = this.a) != null && frsFragment.a1() != null && this.a.a1().itemInfo != null) {
+            C();
+            this.b.X(this.a.a1().itemInfo.id.intValue());
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void C() {
+        FrsFragment frsFragment;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ey.b bVar = new ey.b(this.b.getPageActivity(), false);
-            lx lxVar = new lx(this.b.getPageActivity());
-            lxVar.A(true);
-            lxVar.D(6);
-            lxVar.w();
-            bVar.h(lxVar);
-            ey k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
-            k.s(2);
-            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new a(this, lxVar));
-            return threadCardViewHolder;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (frsFragment = this.a) != null && (frsFragment.getActivity() instanceof FrsActivity)) {
+            ((FrsActivity) this.a.getActivity()).showLoadingDialog(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0061));
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, pz4 pz4Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        ThreadData threadData;
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, pz4Var, threadCardViewHolder})) == null) {
-            if (pz4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = pz4Var.t) != null) {
-                threadData.statFloor = getPositionByType(i) + 1;
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(pz4Var.t);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.b(this.d);
+        }
+    }
+
+    public final int r() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.j;
+            if (i == 2 || i == 1) {
+                return 1;
             }
-            return null;
+            if (i == 3) {
+                return 2;
+            }
+            return 0;
         }
-        return (View) invokeCommon.objValue;
+        return invokeV.intValue;
+    }
+
+    public final void s() {
+        FrsFragment frsFragment;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (frsFragment = this.a) != null && (frsFragment.getActivity() instanceof FrsActivity)) {
+            ((FrsActivity) this.a.getActivity()).closeLoadingDialog();
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            AcceleratorNetModel acceleratorNetModel = this.b;
+            if (acceleratorNetModel != null) {
+                acceleratorNetModel.destroy();
+            }
+            q87 q87Var = this.f;
+            if (q87Var != null) {
+                q87Var.b();
+            }
+            if (this.a != null) {
+                this.a = null;
+            }
+        }
+    }
+
+    public final void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            int i = this.j;
+            if (1 != i && 3 != i) {
+                if (2 == i) {
+                    A();
+                    return;
+                }
+                return;
+            }
+            B();
+        }
+    }
+
+    public g5a v() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.c;
+        }
+        return (g5a) invokeV.objValue;
+    }
+
+    public final void w() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            b bVar = new b(this);
+            this.e = bVar;
+            this.b.Y(bVar);
+        }
+    }
+
+    public final void x() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.g = new c(this);
+        }
+    }
+
+    public final void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.d = new a(this);
+        }
+    }
+
+    public void D(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.j = i;
+            FrsFragment frsFragment = this.a;
+            if (frsFragment != null && frsFragment.a1() != null && this.a.a1().itemInfo != null) {
+                if (!TbadkCoreApplication.isLogin()) {
+                    BdToast.b(this.a.getContext(), this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0064)).o();
+                } else if (TbSingleton.getInstance().acceleratorItemId != this.a.a1().itemInfo.id.intValue() && TbSingleton.getInstance().acceleratorItemId != -1) {
+                    nk7.e(this.a.getActivity(), new d(this));
+                } else if (TbSingleton.getInstance().acceleratorItemId == this.a.a1().itemInfo.id.intValue()) {
+                    this.k = false;
+                    u();
+                } else if (TbSingleton.getInstance().acceleratorItemId == -1) {
+                    this.k = true;
+                    u();
+                }
+            }
+        }
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            q87 q87Var = this.f;
+            if (q87Var != null) {
+                q87Var.b();
+            }
+            PkgNameAndNodeInfoData pkgNameAndNodeInfoData = s87.a(this.h.getAvailableTornadoNodeInfoList()).get(Integer.valueOf(this.i));
+            if (this.j == 2 && pkgNameAndNodeInfoData != null && !pkgNameAndNodeInfoData.compare(TbSingleton.getInstance().acceleratorData)) {
+                this.k = true;
+            }
+            if (!this.k) {
+                pkgNameAndNodeInfoData = TbSingleton.getInstance().acceleratorData;
+            }
+            if (pkgNameAndNodeInfoData == null) {
+                return;
+            }
+            AcceleratorActivityConfig acceleratorActivityConfig = new AcceleratorActivityConfig(this.a.getContext());
+            acceleratorActivityConfig.setAcceleratorData(this.h).setCurrentNodeInfo(pkgNameAndNodeInfoData).setFid(this.a.l).setSource(r()).setIsNewItem(this.k);
+            acceleratorActivityConfig.start();
+        }
     }
 }

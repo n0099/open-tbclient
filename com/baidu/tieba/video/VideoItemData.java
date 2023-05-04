@@ -26,14 +26,14 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.module.hottopic.HotTopicStat;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bv5;
-import com.baidu.tieba.ei5;
+import com.baidu.tieba.bw5;
+import com.baidu.tieba.dz4;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.iy4;
-import com.baidu.tieba.ny4;
 import com.baidu.tieba.recapp.activity.AdWebVideoActivityConfig;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.tieba.tbadkCore.videoupload.VideoFinishResult;
+import com.baidu.tieba.xi5;
+import com.baidu.tieba.yy4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -512,7 +512,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray2 != null) {
-                    this.mRichAbstractList = ny4.a(optJSONArray2);
+                    this.mRichAbstractList = dz4.a(optJSONArray2);
                 }
                 StringBuilder sb = new StringBuilder();
                 JSONArray optJSONArray3 = jSONObject.optJSONArray("abstract");
@@ -632,7 +632,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 try {
                     Object obj2 = map.get("rich_abstract");
                     if (obj2 != null) {
-                        this.mRichAbstractList = ny4.a(new JSONArray(DataExt.toJson(obj2)));
+                        this.mRichAbstractList = dz4.a(new JSONArray(DataExt.toJson(obj2)));
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -798,27 +798,27 @@ public class VideoItemData implements Serializable, Parcelable {
         return invokeL.booleanValue;
     }
 
-    public iy4 getNegFeedBackData() {
+    public yy4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             SparseArray<String> sparseArray = this.feedBackReasonMap;
             if (sparseArray != null && sparseArray.size() > 0) {
-                iy4 iy4Var = new iy4();
-                iy4Var.n(this.nid);
-                iy4Var.o(this.thread_id);
-                iy4Var.l(this.forum_id);
-                iy4Var.j(this.feedBackReasonMap);
-                iy4Var.g = this.feedBackExtraMap;
-                iy4Var.p = this.mRecomAbTag;
-                iy4Var.k = this.mRecomWeight;
-                iy4Var.m = this.mRecomExtra;
-                iy4Var.l = this.mRecomSource;
-                return iy4Var;
+                yy4 yy4Var = new yy4();
+                yy4Var.n(this.nid);
+                yy4Var.o(this.thread_id);
+                yy4Var.l(this.forum_id);
+                yy4Var.j(this.feedBackReasonMap);
+                yy4Var.g = this.feedBackExtraMap;
+                yy4Var.p = this.mRecomAbTag;
+                yy4Var.k = this.mRecomWeight;
+                yy4Var.m = this.mRecomExtra;
+                yy4Var.l = this.mRecomSource;
+                return yy4Var;
             }
             return null;
         }
-        return (iy4) invokeV.objValue;
+        return (yy4) invokeV.objValue;
     }
 
     public void parseFeedJson(String str, String str2) {
@@ -846,7 +846,7 @@ public class VideoItemData implements Serializable, Parcelable {
                 this.title = jSONObject.optString("title");
                 JSONArray optJSONArray = jSONObject.optJSONArray("rich_abstract");
                 if (optJSONArray != null) {
-                    this.mRichAbstractList = ny4.a(optJSONArray);
+                    this.mRichAbstractList = dz4.a(optJSONArray);
                 }
                 JSONArray optJSONArray2 = jSONObject.optJSONArray("rich_title");
                 if (optJSONArray2 != null) {
@@ -1040,13 +1040,14 @@ public class VideoItemData implements Serializable, Parcelable {
             if (this.threadData != null && (list = this.richTitle) != null && !list.isEmpty()) {
                 for (PbContent pbContent : this.richTitle) {
                     if (pbContent.type.intValue() == 18) {
-                        ei5 f = ei5.f(this.threadData, pbContent);
-                        f.d(R.color.CAM_X0101);
-                        f.e(R.color.CAM_X0113);
-                        f.b(HotTopicStat.Locate.VIDEO_MIDDLE);
-                        p = bv5.q(f);
+                        xi5 h = xi5.h(pbContent.text, pbContent.link);
+                        h.e(this.threadData);
+                        h.d(R.color.CAM_X0101);
+                        h.g(R.color.CAM_X0113);
+                        h.b(HotTopicStat.Locate.VIDEO_MIDDLE);
+                        p = bw5.q(h);
                     } else {
-                        p = bv5.p(this.threadData, pbContent);
+                        p = bw5.p(this.threadData, pbContent);
                     }
                     this.titleSsb.append(p);
                 }

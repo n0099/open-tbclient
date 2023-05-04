@@ -1,126 +1,222 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.text.TextPaint;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.view.UserIconBox;
+import com.baidu.tbadk.widget.level.TbLevelView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.List;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class is5 extends ImageSpan {
+public final class is5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final is5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public WeakReference<Drawable> d;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public is5(Drawable drawable) {
-        super(drawable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864094, "Lcom/baidu/tieba/is5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947864094, "Lcom/baidu/tieba/is5;");
                 return;
             }
         }
-        this.a = 0;
+        a = new is5();
     }
 
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
+    public is5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.d;
-            if (weakReference != null) {
-                drawable = weakReference.get();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    @JvmStatic
+    public static final void c(int i, String str, TextView nickName, TbLevelView levelView, List<? extends View> orderList, UserIconBox userIconBox) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), str, nickName, levelView, orderList, userIconBox}) == null) {
+            Intrinsics.checkNotNullParameter(nickName, "nickName");
+            Intrinsics.checkNotNullParameter(levelView, "levelView");
+            Intrinsics.checkNotNullParameter(orderList, "orderList");
+            if (str == null) {
+                str2 = "";
             } else {
-                drawable = null;
+                str2 = str;
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.d = new WeakReference<>(drawable2);
-                return drawable2;
+            float measureText = nickName.getPaint().measureText(str2) + a.a(nickName);
+            if (levelView.getVisibility() != 8) {
+                levelView.setMode(true);
+                measureText += levelView.b() + a.a(levelView);
             }
-            return drawable;
+            for (View view2 : orderList) {
+                if (!(view2 instanceof TbLevelView) && view2.getVisibility() != 8) {
+                    measureText += a.b(view2);
+                }
+            }
+            if (userIconBox != null && userIconBox.getVisibility() != 8) {
+                int childCount = userIconBox.getChildCount();
+                for (int i2 = 0; i2 < childCount; i2++) {
+                    View childAt = userIconBox.getChildAt(i2);
+                    if (childAt != null) {
+                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
+                        childAt.setVisibility(0);
+                        measureText += a.b(childAt);
+                    }
+                }
+            }
+            float f = i;
+            if (measureText <= f) {
+                nickName.setText(str);
+                return;
+            }
+            float e = a.e(i, measureText, str2, nickName);
+            if (e <= f) {
+                return;
+            }
+            float d = a.d(e, levelView);
+            if (d <= f) {
+                return;
+            }
+            a.f(i, d, orderList, userIconBox);
         }
-        return (Drawable) invokeV.objValue;
     }
 
-    public void b(int i) {
+    public final int a(View view2) {
+        InterceptResult invokeL;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            this.b = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
+            ViewGroup.MarginLayoutParams marginLayoutParams = null;
+            if (!(layoutParams instanceof ViewGroup.MarginLayoutParams)) {
+                layoutParams = null;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams2 = (ViewGroup.MarginLayoutParams) layoutParams;
+            int i2 = 0;
+            if (marginLayoutParams2 != null) {
+                i = marginLayoutParams2.leftMargin;
+            } else {
+                i = 0;
+            }
+            ViewGroup.LayoutParams layoutParams2 = view2.getLayoutParams();
+            if (layoutParams2 instanceof ViewGroup.MarginLayoutParams) {
+                marginLayoutParams = layoutParams2;
+            }
+            ViewGroup.MarginLayoutParams marginLayoutParams3 = marginLayoutParams;
+            if (marginLayoutParams3 != null) {
+                i2 = marginLayoutParams3.rightMargin;
+            }
+            return i + i2;
         }
+        return invokeL.intValue;
     }
 
-    public void c(int i) {
+    public final int b(View view2) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.c = i;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
+            return view2.getMeasuredWidth() + a(view2);
         }
+        return invokeL.intValue;
     }
 
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable a;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
-            return;
-        }
-        canvas.save();
-        canvas.translate(f + this.b, ((((i5 - i3) - a.getBounds().bottom) / 2) + i3) - this.a);
-        a.draw(canvas);
-        canvas.restore();
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+    public final float d(float f, TbLevelView tbLevelView) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Drawable a = a();
-            if (a == null) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
-            }
-            Rect bounds = a.getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right + this.b + this.c;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Float.valueOf(f), tbLevelView})) == null) {
+            float b = tbLevelView.b();
+            tbLevelView.setMode(false);
+            return f - (b - tbLevelView.b());
         }
-        return invokeCommon.intValue;
+        return invokeCommon.floatValue;
+    }
+
+    public final float e(int i, float f, String str, TextView textView) {
+        InterceptResult invokeCommon;
+        float measureText;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), str, textView})) == null) {
+            if (cs5.e(str) <= 12) {
+                textView.setText(str);
+                return f;
+            }
+            float measureText2 = textView.getPaint().measureText(str);
+            float f2 = f - i;
+            int e = cs5.e(str);
+            do {
+                str = cs5.m(str, e - 1);
+                Intrinsics.checkNotNullExpressionValue(str, "subStringWithEmoji(showName, showNameLen - 1)");
+                e = cs5.e(str);
+                TextPaint paint = textView.getPaint();
+                measureText = paint.measureText(str + StringHelper.STRING_MORE);
+                if (f2 <= measureText2 - measureText) {
+                    break;
+                }
+            } while (e > 10);
+            textView.setText(str + StringHelper.STRING_MORE);
+            return (f - measureText2) + measureText;
+        }
+        return invokeCommon.floatValue;
+    }
+
+    public final float f(int i, float f, List<? extends View> list, UserIconBox userIconBox) {
+        InterceptResult invokeCommon;
+        float b;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), list, userIconBox})) == null) {
+            if (userIconBox != null && userIconBox.getVisibility() != 8) {
+                for (int childCount = userIconBox.getChildCount() - 1; -1 < childCount; childCount--) {
+                    View childAt = userIconBox.getChildAt(childCount);
+                    if (childAt != null) {
+                        Intrinsics.checkNotNullExpressionValue(childAt, "getChildAt(i)");
+                        childAt.setVisibility(8);
+                        f -= a.b(childAt);
+                        if (f <= i) {
+                            return f;
+                        }
+                    }
+                }
+            }
+            for (int size = list.size() - 1; -1 < size; size--) {
+                if (list.get(size).getVisibility() != 8) {
+                    list.get(size).setVisibility(8);
+                    if (list.get(size) instanceof TbLevelView) {
+                        b = ((TbLevelView) list.get(size)).b() + a(list.get(size));
+                    } else {
+                        b = b(list.get(size));
+                    }
+                    f -= b;
+                    if (f <= i) {
+                        return f;
+                    }
+                }
+            }
+            return f;
+        }
+        return invokeCommon.floatValue;
     }
 }

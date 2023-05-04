@@ -1,96 +1,55 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.widget.TextView;
-import com.baidu.tieba.b41;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.bumptech.glide.load.engine.GlideException;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
 public final class tc1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
-    public static final String b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948176295, "Lcom/baidu/tieba/tc1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948176295, "Lcom/baidu/tieba/tc1;");
-                return;
-            }
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(65536, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
+            b(context, drawable, mode, i, e(context));
         }
-        char[] cArr = {21704};
-        a = cArr;
-        b = new String(cArr);
     }
 
-    public static final String a(String str, String subTag, float f, TextPaint textPaint, float f2) {
-        InterceptResult invokeCommon;
+    public static void b(Context context, Drawable drawable, PorterDuff.Mode mode, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, subTag, Float.valueOf(f), textPaint, Float.valueOf(f2)})) == null) {
-            Intrinsics.checkNotNullParameter(subTag, "subTag");
-            if (TextUtils.isEmpty(subTag)) {
-                subTag = "";
+        if ((interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, drawable, mode, Integer.valueOf(i), Integer.valueOf(i2)}) == null) && context != null && drawable != null) {
+            if (i >= 0 && i < 255) {
+                i2 = Color.argb((Color.alpha(i2) * i) / 255, Color.red(i2), Color.green(i2), Color.blue(i2));
             }
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            if (textPaint == null) {
-                textPaint = new TextPaint();
-            }
-            CharSequence ellipsize = TextUtils.ellipsize(str, textPaint, f - (textPaint.measureText(GlideException.IndentedAppendable.INDENT) + f2), TextUtils.TruncateAt.END);
-            if (ellipsize != null) {
-                return ellipsize + GlideException.IndentedAppendable.INDENT + subTag;
-            }
-            return subTag;
+            drawable.setColorFilter(i2, mode);
         }
-        return (String) invokeCommon.objValue;
     }
 
-    public static final SpannableStringBuilder b(String str, int i, TextView textView, Context context, Drawable drawable, int i2) {
-        InterceptResult invokeCommon;
-        float e;
+    public static void c(Context context, Drawable drawable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), textView, context, drawable, Integer.valueOf(i2)})) == null) {
-            if (!TextUtils.isEmpty(str) && textView != null && context != null && drawable != null && i > 0) {
-                SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder(str);
-                if (textView.getMeasuredWidth() > 0) {
-                    e = (textView.getMeasuredWidth() * i) - drawable.getIntrinsicWidth();
-                } else {
-                    e = ((b41.c.e(context) - i2) * i) - drawable.getIntrinsicWidth();
-                }
-                float f = e - ((i - 1) * 10);
-                Intrinsics.checkNotNull(str);
-                int length = str.length() + 1;
-                spannableStringBuilder.append((CharSequence) " ").append((CharSequence) b);
-                if (f < textView.getPaint().measureText(spannableStringBuilder.toString())) {
-                    String a2 = a(spannableStringBuilder.toString(), b, f, textView.getPaint(), drawable.getIntrinsicWidth());
-                    SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder(a2);
-                    drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                    spannableStringBuilder2.setSpan(new sc1(drawable), a2.length() - b.length(), a2.length(), 17);
-                    return spannableStringBuilder2;
-                }
-                drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-                spannableStringBuilder.setSpan(new sc1(drawable), length, spannableStringBuilder.length(), 17);
-                return spannableStringBuilder;
-            }
-            return new SpannableStringBuilder("");
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
+            d(context, drawable, 255);
         }
-        return (SpannableStringBuilder) invokeCommon.objValue;
+    }
+
+    public static void d(Context context, Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        }
+    }
+
+    public static int e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return context.getResources().getColor(R.color.nad_ui_cover_layer_color);
+        }
+        return invokeL.intValue;
     }
 }

@@ -1,60 +1,41 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IMessageEntity;
-import com.hihonor.push.framework.aidl.entity.PushTokenResult;
-import com.hihonor.push.sdk.common.data.ApiException;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import com.kwad.sdk.api.KsFeedAd;
 /* loaded from: classes6.dex */
-public class tua extends wua<PushTokenResult> {
+public abstract class tua implements KsFeedAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tua(String str, IMessageEntity iMessageEntity) {
-        super(str, iMessageEntity);
+    public tua() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (IMessageEntity) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.wua
-    public void a(ApiException apiException, Object obj) {
+    @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
+    public void onDownloadTipsDialogDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, apiException, obj) == null) {
-            if (apiException == null) {
-                apiException = HonorPushErrorEnum.ERROR_UNKNOWN.toApiException();
-            }
-            if (apiException.getErrorCode() == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
-                if (obj instanceof PushTokenResult) {
-                    PushTokenResult pushTokenResult = (PushTokenResult) obj;
-                    try {
-                        yta.b.b(aua.e.a(), pushTokenResult.getPushToken());
-                    } catch (Exception unused) {
-                    }
-                    this.e.b(pushTokenResult);
-                    return;
-                }
-                apiException = HonorPushErrorEnum.ERROR_INTERNAL_ERROR.toApiException();
-            }
-            String str = "task execute failed. error:" + apiException.getErrorCode();
-            this.e.a(apiException);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsFeedAd.AdInteractionListener
+    public void onDownloadTipsDialogShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 }

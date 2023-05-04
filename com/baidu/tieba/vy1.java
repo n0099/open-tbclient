@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
+import android.view.View;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,107 +8,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.charset.StandardCharsets;
-import org.json.JSONObject;
+import org.json.JSONException;
 /* loaded from: classes6.dex */
-public class vy1 extends uy1 {
+public final class vy1 extends ry1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yv1
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CalcMD5Api" : (String) invokeV.objValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ vy1 c;
-
-        public a(vy1 vy1Var, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vy1Var, str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = vy1Var;
-            this.a = str;
-            this.b = str2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                byte[] bytes = this.a.getBytes(StandardCharsets.UTF_8);
-                if (bytes.length > 3145728) {
-                    this.c.d(this.b, new vz1(202, "Data Too Large."));
-                    return;
-                }
-                String d = bo4.d(bytes, false);
-                if (TextUtils.isEmpty(d)) {
-                    this.c.d(this.b, new vz1(1001, "Execute Fail."));
-                    return;
-                }
-                vz1 vz1Var = new vz1(0);
-                vz1Var.g("result", d);
-                this.c.d(this.b, vz1Var);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vy1(@NonNull wv1 wv1Var) {
-        super(wv1Var);
+    public vy1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public vz1 x(String str) {
+    @Override // com.baidu.tieba.ry1
+    public xz1 c(@NonNull d72 d72Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#calcMD5", false);
-            Pair<vz1, JSONObject> s = s(str);
-            vz1 vz1Var = (vz1) s.first;
-            if (!vz1Var.isSuccess()) {
-                return vz1Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d72Var)) == null) {
+            View q = fr2.i().q(d72Var);
+            if (q == null) {
+                return new xz1(1001);
             }
-            JSONObject jSONObject = (JSONObject) s.second;
-            String optString = jSONObject.optString("data");
-            if (TextUtils.isEmpty(optString)) {
-                return new vz1(202, "Empty Data.");
-            }
-            pk3.k(new a(this, optString, jSONObject.optString("cb")), "CalcMD5Api");
-            return vz1.f();
+            return e(q);
         }
-        return (vz1) invokeL.objValue;
+        return (xz1) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ry1
+    public xz1 d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return new xz1(1001);
+        }
+        return (xz1) invokeI.objValue;
+    }
+
+    public final xz1 e(@NonNull View view2) {
+        InterceptResult invokeL;
+        xz1 xz1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            try {
+                xz1Var = new xz1(0, b((int) (ol3.P(view2.getLeft()) + 0.5f), (int) (ol3.P(view2.getTop()) + 0.5f), (int) (ol3.P(view2.getRight()) + 0.5f), (int) (ol3.P(view2.getBottom()) + 0.5f)));
+            } catch (JSONException e) {
+                if (ry1.a) {
+                    e.printStackTrace();
+                }
+                xz1Var = new xz1(1001, "result JSONException");
+            }
+            x42.k("AbsMenuButtonHandle", "getMenuButtonBoundingClientRect call success, param valid, get param normally, result = " + xz1Var);
+            return xz1Var;
+        }
+        return (xz1) invokeL.objValue;
     }
 }

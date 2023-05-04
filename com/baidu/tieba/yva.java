@@ -1,31 +1,116 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.os.Environment;
+import android.os.Looper;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.cwa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
-import java.math.BigDecimal;
-import java.util.Iterator;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
+import java.io.FilenameFilter;
+import java.util.ArrayList;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class yva implements uva {
+public final class yva {
     public static /* synthetic */ Interceptable $ic;
+    public static yva e;
+    public static xva f;
     public transient /* synthetic */ FieldHolder $fh;
-    public final JSONObject a;
+    public cwa a;
+    public ewa b;
+    public dwa c;
+    public List<zva> d;
 
-    public yva(InputStream inputStream) {
+    /* loaded from: classes7.dex */
+    public class a implements cwa.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ yva a;
+
+        public a(yva yvaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {yvaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = yvaVar;
+        }
+
+        @Override // com.baidu.tieba.cwa.b
+        public void a(long j, long j2, long j3, long j4) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)}) == null) {
+                ArrayList<String> e = this.a.b.e(j, j2);
+                if (!e.isEmpty()) {
+                    fwa b = fwa.b();
+                    b.c(j, j2, j3, j4);
+                    b.d(this.a.c.e());
+                    b.e(e);
+                    b.a();
+                    if (yva.getContext().displayNotification()) {
+                        bwa.c(b.toString());
+                    }
+                    if (this.a.d.size() != 0) {
+                        for (zva zvaVar : this.a.d) {
+                            zvaVar.onBlock(yva.getContext().provideContext(), b);
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements FilenameFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ".log";
+        }
+
+        @Override // java.io.FilenameFilter
+        public boolean accept(File file, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, str)) == null) {
+                return str.endsWith(this.a);
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public yva() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,148 +120,137 @@ public class yva implements uva {
                 return;
             }
         }
-        this.a = b(inputStream);
+        this.d = new LinkedList();
+        this.b = new ewa(Looper.getMainLooper().getThread(), f.provideDumpInterval());
+        this.c = new dwa(f.provideDumpInterval());
+        l(new cwa(new a(this), getContext().provideBlockThreshold(), getContext().stopWhenDebugging()));
+        bwa.b();
     }
 
-    public yva(InputStream inputStream, String str) {
+    public static String h() {
+        InterceptResult invokeV;
+        String providePath;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            String externalStorageState = Environment.getExternalStorageState();
+            if (getContext() == null) {
+                providePath = "";
+            } else {
+                providePath = getContext().providePath();
             }
+            if ("mounted".equals(externalStorageState) && Environment.getExternalStorageDirectory().canWrite()) {
+                return Environment.getExternalStorageDirectory().getPath() + providePath;
+            }
+            return getContext().provideContext().getFilesDir() + getContext().providePath();
         }
-        this.a = b(inputStream);
-        c(str);
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.uva
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public static void k(xva xvaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (str.endsWith("/")) {
-                return str2;
-            }
-            String[] split = str.split("/");
-            try {
-                JSONObject jSONObject = this.a;
-                for (int i = 1; i < split.length; i++) {
-                    if (i == split.length - 1) {
-                        str = jSONObject.get(split[i]).toString();
-                        return str;
-                    }
-                    jSONObject = jSONObject.getJSONObject(split[i]);
-                }
-            } catch (JSONException unused) {
-                Log.w("InputStreamReader", "JSONException when reading 'path': " + str);
-            }
-            return str2;
+        if (interceptable == null || interceptable.invokeL(65543, null, xvaVar) == null) {
+            f = xvaVar;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public final JSONObject b(InputStream inputStream) {
-        InterceptResult invokeL;
-        String str;
+    public void b(zva zvaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, inputStream)) == null) {
-            if (inputStream != null) {
-                try {
-                    return new JSONObject(qva.g(inputStream, "UTF-8"));
-                } catch (IOException unused) {
-                    str = "IOException when reading the 'Config' from InputStream.";
-                    Log.e("InputStreamReader", str);
-                    return new JSONObject();
-                } catch (JSONException unused2) {
-                    str = "JSONException when reading the 'Config' from InputStream.";
-                    Log.e("InputStreamReader", str);
-                    return new JSONObject();
-                }
-            }
-            return new JSONObject();
+        if (interceptable == null || interceptable.invokeL(1048576, this, zvaVar) == null) {
+            this.d.add(zvaVar);
         }
-        return (JSONObject) invokeL.objValue;
     }
 
-    public final void c(String str) {
+    public final void l(cwa cwaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            try {
-                JSONObject e = e(str);
-                if (e == null) {
-                    return;
-                }
-                String a = a("/configuration_version", "");
-                BigDecimal bigDecimal = new BigDecimal("0.0");
-                try {
-                    bigDecimal = BigDecimal.valueOf(Double.parseDouble(a));
-                } catch (NumberFormatException unused) {
-                    Log.d("InputStreamReader", "configuration_version to double error");
-                }
-                if (bigDecimal.compareTo(new BigDecimal("2.0")) == 0) {
-                    this.a.getJSONObject("client").put("app_id", e.getString("app_id"));
-                } else if (bigDecimal.compareTo(new BigDecimal("3.0")) >= 0) {
-                    Iterator<String> keys = e.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!"package_name".equals(next)) {
-                            d(next, e.get(next), this.a);
-                        }
+        if (interceptable == null || interceptable.invokeL(1048581, this, cwaVar) == null) {
+            this.a = cwaVar;
+        }
+    }
+
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            File file = new File(h());
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static yva e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (e == null) {
+                synchronized (yva.class) {
+                    if (e == null) {
+                        e = new yva();
                     }
                 }
-            } catch (JSONException unused2) {
-                Log.d("InputStreamReader", "JSONException when reading the 'appInfos' from InputStream.");
             }
+            return e;
         }
+        return (yva) invokeV.objValue;
     }
 
-    public final void d(String str, Object obj, JSONObject jSONObject) throws JSONException {
+    public static File[] f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLLL(1048579, this, str, obj, jSONObject) == null) || str == null || obj == null || jSONObject == null) {
-            return;
-        }
-        if (!(obj instanceof JSONObject)) {
-            jSONObject.put(str, obj);
-            return;
-        }
-        JSONObject jSONObject2 = (JSONObject) obj;
-        Iterator<String> keys = jSONObject2.keys();
-        while (keys.hasNext()) {
-            String next = keys.next();
-            d(next, jSONObject2.get(next), jSONObject.getJSONObject(str));
-        }
-    }
-
-    public final JSONObject e(String str) throws JSONException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            JSONArray jSONArray = this.a.getJSONArray("appInfos");
-            for (int i = 0; i < jSONArray.length(); i++) {
-                JSONObject jSONObject = jSONArray.getJSONObject(i);
-                if (jSONObject.getString("package_name").equals(str)) {
-                    return jSONObject;
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File c = c();
+            if (c.exists() && c.isDirectory()) {
+                return c.listFiles(new b());
             }
             return null;
         }
-        return (JSONObject) invokeL.objValue;
+        return (File[]) invokeV.objValue;
     }
 
-    public String toString() {
+    public static xva getContext() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return "InputStreamReader{config=" + this.a.toString().hashCode() + '}';
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return f;
         }
-        return (String) invokeV.objValue;
+        return (xva) invokeV.objValue;
+    }
+
+    public dwa d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (dwa) invokeV.objValue;
+    }
+
+    public cwa g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (cwa) invokeV.objValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return getContext().provideBlockThreshold() * 0.8f;
+        }
+        return invokeV.longValue;
+    }
+
+    public ewa j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
+        }
+        return (ewa) invokeV.objValue;
     }
 }

@@ -5,14 +5,13 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.ar.constants.ARConfigKey;
-import com.baidu.tieba.cq5;
 import com.baidu.tieba.immessagecenter.chatgroup.data.AtInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.bubble.topbubble.TopBubbleData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.EnableDegradeUserData;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatConf;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.effect.ChatResource;
-import com.baidu.tieba.w68;
+import com.baidu.tieba.z88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -31,6 +30,8 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public BasicInfo basicInfo;
     @SerializedName("bots")
     public BotsDTO bots;
+    @SerializedName("perms")
+    public CanExcellent canExcellent;
     @SerializedName("top_bubble_list")
     public List<TopBubbleData> chatBubbleData;
     @Nullable
@@ -54,7 +55,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> longPressMsgBtn;
     @Nullable
     @SerializedName("mask_info")
-    public List<w68> maskInfoList;
+    public List<z88> maskInfoList;
     public String prologue;
     @Nullable
     @SerializedName("quick_talk")
@@ -279,7 +280,6 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         public String cannotTalkText;
         @Nullable
         @SerializedName("main_data")
-        @cq5(deserialize = false, serialize = false)
         public List<EnableDegradeUserData> enableDegradeUserDataList;
         @SerializedName("forum_level")
         public int forumLevel;
@@ -460,10 +460,19 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
         return (BotsDTO) invokeV.objValue;
     }
 
-    public List<TopBubbleData> getChatBubbleData() {
+    public CanExcellent getCanExcellent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.canExcellent;
+        }
+        return (CanExcellent) invokeV.objValue;
+    }
+
+    public List<TopBubbleData> getChatBubbleData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.chatBubbleData;
         }
         return (List) invokeV.objValue;
@@ -473,7 +482,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public ChatConf getChatConf() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return this.chatConf;
         }
         return (ChatConf) invokeV.objValue;
@@ -482,7 +491,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public ExtraInfo getExtraInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.extraInfo;
         }
         return (ExtraInfo) invokeV.objValue;
@@ -492,7 +501,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public String getForbiddenContent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.forbiddenContent;
         }
         return (String) invokeV.objValue;
@@ -502,7 +511,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public ChatResource getGroupChatResource() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.groupChatResource;
         }
         return (ChatResource) invokeV.objValue;
@@ -512,7 +521,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<String> getInputTipsList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.inputTipsList;
         }
         return (List) invokeV.objValue;
@@ -521,7 +530,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public String getJumpH5ErrUrl() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return this.jumpH5ErrUrl;
         }
         return (String) invokeV.objValue;
@@ -531,17 +540,17 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> getLongPressMsgBtn() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
             return this.longPressMsgBtn;
         }
         return (List) invokeV.objValue;
     }
 
     @Nullable
-    public List<w68> getMaskInfoList() {
+    public List<z88> getMaskInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.maskInfoList;
         }
         return (List) invokeV.objValue;
@@ -551,7 +560,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public String getPrologue() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
             return this.prologue;
         }
         return (String) invokeV.objValue;
@@ -561,7 +570,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public List<AbilityItem> getQuickTalk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.quickTalk;
         }
         return (List) invokeV.objValue;
@@ -570,7 +579,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public int getShouldUseServerText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.shouldUseServerText;
         }
         return invokeV.intValue;
@@ -579,7 +588,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public String getShowText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
             return this.showText;
         }
         return (String) invokeV.objValue;
@@ -588,7 +597,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public int getTodayChatMsgCount() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
             return this.todayChatMsgCount;
         }
         return invokeV.intValue;
@@ -597,7 +606,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public UserInfo getUserInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return this.userInfo;
         }
         return (UserInfo) invokeV.objValue;
@@ -606,7 +615,7 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
     public boolean isJumpH5() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
             if (this.isJumpH5 == 1) {
                 return true;
             }
@@ -617,77 +626,77 @@ public class ChatRoomDetail extends OrmObject implements Serializable {
 
     public void setAtInfo(AtInfo atInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048595, this, atInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048596, this, atInfo) == null) {
             this.atInfo = atInfo;
         }
     }
 
     public void setBasicInfo(BasicInfo basicInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, basicInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048597, this, basicInfo) == null) {
             this.basicInfo = basicInfo;
         }
     }
 
     public void setBots(BotsDTO botsDTO) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, botsDTO) == null) {
+        if (interceptable == null || interceptable.invokeL(1048598, this, botsDTO) == null) {
             this.bots = botsDTO;
         }
     }
 
     public void setChatBubbleData(List<TopBubbleData> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048598, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048599, this, list) == null) {
             this.chatBubbleData = list;
         }
     }
 
     public void setExtraInfo(ExtraInfo extraInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, extraInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048600, this, extraInfo) == null) {
             this.extraInfo = extraInfo;
         }
     }
 
     public void setGroupChatResource(ChatResource chatResource) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, chatResource) == null) {
+        if (interceptable == null || interceptable.invokeL(1048601, this, chatResource) == null) {
             this.groupChatResource = chatResource;
         }
     }
 
     public void setJumpH5ErrUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
             this.jumpH5ErrUrl = str;
         }
     }
 
     public void setShouldUseServerText(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048603, this, i) == null) {
             this.shouldUseServerText = i;
         }
     }
 
     public void setShowText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048604, this, str) == null) {
             this.showText = str;
         }
     }
 
     public void setTodayChatMsgCount(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048604, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048605, this, i) == null) {
             this.todayChatMsgCount = i;
         }
     }
 
     public void setUserInfo(UserInfo userInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, userInfo) == null) {
+        if (interceptable == null || interceptable.invokeL(1048606, this, userInfo) == null) {
             this.userInfo = userInfo;
         }
     }

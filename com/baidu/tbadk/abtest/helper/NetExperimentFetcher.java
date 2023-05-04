@@ -5,14 +5,14 @@ import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.switchs.BdNetSwitch;
 import com.baidu.tieba.ff;
-import com.baidu.tieba.rj1;
+import com.baidu.tieba.tj1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class NetExperimentFetcher extends rj1<ff> {
+public class NetExperimentFetcher extends tj1<ff> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -93,7 +93,7 @@ public class NetExperimentFetcher extends rj1<ff> {
 
     /* JADX DEBUG: Method merged with bridge method */
     /* JADX WARN: Can't rename method to resolve collision */
-    @Override // com.baidu.tieba.rj1
+    @Override // com.baidu.tieba.tj1
     public ff createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

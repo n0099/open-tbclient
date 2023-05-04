@@ -1,87 +1,66 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import android.annotation.SuppressLint;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+@SuppressLint({"SyntheticAccessor", "StaticFieldLeak"})
 /* loaded from: classes6.dex */
-public class sn4 {
+public class sn4 extends ho4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a(Context context) {
-        InterceptResult invokeL;
-        ConnectivityManager connectivityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Context appContext = AppRuntime.getAppContext();
-            if (appContext == null || (connectivityManager = (ConnectivityManager) appContext.getSystemService("connectivity")) == null) {
-                return null;
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final sn4 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-426721645, "Lcom/baidu/tieba/sn4$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-426721645, "Lcom/baidu/tieba/sn4$a;");
+                    return;
+                }
             }
-            return connectivityManager.getActiveNetworkInfo();
+            a = new sn4();
         }
-        return (NetworkInfo) invokeL.objValue;
     }
 
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sn4() {
+        super("com.baidu.searchbox_aiapp_openstat");
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "2g";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "3g";
-                case 13:
-                case 18:
-                case 19:
-                    return "4g";
-                case 20:
-                    return "5g";
-                default:
-                    if (!TextUtils.isEmpty(str) && str.equalsIgnoreCase("LTE_CA")) {
-                        return "4g";
-                    }
-                    return "unknown";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeIL.objValue;
     }
 
-    public static String c() {
+    public static sn4 f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a(AppRuntime.getAppContext());
-            if (a != null && a.isConnected()) {
-                if (a.getType() == 1) {
-                    return "wifi";
-                }
-                if (a.getType() == 0) {
-                    return b(a.getSubtype(), a.getSubtypeName());
-                }
-                return "unknown";
-            }
-            return "no";
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a.a;
         }
-        return (String) invokeV.objValue;
+        return (sn4) invokeV.objValue;
     }
 }

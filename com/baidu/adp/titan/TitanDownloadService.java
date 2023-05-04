@@ -7,11 +7,11 @@ import android.os.IBinder;
 import androidx.annotation.Nullable;
 import com.baidu.adp.log.DefaultLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.dj8;
 import com.baidu.tieba.jm;
+import com.baidu.tieba.km6;
 import com.baidu.tieba.lm;
 import com.baidu.tieba.mm;
-import com.baidu.tieba.vg8;
-import com.baidu.tieba.wk6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -142,7 +142,7 @@ public class TitanDownloadService extends Service {
                 return;
             }
             long abs = Math.abs(System.currentTimeMillis() - d.e());
-            vg8 defaultLog = DefaultLog.getInstance();
+            dj8 defaultLog = DefaultLog.getInstance();
             defaultLog.c(TAG, "startServiceIfNeeded interval = " + abs);
             try {
                 DefaultLog.getInstance().c(TAG, "start service");
@@ -159,7 +159,7 @@ public class TitanDownloadService extends Service {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLII = interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, intent, i, i2)) == null) {
             this.mContext = getApplicationContext();
-            wk6.a(new a(this, new b(this, i2)), "titan_sandbox_downloader", 0);
+            km6.a(new a(this, new b(this, i2)), "titan_sandbox_downloader", 0);
             return super.onStartCommand(intent, i, i2);
         }
         return invokeLII.intValue;

@@ -14,7 +14,7 @@ import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.tieba.R;
 import com.google.android.material.internal.ThemeEnforcement;
 @RequiresApi(21)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ViewUtilsLollipop {
     public static final int[] STATE_LIST_ANIM_ATTRS = {16843848};
 
@@ -26,7 +26,7 @@ public class ViewUtilsLollipop {
         int integer = view2.getResources().getInteger(R.integer.obfuscated_res_0x7f0a0005);
         StateListAnimator stateListAnimator = new StateListAnimator();
         long j = integer;
-        stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f04066b, -2130970220}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
+        stateListAnimator.addState(new int[]{16842766, R.attr.obfuscated_res_0x7f040674, -2130970229}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(j));
         stateListAnimator.addState(new int[]{16842766}, ObjectAnimator.ofFloat(view2, Key.ELEVATION, f).setDuration(j));
         stateListAnimator.addState(new int[0], ObjectAnimator.ofFloat(view2, Key.ELEVATION, 0.0f).setDuration(0L));
         view2.setStateListAnimator(stateListAnimator);

@@ -73,17 +73,17 @@ public class LocalPicDrawableLoaderProc extends AbstractImageLoaderProc {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             String str3 = str + "";
-            tm w = TbImageMemoryCache.s().w(str3);
-            if (w == null) {
+            tm A = TbImageMemoryCache.v().A(str3);
+            if (A == null) {
                 Bitmap bitmap = SkinManager.getBitmap(gg.e(str2, 0));
                 if (bitmap == null) {
                     return null;
                 }
                 tm tmVar = new tm(bitmap, false, str2);
-                TbImageMemoryCache.s().k(str3, tmVar);
+                TbImageMemoryCache.v().m(str3, tmVar);
                 return tmVar;
             }
-            return w;
+            return A;
         }
         return (tm) invokeCommon.objValue;
     }

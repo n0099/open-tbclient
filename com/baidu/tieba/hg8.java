@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import android.widget.AbsListView;
 /* loaded from: classes4.dex */
 public interface hg8 {
-    void onCallback(JSONObject jSONObject);
+    void onScrollStateChanged(AbsListView absListView, int i);
 }

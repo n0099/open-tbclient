@@ -14,14 +14,15 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.NoDataViewFactory;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
+import com.baidu.tieba.e65;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iv4;
-import com.baidu.tieba.n55;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -101,11 +102,11 @@ public class NoDataView extends LinearLayout {
             } catch (NoSuchFieldError unused6) {
             }
             try {
-                a[NoDataViewFactory.ImgType.SINGALL.ordinal()] = 7;
+                a[NoDataViewFactory.ImgType.NOPOST.ordinal()] = 7;
             } catch (NoSuchFieldError unused7) {
             }
             try {
-                a[NoDataViewFactory.ImgType.GIFT.ordinal()] = 8;
+                a[NoDataViewFactory.ImgType.NOFOLLOW.ordinal()] = 8;
             } catch (NoSuchFieldError unused8) {
             }
             try {
@@ -115,6 +116,14 @@ public class NoDataView extends LinearLayout {
             try {
                 a[NoDataViewFactory.ImgType.NETERROR.ordinal()] = 10;
             } catch (NoSuchFieldError unused10) {
+            }
+            try {
+                a[NoDataViewFactory.ImgType.NOTLOGIN.ordinal()] = 11;
+            } catch (NoSuchFieldError unused11) {
+            }
+            try {
+                a[NoDataViewFactory.ImgType.NORESULT.ordinal()] = 12;
+            } catch (NoSuchFieldError unused12) {
             }
         }
     }
@@ -263,57 +272,14 @@ public class NoDataView extends LinearLayout {
             this.f = (TextView) this.b.findViewById(R.id.tv_subtitle);
             this.g = (TextView) this.b.findViewById(R.id.tv_title);
             this.h = (TBSpecificationBtn) this.b.findViewById(R.id.btn_func);
-            n55 n55Var = new n55();
+            e65 e65Var = new e65();
+            e65Var.r(R.color.CAM_X0905, R.color.CAM_X0304);
             this.h.setTextSize(R.dimen.T_X05);
-            this.h.setConfig(n55Var);
+            this.h.setConfig(e65Var);
             this.l = (LinearLayout) this.b.findViewById(R.id.two_button_layout);
             this.o = R.color.CAM_X0107;
             this.p = R.color.CAM_X0109;
             h();
-        }
-    }
-
-    public void f(a9<?> a9Var, int i) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, a9Var, i) == null) {
-            if (a9Var instanceof TbPageContext) {
-                TbPageContext tbPageContext = (TbPageContext) a9Var;
-                iv4 layoutMode = tbPageContext.getLayoutMode();
-                if (i == 4) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                layoutMode.l(z);
-                tbPageContext.getLayoutMode().k(this);
-            }
-            TBSpecificationBtn tBSpecificationBtn = this.h;
-            if (tBSpecificationBtn != null) {
-                tBSpecificationBtn.k();
-            }
-            TBSpecificationBtn tBSpecificationBtn2 = this.i;
-            if (tBSpecificationBtn2 != null) {
-                tBSpecificationBtn2.k();
-            }
-            TBSpecificationBtn tBSpecificationBtn3 = this.j;
-            if (tBSpecificationBtn3 != null) {
-                tBSpecificationBtn3.k();
-            }
-            NoDataViewFactory.ImgType imgType = this.m;
-            if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
-                this.c.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_08));
-            } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
-                this.c.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_05));
-            } else if (imgType == NoDataViewFactory.ImgType.LOCAL) {
-                this.c.setImageBitmap(SkinManager.getBitmap565Quality(this.n));
-            } else if (imgType == NoDataViewFactory.ImgType.ANTI) {
-                this.c.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_05));
-            } else if (imgType == NoDataViewFactory.ImgType.NETERROR) {
-                this.c.setImageBitmap(SkinManager.getBitmap565Quality(R.drawable.new_pic_emotion_08));
-            } else {
-                this.c.setImageBitmap(SkinManager.getBitmap565Quality(this.k));
-            }
         }
     }
 
@@ -382,11 +348,63 @@ public class NoDataView extends LinearLayout {
         return (TextView) invokeV.objValue;
     }
 
+    public void f(a9<?> a9Var, int i) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048581, this, a9Var, i) == null) {
+            if (a9Var instanceof TbPageContext) {
+                TbPageContext tbPageContext = (TbPageContext) a9Var;
+                yv4 layoutMode = tbPageContext.getLayoutMode();
+                if (i == 4) {
+                    z = true;
+                } else {
+                    z = false;
+                }
+                layoutMode.l(z);
+                tbPageContext.getLayoutMode().k(this);
+            }
+            TBSpecificationBtn tBSpecificationBtn = this.h;
+            if (tBSpecificationBtn != null) {
+                tBSpecificationBtn.k();
+            }
+            TBSpecificationBtn tBSpecificationBtn2 = this.i;
+            if (tBSpecificationBtn2 != null) {
+                tBSpecificationBtn2.k();
+            }
+            TBSpecificationBtn tBSpecificationBtn3 = this.j;
+            if (tBSpecificationBtn3 != null) {
+                tBSpecificationBtn3.k();
+            }
+            NoDataViewFactory.ImgType imgType = this.m;
+            if (imgType == NoDataViewFactory.ImgType.WEBVIEW) {
+                WebPManager.setMaskDrawable(this.c, R.drawable.new_pic_emotion_08, null);
+            } else if (imgType == NoDataViewFactory.ImgType.NODATA) {
+                WebPManager.setMaskDrawable(this.c, R.drawable.new_pic_emotion_05, null);
+            } else if (imgType == NoDataViewFactory.ImgType.LOCAL) {
+                WebPManager.setMaskDrawable(this.c, this.n, null);
+            } else if (imgType == NoDataViewFactory.ImgType.ANTI) {
+                WebPManager.setMaskDrawable(this.c, R.drawable.new_pic_emotion_05, null);
+            } else if (imgType == NoDataViewFactory.ImgType.NETERROR) {
+                WebPManager.setMaskDrawable(this.c, R.drawable.new_pic_emotion_08, null);
+            } else {
+                WebPManager.setMaskDrawable(this.c, this.k, null);
+            }
+        }
+    }
+
     public void g(NoDataViewFactory.d dVar, a9<?> a9Var) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, dVar, a9Var) == null) {
             setImgOption(dVar);
             f(a9Var, TbadkCoreApplication.getInst().getSkinType());
+        }
+    }
+
+    public void setTitleTextColor(int i, int i2) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeII(1048593, this, i, i2) == null) && (textView = this.g) != null) {
+            SkinManager.setViewTextColor(textView, i, 1, i2);
         }
     }
 
@@ -427,11 +445,12 @@ public class NoDataView extends LinearLayout {
             if (bVar2 != null && bVar != null) {
                 this.i = (TBSpecificationBtn) this.l.findViewById(R.id.btn_left);
                 this.j = (TBSpecificationBtn) this.l.findViewById(R.id.btn_right);
-                n55 n55Var = new n55();
+                e65 e65Var = new e65();
+                e65Var.r(R.color.CAM_X0905, R.color.CAM_X0304);
                 this.i.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.i.setConfig(n55Var);
+                this.i.setConfig(e65Var);
                 this.j.setTextSize(R.dimen.obfuscated_res_0x7f070207);
-                this.j.setConfig(n55Var);
+                this.j.setConfig(e65Var);
                 this.i.setOnClickListener(bVar.a);
                 this.i.setText(bVar.b);
                 this.j.setOnClickListener(bVar2.a);
@@ -481,6 +500,12 @@ public class NoDataView extends LinearLayout {
                 break;
             case 10:
                 this.k = R.drawable.new_pic_emotion_08;
+                break;
+            case 11:
+                this.k = R.drawable.new_pic_emotion_09;
+                break;
+            case 12:
+                this.k = R.drawable.new_pic_emotion_10;
                 break;
         }
         LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();

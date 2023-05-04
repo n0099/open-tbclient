@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.text.TextUtils;
+import com.baidu.tieba.tq2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes6.dex */
-public final class sb2 {
+public class sb2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public tb2 a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,58 +26,40 @@ public final class sb2 {
                 return;
             }
         }
-        b = fo1.a;
+        boolean z = ho1.a;
     }
 
-    public sb2() {
+    public static boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b(w73.K().q().W().e0());
         }
-        this.a = tb2.a;
+        return invokeV.booleanValue;
     }
 
-    public final void a(@NonNull u43 u43Var, @NonNull PrefetchEvent prefetchEvent, @Nullable PMSAppInfo pMSAppInfo) {
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, u43Var, prefetchEvent, pMSAppInfo) == null) {
-            Bundle bundle = new Bundle();
-            bundle.setClassLoader(PrefetchEvent.class.getClassLoader());
-            bundle.putParcelable("swan_app_bundle_prefetch", prefetchEvent);
-            if (pMSAppInfo == null) {
-                pMSAppInfo = sf4.i().u(prefetchEvent.appId);
-            }
-            if (pMSAppInfo == null) {
-                return;
-            }
-            bundle.putParcelable("swan_app_prefetch_pms_info", pMSAppInfo);
-            if (!this.a.a(prefetchEvent, pMSAppInfo, bundle)) {
-                return;
-            }
-            l43 e = l43.e();
-            n43 n43Var = new n43(120, bundle);
-            n43Var.b(u43Var.b);
-            n43Var.p(false);
-            e.h(n43Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            er2.g0().getSwitch("swan_app_precreate_video_switch_v2", false);
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public void b(@NonNull PrefetchEvent prefetchEvent, @NonNull u43 u43Var, @Nullable PMSAppInfo pMSAppInfo) {
+    public static boolean b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, prefetchEvent, u43Var, pMSAppInfo) == null) {
-            a(u43Var, prefetchEvent, pMSAppInfo);
-            u43Var.j0(prefetchEvent);
-            if (b) {
-                Log.d("PrefetchMessenger", "onPrefetchReady event: " + prefetchEvent);
-                Log.d("PrefetchMessenger", "onPrefetchReady client id: " + u43Var.b.index);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                str = kt2.U().g();
             }
+            String f = pl3.f(str);
+            boolean z = kt2.U().e(f, kt2.U().s(), tq2.e.i(w73.K().getAppId(), w73.K().q().W().v1()).getPath() + File.separator).o;
+            x42.i("PreCreateVideoHelper", "hasVideoInPage path : " + f + " has video :" + z);
+            return z;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -1,368 +1,147 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.v8engine.JsFunction;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.websocket.IWebSocketListener;
-import com.baidu.searchbox.websocket.WebSocketManager;
-import com.baidu.searchbox.websocket.WebSocketRequest;
-import com.baidu.searchbox.websocket.WebSocketTask;
-import com.baidu.tbadk.core.elementsMaven.EMABTest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.ByteBuffer;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class h52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements IWebSocketListener {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsFunction a;
-        public final /* synthetic */ JsFunction b;
-        public final /* synthetic */ JsFunction c;
-        public final /* synthetic */ JsFunction d;
 
-        public a(JsFunction jsFunction, JsFunction jsFunction2, JsFunction jsFunction3, JsFunction jsFunction4) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jsFunction, jsFunction2, jsFunction3, jsFunction4};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = jsFunction;
-            this.b = jsFunction2;
-            this.c = jsFunction3;
-            this.d = jsFunction4;
-        }
-
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onClose(JSONObject jSONObject) {
-            String jSONObject2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                if (jSONObject == null) {
-                    jSONObject2 = "";
-                } else {
-                    jSONObject2 = jSONObject.toString();
-                }
-                if (h52.a) {
-                    Log.d("WebSocketHelper", "onClose - " + jSONObject2);
-                }
-                JsFunction jsFunction = this.c;
-                if (jsFunction != null) {
-                    jsFunction.call(jSONObject2);
                 }
             }
         }
 
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onError(Throwable th, JSONObject jSONObject) {
-            String jSONObject2;
+        @Override // java.lang.Runnable
+        public void run() {
+            x73 b0;
+            SwanAppActivity w;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th, jSONObject) == null) {
-                if (jSONObject == null) {
-                    jSONObject2 = "";
-                } else {
-                    jSONObject2 = jSONObject.toString();
-                }
-                if (h52.a) {
-                    Log.d("WebSocketHelper", "onError throwable - " + th);
-                    Log.d("WebSocketHelper", "onError jsonObject - " + jSONObject2);
-                }
-                JsFunction jsFunction = this.d;
-                if (jsFunction != null) {
-                    jsFunction.call(h52.g(th));
-                }
-            }
-        }
-
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onMessage(String str) {
-            JsFunction jsFunction;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && (jsFunction = this.b) != null) {
-                jsFunction.call(h52.h(str));
-            }
-        }
-
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onOpen(Map<String, String> map) {
-            JsFunction jsFunction;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048580, this, map) == null) && (jsFunction = this.a) != null) {
-                jsFunction.call();
-            }
-        }
-
-        @Override // com.baidu.searchbox.websocket.IWebSocketListener
-        public void onMessage(ByteBuffer byteBuffer) {
-            JsFunction jsFunction;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, byteBuffer) == null) && (jsFunction = this.b) != null) {
-                jsFunction.call(h52.h(byteBuffer));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = x73.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
+                w.N();
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774628, "Lcom/baidu/tieba/h52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public static class b implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // android.view.View.OnTouchListener
+        @SuppressLint({"ClickableViewAccessibility"})
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                return true;
+            }
+            return invokeLL.booleanValue;
+        }
+
+        public b() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947774628, "Lcom/baidu/tieba/h52;");
-                return;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
         }
-        a = fo1.a;
     }
 
-    public static String f(String str) {
+    /* loaded from: classes4.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            x73 b0;
+            SwanAppActivity w;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (b0 = x73.b0()) != null && (w = b0.w()) != null && !w.isFinishing()) {
+                w.w0();
+            }
+        }
+    }
+
+    @SuppressLint({"InflateParams"})
+    public static View a(@NonNull Activity activity) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return i(202, str, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, activity)) == null) {
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.obfuscated_res_0x7f0d08a4, (ViewGroup) null);
+            inflate.setOnTouchListener(new b());
+            ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+            viewGroup.removeView(inflate);
+            viewGroup.addView(inflate);
+            return inflate;
         }
-        return (String) invokeL.objValue;
+        return (View) invokeL.objValue;
     }
 
-    public static String d(JsObject jsObject) {
-        InterceptResult invokeL;
+    public static void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsObject)) == null) {
-            if (jsObject == null) {
-                return f("params is null");
-            }
-            c02 F = c02.F(jsObject);
-            if (F == null) {
-                return f("paramsMap is null");
-            }
-            String B = F.B("taskId");
-            int q = F.q("code");
-            String B2 = F.B("reason");
-            if (TextUtils.isEmpty(B)) {
-                return f("taskId is empty");
-            }
-            try {
-                WebSocketManager.INSTANCE.close(B, q, B2);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return i(0, "close success", null);
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            rl3.a0(new a());
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String g(Object obj) {
-        InterceptResult invokeL;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (obj != null) {
-                try {
-                    jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, String.valueOf(obj));
-                } catch (Exception e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                }
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (a) {
-                Log.d("WebSocketHelper", "getOnErrorParam - " + jSONObject2);
-            }
-            return jSONObject2;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            rl3.a0(new c());
         }
-        return (String) invokeL.objValue;
     }
 
-    public static String m(JsObject jsObject) {
-        InterceptResult invokeL;
+    public static void d(@NonNull Activity activity, @NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, jsObject)) == null) {
-            if (jsObject == null) {
-                return f("params is null");
-            }
-            c02 F = c02.F(jsObject);
-            if (F == null) {
-                return f("paramsMap is null");
-            }
-            String B = F.B("taskId");
-            String B2 = F.B("data");
-            if (TextUtils.isEmpty(B)) {
-                return f("taskId is empty");
-            }
-            try {
-                WebSocketManager.INSTANCE.send(B, B2);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return i(0, "send success", null);
+        if (interceptable == null || interceptable.invokeLL(65539, null, activity, view2) == null) {
+            ((ViewGroup) activity.getWindow().getDecorView()).removeView(view2);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String e(JsObject jsObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, jsObject)) == null) {
-            if (jsObject == null) {
-                return f("params is null");
-            }
-            c02 F = c02.F(jsObject);
-            if (F == null) {
-                return f("paramsMap is null");
-            }
-            String B = F.B("url");
-            if (TextUtils.isEmpty(B)) {
-                return f("url is null");
-            }
-            c02 w = F.w("header");
-            String[] D = F.D(WebSocketRequest.PARAM_KEY_PROTOCOLS);
-            WebSocketRequest.Builder builder = new WebSocketRequest.Builder();
-            builder.setUrl(B);
-            builder.setHeaders(k(w));
-            if (D != null && D.length > 0) {
-                builder.setProtocols(Arrays.asList(D));
-            }
-            WebSocketTask connect = WebSocketManager.INSTANCE.connect(builder.build(), l(F));
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("taskId", connect.getTaskId());
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return i(0, "connect success", jSONObject);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String h(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (obj instanceof String) {
-                    jSONObject.put("dataType", EMABTest.TYPE_STRING);
-                    jSONObject.put("data", obj);
-                } else if (obj instanceof ByteBuffer) {
-                    jSONObject.put("dataType", "arrayBuffer");
-                    ByteBuffer byteBuffer = (ByteBuffer) obj;
-                    byte[] bArr = new byte[byteBuffer.remaining()];
-                    byteBuffer.get(bArr);
-                    jSONObject.put("data", Base64.encodeToString(bArr, 2));
-                }
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            String jSONObject2 = jSONObject.toString();
-            if (a) {
-                Log.d("WebSocketHelper", "getOnMessageParam - " + jSONObject2);
-            }
-            return jSONObject2;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String i(int i, String str, JSONObject jSONObject) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(65545, null, i, str, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.put("reason", i);
-                jSONObject2.put("message", str);
-                if (jSONObject != null) {
-                    jSONObject2.put("data", jSONObject);
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            String jSONObject3 = jSONObject2.toString();
-            if (a) {
-                Log.d("WebSocketHelper", "getResultMsg - " + jSONObject3);
-            }
-            return jSONObject3;
-        }
-        return (String) invokeILL.objValue;
-    }
-
-    public static JsFunction j(@NonNull c02 c02Var, @NonNull String str, boolean z) {
-        InterceptResult invokeLLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65546, null, c02Var, str, z)) == null) {
-            JsFunction u = c02Var.u(str);
-            if (u != null) {
-                u.setReleaseMode(z);
-            }
-            return u;
-        }
-        return (JsFunction) invokeLLZ.objValue;
-    }
-
-    public static Map<String, String> k(c02 c02Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, c02Var)) == null) {
-            HashMap hashMap = new HashMap();
-            if (c02Var != null) {
-                for (String str : c02Var.j()) {
-                    hashMap.put(str, c02Var.B(str));
-                }
-            }
-            return hashMap;
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    public static IWebSocketListener l(@NonNull c02 c02Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65548, null, c02Var)) == null) {
-            return new a(j(c02Var, "onOpen", true), j(c02Var, "onMessage", false), j(c02Var, "onClose", true), j(c02Var, "onError", false));
-        }
-        return (IWebSocketListener) invokeL.objValue;
     }
 }

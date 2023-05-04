@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.common.StringUtils;
-import java.io.UnsupportedEncodingException;
-import java.nio.ByteBuffer;
-import java.nio.charset.CharacterCodingException;
-import java.nio.charset.Charset;
-import java.nio.charset.CharsetDecoder;
-import java.nio.charset.CodingErrorAction;
-import org.apache.http.protocol.HTTP;
-import org.java_websocket.exceptions.InvalidDataException;
+import java.security.cert.CertificateParsingException;
+import java.security.cert.X509Certificate;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Locale;
+import java.util.regex.Pattern;
+import javax.net.ssl.SSLException;
+import okhttp3.CertificatePinner;
 /* loaded from: classes5.dex */
 public class j1b {
     public static /* synthetic */ Interceptable $ic;
-    public static CodingErrorAction a;
-    public static final int[] b;
+    public static final Pattern a;
+    public static final String[] b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,96 +38,172 @@ public class j1b {
                 return;
             }
         }
-        a = CodingErrorAction.REPORT;
-        b = new int[]{0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 9, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 7, 8, 8, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 2, 10, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 4, 3, 3, 11, 6, 6, 6, 5, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 8, 0, 1, 2, 3, 5, 8, 7, 1, 1, 1, 4, 6, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 1, 1, 1, 1, 1, 0, 1, 0, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 2, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 3, 1, 3, 1, 1, 1, 1, 1, 1, 1, 3, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1};
+        a = Pattern.compile("^(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)(\\.(25[0-5]|2[0-4]\\d|[0-1]?\\d?\\d)){3}$");
+        String[] strArr = {"ac", "co", "com", Config.EVENT_PATH_MAPPING, "edu", "go", "gouv", "gov", "info", "lg", "ne", "net", "or", "org"};
+        b = strArr;
+        Arrays.sort(strArr);
     }
 
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
+    public static final void a(String str, X509Certificate x509Certificate, boolean z) throws SSLException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                return str.getBytes(HTTP.ASCII);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
+        if (interceptable == null || interceptable.invokeLLZ(65537, null, str, x509Certificate, z) == null) {
+            String[] d = d(x509Certificate);
+            String[] f = f(x509Certificate);
+            p1b.b("", "cn is : " + Arrays.toString(d));
+            p1b.b("", "san is : " + Arrays.toString(f));
+            b(str, d, f, z);
         }
-        return (byte[]) invokeL.objValue;
     }
 
-    public static boolean b(ByteBuffer byteBuffer) {
+    public static final void b(String str, String[] strArr, String[] strArr2, boolean z) throws SSLException {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, strArr, strArr2, Boolean.valueOf(z)}) == null) {
+            LinkedList linkedList = new LinkedList();
+            if (strArr != null && strArr.length > 0 && strArr[0] != null) {
+                linkedList.add(strArr[0]);
+            }
+            if (strArr2 != null) {
+                for (String str2 : strArr2) {
+                    if (str2 != null) {
+                        linkedList.add(str2);
+                    }
+                }
+            }
+            if (!linkedList.isEmpty()) {
+                StringBuffer stringBuffer = new StringBuffer();
+                String lowerCase = str.trim().toLowerCase(Locale.ENGLISH);
+                Iterator it = linkedList.iterator();
+                boolean z3 = false;
+                while (it.hasNext()) {
+                    String lowerCase2 = ((String) it.next()).toLowerCase(Locale.ENGLISH);
+                    stringBuffer.append(" <");
+                    stringBuffer.append(lowerCase2);
+                    stringBuffer.append('>');
+                    if (it.hasNext()) {
+                        stringBuffer.append(" OR");
+                    }
+                    if (lowerCase2.startsWith(CertificatePinner.Pin.WILDCARD) && lowerCase2.indexOf(46, 2) != -1 && c(lowerCase2) && !g(str)) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z2) {
+                        boolean endsWith = lowerCase.endsWith(lowerCase2.substring(1));
+                        if (endsWith && z) {
+                            if (e(lowerCase) == e(lowerCase2)) {
+                                z3 = true;
+                                continue;
+                            } else {
+                                z3 = false;
+                                continue;
+                            }
+                        } else {
+                            z3 = endsWith;
+                            continue;
+                        }
+                    } else {
+                        z3 = lowerCase.equals(lowerCase2);
+                        continue;
+                    }
+                    if (z3) {
+                        break;
+                    }
+                }
+                if (z3) {
+                    return;
+                }
+                throw new SSLException("hostname in certificate didn't match: <" + str + "> !=" + ((Object) stringBuffer));
+            }
+            throw new SSLException("Certificate for <" + str + "> doesn't contain CN or DNS subjectAlt");
+        }
+    }
+
+    public static boolean c(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, byteBuffer)) == null) {
-            return c(byteBuffer, 0);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            int length = str.length();
+            if (length < 7 || length > 9) {
+                return true;
+            }
+            int i = length - 3;
+            if (str.charAt(i) != '.') {
+                return true;
+            }
+            if (Arrays.binarySearch(b, str.substring(2, i)) < 0) {
+                return true;
+            }
+            return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static byte[] f(String str) {
+    public static String[] d(X509Certificate x509Certificate) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            try {
-                return str.getBytes(StringUtils.UTF8);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, x509Certificate)) == null) {
+            List<String> d = new i1b(x509Certificate.getSubjectX500Principal()).d("cn");
+            if (!d.isEmpty()) {
+                String[] strArr = new String[d.size()];
+                d.toArray(strArr);
+                return strArr;
             }
+            return null;
         }
-        return (byte[]) invokeL.objValue;
+        return (String[]) invokeL.objValue;
     }
 
-    public static boolean c(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    public static int e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, byteBuffer, i)) == null) {
-            int remaining = byteBuffer.remaining();
-            if (remaining < i) {
-                return false;
-            }
-            int i2 = 0;
-            while (i < remaining) {
-                int[] iArr = b;
-                i2 = iArr[(i2 << 4) + 256 + iArr[byteBuffer.get(i) & 255]];
-                if (i2 == 1) {
-                    return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            int i = 0;
+            for (int i2 = 0; i2 < str.length(); i2++) {
+                if (str.charAt(i2) == '.') {
+                    i++;
                 }
-                i++;
             }
-            return true;
+            return i;
         }
-        return invokeLI.booleanValue;
+        return invokeL.intValue;
     }
 
-    public static String d(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr, i, i2)) == null) {
-            try {
-                return new String(bArr, i, i2, HTTP.ASCII);
-            } catch (UnsupportedEncodingException e) {
-                throw new RuntimeException(e);
-            }
-        }
-        return (String) invokeLII.objValue;
-    }
-
-    public static String e(ByteBuffer byteBuffer) throws InvalidDataException {
+    public static boolean g(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, byteBuffer)) == null) {
-            CharsetDecoder newDecoder = Charset.forName(StringUtils.UTF8).newDecoder();
-            newDecoder.onMalformedInput(a);
-            newDecoder.onUnmappableCharacter(a);
-            try {
-                byteBuffer.mark();
-                String charBuffer = newDecoder.decode(byteBuffer).toString();
-                byteBuffer.reset();
-                return charBuffer;
-            } catch (CharacterCodingException e) {
-                throw new InvalidDataException(1007, e);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
+            return a.matcher(str).matches();
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static String[] f(X509Certificate x509Certificate) {
+        InterceptResult invokeL;
+        Collection<List<?>> collection;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, x509Certificate)) == null) {
+            LinkedList linkedList = new LinkedList();
+            try {
+                collection = x509Certificate.getSubjectAlternativeNames();
+            } catch (CertificateParsingException e) {
+                p1b.c("", "Error parsing certificate.", e);
+                collection = null;
+            }
+            if (collection != null) {
+                for (List<?> list : collection) {
+                    if (((Integer) list.get(0)).intValue() == 2) {
+                        linkedList.add((String) list.get(1));
+                    }
+                }
+            }
+            if (linkedList.isEmpty()) {
+                return null;
+            }
+            String[] strArr = new String[linkedList.size()];
+            linkedList.toArray(strArr);
+            return strArr;
+        }
+        return (String[]) invokeL.objValue;
     }
 }

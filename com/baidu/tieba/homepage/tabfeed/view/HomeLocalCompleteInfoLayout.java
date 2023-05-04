@@ -14,16 +14,16 @@ import com.baidu.tbadk.core.atomData.PersonChangeActivityConfig;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.zs7;
+import com.baidu.tieba.lx;
+import com.baidu.tieba.uu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class HomeLocalCompleteInfoLayout extends LinearLayout implements jx {
+public class HomeLocalCompleteInfoLayout extends LinearLayout implements lx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TextView a;
@@ -60,7 +60,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements jx {
             if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.getContext() == null) {
                 return;
             }
-            zs7.h();
+            uu7.h();
             PersonChangeActivityConfig personChangeActivityConfig = new PersonChangeActivityConfig(this.a.getContext());
             personChangeActivityConfig.setIsCompleteLocalInfo(true);
             personChangeActivityConfig.start();
@@ -164,13 +164,13 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements jx {
             setPadding(g, 0, g, 0);
             TextView textView = new TextView(getContext());
             this.a = textView;
-            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090b));
+            textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0920));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(0, -2);
             layoutParams.weight = 1.0f;
             addView(this.a, layoutParams);
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f090c));
+            eMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0921));
             LinearLayout.LayoutParams layoutParams2 = new LinearLayout.LayoutParams(-2, ii.g(getContext(), R.dimen.tbds75));
             int g2 = ii.g(getContext(), R.dimen.M_W_X004);
             layoutParams2.setMargins(g2, ii.g(getContext(), R.dimen.M_H_X005), g2, ii.g(getContext(), R.dimen.tbds38));
@@ -185,20 +185,20 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements jx {
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.lx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
             TextView textView = this.a;
             if (textView != null) {
-                r25 d = r25.d(textView);
+                g35 d = g35.d(textView);
                 d.w(R.color.CAM_X0105);
                 d.B(R.dimen.T_X06);
                 d.C(R.string.F_X01);
             }
             EMTextView eMTextView = this.b;
             if (eMTextView != null) {
-                r25 d2 = r25.d(eMTextView);
+                g35 d2 = g35.d(eMTextView);
                 d2.w(R.color.CAM_X0302);
                 d2.B(R.dimen.T_X08);
                 d2.C(R.string.F_X01);
@@ -210,7 +210,7 @@ public class HomeLocalCompleteInfoLayout extends LinearLayout implements jx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0111, null);
             }
-            r25 d3 = r25.d(this);
+            g35 d3 = g35.d(this);
             d3.o(R.string.J_X06);
             d3.f(R.color.CAM_X0205);
         }

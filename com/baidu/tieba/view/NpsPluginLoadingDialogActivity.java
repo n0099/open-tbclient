@@ -7,7 +7,7 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ci8;
+import com.baidu.tieba.kk8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -75,20 +75,20 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            ci8.j().n();
+            kk8.j().n();
         }
     }
 
     @Override // com.baidu.adp.base.BdBaseActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091588) {
+        if ((interceptable == null || interceptable.invokeL(1048580, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f091596) {
             finish();
             x1();
         }
     }
 
-    public void z1(int i) {
+    public void y1(int i) {
         PluginRoundProgressBar pluginRoundProgressBar;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && (pluginRoundProgressBar = this.a) != null && pluginRoundProgressBar.getProgress() != i) {
@@ -105,7 +105,7 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             setActivityBgTransparent();
-            setContentView(R.layout.obfuscated_res_0x7f0d098f);
+            setContentView(R.layout.obfuscated_res_0x7f0d099b);
             Intent intent = getIntent();
             this.c = intent.getBooleanExtra("showHideView", false);
             intent.getLongExtra("dialogId", -1L);
@@ -115,16 +115,16 @@ public class NpsPluginLoadingDialogActivity extends BaseActivity implements View
             this.a.setRoundColor(0);
             this.a.setTextColor(-1);
             this.a.setRoundProgressColor(-1);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091588);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091596);
             this.b = textView;
             if (this.c) {
                 textView.setVisibility(8);
             }
             this.b.setOnClickListener(this);
-            if (!ci8.j().m()) {
+            if (!kk8.j().m()) {
                 finish();
             } else {
-                ci8.j().o(this);
+                kk8.j().o(this);
             }
         }
     }

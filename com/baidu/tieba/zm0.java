@@ -1,24 +1,34 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public interface zm0 extends an0 {
-    void onActivityCreated(Activity activity, Bundle bundle);
+public class zm0 implements dj1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onActivityDestroyed(Activity activity);
+    public zm0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void onActivityPaused(Activity activity);
-
-    void onActivityResumed(Activity activity);
-
-    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
-
-    void onActivityStarted(Activity activity);
-
-    void onActivityStopped(Activity activity);
-
-    void onBackgroundToForeground(Activity activity);
-
-    void onForegroundToBackground(Activity activity);
+    @Override // com.baidu.tieba.dj1
+    public Object get() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new ArrayList() : invokeV.objValue;
+    }
 }

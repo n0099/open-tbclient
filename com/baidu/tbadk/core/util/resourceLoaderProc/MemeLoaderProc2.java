@@ -16,9 +16,9 @@ import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.dg;
+import com.baidu.tieba.dr5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.kq5;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.iw4;
 import com.baidu.tieba.tm;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.yb;
@@ -93,7 +93,7 @@ public class MemeLoaderProc2 implements dg<tm> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return sv4.c().g();
+            return iw4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -172,7 +172,7 @@ public class MemeLoaderProc2 implements dg<tm> {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
-            tm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, TbImageMemoryCache.s().w(str), i, i2);
+            tm checkIsValidPicMemoryCache = BitmapHelper.checkIsValidPicMemoryCache(str, TbImageMemoryCache.v().A(str), i, i2);
             if (checkIsValidPicMemoryCache != null && checkIsValidPicMemoryCache.p() != null && !checkIsValidPicMemoryCache.p().isRecycled()) {
                 return checkIsValidPicMemoryCache;
             }
@@ -206,13 +206,13 @@ public class MemeLoaderProc2 implements dg<tm> {
                 i4 = i2;
             }
             if (!this.isShare) {
-                kq5.e(this.isFromCDN, str, str);
-                Pair<Boolean, String> d = kq5.d(str);
+                dr5.e(this.isFromCDN, str, str);
+                Pair<Boolean, String> d = dr5.d(str);
                 if (((Boolean) d.first).booleanValue()) {
                     str3 = (String) d.second;
                 }
             } else {
-                kq5.g(MemeLoaderProc2.class.getSimpleName(), str);
+                dr5.g(MemeLoaderProc2.class.getSimpleName(), str);
             }
             String str4 = str3;
             WebClient webClient = new WebClient();
@@ -224,7 +224,7 @@ public class MemeLoaderProc2 implements dg<tm> {
             if (downloadImageBytes == null && !webClient.getResponse().a) {
                 return null;
             }
-            TbImageMemoryCache s = TbImageMemoryCache.s();
+            TbImageMemoryCache v = TbImageMemoryCache.v();
             int pbImageSize = TbConfig.getPbImageSize();
             boolean z = false;
             if (downloadImageBytes != null) {
@@ -232,7 +232,7 @@ public class MemeLoaderProc2 implements dg<tm> {
             } else {
                 i5 = 0;
             }
-            s.q(pbImageSize + i5);
+            v.t(pbImageSize + i5);
             return storeBitmap(str4, str2, agVar, null, checkBitmapSize(BitmapHelper.Bytes2Bitmap(downloadImageBytes), i3, i4), (webClient.isGif || ii.D(downloadImageBytes)) ? true : true, webClient, downloadImageBytes, needCache);
         }
         return (tm) invokeCommon.objValue;
@@ -281,7 +281,7 @@ public class MemeLoaderProc2 implements dg<tm> {
             if (tmVar.u()) {
                 tmVar.A(i);
                 tmVar.z(i2);
-                TbImageMemoryCache.s().k(str, tmVar);
+                TbImageMemoryCache.v().m(str, tmVar);
             }
         }
     }

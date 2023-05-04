@@ -1,18 +1,23 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes3.dex */
-public class ao1 implements pn1 {
+public class ao1 implements rn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public zn1 b;
+    public zn1 a;
+    public String b;
+    public yn1 c;
 
     public ao1() {
         Interceptable interceptable = $ic;
@@ -28,46 +33,50 @@ public class ao1 implements pn1 {
         }
     }
 
-    @Override // com.baidu.tieba.pn1
+    @Override // com.baidu.tieba.rn1
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            zn1 zn1Var = this.b;
-            return zn1Var.a(this.a, zn1Var.c);
+            if (TextUtils.isEmpty(this.b)) {
+                this.b = this.a.a(0, null);
+            }
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.pn1
-    public void a(Context context, qn1 qn1Var) {
+    @Override // com.baidu.tieba.rn1
+    public void a(Context context, sn1 sn1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, qn1Var) == null) {
-            this.a = context;
-            zn1 zn1Var = new zn1();
-            this.b = zn1Var;
-            zn1Var.c = null;
-            try {
-                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
-                zn1Var.b = cls;
-                zn1Var.a = cls.newInstance();
-            } catch (Throwable unused) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sn1Var) == null) {
+            this.a = new zn1(context);
+            if (b()) {
+                this.c = new yn1(this);
+                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.c);
             }
-            try {
-                zn1Var.c = zn1Var.b.getMethod("getOAID", Context.class);
-            } catch (Throwable unused2) {
-            }
-            try {
-                zn1Var.b.getMethod("getVAID", Context.class);
-            } catch (Throwable unused3) {
-            }
-            try {
-                zn1Var.b.getMethod("getAAID", Context.class);
-            } catch (Throwable unused4) {
-            }
-            if (qn1Var != null) {
-                qn1Var.a();
+            if (sn1Var != null) {
+                sn1Var.a();
             }
         }
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            try {
+                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
+                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
+            } catch (Throwable unused) {
+                str = null;
+            }
+            if ("1".equals(str)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

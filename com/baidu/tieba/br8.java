@@ -1,55 +1,55 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ClassForumInfo;
-import tbclient.GetVerticalForumList.DataRes;
-import tbclient.Page;
-import tbclient.RecommendForumInfo;
+import android.view.View;
 /* loaded from: classes3.dex */
-public class br8 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public List<zq8> a;
+public interface br8 {
+    void a();
 
-    public br8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(boolean z);
 
-    public void a(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        if (dataRes.class_foruminfo != null) {
-            this.a = new ArrayList();
-            for (ClassForumInfo classForumInfo : dataRes.class_foruminfo) {
-                zq8 zq8Var = new zq8();
-                zq8Var.b = classForumInfo.class_id;
-                zq8Var.c = classForumInfo.class_name;
-                zq8Var.d = classForumInfo.class_icon;
-                ArrayList arrayList = new ArrayList();
-                for (RecommendForumInfo recommendForumInfo : classForumInfo.forum_info) {
-                    arrayList.add(new fr8(recommendForumInfo, false));
-                }
-                zq8Var.a = arrayList;
-                this.a.add(zq8Var);
-            }
-        }
-        Page page = dataRes.page;
-    }
+    void c(int i);
+
+    void d(ey7 ey7Var);
+
+    void destroy();
+
+    void e();
+
+    void f(boolean z);
+
+    void g(long j, long j2);
+
+    View getRootView();
+
+    ey7 h();
+
+    void i();
+
+    void j(boolean z, int i);
+
+    void k(int i);
+
+    int l();
+
+    void m();
+
+    void n(ey7 ey7Var);
+
+    void o(long j, long j2, int i);
+
+    dy7 p(int i);
+
+    void pause();
+
+    void q();
+
+    void r();
+
+    void resetView();
+
+    void resume();
+
+    void s(int i);
+
+    void t(dy7 dy7Var, boolean z, int i);
 }

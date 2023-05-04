@@ -1,50 +1,40 @@
 package com.baidu.tieba;
 
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.searchbox.live.interfaces.service.EventDispatcherService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetVipInfo.VipThemeItem;
 /* loaded from: classes3.dex */
-public class bl8 {
+public class bl8 extends tj1<EventDispatcherService> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    public bl8(VipThemeItem vipThemeItem) {
+    public bl8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {vipThemeItem};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        vipThemeItem.props_id.intValue();
-        String str = vipThemeItem.title;
-        String str2 = vipThemeItem.img_url;
-        String str3 = vipThemeItem.tag_img_url;
-        this.a = vipThemeItem.props_category.intValue();
-        String str4 = vipThemeItem.props_category_name;
-        String str5 = vipThemeItem.link;
-        String str6 = vipThemeItem.update_time;
-        vipThemeItem.id.intValue();
-        vipThemeItem.type.intValue();
     }
 
-    public int getType() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tj1
+    /* renamed from: a */
+    public EventDispatcherService createService() throws ServiceNotFoundException {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return new cl8();
         }
-        return invokeV.intValue;
+        return (EventDispatcherService) invokeV.objValue;
     }
 }

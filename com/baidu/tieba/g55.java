@@ -1,96 +1,33 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.SharedPreferences;
+import com.baidu.android.util.KVStorageFactory;
+import com.baidu.searchbox.retrieve.debug.provider.DebugActiveUploadResult;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.UniKVTestSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public class g55 extends ImageSpan {
+public class g55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g55(Drawable drawable) {
-        super(drawable);
+    public static void a() {
+        SharedPreferences sharedPreferences;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            if (weakReference != null) {
-                drawable = weakReference.get();
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            if (UniKVTestSwitch.getIsOn()) {
+                sharedPreferences = KVStorageFactory.getSharedPreferences("UniKVTest", 0);
             } else {
-                drawable = null;
+                sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("UniKVTest", 0);
             }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
+            int i = sharedPreferences.getInt(DebugActiveUploadResult.SOURCE, 0);
+            StatisticItem statisticItem = new StatisticItem("shoubai_kv_test");
+            StatisticItem addParam = statisticItem.addParam("obj_source", UniKVTestSwitch.getIsOn() + "");
+            TiebaStatic.log(addParam.addParam("obj_param1", i + ""));
+            sharedPreferences.edit().putInt(DebugActiveUploadResult.SOURCE, i + 1).apply();
         }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Drawable a = a();
-            canvas.save();
-            canvas.translate(f, ((i5 - a.getBounds().bottom) - paint.getFontMetricsInt().descent) / 2);
-            a.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Rect bounds = a().getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
-        }
-        return invokeCommon.intValue;
     }
 }

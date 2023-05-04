@@ -1,24 +1,33 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.SparseArray;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kea;
+import com.baidu.tieba.vea;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class lea implements tea {
+public class lea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yda a;
-    public float b;
-    public boolean c;
+    public final mea a;
 
-    public lea() {
+    public lea(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,104 +37,266 @@ public class lea implements tea {
                 return;
             }
         }
-        this.b = 1.0f;
-        this.c = true;
+        this.a = mea.Q(context);
     }
 
-    @Override // com.baidu.tieba.tea
-    public int a(byte[] bArr, int i) {
-        InterceptResult invokeLI;
+    public void A(List<aea> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
-            yda ydaVar = this.a;
-            if (ydaVar == null || !ydaVar.putBytes(bArr, i)) {
-                return 0;
-            }
-            return i;
+        if (interceptable == null || interceptable.invokeL(1048576, this, list) == null) {
+            this.a.Z(list);
         }
-        return invokeLI.intValue;
     }
 
-    @Override // com.baidu.tieba.tea
-    public boolean a() {
-        InterceptResult invokeV;
+    public void B(cea ceaVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? b() && this.c && this.b != 1.0f : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tea
-    public boolean a(int i, int i2, int i3, int i4) {
-        InterceptResult invokeIIII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
-            if (this.a == null) {
-                this.a = (yda) bia.a("com.baidu.ugc.audioedit.AudioSpeedOperator");
-            }
-            yda ydaVar = this.a;
-            if (ydaVar != null) {
-                ydaVar.init(i3, i2);
-                this.a.setSpeed(1.0f);
-                return false;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ceaVar) == null) {
+            this.a.a0(ceaVar);
         }
-        return invokeIIII.booleanValue;
     }
 
-    @Override // com.baidu.tieba.tea
-    public byte[] a(int i) {
+    public boolean D(List<wda> list) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, list)) == null) {
+            return this.a.c0(list);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void F(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.a.e0(str);
+        }
+    }
+
+    public void a(yea yeaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, yeaVar) == null) {
+            this.a.a(yeaVar);
+        }
+    }
+
+    public void b(yea yeaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, yeaVar) == null) {
+            this.a.b(yeaVar);
+        }
+    }
+
+    public boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, str)) == null) {
+            return this.a.x(str);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
+            this.a.z(str);
+        }
+    }
+
+    public HashMap<String, String> o(ArrayList<String> arrayList) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, arrayList)) == null) {
+            return this.a.H(arrayList);
+        }
+        return (HashMap) invokeL.objValue;
+    }
+
+    public wda p(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048598, this, str)) == null) {
+            return this.a.I(str);
+        }
+        return (wda) invokeL.objValue;
+    }
+
+    public int u(yea yeaVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, yeaVar)) == null) {
+            return this.a.S(yeaVar);
+        }
+        return invokeL.intValue;
+    }
+
+    public Map<String, kea.a> v(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
-            yda ydaVar = this.a;
-            return ydaVar != null ? ydaVar.getOutPutBytes() : new byte[0];
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048604, this, i)) == null) {
+            return this.a.T(i);
         }
-        return (byte[]) invokeI.objValue;
+        return (Map) invokeI.objValue;
     }
 
-    public void b(float f) {
+    public bea w(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
-            this.b = f;
-            yda ydaVar = this.a;
-            if (ydaVar != null) {
-                ydaVar.setSpeed(f);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
+            return this.a.U(str);
+        }
+        return (bea) invokeL.objValue;
+    }
+
+    public void x(SparseArray<ArrayList> sparseArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048606, this, sparseArray) == null) {
+            this.a.V(sparseArray);
         }
     }
 
-    @Override // com.baidu.tieba.tea
-    public boolean b() {
-        InterceptResult invokeV;
+    public void y(sda sdaVar) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a != null : invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tea
-    public void c() {
-        yda ydaVar;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (ydaVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048607, this, sdaVar) == null) {
+            this.a.W(sdaVar);
         }
-        ydaVar.flush();
     }
 
-    @Override // com.baidu.tieba.tea
-    public void d() {
-        yda ydaVar;
+    public void z(aea aeaVar) {
         Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048583, this) == null) || (ydaVar = this.a) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048608, this, aeaVar) == null) {
+            this.a.Y(aeaVar);
         }
-        ydaVar.close();
-        this.a = null;
     }
 
-    @Override // com.baidu.tieba.tea
+    public void C() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.b0();
+        }
+    }
+
     public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.m();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
+            this.a.n();
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            return this.a.v();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
+            this.a.w();
+        }
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            this.a.y();
+        }
+    }
+
+    public int q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
+            return this.a.J();
+        }
+        return invokeV.intValue;
+    }
+
+    public vea.d s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
+            return this.a.R();
+        }
+        return (vea.d) invokeV.objValue;
+    }
+
+    public void E(String str, int i, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
+            this.a.d0(str, i, str2);
+        }
+    }
+
+    public int r(ArrayList<String> arrayList, boolean z, yea yeaVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048600, this, new Object[]{arrayList, Boolean.valueOf(z), yeaVar})) == null) {
+            yeaVar.M(10485760);
+            return this.a.K(arrayList, z, yeaVar);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public int t(ArrayList<String> arrayList, boolean z, yea yeaVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048602, this, new Object[]{arrayList, Boolean.valueOf(z), yeaVar})) == null) {
+            return this.a.K(arrayList, z, yeaVar);
+        }
+        return invokeCommon.intValue;
+    }
+
+    public void G(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
+            this.a.f0(str, str2);
+        }
+    }
+
+    public void c(String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048585, this, str, z) == null) {
+            this.a.h(str, z);
+        }
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048586, this, str, i) == null) {
+            this.a.k(str, i);
+        }
+    }
+
+    public boolean g(yea yeaVar, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048589, this, yeaVar, str)) == null) {
+            return this.a.o(yeaVar, str);
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public int n(yea yeaVar, yea yeaVar2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, yeaVar, yeaVar2)) == null) {
+            return this.a.E(yeaVar, yeaVar2);
+        }
+        return invokeLL.intValue;
+    }
+
+    public void m(String str, int i, long j, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048595, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
+            this.a.B(str, i, j, jSONArray);
         }
     }
 }

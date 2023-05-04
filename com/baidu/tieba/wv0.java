@@ -1,11 +1,28 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.video.videoplayer.ui.full.BdThumbSeekBar;
-/* loaded from: classes6.dex */
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.player.constants.PlayerStatus;
+/* loaded from: classes7.dex */
 public interface wv0 {
-    void a(BdThumbSeekBar bdThumbSeekBar, int i, boolean z);
+    void a(@NonNull vu0 vu0Var);
 
-    void b(BdThumbSeekBar bdThumbSeekBar);
+    void d(@NonNull vu0 vu0Var);
 
-    void c(BdThumbSeekBar bdThumbSeekBar);
+    int getExpectOrder();
+
+    @Nullable
+    int[] getSubscribeEvent();
+
+    int getType();
+
+    void h(PlayerStatus playerStatus, PlayerStatus playerStatus2);
+
+    void j(@NonNull vu0 vu0Var);
+
+    void k(@NonNull vu0 vu0Var);
+
+    void n(@NonNull vu0 vu0Var);
+
+    void q(@NonNull vu0 vu0Var);
 }

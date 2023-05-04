@@ -1,22 +1,28 @@
 package com.baidu.tieba;
 
-import java.util.Map;
-import org.json.JSONObject;
+import com.baidu.searchbox.http.callback.StatResponseCallback;
+import com.baidu.tieba.gh4;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.String;
 /* loaded from: classes4.dex */
-public interface eh4 {
+public abstract class eh4<T extends String> implements StatResponseCallback<T>, gh4.a {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void b(String str, String str2, JSONObject jSONObject);
-
-        void c(String str, int i);
-
-        void onFail(Exception exc);
-
-        void onStart();
+    public eh4() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
-
-    void b(String str, Map<String, String> map, Map<String, String> map2, JSONObject jSONObject, a aVar);
-
-    void z(String str, Map<String, String> map, Map<String, String> map2, a aVar);
 }

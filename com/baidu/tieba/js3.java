@@ -8,7 +8,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class js3 implements gs3 {
+public class js3 implements is3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ks3 a;
@@ -33,34 +33,37 @@ public class js3 implements gs3 {
         c(context);
     }
 
-    @Override // com.baidu.tieba.gs3
-    public void b(int i) {
-        ks3 ks3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (ks3Var = this.a) != null && ks3Var.c()) {
-            ks3 ks3Var2 = this.a;
-            if (ks3Var2.d(ks3Var2.a(), "", 0) != 0) {
-                return;
-            }
-            this.b = true;
-        }
-    }
-
-    @Override // com.baidu.tieba.gs3
+    @Override // com.baidu.tieba.is3
     public void a() {
         ks3 ks3Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (ks3Var = this.a) != null && ks3Var.c()) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b && (ks3Var = this.a) != null && ks3Var.b()) {
             this.b = false;
-            ks3 ks3Var2 = this.a;
-            ks3Var2.d(ks3Var2.a(), "", -1);
+            this.a.c(6, "", new int[0]);
+            this.a.c(3, "", new int[0]);
+            this.a.c(12, "", new int[0]);
+            this.a.c(9, "", new int[0]);
+        }
+    }
+
+    @Override // com.baidu.tieba.is3
+    public void b(int i) {
+        ks3 ks3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.b && (ks3Var = this.a) != null && ks3Var.b() && this.a.c(12, "", new int[0]) == 0) {
+            this.b = true;
+            this.a.c(5, "", new int[0]);
+            this.a.c(2, "", new int[0]);
+            this.a.c(11, "", new int[0]);
+            this.a.c(8, "", new int[0]);
+            this.a.c(39, "", new int[0]);
         }
     }
 
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = ks3.b(context);
+            this.a = ks3.a(context);
         }
     }
 }

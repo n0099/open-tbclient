@@ -1,29 +1,36 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import com.baidu.tieba.e50;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public final class h50 {
+public class h50 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947774566, "Lcom/baidu/tieba/h50;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947774566, "Lcom/baidu/tieba/h50;");
+    public static void a(Context context, e50.a aVar) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, aVar) == null) {
+            if (context == null) {
+                aVar.a(false, null);
                 return;
             }
+            try {
+                Cursor query = context.getContentResolver().query(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), null, null, null, null);
+                if (query != null) {
+                    str = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
+                    query.close();
+                } else {
+                    str = null;
+                }
+                aVar.a(true, str);
+            } catch (Throwable unused) {
+                aVar.a(false, null);
+            }
         }
-        a = Boolean.parseBoolean("true");
     }
 }

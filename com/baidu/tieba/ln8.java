@@ -1,27 +1,56 @@
 package com.baidu.tieba;
+
+import com.baidu.adp.BdUniqueId;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface ln8 {
-    void a(String str);
+public class ln8 implements in {
+    public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, int i, int i2, String str2);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948755, "Lcom/baidu/tieba/ln8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947948755, "Lcom/baidu/tieba/ln8;");
+                return;
+            }
+        }
+        a = BdUniqueId.gen();
+    }
 
-    void c(String str, int i, String str2);
+    public ln8() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    boolean d(String str);
-
-    boolean e(String str);
-
-    void f(String str, int i, String str2);
-
-    void g(String str, int i, String str2);
-
-    void h(String str, String str2);
-
-    void i(String str, String str2);
-
-    void j(String str);
-
-    void k(String str);
-
-    void l(String str, int i, String str2);
+    @Override // com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
 }

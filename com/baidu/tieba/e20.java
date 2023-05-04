@@ -1,26 +1,36 @@
 package com.baidu.tieba;
 
-import android.database.AbstractCursor;
+import android.app.ActivityManager;
+import android.content.Context;
 import android.os.Bundle;
-import androidx.core.view.InputDeviceCompat;
+import android.os.Process;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.tieba.b20;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class e20 extends AbstractCursor {
+public class e20 extends b20 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
+    public b20 c;
+    public boolean d;
 
-    public e20(Bundle bundle) {
+    public e20(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,100 +40,124 @@ public class e20 extends AbstractCursor {
                 return;
             }
         }
-        this.a = bundle;
+        this.d = z;
     }
 
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public String[] getColumnNames() {
+    @Override // com.baidu.tieba.b20
+    public void a(String str, Bundle bundle, b20.c<String> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, bundle, cVar) == null) {
+            this.c.a(str, bundle, cVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.b20
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c.d();
+        }
+    }
+
+    @Override // com.baidu.tieba.b20
+    public boolean e(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) ? this.c.e(str) : invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.b20
+    public void f(b20.b bVar) {
+        b20 f20Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
+            if (this.d ? j() : i()) {
+                f20Var = new d20();
+            } else {
+                f20Var = new f20(this.d ? ".helios.ipc.default" : ".helios.ipc.isolate");
+            }
+            this.c = f20Var;
+            f20Var.b(this.a);
+            this.c.c(bVar);
+        }
+    }
+
+    @Override // com.baidu.tieba.b20
+    public b20.d g(String str, Bundle bundle) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, bundle)) == null) ? this.c.g(str, bundle) : (b20.d) invokeLL.objValue;
+    }
+
+    public final String h() {
         InterceptResult invokeV;
+        BufferedReader bufferedReader;
+        Throwable th;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public double getDouble(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
-            return 0.0d;
-        }
-        return invokeI.doubleValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public Bundle getExtras() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (Bundle) invokeV.objValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public float getFloat(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            return 0.0f;
-        }
-        return invokeI.floatValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public int getInt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public long getLong(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public short getShort(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return (short) 0;
-        }
-        return invokeI.shortValue;
-    }
-
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public String getString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            try {
+                bufferedReader = new BufferedReader(new FileReader(new File(ProcessUtils.CMD_LINE_NAME)));
+                try {
+                    String readLine = bufferedReader.readLine();
+                    if (!TextUtils.isEmpty(readLine)) {
+                        l40.b(bufferedReader);
+                        return readLine;
+                    }
+                } catch (IOException unused) {
+                } catch (Throwable th2) {
+                    th = th2;
+                    l40.b(bufferedReader);
+                    throw th;
+                }
+            } catch (IOException unused2) {
+                bufferedReader = null;
+            } catch (Throwable th3) {
+                bufferedReader = null;
+                th = th3;
+            }
+            l40.b(bufferedReader);
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) this.a.c.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses != null) {
+                for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                    if (runningAppProcessInfo.pid == Process.myPid()) {
+                        return runningAppProcessInfo.processName;
+                    }
+                }
+                return null;
+            }
             return null;
         }
-        return (String) invokeI.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // android.database.AbstractCursor, android.database.Cursor
-    public boolean isNull(int i) {
-        InterceptResult invokeI;
+    public final boolean i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            String h = h();
+            return h != null && h.contains(":helios");
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            String h = h();
+            if (h == null) {
+                return true;
+            }
+            Context context = this.a.c;
+            String str = context.getApplicationInfo().processName;
+            if (TextUtils.isEmpty(str)) {
+                str = context.getPackageName();
+            }
+            if (h.startsWith(str)) {
+                return h.length() == str.length() || h.charAt(str.length()) != ':';
+            }
             return false;
         }
-        return invokeI.booleanValue;
+        return invokeV.booleanValue;
     }
 }

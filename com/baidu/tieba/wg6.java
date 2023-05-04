@@ -1,7 +1,12 @@
 package com.baidu.tieba;
+
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface wg6 {
-    void a(String str);
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "IPrefetchManager");
 
-    void p(int i);
+    List<Pair<String, Long>> a(String str);
 }

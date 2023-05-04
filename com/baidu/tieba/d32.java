@@ -1,77 +1,26 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.net.Uri;
+import android.text.Editable;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.swan.apps.storage.PathType;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
+import com.baidu.swan.apps.component.components.textarea.SwanEditText;
 import com.baidu.tieba.e32;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.drawee.backends.pipeline.Fresco;
-import com.facebook.drawee.backends.pipeline.PipelineDraweeControllerBuilder;
-import com.facebook.drawee.controller.AbstractDraweeController;
-import com.facebook.drawee.controller.BaseControllerListener;
-import com.facebook.drawee.drawable.ScalingUtils;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.drawee.generic.GenericDraweeHierarchyBuilder;
-import com.facebook.drawee.generic.RoundingParams;
-import com.facebook.drawee.view.SimpleDraweeView;
-import com.facebook.imagepipeline.image.ImageInfo;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.io.File;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
-public abstract class d32<V extends SimpleDraweeView, M extends e32> extends i32<V, M> {
+public abstract class d32<V extends SwanEditText, M extends e32> extends i32<V, M> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-910706231, "Lcom/baidu/tieba/d32$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-910706231, "Lcom/baidu/tieba/d32$a;");
-                    return;
-                }
-            }
-            int[] iArr = new int[PathType.values().length];
-            a = iArr;
-            try {
-                iArr[PathType.BD_FILE.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[PathType.RELATIVE.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[PathType.NETWORK.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[PathType.ERROR.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d32(@Nullable Context context, @NonNull M m) {
@@ -94,126 +43,182 @@ public abstract class d32<V extends SimpleDraweeView, M extends e32> extends i32
         }
     }
 
-    public static Uri W(@NonNull String str) {
-        InterceptResult invokeL;
-        String str2;
-        String str3;
+    public void f0(@NonNull V v, @NonNull M m) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            PathType s = df3.s(str);
-            v73 M = v73.M();
-            if (M != null) {
-                str2 = M.b;
-                str3 = M.k0();
-            } else {
-                str2 = null;
-                str3 = null;
+        if (interceptable == null || interceptable.invokeLL(1048588, this, v, m) == null) {
+            if (m32.h) {
+                Log.d("Component-EditText", "renderSelection");
             }
-            if (TextUtils.isEmpty(str2) || TextUtils.isEmpty(str3)) {
-                return null;
+            Editable text = v.getText();
+            int i2 = 0;
+            if (text != null) {
+                i2 = text.length();
             }
-            int i = a.a[s.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return null;
-                    }
-                    return Uri.parse(str);
-                }
-                File file = new File(str);
-                if (file.exists()) {
-                    return Uri.fromFile(file);
-                }
-                String L = df3.L(str, M, str3);
-                if (TextUtils.isEmpty(L)) {
-                    return null;
-                }
-                return Uri.fromFile(new File(L));
+            int i3 = m.H;
+            if (i3 <= i2 && (i = m.G) >= 0 && i <= i3) {
+                v.setSelection(i, i3);
             }
-            String M2 = df3.M(str, str2);
-            if (TextUtils.isEmpty(M2)) {
-                return null;
-            }
-            return Uri.fromFile(new File(M2));
         }
-        return (Uri) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.k32
+    /* renamed from: b0 */
+    public void Q(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, v, m) == null) {
+            if (m32.h) {
+                Log.d("Component-EditText", "renderBackground");
+            }
+            v.setBackgroundColor(0);
+        }
+    }
+
+    public void d0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048586, this, v, m) == null) {
+            if (m32.h) {
+                Log.d("Component-EditText", "renderCursor");
+            }
+            Editable text = v.getText();
+            int i = 0;
+            if (text != null) {
+                i = text.length();
+            }
+            int i2 = m.F;
+            if (i2 <= i && i2 >= 0) {
+                v.setSelection(i2);
+            }
+        }
+    }
+
+    public final void e0(@NonNull V v, @NonNull M m) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, v, m) == null) {
+            if (m32.h) {
+                Log.d("Component-EditText", "renderMaxLength");
+            }
+            if (m.D >= 0) {
+                v.setFilters(new InputFilter[]{new InputFilter.LengthFilter(m.D)});
+            }
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.i32, com.baidu.tieba.k32, com.baidu.tieba.m32
+    @NonNull
+    /* renamed from: Z */
+    public p42 k(@NonNull M m, @NonNull M m2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, m, m2)) == null) {
+            p42 k = super.k(m, m2);
+            if (q() != 0 && !TextUtils.equals(((SwanEditText) q()).getText().toString(), m2.t)) {
+                k.b(6);
+            }
+            if (m.D != m2.D) {
+                k.b(10);
+            }
+            if (m.F != m2.F) {
+                k.b(11);
+            }
+            if (m.G != m2.G || m.H != m2.H) {
+                k.b(12);
+            }
+            if (!TextUtils.equals(m.I, m2.I)) {
+                k.b(13);
+            }
+            return k;
+        }
+        return (p42) invokeLL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.i32
-    /* renamed from: T */
-    public void O(@NonNull V v, @NonNull M m, @NonNull n42 n42Var) {
+    /* renamed from: a0 */
+    public void T(@NonNull V v, @NonNull M m, @NonNull p42 p42Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048580, this, v, m, n42Var) == null) {
-            super.C(v, m, n42Var);
-            if (n42Var.a(9)) {
-                U(v, m);
+        if (interceptable == null || interceptable.invokeLLL(1048583, this, v, m, p42Var) == null) {
+            super.O(v, m, p42Var);
+            if (p42Var.a(11)) {
+                d0(v, m);
+            }
+            if (p42Var.a(12)) {
+                f0(v, m);
+            }
+            if (p42Var.a(10)) {
+                e0(v, m);
+            }
+            if (p42Var.a(13)) {
+                c0(v, m);
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i32, com.baidu.tieba.k32
-    @NonNull
-    /* renamed from: S */
-    public n42 k(@NonNull M m, @NonNull M m2) {
+    public boolean c0(@NonNull V v, @NonNull M m) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, m, m2)) == null) {
-            n42 k = super.k(m, m2);
-            if (!TextUtils.equals(m.t, m2.t)) {
-                k.b(9);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048585, this, v, m)) == null) {
+            if (m32.h) {
+                Log.d("Component-EditText", "renderConfirmType:" + m.I);
             }
-            return k;
+            String str = m.I;
+            char c = 65535;
+            switch (str.hashCode()) {
+                case -906336856:
+                    if (str.equals("search")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case SpeedStatsStampTable.AD_LOAD_BEAR_END_STAMP_KEY /* 3304 */:
+                    if (str.equals("go")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+                case 3089282:
+                    if (str.equals("done")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 3377907:
+                    if (str.equals(UnitedSchemeConstants.UNITED_SCHEME_NEXT)) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 3526536:
+                    if (str.equals("send")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c != 2) {
+                        if (c != 3) {
+                            if (c != 4) {
+                                return false;
+                            }
+                            v.setImeOptions(6);
+                        } else {
+                            v.setImeOptions(2);
+                        }
+                    } else {
+                        v.setImeOptions(5);
+                    }
+                } else {
+                    v.setImeOptions(3);
+                }
+            } else {
+                v.setImeOptions(4);
+            }
+            return true;
         }
-        return (n42) invokeLL.objValue;
-    }
-
-    public void U(@NonNull V v, @NonNull M m) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, v, m) == null) {
-            V(v, m, null);
-        }
-    }
-
-    public final void V(@NonNull V v, @NonNull M m, @Nullable BaseControllerListener<ImageInfo> baseControllerListener) {
-        Uri W;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048582, this, v, m, baseControllerListener) != null) || m.j == null) {
-            return;
-        }
-        if (k32.h) {
-            Log.d("Component-SimpleDrawee", "renderImageStyle");
-        }
-        String str = m.t;
-        if (TextUtils.isEmpty(str) || (W = W(str)) == null) {
-            return;
-        }
-        v42.i("Component-SimpleDrawee", "Image Uri:" + W);
-        PipelineDraweeControllerBuilder oldController = Fresco.newDraweeControllerBuilder().setOldController(v.getController());
-        if (baseControllerListener != null) {
-            oldController.setControllerListener(baseControllerListener);
-        }
-        HashMap hashMap = new HashMap();
-        String g0 = pe2.U().g0();
-        if (!TextUtils.isEmpty(g0)) {
-            hashMap.put("User-Agent", g0);
-        }
-        String b = cl3.b();
-        if (!TextUtils.isEmpty(b) && cl3.c(W.toString())) {
-            hashMap.put("Referer", b);
-        }
-        ps1 C = cr2.C();
-        ImageRequestBuilder newBuilderWithSource = ImageRequestBuilder.newBuilderWithSource(W);
-        C.e(newBuilderWithSource, hashMap);
-        oldController.setImageRequest(newBuilderWithSource.build());
-        AbstractDraweeController build = oldController.build();
-        RoundingParams roundingParams = new RoundingParams();
-        roundingParams.setCornersRadius(m.n);
-        GenericDraweeHierarchy build2 = new GenericDraweeHierarchyBuilder(v.getResources()).build();
-        build2.setRoundingParams(roundingParams);
-        build2.setActualImageScaleType(ScalingUtils.ScaleType.FIT_XY);
-        v.setHierarchy(build2);
-        v.setController(build);
+        return invokeLL.booleanValue;
     }
 }

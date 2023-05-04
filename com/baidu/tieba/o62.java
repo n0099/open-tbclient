@@ -1,20 +1,24 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.tieba.n62;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.WebSettings;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public final class o62 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean c;
+    public static volatile o62 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public HashMap<String, Long> b;
 
     static {
         InterceptResult invokeClinit;
@@ -29,41 +33,77 @@ public final class o62 {
                 return;
             }
         }
-        a = fo1.a;
+        c = ho1.a;
     }
 
-    @NonNull
-    public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
-        InterceptResult invokeLL;
-        char c;
+    public o62() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
-            codeCacheSetting.id = str;
-            ArrayList<String> arrayList = new ArrayList<>();
-            codeCacheSetting.pathList = arrayList;
-            arrayList.add(str2);
-            if (str.hashCode() == 93029162 && str.equals("appjs")) {
-                c = 0;
-            } else {
-                c = 65535;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (c != 0) {
-                codeCacheSetting.maxCount = 20;
-                codeCacheSetting.sizeLimit = 102400;
-            } else {
-                n62.a d = n62.b.d();
-                codeCacheSetting.maxCount = d.a;
-                codeCacheSetting.sizeLimit = d.b;
-                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
-            }
-            if (a) {
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
-                Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
-            }
-            return codeCacheSetting;
         }
-        return (WebSettings.CodeCacheSetting) invokeLL.objValue;
+        this.a = false;
+        this.b = new HashMap<>();
+    }
+
+    public static o62 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (o62.class) {
+                    if (d == null) {
+                        d = new o62();
+                    }
+                }
+            }
+            return d;
+        }
+        return (o62) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean c(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            HashMap<String, Long> hashMap = this.b;
+            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
+                if (c) {
+                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
+                    return true;
+                }
+                return true;
+            }
+            if (c) {
+                HashMap<String, Long> hashMap2 = this.b;
+                if (hashMap2 != null && hashMap2.containsKey(str)) {
+                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
+                } else {
+                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

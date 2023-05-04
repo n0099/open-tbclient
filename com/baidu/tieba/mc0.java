@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.opengl.GLES20;
+import android.opengl.EGL14;
+import android.opengl.EGLSurface;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,23 +11,13 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.nio.Buffer;
-import java.util.LinkedList;
 /* loaded from: classes5.dex */
-public class mc0 extends lc0 implements nc0 {
+public class mc0 {
     public static /* synthetic */ Interceptable $ic = null;
-    public static final String k = "mc0";
+    public static final String c = "mc0";
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public rc0 d;
-    public qc0 e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
+    public lc0 a;
+    public EGLSurface b;
 
     static {
         InterceptResult invokeClinit;
@@ -45,10 +34,12 @@ public class mc0 extends lc0 implements nc0 {
         }
     }
 
-    public mc0() {
+    public mc0(lc0 lc0Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lc0Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,147 +49,53 @@ public class mc0 extends lc0 implements nc0 {
                 return;
             }
         }
-        this.b = "uniform mat4 uMVPMatrix;  // MVP 的变换矩阵（整体变形）\nuniform mat4 uTexMatrix;  // Texture 的变换矩阵 （只对texture变形）\nattribute vec4 aPosition;\nattribute vec4 aTextureCoord;\nvarying vec2 vTextureCoord;\nvoid main() {\n    gl_Position = uMVPMatrix * aPosition;\n    vTextureCoord = (uTexMatrix * aTextureCoord).xy;\n}\n";
-        this.c = "#extension GL_OES_EGL_image_external : require\nprecision mediump float; // 指定默认精度\nvarying vec2 vTextureCoord;\nuniform samplerExternalOES uTexture;\nvoid main() {\n    gl_FragColor = texture2D(uTexture, vTextureCoord);\n}\n";
-        new LinkedList();
+        this.b = EGL14.EGL_NO_SURFACE;
+        this.a = lc0Var;
     }
 
-    public void f() {
+    public void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            GLES20.glUseProgram(0);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            GLES20.glDeleteProgram(this.a);
-            this.a = -1;
-        }
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            GLES20.glDisableVertexAttribArray(this.f);
-            GLES20.glDisableVertexAttribArray(this.i);
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            GLES20.glUseProgram(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.nc0
-    public void release() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            i();
-        }
-    }
-
-    @Override // com.baidu.tieba.nc0
-    public void a(oc0 oc0Var, tc0 tc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, oc0Var, tc0Var) == null) {
-            rc0 rc0Var = this.d;
-            if (rc0Var != null && rc0Var.e()) {
-                l();
-                d(this.d);
-                c(oc0Var, tc0Var);
-                g(oc0Var, tc0Var);
-                j();
-                k(this.d);
-                f();
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            if (this.b == EGL14.EGL_NO_SURFACE) {
+                this.b = this.a.b(obj);
                 return;
             }
-            Log.e(k, "onDraw filter has not been setup!!!");
+            throw new IllegalStateException("surface already created");
         }
     }
 
-    public void g(oc0 oc0Var, tc0 tc0Var) {
+    public void b(lc0 lc0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, oc0Var, tc0Var) == null) {
-            if (tc0Var.e()) {
-                GLES20.glClearColor(0.0f, 0.0f, 0.0f, 0.0f);
-                GLES20.glClear(16384);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lc0Var) == null) && !lc0Var.d(this.b)) {
+            lc0Var.e(this.b);
+        }
+    }
+
+    public void d(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
+            this.a.h(this.b, j);
+        }
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.g(this.b);
+            this.b = EGL14.EGL_NO_SURFACE;
+        }
+    }
+
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            boolean i = this.a.i(this.b);
+            if (!i) {
+                Log.d(c, "WARNING: swapBuffers() failed");
             }
-            if (tc0Var.d()) {
-                GLES20.glEnable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
-                GLES20.glBlendFunc(770, 771);
-            }
-            GLES20.glDrawArrays(5, 0, oc0Var.e());
-            if (tc0Var.d()) {
-                GLES20.glDisable(SpeedStatsStampTable.MAINACTIVITY_ONRESUME_END_STAMP_KEY);
-            }
+            return i;
         }
-    }
-
-    @Override // com.baidu.tieba.nc0
-    public void b(rc0 rc0Var, qc0 qc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rc0Var, qc0Var) == null) {
-            this.d = rc0Var;
-            this.e = qc0Var;
-            e(this.b, this.c);
-            if (this.a != -1) {
-                h();
-                return;
-            }
-            throw new RuntimeException("Unable to create program");
-        }
-    }
-
-    public void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-            if (this.d.getType() != 36197) {
-                str2 = str2.replaceFirst("#extension GL_OES_EGL_image_external : require", "").replace("samplerExternalOES", "sampler2D");
-            }
-            this.a = vc0.c(str, str2);
-        }
-    }
-
-    public void c(oc0 oc0Var, tc0 tc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, oc0Var, tc0Var) == null) {
-            GLES20.glUniformMatrix4fv(this.g, 1, false, tc0Var.b(), 0);
-            GLES20.glUniformMatrix4fv(this.h, 1, false, tc0Var.c(), 0);
-            GLES20.glEnableVertexAttribArray(this.f);
-            GLES20.glVertexAttribPointer(this.f, oc0Var.a(), 5126, false, oc0Var.f(), (Buffer) oc0Var.d());
-            GLES20.glEnableVertexAttribArray(this.i);
-            GLES20.glVertexAttribPointer(this.i, oc0Var.a(), 5126, false, oc0Var.c(), (Buffer) oc0Var.b());
-        }
-    }
-
-    public void d(rc0 rc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, rc0Var) == null) {
-            GLES20.glActiveTexture(33984);
-            GLES20.glBindTexture(rc0Var.getType(), rc0Var.c());
-            GLES20.glUniform1i(this.j, 0);
-        }
-    }
-
-    public void k(rc0 rc0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, rc0Var) == null) {
-            GLES20.glBindTexture(rc0Var.getType(), 0);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.j = GLES20.glGetUniformLocation(this.a, "uTexture");
-            this.f = GLES20.glGetAttribLocation(this.a, "aPosition");
-            this.g = GLES20.glGetUniformLocation(this.a, "uMVPMatrix");
-            this.h = GLES20.glGetUniformLocation(this.a, "uTexMatrix");
-            this.i = GLES20.glGetAttribLocation(this.a, "aTextureCoord");
-        }
+        return invokeV.booleanValue;
     }
 }

@@ -1,56 +1,47 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedHashMap;
+import com.bytedance.sdk.openadsdk.TTRewardVideoAd;
 /* loaded from: classes7.dex */
-public class zra {
+public class zra extends jra<TTRewardVideoAd> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LinkedHashMap<Long, StackTraceElement[]> a;
-    public int b;
 
-    public zra() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zra(TTRewardVideoAd tTRewardVideoAd) {
+        super(tTRewardVideoAd);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tTRewardVideoAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LinkedHashMap<>();
-        this.b = 100;
     }
 
-    public LinkedHashMap<Long, StackTraceElement[]> b() {
+    @Override // com.baidu.tieba.jra
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (LinkedHashMap) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            int size = this.a.size();
-            int i = this.b;
-            if (size == i && i > 0) {
-                LinkedHashMap<Long, StackTraceElement[]> linkedHashMap = this.a;
-                linkedHashMap.remove(linkedHashMap.keySet().iterator().next());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.b.isEmpty()) {
+                this.b = (String) ((TTRewardVideoAd) this.a).getMediaExtraInfo().get(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID);
             }
-            this.a.put(Long.valueOf(System.currentTimeMillis()), Looper.getMainLooper().getThread().getStackTrace());
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 }

@@ -1,57 +1,40 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface in4 {
-    String a();
+public class in4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
 
-    String b();
+    public in4(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, str2, str3};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str2;
+    }
 
-    boolean c(String str);
-
-    ExecutorService d();
-
-    void e(String str, int i, JSONArray jSONArray);
-
-    void f(String str, int i);
-
-    void g(String str, String str2, int i, String str3, int i2);
-
-    String getAppId();
-
-    String getAppVersion();
-
-    String getDeviceId(Context context);
-
-    String getScene();
-
-    String h();
-
-    void i(String str, int i, String str2);
-
-    boolean j();
-
-    int k();
-
-    jn4 l();
-
-    String m();
-
-    void n(String str, String str2, int i, String str3, long j, int i2);
-
-    String o(Context context);
-
-    boolean p();
-
-    boolean q();
-
-    boolean r();
-
-    String s();
-
-    String t();
-
-    String u(Context context);
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
 }

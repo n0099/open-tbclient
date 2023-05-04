@@ -1,20 +1,32 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface oc1<View> {
-    void a();
+public class oc1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str, boolean z);
+    public abstract void a(boolean z, long j);
 
-    void c(boolean z);
+    public abstract void b(@NonNull xp0 xp0Var);
 
-    View getRealView();
+    public abstract void c();
 
-    void setContainer(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams);
-
-    void setCriusPopListener(@NonNull mc1 mc1Var);
-
-    void setData(@NonNull np0 np0Var);
+    public oc1() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

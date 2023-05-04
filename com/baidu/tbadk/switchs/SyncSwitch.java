@@ -151,6 +151,11 @@ public class SyncSwitch {
             SwitchManager.getInstance().registerSwitch(FunnySpriteDeviceScoreSwitch.class);
             SwitchManager.getInstance().registerSwitch(OfflinePkgAutoCleanSwitch.class);
             SwitchManager.getInstance().registerSwitch(SpriteTypeWriterSwitch.class);
+            SwitchManager.getInstance().registerSwitch(HeadlinesPrefetchSwitch.class);
+            SwitchManager.getInstance().registerSwitch(HeadlinesPreRenderSwitch.class);
+            SwitchManager.getInstance().registerSwitch(FunnySpriteColdStartRequestSwitch.class);
+            SwitchManager.getInstance().registerSwitch(SpriteInterceptHomeTipSwitch.class);
+            SwitchManager.getInstance().registerSwitch(PicReqSwitch.class);
         }
     }
 }

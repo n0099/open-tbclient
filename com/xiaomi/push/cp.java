@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cp {
     public int a;
 

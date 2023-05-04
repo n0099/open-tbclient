@@ -95,11 +95,11 @@ public class PrivilegeItemView extends RelativeLayout {
     public final void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0413, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0418, this);
             this.b = inflate;
-            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c20);
-            this.d = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c25);
-            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c1f);
+            this.c = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091c30);
+            this.d = (PrivilegeTextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c35);
+            this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091c2f);
         }
     }
 

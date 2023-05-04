@@ -1,21 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.live.interfaces.service.AppInfoService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
-import java.net.URLEncoder;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.regex.Pattern;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes4.dex */
 public class ec0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String a;
+    public static boolean b;
+    public static String c;
+    public static ArrayList<String> d;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -31,109 +35,204 @@ public class ec0 {
                 return;
             }
         }
-        Pattern.compile("^((https|http|ftp|rtsp|mms)?://)?(([0-9a-zA-Z_!~*'().&=+$%-]+: )?[0-9a-zA-Z_!~*'().&=+$%-]+@)?(([0-9]{1,3}\\.){3}[0-9]{1,3}|([0-9a-zA-Z_!~*'()-]+\\.)*([0-9a-zA-Z][0-9a-zA-Z-]{0,61})?[0-9a-zA-Z]\\.[a-zA-Z]{2,6})(:[0-9]{1,4})?((/?)|(/[0-9a-zA-Z_!~*'().;?:@&=+$,%#-]+)+/?)$");
-    }
-
-    public static String a(String str, Map<String, String> map) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                String c = c(map);
-                if (!TextUtils.isEmpty(c)) {
-                    if (str.contains("?")) {
-                        return str + "&" + c;
-                    }
-                    return str + "?" + c;
-                }
-                return str;
-            }
-            return str;
+        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
+        if (appInfoService != null) {
+            l(appInfoService.isDebug());
         }
-        return (String) invokeLL.objValue;
+        a = ec0.class.getName();
+        b = false;
+        c = null;
+        d = new ArrayList<>();
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public ec0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            int indexOf = str.indexOf("?");
-            if (indexOf <= 0) {
+        }
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return b;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String a(boolean z, String str, String str2, String str3) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, str2, str3})) == null) {
+            if (!i()) {
                 return null;
             }
-            return str.substring(indexOf + 1);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(Map<String, String> map) {
-        InterceptResult invokeL;
-        String encode;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            if (map == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (String str2 : map.keySet()) {
-                if (sb.length() > 0) {
-                    sb.append("&");
-                }
-                String str3 = map.get(str2);
-                if (str2 == null) {
-                    encode = "";
-                } else {
-                    try {
-                        encode = URLEncoder.encode(str2, "UTF-8");
-                    } catch (UnsupportedEncodingException e) {
-                        if (cc0.i()) {
-                            throw new RuntimeException("This method requires UTF-8 encoding support", e);
-                        }
-                    }
-                }
-                sb.append(encode);
-                sb.append("=");
-                if (str3 == null) {
-                    str = "";
-                } else {
-                    str = URLEncoder.encode(str3, "UTF-8");
-                }
-                sb.append(str);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Map<String, String> d(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+            String str4 = c;
+            if (str4 != null && !str3.startsWith(str4)) {
                 return null;
             }
-            HashMap hashMap = new HashMap();
-            for (String str3 : str.split("&")) {
-                String[] split = str3.split("=");
-                try {
-                    String decode = URLDecoder.decode(split[0], "UTF-8");
-                    if (split.length > 1) {
-                        str2 = URLDecoder.decode(split[1], "UTF-8");
-                    } else {
-                        str2 = "";
-                    }
-                    hashMap.put(decode, str2);
-                } catch (UnsupportedEncodingException e) {
-                    throw new RuntimeException("This method requires UTF-8 encoding support", e);
+            if (z && !j(str)) {
+                return null;
+            }
+            StringBuffer stringBuffer = new StringBuffer(100);
+            stringBuffer.append(str);
+            stringBuffer.append(":");
+            stringBuffer.append(str2);
+            stringBuffer.append(":");
+            stringBuffer.append(str3);
+            return stringBuffer.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static void b(String str, String str2, String str3) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
+            Log.d(a, a2);
+        }
+    }
+
+    public static void f(String str, String str2, String str3) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, str3) == null) && (a2 = a(false, str, str2, str3)) != null) {
+            Log.e(a, a2);
+        }
+    }
+
+    public static void h(String str, String str2, String str3) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65545, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
+            Log.i(a, a2);
+        }
+    }
+
+    public static void m(String str, String str2, String str3) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65550, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
+            Log.v(a, a2);
+        }
+    }
+
+    public static void n(String str, String str2, String str3) {
+        String a2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) && (a2 = a(false, str, str2, str3)) != null) {
+            Log.w(a, a2);
+        }
+    }
+
+    public static int c(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
+            if (i() && th != null) {
+                Log.e(a, th.getMessage(), th);
+                return k(0, th.getMessage());
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            return k(0, str);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int e(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
+            return k(0, th.getMessage());
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return k(2, str);
+        }
+        return invokeL.intValue;
+    }
+
+    public static void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
+            b = z;
+        }
+    }
+
+    public static boolean j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            boolean z = false;
+            if (d.size() == 0) {
+                return false;
+            }
+            Iterator<String> it = d.iterator();
+            while (it.hasNext()) {
+                if (str.startsWith(it.next())) {
+                    z = true;
                 }
             }
-            return hashMap;
+            return z;
         }
-        return (Map) invokeL.objValue;
+        return invokeL.booleanValue;
+    }
+
+    public static int k(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, str)) == null) {
+            if (!i()) {
+                return -1;
+            }
+            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
+            if (stackTrace.length < 5) {
+                return -1;
+            }
+            StackTraceElement stackTraceElement = stackTrace[4];
+            String methodName = stackTraceElement.getMethodName();
+            String className = stackTraceElement.getClassName();
+            if (i > 1 && !j(className)) {
+                return -1;
+            }
+            if (i == 0) {
+                f(className, methodName, str);
+                return 0;
+            } else if (i == 1) {
+                n(className, methodName, str);
+                return 0;
+            } else if (i == 2) {
+                h(className, methodName, str);
+                return 0;
+            } else if (i == 3) {
+                b(className, methodName, str);
+                return 0;
+            } else {
+                m(className, methodName, str);
+                return 0;
+            }
+        }
+        return invokeIL.intValue;
     }
 }

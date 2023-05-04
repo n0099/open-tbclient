@@ -1,40 +1,41 @@
 package com.baidu.tieba;
 
-import java.net.InetSocketAddress;
-import java.nio.ByteBuffer;
-import org.java_websocket.WebSocket;
-import org.java_websocket.drafts.Draft;
-import org.java_websocket.exceptions.InvalidDataException;
-import org.java_websocket.framing.Framedata;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface i0b {
-    InetSocketAddress getLocalSocketAddress(WebSocket webSocket);
+public abstract class i0b<TResult> {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    InetSocketAddress getRemoteSocketAddress(WebSocket webSocket);
+    public i0b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void onWebsocketClose(WebSocket webSocket, int i, String str, boolean z);
+    public abstract i0b<TResult> a(f0b<TResult> f0bVar);
 
-    void onWebsocketCloseInitiated(WebSocket webSocket, int i, String str);
+    public abstract i0b<TResult> b(g0b g0bVar);
 
-    void onWebsocketClosing(WebSocket webSocket, int i, String str, boolean z);
+    public abstract i0b<TResult> c(h0b<TResult> h0bVar);
 
-    void onWebsocketError(WebSocket webSocket, Exception exc);
+    public abstract Exception d();
 
-    void onWebsocketHandshakeReceivedAsClient(WebSocket webSocket, w0b w0bVar, d1b d1bVar) throws InvalidDataException;
+    public abstract TResult e();
 
-    e1b onWebsocketHandshakeReceivedAsServer(WebSocket webSocket, Draft draft, w0b w0bVar) throws InvalidDataException;
+    public abstract boolean f();
 
-    void onWebsocketHandshakeSentAsClient(WebSocket webSocket, w0b w0bVar) throws InvalidDataException;
+    public abstract boolean g();
 
-    void onWebsocketMessage(WebSocket webSocket, String str);
-
-    void onWebsocketMessage(WebSocket webSocket, ByteBuffer byteBuffer);
-
-    void onWebsocketOpen(WebSocket webSocket, b1b b1bVar);
-
-    void onWebsocketPing(WebSocket webSocket, Framedata framedata);
-
-    void onWebsocketPong(WebSocket webSocket, Framedata framedata);
-
-    void onWriteDemand(WebSocket webSocket);
+    public abstract boolean h();
 }

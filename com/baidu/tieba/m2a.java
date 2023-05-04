@@ -1,26 +1,19 @@
 package com.baidu.tieba;
 
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m2a {
+public abstract class m2a extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
+    public boolean a;
+
+    public abstract void a(TextPaint textPaint, boolean z);
 
     public m2a() {
         Interceptable interceptable = $ic;
@@ -33,6 +26,17 @@ public class m2a {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint textPaint) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+            super.updateDrawState(textPaint);
+            a(textPaint, this.a);
+            textPaint.setUnderlineText(false);
+            textPaint.clearShadowLayer();
         }
     }
 }

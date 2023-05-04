@@ -5,7 +5,7 @@ import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Looper;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.c9a;
+import com.baidu.tieba.yca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -94,7 +94,7 @@ public class CronetLibraryLoader {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            c9a.h("TurboNetLibraryLoader", "getTurboNetHandler, init done " + d, new Object[0]);
+            yca.h("TurboNetLibraryLoader", "getTurboNetHandler, init done " + d, new Object[0]);
             if (d) {
                 return nativeGetTurboNetHandler();
             }
@@ -140,7 +140,7 @@ public class CronetLibraryLoader {
                 ContextUtils.b(context.getApplicationContext());
                 builder.m();
                 ContextUtils.c();
-                c9a.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
+                yca.h("TurboNetLibraryLoader", "TurboNet version: %s, arch: %s", nativeGetTurboNetVersion(), System.getProperty("os.arch"));
                 ContextUtils.b(context.getApplicationContext());
                 if (!b.isAlive()) {
                     b.start();

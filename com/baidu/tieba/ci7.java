@@ -1,142 +1,88 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.log.YunDialogLog;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
+import com.baidu.tieba.bj5;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmStatic;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes3.dex */
-public final class ci7 {
+public class ci7 implements p25 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675800, "Lcom/baidu/tieba/ci7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947675800, "Lcom/baidu/tieba/ci7;");
-                return;
-            }
-        }
-        a = new a(null);
-    }
-
-    @JvmStatic
-    public static final void a(String str) {
+    public ci7() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            a.b(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    @JvmStatic
-    public static final void b(String str) {
+    @Override // com.baidu.tieba.p25
+    @NonNull
+    public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            a.c(str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogStrategiesData, map, map2)) == null) {
+            HashMap hashMap = new HashMap(map);
+            hashMap.put("dialogName", "frsGroupChatGuide");
+            hashMap.putAll(map);
+            hashMap.putAll(map2);
+            return hashMap;
         }
+        return (Map) invokeLLL.objValue;
     }
 
-    /* loaded from: classes3.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    @Override // com.baidu.tieba.p25
+    public boolean b(@NonNull Map<String, Object> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            boolean z = false;
+            if (!LooperBlockSwitch.getIsOn()) {
+                return false;
             }
-        }
-
-        public final void a(StatisticItem statisticItem, String str) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, statisticItem, str) == null) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    statisticItem.param("fid", str);
-                }
-                statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            Activity currentActivity = TbadkCoreApplication.getInst().getCurrentActivity();
+            if (!(currentActivity instanceof FrsActivity)) {
+                YunDialogLog.getInstance().b("YunDialogManager", "吧主弹窗策略校验失败：当前Activity非FrsActivity");
+                return false;
             }
-        }
-
-        @JvmStatic
-        public final void d(String str, String str2) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
-                StatisticItem statisticItem = new StatisticItem("c15896");
-                if (str2 != null && str2.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    statisticItem.param("obj_param1", str2);
-                }
-                a(statisticItem, str);
-                TiebaStatic.log(statisticItem);
+            FrsFragment v1 = ((FrsActivity) currentActivity).v1();
+            if (v1 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗校验失败：当前FrsFragment为空");
+                return false;
             }
-        }
-
-        @JvmStatic
-        public final void b(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                StatisticItem statisticItem = new StatisticItem("c15889");
-                a(statisticItem, str);
-                TiebaStatic.log(statisticItem);
+            bj5.b N3 = v1.N3();
+            if (N3 == null) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗校验失败：当前OptFragment为空");
+                return false;
             }
-        }
-
-        @JvmStatic
-        public final void c(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-                StatisticItem statisticItem = new StatisticItem("c15888");
-                a(statisticItem, str);
-                TiebaStatic.log(statisticItem);
+            if (!f55.m().i("key_chat_group_guide_show", false) && N3.n0()) {
+                z = true;
             }
-        }
-
-        @JvmStatic
-        public final void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-                StatisticItem statisticItem = new StatisticItem("c15895");
-                a(statisticItem, str);
-                TiebaStatic.log(statisticItem);
+            if (!z) {
+                YunDialogLog.getInstance().b("YunDialogManager", "群聊引导弹窗策略校验失败：已经显示过");
             }
+            return z;
         }
+        return invokeL.booleanValue;
     }
 }

@@ -51,8 +51,8 @@ public class QuestionTagAdapter extends vm<QuestionTagListData.QuestionTag, Ques
                     return;
                 }
             }
-            this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f67);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092235);
+            this.a = (TbClipImageView) view2.findViewById(R.id.obfuscated_res_0x7f090f76);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09224d);
             this.a.setDrawerType(1);
             this.a.setDefaultScaleType(ImageView.ScaleType.CENTER_CROP);
             this.a.setDrawCorner(true);
@@ -102,7 +102,7 @@ public class QuestionTagAdapter extends vm<QuestionTagListData.QuestionTag, Ques
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            return new QuestionTagHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d050a, viewGroup, false));
+            return new QuestionTagHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0512, viewGroup, false));
         }
         return (QuestionTagHolder) invokeL.objValue;
     }

@@ -1,160 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.swan.apps.commonsync.CommonSyncServerData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class y22 {
+public class y22 extends u22 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<d12> k;
+    public m12 l;
 
-    /* loaded from: classes7.dex */
-    public static class a extends ResponseCallback<CommonSyncServerData> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ a32 a;
-
-        public a(a32 a32Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a32Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = a32Var;
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return true;
         }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
-            a32 a32Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, exc) == null) && (a32Var = this.a) != null) {
-                a32Var.onFail();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: a */
-        public void onSuccess(CommonSyncServerData commonSyncServerData, int i) {
-            a32 a32Var;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, commonSyncServerData, i) == null) && (a32Var = this.a) != null) {
-                a32Var.a(commonSyncServerData);
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        /* renamed from: b */
-        public CommonSyncServerData parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, response, i)) == null) {
-                if (response != null && response.body() != null) {
-                    String string = response.body().string();
-                    if (TextUtils.isEmpty(string)) {
-                        return null;
-                    }
-                    JSONObject jSONObject = new JSONObject(string);
-                    int optInt = jSONObject.optInt("errno");
-                    JSONObject optJSONObject = jSONObject.optJSONObject("data");
-                    if (optInt == y22.b && optJSONObject != null) {
-                        return CommonSyncServerData.parseFromJson(optJSONObject);
-                    }
-                }
-                return null;
-            }
-            return (CommonSyncServerData) invokeLI.objValue;
-        }
+        return invokeV.booleanValue;
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948278192, "Lcom/baidu/tieba/y22;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948278192, "Lcom/baidu/tieba/y22;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y22(String str) {
+        super(str);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fo1.a;
-        b = 0;
+        this.k = new ArrayList();
+        m12 m12Var = new m12(str);
+        this.l = m12Var;
+        this.k.add(m12Var);
     }
 
-    public static void b(a32 a32Var) {
+    public int h() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, a32Var) == null) {
-            if (SwanAppNetworkUtils.h()) {
-                ze4.g().getRequest().cookieManager(cr2.q().a()).url(cr2.m().processUrl(z22.a())).build().executeAsync(new a(a32Var));
-            } else if (a32Var != null) {
-                a32Var.onFail();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.l.c();
         }
+        return invokeV.intValue;
     }
 
-    public static RequestBody c(Map<String, Object> map) {
-        InterceptResult invokeL;
+    public List<d12> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (map != null && map.size() > 0) {
-                for (String str : map.keySet()) {
-                    try {
-                        jSONObject.put(str, map.get(str));
-                    } catch (JSONException e) {
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                    }
-                }
-            }
-            return RequestBody.create(cz2.a, jSONObject.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.k;
         }
-        return (RequestBody) invokeL.objValue;
-    }
-
-    public static void d(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ze4.g().postRequest().cookieManager(cr2.q().a())).url(cr2.m().processUrl(z22.b()))).requestBody(c(map)).build().executeAsync(null);
-        }
-    }
-
-    public static void e(Map<String, Object> map) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65541, null, map) == null) && SwanAppNetworkUtils.h()) {
-            ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) ze4.g().postRequest().cookieManager(cr2.q().a())).url(cr2.m().processUrl(z22.c()))).requestBody(c(map)).build().executeAsync(null);
-        }
+        return (List) invokeV.objValue;
     }
 }

@@ -1,209 +1,22 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
+import com.baidu.tieba.tq2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.File;
 /* loaded from: classes4.dex */
-public abstract class e52 {
+public class e52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static volatile e52 b;
-    public static be3 c;
-    public static Timer d;
+    public static final String a;
+    public static final String b;
+    public static final String c;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void f(String str);
-
-    /* loaded from: classes4.dex */
-    public class a extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e52 a;
-
-        public a(e52 e52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = e52Var;
-        }
-
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (e52.a) {
-                    Log.d("LocalDebugStatistic", "timer: send local debug ubc flow");
-                }
-                this.a.c();
-                this.a.h();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b extends e52 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.e52
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || TextUtils.isEmpty(str)) {
-                return;
-            }
-            if (e52.a) {
-                Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != 50335962) {
-                if (hashCode != 1109597094) {
-                    if (hashCode == 1158237819 && str.equals("downloadsuccess")) {
-                        c = 1;
-                    }
-                } else if (str.equals("downloadfail")) {
-                    c = 2;
-                }
-            } else if (str.equals("downloadstart")) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (e52.c != null) {
-                            ce3.d(e52.c, str, d());
-                            return;
-                        }
-                        return;
-                    }
-                    if (e52.c != null) {
-                        ce3.d(e52.c, "downloadfail", d());
-                    }
-                    c();
-                    h();
-                    return;
-                }
-                if (e52.c != null) {
-                    ce3.d(e52.c, "downloadsuccess", d());
-                }
-                c();
-                h();
-                return;
-            }
-            i();
-            ce3.d(e52.c, str, d());
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c extends e52 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c() {
-            super(null);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((a) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        public /* synthetic */ c(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.e52
-        public void f(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !TextUtils.isEmpty(str) && !g52.k().m()) {
-                if (e52.a) {
-                    Log.d("LocalDebugStatistic", "local-debug statistic event name is : " + str);
-                }
-                char c = 65535;
-                int hashCode = str.hashCode();
-                if (hashCode != 900970612) {
-                    if (hashCode == 1415552890 && str.equals("unzipstart")) {
-                        c = 0;
-                    }
-                } else if (str.equals("pageready")) {
-                    c = 1;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        if (e52.c != null) {
-                            ce3.d(e52.c, str, d());
-                            return;
-                        }
-                        return;
-                    } else if (e52.c != null) {
-                        ce3.d(e52.c, str, d());
-                        c();
-                        h();
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                i();
-                ce3.d(e52.c, str, d());
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -218,137 +31,89 @@ public abstract class e52 {
                 return;
             }
         }
-        a = fo1.a;
+        a = "__localDebug__" + File.separator + "master.js";
+        b = "__localDebug__" + File.separator + "main.js";
+        c = "__localDebug__" + File.separator + "slave.js";
     }
 
-    public e52() {
+    public static tq2.g a(us2 us2Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, us2Var)) == null) {
+            File d = d();
+            g52.e().f("unzipstart");
+            tq2.M(b(), d, us2Var);
+            g52.e().f("unzipend");
+            tq2.g gVar = new tq2.g();
+            File file = new File(d, "app.json");
+            SwanAppConfigData b2 = j83.b(d.getAbsolutePath());
+            gVar.a = d.getPath() + File.separator;
+            gVar.b = b2;
+            x42.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
+            return gVar;
         }
+        return (tq2.g) invokeL.objValue;
     }
 
-    public void h() {
+    public static File b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            Timer timer = d;
-            if (timer != null) {
-                timer.cancel();
-                d = null;
-            }
-            b = null;
-            c = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new File(c(), "local_debug.swan");
         }
+        return (File) invokeV.objValue;
     }
 
-    public /* synthetic */ e52(a aVar) {
-        this();
+    public static File c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
     }
 
-    public static e52 e() {
+    public static File d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
+            if (!file.exists()) {
+                file.mkdirs();
+            }
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (b == null) {
-                synchronized (it2.class) {
-                    if (b == null) {
-                        if (gj1.g()) {
-                            b = new b(null);
-                        } else {
-                            b = new c(null);
-                        }
-                    }
-                }
-            }
-            return b;
-        }
-        return (e52) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.putOpt("timestamp", Long.valueOf(System.currentTimeMillis()));
-            } catch (JSONException e) {
-                if (a) {
-                    Log.d("LocalDebugStatistic", "add event content fail", e);
-                }
-            }
-            return jSONObject.toString();
+            return d() + File.separator + a;
         }
         return (String) invokeV.objValue;
     }
 
-    public void i() {
+    public static String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || c != null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return d() + File.separator + c;
         }
-        c = oe3.c("1153");
-        a aVar = new a(this);
-        Timer timer = new Timer();
-        d = timer;
-        try {
-            timer.schedule(aVar, 40000L);
-        } catch (Exception e) {
-            if (a) {
-                e.printStackTrace();
-            }
-        }
+        return (String) invokeV.objValue;
     }
 
-    public static void g(JSONArray jSONArray) {
-        String str;
+    public static boolean g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65542, null, jSONArray) == null) && jSONArray != null && jSONArray.length() > 0) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(0);
-            if (optJSONObject != null) {
-                str = optJSONObject.optString("actionId");
-            } else {
-                str = "";
-            }
-            if (!TextUtils.isEmpty(str) && b != null) {
-                b.f(str);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
         }
-    }
-
-    public void c() {
-        String appId;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || c == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        JSONObject jSONObject2 = new JSONObject();
-        try {
-            v73 b0 = v73.b0();
-            if (b0 == null) {
-                appId = "";
-            } else {
-                appId = b0.getAppId();
-            }
-            jSONObject2.putOpt("appid", appId);
-            jSONObject2.putOpt("from", "local-debug");
-            ne3.a(jSONObject2);
-            jSONObject.putOpt("from", "swan");
-            jSONObject.putOpt("ext", jSONObject2);
-        } catch (JSONException unused) {
-            if (a) {
-                Log.d("LocalDebugStatistic", "page ready statistic value is invalid ");
-            }
-        }
-        ce3.f(c, jSONObject.toString());
-        ce3.c(c);
+        return invokeV.booleanValue;
     }
 }

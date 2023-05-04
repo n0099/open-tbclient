@@ -13,7 +13,7 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -99,13 +99,13 @@ public class ItemHeaderView extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c4, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c7, (ViewGroup) this, true);
             setVisibility(8);
-            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090e68);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e67);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b46);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090e66);
-            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e69);
+            this.b = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090e74);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090e73);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090b4d);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090e72);
+            this.f = (TextView) findViewById(R.id.obfuscated_res_0x7f090e75);
             this.b.setPlaceHolder(1);
         }
     }
@@ -114,7 +114,7 @@ public class ItemHeaderView extends RelativeLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumDetailActivity, i) == null) {
-            iv4 layoutMode = forumDetailActivity.getLayoutMode();
+            yv4 layoutMode = forumDetailActivity.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

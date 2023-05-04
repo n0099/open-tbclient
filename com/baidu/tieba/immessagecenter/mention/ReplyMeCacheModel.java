@@ -3,26 +3,26 @@ package com.baidu.tieba.immessagecenter.mention;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.mvc.model.CacheModel;
-import com.baidu.tieba.h98;
+import com.baidu.tieba.lb8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ReplyMeCacheModel extends CacheModel<h98, ReplyMessageFragment> {
+public class ReplyMeCacheModel extends CacheModel<lb8, ReplyMessageFragment> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public String P() {
+    public String U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "tb_user_replyme" : (String) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int c0() {
+    public int h0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -32,7 +32,7 @@ public class ReplyMeCacheModel extends CacheModel<h98, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public int d0() {
+    public int i0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -62,11 +62,11 @@ public class ReplyMeCacheModel extends CacheModel<h98, ReplyMessageFragment> {
     }
 
     @Override // com.baidu.tbadk.mvc.model.CacheModel
-    public Class<h98> b0() {
+    public Class<lb8> g0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return h98.class;
+            return lb8.class;
         }
         return (Class) invokeV.objValue;
     }

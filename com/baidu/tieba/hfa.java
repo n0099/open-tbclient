@@ -1,17 +1,40 @@
 package com.baidu.tieba;
-/* loaded from: classes4.dex */
-public interface hfa {
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(String str, hfa hfaVar);
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes4.dex */
+public class hfa implements cfa {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public hfa() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
     }
 
-    void cancel();
-
-    boolean isRunning();
-
-    void pause();
-
-    void start();
+    @Override // com.baidu.tieba.cfa
+    public boolean isAgreePrivacy() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            eea a = zea.a();
+            if (a != null) {
+                return a.isAgreePrivacy();
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
 }

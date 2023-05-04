@@ -1,162 +1,384 @@
 package com.baidu.tieba;
 
-import android.os.Message;
-import android.os.RemoteException;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.tieba.l43;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.env.launch.SwanLauncher;
+import com.baidu.swan.apps.process.messaging.service.SwanAppMessengerService;
+import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.tieba.c13;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayDeque;
-import java.util.Deque;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v43 implements l43.c {
+public final class v43 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static String b;
+    public static boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, Deque<Message>> a;
 
-    public v43() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements zd2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ w43 b;
+        public final /* synthetic */ Bundle c;
+
+        public a(Context context, w43 w43Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, w43Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = w43Var;
+            this.c = bundle;
+        }
+
+        @Override // com.baidu.tieba.zd2
+        public void onFail() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && v43.a) {
+                Log.d("SwanAppPreloadHelper", "SwanSailor：updateFail");
+            }
+        }
+
+        @Override // com.baidu.tieba.zd2
+        public void onSuccess() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                if (v43.a) {
+                    Log.d("SwanAppPreloadHelper", "SwanSailor updateSuccess");
+                }
+                v43.i(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements z62 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ w43 b;
+        public final /* synthetic */ Bundle c;
+
+        public b(Context context, w43 w43Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, w43Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = w43Var;
+            this.c = bundle;
+        }
+
+        @Override // com.baidu.tieba.z62
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            boolean unused = v43.c = true;
+            v43.h(this.a, this.b, this.c);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class c implements qm3<Exception> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ w43 b;
+        public final /* synthetic */ Bundle c;
+
+        public c(Context context, w43 w43Var, Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, w43Var, bundle};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = w43Var;
+            this.c = bundle;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qm3
+        /* renamed from: b */
+        public void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                v43.g(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948190772, "Lcom/baidu/tieba/v43;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948190772, "Lcom/baidu/tieba/v43;");
                 return;
             }
         }
-        this.a = new HashMap();
+        a = ho1.a;
+        c = false;
     }
 
-    @Override // com.baidu.tieba.l43.c
-    public void a() {
+    public static void h(Context context, w43 w43Var, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            for (String str : this.a.keySet()) {
-                c(str);
-            }
+        if (interceptable == null || interceptable.invokeLLL(65544, null, context, w43Var, bundle) == null) {
+            SwanLauncher.j().l(new c(context, w43Var, bundle));
         }
     }
 
-    @Override // com.baidu.tieba.l43.c
-    public void b(@NonNull n43 n43Var) {
+    public static void j(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, n43Var) == null) {
-            Message h = n43Var.h();
-            if (n43Var.m()) {
-                h(h);
+        if (interceptable == null || interceptable.invokeL(65546, null, bundle) == null) {
+            bundle.putBoolean("bundle_key_v8_ab", er2.g0().x());
+        }
+    }
+
+    @SuppressLint({"BDThrowableCheck"})
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("master", re2.U().k0());
+                jSONObject.put("slave", re2.U().n0());
+            } catch (JSONException e) {
+                if (a) {
+                    throw new RuntimeException(e);
+                }
             }
-            Set<SwanAppProcessInfo> l = n43Var.l();
-            Set<String> k = n43Var.k();
-            if (n43Var.n()) {
-                Iterator<u43> it = w43.k().q().iterator();
-                while (it.hasNext()) {
-                    u43 next = it.next();
-                    boolean g = g(next, k);
-                    if (l.contains(next.b) || g) {
-                        next.g0(h);
-                        if (g) {
-                            k.remove(next.getAppId());
+            String jSONObject2 = jSONObject.toString();
+            if (a) {
+                Log.d("SwanAppPreloadHelper", "createPreloadStatus -- preloadStatus : " + jSONObject2);
+            }
+            if (TextUtils.isEmpty(jSONObject2)) {
+                return "";
+            }
+            return jSONObject2;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void g(Context context, w43 w43Var, Bundle bundle) {
+        boolean z;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, context, w43Var, bundle) == null) {
+            if (er2.g0() != null) {
+                z = er2.g0().t();
+            } else {
+                z = false;
+            }
+            boolean isMainProcess = ProcessUtils.isMainProcess();
+            if (isMainProcess) {
+                str = "main";
+            } else {
+                str = "aiapp";
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (z) {
+                if (isMainProcess && TextUtils.isEmpty(b)) {
+                    try {
+                        b = new WebView(context).getSettings().getUserAgentString();
+                    } catch (Exception e) {
+                        b = "exception::" + e.toString();
+                        if (a) {
+                            e.printStackTrace();
                         }
                     }
                 }
-                f(k, h);
-                return;
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("time", currentTimeMillis);
+                    jSONObject.put("process", w43Var.b.index);
+                    jSONObject.put("ua", b);
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
+                }
+                c13.d dVar = new c13.d("812");
+                dVar.g("swan");
+                dVar.i("launch");
+                dVar.h(str);
+                dVar.e(jSONObject);
+                c13.onEvent(dVar);
             }
-            Iterator<u43> it2 = w43.k().q().iterator();
-            while (it2.hasNext()) {
-                u43 next2 = it2.next();
-                if (next2 != null && next2.T() && (l.contains(next2.b) || g(next2, k))) {
-                    next2.g0(h);
+            long currentTimeMillis2 = System.currentTimeMillis();
+            if (z) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put("time", currentTimeMillis2);
+                    jSONObject2.put("process", w43Var.b.index);
+                    jSONObject2.put("cost", currentTimeMillis2 - currentTimeMillis);
+                } catch (JSONException e3) {
+                    if (a) {
+                        e3.printStackTrace();
+                    }
+                }
+                c13.d dVar2 = new c13.d("812");
+                dVar2.g("swan");
+                dVar2.i("swan_updated");
+                dVar2.h(str);
+                dVar2.e(jSONObject2);
+                c13.onEvent(dVar2);
+            }
+            if (bundle == null) {
+                bundle = new Bundle();
+            }
+            if (ch3.j()) {
+                eh3.e();
+            }
+            bundle.putParcelable("bundle_key_swan_core", ch3.e(0));
+            bundle.putParcelable("bundle_key_extension_core", gi2.c(0));
+            bundle.putInt("bundle_key_preload_switch", er2.g().a());
+            bundle.putLong("bundle_key_preload_launch_time", currentTimeMillis);
+            bundle.putBoolean("bundle_key_v8_ab", er2.g0().x());
+            bundle.putLong("bundle_key_preload_swan_updated_time", currentTimeMillis2);
+            bundle.putString("bundle_key_preload_src", str);
+            bundle.putInt("bundle_key_process", w43Var.b.index);
+            bundle.setClassLoader(SwanCoreVersion.class.getClassLoader());
+            w43Var.n0(context, bundle);
+        }
+    }
+
+    public static void i(Context context, w43 w43Var, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65545, null, context, w43Var, bundle) == null) {
+            if (be2.a()) {
+                h(context, w43Var, bundle);
+            } else if (c) {
+                h(context, w43Var, bundle);
+            } else {
+                nu1.a().b().a().b(new b(context, w43Var, bundle));
+            }
+        }
+    }
+
+    public static void k(Context context, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65547, null, context, bundle) == null) {
+            Intent intent = new Intent(context, SwanAppMessengerService.class);
+            intent.setAction(SwanAppMessengerService.ACTION_PRELOAD_NEXT);
+            if (bundle != null) {
+                intent.putExtras(bundle);
+            }
+            try {
+                context.startService(intent);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
                 }
             }
         }
     }
 
-    @Override // com.baidu.tieba.l43.c
-    public void c(String str) {
+    public static void l(Context context, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Deque<Message> deque = this.a.get(str);
-            l43.f("flushMsg:: appid=" + str + " msgQueue=" + deque);
-            if (deque != null && !deque.isEmpty()) {
-                List<u43> j = w43.k().j(str);
-                l43.f("flushMsg:: msgQueue.size=" + deque.size() + " clients.size=" + j.size());
-                if (j.isEmpty()) {
+        if (interceptable == null || interceptable.invokeLL(65548, null, context, bundle) == null) {
+            m(context, y43.k().f(), bundle);
+        }
+    }
+
+    public static void n(Context context, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65550, null, context, bundle) == null) {
+            tr1 g0 = er2.g0();
+            if (!w33.Y()) {
+                g0.getSwitch("swan_preload_keep_alive", true);
+            }
+            l(context, bundle);
+        }
+    }
+
+    public static void m(Context context, w43 w43Var, Bundle bundle) {
+        String string;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65549, null, context, w43Var, bundle) == null) {
+            if (a) {
+                y43 k = y43.k();
+                k.u("b4 tryPreload client=" + w43Var);
+            }
+            if (ProcessUtils.isMainProcess() && w43Var != null && w43Var.b.isSwanAppProcess() && !w43Var.E()) {
+                if (bundle == null) {
+                    string = "";
+                } else {
+                    string = bundle.getString("bundle_key_preload_preload_scene");
+                }
+                if (TextUtils.isEmpty(string)) {
+                    string = "0";
+                }
+                if (a) {
+                    Log.d("SwanAppPreloadHelper", "SwanSailor：preloadScene:" + string);
+                }
+                if (er2.w0().c()) {
+                    i(context, w43Var, bundle);
                     return;
                 }
-                for (u43 u43Var : j) {
-                    u43Var.i0(deque);
+                be2 be2Var = new be2();
+                if (TextUtils.equals(string, "0")) {
+                    str = "by_host_launch";
+                } else {
+                    str = "by_preload";
                 }
-                deque.clear();
+                be2Var.a = str;
+                er2.w0().b(be2Var, new a(context, w43Var, bundle));
             }
         }
-    }
-
-    @Override // com.baidu.tieba.l43.c
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.a.remove(str);
-        }
-    }
-
-    public final void h(Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, message) == null) {
-            try {
-                w43.k().e.send(message);
-            } catch (RemoteException e) {
-                l43.f(Log.getStackTraceString(e));
-            }
-        }
-    }
-
-    public final void e(String str, @NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, message) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        Deque<Message> deque = this.a.get(str);
-        if (deque == null) {
-            deque = new ArrayDeque<>();
-            this.a.put(str, deque);
-        }
-        deque.offer(message);
-    }
-
-    public final void f(Set<String> set, @NonNull Message message) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, set, message) == null) {
-            for (String str : set) {
-                e(str, message);
-            }
-        }
-    }
-
-    public boolean g(@NonNull u43 u43Var, @NonNull Set<String> set) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, u43Var, set)) == null) {
-            if (u43Var.E() && set.contains(u43Var.getAppId())) {
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
     }
 }

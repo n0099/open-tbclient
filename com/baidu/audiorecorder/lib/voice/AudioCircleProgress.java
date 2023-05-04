@@ -15,7 +15,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ey5;
+import com.baidu.tieba.ez5;
 import com.baidu.tieba.ii;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -220,7 +220,7 @@ public class AudioCircleProgress extends View {
             this.j = new RectF();
             this.g = new Point();
             this.p = new ValueAnimator();
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ey5.voiceCircleProgress);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, ez5.voiceCircleProgress);
             this.b = obtainStyledAttributes.getColor(0, SkinManager.getColor(R.color.CAM_X0302));
             this.e = obtainStyledAttributes.getColor(2, 0);
             this.c = obtainStyledAttributes.getDimension(1, 15.0f);

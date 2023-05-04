@@ -124,7 +124,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
         boolean aY = com.kwad.sdk.core.response.a.a.aY(this.mAdInfo);
         boolean cc = com.kwad.sdk.core.response.a.d.cc(this.mAdTemplate);
         if (aY && cc) {
-            q qVar = new q(R.id.obfuscated_res_0x7f09129e);
+            q qVar = new q(R.id.obfuscated_res_0x7f0912ac);
             this.sz = qVar;
             qVar.a(new p.a() { // from class: com.kwad.components.ad.reward.presenter.a.kwai.c.2
                 @Override // com.kwad.components.ad.reward.k.p.a
@@ -182,7 +182,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
                 detailVideoView.updateTextureViewGravity(i);
                 c cVar3 = c.this;
                 cVar3.sD = cVar3.mDetailVideoView.getBackground();
-                c.this.mDetailVideoView.setBackgroundColor(c.this.getContext().getResources().getColor(R.color.obfuscated_res_0x7f06061d));
+                c.this.mDetailVideoView.setBackgroundColor(c.this.getContext().getResources().getColor(R.color.obfuscated_res_0x7f060621));
                 c.this.hL();
             }
         });
@@ -190,7 +190,7 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
 
     /* JADX INFO: Access modifiers changed from: private */
     public void hL() {
-        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911e0);
+        ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f0911ee);
         if (imageView == null) {
             return;
         }
@@ -233,10 +233,10 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
         com.kwad.components.ad.reward.c.eZ().a(this.mRewardVerifyListener);
         this.sw.setCallerContext(this.nM);
         this.sw.a(getContext(), this.nM.mScreenOrientation == 0, hN());
-        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0912a4);
-        this.sy = viewStub != null ? new j(this.nM, viewStub) : new j(this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912e6));
-        ViewStub viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0912a5);
-        this.sA = viewStub2 != null ? new n(this.mAdTemplate, this.nM, viewStub2, this.mDetailVideoView) : new n(this.mAdTemplate, this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091285), this.mDetailVideoView);
+        ViewStub viewStub = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0912b2);
+        this.sy = viewStub != null ? new j(this.nM, viewStub) : new j(this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f0912f4));
+        ViewStub viewStub2 = (ViewStub) findViewById(R.id.obfuscated_res_0x7f0912b3);
+        this.sA = viewStub2 != null ? new n(this.mAdTemplate, this.nM, viewStub2, this.mDetailVideoView) : new n(this.mAdTemplate, this.nM, (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091293), this.mDetailVideoView);
         hJ();
     }
 
@@ -247,8 +247,8 @@ public final class c extends com.kwad.components.ad.reward.presenter.a implement
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.sw = (TailFrameView) findViewById(R.id.obfuscated_res_0x7f09139b);
-        DetailVideoView detailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f091397);
+        this.sw = (TailFrameView) findViewById(R.id.obfuscated_res_0x7f0913a9);
+        DetailVideoView detailVideoView = (DetailVideoView) findViewById(R.id.obfuscated_res_0x7f0913a5);
         this.mDetailVideoView = detailVideoView;
         if (detailVideoView.getLayoutTransition() != null) {
             this.mDetailVideoView.getLayoutTransition().enableTransitionType(4);

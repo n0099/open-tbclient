@@ -139,7 +139,7 @@ public class XMPushService extends Service implements fy {
     /* renamed from: a  reason: collision with other field name */
     public ga f848a = new ci(this);
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a extends BroadcastReceiver {
 
         /* renamed from: a  reason: collision with other field name */
@@ -204,7 +204,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class b extends j {
 
         /* renamed from: a  reason: collision with other field name */
@@ -251,7 +251,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c extends j {
         public final bg.b a;
 
@@ -284,7 +284,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class d extends j {
         public fk a;
 
@@ -317,7 +317,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class e extends j {
         public e() {
             super(1);
@@ -343,7 +343,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class f extends BroadcastReceiver {
         public f() {
         }
@@ -355,7 +355,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class g extends j {
 
         /* renamed from: a  reason: collision with other field name */
@@ -381,7 +381,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class h extends j {
         public h() {
             super(65535);
@@ -400,7 +400,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class i extends j {
         public Intent a;
 
@@ -429,7 +429,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class j extends p.b {
         public j(int i) {
             super(i);
@@ -451,7 +451,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class k extends BroadcastReceiver {
         public k() {
         }
@@ -466,7 +466,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class l extends j {
         public l() {
             super(5);
@@ -485,7 +485,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class m extends j {
         public gm a;
 
@@ -508,13 +508,13 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface n {
         /* renamed from: a */
         void mo468a();
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class o extends j {
 
         /* renamed from: a  reason: collision with other field name */
@@ -548,7 +548,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class p extends j {
 
         /* renamed from: a  reason: collision with other field name */
@@ -580,7 +580,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class q extends j {
         public q() {
             super(3);
@@ -605,7 +605,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class r extends BroadcastReceiver {
         public r() {
         }
@@ -616,7 +616,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class s extends j {
 
         /* renamed from: a  reason: collision with other field name */
@@ -659,7 +659,7 @@ public class XMPushService extends Service implements fy {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class t extends BroadcastReceiver {
         public t() {
         }

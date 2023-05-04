@@ -30,7 +30,7 @@ import com.baidu.android.imsdk.ubc.ScreenUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.w60;
+import com.baidu.tieba.y60;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -517,7 +517,7 @@ public class IMFetchMsgByIdMsg extends Message {
                         LogUtils.e(str, "clientLogId :" + e7.getMessage());
                     }
                     this.this$0.mUbcData.setDebugInfo(this.this$0.mDebugInfo);
-                    w60.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    y60.d().f(this.this$0.mUbcData.generateUBCData(String.valueOf(this.mErrorCode), this.mStrMsg), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             }
         }

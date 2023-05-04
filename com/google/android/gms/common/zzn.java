@@ -10,7 +10,7 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
 @SafeParcelable.Class(creator = "GoogleCertificatesLookupQueryCreator")
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzn extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzn> CREATOR = new zzo();
     @SafeParcelable.Field(getter = "getCallingPackage", id = 1)

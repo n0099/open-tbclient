@@ -1,306 +1,83 @@
 package com.baidu.tieba;
 
+import android.app.Application;
 import android.content.Context;
+import android.os.Build;
+import android.os.SystemClock;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.java.Supplier;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.config.AppConfig;
-import com.baidu.searchbox.elasticthread.scheduler.ElasticTaskScheduler;
+import com.baidu.android.util.devices.DeviceUtil;
+import com.baidu.searchbox.aperf.param.CommonUtils;
+import com.baidu.searchbox.aperf.runtime.AperfRuntime;
+import com.baidu.searchbox.logsystem.basic.LogSystemServiceUtil;
+import com.baidu.searchbox.logsystem.basic.LokiService;
+import com.baidu.searchbox.logsystem.basic.eventhandler.DefaultProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.basic.util.SnapshotUtil;
+import com.baidu.searchbox.logsystem.logsys.CrashUtil;
+import com.baidu.searchbox.logsystem.logsys.LogDiskStoreConfig;
+import com.baidu.searchbox.logsystem.logsys.LogExtra;
+import com.baidu.searchbox.logsystem.logsys.LogFile;
+import com.baidu.searchbox.logsystem.logsys.LogPipelineSingleton;
+import com.baidu.searchbox.logsystem.logsys.LogType;
+import com.baidu.searchbox.logsystem.logsys.SnapshotConstant;
+import com.baidu.searchbox.logsystem.logsys.eventscene.EventObject;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ForwardingProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.handler.ProcessEventSceneHandler;
+import com.baidu.searchbox.logsystem.logsys.eventscene.snapshot.ProcessSnapshotType;
+import com.baidu.searchbox.logsystem.util.LLog;
+import com.baidu.searchbox.logsystem.util.Utility;
+import com.baidu.searchbox.track.Track;
+import com.baidu.searchbox.track.ui.TrackUI;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
+import java.io.File;
+import java.util.HashSet;
 import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.util.Set;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class m10 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String TAG = "loki-native-NativeCrashHandler";
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public l8 b;
-    public u8 c;
-    public ElasticTaskScheduler d;
+    public Context mContext;
+    public Supplier<List<ProcessEventSceneHandler>> mForwardingHandlerSupplier;
+    public long mProcessLaunchTime;
+    public String mProcessName;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m10 a;
-
-        public a(m10 m10Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m10Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m10Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.c == null) {
-                    this.a.c = new u8();
-                }
-                this.a.c.g();
-            }
+    public void onAttachExtra(@NonNull Context context, @NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, jSONObject) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m10 a;
-
-        public b(m10 m10Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m10Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m10Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.c == null) {
-                    this.a.c = new u8();
-                }
-                this.a.c.f();
-            }
+    public void onCrashStart() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ List a;
-        public final /* synthetic */ int b;
-
-        public c(m10 m10Var, List list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m10Var, list, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = list;
-            this.b = i;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    JSONObject jSONObject = new JSONObject();
-                    for (r8 r8Var : this.a) {
-                        jSONObject.put(r8Var.a(), r8Var.b());
-                    }
-                    l10.m(jSONObject, this.b);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
+    public void onDisasterRecovery(@NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m10 a;
-
-        public d(m10 m10Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m10Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m10Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.b == null) {
-                    m10 m10Var = this.a;
-                    m10Var.b = new l8(m10Var.a);
-                }
-                this.a.b.d();
-            }
+    public void onEvent(@NonNull String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, str2) == null) {
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HashMap a;
-
-        public e(m10 m10Var, HashMap hashMap) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m10Var, hashMap};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = hashMap;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            HashMap hashMap;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (hashMap = this.a) != null && hashMap.size() > 0 && this.a.values().size() > 0) {
-                l10.g(new ArrayList(this.a.values()));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ m10 a;
-
-        public f(m10 m10Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m10Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = m10Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            j8 j8Var;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.a.b == null) {
-                    m10 m10Var = this.a;
-                    m10Var.b = new l8(m10Var.a);
-                }
-                if (this.a.c == null) {
-                    this.a.c = new u8();
-                }
-                ArrayList arrayList = new ArrayList();
-                String d = l10.d();
-                HashMap<String, j8> hashMap = new HashMap<>();
-                if (!TextUtils.isEmpty(d)) {
-                    hashMap = this.a.b.b(d);
-                }
-                HashMap hashMap2 = new HashMap();
-                String e = l10.e();
-                if (!TextUtils.isEmpty(e)) {
-                    hashMap2.putAll(this.a.c.b(e));
-                }
-                HashMap hashMap3 = new HashMap();
-                String c = l10.c();
-                if (!TextUtils.isEmpty(c)) {
-                    hashMap3.putAll(this.a.c.d(c));
-                }
-                HashMap hashMap4 = new HashMap();
-                hashMap4.putAll(hashMap);
-                hashMap4.putAll(hashMap2);
-                hashMap4.putAll(hashMap3);
-                for (String str : hashMap4.keySet()) {
-                    if (((j8) hashMap4.get(str)) != null) {
-                        String str2 = j8Var.c() + "_" + j8Var.b();
-                        if (!TextUtils.isEmpty(str2) && !arrayList.contains(str2)) {
-                            arrayList.add(str2);
-                        }
-                    }
-                }
-                String b = l10.b();
-                if (TextUtils.isEmpty(b)) {
-                    return;
-                }
-                HashMap l = this.a.l(b);
-                ArrayList arrayList2 = new ArrayList();
-                for (String str3 : l.keySet()) {
-                    if (!TextUtils.isEmpty(str3) && !arrayList.contains(str3)) {
-                        arrayList2.add(l.get(str3));
-                    }
-                }
-                if (arrayList2.size() > 0) {
-                    l10.a(arrayList2);
-                }
-                if (AppConfig.isDebug()) {
-                    Log.d("EasyABDataProducer", "checkInvalidSidFileData sidList " + arrayList.size());
-                    Log.d("EasyABDataProducer", "checkInvalidSidFileData expInfoHashMap sidList " + l.size());
-                }
-            }
-        }
-    }
-
-    public m10(Context context) {
+    public m10(@NonNull Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -315,253 +92,179 @@ public class m10 {
                 return;
             }
         }
-        this.a = context;
-        this.d = ElasticTaskScheduler.getInstance();
-    }
-
-    public final void r(HashMap<String, j8> hashMap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, hashMap) == null) {
-            this.d.postConcurrentTask(new e(this, hashMap), "transferData", 3);
+        if (context instanceof Application) {
+            this.mContext = context;
+        } else {
+            this.mContext = context.getApplicationContext();
+        }
+        this.mProcessName = ij1.b();
+        this.mProcessLaunchTime = System.currentTimeMillis();
+        if (Build.VERSION.SDK_INT <= 19) {
+            initKITKAT();
         }
     }
 
-    public final void t(List<r8> list, int i) {
+    public m10(@NonNull Context context, @NonNull Supplier<List<ProcessEventSceneHandler>> supplier) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048589, this, list, i) == null) {
-            this.d.postConcurrentTask(new c(this, list, i), "transferData", 3);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, supplier};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        if (context instanceof Application) {
+            this.mContext = context;
+        } else {
+            this.mContext = context.getApplicationContext();
+        }
+        this.mProcessName = ij1.b();
+        this.mProcessLaunchTime = System.currentTimeMillis();
+        this.mForwardingHandlerSupplier = supplier;
     }
 
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && i8.a(this.a).b()) {
-            this.d.postConcurrentTask(new f(this), "checkInvalidSidFileData", 3);
-        }
-    }
-
-    public HashMap<String, j8> n() {
+    private LogExtra createLogExtra() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            String b2 = l10.b();
-            if (!TextUtils.isEmpty(b2)) {
-                return l(b2);
-            }
-            return m();
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            ElasticTaskScheduler.getInstance().postConcurrentTask(new b(this), "transferData", 3);
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.d.postConcurrentTask(new d(this), "transferData", 3);
-        }
-    }
-
-    public final void v() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            ElasticTaskScheduler.getInstance().postConcurrentTask(new a(this), "transferData", 3);
-        }
-    }
-
-    public final HashMap<String, j8> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            String c2 = l10.c();
-            if (this.c == null) {
-                this.c = new u8();
-            }
-            if (!TextUtils.isEmpty(c2)) {
-                return this.c.d(c2);
-            }
-            return this.c.c();
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, j8> i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            String d2 = l10.d();
-            if (this.b == null) {
-                this.b = new l8(this.a);
-            }
-            if (!TextUtils.isEmpty(d2)) {
-                return this.b.b(d2);
-            }
-            l8 l8Var = this.b;
-            return l8Var.b(l8Var.a().d());
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public final HashMap<String, j8> j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            String e2 = l10.e();
-            if (this.c == null) {
-                this.c = new u8();
-            }
-            if (!TextUtils.isEmpty(e2)) {
-                return this.c.b(e2);
-            }
-            return this.c.a();
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    @Deprecated
-    public int k(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, str, i)) == null) {
-            try {
-                JSONArray jSONArray = new JSONObject(this.b.a().d()).getJSONArray("exps");
-                for (int i2 = 0; i2 < jSONArray.length(); i2++) {
-                    JSONObject jSONObject = jSONArray.getJSONObject(i2).getJSONObject("components_values");
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (TextUtils.equals(str, next)) {
-                            return jSONObject.optInt(next, i);
-                        }
-                    }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, this)) == null) {
+            LogExtra logExtra = new LogExtra();
+            TrackUI lastTrackUI = Track.getInstance().getLastTrackUI();
+            if (lastTrackUI != null) {
+                if (!TextUtils.isEmpty(lastTrackUI.getFragmentPage())) {
+                    logExtra.mPage = lastTrackUI.getFragmentPage();
+                } else {
+                    logExtra.mPage = lastTrackUI.getActivityPage();
                 }
-            } catch (Exception unused) {
             }
-            return i;
+            logExtra.mCrashTime = String.valueOf(System.currentTimeMillis());
+            logExtra.mLaunchTime = String.valueOf(this.mProcessLaunchTime);
+            if (DeviceUtil.OSInfo.hasNougat()) {
+                logExtra.mProcessLifeTime = String.valueOf(SystemClock.elapsedRealtime() - Utility.getProcessStartElapsedRealTime());
+            }
+            logExtra.mForeground = String.valueOf(Track.getInstance().isForeground());
+            logExtra.mTraceID = AperfRuntime.Runtime.getProcessUUID();
+            logExtra.mHeapMem = CommonUtils.getHeapInfo();
+            logExtra.mVSSRSS = CommonUtils.getVSSRSS();
+            logExtra.mPSS = CommonUtils.getPSS();
+            logExtra.mSysMem = CommonUtils.getSysMem();
+            logExtra.mSysLowMem = !CommonUtils.isLowMemory() ? 1 : 0;
+            return logExtra;
         }
-        return invokeLI.intValue;
+        return (LogExtra) invokeV.objValue;
     }
 
-    public final HashMap<String, j8> l(String str) {
-        InterceptResult invokeL;
+    @NonNull
+    private ForwardingProcessEventSceneHandler getForwardingProcessEventSceneHandler() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            HashMap<String, j8> hashMap = new HashMap<>();
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                long currentTimeMillis = System.currentTimeMillis() / 1000;
-                Iterator<String> keys = jSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    String[] split = next.split("_");
-                    int d2 = t10.d(split[0]);
-                    int d3 = t10.d(split[1]);
-                    JSONObject jSONObject2 = jSONObject.getJSONObject(next);
-                    if (jSONObject2.has("expired_time") && jSONObject2.has("is_upload")) {
-                        boolean z = jSONObject2.getBoolean("is_upload");
-                        long j = jSONObject2.getLong("expired_time");
-                        if (z && currentTimeMillis <= j) {
-                            hashMap.put(next, new j8(d2, d3, j, z));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = new ForwardingProcessEventSceneHandler();
+            if (Build.VERSION.SDK_INT > 19) {
+                forwardingProcessEventSceneHandler.addEventHandleCallback(new DefaultProcessEventSceneHandler());
+            }
+            Supplier<List<ProcessEventSceneHandler>> supplier = this.mForwardingHandlerSupplier;
+            if (supplier != null && Build.VERSION.SDK_INT > 19) {
+                forwardingProcessEventSceneHandler.addEventHandleCallback(supplier.get());
+            }
+            return forwardingProcessEventSceneHandler;
+        }
+        return (ForwardingProcessEventSceneHandler) invokeV.objValue;
+    }
+
+    private void initKITKAT() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, this) == null) {
+            DefaultProcessEventSceneHandler.init();
+            LogType.init();
+            SnapshotUtil.init();
+            LogFile.init();
+            ProcessSnapshotType.init();
+            Utility.init();
+            LogPipelineSingleton.init();
+            LokiService.init();
+            LogExtra.init();
+            LogDiskStoreConfig.init();
+            CrashUtil.init();
+            LogSystemServiceUtil.init();
+        }
+    }
+
+    private void processNativeCrash(@NonNull String str, @NonNull LogExtra logExtra) {
+        HashSet hashSet;
+        Set<LogFile> obtainProcessSnapShots;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, this, str, logExtra) == null) {
+            File obtainFileDirWithProcessName = LogPipelineSingleton.obtainFileDirWithProcessName(this.mProcessName);
+            if (!obtainFileDirWithProcessName.exists()) {
+                obtainFileDirWithProcessName.mkdirs();
+            }
+            JSONObject jSONObject = new JSONObject();
+            onAttachExtra(this.mContext, jSONObject);
+            logExtra.mJSONAttach = jSONObject.toString();
+            ForwardingProcessEventSceneHandler forwardingProcessEventSceneHandler = getForwardingProcessEventSceneHandler();
+            File file = null;
+            if (forwardingProcessEventSceneHandler != null) {
+                hashSet = new HashSet(5);
+                EventObject eventObject = new EventObject(LogType.NATIVE_CRASH, str);
+                Set<ProcessSnapshotType> requireGeneralSnapshots = forwardingProcessEventSceneHandler.requireGeneralSnapshots(this.mContext, eventObject);
+                if (requireGeneralSnapshots != null && requireGeneralSnapshots.size() > 0 && (obtainProcessSnapShots = SnapshotUtil.obtainProcessSnapShots(this.mContext, requireGeneralSnapshots, obtainFileDirWithProcessName, this.mProcessName, logExtra)) != null && obtainProcessSnapShots.size() > 0) {
+                    hashSet.addAll(obtainProcessSnapShots);
+                }
+                Set<LogFile> customizedSnapshots = forwardingProcessEventSceneHandler.getCustomizedSnapshots(this.mContext, obtainFileDirWithProcessName, eventObject);
+                if (customizedSnapshots != null && customizedSnapshots.size() > 0) {
+                    hashSet.addAll(customizedSnapshots);
+                }
+                LogFile obtainFragmentSnapShot = SnapshotUtil.obtainFragmentSnapShot(this.mContext, forwardingProcessEventSceneHandler, eventObject, obtainFileDirWithProcessName, SnapshotConstant.ProcessConstants.PROCESS_SHARED_FRAGMENT_FILE);
+                if (obtainFragmentSnapShot != null && obtainFragmentSnapShot.mFile.exists()) {
+                    hashSet.add(obtainFragmentSnapShot);
+                }
+                if (LLog.sDebug) {
+                    if (hashSet.size() > 0) {
+                        Log.d(TAG, "uploadLogFiles.size() = " + hashSet.size());
+                        for (int i = 0; i < hashSet.size(); i++) {
                         }
                     } else {
-                        hashMap.put(next, new j8(d2, d3));
+                        Log.d(TAG, "uploadLogFiles is null or uploadLogFiles.size() = 0");
                     }
                 }
-            } catch (JSONException e2) {
-                e2.printStackTrace();
+            } else {
+                hashSet = null;
             }
-            return hashMap;
-        }
-        return (HashMap) invokeL.objValue;
-    }
-
-    public List<r8> o(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i)) == null) {
-            if (this.b == null) {
-                this.b = new l8(this.a);
-            }
-            List<r8> c2 = this.b.c(i);
-            if (this.c == null) {
-                this.c = new u8();
-            }
-            List<r8> e2 = this.c.e(i);
-            List<r8> arrayList = new ArrayList<>();
-            arrayList.addAll(c2);
-            arrayList.addAll(e2);
-            if (AppConfig.isDebug()) {
-                Log.d("EasyABDataProducer", "loadSwitchInfoFromV1AndV2 v1SwitchInfoList " + c2.size() + " v2SwitchInfoList " + e2.size() + "sampleInfoList " + arrayList.size());
-            }
-            if (arrayList.size() > 0) {
-                t(arrayList, i);
-            }
-            return arrayList;
-        }
-        return (List) invokeI.objValue;
-    }
-
-    public List<r8> p(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
-            String e2 = o10.e(i);
-            if (!TextUtils.isEmpty(e2)) {
-                try {
-                    ArrayList arrayList = new ArrayList();
-                    JSONObject jSONObject = new JSONObject(e2);
-                    Iterator<String> keys = jSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        arrayList.add(new r8(next, jSONObject.get(next)));
-                    }
-                    if (AppConfig.isDebug()) {
-                        Log.d("EasyABDataProducer", "loadV3SampleSwitchInfo switchInfoList size " + arrayList.size());
-                    }
-                    return arrayList;
-                } catch (JSONException e3) {
-                    e3.printStackTrace();
+            onDisasterRecovery(this.mContext);
+            if (hashSet != null) {
+                file = SnapshotUtil.createPathNameKeeper(obtainFileDirWithProcessName, hashSet);
+                if (LLog.sDebug && file != null) {
+                    Log.d(TAG, "pathNameKeeper = " + file.getAbsolutePath());
                 }
             }
-            return o(i);
+            onReport(this.mContext, str, file, logExtra);
         }
-        return (List) invokeI.objValue;
     }
 
-    public final HashMap<String, j8> m() {
-        InterceptResult invokeV;
+    public void onReport(@NonNull Context context, @NonNull String str, @Nullable File file, @Nullable LogExtra logExtra) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            HashMap<String, j8> hashMap = new HashMap<>();
-            HashMap<String, j8> i = i();
-            HashMap<String, j8> j = j();
-            HashMap<String, j8> h = h();
-            hashMap.putAll(i);
-            hashMap.putAll(j);
-            hashMap.putAll(h);
-            if (AppConfig.isDebug()) {
-                Log.d("ExperimentManager", "loadExpInfoFromV1AndV2 expV1SidInfo>> " + i.size());
-                Log.d("ExperimentManager", "loadExpInfoFromV1AndV2 expV2SidInfo>> " + j.size());
-                Log.d("ExperimentManager", "loadExpInfoFromV1AndV2 expSapSidInfo>> " + h.size());
+        if (interceptable == null || interceptable.invokeLLLL(1048580, this, context, str, file, logExtra) == null) {
+            LogSystemServiceUtil.startLogHandlerService(context, LogType.NATIVE_CRASH, str, file, logExtra);
+        }
+    }
+
+    public void uncaughtNativeCrash(@NonNull String str, int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLII(1048581, this, str, i, i2) == null) {
+            Log.d(TAG, str);
+            try {
+                processNativeCrash(str, createLogExtra());
+            } catch (Throwable th) {
+                if (LLog.sDebug) {
+                    th.printStackTrace();
+                }
             }
-            v();
-            u();
-            s();
-            r(hashMap);
-            return hashMap;
-        }
-        return (HashMap) invokeV.objValue;
-    }
-
-    public void q(JSONObject jSONObject, JSONObject jSONObject2, List<j8> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048586, this, jSONObject, jSONObject2, list) == null) {
-            l10.j(jSONObject, jSONObject2, list);
         }
     }
 }

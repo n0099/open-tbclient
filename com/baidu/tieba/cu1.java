@@ -1,31 +1,19 @@
 package com.baidu.tieba;
 
 import android.view.View;
-import android.webkit.ValueCallback;
+import android.view.ViewGroup;
+import com.baidu.tieba.eu1;
 /* loaded from: classes4.dex */
-public interface cu1 extends t62 {
-    boolean canGoBack();
+public interface cu1<T extends eu1> extends fu1<T> {
+    void E();
 
-    View covertToView();
+    void F(ViewGroup viewGroup);
 
-    void destroy();
+    void G(View view2);
 
-    @Override // com.baidu.tieba.t62
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+    void P(boolean z);
 
-    int getContentHeight();
+    void V();
 
-    View getCurrentWebView();
-
-    float getScale();
-
-    int getWebViewScrollX();
-
-    int getWebViewScrollY();
-
-    void goBack();
-
-    void setDefaultViewSize(int i, int i2, String str);
-
-    void webViewScrollTo(int i, int i2);
+    void g0(String str, String str2);
 }

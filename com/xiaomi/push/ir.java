@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import com.xiaomi.push.iz;
 import com.xiaomi.push.jj;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ir {
     public static short a(Context context, id idVar) {
         return a(context, idVar.f638b);

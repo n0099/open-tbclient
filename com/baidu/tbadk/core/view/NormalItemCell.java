@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -222,7 +222,7 @@ public class NormalItemCell extends ConstraintLayout {
             this.b = findViewById(R.id.divider_bottom);
             this.c = (TextView) findViewById(R.id.main_title);
             this.d = (TextView) findViewById(R.id.sub_title);
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bc);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bb);
         }
     }
 
@@ -244,7 +244,7 @@ public class NormalItemCell extends ConstraintLayout {
             }
             a aVar2 = this.f;
             if (aVar2 != null && aVar2.a != -1) {
-                r25 d = r25.d(this.d);
+                g35 d = g35.d(this.d);
                 d.o(R.string.J_X06);
                 d.f(this.f.a);
             }

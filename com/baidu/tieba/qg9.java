@@ -1,48 +1,114 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkInfoRecord;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBC;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qg9 implements NetworkInfoRecord {
+public class qg9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public tg9 a;
-    public tg9 b;
+    public int a;
+    public List<b> b;
 
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "850" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public String b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
 
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "94" : (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
-    public boolean shouldRecord() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return true;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
+
+        public static a a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                a aVar = new a();
+                aVar.a = jSONObject.optLong("forum_id");
+                aVar.b = jSONObject.optString("forum_name");
+                aVar.c = jSONObject.optInt("member_count");
+                aVar.d = jSONObject.optInt("thread_count");
+                aVar.e = jSONObject.optString("avatar");
+                aVar.f = jSONObject.optString("slogan");
+                return aVar;
+            }
+            return (a) invokeL.objValue;
+        }
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public List<a> b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public static b a(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+                if (jSONObject == null) {
+                    return null;
+                }
+                b bVar = new b();
+                bVar.a = jSONObject.optString("name");
+                JSONArray optJSONArray = jSONObject.optJSONArray("forum_list");
+                if (optJSONArray != null && optJSONArray.length() > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    for (int i = 0; i < optJSONArray.length(); i++) {
+                        a a = a.a(optJSONArray.optJSONObject(i));
+                        if (a != null) {
+                            arrayList.add(a);
+                        }
+                    }
+                    bVar.b = arrayList;
+                }
+                return bVar;
+            }
+            return (b) invokeL.objValue;
+        }
+    }
+
     public qg9() {
-        this(new rg9(10, 100));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,61 +116,34 @@ public class qg9 implements NetworkInfoRecord {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                this((tg9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public qg9(tg9 tg9Var) {
+    public static qg9 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tg9Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return null;
             }
-        }
-        this.a = tg9Var;
-        this.b = new sg9();
-    }
-
-    @Override // com.baidu.searchbox.http.statistics.NetworkInfoRecord
-    public void doRecord(NetworkStatRecord networkStatRecord) {
-        JSONObject uBCJson;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, networkStatRecord) == null) && networkStatRecord != null && (uBCJson = networkStatRecord.toUBCJson()) != null) {
-            String jSONObject = uBCJson.toString();
-            pg9 a = pg9.a();
-            if (a.g()) {
-                a.c(jSONObject);
-            }
-            if (a.f(networkStatRecord)) {
-                a.b(jSONObject);
-            }
-            tg9 tg9Var = this.a;
-            if (tg9Var != null && tg9Var.a(networkStatRecord)) {
-                int i = 0;
-                if (eg9.a) {
-                    i = 64;
+            qg9 qg9Var = new qg9();
+            qg9Var.a = jSONObject.optInt("showLocate");
+            JSONArray optJSONArray = jSONObject.optJSONArray("tabList");
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    b a2 = b.a(optJSONArray.optJSONObject(i));
+                    if (a2 != null) {
+                        arrayList.add(a2);
+                    }
                 }
-                UBC.onEvent(b(), jSONObject, i);
+                qg9Var.b = arrayList;
             }
-            if (eg9.a && networkStatRecord.from != 3 && networkStatRecord.netEngine < 0) {
-                Log.i("SearchBoxNetRecord", "baidu_networkSearchBoxNetRecord onFinishRecord UBC.onEvent!UbcEventId:" + b() + "，ubcJson:" + uBCJson);
-            }
-            tg9 tg9Var2 = this.b;
-            if (tg9Var2 != null && tg9Var2.a(networkStatRecord)) {
-                UBC.onEvent(a(), jSONObject);
-            }
+            return qg9Var;
         }
+        return (qg9) invokeL.objValue;
     }
 }

@@ -44,12 +44,12 @@ public final class R {
         public static final int fade_out = 0x7f010064;
         public static final int hold = 0x7f010094;
         public static final int novel_loading_progress = 0x7f0100c5;
-        public static final int slide_down = 0x7f010135;
-        public static final int slide_up = 0x7f01013b;
+        public static final int slide_down = 0x7f010137;
+        public static final int slide_up = 0x7f01013d;
         public static final int wallet_base_slide_from_left = 0x7f01013f;
-        public static final int wallet_base_slide_from_right = 0x7f01015e;
-        public static final int wallet_base_slide_to_left = 0x7f01015f;
-        public static final int wallet_base_slide_to_right = 0x7f010160;
+        public static final int wallet_base_slide_from_right = 0x7f010160;
+        public static final int wallet_base_slide_to_left = 0x7f010161;
+        public static final int wallet_base_slide_to_right = 0x7f010162;
         public transient /* synthetic */ FieldHolder $fh;
 
         public anim() {
@@ -193,263 +193,263 @@ public final class R {
         public static final int contentPaddingTop = 0x7f040187;
         public static final int controlBackground = 0x7f04019d;
         public static final int corner_radius = 0x7f0401ad;
-        public static final int customNavigationLayout = 0x7f0401fb;
-        public static final int defaultQueryHint = 0x7f040207;
-        public static final int dialogCornerRadius = 0x7f040211;
-        public static final int dialogPreferredPadding = 0x7f040212;
-        public static final int dialogTheme = 0x7f040213;
-        public static final int displayOptions = 0x7f040215;
-        public static final int divider = 0x7f040216;
+        public static final int customNavigationLayout = 0x7f040204;
+        public static final int defaultQueryHint = 0x7f040210;
+        public static final int dialogCornerRadius = 0x7f04021a;
+        public static final int dialogPreferredPadding = 0x7f04021b;
+        public static final int dialogTheme = 0x7f04021c;
+        public static final int displayOptions = 0x7f040247;
+        public static final int divider = 0x7f040250;
 
         /* renamed from: dividerArcRadius */
-        public static final int obfuscated = 0x7f040217;
-        public static final int dividerHorizontal = 0x7f040219;
+        public static final int obfuscated = 0x7f040251;
+        public static final int dividerHorizontal = 0x7f040253;
 
         /* renamed from: dividerLineColor */
-        public static final int obfuscated = 0x7f04021a;
-        public static final int dividerLineHeight = 0x7f04021b;
-        public static final int dividerPadding = 0x7f04021c;
-        public static final int dividerVertical = 0x7f04021d;
-        public static final int drawableBottomCompat = 0x7f040259;
-        public static final int drawableEndCompat = 0x7f04025a;
-        public static final int drawableLeftCompat = 0x7f04025b;
-        public static final int drawableRightCompat = 0x7f04025c;
-        public static final int drawableSize = 0x7f04025d;
-        public static final int drawableStartCompat = 0x7f04025e;
-        public static final int drawableTint = 0x7f04025f;
-        public static final int drawableTintMode = 0x7f040260;
-        public static final int drawableTopCompat = 0x7f040261;
-        public static final int drawerArrowStyle = 0x7f040262;
-        public static final int dropDownListViewStyle = 0x7f040266;
-        public static final int dropdownListPreferredItemHeight = 0x7f040268;
+        public static final int obfuscated = 0x7f040254;
+        public static final int dividerLineHeight = 0x7f040256;
+        public static final int dividerPadding = 0x7f040257;
+        public static final int dividerVertical = 0x7f040258;
+        public static final int drawableBottomCompat = 0x7f040262;
+        public static final int drawableEndCompat = 0x7f040263;
+        public static final int drawableLeftCompat = 0x7f040264;
+        public static final int drawableRightCompat = 0x7f040265;
+        public static final int drawableSize = 0x7f040266;
+        public static final int drawableStartCompat = 0x7f040267;
+        public static final int drawableTint = 0x7f040268;
+        public static final int drawableTintMode = 0x7f040269;
+        public static final int drawableTopCompat = 0x7f04026a;
+        public static final int drawerArrowStyle = 0x7f04026b;
+        public static final int dropDownListViewStyle = 0x7f04026f;
+        public static final int dropdownListPreferredItemHeight = 0x7f040271;
 
         /* renamed from: dropoff */
-        public static final int obfuscated = 0x7f040269;
-        public static final int duration = 0x7f04026b;
-        public static final int editTextBackground = 0x7f04026d;
-        public static final int editTextColor = 0x7f04026e;
-        public static final int editTextStyle = 0x7f04026f;
-        public static final int elevation = 0x7f040270;
+        public static final int obfuscated = 0x7f040272;
+        public static final int duration = 0x7f040280;
+        public static final int editTextBackground = 0x7f040282;
+        public static final int editTextColor = 0x7f040283;
+        public static final int editTextStyle = 0x7f040284;
+        public static final int elevation = 0x7f040285;
 
         /* renamed from: entriesArray */
-        public static final int obfuscated = 0x7f04028a;
-        public static final int expandActivityOverflowButtonDrawable = 0x7f040293;
-        public static final int fastScrollEnabled = 0x7f0402af;
-        public static final int fastScrollHorizontalThumbDrawable = 0x7f0402b0;
-        public static final int fastScrollHorizontalTrackDrawable = 0x7f0402b1;
-        public static final int fastScrollVerticalThumbDrawable = 0x7f0402b2;
-        public static final int fastScrollVerticalTrackDrawable = 0x7f0402b3;
-        public static final int firstBaselineToTopHeight = 0x7f0402b7;
-        public static final int fixed_height = 0x7f0402b9;
-        public static final int fixed_width = 0x7f0402ba;
-        public static final int font = 0x7f0402da;
-        public static final int fontFamily = 0x7f0402db;
-        public static final int fontProviderAuthority = 0x7f0402dc;
-        public static final int fontProviderCerts = 0x7f0402dd;
-        public static final int fontProviderFetchStrategy = 0x7f0402de;
-        public static final int fontProviderFetchTimeout = 0x7f0402df;
-        public static final int fontProviderPackage = 0x7f0402e0;
-        public static final int fontProviderQuery = 0x7f0402e1;
-        public static final int fontStyle = 0x7f0402e3;
-        public static final int fontVariationSettings = 0x7f0402e4;
-        public static final int fontWeight = 0x7f0402e5;
+        public static final int obfuscated = 0x7f040293;
+        public static final int expandActivityOverflowButtonDrawable = 0x7f04029c;
+        public static final int fastScrollEnabled = 0x7f0402b8;
+        public static final int fastScrollHorizontalThumbDrawable = 0x7f0402b9;
+        public static final int fastScrollHorizontalTrackDrawable = 0x7f0402ba;
+        public static final int fastScrollVerticalThumbDrawable = 0x7f0402bb;
+        public static final int fastScrollVerticalTrackDrawable = 0x7f0402bc;
+        public static final int firstBaselineToTopHeight = 0x7f0402c0;
+        public static final int fixed_height = 0x7f0402c2;
+        public static final int fixed_width = 0x7f0402c3;
+        public static final int font = 0x7f0402e3;
+        public static final int fontFamily = 0x7f0402e4;
+        public static final int fontProviderAuthority = 0x7f0402e5;
+        public static final int fontProviderCerts = 0x7f0402e6;
+        public static final int fontProviderFetchStrategy = 0x7f0402e7;
+        public static final int fontProviderFetchTimeout = 0x7f0402e8;
+        public static final int fontProviderPackage = 0x7f0402e9;
+        public static final int fontProviderQuery = 0x7f0402ea;
+        public static final int fontStyle = 0x7f0402ec;
+        public static final int fontVariationSettings = 0x7f0402ed;
+        public static final int fontWeight = 0x7f0402ee;
 
         /* renamed from: galleryStyle */
-        public static final int obfuscated = 0x7f0402ea;
-        public static final int gapBetweenBars = 0x7f0402eb;
-        public static final int goIcon = 0x7f0402ee;
-        public static final int height = 0x7f0402ff;
-        public static final int hideOnContentScroll = 0x7f040309;
-        public static final int homeAsUpIndicator = 0x7f040326;
-        public static final int homeLayout = 0x7f040327;
-        public static final int icon = 0x7f04032c;
-        public static final int iconTint = 0x7f040334;
-        public static final int iconTintMode = 0x7f040335;
-        public static final int iconifiedByDefault = 0x7f040337;
-        public static final int imageButtonStyle = 0x7f04033a;
-        public static final int indeterminateProgressStyle = 0x7f040342;
-        public static final int initialActivityCount = 0x7f040343;
+        public static final int obfuscated = 0x7f0402f3;
+        public static final int gapBetweenBars = 0x7f0402f4;
+        public static final int goIcon = 0x7f0402f7;
+        public static final int height = 0x7f040308;
+        public static final int hideOnContentScroll = 0x7f040312;
+        public static final int homeAsUpIndicator = 0x7f04032f;
+        public static final int homeLayout = 0x7f040330;
+        public static final int icon = 0x7f040337;
+        public static final int iconTint = 0x7f04033d;
+        public static final int iconTintMode = 0x7f04033e;
+        public static final int iconifiedByDefault = 0x7f040340;
+        public static final int imageButtonStyle = 0x7f040343;
+        public static final int indeterminateProgressStyle = 0x7f040350;
+        public static final int initialActivityCount = 0x7f040351;
 
         /* renamed from: intensity */
-        public static final int obfuscated = 0x7f040347;
-        public static final int isLightTheme = 0x7f04034a;
-        public static final int itemPadding = 0x7f04036f;
-        public static final int lastBaselineToBottomHeight = 0x7f040407;
-        public static final int layout = 0x7f040409;
-        public static final int layoutManager = 0x7f04040f;
+        public static final int obfuscated = 0x7f040355;
+        public static final int isLightTheme = 0x7f04035d;
+        public static final int itemPadding = 0x7f040378;
+        public static final int lastBaselineToBottomHeight = 0x7f040410;
+        public static final int layout = 0x7f040412;
+        public static final int layoutManager = 0x7f040418;
 
         /* renamed from: lineColor */
-        public static final int obfuscated = 0x7f040434;
-        public static final int lineHeight = 0x7f040435;
-        public static final int listChoiceBackgroundIndicator = 0x7f040439;
-        public static final int listChoiceIndicatorMultipleAnimated = 0x7f04043a;
-        public static final int listChoiceIndicatorSingleAnimated = 0x7f04043b;
-        public static final int listDividerAlertDialog = 0x7f04043c;
-        public static final int listItemLayout = 0x7f04043d;
-        public static final int listLayout = 0x7f04043e;
-        public static final int listMenuViewStyle = 0x7f04043f;
-        public static final int listPopupWindowStyle = 0x7f040440;
-        public static final int listPreferredItemHeight = 0x7f040441;
-        public static final int listPreferredItemHeightLarge = 0x7f040442;
-        public static final int listPreferredItemHeightSmall = 0x7f040443;
-        public static final int listPreferredItemPaddingEnd = 0x7f040444;
-        public static final int listPreferredItemPaddingLeft = 0x7f040445;
-        public static final int listPreferredItemPaddingRight = 0x7f040446;
-        public static final int listPreferredItemPaddingStart = 0x7f040447;
-        public static final int logo = 0x7f04049b;
-        public static final int logoDescription = 0x7f04049c;
-        public static final int max = 0x7f0404bc;
-        public static final int maxButtonHeight = 0x7f0404bf;
-        public static final int measureWithLargestChild = 0x7f0404cd;
-        public static final int menu = 0x7f0404cf;
-        public static final int multiChoiceItemLayout = 0x7f0404e5;
-        public static final int navigationContentDescription = 0x7f0404fd;
-        public static final int navigationIcon = 0x7f0404fe;
-        public static final int navigationMode = 0x7f0404ff;
-        public static final int numericModifiers = 0x7f04050c;
-        public static final int overlapAnchor = 0x7f040518;
-        public static final int paddingBottomNoButtons = 0x7f04051c;
-        public static final int paddingEnd = 0x7f04051e;
-        public static final int paddingStart = 0x7f040523;
-        public static final int paddingTopNoTitle = 0x7f040525;
-        public static final int panelBackground = 0x7f040527;
-        public static final int panelMenuListTheme = 0x7f040528;
-        public static final int panelMenuListWidth = 0x7f040529;
-        public static final int popupAnimationStyle = 0x7f040561;
-        public static final int popupBackground = 0x7f040562;
-        public static final int popupMenuStyle = 0x7f040564;
-        public static final int popupTheme = 0x7f040565;
-        public static final int popupWindowStyle = 0x7f040566;
-        public static final int preserveIconSpacing = 0x7f04056a;
-        public static final int progressBarPadding = 0x7f04056e;
-        public static final int progressBarStyle = 0x7f04056f;
-        public static final int queryBackground = 0x7f0405a0;
-        public static final int queryHint = 0x7f0405a1;
-        public static final int radioButtonStyle = 0x7f0405af;
-        public static final int ratingBarStyle = 0x7f0405b7;
-        public static final int ratingBarStyleIndicator = 0x7f0405b8;
-        public static final int ratingBarStyleSmall = 0x7f0405b9;
-        public static final int recyclerViewStyle = 0x7f0405bb;
-        public static final int relative_height = 0x7f0405c2;
-        public static final int relative_width = 0x7f0405c3;
-        public static final int repeat_count = 0x7f0405c6;
-        public static final int repeat_delay = 0x7f0405c7;
-        public static final int repeat_mode = 0x7f0405c8;
-        public static final int reverseLayout = 0x7f0405cd;
-        public static final int roundColor = 0x7f0405dd;
-        public static final int roundProgressColor = 0x7f0405e3;
-        public static final int roundWidth = 0x7f0405e8;
-        public static final int round_background = 0x7f0405e9;
-        public static final int searchHintIcon = 0x7f040611;
-        public static final int searchIcon = 0x7f040612;
-        public static final int searchViewStyle = 0x7f040613;
-        public static final int seekBarStyle = 0x7f040615;
-        public static final int selectableItemBackground = 0x7f040618;
-        public static final int selectableItemBackgroundBorderless = 0x7f040619;
-        public static final int showAsAction = 0x7f04062e;
-        public static final int showDividers = 0x7f04062f;
-        public static final int showText = 0x7f040634;
-        public static final int showTitle = 0x7f040635;
-        public static final int singleChoiceItemLayout = 0x7f04063b;
-        public static final int spacing = 0x7f04064f;
-        public static final int spanCount = 0x7f040654;
-        public static final int spinBars = 0x7f040657;
-        public static final int spinnerDropDownItemStyle = 0x7f040658;
-        public static final int spinnerStyle = 0x7f040659;
-        public static final int splitTrack = 0x7f04065b;
-        public static final int srcCompat = 0x7f04065d;
-        public static final int stackFromEnd = 0x7f04065f;
-        public static final int state_above_anchor = 0x7f040667;
+        public static final int obfuscated = 0x7f04043d;
+        public static final int lineHeight = 0x7f04043e;
+        public static final int listChoiceBackgroundIndicator = 0x7f040442;
+        public static final int listChoiceIndicatorMultipleAnimated = 0x7f040443;
+        public static final int listChoiceIndicatorSingleAnimated = 0x7f040444;
+        public static final int listDividerAlertDialog = 0x7f040445;
+        public static final int listItemLayout = 0x7f040446;
+        public static final int listLayout = 0x7f040447;
+        public static final int listMenuViewStyle = 0x7f040448;
+        public static final int listPopupWindowStyle = 0x7f040449;
+        public static final int listPreferredItemHeight = 0x7f04044a;
+        public static final int listPreferredItemHeightLarge = 0x7f04044b;
+        public static final int listPreferredItemHeightSmall = 0x7f04044c;
+        public static final int listPreferredItemPaddingEnd = 0x7f04044d;
+        public static final int listPreferredItemPaddingLeft = 0x7f04044e;
+        public static final int listPreferredItemPaddingRight = 0x7f04044f;
+        public static final int listPreferredItemPaddingStart = 0x7f040450;
+        public static final int logo = 0x7f0404a4;
+        public static final int logoDescription = 0x7f0404a5;
+        public static final int max = 0x7f0404c5;
+        public static final int maxButtonHeight = 0x7f0404c8;
+        public static final int measureWithLargestChild = 0x7f0404d6;
+        public static final int menu = 0x7f0404d8;
+        public static final int multiChoiceItemLayout = 0x7f0404ee;
+        public static final int navigationContentDescription = 0x7f040506;
+        public static final int navigationIcon = 0x7f040507;
+        public static final int navigationMode = 0x7f040508;
+        public static final int numericModifiers = 0x7f040515;
+        public static final int overlapAnchor = 0x7f040521;
+        public static final int paddingBottomNoButtons = 0x7f040525;
+        public static final int paddingEnd = 0x7f040527;
+        public static final int paddingStart = 0x7f04052c;
+        public static final int paddingTopNoTitle = 0x7f04052e;
+        public static final int panelBackground = 0x7f040530;
+        public static final int panelMenuListTheme = 0x7f040531;
+        public static final int panelMenuListWidth = 0x7f040532;
+        public static final int popupAnimationStyle = 0x7f04056a;
+        public static final int popupBackground = 0x7f04056b;
+        public static final int popupMenuStyle = 0x7f04056d;
+        public static final int popupTheme = 0x7f04056e;
+        public static final int popupWindowStyle = 0x7f04056f;
+        public static final int preserveIconSpacing = 0x7f040573;
+        public static final int progressBarPadding = 0x7f040577;
+        public static final int progressBarStyle = 0x7f040578;
+        public static final int queryBackground = 0x7f0405a9;
+        public static final int queryHint = 0x7f0405aa;
+        public static final int radioButtonStyle = 0x7f0405b8;
+        public static final int ratingBarStyle = 0x7f0405c0;
+        public static final int ratingBarStyleIndicator = 0x7f0405c1;
+        public static final int ratingBarStyleSmall = 0x7f0405c2;
+        public static final int recyclerViewStyle = 0x7f0405c4;
+        public static final int relative_height = 0x7f0405cb;
+        public static final int relative_width = 0x7f0405cc;
+        public static final int repeat_count = 0x7f0405cf;
+        public static final int repeat_delay = 0x7f0405d0;
+        public static final int repeat_mode = 0x7f0405d1;
+        public static final int reverseLayout = 0x7f0405d6;
+        public static final int roundColor = 0x7f0405e6;
+        public static final int roundProgressColor = 0x7f0405ec;
+        public static final int roundWidth = 0x7f0405f1;
+        public static final int round_background = 0x7f0405f2;
+        public static final int searchHintIcon = 0x7f04061a;
+        public static final int searchIcon = 0x7f04061b;
+        public static final int searchViewStyle = 0x7f04061c;
+        public static final int seekBarStyle = 0x7f04061e;
+        public static final int selectableItemBackground = 0x7f040621;
+        public static final int selectableItemBackgroundBorderless = 0x7f040622;
+        public static final int showAsAction = 0x7f040637;
+        public static final int showDividers = 0x7f040638;
+        public static final int showText = 0x7f04063d;
+        public static final int showTitle = 0x7f04063e;
+        public static final int singleChoiceItemLayout = 0x7f040644;
+        public static final int spacing = 0x7f040658;
+        public static final int spanCount = 0x7f04065d;
+        public static final int spinBars = 0x7f040660;
+        public static final int spinnerDropDownItemStyle = 0x7f040661;
+        public static final int spinnerStyle = 0x7f040662;
+        public static final int splitTrack = 0x7f040664;
+        public static final int srcCompat = 0x7f040666;
+        public static final int stackFromEnd = 0x7f040668;
+        public static final int state_above_anchor = 0x7f040670;
 
         /* renamed from: style */
-        public static final int obfuscated = 0x7f040673;
-        public static final int subMenuArrow = 0x7f040674;
-        public static final int submitBackground = 0x7f040675;
-        public static final int subtitle = 0x7f040676;
-        public static final int subtitleTextAppearance = 0x7f040677;
-        public static final int subtitleTextColor = 0x7f040678;
-        public static final int subtitleTextStyle = 0x7f040679;
-        public static final int suggestionRowLayout = 0x7f04067d;
-        public static final int switchMinWidth = 0x7f040688;
-        public static final int switchPadding = 0x7f040689;
-        public static final int switchStyle = 0x7f04068a;
-        public static final int switchTextAppearance = 0x7f04068b;
-        public static final int tabPadding = 0x7f04069c;
-        public static final int tabPaddingBottom = 0x7f04069d;
-        public static final int tabPaddingEnd = 0x7f04069e;
-        public static final int tabPaddingStart = 0x7f04069f;
-        public static final int tabPaddingTop = 0x7f0406a0;
-        public static final int textAllCaps = 0x7f0406e8;
-        public static final int textAppearanceLargePopupMenu = 0x7f0406f3;
-        public static final int textAppearanceListItem = 0x7f0406f5;
-        public static final int textAppearanceListItemSecondary = 0x7f0406f6;
-        public static final int textAppearanceListItemSmall = 0x7f0406f7;
-        public static final int textAppearancePopupMenuHeader = 0x7f0406f9;
-        public static final int textAppearanceSearchResultSubtitle = 0x7f0406fa;
-        public static final int textAppearanceSearchResultTitle = 0x7f0406fb;
-        public static final int textAppearanceSmallPopupMenu = 0x7f0406fc;
-        public static final int textColor = 0x7f0406ff;
-        public static final int textColorAlertDialogListItem = 0x7f040700;
-        public static final int textColorSearchUrl = 0x7f040703;
-        public static final int textIsDisplayable = 0x7f040709;
-        public static final int textLocale = 0x7f04070a;
-        public static final int textSize = 0x7f04070c;
-        public static final int theme = 0x7f040713;
-        public static final int thickness = 0x7f040716;
-        public static final int thumbTextPadding = 0x7f040720;
-        public static final int thumbTint = 0x7f040721;
-        public static final int thumbTintMode = 0x7f040722;
-        public static final int tickMark = 0x7f040728;
-        public static final int tickMarkTint = 0x7f040729;
-        public static final int tickMarkTintMode = 0x7f04072a;
+        public static final int obfuscated = 0x7f04067c;
+        public static final int subMenuArrow = 0x7f04067d;
+        public static final int submitBackground = 0x7f04067e;
+        public static final int subtitle = 0x7f04067f;
+        public static final int subtitleTextAppearance = 0x7f040680;
+        public static final int subtitleTextColor = 0x7f040681;
+        public static final int subtitleTextStyle = 0x7f040682;
+        public static final int suggestionRowLayout = 0x7f040686;
+        public static final int switchMinWidth = 0x7f040691;
+        public static final int switchPadding = 0x7f040692;
+        public static final int switchStyle = 0x7f040693;
+        public static final int switchTextAppearance = 0x7f040694;
+        public static final int tabPadding = 0x7f0406a5;
+        public static final int tabPaddingBottom = 0x7f0406a6;
+        public static final int tabPaddingEnd = 0x7f0406a7;
+        public static final int tabPaddingStart = 0x7f0406a8;
+        public static final int tabPaddingTop = 0x7f0406a9;
+        public static final int textAllCaps = 0x7f0406f1;
+        public static final int textAppearanceLargePopupMenu = 0x7f0406fc;
+        public static final int textAppearanceListItem = 0x7f0406fe;
+        public static final int textAppearanceListItemSecondary = 0x7f0406ff;
+        public static final int textAppearanceListItemSmall = 0x7f040700;
+        public static final int textAppearancePopupMenuHeader = 0x7f040702;
+        public static final int textAppearanceSearchResultSubtitle = 0x7f040703;
+        public static final int textAppearanceSearchResultTitle = 0x7f040704;
+        public static final int textAppearanceSmallPopupMenu = 0x7f040705;
+        public static final int textColor = 0x7f040708;
+        public static final int textColorAlertDialogListItem = 0x7f040709;
+        public static final int textColorSearchUrl = 0x7f04070c;
+        public static final int textIsDisplayable = 0x7f040712;
+        public static final int textLocale = 0x7f040713;
+        public static final int textSize = 0x7f040715;
+        public static final int theme = 0x7f04071c;
+        public static final int thickness = 0x7f04071f;
+        public static final int thumbTextPadding = 0x7f040729;
+        public static final int thumbTint = 0x7f04072a;
+        public static final int thumbTintMode = 0x7f04072b;
+        public static final int tickMark = 0x7f040731;
+        public static final int tickMarkTint = 0x7f040732;
+        public static final int tickMarkTintMode = 0x7f040733;
 
         /* renamed from: tilt */
-        public static final int obfuscated = 0x7f04072c;
-        public static final int tint = 0x7f04072d;
-        public static final int tintMode = 0x7f04072e;
-        public static final int title = 0x7f04072f;
-        public static final int titleMargin = 0x7f040732;
-        public static final int titleMarginBottom = 0x7f040733;
-        public static final int titleMarginEnd = 0x7f040734;
-        public static final int titleMarginStart = 0x7f040735;
-        public static final int titleMarginTop = 0x7f040736;
-        public static final int titleMargins = 0x7f040737;
-        public static final int titleText = 0x7f040738;
-        public static final int titleTextAppearance = 0x7f040739;
-        public static final int titleTextColor = 0x7f04073a;
-        public static final int titleTextStyle = 0x7f04073b;
-        public static final int titleTxtShadowColor = 0x7f04073c;
-        public static final int titleTxtShadowDx = 0x7f04073d;
-        public static final int titleTxtShadowDy = 0x7f04073e;
-        public static final int titleTxtShadowRadius = 0x7f04073f;
-        public static final int toolbarNavigationButtonStyle = 0x7f040741;
-        public static final int toolbarStyle = 0x7f040742;
-        public static final int tooltipForegroundColor = 0x7f040743;
-        public static final int tooltipFrameBackground = 0x7f040744;
-        public static final int tooltipText = 0x7f040746;
-        public static final int track = 0x7f04074f;
-        public static final int trackTint = 0x7f040754;
-        public static final int trackTintMode = 0x7f040755;
-        public static final int ttcIndex = 0x7f040766;
-        public static final int unselectedAlpha = 0x7f040778;
-        public static final int viewInflaterClass = 0x7f040790;
-        public static final int voiceIcon = 0x7f040793;
-        public static final int wheelview_dividerColor = 0x7f04079a;
-        public static final int wheelview_gravity = 0x7f04079b;
-        public static final int wheelview_lineSpacingMultiplier = 0x7f04079c;
-        public static final int wheelview_textColorCenter = 0x7f04079d;
-        public static final int wheelview_textColorOut = 0x7f04079e;
-        public static final int wheelview_textSize = 0x7f04079f;
-        public static final int windowActionBar = 0x7f0407a3;
-        public static final int windowActionBarOverlay = 0x7f0407a4;
-        public static final int windowActionModeOverlay = 0x7f0407a5;
-        public static final int windowFixedHeightMajor = 0x7f0407a6;
-        public static final int windowFixedHeightMinor = 0x7f0407a7;
-        public static final int windowFixedWidthMajor = 0x7f0407a8;
-        public static final int windowFixedWidthMinor = 0x7f0407a9;
-        public static final int windowMinWidthMajor = 0x7f0407aa;
-        public static final int windowMinWidthMinor = 0x7f0407ab;
-        public static final int windowNoTitle = 0x7f0407ac;
+        public static final int obfuscated = 0x7f040735;
+        public static final int tint = 0x7f040736;
+        public static final int tintMode = 0x7f040737;
+        public static final int title = 0x7f040738;
+        public static final int titleMargin = 0x7f04073b;
+        public static final int titleMarginBottom = 0x7f04073c;
+        public static final int titleMarginEnd = 0x7f04073d;
+        public static final int titleMarginStart = 0x7f04073e;
+        public static final int titleMarginTop = 0x7f04073f;
+        public static final int titleMargins = 0x7f040740;
+        public static final int titleText = 0x7f040741;
+        public static final int titleTextAppearance = 0x7f040742;
+        public static final int titleTextColor = 0x7f040743;
+        public static final int titleTextStyle = 0x7f040744;
+        public static final int titleTxtShadowColor = 0x7f040745;
+        public static final int titleTxtShadowDx = 0x7f040746;
+        public static final int titleTxtShadowDy = 0x7f040747;
+        public static final int titleTxtShadowRadius = 0x7f040748;
+        public static final int toolbarNavigationButtonStyle = 0x7f04074a;
+        public static final int toolbarStyle = 0x7f04074b;
+        public static final int tooltipForegroundColor = 0x7f04074c;
+        public static final int tooltipFrameBackground = 0x7f04074d;
+        public static final int tooltipText = 0x7f04074f;
+        public static final int track = 0x7f040758;
+        public static final int trackTint = 0x7f04075d;
+        public static final int trackTintMode = 0x7f04075e;
+        public static final int ttcIndex = 0x7f04076f;
+        public static final int unselectedAlpha = 0x7f040781;
+        public static final int viewInflaterClass = 0x7f040799;
+        public static final int voiceIcon = 0x7f04079c;
+        public static final int wheelview_dividerColor = 0x7f0407a3;
+        public static final int wheelview_gravity = 0x7f0407a4;
+        public static final int wheelview_lineSpacingMultiplier = 0x7f0407a5;
+        public static final int wheelview_textColorCenter = 0x7f0407a6;
+        public static final int wheelview_textColorOut = 0x7f0407a7;
+        public static final int wheelview_textSize = 0x7f0407a8;
+        public static final int windowActionBar = 0x7f0407ac;
+        public static final int windowActionBarOverlay = 0x7f0407ad;
+        public static final int windowActionModeOverlay = 0x7f0407ae;
+        public static final int windowFixedHeightMajor = 0x7f0407af;
+        public static final int windowFixedHeightMinor = 0x7f0407b0;
+        public static final int windowFixedWidthMajor = 0x7f0407b1;
+        public static final int windowFixedWidthMinor = 0x7f0407b2;
+        public static final int windowMinWidthMajor = 0x7f0407b3;
+        public static final int windowMinWidthMinor = 0x7f0407b4;
+        public static final int windowNoTitle = 0x7f0407b5;
         public transient /* synthetic */ FieldHolder $fh;
 
         public attr() {
@@ -495,300 +495,300 @@ public final class R {
         public static /* synthetic */ Interceptable $ic = null;
 
         /* renamed from: GC1 */
-        public static final int obfuscated = 0x7f060177;
-
-        /* renamed from: GC10 */
-        public static final int obfuscated = 0x7f060178;
-
-        /* renamed from: GC11 */
-        public static final int obfuscated = 0x7f060179;
-
-        /* renamed from: GC12 */
-        public static final int obfuscated = 0x7f06017a;
-
-        /* renamed from: GC13 */
         public static final int obfuscated = 0x7f06017b;
 
-        /* renamed from: GC14 */
+        /* renamed from: GC10 */
         public static final int obfuscated = 0x7f06017c;
 
-        /* renamed from: GC15 */
+        /* renamed from: GC11 */
         public static final int obfuscated = 0x7f06017d;
 
-        /* renamed from: GC16 */
+        /* renamed from: GC12 */
         public static final int obfuscated = 0x7f06017e;
 
-        /* renamed from: GC18 */
+        /* renamed from: GC13 */
         public static final int obfuscated = 0x7f06017f;
 
-        /* renamed from: GC19 */
+        /* renamed from: GC14 */
         public static final int obfuscated = 0x7f060180;
 
-        /* renamed from: GC2 */
+        /* renamed from: GC15 */
         public static final int obfuscated = 0x7f060181;
 
-        /* renamed from: GC21 */
+        /* renamed from: GC16 */
         public static final int obfuscated = 0x7f060182;
 
-        /* renamed from: GC22 */
+        /* renamed from: GC18 */
         public static final int obfuscated = 0x7f060183;
 
-        /* renamed from: GC24 */
+        /* renamed from: GC19 */
         public static final int obfuscated = 0x7f060184;
 
-        /* renamed from: GC26 */
+        /* renamed from: GC2 */
         public static final int obfuscated = 0x7f060185;
 
-        /* renamed from: GC28 */
+        /* renamed from: GC21 */
         public static final int obfuscated = 0x7f060186;
 
-        /* renamed from: GC3 */
+        /* renamed from: GC22 */
         public static final int obfuscated = 0x7f060187;
 
-        /* renamed from: GC30 */
+        /* renamed from: GC24 */
         public static final int obfuscated = 0x7f060188;
 
-        /* renamed from: GC33 */
+        /* renamed from: GC26 */
         public static final int obfuscated = 0x7f060189;
 
-        /* renamed from: GC34 */
+        /* renamed from: GC28 */
         public static final int obfuscated = 0x7f06018a;
 
-        /* renamed from: GC35 */
+        /* renamed from: GC3 */
         public static final int obfuscated = 0x7f06018b;
 
-        /* renamed from: GC36 */
+        /* renamed from: GC30 */
         public static final int obfuscated = 0x7f06018c;
 
-        /* renamed from: GC37 */
+        /* renamed from: GC33 */
         public static final int obfuscated = 0x7f06018d;
 
-        /* renamed from: GC38 */
+        /* renamed from: GC34 */
         public static final int obfuscated = 0x7f06018e;
 
-        /* renamed from: GC39 */
+        /* renamed from: GC35 */
         public static final int obfuscated = 0x7f06018f;
 
-        /* renamed from: GC4 */
+        /* renamed from: GC36 */
         public static final int obfuscated = 0x7f060190;
 
-        /* renamed from: GC42 */
+        /* renamed from: GC37 */
         public static final int obfuscated = 0x7f060191;
 
-        /* renamed from: GC43 */
+        /* renamed from: GC38 */
         public static final int obfuscated = 0x7f060192;
 
-        /* renamed from: GC48 */
+        /* renamed from: GC39 */
         public static final int obfuscated = 0x7f060193;
 
-        /* renamed from: GC49 */
+        /* renamed from: GC4 */
         public static final int obfuscated = 0x7f060194;
 
-        /* renamed from: GC5 */
+        /* renamed from: GC42 */
         public static final int obfuscated = 0x7f060195;
 
-        /* renamed from: GC51 */
+        /* renamed from: GC43 */
         public static final int obfuscated = 0x7f060196;
 
-        /* renamed from: GC52 */
+        /* renamed from: GC48 */
         public static final int obfuscated = 0x7f060197;
 
-        /* renamed from: GC53 */
+        /* renamed from: GC49 */
         public static final int obfuscated = 0x7f060198;
 
-        /* renamed from: GC54 */
+        /* renamed from: GC5 */
         public static final int obfuscated = 0x7f060199;
 
-        /* renamed from: GC55 */
+        /* renamed from: GC51 */
         public static final int obfuscated = 0x7f06019a;
 
-        /* renamed from: GC56 */
+        /* renamed from: GC52 */
         public static final int obfuscated = 0x7f06019b;
 
-        /* renamed from: GC57 */
+        /* renamed from: GC53 */
         public static final int obfuscated = 0x7f06019c;
 
-        /* renamed from: GC58 */
+        /* renamed from: GC54 */
         public static final int obfuscated = 0x7f06019d;
 
-        /* renamed from: GC59 */
+        /* renamed from: GC55 */
         public static final int obfuscated = 0x7f06019e;
 
-        /* renamed from: GC6 */
+        /* renamed from: GC56 */
         public static final int obfuscated = 0x7f06019f;
 
-        /* renamed from: GC60 */
+        /* renamed from: GC57 */
         public static final int obfuscated = 0x7f0601a0;
 
-        /* renamed from: GC62 */
+        /* renamed from: GC58 */
         public static final int obfuscated = 0x7f0601a1;
 
-        /* renamed from: GC63 */
+        /* renamed from: GC59 */
         public static final int obfuscated = 0x7f0601a2;
 
-        /* renamed from: GC66 */
+        /* renamed from: GC6 */
         public static final int obfuscated = 0x7f0601a3;
 
-        /* renamed from: GC67 */
+        /* renamed from: GC60 */
         public static final int obfuscated = 0x7f0601a4;
 
-        /* renamed from: GC68 */
+        /* renamed from: GC62 */
         public static final int obfuscated = 0x7f0601a5;
 
-        /* renamed from: GC69 */
+        /* renamed from: GC63 */
         public static final int obfuscated = 0x7f0601a6;
 
-        /* renamed from: GC7 */
+        /* renamed from: GC66 */
         public static final int obfuscated = 0x7f0601a7;
 
-        /* renamed from: GC72 */
+        /* renamed from: GC67 */
         public static final int obfuscated = 0x7f0601a8;
 
-        /* renamed from: GC73 */
+        /* renamed from: GC68 */
         public static final int obfuscated = 0x7f0601a9;
 
-        /* renamed from: GC74 */
+        /* renamed from: GC69 */
         public static final int obfuscated = 0x7f0601aa;
 
-        /* renamed from: GC77 */
+        /* renamed from: GC7 */
         public static final int obfuscated = 0x7f0601ab;
 
-        /* renamed from: GC79 */
+        /* renamed from: GC72 */
         public static final int obfuscated = 0x7f0601ac;
 
-        /* renamed from: GC8 */
+        /* renamed from: GC73 */
         public static final int obfuscated = 0x7f0601ad;
 
-        /* renamed from: GC84 */
+        /* renamed from: GC74 */
         public static final int obfuscated = 0x7f0601ae;
 
-        /* renamed from: GC85 */
+        /* renamed from: GC77 */
         public static final int obfuscated = 0x7f0601af;
 
-        /* renamed from: GC86 */
+        /* renamed from: GC79 */
         public static final int obfuscated = 0x7f0601b0;
 
-        /* renamed from: GC88 */
+        /* renamed from: GC8 */
         public static final int obfuscated = 0x7f0601b1;
 
-        /* renamed from: GC9 */
+        /* renamed from: GC84 */
         public static final int obfuscated = 0x7f0601b2;
 
-        /* renamed from: GC90 */
+        /* renamed from: GC85 */
         public static final int obfuscated = 0x7f0601b3;
-        public static final int abc_background_cache_hint_selector_material_dark = 0x7f0602b2;
-        public static final int abc_background_cache_hint_selector_material_light = 0x7f0602b3;
-        public static final int abc_btn_colored_borderless_text_material = 0x7f0602b4;
-        public static final int abc_btn_colored_text_material = 0x7f0602b5;
-        public static final int abc_color_highlight_material = 0x7f0602b6;
-        public static final int abc_hint_foreground_material_dark = 0x7f0602b9;
-        public static final int abc_hint_foreground_material_light = 0x7f0602ba;
-        public static final int abc_primary_text_disable_only_material_dark = 0x7f0602bb;
-        public static final int abc_primary_text_disable_only_material_light = 0x7f0602bc;
-        public static final int abc_primary_text_material_dark = 0x7f0602bd;
-        public static final int abc_primary_text_material_light = 0x7f0602be;
-        public static final int abc_search_url_text = 0x7f0602bf;
-        public static final int abc_search_url_text_normal = 0x7f0602c0;
-        public static final int abc_search_url_text_pressed = 0x7f0602c1;
-        public static final int abc_search_url_text_selected = 0x7f0602c2;
-        public static final int abc_secondary_text_material_dark = 0x7f0602c3;
-        public static final int abc_secondary_text_material_light = 0x7f0602c4;
-        public static final int abc_tint_btn_checkable = 0x7f0602c5;
-        public static final int abc_tint_default = 0x7f0602c6;
-        public static final int abc_tint_edittext = 0x7f0602c7;
-        public static final int abc_tint_seek_thumb = 0x7f0602c8;
-        public static final int abc_tint_spinner = 0x7f0602c9;
-        public static final int abc_tint_switch_track = 0x7f0602ca;
-        public static final int accent_material_dark = 0x7f0602cb;
-        public static final int accent_material_light = 0x7f0602cc;
-        public static final int androidx_core_ripple_material_light = 0x7f060355;
-        public static final int androidx_core_secondary_text_default_material_light = 0x7f060356;
-        public static final int background_floating_material_dark = 0x7f060360;
-        public static final int background_floating_material_light = 0x7f060361;
-        public static final int background_material_dark = 0x7f060362;
-        public static final int background_material_light = 0x7f060363;
-        public static final int black = 0x7f06037f;
-        public static final int bright_foreground_disabled_material_dark = 0x7f060396;
-        public static final int bright_foreground_disabled_material_light = 0x7f060397;
-        public static final int bright_foreground_inverse_material_dark = 0x7f060398;
-        public static final int bright_foreground_inverse_material_light = 0x7f060399;
-        public static final int bright_foreground_material_dark = 0x7f06039a;
-        public static final int bright_foreground_material_light = 0x7f06039b;
-        public static final int button_material_dark = 0x7f0603a2;
-        public static final int button_material_light = 0x7f0603a3;
-        public static final int cardview_dark_background = 0x7f0603a6;
-        public static final int cardview_light_background = 0x7f0603a7;
-        public static final int cardview_shadow_end_color = 0x7f0603a8;
-        public static final int cardview_shadow_start_color = 0x7f0603a9;
-        public static final int comment_emotion_bag_bg = 0x7f0603bf;
-        public static final int comment_emotion_circle_indicator = 0x7f0603c0;
-        public static final int comment_emotion_circle_indicator_highlight = 0x7f0603c1;
-        public static final int comment_emotion_type_layout_bg = 0x7f0603c2;
-        public static final int comment_emotion_type_placeholder_bg = 0x7f0603c3;
-        public static final int dim_foreground_disabled_material_dark = 0x7f0605c3;
-        public static final int dim_foreground_disabled_material_light = 0x7f0605c4;
-        public static final int dim_foreground_material_dark = 0x7f0605c5;
-        public static final int dim_foreground_material_light = 0x7f0605c6;
-        public static final int error_color_material_dark = 0x7f0605d8;
-        public static final int error_color_material_light = 0x7f0605d9;
-        public static final int foreground_material_dark = 0x7f0605df;
-        public static final int foreground_material_light = 0x7f0605e0;
-        public static final int highlighted_text_material_dark = 0x7f0605f4;
-        public static final int highlighted_text_material_light = 0x7f0605f5;
-        public static final int invoice_bg_border_color = 0x7f0605f7;
-        public static final int invoice_bg_divider_line_color = 0x7f0605f8;
-        public static final int invoice_bg_normal_color = 0x7f0605f9;
-        public static final int invoice_bg_pressed_color = 0x7f0605fa;
-        public static final int invoice_bottom_text = 0x7f0605fb;
-        public static final int invoice_info_content = 0x7f060602;
-        public static final int invoice_info_content_hint = 0x7f060603;
-        public static final int invoice_info_desc = 0x7f060604;
-        public static final int invoice_info_item_divider_line = 0x7f060605;
-        public static final int invoice_top_tag_color = 0x7f060607;
-        public static final int invoice_top_tax_number_color = 0x7f060608;
-        public static final int invoice_top_title_color = 0x7f060609;
-        public static final int invoice_type = 0x7f06060a;
-        public static final int invoice_type_company = 0x7f06060b;
-        public static final int invoice_type_personal = 0x7f06060c;
-        public static final int loading_text_color = 0x7f060642;
-        public static final int material_blue_grey_800 = 0x7f06064a;
-        public static final int material_blue_grey_900 = 0x7f06064b;
-        public static final int material_blue_grey_950 = 0x7f06064c;
-        public static final int material_deep_teal_200 = 0x7f06064d;
-        public static final int material_deep_teal_500 = 0x7f06064e;
-        public static final int material_grey_100 = 0x7f06064f;
-        public static final int material_grey_300 = 0x7f060650;
-        public static final int material_grey_50 = 0x7f060651;
-        public static final int material_grey_600 = 0x7f060652;
-        public static final int material_grey_800 = 0x7f060653;
-        public static final int material_grey_850 = 0x7f060654;
-        public static final int material_grey_900 = 0x7f060655;
-        public static final int notification_action_color_filter = 0x7f06076f;
-        public static final int notification_icon_bg_color = 0x7f060770;
-        public static final int primary_dark_material_dark = 0x7f0607c2;
-        public static final int primary_dark_material_light = 0x7f0607c3;
-        public static final int primary_material_dark = 0x7f0607c4;
-        public static final int primary_material_light = 0x7f0607c5;
-        public static final int primary_text_default_material_dark = 0x7f0607c6;
-        public static final int primary_text_default_material_light = 0x7f0607c7;
-        public static final int primary_text_disabled_material_dark = 0x7f0607c8;
-        public static final int primary_text_disabled_material_light = 0x7f0607c9;
-        public static final int ripple_material_dark = 0x7f0607d9;
-        public static final int ripple_material_light = 0x7f0607da;
-        public static final int secondary_text_default_material_dark = 0x7f0608f0;
-        public static final int secondary_text_default_material_light = 0x7f0608f1;
-        public static final int secondary_text_disabled_material_dark = 0x7f0608f2;
-        public static final int secondary_text_disabled_material_light = 0x7f0608f3;
-        public static final int switch_thumb_disabled_material_dark = 0x7f060996;
-        public static final int switch_thumb_disabled_material_light = 0x7f060997;
-        public static final int switch_thumb_material_dark = 0x7f060998;
-        public static final int switch_thumb_material_light = 0x7f060999;
-        public static final int switch_thumb_normal_material_dark = 0x7f06099a;
-        public static final int switch_thumb_normal_material_light = 0x7f06099b;
-        public static final int tooltip_background_dark = 0x7f0609a8;
-        public static final int tooltip_background_light = 0x7f0609a9;
-        public static final int transparent = 0x7f0609cd;
-        public static final int white = 0x7f0609d9;
+
+        /* renamed from: GC86 */
+        public static final int obfuscated = 0x7f0601b4;
+
+        /* renamed from: GC88 */
+        public static final int obfuscated = 0x7f0601b5;
+
+        /* renamed from: GC9 */
+        public static final int obfuscated = 0x7f0601b6;
+
+        /* renamed from: GC90 */
+        public static final int obfuscated = 0x7f0601b7;
+        public static final int abc_background_cache_hint_selector_material_dark = 0x7f0602b6;
+        public static final int abc_background_cache_hint_selector_material_light = 0x7f0602b7;
+        public static final int abc_btn_colored_borderless_text_material = 0x7f0602b8;
+        public static final int abc_btn_colored_text_material = 0x7f0602b9;
+        public static final int abc_color_highlight_material = 0x7f0602ba;
+        public static final int abc_hint_foreground_material_dark = 0x7f0602bd;
+        public static final int abc_hint_foreground_material_light = 0x7f0602be;
+        public static final int abc_primary_text_disable_only_material_dark = 0x7f0602bf;
+        public static final int abc_primary_text_disable_only_material_light = 0x7f0602c0;
+        public static final int abc_primary_text_material_dark = 0x7f0602c1;
+        public static final int abc_primary_text_material_light = 0x7f0602c2;
+        public static final int abc_search_url_text = 0x7f0602c3;
+        public static final int abc_search_url_text_normal = 0x7f0602c4;
+        public static final int abc_search_url_text_pressed = 0x7f0602c5;
+        public static final int abc_search_url_text_selected = 0x7f0602c6;
+        public static final int abc_secondary_text_material_dark = 0x7f0602c7;
+        public static final int abc_secondary_text_material_light = 0x7f0602c8;
+        public static final int abc_tint_btn_checkable = 0x7f0602c9;
+        public static final int abc_tint_default = 0x7f0602ca;
+        public static final int abc_tint_edittext = 0x7f0602cb;
+        public static final int abc_tint_seek_thumb = 0x7f0602cc;
+        public static final int abc_tint_spinner = 0x7f0602cd;
+        public static final int abc_tint_switch_track = 0x7f0602ce;
+        public static final int accent_material_dark = 0x7f0602cf;
+        public static final int accent_material_light = 0x7f0602d0;
+        public static final int androidx_core_ripple_material_light = 0x7f060359;
+        public static final int androidx_core_secondary_text_default_material_light = 0x7f06035a;
+        public static final int background_floating_material_dark = 0x7f060364;
+        public static final int background_floating_material_light = 0x7f060365;
+        public static final int background_material_dark = 0x7f060366;
+        public static final int background_material_light = 0x7f060367;
+        public static final int black = 0x7f060383;
+        public static final int bright_foreground_disabled_material_dark = 0x7f06039a;
+        public static final int bright_foreground_disabled_material_light = 0x7f06039b;
+        public static final int bright_foreground_inverse_material_dark = 0x7f06039c;
+        public static final int bright_foreground_inverse_material_light = 0x7f06039d;
+        public static final int bright_foreground_material_dark = 0x7f06039e;
+        public static final int bright_foreground_material_light = 0x7f06039f;
+        public static final int button_material_dark = 0x7f0603a6;
+        public static final int button_material_light = 0x7f0603a7;
+        public static final int cardview_dark_background = 0x7f0603aa;
+        public static final int cardview_light_background = 0x7f0603ab;
+        public static final int cardview_shadow_end_color = 0x7f0603ac;
+        public static final int cardview_shadow_start_color = 0x7f0603ad;
+        public static final int comment_emotion_bag_bg = 0x7f0603c3;
+        public static final int comment_emotion_circle_indicator = 0x7f0603c4;
+        public static final int comment_emotion_circle_indicator_highlight = 0x7f0603c5;
+        public static final int comment_emotion_type_layout_bg = 0x7f0603c6;
+        public static final int comment_emotion_type_placeholder_bg = 0x7f0603c7;
+        public static final int dim_foreground_disabled_material_dark = 0x7f0605c7;
+        public static final int dim_foreground_disabled_material_light = 0x7f0605c8;
+        public static final int dim_foreground_material_dark = 0x7f0605c9;
+        public static final int dim_foreground_material_light = 0x7f0605ca;
+        public static final int error_color_material_dark = 0x7f0605dc;
+        public static final int error_color_material_light = 0x7f0605dd;
+        public static final int foreground_material_dark = 0x7f0605e3;
+        public static final int foreground_material_light = 0x7f0605e4;
+        public static final int highlighted_text_material_dark = 0x7f0605f8;
+        public static final int highlighted_text_material_light = 0x7f0605f9;
+        public static final int invoice_bg_border_color = 0x7f0605fb;
+        public static final int invoice_bg_divider_line_color = 0x7f0605fc;
+        public static final int invoice_bg_normal_color = 0x7f0605fd;
+        public static final int invoice_bg_pressed_color = 0x7f0605fe;
+        public static final int invoice_bottom_text = 0x7f0605ff;
+        public static final int invoice_info_content = 0x7f060606;
+        public static final int invoice_info_content_hint = 0x7f060607;
+        public static final int invoice_info_desc = 0x7f060608;
+        public static final int invoice_info_item_divider_line = 0x7f060609;
+        public static final int invoice_top_tag_color = 0x7f06060b;
+        public static final int invoice_top_tax_number_color = 0x7f06060c;
+        public static final int invoice_top_title_color = 0x7f06060d;
+        public static final int invoice_type = 0x7f06060e;
+        public static final int invoice_type_company = 0x7f06060f;
+        public static final int invoice_type_personal = 0x7f060610;
+        public static final int loading_text_color = 0x7f060646;
+        public static final int material_blue_grey_800 = 0x7f06064e;
+        public static final int material_blue_grey_900 = 0x7f06064f;
+        public static final int material_blue_grey_950 = 0x7f060650;
+        public static final int material_deep_teal_200 = 0x7f060651;
+        public static final int material_deep_teal_500 = 0x7f060652;
+        public static final int material_grey_100 = 0x7f060653;
+        public static final int material_grey_300 = 0x7f060654;
+        public static final int material_grey_50 = 0x7f060655;
+        public static final int material_grey_600 = 0x7f060656;
+        public static final int material_grey_800 = 0x7f060657;
+        public static final int material_grey_850 = 0x7f060658;
+        public static final int material_grey_900 = 0x7f060659;
+        public static final int notification_action_color_filter = 0x7f060773;
+        public static final int notification_icon_bg_color = 0x7f060774;
+        public static final int primary_dark_material_dark = 0x7f0607c6;
+        public static final int primary_dark_material_light = 0x7f0607c7;
+        public static final int primary_material_dark = 0x7f0607c8;
+        public static final int primary_material_light = 0x7f0607c9;
+        public static final int primary_text_default_material_dark = 0x7f0607ca;
+        public static final int primary_text_default_material_light = 0x7f0607cb;
+        public static final int primary_text_disabled_material_dark = 0x7f0607cc;
+        public static final int primary_text_disabled_material_light = 0x7f0607cd;
+        public static final int ripple_material_dark = 0x7f0607dd;
+        public static final int ripple_material_light = 0x7f0607de;
+        public static final int secondary_text_default_material_dark = 0x7f0608f4;
+        public static final int secondary_text_default_material_light = 0x7f0608f5;
+        public static final int secondary_text_disabled_material_dark = 0x7f0608f6;
+        public static final int secondary_text_disabled_material_light = 0x7f0608f7;
+        public static final int switch_thumb_disabled_material_dark = 0x7f06099a;
+        public static final int switch_thumb_disabled_material_light = 0x7f06099b;
+        public static final int switch_thumb_material_dark = 0x7f06099c;
+        public static final int switch_thumb_material_light = 0x7f06099d;
+        public static final int switch_thumb_normal_material_dark = 0x7f06099e;
+        public static final int switch_thumb_normal_material_light = 0x7f06099f;
+        public static final int tooltip_background_dark = 0x7f0609ac;
+        public static final int tooltip_background_light = 0x7f0609ad;
+        public static final int transparent = 0x7f0609d1;
+        public static final int white = 0x7f0609dd;
         public transient /* synthetic */ FieldHolder $fh;
 
         public color() {
@@ -1069,49 +1069,49 @@ public final class R {
         public static final int abc_textfield_search_default_mtrl_alpha = 0x7f0800b2;
         public static final int abc_textfield_search_material = 0x7f0800b3;
         public static final int abc_vector_test = 0x7f0800b4;
-        public static final int bdcomment_emotion = 0x7f080218;
-        public static final int btn_checkbox_checked_mtrl = 0x7f08037d;
-        public static final int btn_checkbox_checked_to_unchecked_mtrl_animation = 0x7f08037e;
-        public static final int btn_checkbox_unchecked_mtrl = 0x7f08037f;
-        public static final int btn_checkbox_unchecked_to_checked_mtrl_animation = 0x7f080380;
-        public static final int btn_radio_off_mtrl = 0x7f0803f2;
-        public static final int btn_radio_off_to_on_mtrl_animation = 0x7f0803f3;
-        public static final int btn_radio_on_mtrl = 0x7f0803f4;
-        public static final int btn_radio_on_to_off_mtrl_animation = 0x7f0803f5;
-        public static final int common_scrollbar_vertical = 0x7f080484;
-        public static final int default_ptr_rotate = 0x7f0804a3;
-        public static final int edit_text_cursor = 0x7f0804eb;
-        public static final int emotion_del_btn_bg = 0x7f0804f0;
-        public static final int emotion_delete = 0x7f0804f1;
-        public static final int emotion_icon_selector = 0x7f0804f4;
-        public static final int emotion_inputbox_background = 0x7f0804f5;
-        public static final int emotion_vertical_long_pressed_bg = 0x7f0804fe;
-        public static final int empty_icon_document = 0x7f0804ff;
-        public static final int face_bottom = 0x7f080584;
-        public static final int face_delete = 0x7f080586;
-        public static final int invoice_default_select = 0x7f080c65;
-        public static final int invoice_edit_img = 0x7f080c66;
-        public static final int loading_progress = 0x7f080db8;
-        public static final int loading_progress_animation = 0x7f080db9;
-        public static final int menu_delete = 0x7f080de0;
-        public static final int notification_action_background = 0x7f080eec;
-        public static final int notification_bg = 0x7f080eed;
-        public static final int notification_bg_low = 0x7f080eee;
-        public static final int notification_bg_low_normal = 0x7f080eef;
-        public static final int notification_bg_low_pressed = 0x7f080ef0;
-        public static final int notification_bg_normal = 0x7f080ef1;
-        public static final int notification_bg_normal_pressed = 0x7f080ef2;
-        public static final int notification_icon_background = 0x7f080ef3;
-        public static final int notification_template_icon_bg = 0x7f080ef4;
-        public static final int notification_template_icon_low_bg = 0x7f080ef5;
-        public static final int notification_tile_bg = 0x7f080ef6;
-        public static final int notify_panel_notification_icon_bg = 0x7f080ef8;
-        public static final int novel_loading_bg = 0x7f080efb;
-        public static final int radio_button_checked = 0x7f08105f;
-        public static final int radio_button_selector = 0x7f081060;
-        public static final int radio_button_un_checked = 0x7f081061;
-        public static final int tooltip_frame_dark = 0x7f0812ae;
-        public static final int tooltip_frame_light = 0x7f0812af;
+        public static final int bdcomment_emotion = 0x7f080219;
+        public static final int btn_checkbox_checked_mtrl = 0x7f08037b;
+        public static final int btn_checkbox_checked_to_unchecked_mtrl_animation = 0x7f08037c;
+        public static final int btn_checkbox_unchecked_mtrl = 0x7f08037d;
+        public static final int btn_checkbox_unchecked_to_checked_mtrl_animation = 0x7f08037e;
+        public static final int btn_radio_off_mtrl = 0x7f0803f0;
+        public static final int btn_radio_off_to_on_mtrl_animation = 0x7f0803f1;
+        public static final int btn_radio_on_mtrl = 0x7f0803f2;
+        public static final int btn_radio_on_to_off_mtrl_animation = 0x7f0803f3;
+        public static final int common_scrollbar_vertical = 0x7f080485;
+        public static final int default_ptr_rotate = 0x7f0804a4;
+        public static final int edit_text_cursor = 0x7f0804ec;
+        public static final int emotion_del_btn_bg = 0x7f0804f1;
+        public static final int emotion_delete = 0x7f0804f2;
+        public static final int emotion_icon_selector = 0x7f0804f5;
+        public static final int emotion_inputbox_background = 0x7f0804f6;
+        public static final int emotion_vertical_long_pressed_bg = 0x7f0804ff;
+        public static final int empty_icon_document = 0x7f080500;
+        public static final int face_bottom = 0x7f080587;
+        public static final int face_delete = 0x7f080589;
+        public static final int invoice_default_select = 0x7f080c93;
+        public static final int invoice_edit_img = 0x7f080c94;
+        public static final int loading_progress = 0x7f080de6;
+        public static final int loading_progress_animation = 0x7f080de7;
+        public static final int menu_delete = 0x7f080e0e;
+        public static final int notification_action_background = 0x7f080f1b;
+        public static final int notification_bg = 0x7f080f1c;
+        public static final int notification_bg_low = 0x7f080f1d;
+        public static final int notification_bg_low_normal = 0x7f080f1e;
+        public static final int notification_bg_low_pressed = 0x7f080f1f;
+        public static final int notification_bg_normal = 0x7f080f20;
+        public static final int notification_bg_normal_pressed = 0x7f080f21;
+        public static final int notification_icon_background = 0x7f080f22;
+        public static final int notification_template_icon_bg = 0x7f080f23;
+        public static final int notification_template_icon_low_bg = 0x7f080f24;
+        public static final int notification_tile_bg = 0x7f080f25;
+        public static final int notify_panel_notification_icon_bg = 0x7f080f27;
+        public static final int novel_loading_bg = 0x7f080f2a;
+        public static final int radio_button_checked = 0x7f081091;
+        public static final int radio_button_selector = 0x7f081092;
+        public static final int radio_button_un_checked = 0x7f081093;
+        public static final int tooltip_frame_dark = 0x7f0812e0;
+        public static final int tooltip_frame_light = 0x7f0812e1;
         public transient /* synthetic */ FieldHolder $fh;
 
         public drawable() {
@@ -1187,133 +1187,133 @@ public final class R {
         public static final int actions = 0x7f090074;
         public static final int activity_chooser_view_content = 0x7f090078;
         public static final int add = 0x7f090116;
-        public static final int alertTitle = 0x7f09026a;
-        public static final int async = 0x7f0902cd;
+        public static final int alertTitle = 0x7f090269;
+        public static final int async = 0x7f0902cc;
         public static final int blocking = 0x7f0903f7;
-        public static final int buttonPanel = 0x7f0904f5;
-        public static final int center = 0x7f090653;
-        public static final int checkbox = 0x7f0906b0;
-        public static final int checked = 0x7f0906b5;
-        public static final int chronometer = 0x7f0906dd;
-        public static final int content = 0x7f090782;
-        public static final int contentPanel = 0x7f09078b;
-        public static final int custom = 0x7f0907fa;
-        public static final int customPanel = 0x7f0907fb;
-        public static final int cw_0 = 0x7f09080d;
-        public static final int cw_180 = 0x7f09080e;
-        public static final int cw_270 = 0x7f09080f;
-        public static final int cw_90 = 0x7f090810;
-        public static final int decor_content_parent = 0x7f090826;
-        public static final int default_activity_button = 0x7f090829;
-        public static final int delete_btn = 0x7f090836;
-        public static final int dialog_button = 0x7f090865;
-        public static final int edit_query = 0x7f09093b;
-        public static final int emotion_title = 0x7f090994;
+        public static final int buttonPanel = 0x7f0904f8;
+        public static final int center = 0x7f090656;
+        public static final int checkbox = 0x7f0906b3;
+        public static final int checked = 0x7f0906b8;
+        public static final int chronometer = 0x7f0906e0;
+        public static final int content = 0x7f090785;
+        public static final int contentPanel = 0x7f09078e;
+        public static final int custom = 0x7f0907fd;
+        public static final int customPanel = 0x7f0907fe;
+        public static final int cw_0 = 0x7f090810;
+        public static final int cw_180 = 0x7f090811;
+        public static final int cw_270 = 0x7f090812;
+        public static final int cw_90 = 0x7f090813;
+        public static final int decor_content_parent = 0x7f090829;
+        public static final int default_activity_button = 0x7f09082c;
+        public static final int delete_btn = 0x7f090839;
+        public static final int dialog_button = 0x7f090868;
+        public static final int edit_query = 0x7f090940;
+        public static final int emotion_title = 0x7f090997;
         public static final int emotion_type_layout = 0x7f09093d;
         public static final int emotion_type_placeholer = 0x7f09093e;
 
         /* renamed from: empty */
-        public static final int obfuscated = 0x7f09099c;
+        public static final int obfuscated = 0x7f09099f;
 
         /* renamed from: error */
-        public static final int obfuscated = 0x7f0909e4;
-        public static final int expand_activities_button = 0x7f090a40;
-        public static final int expanded_menu = 0x7f090a4d;
-        public static final int forever = 0x7f090b3e;
-        public static final int gone = 0x7f090def;
-        public static final int group_divider = 0x7f090e42;
-        public static final int home = 0x7f090eda;
-        public static final int icon = 0x7f090f68;
-        public static final int icon_group = 0x7f090f70;
-        public static final int icon_list = 0x7f090f74;
-        public static final int image = 0x7f090fed;
-        public static final int img_item = 0x7f09104d;
-        public static final int immersion_fragment_root_view = 0x7f091081;
+        public static final int obfuscated = 0x7f0909e7;
+        public static final int expand_activities_button = 0x7f090a46;
+        public static final int expanded_menu = 0x7f090a53;
+        public static final int forever = 0x7f090b45;
+        public static final int gone = 0x7f090df8;
+        public static final int group_divider = 0x7f090e4d;
+        public static final int home = 0x7f090ee8;
+        public static final int icon = 0x7f090f77;
+        public static final int icon_group = 0x7f090f7f;
+        public static final int icon_list = 0x7f090f83;
+        public static final int image = 0x7f090ffc;
+        public static final int img_item = 0x7f09105c;
+        public static final int immersion_fragment_root_view = 0x7f091090;
 
         /* renamed from: indicator */
-        public static final int obfuscated = 0x7f09108a;
-        public static final int info = 0x7f09108c;
-        public static final int invisible = 0x7f0910ee;
-        public static final int italic = 0x7f0910fc;
-        public static final int item_touch_helper_previous_elevation = 0x7f09114b;
-        public static final int left = 0x7f091428;
-        public static final int line1 = 0x7f091478;
-        public static final int line3 = 0x7f09147a;
-        public static final int linear = 0x7f091486;
-        public static final int listMode = 0x7f091494;
-        public static final int list_item = 0x7f091499;
+        public static final int obfuscated = 0x7f091099;
+        public static final int info = 0x7f09109b;
+        public static final int invisible = 0x7f0910fd;
+        public static final int italic = 0x7f09110b;
+        public static final int item_touch_helper_previous_elevation = 0x7f09115a;
+        public static final int left = 0x7f091436;
+        public static final int line1 = 0x7f091486;
+        public static final int line3 = 0x7f091488;
+        public static final int linear = 0x7f091494;
+        public static final int listMode = 0x7f0914a2;
+        public static final int list_item = 0x7f0914a7;
 
         /* renamed from: loading */
-        public static final int obfuscated = 0x7f091583;
-        public static final int message = 0x7f09168f;
-        public static final int multiply = 0x7f09172f;
-        public static final int none = 0x7f091876;
-        public static final int normal = 0x7f09187c;
-        public static final int notification_background = 0x7f091895;
-        public static final int notification_main_column = 0x7f091897;
-        public static final int notification_main_column_container = 0x7f091898;
-        public static final int off = 0x7f0918ab;
-        public static final int on = 0x7f0918c1;
-        public static final int panel_root = 0x7f091920;
-        public static final int parentPanel = 0x7f091923;
-        public static final int progress_circular = 0x7f091c3f;
-        public static final int progress_horizontal = 0x7f091c41;
-        public static final int radial = 0x7f091cd5;
-        public static final int radio = 0x7f091cd6;
-        public static final int recycler_list = 0x7f091d4e;
-        public static final int restart = 0x7f091da0;
-        public static final int reverse = 0x7f091da5;
-        public static final int right = 0x7f091dbc;
-        public static final int right_icon = 0x7f091dd5;
-        public static final int right_side = 0x7f091ddc;
-        public static final int screen = 0x7f091f71;
-        public static final int scrollIndicatorDown = 0x7f091f7b;
-        public static final int scrollIndicatorUp = 0x7f091f7c;
-        public static final int scrollView = 0x7f091f7d;
-        public static final int search_badge = 0x7f091f8e;
-        public static final int search_bar = 0x7f091f8f;
-        public static final int search_button = 0x7f091f95;
-        public static final int search_close_btn = 0x7f091f96;
-        public static final int search_edit_frame = 0x7f091f99;
-        public static final int search_go_btn = 0x7f091fa4;
-        public static final int search_mag_icon = 0x7f091fb4;
-        public static final int search_plate = 0x7f091fb6;
-        public static final int search_src_text = 0x7f091fbf;
-        public static final int search_voice_btn = 0x7f091fc9;
-        public static final int select_dialog_listview = 0x7f091fef;
-        public static final int shortcut = 0x7f092079;
-        public static final int spacer = 0x7f0920e2;
-        public static final int split_action_bar = 0x7f0920f9;
-        public static final int src_atop = 0x7f09212e;
-        public static final int src_in = 0x7f09212f;
-        public static final int src_over = 0x7f092130;
-        public static final int submenuarrow = 0x7f092173;
-        public static final int submit_area = 0x7f092174;
-        public static final int tabMode = 0x7f0921dc;
-        public static final int tag_accessibility_actions = 0x7f092205;
-        public static final int tag_accessibility_clickable_spans = 0x7f092206;
-        public static final int tag_accessibility_heading = 0x7f092207;
-        public static final int tag_accessibility_pane_title = 0x7f092208;
-        public static final int tag_screen_reader_focusable = 0x7f09225c;
-        public static final int tag_transition_group = 0x7f09226c;
-        public static final int tag_unhandled_key_event_manager = 0x7f09226e;
-        public static final int tag_unhandled_key_listeners = 0x7f09226f;
-        public static final int text = 0x7f0922ef;
-        public static final int text2 = 0x7f0922f0;
-        public static final int textSpacerNoButtons = 0x7f0922f4;
-        public static final int textSpacerNoTitle = 0x7f0922f5;
-        public static final int time = 0x7f0923bd;
-        public static final int title = 0x7f0923f2;
-        public static final int titleDividerNoCustom = 0x7f0923f4;
-        public static final int title_template = 0x7f09241d;
-        public static final int topPanel = 0x7f092465;
-        public static final int unchecked = 0x7f09265a;
-        public static final int uniform = 0x7f09265f;
-        public static final int up = 0x7f092667;
-        public static final int view_pager = 0x7f0927ce;
-        public static final int visible = 0x7f09280e;
+        public static final int obfuscated = 0x7f091591;
+        public static final int message = 0x7f09169d;
+        public static final int multiply = 0x7f09173d;
+        public static final int none = 0x7f091883;
+        public static final int normal = 0x7f091889;
+        public static final int notification_background = 0x7f0918a1;
+        public static final int notification_main_column = 0x7f0918a3;
+        public static final int notification_main_column_container = 0x7f0918a4;
+        public static final int off = 0x7f0918b7;
+        public static final int on = 0x7f0918cd;
+        public static final int panel_root = 0x7f09192d;
+        public static final int parentPanel = 0x7f091930;
+        public static final int progress_circular = 0x7f091c4f;
+        public static final int progress_horizontal = 0x7f091c51;
+        public static final int radial = 0x7f091ce5;
+        public static final int radio = 0x7f091ce6;
+        public static final int recycler_list = 0x7f091d5e;
+        public static final int restart = 0x7f091db0;
+        public static final int reverse = 0x7f091db5;
+        public static final int right = 0x7f091dcc;
+        public static final int right_icon = 0x7f091de5;
+        public static final int right_side = 0x7f091dec;
+        public static final int screen = 0x7f091f84;
+        public static final int scrollIndicatorDown = 0x7f091f8e;
+        public static final int scrollIndicatorUp = 0x7f091f8f;
+        public static final int scrollView = 0x7f091f90;
+        public static final int search_badge = 0x7f091fa1;
+        public static final int search_bar = 0x7f091fa2;
+        public static final int search_button = 0x7f091fa8;
+        public static final int search_close_btn = 0x7f091fa9;
+        public static final int search_edit_frame = 0x7f091fac;
+        public static final int search_go_btn = 0x7f091fb9;
+        public static final int search_mag_icon = 0x7f091fc8;
+        public static final int search_plate = 0x7f091fca;
+        public static final int search_src_text = 0x7f091fd3;
+        public static final int search_voice_btn = 0x7f091fdd;
+        public static final int select_dialog_listview = 0x7f092003;
+        public static final int shortcut = 0x7f09208d;
+        public static final int spacer = 0x7f0920f6;
+        public static final int split_action_bar = 0x7f09210d;
+        public static final int src_atop = 0x7f092142;
+        public static final int src_in = 0x7f092143;
+        public static final int src_over = 0x7f092144;
+        public static final int submenuarrow = 0x7f092187;
+        public static final int submit_area = 0x7f092188;
+        public static final int tabMode = 0x7f0921f1;
+        public static final int tag_accessibility_actions = 0x7f09221d;
+        public static final int tag_accessibility_clickable_spans = 0x7f09221e;
+        public static final int tag_accessibility_heading = 0x7f09221f;
+        public static final int tag_accessibility_pane_title = 0x7f092220;
+        public static final int tag_screen_reader_focusable = 0x7f092274;
+        public static final int tag_transition_group = 0x7f092284;
+        public static final int tag_unhandled_key_event_manager = 0x7f092286;
+        public static final int tag_unhandled_key_listeners = 0x7f092287;
+        public static final int text = 0x7f092307;
+        public static final int text2 = 0x7f092308;
+        public static final int textSpacerNoButtons = 0x7f09230c;
+        public static final int textSpacerNoTitle = 0x7f09230d;
+        public static final int time = 0x7f0923d5;
+        public static final int title = 0x7f09240b;
+        public static final int titleDividerNoCustom = 0x7f09240d;
+        public static final int title_template = 0x7f092436;
+        public static final int topPanel = 0x7f09247e;
+        public static final int unchecked = 0x7f092673;
+        public static final int uniform = 0x7f092678;
+        public static final int up = 0x7f092680;
+        public static final int view_pager = 0x7f0927ea;
+        public static final int visible = 0x7f09282a;
         public static final int vp_emotion_type = 0x7f091fad;
-        public static final int wrap_content = 0x7f0928b2;
+        public static final int wrap_content = 0x7f0928ce;
         public transient /* synthetic */ FieldHolder $fh;
 
         public id() {
@@ -1416,27 +1416,27 @@ public final class R {
         public static final int abc_search_view = 0x7f0d0019;
         public static final int abc_select_dialog_material = 0x7f0d001a;
         public static final int abc_tooltip = 0x7f0d001b;
-        public static final int bd_emotion_panel = 0x7f0d014e;
-        public static final int custom_dialog = 0x7f0d021b;
-        public static final int emotion_grid_item = 0x7f0d026e;
-        public static final int emotion_only_include_panel_linearlayout = 0x7f0d0279;
-        public static final int emotion_vertical_grid_item = 0x7f0d0284;
-        public static final int emotion_vertical_long_pressed_layout = 0x7f0d0285;
-        public static final int emotion_vertical_panel_icon = 0x7f0d0286;
-        public static final int emotion_vertical_panel_page1_root = 0x7f0d0287;
-        public static final int emotion_vertical_panel_root = 0x7f0d0288;
-        public static final int emotion_vertical_panel_title = 0x7f0d0289;
-        public static final int im_plugin_emotion_root_layout = 0x7f0d03ee;
-        public static final int notification_action = 0x7f0d06bf;
-        public static final int notification_action_tombstone = 0x7f0d06c0;
-        public static final int notification_template_custom_big = 0x7f0d06c7;
-        public static final int notification_template_icon_group = 0x7f0d06c8;
-        public static final int notification_template_part_chronometer = 0x7f0d06cc;
-        public static final int notification_template_part_time = 0x7f0d06cd;
-        public static final int select_dialog_item_material = 0x7f0d0808;
-        public static final int select_dialog_multichoice_material = 0x7f0d0809;
-        public static final int select_dialog_singlechoice_material = 0x7f0d080a;
-        public static final int support_simple_spinner_dropdown_item = 0x7f0d0875;
+        public static final int bd_emotion_panel = 0x7f0d0151;
+        public static final int custom_dialog = 0x7f0d021e;
+        public static final int emotion_grid_item = 0x7f0d0271;
+        public static final int emotion_only_include_panel_linearlayout = 0x7f0d027c;
+        public static final int emotion_vertical_grid_item = 0x7f0d0287;
+        public static final int emotion_vertical_long_pressed_layout = 0x7f0d0288;
+        public static final int emotion_vertical_panel_icon = 0x7f0d0289;
+        public static final int emotion_vertical_panel_page1_root = 0x7f0d028a;
+        public static final int emotion_vertical_panel_root = 0x7f0d028b;
+        public static final int emotion_vertical_panel_title = 0x7f0d028c;
+        public static final int im_plugin_emotion_root_layout = 0x7f0d03f3;
+        public static final int notification_action = 0x7f0d06ca;
+        public static final int notification_action_tombstone = 0x7f0d06cb;
+        public static final int notification_template_custom_big = 0x7f0d06d2;
+        public static final int notification_template_icon_group = 0x7f0d06d3;
+        public static final int notification_template_part_chronometer = 0x7f0d06d7;
+        public static final int notification_template_part_time = 0x7f0d06d8;
+        public static final int select_dialog_item_material = 0x7f0d0814;
+        public static final int select_dialog_multichoice_material = 0x7f0d0815;
+        public static final int select_dialog_singlechoice_material = 0x7f0d0816;
+        public static final int support_simple_spinner_dropdown_item = 0x7f0d0881;
         public transient /* synthetic */ FieldHolder $fh;
 
         public layout() {
@@ -1457,81 +1457,81 @@ public final class R {
     /* loaded from: classes3.dex */
     public static final class string {
         public static /* synthetic */ Interceptable $ic = null;
-        public static final int abc_action_bar_home_description = 0x7f0f003b;
-        public static final int abc_action_bar_up_description = 0x7f0f003c;
-        public static final int abc_action_menu_overflow_description = 0x7f0f003d;
-        public static final int abc_action_mode_done = 0x7f0f003e;
-        public static final int abc_activity_chooser_view_see_all = 0x7f0f003f;
-        public static final int abc_activitychooserview_choose_application = 0x7f0f0040;
-        public static final int abc_capital_off = 0x7f0f0041;
-        public static final int abc_capital_on = 0x7f0f0042;
-        public static final int abc_menu_alt_shortcut_label = 0x7f0f0043;
-        public static final int abc_menu_ctrl_shortcut_label = 0x7f0f0044;
-        public static final int abc_menu_delete_shortcut_label = 0x7f0f0045;
-        public static final int abc_menu_enter_shortcut_label = 0x7f0f0046;
-        public static final int abc_menu_function_shortcut_label = 0x7f0f0047;
-        public static final int abc_menu_meta_shortcut_label = 0x7f0f0048;
-        public static final int abc_menu_shift_shortcut_label = 0x7f0f0049;
-        public static final int abc_menu_space_shortcut_label = 0x7f0f004a;
-        public static final int abc_menu_sym_shortcut_label = 0x7f0f004b;
-        public static final int abc_prepend_shortcut_label = 0x7f0f004c;
-        public static final int abc_search_hint = 0x7f0f004d;
-        public static final int abc_searchview_description_clear = 0x7f0f004e;
-        public static final int abc_searchview_description_query = 0x7f0f004f;
-        public static final int abc_searchview_description_search = 0x7f0f0050;
-        public static final int abc_searchview_description_submit = 0x7f0f0051;
-        public static final int abc_searchview_description_voice = 0x7f0f0052;
-        public static final int abc_shareactionprovider_share_with = 0x7f0f0053;
-        public static final int abc_shareactionprovider_share_with_application = 0x7f0f0054;
-        public static final int abc_toolbar_collapse_description = 0x7f0f0055;
-        public static final int activity_not_found = 0x7f0f0090;
-        public static final int all_zone_title_default = 0x7f0f027d;
+        public static final int abc_action_bar_home_description = 0x7f0f0039;
+        public static final int abc_action_bar_up_description = 0x7f0f003a;
+        public static final int abc_action_menu_overflow_description = 0x7f0f003b;
+        public static final int abc_action_mode_done = 0x7f0f003c;
+        public static final int abc_activity_chooser_view_see_all = 0x7f0f003d;
+        public static final int abc_activitychooserview_choose_application = 0x7f0f003e;
+        public static final int abc_capital_off = 0x7f0f003f;
+        public static final int abc_capital_on = 0x7f0f0040;
+        public static final int abc_menu_alt_shortcut_label = 0x7f0f0041;
+        public static final int abc_menu_ctrl_shortcut_label = 0x7f0f0042;
+        public static final int abc_menu_delete_shortcut_label = 0x7f0f0043;
+        public static final int abc_menu_enter_shortcut_label = 0x7f0f0044;
+        public static final int abc_menu_function_shortcut_label = 0x7f0f0045;
+        public static final int abc_menu_meta_shortcut_label = 0x7f0f0046;
+        public static final int abc_menu_shift_shortcut_label = 0x7f0f0047;
+        public static final int abc_menu_space_shortcut_label = 0x7f0f0048;
+        public static final int abc_menu_sym_shortcut_label = 0x7f0f0049;
+        public static final int abc_prepend_shortcut_label = 0x7f0f004a;
+        public static final int abc_search_hint = 0x7f0f004b;
+        public static final int abc_searchview_description_clear = 0x7f0f004c;
+        public static final int abc_searchview_description_query = 0x7f0f004d;
+        public static final int abc_searchview_description_search = 0x7f0f004e;
+        public static final int abc_searchview_description_submit = 0x7f0f004f;
+        public static final int abc_searchview_description_voice = 0x7f0f0050;
+        public static final int abc_shareactionprovider_share_with = 0x7f0f0051;
+        public static final int abc_shareactionprovider_share_with_application = 0x7f0f0052;
+        public static final int abc_toolbar_collapse_description = 0x7f0f0053;
+        public static final int activity_not_found = 0x7f0f008e;
+        public static final int all_zone_title_default = 0x7f0f027b;
         public static final int app_name = 0x7f0f029e;
-        public static final int cancel = 0x7f0f038d;
-        public static final int close = 0x7f0f0421;
-        public static final int delete = 0x7f0f04d9;
-        public static final int deleting = 0x7f0f04f5;
-        public static final int dialog_nagtive_button_text = 0x7f0f051f;
-        public static final int dialog_positive_button_text = 0x7f0f0522;
-        public static final int download_cancel = 0x7f0f0537;
-        public static final int downloading = 0x7f0f0551;
-        public static final int history_aiapp_tag = 0x7f0f08f7;
-        public static final int invoice_bottom_edit = 0x7f0f0a1a;
-        public static final int invoice_current_use = 0x7f0f0a1c;
-        public static final int invoice_desc_bank = 0x7f0f0a1d;
-        public static final int invoice_desc_bank_account = 0x7f0f0a1e;
-        public static final int invoice_desc_company_address = 0x7f0f0a1f;
-        public static final int invoice_desc_mobile = 0x7f0f0a20;
-        public static final int invoice_desc_name = 0x7f0f0a21;
-        public static final int invoice_desc_tax_number = 0x7f0f0a22;
-        public static final int invoice_err_msg_name = 0x7f0f0a28;
-        public static final int invoice_err_msg_personal_name = 0x7f0f0a29;
-        public static final int invoice_err_msg_tax_number = 0x7f0f0a2a;
-        public static final int invoice_hint_bank = 0x7f0f0a2c;
-        public static final int invoice_hint_bank_account = 0x7f0f0a2d;
-        public static final int invoice_hint_company_address = 0x7f0f0a2e;
-        public static final int invoice_hint_mobile = 0x7f0f0a2f;
-        public static final int invoice_hint_name = 0x7f0f0a30;
-        public static final int invoice_hint_personal_name = 0x7f0f0a31;
-        public static final int invoice_hint_tax_number = 0x7f0f0a32;
-        public static final int invoice_top_company_tag = 0x7f0f0a37;
-        public static final int invoice_top_personage_tag = 0x7f0f0a38;
-        public static final int invoice_top_tax_number = 0x7f0f0a39;
-        public static final int invoice_type = 0x7f0f0a3a;
-        public static final int invoice_type_company = 0x7f0f0a3b;
-        public static final int invoice_type_personal = 0x7f0f0a3c;
-        public static final int liveshow_teletext_time_day_before = 0x7f0f0af7;
-        public static final int liveshow_teletext_time_hour_before = 0x7f0f0af8;
-        public static final int liveshow_teletext_time_min_before = 0x7f0f0af9;
-        public static final int liveshow_teletext_time_sec_before = 0x7f0f0afa;
-        public static final int often_zone_title_default = 0x7f0f0dc0;
-        public static final int ok = 0x7f0f0dc1;
-        public static final int picture_image_loading = 0x7f0f0f68;
-        public static final int privacy_policy = 0x7f0f0fe2;
-        public static final int save = 0x7f0f1161;
-        public static final int search_menu_title = 0x7f0f11a1;
-        public static final int share = 0x7f0f1208;
-        public static final int status_bar_notification_info_overflow = 0x7f0f12dd;
+        public static final int cancel = 0x7f0f038b;
+        public static final int close = 0x7f0f0429;
+        public static final int delete = 0x7f0f04e3;
+        public static final int deleting = 0x7f0f04ff;
+        public static final int dialog_nagtive_button_text = 0x7f0f052c;
+        public static final int dialog_positive_button_text = 0x7f0f052f;
+        public static final int download_cancel = 0x7f0f0544;
+        public static final int downloading = 0x7f0f055e;
+        public static final int history_aiapp_tag = 0x7f0f090c;
+        public static final int invoice_bottom_edit = 0x7f0f0a2f;
+        public static final int invoice_current_use = 0x7f0f0a31;
+        public static final int invoice_desc_bank = 0x7f0f0a32;
+        public static final int invoice_desc_bank_account = 0x7f0f0a33;
+        public static final int invoice_desc_company_address = 0x7f0f0a34;
+        public static final int invoice_desc_mobile = 0x7f0f0a35;
+        public static final int invoice_desc_name = 0x7f0f0a36;
+        public static final int invoice_desc_tax_number = 0x7f0f0a37;
+        public static final int invoice_err_msg_name = 0x7f0f0a3d;
+        public static final int invoice_err_msg_personal_name = 0x7f0f0a3e;
+        public static final int invoice_err_msg_tax_number = 0x7f0f0a3f;
+        public static final int invoice_hint_bank = 0x7f0f0a41;
+        public static final int invoice_hint_bank_account = 0x7f0f0a42;
+        public static final int invoice_hint_company_address = 0x7f0f0a43;
+        public static final int invoice_hint_mobile = 0x7f0f0a44;
+        public static final int invoice_hint_name = 0x7f0f0a45;
+        public static final int invoice_hint_personal_name = 0x7f0f0a46;
+        public static final int invoice_hint_tax_number = 0x7f0f0a47;
+        public static final int invoice_top_company_tag = 0x7f0f0a4c;
+        public static final int invoice_top_personage_tag = 0x7f0f0a4d;
+        public static final int invoice_top_tax_number = 0x7f0f0a4e;
+        public static final int invoice_type = 0x7f0f0a4f;
+        public static final int invoice_type_company = 0x7f0f0a50;
+        public static final int invoice_type_personal = 0x7f0f0a51;
+        public static final int liveshow_teletext_time_day_before = 0x7f0f0b0c;
+        public static final int liveshow_teletext_time_hour_before = 0x7f0f0b0d;
+        public static final int liveshow_teletext_time_min_before = 0x7f0f0b0e;
+        public static final int liveshow_teletext_time_sec_before = 0x7f0f0b0f;
+        public static final int often_zone_title_default = 0x7f0f0dd7;
+        public static final int ok = 0x7f0f0dd8;
+        public static final int picture_image_loading = 0x7f0f0f80;
+        public static final int privacy_policy = 0x7f0f0ffa;
+        public static final int save = 0x7f0f117a;
+        public static final int search_menu_title = 0x7f0f11ba;
+        public static final int share = 0x7f0f1221;
+        public static final int status_bar_notification_info_overflow = 0x7f0f12f6;
         public transient /* synthetic */ FieldHolder $fh;
 
         public string() {
@@ -1923,7 +1923,7 @@ public final class R {
         /* renamed from: highlight_toast_animation */
         public static final int obfuscated_res_0x7f1003c0 = 0x7f1003c0;
         public static final int pop_window_anim = 0x7f1003e3;
-        public static final int toast_animation = 0x7f100425;
+        public static final int toast_animation = 0x7f100426;
         public transient /* synthetic */ FieldHolder $fh;
 
         public style() {
@@ -2588,57 +2588,57 @@ public final class R {
                     return;
                 }
             }
-            AbsSpinner = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04028a};
-            ActionBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b8, com.baidu.tieba.R.attr.obfuscated_res_0x7f040194, com.baidu.tieba.R.attr.obfuscated_res_0x7f040195, com.baidu.tieba.R.attr.obfuscated_res_0x7f040196, com.baidu.tieba.R.attr.obfuscated_res_0x7f040197, com.baidu.tieba.R.attr.obfuscated_res_0x7f040198, com.baidu.tieba.R.attr.obfuscated_res_0x7f040199, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401fb, com.baidu.tieba.R.attr.obfuscated_res_0x7f040215, com.baidu.tieba.R.attr.obfuscated_res_0x7f040216, com.baidu.tieba.R.attr.obfuscated_res_0x7f040270, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ff, com.baidu.tieba.R.attr.obfuscated_res_0x7f040309, com.baidu.tieba.R.attr.obfuscated_res_0x7f040326, com.baidu.tieba.R.attr.obfuscated_res_0x7f040327, com.baidu.tieba.R.attr.obfuscated_res_0x7f04032c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040342, com.baidu.tieba.R.attr.obfuscated_res_0x7f04036f, com.baidu.tieba.R.attr.obfuscated_res_0x7f04049b, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404ff, com.baidu.tieba.R.attr.obfuscated_res_0x7f040565, com.baidu.tieba.R.attr.obfuscated_res_0x7f04056e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04056f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040676, com.baidu.tieba.R.attr.obfuscated_res_0x7f040679, com.baidu.tieba.R.attr.obfuscated_res_0x7f04072f, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073b};
+            AbsSpinner = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040293};
+            ActionBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b8, com.baidu.tieba.R.attr.obfuscated_res_0x7f040194, com.baidu.tieba.R.attr.obfuscated_res_0x7f040195, com.baidu.tieba.R.attr.obfuscated_res_0x7f040196, com.baidu.tieba.R.attr.obfuscated_res_0x7f040197, com.baidu.tieba.R.attr.obfuscated_res_0x7f040198, com.baidu.tieba.R.attr.obfuscated_res_0x7f040199, com.baidu.tieba.R.attr.obfuscated_res_0x7f040204, com.baidu.tieba.R.attr.obfuscated_res_0x7f040247, com.baidu.tieba.R.attr.obfuscated_res_0x7f040250, com.baidu.tieba.R.attr.obfuscated_res_0x7f040285, com.baidu.tieba.R.attr.obfuscated_res_0x7f040308, com.baidu.tieba.R.attr.obfuscated_res_0x7f040312, com.baidu.tieba.R.attr.obfuscated_res_0x7f04032f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040330, com.baidu.tieba.R.attr.obfuscated_res_0x7f040337, com.baidu.tieba.R.attr.obfuscated_res_0x7f040350, com.baidu.tieba.R.attr.obfuscated_res_0x7f040378, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404a4, com.baidu.tieba.R.attr.obfuscated_res_0x7f040508, com.baidu.tieba.R.attr.obfuscated_res_0x7f04056e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040577, com.baidu.tieba.R.attr.obfuscated_res_0x7f040578, com.baidu.tieba.R.attr.obfuscated_res_0x7f04067f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040682, com.baidu.tieba.R.attr.obfuscated_res_0x7f040738, com.baidu.tieba.R.attr.obfuscated_res_0x7f040744};
             ActionBarLayout = new int[]{16842931};
             ActionMenuItemView = new int[]{16843071};
             ActionMenuView = new int[0];
-            ActionMode = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b7, com.baidu.tieba.R.attr.obfuscated_res_0x7f040166, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ff, com.baidu.tieba.R.attr.obfuscated_res_0x7f040679, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073b};
-            ActivityChooserView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040293, com.baidu.tieba.R.attr.obfuscated_res_0x7f040343};
-            AlertDialog = new int[]{16842994, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04043d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04043e, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404e5, com.baidu.tieba.R.attr.obfuscated_res_0x7f040635, com.baidu.tieba.R.attr.obfuscated_res_0x7f04063b};
+            ActionMode = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b7, com.baidu.tieba.R.attr.obfuscated_res_0x7f040166, com.baidu.tieba.R.attr.obfuscated_res_0x7f040308, com.baidu.tieba.R.attr.obfuscated_res_0x7f040682, com.baidu.tieba.R.attr.obfuscated_res_0x7f040744};
+            ActivityChooserView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04029c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040351};
+            AlertDialog = new int[]{16842994, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040446, com.baidu.tieba.R.attr.obfuscated_res_0x7f040447, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404ee, com.baidu.tieba.R.attr.obfuscated_res_0x7f04063e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040644};
             AnimatedStateListDrawableCompat = new int[]{16843036, 16843156, 16843157, 16843158, 16843532, 16843533};
             AnimatedStateListDrawableItem = new int[]{16842960, 16843161};
             AnimatedStateListDrawableTransition = new int[]{16843161, 16843849, 16843850, 16843851};
-            AppCompatImageView = new int[]{16843033, com.baidu.tieba.R.attr.obfuscated_res_0x7f04065d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04072d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04072e};
-            AppCompatSeekBar = new int[]{16843074, com.baidu.tieba.R.attr.obfuscated_res_0x7f040728, com.baidu.tieba.R.attr.obfuscated_res_0x7f040729, com.baidu.tieba.R.attr.obfuscated_res_0x7f04072a};
+            AppCompatImageView = new int[]{16843033, com.baidu.tieba.R.attr.obfuscated_res_0x7f040666, com.baidu.tieba.R.attr.obfuscated_res_0x7f040736, com.baidu.tieba.R.attr.obfuscated_res_0x7f040737};
+            AppCompatSeekBar = new int[]{16843074, com.baidu.tieba.R.attr.obfuscated_res_0x7f040731, com.baidu.tieba.R.attr.obfuscated_res_0x7f040732, com.baidu.tieba.R.attr.obfuscated_res_0x7f040733};
             AppCompatTextHelper = new int[]{16842804, 16843117, 16843118, 16843119, 16843120, 16843666, 16843667};
-            AppCompatTextView = new int[]{16842804, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400a8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400a9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400aa, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ab, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ac, com.baidu.tieba.R.attr.obfuscated_res_0x7f040259, com.baidu.tieba.R.attr.obfuscated_res_0x7f04025a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04025b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04025c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04025e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04025f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040260, com.baidu.tieba.R.attr.obfuscated_res_0x7f040261, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402db, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e4, com.baidu.tieba.R.attr.obfuscated_res_0x7f040407, com.baidu.tieba.R.attr.obfuscated_res_0x7f040435, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406e8, com.baidu.tieba.R.attr.obfuscated_res_0x7f04070a};
-            AppCompatTheme = new int[]{16842839, 16842926, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040050, com.baidu.tieba.R.attr.obfuscated_res_0x7f040051, com.baidu.tieba.R.attr.obfuscated_res_0x7f040052, com.baidu.tieba.R.attr.obfuscated_res_0x7f040053, com.baidu.tieba.R.attr.obfuscated_res_0x7f040054, com.baidu.tieba.R.attr.obfuscated_res_0x7f040055, com.baidu.tieba.R.attr.obfuscated_res_0x7f040056, com.baidu.tieba.R.attr.obfuscated_res_0x7f040058, com.baidu.tieba.R.attr.obfuscated_res_0x7f040059, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040060, com.baidu.tieba.R.attr.obfuscated_res_0x7f040061, com.baidu.tieba.R.attr.obfuscated_res_0x7f040062, com.baidu.tieba.R.attr.obfuscated_res_0x7f040063, com.baidu.tieba.R.attr.obfuscated_res_0x7f040064, com.baidu.tieba.R.attr.obfuscated_res_0x7f040065, com.baidu.tieba.R.attr.obfuscated_res_0x7f040066, com.baidu.tieba.R.attr.obfuscated_res_0x7f040067, com.baidu.tieba.R.attr.obfuscated_res_0x7f040068, com.baidu.tieba.R.attr.obfuscated_res_0x7f040069, com.baidu.tieba.R.attr.obfuscated_res_0x7f04006a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040070, com.baidu.tieba.R.attr.obfuscated_res_0x7f040085, com.baidu.tieba.R.attr.obfuscated_res_0x7f040086, com.baidu.tieba.R.attr.obfuscated_res_0x7f040087, com.baidu.tieba.R.attr.obfuscated_res_0x7f040088, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400a5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400f0, com.baidu.tieba.R.attr.obfuscated_res_0x7f04011d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04011e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040122, com.baidu.tieba.R.attr.obfuscated_res_0x7f040126, com.baidu.tieba.R.attr.obfuscated_res_0x7f040127, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040135, com.baidu.tieba.R.attr.obfuscated_res_0x7f04013c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040170, com.baidu.tieba.R.attr.obfuscated_res_0x7f040171, com.baidu.tieba.R.attr.obfuscated_res_0x7f040172, com.baidu.tieba.R.attr.obfuscated_res_0x7f040173, com.baidu.tieba.R.attr.obfuscated_res_0x7f04017a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04017b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040181, com.baidu.tieba.R.attr.obfuscated_res_0x7f04019d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040211, com.baidu.tieba.R.attr.obfuscated_res_0x7f040212, com.baidu.tieba.R.attr.obfuscated_res_0x7f040213, com.baidu.tieba.R.attr.obfuscated_res_0x7f040219, com.baidu.tieba.R.attr.obfuscated_res_0x7f04021d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040266, com.baidu.tieba.R.attr.obfuscated_res_0x7f040268, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040326, com.baidu.tieba.R.attr.obfuscated_res_0x7f04033a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040439, com.baidu.tieba.R.attr.obfuscated_res_0x7f04043a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04043b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04043c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04043f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040440, com.baidu.tieba.R.attr.obfuscated_res_0x7f040441, com.baidu.tieba.R.attr.obfuscated_res_0x7f040442, com.baidu.tieba.R.attr.obfuscated_res_0x7f040443, com.baidu.tieba.R.attr.obfuscated_res_0x7f040444, com.baidu.tieba.R.attr.obfuscated_res_0x7f040445, com.baidu.tieba.R.attr.obfuscated_res_0x7f040446, com.baidu.tieba.R.attr.obfuscated_res_0x7f040447, com.baidu.tieba.R.attr.obfuscated_res_0x7f040527, com.baidu.tieba.R.attr.obfuscated_res_0x7f040528, com.baidu.tieba.R.attr.obfuscated_res_0x7f040529, com.baidu.tieba.R.attr.obfuscated_res_0x7f040564, com.baidu.tieba.R.attr.obfuscated_res_0x7f040566, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405af, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405b7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405b8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405b9, com.baidu.tieba.R.attr.obfuscated_res_0x7f040613, com.baidu.tieba.R.attr.obfuscated_res_0x7f040615, com.baidu.tieba.R.attr.obfuscated_res_0x7f040618, com.baidu.tieba.R.attr.obfuscated_res_0x7f040619, com.baidu.tieba.R.attr.obfuscated_res_0x7f040658, com.baidu.tieba.R.attr.obfuscated_res_0x7f040659, com.baidu.tieba.R.attr.obfuscated_res_0x7f04068a, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406f3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406f5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406f6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406f7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406f9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406fa, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406fb, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406fc, com.baidu.tieba.R.attr.obfuscated_res_0x7f040700, com.baidu.tieba.R.attr.obfuscated_res_0x7f040703, com.baidu.tieba.R.attr.obfuscated_res_0x7f040741, com.baidu.tieba.R.attr.obfuscated_res_0x7f040742, com.baidu.tieba.R.attr.obfuscated_res_0x7f040743, com.baidu.tieba.R.attr.obfuscated_res_0x7f040744, com.baidu.tieba.R.attr.obfuscated_res_0x7f040790, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407aa, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407ab, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407ac};
+            AppCompatTextView = new int[]{16842804, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400a8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400a9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400aa, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ab, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ac, com.baidu.tieba.R.attr.obfuscated_res_0x7f040262, com.baidu.tieba.R.attr.obfuscated_res_0x7f040263, com.baidu.tieba.R.attr.obfuscated_res_0x7f040264, com.baidu.tieba.R.attr.obfuscated_res_0x7f040265, com.baidu.tieba.R.attr.obfuscated_res_0x7f040267, com.baidu.tieba.R.attr.obfuscated_res_0x7f040268, com.baidu.tieba.R.attr.obfuscated_res_0x7f040269, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026a, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ed, com.baidu.tieba.R.attr.obfuscated_res_0x7f040410, com.baidu.tieba.R.attr.obfuscated_res_0x7f04043e, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406f1, com.baidu.tieba.R.attr.obfuscated_res_0x7f040713};
+            AppCompatTheme = new int[]{16842839, 16842926, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04004f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040050, com.baidu.tieba.R.attr.obfuscated_res_0x7f040051, com.baidu.tieba.R.attr.obfuscated_res_0x7f040052, com.baidu.tieba.R.attr.obfuscated_res_0x7f040053, com.baidu.tieba.R.attr.obfuscated_res_0x7f040054, com.baidu.tieba.R.attr.obfuscated_res_0x7f040055, com.baidu.tieba.R.attr.obfuscated_res_0x7f040056, com.baidu.tieba.R.attr.obfuscated_res_0x7f040058, com.baidu.tieba.R.attr.obfuscated_res_0x7f040059, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04005f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040060, com.baidu.tieba.R.attr.obfuscated_res_0x7f040061, com.baidu.tieba.R.attr.obfuscated_res_0x7f040062, com.baidu.tieba.R.attr.obfuscated_res_0x7f040063, com.baidu.tieba.R.attr.obfuscated_res_0x7f040064, com.baidu.tieba.R.attr.obfuscated_res_0x7f040065, com.baidu.tieba.R.attr.obfuscated_res_0x7f040066, com.baidu.tieba.R.attr.obfuscated_res_0x7f040067, com.baidu.tieba.R.attr.obfuscated_res_0x7f040068, com.baidu.tieba.R.attr.obfuscated_res_0x7f040069, com.baidu.tieba.R.attr.obfuscated_res_0x7f04006a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040070, com.baidu.tieba.R.attr.obfuscated_res_0x7f040085, com.baidu.tieba.R.attr.obfuscated_res_0x7f040086, com.baidu.tieba.R.attr.obfuscated_res_0x7f040087, com.baidu.tieba.R.attr.obfuscated_res_0x7f040088, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400a5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400f0, com.baidu.tieba.R.attr.obfuscated_res_0x7f04011d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04011e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040122, com.baidu.tieba.R.attr.obfuscated_res_0x7f040126, com.baidu.tieba.R.attr.obfuscated_res_0x7f040127, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040135, com.baidu.tieba.R.attr.obfuscated_res_0x7f04013c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040170, com.baidu.tieba.R.attr.obfuscated_res_0x7f040171, com.baidu.tieba.R.attr.obfuscated_res_0x7f040172, com.baidu.tieba.R.attr.obfuscated_res_0x7f040173, com.baidu.tieba.R.attr.obfuscated_res_0x7f04017a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04017b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040181, com.baidu.tieba.R.attr.obfuscated_res_0x7f04019d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04021a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04021b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04021c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040253, com.baidu.tieba.R.attr.obfuscated_res_0x7f040258, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040271, com.baidu.tieba.R.attr.obfuscated_res_0x7f040282, com.baidu.tieba.R.attr.obfuscated_res_0x7f040283, com.baidu.tieba.R.attr.obfuscated_res_0x7f040284, com.baidu.tieba.R.attr.obfuscated_res_0x7f04032f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040343, com.baidu.tieba.R.attr.obfuscated_res_0x7f040442, com.baidu.tieba.R.attr.obfuscated_res_0x7f040443, com.baidu.tieba.R.attr.obfuscated_res_0x7f040444, com.baidu.tieba.R.attr.obfuscated_res_0x7f040445, com.baidu.tieba.R.attr.obfuscated_res_0x7f040448, com.baidu.tieba.R.attr.obfuscated_res_0x7f040449, com.baidu.tieba.R.attr.obfuscated_res_0x7f04044a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04044b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04044c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04044d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04044e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04044f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040450, com.baidu.tieba.R.attr.obfuscated_res_0x7f040530, com.baidu.tieba.R.attr.obfuscated_res_0x7f040531, com.baidu.tieba.R.attr.obfuscated_res_0x7f040532, com.baidu.tieba.R.attr.obfuscated_res_0x7f04056d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04056f, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405b8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405c0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405c1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405c2, com.baidu.tieba.R.attr.obfuscated_res_0x7f04061c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04061e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040621, com.baidu.tieba.R.attr.obfuscated_res_0x7f040622, com.baidu.tieba.R.attr.obfuscated_res_0x7f040661, com.baidu.tieba.R.attr.obfuscated_res_0x7f040662, com.baidu.tieba.R.attr.obfuscated_res_0x7f040693, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406fc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406fe, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406ff, com.baidu.tieba.R.attr.obfuscated_res_0x7f040700, com.baidu.tieba.R.attr.obfuscated_res_0x7f040702, com.baidu.tieba.R.attr.obfuscated_res_0x7f040703, com.baidu.tieba.R.attr.obfuscated_res_0x7f040704, com.baidu.tieba.R.attr.obfuscated_res_0x7f040705, com.baidu.tieba.R.attr.obfuscated_res_0x7f040709, com.baidu.tieba.R.attr.obfuscated_res_0x7f04070c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040799, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407ac, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407ad, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407ae, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407af, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407b0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407b1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407b2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407b3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407b4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407b5};
             ButtonBarLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040089};
             ColorStateListItem = new int[]{16843173, 16843551, com.baidu.tieba.R.attr.obfuscated_res_0x7f04008a};
             CompoundButton = new int[]{16843015, com.baidu.tieba.R.attr.obfuscated_res_0x7f040128, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04012f};
-            DrawerArrowToggle = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04009b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04009c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400c4, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04025d, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402eb, com.baidu.tieba.R.attr.obfuscated_res_0x7f040657, com.baidu.tieba.R.attr.obfuscated_res_0x7f040716};
-            FontFamily = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0402dc, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402dd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402de, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402df, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e2};
-            FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402da, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e5, com.baidu.tieba.R.attr.obfuscated_res_0x7f040766};
-            Gallery = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040093, com.baidu.tieba.R.attr.obfuscated_res_0x7f04064f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040685, com.baidu.tieba.R.attr.unselectedAlpha};
+            DrawerArrowToggle = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04009b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04009c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400c4, com.baidu.tieba.R.attr.obfuscated_res_0x7f04016c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040266, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402f4, com.baidu.tieba.R.attr.obfuscated_res_0x7f040660, com.baidu.tieba.R.attr.obfuscated_res_0x7f04071f};
+            FontFamily = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ea, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402eb};
+            FontFamilyFont = new int[]{16844082, 16844083, 16844095, 16844143, 16844144, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ec, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ed, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ee, com.baidu.tieba.R.attr.obfuscated_res_0x7f04076f};
+            Gallery = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040093, com.baidu.tieba.R.attr.obfuscated_res_0x7f040658, com.baidu.tieba.R.attr.obfuscated_res_0x7f04068e, com.baidu.tieba.R.attr.unselectedAlpha};
             GradientColor = new int[]{16843165, 16843166, 16843169, 16843170, 16843171, 16843172, 16843265, 16843275, 16844048, 16844049, 16844050, 16844051};
             GradientColorItem = new int[]{16843173, 16844052};
-            LinearLayoutCompat = new int[]{16842927, 16842948, 16843046, 16843047, 16843048, com.baidu.tieba.R.attr.obfuscated_res_0x7f040216, com.baidu.tieba.R.attr.obfuscated_res_0x7f04021c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404cd, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062f};
+            LinearLayoutCompat = new int[]{16842927, 16842948, 16843046, 16843047, 16843048, com.baidu.tieba.R.attr.obfuscated_res_0x7f040250, com.baidu.tieba.R.attr.obfuscated_res_0x7f040257, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404d6, com.baidu.tieba.R.attr.obfuscated_res_0x7f040638};
             LinearLayoutCompat_Layout = new int[]{16842931, 16842996, 16842997, 16843137};
             ListPopupWindow = new int[]{16843436, 16843437};
             MenuGroup = new int[]{16842766, 16842960, 16843156, 16843230, 16843231, 16843232};
-            MenuItem = new int[]{16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, com.baidu.tieba.R.attr.obfuscated_res_0x7f040057, com.baidu.tieba.R.attr.obfuscated_res_0x7f04006b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04006f, com.baidu.tieba.R.attr.obfuscated_res_0x7f04008b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040193, com.baidu.tieba.R.attr.obfuscated_res_0x7f040334, com.baidu.tieba.R.attr.obfuscated_res_0x7f040335, com.baidu.tieba.R.attr.obfuscated_res_0x7f04050c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040746};
-            MenuView = new int[]{16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, com.baidu.tieba.R.attr.obfuscated_res_0x7f04056a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040674};
-            PartingLineView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400de, com.baidu.tieba.R.attr.bgBorderWidth, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400e0, com.baidu.tieba.R.attr.bgPressedColor, com.baidu.tieba.R.attr.obfuscated_res_0x7f040217, com.baidu.tieba.R.attr.obfuscated_res_0x7f04021a, com.baidu.tieba.R.attr.dividerLineHeight};
-            PopupWindow = new int[]{16843126, 16843465, com.baidu.tieba.R.attr.obfuscated_res_0x7f040518, com.baidu.tieba.R.attr.popupAnimationStyle, com.baidu.tieba.R.attr.popupBackground};
-            PopupWindowBackgroundState = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040667};
-            RecycleListView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04051c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040525};
-            RecyclerView = new int[]{16842948, 16842987, 16842993, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402af, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b3, com.baidu.tieba.R.attr.obfuscated_res_0x7f04040f, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405cd, com.baidu.tieba.R.attr.obfuscated_res_0x7f040654, com.baidu.tieba.R.attr.obfuscated_res_0x7f04065f};
-            RoundProgressBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0405dd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e4, com.baidu.tieba.R.attr.roundTextColor, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e6, com.baidu.tieba.R.attr.roundTextSize, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e8, com.baidu.tieba.R.attr.obfuscated_res_0x7f040673, com.baidu.tieba.R.attr.obfuscated_res_0x7f040709};
-            RoundedImageView = new int[]{16843037, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ee, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ef, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401ad, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e9};
-            SearchView = new int[]{16842970, 16843039, 16843296, 16843364, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040189, com.baidu.tieba.R.attr.obfuscated_res_0x7f040207, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ee, com.baidu.tieba.R.attr.obfuscated_res_0x7f040337, com.baidu.tieba.R.attr.obfuscated_res_0x7f040409, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405a0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405a1, com.baidu.tieba.R.attr.obfuscated_res_0x7f040611, com.baidu.tieba.R.attr.obfuscated_res_0x7f040612, com.baidu.tieba.R.attr.obfuscated_res_0x7f040675, com.baidu.tieba.R.attr.obfuscated_res_0x7f04067d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040793};
-            ShimmerFrameLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04008e, com.baidu.tieba.R.attr.auto_start, com.baidu.tieba.R.attr.base_alpha, com.baidu.tieba.R.attr.obfuscated_res_0x7f040269, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026b, com.baidu.tieba.R.attr.fixed_height, com.baidu.tieba.R.attr.fixed_width, com.baidu.tieba.R.attr.obfuscated_res_0x7f040347, com.baidu.tieba.R.attr.relative_height, com.baidu.tieba.R.attr.relative_width, com.baidu.tieba.R.attr.repeat_count, com.baidu.tieba.R.attr.repeat_delay, com.baidu.tieba.R.attr.repeat_mode, com.baidu.tieba.R.attr.obfuscated_res_0x7f04062c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04072c};
-            Spinner = new int[]{16842930, 16843126, 16843131, 16843362, com.baidu.tieba.R.attr.obfuscated_res_0x7f040565};
+            MenuItem = new int[]{16842754, 16842766, 16842960, 16843014, 16843156, 16843230, 16843231, 16843233, 16843234, 16843235, 16843236, 16843237, 16843375, com.baidu.tieba.R.attr.obfuscated_res_0x7f040057, com.baidu.tieba.R.attr.obfuscated_res_0x7f04006b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04006f, com.baidu.tieba.R.attr.obfuscated_res_0x7f04008b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040193, com.baidu.tieba.R.attr.obfuscated_res_0x7f04033d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04033e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040515, com.baidu.tieba.R.attr.obfuscated_res_0x7f040637, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074f};
+            MenuView = new int[]{16842926, 16843052, 16843053, 16843054, 16843055, 16843056, 16843057, com.baidu.tieba.R.attr.obfuscated_res_0x7f040573, com.baidu.tieba.R.attr.obfuscated_res_0x7f04067d};
+            PartingLineView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0400de, com.baidu.tieba.R.attr.bgBorderWidth, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400e0, com.baidu.tieba.R.attr.bgPressedColor, com.baidu.tieba.R.attr.obfuscated_res_0x7f040251, com.baidu.tieba.R.attr.obfuscated_res_0x7f040254, com.baidu.tieba.R.attr.dividerLineHeight};
+            PopupWindow = new int[]{16843126, 16843465, com.baidu.tieba.R.attr.obfuscated_res_0x7f040521, com.baidu.tieba.R.attr.popupAnimationStyle, com.baidu.tieba.R.attr.popupBackground};
+            PopupWindowBackgroundState = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040670};
+            RecycleListView = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040525, com.baidu.tieba.R.attr.obfuscated_res_0x7f04052e};
+            RecyclerView = new int[]{16842948, 16842987, 16842993, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ba, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402bb, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402bc, com.baidu.tieba.R.attr.obfuscated_res_0x7f040418, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405d6, com.baidu.tieba.R.attr.obfuscated_res_0x7f04065d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040668};
+            RoundProgressBar = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ec, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ed, com.baidu.tieba.R.attr.roundTextColor, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ef, com.baidu.tieba.R.attr.roundTextSize, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405f1, com.baidu.tieba.R.attr.obfuscated_res_0x7f04067c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040712};
+            RoundedImageView = new int[]{16843037, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ee, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ef, com.baidu.tieba.R.attr.obfuscated_res_0x7f0401ad, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405f2};
+            SearchView = new int[]{16842970, 16843039, 16843296, 16843364, com.baidu.tieba.R.attr.obfuscated_res_0x7f04015d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040189, com.baidu.tieba.R.attr.obfuscated_res_0x7f040210, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402f7, com.baidu.tieba.R.attr.obfuscated_res_0x7f040340, com.baidu.tieba.R.attr.obfuscated_res_0x7f040412, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405a9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405aa, com.baidu.tieba.R.attr.obfuscated_res_0x7f04061a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04061b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04067e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040686, com.baidu.tieba.R.attr.obfuscated_res_0x7f04079c};
+            ShimmerFrameLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04008e, com.baidu.tieba.R.attr.auto_start, com.baidu.tieba.R.attr.base_alpha, com.baidu.tieba.R.attr.obfuscated_res_0x7f040272, com.baidu.tieba.R.attr.obfuscated_res_0x7f040280, com.baidu.tieba.R.attr.fixed_height, com.baidu.tieba.R.attr.fixed_width, com.baidu.tieba.R.attr.obfuscated_res_0x7f040355, com.baidu.tieba.R.attr.relative_height, com.baidu.tieba.R.attr.relative_width, com.baidu.tieba.R.attr.repeat_count, com.baidu.tieba.R.attr.repeat_delay, com.baidu.tieba.R.attr.repeat_mode, com.baidu.tieba.R.attr.obfuscated_res_0x7f040635, com.baidu.tieba.R.attr.obfuscated_res_0x7f040735};
+            Spinner = new int[]{16842930, 16843126, 16843131, 16843362, com.baidu.tieba.R.attr.obfuscated_res_0x7f04056e};
             StateListDrawable = new int[]{16843036, 16843156, 16843157, 16843158, 16843532, 16843533};
             StateListDrawableItem = new int[]{16843161};
-            SwitchCompat = new int[]{16843044, 16843045, 16843074, com.baidu.tieba.R.attr.obfuscated_res_0x7f040634, com.baidu.tieba.R.attr.obfuscated_res_0x7f04065b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040688, com.baidu.tieba.R.attr.obfuscated_res_0x7f040689, com.baidu.tieba.R.attr.obfuscated_res_0x7f04068b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040720, com.baidu.tieba.R.attr.obfuscated_res_0x7f040721, com.baidu.tieba.R.attr.obfuscated_res_0x7f040722, com.baidu.tieba.R.attr.obfuscated_res_0x7f04074f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040754, com.baidu.tieba.R.attr.obfuscated_res_0x7f040755};
-            TabLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04068c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04068d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04068e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04068f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040690, com.baidu.tieba.R.attr.obfuscated_res_0x7f040691, com.baidu.tieba.R.attr.obfuscated_res_0x7f040692, com.baidu.tieba.R.attr.obfuscated_res_0x7f040693, com.baidu.tieba.R.attr.obfuscated_res_0x7f040694, com.baidu.tieba.R.attr.obfuscated_res_0x7f040695, com.baidu.tieba.R.attr.obfuscated_res_0x7f040696, com.baidu.tieba.R.attr.obfuscated_res_0x7f040698, com.baidu.tieba.R.attr.obfuscated_res_0x7f040699, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069f, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a6};
-            TextAppearance = new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402db, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406e8, com.baidu.tieba.R.attr.obfuscated_res_0x7f04070a};
-            Toolbar = new int[]{16842927, 16843072, com.baidu.tieba.R.attr.obfuscated_res_0x7f040129, com.baidu.tieba.R.attr.obfuscated_res_0x7f040167, com.baidu.tieba.R.attr.obfuscated_res_0x7f040168, com.baidu.tieba.R.attr.obfuscated_res_0x7f040194, com.baidu.tieba.R.attr.obfuscated_res_0x7f040195, com.baidu.tieba.R.attr.obfuscated_res_0x7f040196, com.baidu.tieba.R.attr.obfuscated_res_0x7f040197, com.baidu.tieba.R.attr.obfuscated_res_0x7f040198, com.baidu.tieba.R.attr.obfuscated_res_0x7f040199, com.baidu.tieba.R.attr.obfuscated_res_0x7f04049b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04049c, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404bf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404cf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404fd, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404fe, com.baidu.tieba.R.attr.obfuscated_res_0x7f040565, com.baidu.tieba.R.attr.obfuscated_res_0x7f040676, com.baidu.tieba.R.attr.obfuscated_res_0x7f040677, com.baidu.tieba.R.attr.obfuscated_res_0x7f040678, com.baidu.tieba.R.attr.obfuscated_res_0x7f04072f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040732, com.baidu.tieba.R.attr.obfuscated_res_0x7f040733, com.baidu.tieba.R.attr.obfuscated_res_0x7f040734, com.baidu.tieba.R.attr.obfuscated_res_0x7f040735, com.baidu.tieba.R.attr.obfuscated_res_0x7f040736, com.baidu.tieba.R.attr.obfuscated_res_0x7f040737, com.baidu.tieba.R.attr.obfuscated_res_0x7f040739, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073a};
-            View = new int[]{16842752, 16842970, com.baidu.tieba.R.attr.obfuscated_res_0x7f040049, com.baidu.tieba.R.attr.obfuscated_res_0x7f04008a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040158, com.baidu.tieba.R.attr.obfuscated_res_0x7f040193, com.baidu.tieba.R.attr.obfuscated_res_0x7f040265, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026a, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ab, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ac, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ad, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402d9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402fb, com.baidu.tieba.R.attr.obfuscated_res_0x7f040338, com.baidu.tieba.R.attr.obfuscated_res_0x7f04033c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040353, com.baidu.tieba.R.attr.obfuscated_res_0x7f04037f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040408, com.baidu.tieba.R.attr.obfuscated_res_0x7f04040c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04042a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04042e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04049d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040503, com.baidu.tieba.R.attr.obfuscated_res_0x7f040504, com.baidu.tieba.R.attr.obfuscated_res_0x7f040505, com.baidu.tieba.R.attr.obfuscated_res_0x7f040506, com.baidu.tieba.R.attr.obfuscated_res_0x7f040507, com.baidu.tieba.R.attr.obfuscated_res_0x7f04050d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040517, com.baidu.tieba.R.attr.obfuscated_res_0x7f04051a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04051b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04051e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04051f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040521, com.baidu.tieba.R.attr.obfuscated_res_0x7f040523, com.baidu.tieba.R.attr.obfuscated_res_0x7f040524, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ca, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405d9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405da, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405db, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405f7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405f9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fa, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405fe, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405ff, com.baidu.tieba.R.attr.obfuscated_res_0x7f040600, com.baidu.tieba.R.attr.obfuscated_res_0x7f040601, com.baidu.tieba.R.attr.obfuscated_res_0x7f040602, com.baidu.tieba.R.attr.obfuscated_res_0x7f040603, com.baidu.tieba.R.attr.obfuscated_res_0x7f040604, com.baidu.tieba.R.attr.obfuscated_res_0x7f040605, com.baidu.tieba.R.attr.obfuscated_res_0x7f040606, com.baidu.tieba.R.attr.obfuscated_res_0x7f040607, com.baidu.tieba.R.attr.obfuscated_res_0x7f040608, com.baidu.tieba.R.attr.obfuscated_res_0x7f040609, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04064d, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406e7, com.baidu.tieba.R.attr.obfuscated_res_0x7f040704, com.baidu.tieba.R.attr.obfuscated_res_0x7f040713, com.baidu.tieba.R.attr.obfuscated_res_0x7f04075a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04075b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040761, com.baidu.tieba.R.attr.obfuscated_res_0x7f040762, com.baidu.tieba.R.attr.obfuscated_res_0x7f04078a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040791};
+            SwitchCompat = new int[]{16843044, 16843045, 16843074, com.baidu.tieba.R.attr.obfuscated_res_0x7f04063d, com.baidu.tieba.R.attr.obfuscated_res_0x7f040664, com.baidu.tieba.R.attr.obfuscated_res_0x7f040691, com.baidu.tieba.R.attr.obfuscated_res_0x7f040692, com.baidu.tieba.R.attr.obfuscated_res_0x7f040694, com.baidu.tieba.R.attr.obfuscated_res_0x7f040729, com.baidu.tieba.R.attr.obfuscated_res_0x7f04072a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04072b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040758, com.baidu.tieba.R.attr.obfuscated_res_0x7f04075d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04075e};
+            TabLayout = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040695, com.baidu.tieba.R.attr.obfuscated_res_0x7f040696, com.baidu.tieba.R.attr.obfuscated_res_0x7f040697, com.baidu.tieba.R.attr.obfuscated_res_0x7f040698, com.baidu.tieba.R.attr.obfuscated_res_0x7f040699, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04069f, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406a9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406aa, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406ab, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406ad, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406ae, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406af};
+            TextAppearance = new int[]{16842901, 16842902, 16842903, 16842904, 16842906, 16842907, 16843105, 16843106, 16843107, 16843108, 16843692, 16844165, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402ed, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406f1, com.baidu.tieba.R.attr.obfuscated_res_0x7f040713};
+            Toolbar = new int[]{16842927, 16843072, com.baidu.tieba.R.attr.obfuscated_res_0x7f040129, com.baidu.tieba.R.attr.obfuscated_res_0x7f040167, com.baidu.tieba.R.attr.obfuscated_res_0x7f040168, com.baidu.tieba.R.attr.obfuscated_res_0x7f040194, com.baidu.tieba.R.attr.obfuscated_res_0x7f040195, com.baidu.tieba.R.attr.obfuscated_res_0x7f040196, com.baidu.tieba.R.attr.obfuscated_res_0x7f040197, com.baidu.tieba.R.attr.obfuscated_res_0x7f040198, com.baidu.tieba.R.attr.obfuscated_res_0x7f040199, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404a4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404a5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404c8, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404d8, com.baidu.tieba.R.attr.obfuscated_res_0x7f040506, com.baidu.tieba.R.attr.obfuscated_res_0x7f040507, com.baidu.tieba.R.attr.obfuscated_res_0x7f04056e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04067f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040680, com.baidu.tieba.R.attr.obfuscated_res_0x7f040681, com.baidu.tieba.R.attr.obfuscated_res_0x7f040738, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04073f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040740, com.baidu.tieba.R.attr.obfuscated_res_0x7f040742, com.baidu.tieba.R.attr.obfuscated_res_0x7f040743};
+            View = new int[]{16842752, 16842970, com.baidu.tieba.R.attr.obfuscated_res_0x7f040049, com.baidu.tieba.R.attr.obfuscated_res_0x7f04008a, com.baidu.tieba.R.attr.obfuscated_res_0x7f040158, com.baidu.tieba.R.attr.obfuscated_res_0x7f040193, com.baidu.tieba.R.attr.obfuscated_res_0x7f04026e, com.baidu.tieba.R.attr.obfuscated_res_0x7f040273, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402b6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402bf, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e1, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402e2, com.baidu.tieba.R.attr.obfuscated_res_0x7f040304, com.baidu.tieba.R.attr.obfuscated_res_0x7f040341, com.baidu.tieba.R.attr.obfuscated_res_0x7f040345, com.baidu.tieba.R.attr.obfuscated_res_0x7f040365, com.baidu.tieba.R.attr.obfuscated_res_0x7f040388, com.baidu.tieba.R.attr.obfuscated_res_0x7f040411, com.baidu.tieba.R.attr.obfuscated_res_0x7f040415, com.baidu.tieba.R.attr.obfuscated_res_0x7f04042a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04042e, com.baidu.tieba.R.attr.obfuscated_res_0x7f0404a6, com.baidu.tieba.R.attr.obfuscated_res_0x7f04050c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04050d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04050e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04050f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040510, com.baidu.tieba.R.attr.obfuscated_res_0x7f040516, com.baidu.tieba.R.attr.obfuscated_res_0x7f040520, com.baidu.tieba.R.attr.obfuscated_res_0x7f040523, com.baidu.tieba.R.attr.obfuscated_res_0x7f040524, com.baidu.tieba.R.attr.obfuscated_res_0x7f040527, com.baidu.tieba.R.attr.obfuscated_res_0x7f040528, com.baidu.tieba.R.attr.obfuscated_res_0x7f04052a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04052c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04052d, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405d3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e2, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0405e4, com.baidu.tieba.R.attr.obfuscated_res_0x7f040600, com.baidu.tieba.R.attr.obfuscated_res_0x7f040602, com.baidu.tieba.R.attr.obfuscated_res_0x7f040603, com.baidu.tieba.R.attr.obfuscated_res_0x7f040607, com.baidu.tieba.R.attr.obfuscated_res_0x7f040608, com.baidu.tieba.R.attr.obfuscated_res_0x7f040609, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04060f, com.baidu.tieba.R.attr.obfuscated_res_0x7f040610, com.baidu.tieba.R.attr.obfuscated_res_0x7f040611, com.baidu.tieba.R.attr.obfuscated_res_0x7f040612, com.baidu.tieba.R.attr.obfuscated_res_0x7f040613, com.baidu.tieba.R.attr.obfuscated_res_0x7f040656, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406b0, com.baidu.tieba.R.attr.obfuscated_res_0x7f0406f0, com.baidu.tieba.R.attr.obfuscated_res_0x7f04070d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04071c, com.baidu.tieba.R.attr.obfuscated_res_0x7f040763, com.baidu.tieba.R.attr.obfuscated_res_0x7f040764, com.baidu.tieba.R.attr.obfuscated_res_0x7f04076a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04076b, com.baidu.tieba.R.attr.obfuscated_res_0x7f040793, com.baidu.tieba.R.attr.obfuscated_res_0x7f04079a};
             ViewBackgroundHelper = new int[]{16842964, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400b9, com.baidu.tieba.R.attr.obfuscated_res_0x7f0400ba};
             ViewStubCompat = new int[]{16842960, 16842994, 16842995};
-            pickerview = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f04079a, com.baidu.tieba.R.attr.obfuscated_res_0x7f04079b, com.baidu.tieba.R.attr.obfuscated_res_0x7f04079c, com.baidu.tieba.R.attr.obfuscated_res_0x7f04079d, com.baidu.tieba.R.attr.obfuscated_res_0x7f04079e, com.baidu.tieba.R.attr.obfuscated_res_0x7f04079f};
+            pickerview = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a3, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a4, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a5, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a6, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a7, com.baidu.tieba.R.attr.obfuscated_res_0x7f0407a8};
         }
 
         public styleable() {

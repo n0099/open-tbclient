@@ -1,96 +1,78 @@
 package com.baidu.tieba;
 
-import android.util.LongSparseArray;
-import android.util.SparseArray;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
+import android.app.Activity;
+import android.view.View;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import tbclient.Personalized.DataRes;
-import tbclient.Personalized.DislikeReason;
-import tbclient.Personalized.ThreadPersonalized;
 /* loaded from: classes4.dex */
 public class fs7 {
     public static /* synthetic */ Interceptable $ic;
+    public static int a;
+    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(DataRes.Builder builder, List<in> list) {
-        fh6 fh6Var;
-        ThreadData threadData;
-        ThreadPersonalized threadPersonalized;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65536, null, builder, list) == null) && builder != null && list != null) {
-            LongSparseArray longSparseArray = new LongSparseArray();
-            for (ThreadPersonalized threadPersonalized2 : builder.thread_personalized) {
-                if (threadPersonalized2 != null) {
-                    longSparseArray.put(threadPersonalized2.tid.longValue(), threadPersonalized2);
-                }
-            }
-            int count = ListUtils.getCount(list);
-            for (int i = 0; i < count; i++) {
-                in inVar = (in) ListUtils.getItem(list, i);
-                if ((inVar instanceof fh6) && (threadData = (fh6Var = (fh6) inVar).getThreadData()) != null && (threadPersonalized = (ThreadPersonalized) longSparseArray.get(gg.g(threadData.getTid(), 0L))) != null) {
-                    fh6Var.F(threadPersonalized.source);
-                    fh6Var.I(threadPersonalized.weight);
-                    fh6Var.y(threadPersonalized.abtest_tag);
-                    threadData.mRecomAbTag = threadPersonalized.abtest_tag;
-                    threadData.mRecomSource = threadPersonalized.source;
-                    threadData.mRecomWeight = threadPersonalized.weight;
-                    if (threadData.getThreadVideoInfo() != null) {
-                        fh6Var.D(threadData.getThreadVideoInfo().is_vertical);
-                    }
-                    List<DislikeReason> list2 = threadPersonalized.dislike_resource;
-                    if (list2 != null) {
-                        SparseArray<String> sparseArray = new SparseArray<>();
-                        for (DislikeReason dislikeReason : list2) {
-                            int intValue = dislikeReason.dislike_id.intValue();
-                            sparseArray.put(intValue, dislikeReason.dislike_reason + "%" + dislikeReason.extra);
-                        }
-                        fh6Var.feedBackReasonMap = sparseArray;
-                        fh6Var.A(threadPersonalized.extra);
-                    }
-                }
-            }
-        }
-    }
-
-    public static void b(List<in> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, list) != null) || list == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947774783, "Lcom/baidu/tieba/fs7;")) == null) {
             return;
         }
-        int count = ListUtils.getCount(list);
-        int i = 0;
-        while (i < count) {
-            in inVar = (in) ListUtils.getItem(list, i);
-            boolean z = inVar instanceof th6;
-            if (z) {
-                ((th6) inVar).g(true);
-            }
-            i++;
-            in inVar2 = (in) ListUtils.getItem(list, i);
-            if (z && (inVar2 instanceof th6)) {
-                th6 th6Var = (th6) inVar;
-                th6 th6Var2 = (th6) inVar2;
-                if (th6Var.t()) {
-                    th6Var2.g(false);
-                    if (th6Var2 instanceof ls7) {
-                        th6Var.J(false);
-                    }
-                }
-            }
-            if (inVar instanceof ls7) {
-                ((ls7) inVar).J(false);
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947774783, "Lcom/baidu/tieba/fs7;");
         }
     }
 
-    public static void c(DataRes.Builder builder, List<in> list) {
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, builder, list) == null) {
-            b(list);
-            a(builder, list);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null) {
+                try {
+                    if (activity.isInMultiWindowMode()) {
+                        return true;
+                    }
+                    return false;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
         }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65538, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null) {
+            return;
+        }
+        int firstVisiblePosition = bdTypeRecyclerView.getFirstVisiblePosition();
+        int i = 0;
+        View childAt = bdTypeRecyclerView.getChildAt(0);
+        if (childAt != null) {
+            i = childAt.getTop();
+        }
+        a = firstVisiblePosition;
+        b = i;
+    }
+
+    public static void c(BdTypeRecyclerView bdTypeRecyclerView) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, bdTypeRecyclerView) != null) || bdTypeRecyclerView == null || !(bdTypeRecyclerView.getLayoutManager() instanceof LinearLayoutManager) || a > bdTypeRecyclerView.getCount() - 1) {
+            return;
+        }
+        bdTypeRecyclerView.requestFocusFromTouch();
+        ((LinearLayoutManager) bdTypeRecyclerView.getLayoutManager()).scrollToPositionWithOffset(a, b);
+        a = 0;
+        b = 0;
     }
 }

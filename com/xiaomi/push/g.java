@@ -17,11 +17,11 @@ import androidx.core.app.NotificationManagerCompat;
 import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.vivo.push.PushClientConstants;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class g {
     public static a a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         Map<String, String> a(Context context, String str);
 
@@ -31,7 +31,7 @@ public class g {
         boolean b(Context context, String str);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public enum b {
         UNKNOWN(0),
         ALLOWED(1),

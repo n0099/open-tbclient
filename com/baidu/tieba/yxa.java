@@ -1,190 +1,188 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.net.Uri;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
-import android.webkit.URLUtil;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.IStringUtil;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.pose.PoseAR;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.secure.android.common.util.LogsUtil;
-import java.net.MalformedURLException;
-import java.net.URL;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.hihonor.push.framework.aidl.entity.PushTokenResult;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.common.data.DownMsgType;
+import com.hihonor.push.sdk.common.data.UpMsgType;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
+import java.util.concurrent.Callable;
 /* loaded from: classes7.dex */
 public class yxa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Context a;
+    public kya b;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public yxa(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                LogsUtil.f("UriUtil", "whiteListUrl is null");
-                return null;
-            } else if (!URLUtil.isNetworkUrl(str)) {
-                return str;
-            } else {
-                return b(str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (String) invokeL.objValue;
+        this.a = context;
+        this.b = new kya();
     }
 
-    @TargetApi(9)
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static /* synthetic */ void f(lxa lxaVar, int i, String str) {
+        if (lxaVar != null) {
+            lxaVar.onFailure(i, str);
+        }
+    }
+
+    public final void b(final lxa<?> lxaVar, final int i, final String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                LogsUtil.f("UriUtil", "url is null");
-                return str;
+        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, lxaVar, i, str) == null) {
+            jya.b(new Runnable() { // from class: com.baidu.tieba.kxa
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        yxa.f(lxa.this, i, str);
+                    }
+                }
+            });
+        }
+    }
+
+    public static /* synthetic */ void g(lxa lxaVar, Object obj) {
+        if (lxaVar != null) {
+            lxaVar.onSuccess(obj);
+        }
+    }
+
+    /* JADX INFO: Access modifiers changed from: private */
+    public /* synthetic */ void h(Callable callable, lxa lxaVar) {
+        try {
+            c(lxaVar, callable.call());
+        } catch (ApiException e) {
+            b(lxaVar, e.getErrorCode(), e.getMessage());
+        } catch (Exception unused) {
+            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_INTERNAL_ERROR;
+            b(lxaVar, honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
+        }
+    }
+
+    public final <T> void c(final lxa<T> lxaVar, final T t) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, lxaVar, t) == null) {
+            jya.b(new Runnable() { // from class: com.baidu.tieba.jxa
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        yxa.g(lxa.this, t);
+                    }
+                }
+            });
+        }
+    }
+
+    public void d(lxa<String> lxaVar, final boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, lxaVar, z) == null) {
+            e(new Callable() { // from class: com.baidu.tieba.dxa
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.util.concurrent.Callable
+                public final Object call() {
+                    InterceptResult invokeV;
+                    Interceptable interceptable2 = $ic;
+                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? yxa.this.a(z) : invokeV.objValue;
+                }
+            }, lxaVar);
+        }
+    }
+
+    public final <T> void e(final Callable<T> callable, final lxa<T> lxaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, callable, lxaVar) == null) {
+            Runnable runnable = new Runnable() { // from class: com.baidu.tieba.ixa
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        yxa.this.h(callable, lxaVar);
+                    }
+                }
+            };
+            jya jyaVar = jya.f;
+            if (jyaVar.d == null) {
+                synchronized (jyaVar.e) {
+                    if (jyaVar.d == null) {
+                        jyaVar.d = jyaVar.c();
+                    }
+                }
             }
+            jyaVar.d.execute(runnable);
+        }
+    }
+
+    public final String a(boolean z) throws Exception {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+            this.b.getClass();
             try {
-                if (!URLUtil.isNetworkUrl(str)) {
-                    LogsUtil.d("UriUtil", "url don't starts with http or https");
-                    return "";
-                }
-                return new URL(str.replaceAll("[\\\\#]", "/")).getHost();
-            } catch (MalformedURLException e) {
-                LogsUtil.d("UriUtil", "getHostByURI error  MalformedURLException : " + e.getMessage());
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean c(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (d(str, str2)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean e(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (f(str, str2)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean g(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                return TextUtils.equals(b(str), a(str2));
-            }
-            Log.e("UriUtil", "isUrlHostSameWhitelist: url or host is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean h(String str, String[] strArr) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, str, strArr)) == null) {
-            if (strArr != null && strArr.length != 0) {
-                for (String str2 : strArr) {
-                    if (g(str, str2)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            LogsUtil.d("UriUtil", "whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean d(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
-                if (!str.contains(IStringUtil.TOP_PATH) && !str.contains("@")) {
-                    if (!str2.equals(str)) {
-                        if (!str.startsWith(str2 + "?")) {
-                            if (!str.startsWith(str2 + "#")) {
-                                if (!str2.endsWith("/")) {
-                                    return false;
-                                }
-                                if (Uri.parse(str).getPathSegments().size() - Uri.parse(str2).getPathSegments().size() != 1) {
-                                    return false;
-                                }
-                                return str.startsWith(str2);
-                            }
+                pya pyaVar = new pya(UpMsgType.REQUEST_PUSH_TOKEN, null);
+                pyaVar.d = pxa.a();
+                String pushToken = ((PushTokenResult) pxa.d(hya.c.a(pyaVar))).getPushToken();
+                if (z && !TextUtils.isEmpty(pushToken)) {
+                    Bundle bundle = new Bundle();
+                    bundle.putString(PoseAR.MDL_START_POSE_FUN_EVENT_TYPE_KEY, DownMsgType.RECEIVE_TOKEN);
+                    bundle.putString("push_token", pushToken);
+                    tya tyaVar = new tya();
+                    Context context = this.a;
+                    Log.i("MessengerSrvConnection", "start bind service.");
+                    try {
+                        Intent intent = new Intent();
+                        intent.setPackage(context.getPackageName());
+                        intent.setAction("com.hihonor.push.action.MESSAGING_EVENT");
+                        Context applicationContext = context.getApplicationContext();
+                        tyaVar.c = applicationContext;
+                        tyaVar.b = bundle;
+                        if (applicationContext.bindService(intent, tyaVar, 1)) {
+                            Log.i("MessengerSrvConnection", "bind service succeeded.");
                         }
+                    } catch (Exception e) {
+                        String str = "bind service failed." + e.getMessage();
                     }
-                    return true;
                 }
-                Log.e("UriUtil", "url contains unsafe char");
+                return pushToken;
+            } catch (Exception e2) {
+                throw pxa.b(e2);
             }
-            return false;
         }
-        return invokeLL.booleanValue;
-    }
-
-    public static boolean f(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            String b = b(str);
-            if (!TextUtils.isEmpty(b) && !TextUtils.isEmpty(str2)) {
-                String a = a(str2);
-                if (TextUtils.isEmpty(a)) {
-                    Log.e("UriUtil", "whitelist host is null");
-                    return false;
-                } else if (a.equals(b)) {
-                    return true;
-                } else {
-                    if (b.endsWith(a)) {
-                        try {
-                            String substring = b.substring(0, b.length() - a.length());
-                            if (!substring.endsWith(".")) {
-                                return false;
-                            }
-                            return substring.matches("^[A-Za-z0-9.-]+$");
-                        } catch (IndexOutOfBoundsException e) {
-                            LogsUtil.d("UriUtil", "IndexOutOfBoundsException" + e.getMessage());
-                        } catch (Exception e2) {
-                            LogsUtil.d("UriUtil", "Exception : " + e2.getMessage());
-                            return false;
-                        }
-                    }
-                    return false;
-                }
-            }
-            LogsUtil.d("UriUtil", "url or whitelist is null");
-            return false;
-        }
-        return invokeLL.booleanValue;
+        return (String) invokeZ.objValue;
     }
 }

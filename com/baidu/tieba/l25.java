@@ -1,84 +1,65 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.log.YunDialogLog;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.content.DialogInterface;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.JvmField;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class l25 {
+public final class l25 extends b25 {
     public static /* synthetic */ Interceptable $ic;
-    public static final l25 a;
-    @JvmField
-    public static final q45 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947891002, "Lcom/baidu/tieba/l25;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947891002, "Lcom/baidu/tieba/l25;");
-                return;
-            }
-        }
-        a = new l25();
-        q45 a2 = z15.a();
-        Intrinsics.checkNotNullExpressionValue(a2, "getKvCache()");
-        b = a2;
-    }
 
     public l25() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final String a(String dialogName) {
-        InterceptResult invokeL;
+    public static final void b(DialogInterface dialogInterface) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, dialogName)) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            return q45.q("KEY_FREQUENCE_DIALOG_STRATEGY_COUNTER") + '_' + dialogName;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final void c(String dialogName) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dialogName) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            String a2 = a(dialogName);
-            q45 q45Var = b;
-            q45Var.z(a2, q45Var.n(a2, 0) + 1);
+        if (interceptable == null || interceptable.invokeL(65537, null, dialogInterface) == null) {
+            r15.s("userIcon");
         }
     }
 
-    public final void b(String dialogName) {
+    @Override // com.baidu.tieba.b25
+    public void a(Context context, t15 data) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogName) == null) {
-            Intrinsics.checkNotNullParameter(dialogName, "dialogName");
-            vg8 yunDialogLog = YunDialogLog.getInstance();
-            yunDialogLog.c("YunDialogManager", "重置弹窗 " + dialogName + " 的本地频次记录");
-            b.z(a(dialogName), 0);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(data, "data");
+            if (!PollingModel.z0()) {
+                r15.s("userIcon");
+                return;
+            }
+            pm9 pm9Var = new pm9();
+            pm9Var.f(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.v15
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // android.content.DialogInterface.OnDismissListener
+                public final void onDismiss(DialogInterface dialogInterface) {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
+                        l25.b(dialogInterface);
+                    }
+                }
+            });
+            pm9Var.d(TbSingleton.getInstance().getIconPopData());
+            r15.m("userIcon");
         }
     }
 }

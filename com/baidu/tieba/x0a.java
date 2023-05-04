@@ -4,16 +4,11 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-/* loaded from: classes6.dex */
+import java.util.HashSet;
+/* loaded from: classes7.dex */
 public class x0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public int d;
-    public MultiMediaData e;
 
     public x0a() {
         Interceptable interceptable = $ic;
@@ -25,7 +20,10 @@ public class x0a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        f55.m().n("nani_key_download_show_position", 3);
+        new HashSet();
     }
 }

@@ -8,7 +8,7 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.il9;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -113,19 +113,19 @@ public class ADRequestModel extends BdBaseModel<BaseFragmentActivity> {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, 309611);
-        il9.h(309611, ADSocketResponseMessage.class, false, false);
-        il9.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
+        xo9.h(309611, ADSocketResponseMessage.class, false, false);
+        xo9.c(309611, CmdConfigHttp.CMD_HTTP_FRS_TAB_AD, "c/f/frs/getadlist", ADHttpResponseMessage.class, false, false, true, false);
         registerListener(this.b);
     }
 
-    public void S(b bVar) {
+    public void X(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void R(long j, int i, int i2) {
+    public void W(long j, int i, int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
             cancelMessage();

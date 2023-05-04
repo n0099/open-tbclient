@@ -1,56 +1,49 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
+import android.content.Context;
 import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.BaseActivity;
+import com.baidu.tbadk.baseEditMark.MarkData;
+import com.baidu.tbadk.core.BaseFragmentActivity;
+import com.baidu.tieba.ct4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class rx5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public JSONArray a;
-    public String b;
-    public HttpMessageListener c;
-    public BdUniqueId d;
-    public BdUniqueId e;
-    public CustomMessageListener f;
-    public CustomMessageListener g;
+    public Context a;
+    public ct4 b;
+    public b c;
+    public MarkData d;
+    public final ct4.a e;
 
     /* loaded from: classes6.dex */
-    public class a extends HttpMessageListener {
+    public interface b {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ct4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ rx5 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(rx5 rx5Var, int i) {
-            super(i);
+        public a(rx5 rx5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {rx5Var, Integer.valueOf(i)};
+                Object[] objArr = {rx5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -59,98 +52,39 @@ public class rx5 {
             this.a = rx5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+        @Override // com.baidu.tieba.ct4.a
+        public void a(boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003184 || httpResponsedMessage.getError() != 0) {
-                return;
-            }
-            this.a.a = null;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rx5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(rx5 rx5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
+                if (z) {
+                    if (z2) {
+                        ii.Q(this.a.a, this.a.a.getString(R.string.add_mark));
+                    } else {
+                        ii.Q(this.a.a, this.a.a.getString(R.string.remove_mark));
+                    }
+                    if (this.a.c != null) {
+                        this.a.c.a(z2);
+                    }
+                    if (this.a.d != null) {
+                        lp9 lp9Var = new lp9();
+                        lp9Var.a = this.a.d.getThreadId();
+                        lp9Var.b = z2;
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921603, lp9Var));
+                        return;
+                    }
                     return;
                 }
-            }
-            this.a = rx5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && BdNetTypeUtil.isNetworkAvailableForImmediately() && this.a.a != null) {
-                rx5 rx5Var = this.a;
-                rx5Var.i(rx5Var.a, this.a.e);
+                ii.Q(this.a.a, this.a.a.getString(R.string.update_mark_failed));
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class c extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ rx5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(rx5 rx5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {rx5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = rx5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-                this.a.f((JSONObject) customResponsedMessage.getData());
-            }
-        }
-    }
-
-    public rx5(TbPageContext tbPageContext, String str) {
+    public rx5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -160,79 +94,74 @@ public class rx5 {
                 return;
             }
         }
-        this.d = BdUniqueId.gen();
-        this.e = BdUniqueId.gen();
-        this.f = new b(this, 2000994);
-        this.g = new c(this, 2016488);
-        this.b = str;
-        if (this.c == null) {
-            this.c = new a(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
+        this.b = null;
+        this.e = new a(this);
+        this.a = context;
+        if (context instanceof BaseActivity) {
+            this.b = ct4.b((BaseActivity) context);
+        } else if (context instanceof BaseFragmentActivity) {
+            this.b = ct4.c((BaseFragmentActivity) context);
         }
-        this.c.setTag(this.e);
-        MessageManager.getInstance().registerListener(this.c);
-        MessageManager.getInstance().registerListener(this.f);
-        this.g.setTag(tbPageContext.getUniqueId());
-        this.g.setSelfListener(true);
-        this.g.setPriority(Integer.MIN_VALUE);
-        MessageManager.getInstance().registerListener(this.g);
+        ct4 ct4Var = this.b;
+        if (ct4Var != null) {
+            ct4Var.j(this.e);
+        }
     }
 
-    public final String g(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public void g(boolean z) {
+        ct4 ct4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
-            String str = this.b;
-            try {
-                String optString = jSONArray.optJSONObject(0).optString("dislike_from");
-                if (!TextUtils.isEmpty(optString)) {
-                    return optString;
-                }
-                return str;
-            } catch (Exception unused) {
-                return str;
+        if ((interceptable == null || interceptable.invokeZ(1048579, this, z) == null) && (ct4Var = this.b) != null) {
+            ct4Var.h(z);
+        }
+    }
+
+    public void h(MarkData markData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, markData) == null) {
+            this.d = markData;
+            ct4 ct4Var = this.b;
+            if (ct4Var != null) {
+                ct4Var.i(markData);
             }
         }
-        return (String) invokeL.objValue;
     }
 
-    public final void f(JSONObject jSONObject) {
+    public void i(b bVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-            JSONArray jSONArray = new JSONArray();
-            jSONArray.put(jSONObject);
-            i(jSONArray, this.d);
-            return;
-        }
-        if (this.a == null) {
-            this.a = new JSONArray();
-        }
-        if (this.a.length() <= 100) {
-            this.a.put(jSONObject);
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.c = bVar;
         }
     }
 
-    public void h() {
+    public void d() {
+        ct4 ct4Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.c);
-            MessageManager.getInstance().unRegisterListener(this.f);
-            MessageManager.getInstance().unRegisterListener(this.g);
-            this.a = null;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ct4Var = this.b) != null) {
+            ct4Var.a();
+            this.b.h(true);
         }
     }
 
-    public final void i(JSONArray jSONArray, BdUniqueId bdUniqueId) {
+    public void e() {
+        ct4 ct4Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, jSONArray, bdUniqueId) != null) || jSONArray == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ct4Var = this.b) != null && ct4Var.e()) {
+            this.b.d();
+            this.b.h(false);
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_FEED_BACK);
-        httpMessage.addParam("dislike", jSONArray.toString());
-        httpMessage.addParam("dislike_from", g(jSONArray));
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ct4 ct4Var = this.b;
+            if (ct4Var != null) {
+                return ct4Var.e();
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

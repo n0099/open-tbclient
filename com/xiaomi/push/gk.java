@@ -3,14 +3,14 @@ package com.xiaomi.push;
 import android.os.Bundle;
 import java.util.HashMap;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class gk extends gm {
     public a a;
 
     /* renamed from: a  reason: collision with other field name */
     public final Map<String, String> f438a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static final a a = new a("get");
         public static final a b = new a("set");

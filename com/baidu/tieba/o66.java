@@ -1,88 +1,117 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.live.business.refresh.LoadAnimStrategy;
+import com.baidu.live.business.view.emotion.EmotionStrategy;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o66 extends zf6<k66> {
+public class o66 {
     public static /* synthetic */ Interceptable $ic;
+    public static o66 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public p66 i;
-    public p66 j;
 
-    @Override // com.baidu.tieba.zf6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0104 : invokeV.intValue;
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public String b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) ? i == 4 ? "dark" : "day" : (String) invokeI.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final o66 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-592895812, "Lcom/baidu/tieba/o66$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-592895812, "Lcom/baidu/tieba/o66$b;");
+                    return;
+                }
+            }
+            a = new o66(null);
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public o66(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
+    public o66() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.i = new p66(g(), z);
-        this.j = new p66(g(), z);
-        ViewGroup viewGroup = (ViewGroup) h();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.h());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070224), -1));
-        viewGroup.addView(this.j.h());
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf6
-    /* renamed from: r */
-    public void l(k66 k66Var) {
+    public static o66 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, k66Var) == null) && k66Var != null) {
-            this.i.l(k66Var.a);
-            this.j.l(k66Var.b);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                a = b.a;
+            }
+            return a;
         }
+        return (o66) invokeV.objValue;
     }
 
-    public void s(t66 t66Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t66Var) == null) {
-            this.i.A(t66Var);
-            this.j.A(t66Var);
-        }
+    public /* synthetic */ o66(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.zf6
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    public void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.m(tbPageContext, i);
-            this.j.m(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
+            if (!LiveFeedPageSdk.getInstance().isInit()) {
+                LoadAnimStrategy.getInstance().pullDownLottieResId = R.raw.lottie_common_pull_refresh;
+                LoadAnimStrategy.getInstance().pullDownLottieResId1 = R.raw.lottie_common_pull_refresh_1;
+                LoadAnimStrategy.getInstance().pullDownLottieResId2 = R.raw.lottie_common_pull_refresh_2;
+                LoadAnimStrategy.getInstance().pullDownLottieResId3 = R.raw.lottie_common_pull_refresh_1;
+                LoadAnimStrategy.getInstance().pullEndFrame = 15;
+                LoadAnimStrategy.getInstance().loopStartFrame = 15;
+                LoadAnimStrategy.getInstance().loopEndFrame = 30;
+                LoadAnimStrategy.getInstance().lottieTotalFrame = 30;
+                LoadAnimStrategy.getInstance().setLoadMoreAnimStrategy("live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json", "live_feed_page_load_more.json");
+                LoadAnimStrategy.getInstance().setLoadingLottieResId(R.raw.lottie_full_screen_refresh, R.raw.lottie_full_screen_refresh_1, R.raw.lottie_full_screen_refresh_2, R.raw.lottie_full_screen_refresh_1, "", 67.0f, 67.0f);
+                EmotionStrategy.getInstance().setEmptyImageRes(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                EmotionStrategy.getInstance().setErrorImageRes(R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, R.drawable.new_pic_emotion_05, 125.0f, 125.0f);
+                EmotionStrategy.getInstance().setNetworkImageRes(R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, R.drawable.new_pic_emotion_08, 125.0f, 125.0f);
+                EmotionStrategy.getInstance().setPlaceHolderRes(R.drawable.obfuscated_res_0x7f080d98, R.drawable.obfuscated_res_0x7f080d99, R.drawable.obfuscated_res_0x7f080d97, R.drawable.obfuscated_res_0x7f080d98);
+                LiveFeedPageSdk.getInstance().initNetWork(new sl8());
+                LiveFeedPageSdk.getInstance().initHostInfo("tieba", b(TbadkCoreApplication.getInst().getSkinType()));
+                LiveFeedPageSdk.getInstance().initInvoke(new p66());
+                LiveFeedPageSdk.getInstance().setInit();
+            }
+            LiveFeedPageSdk.getInstance().setContext(context);
+            if (LiveFeedPageSdk.getInstance().getInvoker() != null && !TextUtils.isEmpty(LiveFeedPageSdk.getInstance().getInvoker().getUIMode())) {
+                LiveFeedPageSdk.getInstance().updateUiMode(LiveFeedPageSdk.getInstance().getInvoker().getUIMode());
+            }
         }
     }
 }

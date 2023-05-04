@@ -21,6 +21,7 @@ public class RecentlyBotSkillInfoDto extends OrmObject implements Serializable {
     public String botName;
     public String botUk;
     public String desc;
+    public int funcType;
     public int skillId;
     public String skillName;
     public long timeStamp;
@@ -91,10 +92,19 @@ public class RecentlyBotSkillInfoDto extends OrmObject implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public int getSkillId() {
+    public int getFuncType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.funcType;
+        }
+        return invokeV.intValue;
+    }
+
+    public int getSkillId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.skillId;
         }
         return invokeV.intValue;
@@ -104,7 +114,7 @@ public class RecentlyBotSkillInfoDto extends OrmObject implements Serializable {
     public String getSkillName() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             if (TextUtils.isEmpty(this.skillName)) {
                 return "";
             }
@@ -116,7 +126,7 @@ public class RecentlyBotSkillInfoDto extends OrmObject implements Serializable {
     public long getTimeStamp() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.timeStamp;
         }
         return invokeV.longValue;
@@ -125,7 +135,7 @@ public class RecentlyBotSkillInfoDto extends OrmObject implements Serializable {
     public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return Objects.hash(this.botUk, Integer.valueOf(this.skillId));
         }
         return invokeV.intValue;
@@ -152,49 +162,56 @@ public class RecentlyBotSkillInfoDto extends OrmObject implements Serializable {
 
     public void setAvatar(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
             this.avatar = str;
         }
     }
 
     public void setBotName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
             this.botName = str;
         }
     }
 
     public void setBotUk(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
             this.botUk = str;
         }
     }
 
     public void setDesc(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.desc = str;
+        }
+    }
+
+    public void setFuncType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.funcType = i;
         }
     }
 
     public void setSkillId(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             this.skillId = i;
         }
     }
 
     public void setSkillName(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             this.skillName = str;
         }
     }
 
     public void setTimeStamp(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048591, this, j) == null) {
+        if (interceptable == null || interceptable.invokeJ(1048593, this, j) == null) {
             this.timeStamp = j;
         }
     }
@@ -202,7 +219,7 @@ public class RecentlyBotSkillInfoDto extends OrmObject implements Serializable {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
             return "RecentlyBotSkillInfoDto{botUk='" + this.botUk + "', skillId=" + this.skillId + ", botName='" + this.botName + "', skillName='" + this.skillName + "', avatar='" + this.avatar + "', desc='" + this.desc + "', timeStamp=" + this.timeStamp + '}';
         }
         return (String) invokeV.objValue;

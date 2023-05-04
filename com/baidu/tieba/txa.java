@@ -1,55 +1,45 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class txa {
+public class txa implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final /* synthetic */ iya a;
+    public final /* synthetic */ vxa b;
 
-    public static void b(String str, String str2) {
+    public txa(vxa vxaVar, iya iyaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vxaVar, iyaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
+        this.b = vxaVar;
+        this.a = iyaVar;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
+    @Override // java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return "SecurityComp10105310: " + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void c(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) {
-            Log.e(a(str), str2, th);
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            Log.e(a(str), str2);
-        }
-    }
-
-    public static void e(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) {
-            Log.i(a(str), str2);
-        }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) {
-            Log.w(a(str), str2);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            synchronized (this.b.c) {
+                xya<TResult> xyaVar = this.b.a;
+                if (xyaVar != 0) {
+                    xyaVar.a(this.a);
+                }
+            }
         }
     }
 }

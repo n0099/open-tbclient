@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class u30 {
+public final class u30 extends s30 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a() {
-        InterceptResult invokeV;
+    public u30(int i, int i2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 76, Cea608Decoder.CTRL_RESUME_DIRECT_CAPTIONING, 108, -30, -14, -12, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_3_ROWS, 20, -35, -89, -20, 114, -66, 34, ExifInterface.MARKER_SOF10, 104, 14, -117, 75} : (byte[]) invokeV.objValue;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = 32;
+        this.b = i;
+        this.c = i2;
     }
 
-    public static byte[] b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.s30
+    public com.baidu.helios.common.cc.a b(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 83, 56, 126, -30, -88, -28} : (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) ? new byte[]{ExifInterface.MARKER_SOF7, 117, 76, 90, 52, -92, 15, ExifInterface.START_CODE, 26, 37, 0, -124, 65, 45, 110, -43, -67, -19, Cea608Decoder.CTRL_ROLL_UP_CAPTIONS_4_ROWS, 24} : (byte[]) invokeV.objValue;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
+            v30 v30Var = new v30();
+            v30Var.b(bArr, i, i2);
+            return com.baidu.helios.common.cc.a.a(new long[]{v30Var.c()});
+        }
+        return (com.baidu.helios.common.cc.a) invokeLII.objValue;
     }
 }

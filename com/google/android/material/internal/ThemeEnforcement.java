@@ -42,7 +42,7 @@ public final class ThemeEnforcement {
         obtainStyledAttributes.recycle();
         if (z) {
             TypedValue typedValue = new TypedValue();
-            if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040350, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
+            if (!context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040362, typedValue, true) || (typedValue.type == 18 && typedValue.data == 0)) {
                 checkMaterialTheme(context);
             }
         }

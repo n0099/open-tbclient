@@ -1,96 +1,187 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n1b;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Queue;
+import java.util.concurrent.atomic.AtomicLong;
+import rx.internal.util.UtilityFunctions;
 /* loaded from: classes4.dex */
-public class e6b<T, R> extends f6b<T, R> {
+public final class e6b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final p5b<T> b;
 
-    /* loaded from: classes4.dex */
-    public class a implements n1b.a<R> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ f6b a;
-
-        public a(f6b f6bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f6bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static long a(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j + j2;
+            if (j3 < 0) {
+                return Long.MAX_VALUE;
             }
-            this.a = f6bVar;
+            return j3;
         }
-
-        public void call(t1b<? super R> t1bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t1bVar) == null) {
-                this.a.B(t1bVar);
-            }
-        }
-
-        @Override // com.baidu.tieba.n1b.a, com.baidu.tieba.b2b
-        public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((t1b) ((t1b) obj));
-        }
+        return invokeCommon.longValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e6b(f6b<T, R> f6bVar) {
-        super(new a(f6bVar));
+    public static long b(AtomicLong atomicLong, long j) {
+        long j2;
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {f6bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((n1b.a) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65537, null, atomicLong, j)) == null) {
+            do {
+                j2 = atomicLong.get();
+            } while (!atomicLong.compareAndSet(j2, a(j2, j)));
+            return j2;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public static long c(long j, long j2) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            long j3 = j * j2;
+            if (((j | j2) >>> 31) != 0 && j2 != 0 && j3 / j2 != j) {
+                return Long.MAX_VALUE;
+            }
+            return j3;
+        }
+        return invokeCommon.longValue;
+    }
+
+    /* JADX DEBUG: Type inference failed for r10v3. Raw type applied. Possible types: R, ? super R */
+    /* JADX DEBUG: Type inference failed for r8v4. Raw type applied. Possible types: R, ? super R */
+    public static <T, R> void d(AtomicLong atomicLong, Queue<T> queue, p5b<? super R> p5bVar, b6b<? super T, ? extends R> b6bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(65539, null, atomicLong, queue, p5bVar, b6bVar) == null) {
+            long j = atomicLong.get();
+            if (j == Long.MAX_VALUE) {
+                while (!p5bVar.isUnsubscribed()) {
+                    Object poll = queue.poll();
+                    if (poll == null) {
+                        p5bVar.onCompleted();
+                        return;
+                    }
+                    p5bVar.onNext((R) b6bVar.call(poll));
+                }
                 return;
             }
+            do {
+                long j2 = Long.MIN_VALUE;
+                while (true) {
+                    int i = (j2 > j ? 1 : (j2 == j ? 0 : -1));
+                    if (i != 0) {
+                        if (p5bVar.isUnsubscribed()) {
+                            return;
+                        }
+                        Object poll2 = queue.poll();
+                        if (poll2 == null) {
+                            p5bVar.onCompleted();
+                            return;
+                        } else {
+                            p5bVar.onNext((R) b6bVar.call(poll2));
+                            j2++;
+                        }
+                    } else {
+                        if (i == 0) {
+                            if (p5bVar.isUnsubscribed()) {
+                                return;
+                            }
+                            if (queue.isEmpty()) {
+                                p5bVar.onCompleted();
+                                return;
+                            }
+                        }
+                        j = atomicLong.get();
+                        if (j == j2) {
+                            j = atomicLong.addAndGet(-(j2 & Long.MAX_VALUE));
+                        }
+                    }
+                }
+            } while (j != Long.MIN_VALUE);
         }
-        this.b = new p5b<>(f6bVar);
     }
 
-    @Override // com.baidu.tieba.o1b
-    public void onCompleted() {
+    public static <T> boolean e(AtomicLong atomicLong, long j, Queue<T> queue, p5b<? super T> p5bVar) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b.onCompleted();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{atomicLong, Long.valueOf(j), queue, p5bVar})) == null) {
+            return f(atomicLong, j, queue, p5bVar, UtilityFunctions.b());
         }
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o1b
-    public void onError(Throwable th) {
+    public static <T, R> boolean f(AtomicLong atomicLong, long j, Queue<T> queue, p5b<? super R> p5bVar, b6b<? super T, ? extends R> b6bVar) {
+        InterceptResult invokeCommon;
+        long j2;
+        long j3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-            this.b.onError(th);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{atomicLong, Long.valueOf(j), queue, p5bVar, b6bVar})) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i == 0) {
+                    if ((atomicLong.get() & Long.MIN_VALUE) == 0) {
+                        return true;
+                    }
+                    return false;
+                }
+                while (true) {
+                    j2 = atomicLong.get();
+                    j3 = j2 & Long.MIN_VALUE;
+                    if (atomicLong.compareAndSet(j2, a(Long.MAX_VALUE & j2, j) | j3)) {
+                        break;
+                    }
+                }
+                if (j2 == Long.MIN_VALUE) {
+                    d(atomicLong, queue, p5bVar, b6bVar);
+                    return false;
+                } else if (j3 == 0) {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
         }
+        return invokeCommon.booleanValue;
     }
 
-    @Override // com.baidu.tieba.o1b
-    public void onNext(T t) {
+    public static long g(AtomicLong atomicLong, long j) {
+        long j2;
+        long j3;
+        InterceptResult invokeLJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
-            this.b.onNext(t);
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65542, null, atomicLong, j)) == null) {
+            do {
+                j2 = atomicLong.get();
+                if (j2 == Long.MAX_VALUE) {
+                    return Long.MAX_VALUE;
+                }
+                j3 = j2 - j;
+                if (j3 < 0) {
+                    throw new IllegalStateException("More produced than requested: " + j3);
+                }
+            } while (!atomicLong.compareAndSet(j2, j3));
+            return j3;
         }
+        return invokeLJ.longValue;
+    }
+
+    public static boolean h(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65543, null, j)) == null) {
+            int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
+            if (i >= 0) {
+                if (i != 0) {
+                    return true;
+                }
+                return false;
+            }
+            throw new IllegalArgumentException("n >= 0 required but it was " + j);
+        }
+        return invokeJ.booleanValue;
     }
 }

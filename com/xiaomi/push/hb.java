@@ -4,7 +4,7 @@ import android.content.Context;
 import com.xiaomi.push.am;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class hb extends am.b {
     public final /* synthetic */ Context a;
 

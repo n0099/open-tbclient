@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ek extends com.xiaomi.clientreport.processor.a {
     public ek(Context context) {
         super(context);

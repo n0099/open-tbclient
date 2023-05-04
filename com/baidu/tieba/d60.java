@@ -1,23 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.concurrent.Executor;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.network.outback.core.Request;
+import com.baidu.searchbox.network.outback.core.Response;
+import java.io.IOException;
 /* loaded from: classes4.dex */
-public abstract class d60 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final Executor a;
+public interface d60 {
 
-    public abstract void b(int i);
+    /* loaded from: classes4.dex */
+    public interface a {
+        Response a(Request request) throws IOException;
 
-    public Executor a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (Executor) invokeV.objValue;
+        @Nullable
+        k60 connection();
+
+        Request request();
     }
+
+    Response a(a aVar) throws IOException;
 }

@@ -1,21 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.BaseFragment;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.fragment.app.Fragment;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 /* loaded from: classes6.dex */
 public interface qi5 {
-    long k();
+    @NonNull
+    public static final ServiceReference a = new ServiceReference("AlaSquare", "SecondFloorService");
 
-    void m(int i, int i2, Intent intent);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(boolean z, boolean z2);
 
-    boolean p();
+        void b(boolean z);
+    }
 
-    BaseFragment q();
+    void d();
 
-    void r(boolean z);
+    void e(@Nullable a aVar);
 
-    void setUniqueId(BdUniqueId bdUniqueId);
+    void f();
 
-    void setUserVisibleHint(boolean z);
+    @NonNull
+    Fragment g(@NonNull String str);
+
+    void hide();
+
+    void show();
 }

@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
 public interface i84 {
-    void a(j84 j84Var, String str);
+    @NonNull
+    h84 b();
 }

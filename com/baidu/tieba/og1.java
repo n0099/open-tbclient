@@ -1,37 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.os.HandlerThread;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes5.dex */
 public class og1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile Executor a;
-    public static final int b;
-    public static final int c;
-    public static final ThreadFactory d;
+    public static volatile og1 f;
     public transient /* synthetic */ FieldHolder $fh;
+    public HandlerThread a;
+    public Handler b;
+    public int c;
+    public int d;
+    public Runnable e;
 
     /* loaded from: classes5.dex */
-    public static class a implements ThreadFactory {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
+        public final /* synthetic */ og1 a;
 
-        public a() {
+        public a(og1 og1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {og1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,79 +39,84 @@ public class og1 {
                     return;
                 }
             }
-            this.a = new AtomicInteger(1);
+            this.a = og1Var;
         }
 
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                return new Thread(runnable, "cashier #" + this.a.getAndIncrement());
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                yg1.g("开始重试");
+                if (pg1.n()) {
+                    yg1.g("重试成功");
+                    this.a.c = 0;
+                    this.a.a.quitSafely();
+                    this.a.b.removeCallbacks(this);
+                    return;
+                }
+                og1.c(this.a);
+                if (this.a.c < 3) {
+                    yg1.g("重试失败继续重试");
+                    this.a.b.postDelayed(this, this.a.d);
+                    return;
+                }
+                this.a.c = 0;
+                yg1.g("重试三次结束重试");
+                this.a.a.quitSafely();
+                this.a.b.removeCallbacks(this);
             }
-            return (Thread) invokeL.objValue;
         }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948031184, "Lcom/baidu/tieba/og1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948031184, "Lcom/baidu/tieba/og1;");
-                return;
-            }
-        }
-        int availableProcessors = Runtime.getRuntime().availableProcessors();
-        b = availableProcessors;
-        c = (availableProcessors * 2) + 1;
-        d = new a();
     }
 
     public og1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = 10000;
+        this.e = new a(this);
     }
 
-    public static void a(Runnable runnable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, runnable) == null) {
-            b().execute(runnable);
-        }
-    }
-
-    public static synchronized Executor b() {
+    public static og1 g() {
         InterceptResult invokeV;
-        Executor executor;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            synchronized (og1.class) {
-                if (a == null) {
-                    synchronized (og1.class) {
-                        if (a == null) {
-                            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(2, c, 8L, TimeUnit.SECONDS, new LinkedBlockingQueue(), d);
-                            threadPoolExecutor.allowCoreThreadTimeOut(true);
-                            a = threadPoolExecutor;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (f == null) {
+                synchronized (og1.class) {
+                    if (f == null) {
+                        f = new og1();
                     }
                 }
-                executor = a;
             }
-            return executor;
+            return f;
         }
-        return (Executor) invokeV.objValue;
+        return (og1) invokeV.objValue;
+    }
+
+    public static /* synthetic */ int c(og1 og1Var) {
+        int i = og1Var.c;
+        og1Var.c = i + 1;
+        return i;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            yg1.g("触发重试");
+            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
+            this.a = handlerThread;
+            handlerThread.start();
+            Handler handler = new Handler(this.a.getLooper());
+            this.b = handler;
+            handler.postDelayed(this.e, this.d);
+        }
     }
 }

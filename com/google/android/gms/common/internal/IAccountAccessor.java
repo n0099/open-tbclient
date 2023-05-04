@@ -6,12 +6,12 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public interface IAccountAccessor extends IInterface {
     @NonNull
     Account zzb() throws RemoteException;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static abstract class Stub extends com.google.android.gms.internal.common.zzb implements IAccountAccessor {
         public Stub() {
             super("com.google.android.gms.common.internal.IAccountAccessor");

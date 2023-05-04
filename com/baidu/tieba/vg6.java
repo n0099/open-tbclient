@@ -1,12 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.TbPageContext;
+import android.view.View;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes6.dex */
 public interface vg6 {
-    String from();
+    public static final ServiceReference a = new ServiceReference(WebView.LOGTAG, "EMManagerProvider");
 
-    void m(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId);
-
-    void setFrom(String str);
+    void a(View view2, int i);
 }

@@ -1,82 +1,44 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.Uri;
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.ContentObserver;
+import android.os.Handler;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
-import com.vivo.identifier.IdentifierIdClient;
 /* loaded from: classes7.dex */
-public class yn1 implements pn1 {
+public class yn1 extends ContentObserver {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xn1 a;
-    public String b;
-    public wn1 c;
+    public ao1 a;
 
-    public yn1() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yn1(ao1 ao1Var) {
+        super(null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ao1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Handler) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = ao1Var;
     }
 
-    @Override // com.baidu.tieba.pn1
-    public String a() {
-        InterceptResult invokeV;
+    @Override // android.database.ContentObserver
+    public void onChange(boolean z) {
+        ao1 ao1Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                this.b = this.a.a(0, null);
-            }
-            return this.b;
+        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (ao1Var = this.a) != null) {
+            ao1Var.b = ao1Var.a.a(0, null);
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.pn1
-    public void a(Context context, qn1 qn1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, qn1Var) == null) {
-            this.a = new xn1(context);
-            if (b()) {
-                this.c = new wn1(this);
-                context.getContentResolver().registerContentObserver(Uri.parse("content://com.vivo.vms.IdProvider/IdentifierId/OAID"), true, this.c);
-            }
-            if (qn1Var != null) {
-                qn1Var.a();
-            }
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            try {
-                Class<?> cls = Class.forName(CountryCodeBean.ANDRIOD_SYSTEMPROP);
-                str = (String) cls.getMethod("get", String.class, String.class).invoke(cls, IdentifierIdClient.SYS_IDENTIFIERID_SUPPORTED, "0");
-            } catch (Throwable unused) {
-                str = null;
-            }
-            if ("1".equals(str)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

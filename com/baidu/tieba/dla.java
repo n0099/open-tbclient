@@ -1,19 +1,11 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Typeface;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.opengl.EGLContext;
 /* loaded from: classes4.dex */
-public class dla {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface dla {
+    void a(EGLContext eGLContext);
 
-    public abstract boolean a(String str);
+    void b(int i, int i2, int i3);
 
-    public abstract String b(String str);
-
-    public abstract Typeface c(String str, int i, String str2);
-
-    public abstract Bitmap d(String str);
+    void release();
 }

@@ -15,11 +15,11 @@ import com.baidu.adp.lib.service.AsyncService;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.mobstat.Config;
 import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.dj8;
 import com.baidu.tieba.ff;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ik;
 import com.baidu.tieba.ki;
-import com.baidu.tieba.vg8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -132,7 +132,7 @@ public class BdNetTypeUtil {
                     networkState.mCurChangedTime = currentTimeMillis;
                     BdNetTypeUtil.setNetWorkChangedTime(currentTimeMillis);
                     MessageManager.getInstance().dispatchResponsedMessage(new NetWorkChangedMessage(networkState));
-                    vg8 a = ik.a();
+                    dj8 a = ik.a();
                     a.c(Config.DEVICE_PART, "net status: " + networkState.toString());
                 } catch (Exception e) {
                     e.printStackTrace();

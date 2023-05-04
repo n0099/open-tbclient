@@ -1,47 +1,35 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.nps.pm.BundleInfo;
-import com.baidu.nps.pm.SubBundleInfo;
+import android.app.Application;
+import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.Closeable;
-import java.util.List;
 /* loaded from: classes6.dex */
 public class wc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Closeable closeable) {
+    public static boolean a(Application application) {
+        InterceptResult invokeL;
+        Object f;
+        ClassLoader classLoader;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, application)) == null) {
             try {
-                closeable.close();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public static boolean b(BundleInfo bundleInfo, BundleInfo bundleInfo2) {
-        InterceptResult invokeLL;
-        List<SubBundleInfo> subBundle;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bundleInfo, bundleInfo2)) == null) {
-            if (bundleInfo == null || bundleInfo2 == null || (subBundle = bundleInfo.getSubBundle()) == null) {
+                Context baseContext = application.getBaseContext();
+                if (baseContext == null || (f = je1.f(baseContext, "mPackageInfo")) == null || (classLoader = (ClassLoader) je1.f(f, "mClassLoader")) == null) {
+                    return false;
+                }
+                xc1 xc1Var = new xc1(classLoader.getParent(), classLoader);
+                je1.k(f, "mClassLoader", xc1Var);
+                Thread.currentThread().setContextClassLoader(xc1Var);
+                return true;
+            } catch (Throwable th) {
+                th.printStackTrace();
                 return false;
             }
-            for (SubBundleInfo subBundleInfo : subBundle) {
-                if (TextUtils.equals(subBundleInfo.getPackageName(), bundleInfo2.getPackageName())) {
-                    if (subBundleInfo.getMaxVersion() < bundleInfo2.getVersionCode() || subBundleInfo.getMinVersion() > bundleInfo2.getVersionCode()) {
-                        return false;
-                    }
-                    return true;
-                }
-            }
-            return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 }

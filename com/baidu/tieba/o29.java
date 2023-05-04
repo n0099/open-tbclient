@@ -1,26 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.graphics.Rect;
+import android.text.SpannableString;
+import android.text.style.ImageSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.tbadk.core.data.SmallTailInfo;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.jg5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes5.dex */
-public class o29 {
+public class o29 implements q29 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+    public ExcContent a;
+    public SpannableString b;
 
-    public o29() {
+    @Override // com.baidu.tieba.q29
+    public boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.r29
+    public int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return 2;
+        }
+        return invokeV.intValue;
+    }
+
+    public o29(ExcContent excContent) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {excContent};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,43 +55,41 @@ public class o29 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = 0;
+        this.a = excContent;
     }
 
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int b() {
+    @Override // com.baidu.tieba.q29
+    public CharSequence b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return c(this.a);
         }
-        return invokeV.intValue;
+        return (CharSequence) invokeV.objValue;
     }
 
-    public void c(String str) {
+    public final SpannableString c(ExcContent excContent) {
+        InterceptResult invokeL;
+        jg5.a f;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optInt("error_code", -1);
-            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "");
-            JSONObject optJSONObject = jSONObject.optJSONObject("data");
-            if (optJSONObject != null) {
-                this.b = optJSONObject.optInt("msg_count");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
+            if (this.b == null) {
+                String str = excContent.text;
+                if (TbFaceManager.i().o(str)) {
+                    String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.i().j(str) + SmallTailInfo.EMOTION_SUFFIX;
+                    this.b = new SpannableString(str2 + " ");
+                    aw5 c = TbFaceManager.i().c(str);
+                    if (TbFaceManager.i().f(str) != null) {
+                        int a = (int) (f.a() * 0.6d);
+                        c.setBounds(new Rect(0, 0, a, a));
+                    } else {
+                        c.setBounds(new Rect(0, 0, 0, 0));
+                    }
+                    this.b.setSpan(new ImageSpan(c, 0), 0, str2.length(), 33);
+                }
             }
-        } catch (JSONException e) {
-            e.printStackTrace();
+            return this.b;
         }
+        return (SpannableString) invokeL.objValue;
     }
 }

@@ -183,19 +183,19 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
     public final void c(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019b, (ViewGroup) this, true);
-            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090551);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f09054e);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090558);
-            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f090557);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090556);
-            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090550);
-            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f090559);
-            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f090552);
-            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090553);
-            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f090554);
-            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090555);
-            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f09054f);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d019e, (ViewGroup) this, true);
+            this.a = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090554);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090551);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09055b);
+            this.d = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f09055a);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f090559);
+            this.f = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090553);
+            this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f09055c);
+            this.h = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f090555);
+            this.i = (TextView) findViewById(R.id.obfuscated_res_0x7f090556);
+            this.j = (ClickableHeaderImageView) findViewById(R.id.obfuscated_res_0x7f090557);
+            this.k = (TextView) findViewById(R.id.obfuscated_res_0x7f090558);
+            this.l = (TextView) findViewById(R.id.obfuscated_res_0x7f090552);
             int dimensionPixelSize = context.getResources().getDimensionPixelSize(R.dimen.tbds170) * 2;
             int i = (dimensionPixelSize * 21) / 9;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.b.getLayoutParams();
@@ -206,7 +206,7 @@ public class CardFrsGameCompetitionItemView extends LinearLayout {
             layoutParams2.height = dimensionPixelSize;
             layoutParams2.width = i;
             this.a.setLayoutParams(layoutParams2);
-            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f0808de);
+            this.b.setDefaultBgResource(R.drawable.obfuscated_res_0x7f08090a);
             this.d.setDrawBorder(true);
             this.d.setDrawerType(1);
             this.d.setRadius(context.getResources().getDimensionPixelSize(R.dimen.tbds5));

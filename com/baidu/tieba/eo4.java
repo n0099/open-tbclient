@@ -1,112 +1,191 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.util.Xml;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes4.dex */
 public class eo4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    public static String a(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        StringBuilder sb;
-        StringBuilder sb2;
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x0043 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:29:0x0045 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0021 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v14 */
+    public static boolean a(InputStream inputStream, File file) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        int read;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65536, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return str;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, inputStream, file)) == null) {
+            boolean z = false;
+            if (inputStream == null || file == null) {
+                return false;
             }
-            String str4 = str2 + "=";
-            int indexOf = str.indexOf("?");
-            String str5 = null;
-            if (indexOf < 0) {
-                int indexOf2 = str.indexOf("#");
-                if (indexOf2 < 0) {
-                    sb2 = new StringBuilder(str);
-                } else {
-                    str5 = str.substring(indexOf2);
-                    sb2 = new StringBuilder(str.substring(0, indexOf2));
-                }
-                sb2.append("?");
-                sb2.append(str4);
-                sb2.append(str3);
-                if (str5 != null) {
-                    sb2.append(str5);
-                }
-                return sb2.toString();
+            File parentFile = file.getParentFile();
+            if (!parentFile.exists()) {
+                parentFile.mkdirs();
             }
-            if (str.indexOf("&" + str4, indexOf) < 0) {
-                if (str.indexOf("?" + str4, indexOf) < 0) {
-                    int indexOf3 = str.indexOf("#");
-                    if (indexOf3 < 0) {
-                        sb = new StringBuilder(str);
-                    } else {
-                        str5 = str.substring(indexOf3);
-                        str = str.substring(0, indexOf3);
-                        sb = new StringBuilder(str);
-                    }
-                    if (!str.endsWith("&") && !str.endsWith("?")) {
-                        sb.append("&");
-                    }
-                    sb.append(str4);
-                    sb.append(str3);
-                    if (str5 != null) {
-                        sb.append(str5);
-                    }
-                    return sb.toString();
-                }
-                return str;
+            if (file.exists()) {
+                file.delete();
             }
-            return str;
+            FileOutputStream fileOutputStream2 = null;
+            FileOutputStream fileOutputStream3 = null;
+            try {
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+            }
+            try {
+                byte[] bArr = new byte[8192];
+                while (true) {
+                    read = inputStream.read(bArr);
+                    if (read == -1) {
+                        break;
+                    }
+                    fileOutputStream.write(bArr, 0, read);
+                }
+                fileOutputStream.flush();
+                z = true;
+                bo4.d(fileOutputStream);
+                fileOutputStream2 = read;
+            } catch (Exception e2) {
+                e = e2;
+                fileOutputStream3 = fileOutputStream;
+                e.printStackTrace();
+                bo4.d(fileOutputStream3);
+                fileOutputStream2 = fileOutputStream3;
+                bo4.d(inputStream);
+                return z;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                bo4.d(fileOutputStream2);
+                bo4.d(inputStream);
+                throw th;
+            }
+            bo4.d(inputStream);
+            return z;
         }
-        return (String) invokeLLL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static String b(String str) {
+    public static String b(InputStream inputStream) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            int d = wn4.d();
-            int b = wn4.b();
-            int a = wn4.a();
-            String f = wn4.f();
-            StringBuffer stringBuffer = new StringBuffer();
-            stringBuffer.append(d);
-            stringBuffer.append("_");
-            stringBuffer.append(b);
-            stringBuffer.append("_");
-            stringBuffer.append(f);
-            stringBuffer.append("_");
-            stringBuffer.append(str);
-            stringBuffer.append("_");
-            stringBuffer.append(a);
-            return stringBuffer.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, inputStream)) == null) {
+            return c(inputStream, Xml.Encoding.UTF_8.toString());
         }
         return (String) invokeL.objValue;
     }
 
-    @NonNull
-    public static Map<String, String> c(@NonNull String str) {
-        InterceptResult invokeL;
-        String[] split;
+    public static String c(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
-                if (str2 != null && str2.contains("=")) {
-                    int indexOf = str2.indexOf("=");
-                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(), str2.substring(indexOf + 1));
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, inputStream, str)) == null) {
+            if (inputStream == null) {
+                return null;
             }
-            return hashMap;
+            StringBuilder sb = new StringBuilder();
+            try {
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream, str), 8192);
+                    while (true) {
+                        String readLine = bufferedReader.readLine();
+                        if (readLine == null) {
+                            break;
+                        }
+                        sb.append(readLine);
+                    }
+                } catch (Throwable th) {
+                    bo4.d(inputStream);
+                    throw th;
+                }
+            } catch (Exception | OutOfMemoryError e) {
+                e.printStackTrace();
+            }
+            bo4.d(inputStream);
+            return sb.toString();
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static boolean d(InputStream inputStream, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, inputStream, str)) == null) {
+            boolean z = false;
+            if (inputStream != null && !TextUtils.isEmpty(str)) {
+                File file = new File(str);
+                if (!file.exists()) {
+                    file.mkdirs();
+                }
+                byte[] bArr = new byte[8192];
+                ZipInputStream zipInputStream = new ZipInputStream(inputStream);
+                while (true) {
+                    try {
+                        ZipEntry nextEntry = zipInputStream.getNextEntry();
+                        if (nextEntry != null) {
+                            String str2 = str + "/" + nextEntry.getName();
+                            if (bo4.x(str2)) {
+                                bo4.d(zipInputStream);
+                                return false;
+                            } else if (nextEntry.isDirectory()) {
+                                File file2 = new File(str2);
+                                if (!file2.exists()) {
+                                    file2.mkdirs();
+                                }
+                            } else {
+                                File parentFile = new File(str2).getParentFile();
+                                if (!parentFile.exists()) {
+                                    parentFile.mkdirs();
+                                }
+                                if (!parentFile.isDirectory()) {
+                                    parentFile.delete();
+                                    parentFile.mkdirs();
+                                }
+                                FileOutputStream fileOutputStream = new FileOutputStream(str2);
+                                while (true) {
+                                    try {
+                                        int read = zipInputStream.read(bArr);
+                                        if (read == -1) {
+                                            break;
+                                        }
+                                        fileOutputStream.write(bArr, 0, read);
+                                    } finally {
+                                    }
+                                }
+                                bo4.d(fileOutputStream);
+                            }
+                        } else {
+                            z = true;
+                            break;
+                        }
+                    } catch (IOException unused) {
+                    } catch (Throwable th) {
+                        bo4.d(zipInputStream);
+                        throw th;
+                    }
+                }
+                bo4.d(zipInputStream);
+            }
+            return z;
+        }
+        return invokeLL.booleanValue;
     }
 }

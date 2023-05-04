@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mario.gldraw2d.params.MirrorType;
-import com.baidu.mario.gldraw2d.params.ScaleType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,13 +10,8 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class sc0 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public float a;
-    public float b;
-    public MirrorType c;
-    public int d;
-    public ScaleType e;
-    public float f;
-    public int g;
+    public int a;
+    public int b;
 
     public sc0() {
         Interceptable interceptable = $ic;
@@ -31,16 +23,8 @@ public class sc0 implements Cloneable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = 0.0f;
-        this.b = 0.0f;
-        this.c = MirrorType.NO_MIRROR;
-        this.d = 0;
-        this.e = ScaleType.FIT_XY;
-        this.f = 1.0f;
-        this.g = -90;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -63,76 +47,31 @@ public class sc0 implements Cloneable {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.b;
         }
         return invokeV.intValue;
     }
 
-    public float c() {
+    public int c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
-        }
-        return invokeV.floatValue;
-    }
-
-    public MirrorType d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.c;
-        }
-        return (MirrorType) invokeV.objValue;
-    }
-
-    public ScaleType e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return (ScaleType) invokeV.objValue;
-    }
-
-    public int f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public float g() {
-        InterceptResult invokeV;
+    public void d(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.a;
-        }
-        return invokeV.floatValue;
-    }
-
-    public float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.b;
-        }
-        return invokeV.floatValue;
-    }
-
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.d = i;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.b = i;
         }
     }
 
-    public void j(MirrorType mirrorType) {
+    public void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, mirrorType) == null) {
-            this.c = mirrorType;
+        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
+            this.a = i;
         }
     }
 }

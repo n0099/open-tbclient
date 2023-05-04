@@ -8,7 +8,7 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.RemoteViews;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class eo extends er {
     public int a;
     public Bitmap b;

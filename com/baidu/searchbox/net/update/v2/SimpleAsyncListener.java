@@ -33,7 +33,7 @@ public abstract class SimpleAsyncListener extends SimpleSyncListener {
 
     @Override // com.baidu.searchbox.net.update.v2.SimpleSyncListener, com.baidu.searchbox.net.update.v2.AbstractCommandListener
     public boolean executeCommand(final Context context, final String str, final String str2, final ActionData<JSONObject> actionData) {
-        Runnable runnable = new Runnable() { // from class: com.baidu.tieba.el1
+        Runnable runnable = new Runnable() { // from class: com.baidu.tieba.gl1
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 

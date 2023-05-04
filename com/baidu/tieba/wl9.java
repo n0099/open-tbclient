@@ -1,15 +1,27 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.Page;
+import tbclient.RecommendForumInfo;
 /* loaded from: classes6.dex */
 public class wl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public boolean b;
+    public List<in> a;
+    public List<RecommendForumInfo> b;
+    public Page c;
+    public boolean d;
+    public int e;
+    public int f;
+    public int g;
 
     public wl9() {
         Interceptable interceptable = $ic;
@@ -21,6 +33,47 @@ public class wl9 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new ArrayList();
+        this.d = true;
+        this.e = 0;
+        this.f = 0;
+        this.g = 0;
+    }
+
+    public List<in> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void b(qr6 qr6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qr6Var) == null) {
+            String str = qr6Var.d;
+            this.c = qr6Var.c;
+            List<RecommendForumInfo> list = qr6Var.a;
+            this.b = list;
+            if (!ListUtils.isEmpty(list)) {
+                for (RecommendForumInfo recommendForumInfo : this.b) {
+                    vl9 vl9Var = new vl9();
+                    vl9Var.j(recommendForumInfo);
+                    this.a.add(vl9Var);
+                }
+            }
+            Page page = this.c;
+            if (page != null) {
+                boolean z = true;
+                if (page.has_more.intValue() != 1) {
+                    z = false;
+                }
+                this.d = z;
+                this.e = this.c.current_page.intValue();
             }
         }
     }

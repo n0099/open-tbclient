@@ -1,79 +1,128 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import java.io.UnsupportedEncodingException;
+import java.net.URLDecoder;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class n03 {
+public class n03 extends l72 {
     public static /* synthetic */ Interceptable $ic;
-    public static m03 a;
-    public static final m03 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements m03 {
+    public class a extends i92 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ n03 c;
 
-        @Override // com.baidu.tieba.m03
-        public void onPayResult(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            }
-        }
-
-        public a() {
+        public a(n03 n03Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {n03Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.c = n03Var;
+        }
+
+        @Override // com.baidu.tieba.i92, com.baidu.tieba.l92
+        public boolean a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                if (str != null && str.startsWith("https://etrade.baidu.com/cashier/create-qrcode/close")) {
+                    Map<String, String> t = pl3.t(pl3.o(str));
+                    if (t != null && t.get(HiAnalyticsConstant.HaKey.BI_KEY_RESULT) != null) {
+                        try {
+                            p03.a().onPayResult(Integer.valueOf(t.get(HiAnalyticsConstant.HaKey.BI_KEY_RESULT)).intValue(), URLDecoder.decode(t.get("result"), "UTF-8"));
+                        } catch (UnsupportedEncodingException e) {
+                            e.printStackTrace();
+                            p03.a().onPayResult(Integer.valueOf(t.get(HiAnalyticsConstant.HaKey.BI_KEY_RESULT)).intValue(), null);
+                        }
+                    } else {
+                        p03.a().onPayResult(6, null);
+                    }
+                    l72.b3();
+                    return true;
+                }
+                return super.a(str);
+            }
+            return invokeL.booleanValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948600, "Lcom/baidu/tieba/n03;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947948600, "Lcom/baidu/tieba/n03;");
-                return;
+    public n03() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        b = new a();
     }
 
-    public static m03 a() {
+    @Override // com.baidu.tieba.l72
+    public l92 c3() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            m03 m03Var = a;
-            if (m03Var == null) {
-                return b;
-            }
-            return m03Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
-        return (m03) invokeV.objValue;
+        return (l92) invokeV.objValue;
     }
 
-    public static void b(m03 m03Var) {
+    @Override // com.baidu.tieba.l72
+    public gu1 k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65538, null, m03Var) == null) && a != m03Var) {
-            a = m03Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return re2.U().f0().i(getContext());
         }
+        return (gu1) invokeV.objValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r6v5, types: [com.baidu.tieba.eu1] */
+    @Override // com.baidu.tieba.l72, com.baidu.swan.support.v4.app.Fragment
+    public View z0(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d00e1, viewGroup, false);
+            inflate.findViewById(R.id.obfuscated_res_0x7f090183).setVisibility(8);
+            gu1 k = k();
+            this.G0 = k;
+            k.Y(c3());
+            this.H0 = this.G0.s();
+            this.G0.loadUrl(this.I0);
+            this.G0.j((FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0901ae), this.H0.covertToView());
+            if (W1()) {
+                inflate = Z1(inflate);
+            }
+            return G1(inflate, this);
+        }
+        return (View) invokeLLL.objValue;
     }
 }

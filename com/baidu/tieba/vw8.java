@@ -1,37 +1,51 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.util.DisplayMetrics;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.EditText;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pb.pb.main.PbFragment;
-import com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.bx8;
+import com.baidu.tieba.pb.interactionpopupwindow.IBaseDialogData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class vw8 extends xv8<qy4, PbRecommendNovelHolder> {
+public abstract class vw8<V extends bx8, D extends IBaseDialogData> implements ax8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ht8 g;
-    public PbRecommendNovelHolder.b h;
+    public AlertDialog a;
+    public TbPageContext b;
+    public Context c;
+    public DialogInterface.OnKeyListener d;
+    public DialogInterface.OnCancelListener e;
+    public int f;
+    public boolean g;
+    public V h;
 
     /* loaded from: classes6.dex */
-    public class a implements PbRecommendNovelHolder.b {
+    public class a implements ViewHelper.ViewCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vw8 a;
+        public final /* synthetic */ AtomicBoolean a;
 
-        public a(vw8 vw8Var) {
+        public a(vw8 vw8Var, AtomicBoolean atomicBoolean) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {vw8Var};
+                Object[] objArr = {vw8Var, atomicBoolean};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -41,78 +55,116 @@ public class vw8 extends xv8<qy4, PbRecommendNovelHolder> {
                     return;
                 }
             }
-            this.a = vw8Var;
+            this.a = atomicBoolean;
         }
 
-        @Override // com.baidu.tieba.pb.pb.main.PbRecommendNovelHolder.b
-        public void a(qy4 qy4Var) {
+        @Override // com.baidu.tbadk.core.util.ViewHelper.ViewCallback
+        public boolean onViewFound(View view2) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, qy4Var) == null) && qy4Var != null) {
-                c09.a(this.a.g, qy4Var, qy4Var.d0, 6);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
+                if (view2 instanceof EditText) {
+                    this.a.set(true);
+                    return true;
+                }
+                return false;
             }
+            return invokeL.booleanValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vw8(PbFragment pbFragment, BdUniqueId bdUniqueId) {
-        super(pbFragment, bdUniqueId);
+    public vw8(TbPageContext tbPageContext, V v, D d) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbFragment, bdUniqueId};
+            Object[] objArr = {tbPageContext, v, d};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((g09) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.h = new a(this);
+        this.f = -1;
+        this.g = false;
+        this.b = tbPageContext;
+        this.c = tbPageContext.getPageActivity();
+        this.h = v;
+        d(d);
     }
 
-    public void r(ht8 ht8Var) {
+    public void d(D d) {
+        V v;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ht8Var) == null) {
-            this.g = ht8Var;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, d) == null) && (v = this.h) != null) {
+            v.c(d);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: x */
-    public PbRecommendNovelHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.ax8
+    public void dismiss() {
+        AlertDialog alertDialog;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
-            return new PbRecommendNovelHolder(this.b.getPageContext(), LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0737, viewGroup, false), this.h);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (alertDialog = this.a) != null) {
+            lg.a(alertDialog, this.b.getPageActivity());
         }
-        return (PbRecommendNovelHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.xv8, com.baidu.tieba.vm
-    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
-        y(i, view2, viewGroup, (qy4) obj, (PbRecommendNovelHolder) viewHolder);
-        return view2;
-    }
-
-    public View y(int i, View view2, ViewGroup viewGroup, qy4 qy4Var, PbRecommendNovelHolder pbRecommendNovelHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ax8
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, qy4Var, pbRecommendNovelHolder})) == null) {
-            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) qy4Var, (qy4) pbRecommendNovelHolder);
-            if (qy4Var == null) {
-                return view2;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null) {
+                lg.i(alertDialog, this.b.getPageActivity());
+                return;
             }
-            qy4Var.d0 = i + 1;
-            c09.d(this.b.getUniqueId(), this.g, qy4Var, qy4Var.d0, 6);
-            pbRecommendNovelHolder.d(qy4Var);
-            return view2;
+            if (this.g) {
+                this.a = new AlertDialog.Builder(this.c, R.style.obfuscated_res_0x7f1003fd).create();
+            } else {
+                this.a = new AlertDialog.Builder(this.c).create();
+            }
+            GreyUtil.grey(this.a);
+            this.a.setCanceledOnTouchOutside(c());
+            this.a.setCancelable(b());
+            this.a.setOnKeyListener(this.d);
+            DialogInterface.OnCancelListener onCancelListener = this.e;
+            if (onCancelListener != null) {
+                this.a.setOnCancelListener(onCancelListener);
+            }
+            lg.i(this.a, this.b.getPageActivity());
+            if (this.a.getWindow().getDecorView().getParent() == null) {
+                return;
+            }
+            Window window = this.a.getWindow();
+            if (this.f == -1) {
+                this.f = 17;
+            }
+            window.setGravity(this.f);
+            window.setBackgroundDrawableResource(R.drawable.transparent_bg);
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.dimAmount = 0.7f;
+            attributes.width = -1;
+            DisplayMetrics t = ii.t(this.b.getPageActivity());
+            if (t != null) {
+                int a2 = a();
+                if (UtilHelper.getRealScreenOrientation(this.c) == 2) {
+                    attributes.width = t.heightPixels - (a2 * 2);
+                } else {
+                    attributes.width = t.widthPixels - (a2 * 2);
+                }
+            }
+            attributes.height = -2;
+            window.setAttributes(attributes);
+            window.setContentView(this.h.getViewGroup());
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            ViewHelper.processAllViewsIn(this.h.getViewGroup(), false, new a(this, atomicBoolean));
+            if (atomicBoolean.get()) {
+                window.clearFlags(131080);
+            }
         }
-        return (View) invokeCommon.objValue;
     }
 }

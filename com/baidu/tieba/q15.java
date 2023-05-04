@@ -1,45 +1,110 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LcUpdateDialogActivityConfig;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q15 extends l15 {
+public class q15 {
     public static /* synthetic */ Interceptable $ic;
+    public static final q15 c;
+    public static final q15 d;
+    public static final q15 e;
+    public static final q15 f;
+    public static final q15 g;
+    public static final q15 h;
+    public static final q15 i;
+    public static final q15 j;
+    public static final q15 k;
+    public static final q15 l;
+    public static final q15 m;
+    public static final q15 n;
+    public static final q15 o;
+    public static final q15 p;
+    public static final q15 q;
+    public static final q15 r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final boolean b;
 
-    public q15() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948038996, "Lcom/baidu/tieba/q15;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948038996, "Lcom/baidu/tieba/q15;");
+                return;
+            }
+        }
+        c = new q15("sync_finish", false);
+        d = new q15("main_page_load_finish", false);
+        e = new q15("pb_load_finish", false);
+        f = new q15("frs_load_finish", false);
+        g = new q15("main_page_recommend", true);
+        h = new q15("main_page_common_tab", true);
+        i = new q15("main_page_hot_topic", true);
+        j = new q15("main_page_concern", true);
+        k = new q15("main_page_enter_forum", true);
+        l = new q15("main_page_message", true);
+        m = new q15("main_page_person_info", true);
+        n = new q15("write_page", true);
+        o = new q15("pb_page", true);
+        p = new q15("frs_page", true);
+        q = new q15("main_page_idle", false);
+        r = new q15("splash_close", false);
+    }
+
+    public q15(String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = str;
+        this.b = z;
     }
 
-    @Override // com.baidu.tieba.l15
-    public void a(@NonNull Context context, @NonNull c15 c15Var) {
+    public static q15 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, c15Var) == null) {
-            ClientUpdateInfo clientUpdateInfo = new ClientUpdateInfo();
-            clientUpdateInfo.mIsForceUpdate = c15Var.a("is_force_update");
-            clientUpdateInfo.mStatus = c15Var.a("status");
-            clientUpdateInfo.mReverson = c15Var.a("reverson");
-            clientUpdateInfo.mContentUrl = c15Var.a("content_url");
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LcUpdateDialogActivityConfig(TbadkCoreApplication.getInst().getApp(), clientUpdateInfo, c15Var.a("apk_md5_rsa"))));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return new q15("main_page_common_tab_" + str, true);
         }
+        return (q15) invokeL.objValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.booleanValue;
     }
 }

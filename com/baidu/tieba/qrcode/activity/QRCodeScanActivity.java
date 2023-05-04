@@ -33,23 +33,23 @@ import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.d05;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
 import com.baidu.tieba.lg;
+import com.baidu.tieba.pc9;
+import com.baidu.tieba.qc9;
 import com.baidu.tieba.qrcode.lib.core.QRCodeView;
 import com.baidu.tieba.qrcode.lib.zxing.ZXingView;
 import com.baidu.tieba.qrcode.view.ArrowView;
 import com.baidu.tieba.qrcode.view.ScanLoadingView;
-import com.baidu.tieba.t99;
-import com.baidu.tieba.u99;
+import com.baidu.tieba.u05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> implements t99, View.OnClickListener {
+public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> implements pc9, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public QRCodeView a;
@@ -57,7 +57,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     public View c;
     public TextView d;
     public ImageView e;
-    public u99 f;
+    public qc9 f;
     public int g;
     public PopupWindow h;
     public WriteImagesInfo i;
@@ -149,7 +149,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
     }
 
     /* loaded from: classes6.dex */
-    public class a implements d05.e {
+    public class a implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ String a;
@@ -174,18 +174,18 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.a = str;
         }
 
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                d05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                u05Var.dismiss();
                 this.b.f.j(this.a);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements d05.e {
+    public class b implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ QRCodeScanActivity a;
@@ -208,18 +208,18 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.a = qRCodeScanActivity;
         }
 
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
                 this.a.a.k();
-                d05Var.dismiss();
+                u05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class c implements d05.e {
+    public class c implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ QRCodeScanActivity a;
@@ -242,12 +242,12 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.a = qRCodeScanActivity;
         }
 
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
                 this.a.a.k();
-                d05Var.dismiss();
+                u05Var.dismiss();
             }
         }
     }
@@ -317,7 +317,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.isFinishing() || this.a.a.getScanBoxView() == null) {
                 return;
             }
-            this.a.a.getScanBoxView().setQRCodeTipText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f103f));
+            this.a.a.getScanBoxView().setQRCodeTipText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f1057));
             this.a.a.getScanBoxView().setTipTextColor(this.a.getResources().getColor(R.color.CAM_X0201));
             this.a.a.getScanBoxView().m();
         }
@@ -378,7 +378,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         this.m = new e(this);
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.pc9
     public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
@@ -386,7 +386,7 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.pc9
     public void b1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
@@ -483,21 +483,21 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         return invokeLL.booleanValue;
     }
 
-    public void E1(View view2, String str, String str2) {
+    public void D1(View view2, String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, view2, str, str2) == null) && view2 != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
             PopupWindow popupWindow = this.h;
             if (popupWindow != null && popupWindow.isShowing()) {
                 this.h.dismiss();
             }
-            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d0797, (ViewGroup) null);
-            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cb5);
+            View inflate = LayoutInflater.from(this).inflate(R.layout.obfuscated_res_0x7f0d07a3, (ViewGroup) null);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc5);
             tbImageView.setDrawBorder(true);
             tbImageView.setBorderWidth(1);
             tbImageView.setDrawCorner(true);
             tbImageView.setRadius(ii.g(this, R.dimen.tbds5));
             tbImageView.setConrers(15);
-            SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cb6), (int) R.color.CAM_X0106);
+            SkinManager.setViewTextColor((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091cc6), (int) R.color.CAM_X0106);
             tbImageView.N(str, 36, false);
             inflate.setOnClickListener(new f(this, str2));
             inflate.measure(0, 0);
@@ -511,32 +511,32 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             this.h.setOutsideTouchable(true);
             this.h.setFocusable(false);
             this.h.setTouchable(true);
-            jg.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f0923cf)));
+            jg.a().post(new g(this, view2, (ArrowView) inflate.findViewById(R.id.obfuscated_res_0x7f0923e7)));
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.pc9
     public void a1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            d05 d05Var = new d05(getPageContext().getPageActivity());
-            d05Var.setTitle((String) null);
-            d05Var.setMessageShowCenter(true);
-            d05Var.setMessage(getString(R.string.qr_url_risk_forbid));
-            d05Var.setPositiveButton(getPageContext().getString(R.string.qr_url_risk_forbid_button), new c(this));
-            d05Var.setCancelable(false);
-            d05Var.setCanceledOnTouchOutside(false);
-            d05Var.create(getPageContext()).show();
+            u05 u05Var = new u05(getPageContext().getPageActivity());
+            u05Var.setTitle((String) null);
+            u05Var.setMessageShowCenter(true);
+            u05Var.setMessage(getString(R.string.qr_url_risk_forbid));
+            u05Var.setPositiveButton(getPageContext().getString(R.string.qr_url_risk_forbid_button), new c(this));
+            u05Var.setCancelable(false);
+            u05Var.setCanceledOnTouchOutside(false);
+            u05Var.create(getPageContext()).show();
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.pc9
     public void f1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             b1();
             if (this.a.getScanBoxView() != null) {
-                this.a.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.obfuscated_res_0x7f0f1046));
+                this.a.getScanBoxView().setQRCodeTipText(getResources().getString(R.string.obfuscated_res_0x7f0f105e));
                 this.a.getScanBoxView().setTipTextColor(getResources().getColor(R.color.CAM_X0301));
                 this.a.getScanBoxView().m();
             }
@@ -549,11 +549,11 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.pc9
     public void l0(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
-            E1(this.e, str, str2);
+            D1(this.e, str, str2);
         }
     }
 
@@ -585,21 +585,21 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
         }
     }
 
-    @Override // com.baidu.tieba.t99
+    @Override // com.baidu.tieba.pc9
     public void u0(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            d05 d05Var = new d05(getPageContext().getPageActivity());
-            d05Var.setTitleShowCenter(true);
-            d05Var.setTitle(getString(R.string.qr_url_jump_external_title));
-            d05Var.setMessageShowCenter(true);
-            d05Var.setMessage(getString(R.string.qr_url_jump_external_message));
-            d05Var.setNegativeTextColor(R.color.CAM_X0105);
-            d05Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f045d), new a(this, str));
-            d05Var.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f038d), new b(this));
-            d05Var.setCancelable(false);
-            d05Var.setCanceledOnTouchOutside(false);
-            d05Var.create(getPageContext()).show();
+            u05 u05Var = new u05(getPageContext().getPageActivity());
+            u05Var.setTitleShowCenter(true);
+            u05Var.setTitle(getString(R.string.qr_url_jump_external_title));
+            u05Var.setMessageShowCenter(true);
+            u05Var.setMessage(getString(R.string.qr_url_jump_external_message));
+            u05Var.setNegativeTextColor(R.color.CAM_X0105);
+            u05Var.setPositiveButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f0465), new a(this, str));
+            u05Var.setNegativeButton(getPageContext().getString(R.string.obfuscated_res_0x7f0f038b), new b(this));
+            u05Var.setCancelable(false);
+            u05Var.setCanceledOnTouchOutside(false);
+            u05Var.create(getPageContext()).show();
         }
     }
 
@@ -613,16 +613,16 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             if (getIntent() != null) {
                 this.l = getIntent().getBooleanExtra(QRCodeScanActivityConfig.IS_AIAPP, false);
             }
-            this.k = (ScanLoadingView) findViewById(R.id.obfuscated_res_0x7f091594);
-            ZXingView zXingView = (ZXingView) findViewById(R.id.obfuscated_res_0x7f092901);
+            this.k = (ScanLoadingView) findViewById(R.id.obfuscated_res_0x7f0915a2);
+            ZXingView zXingView = (ZXingView) findViewById(R.id.obfuscated_res_0x7f09291d);
             this.a = zXingView;
             if (zXingView.getScanBoxView() != null) {
                 this.a.getScanBoxView().setToolbarHeight(UtilHelper.getStatusBarHeight());
                 this.a.getScanBoxView().requestLayout();
             }
-            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091cba);
+            NavigationBar navigationBar = (NavigationBar) findViewById(R.id.obfuscated_res_0x7f091cca);
             this.b = navigationBar;
-            this.d = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f1047));
+            this.d = navigationBar.setCenterTextTitle(getString(R.string.obfuscated_res_0x7f0f105f));
             View addSystemImageButton = this.b.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.c = addSystemImageButton;
             addSystemImageButton.setOnClickListener(this);
@@ -630,12 +630,12 @@ public class QRCodeScanActivity extends BaseActivity<QRCodeScanActivity> impleme
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-2, -2);
             marginLayoutParams.rightMargin = ii.g(this, R.dimen.tbds18);
             this.e.setLayoutParams(marginLayoutParams);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080a7a, R.color.white_alpha100, null);
+            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.obfuscated_res_0x7f080aa7, R.color.white_alpha100, null);
             this.e.setScaleType(ImageView.ScaleType.FIT_XY);
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.e, this);
-            u99 u99Var = new u99(this, getPageContext());
-            this.f = u99Var;
-            u99Var.o(this.l);
+            qc9 qc9Var = new qc9(this, getPageContext());
+            this.f = qc9Var;
+            qc9Var.o(this.l);
             this.a.setDelegate(this.f);
             this.f.g();
             StatisticItem statisticItem = new StatisticItem("qrcodevisit");

@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.atomData.InterestGuideActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.lr8;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.ut8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 public class InterestGuideActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public lr8 a;
+    public ut8 a;
     public int b;
     public boolean c;
     public ArrayList<Integer> d;
@@ -65,15 +65,15 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            r1();
-            lr8 lr8Var = new lr8(this, this.b, this.c, this.d, this.e, this.f);
-            this.a = lr8Var;
-            setContentView(lr8Var.d());
-            s1();
+            t1();
+            ut8 ut8Var = new ut8(this, this.b, this.c, this.d, this.e, this.f);
+            this.a = ut8Var;
+            setContentView(ut8Var.d());
+            u1();
         }
     }
 
-    public final void r1() {
+    public final void t1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && getIntent() != null) {
             this.b = getIntent().getIntExtra(InterestGuideActivityConfig.KEY_INTEREST_GUID_SHOW_SCENE, 2);
@@ -84,12 +84,12 @@ public class InterestGuideActivity extends BaseFragmentActivity {
         }
     }
 
-    public final void s1() {
+    public final void u1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             TbSingleton.getInstance().setShowedInterestGuide(true);
             String str = "";
-            String s = q45.m().s("key_interest_guide_show", "");
+            String s = f55.m().s("key_interest_guide_show", "");
             StringBuilder sb = new StringBuilder();
             sb.append(s);
             if (!StringUtils.isNull(s)) {
@@ -97,9 +97,9 @@ public class InterestGuideActivity extends BaseFragmentActivity {
             }
             sb.append(str);
             String sb2 = sb.toString();
-            q45 m = q45.m();
+            f55 m = f55.m();
             m.B("key_interest_guide_show", sb2 + System.currentTimeMillis());
-            q45.m().A("key_interest_panel_show_time", System.currentTimeMillis());
+            f55.m().A("key_interest_panel_show_time", System.currentTimeMillis());
         }
     }
 }

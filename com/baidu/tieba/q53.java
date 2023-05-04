@@ -1,24 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q53 {
+public class q53 implements z53 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final View a;
+    public boolean b;
+    public boolean c;
 
     static {
         InterceptResult invokeClinit;
@@ -33,77 +32,100 @@ public class q53 {
                 return;
             }
         }
-        a = fo1.a;
+        d = ho1.a;
     }
 
-    public static JSONObject a(List<String> list, float f) {
-        InterceptResult invokeLF;
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLF = interceptable.invokeLF(65537, null, list, f)) == null) {
-            if (a) {
-                Log.d("PublisherCompress", "start compress");
-            }
-            ArrayList arrayList = new ArrayList();
-            v73 M = v73.M();
-            if (M == null) {
-                return null;
-            }
-            for (String str : list) {
-                if (!TextUtils.isEmpty(str)) {
-                    File file = new File(str);
-                    File k = tk3.k(file.getName());
-                    if (tk3.b(file, k, (int) (100.0f * f))) {
-                        arrayList.add(k);
-                    }
-                }
-            }
-            return b(arrayList, M);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (JSONObject) invokeLF.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static JSONObject b(ArrayList<File> arrayList, v73 v73Var) {
-        InterceptResult invokeLL;
-        String J;
+    @Override // com.baidu.tieba.z53
+    public void handleHide() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, arrayList, v73Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            boolean w0 = v73Var.w0();
-            try {
-                JSONArray jSONArray = new JSONArray();
-                JSONArray jSONArray2 = new JSONArray();
-                Iterator<File> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    File next = it.next();
-                    if (next != null) {
-                        if (w0) {
-                            J = fk2.Z(next.getAbsolutePath());
-                        } else {
-                            J = df3.J(next.getAbsolutePath(), v73Var.b);
-                        }
-                        if (a) {
-                            Log.d("PublisherCompress", "isSwanGame: " + w0 + "; path: " + J);
-                        }
-                        jSONArray.put(J);
-                        JSONObject jSONObject2 = new JSONObject();
-                        jSONObject2.put("path", J);
-                        jSONObject2.put("size", next.length());
-                        jSONArray2.put(jSONObject2);
-                    }
-                }
-                jSONObject.put("tempFilePaths", jSONArray);
-                jSONObject.put("tempFiles", jSONArray2);
-            } catch (JSONException e) {
-                if (a) {
-                    Log.e("PublisherCompress", "wrapParams failed");
-                    e.printStackTrace();
-                }
-            }
-            if (a) {
-                Log.e("PublisherCompress", jSONObject.toString());
-            }
-            return jSONObject;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.b = true;
         }
-        return (JSONObject) invokeLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.z53
+    @SuppressLint({"BDThrowableCheck"})
+    public void handleShow() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || !d) {
+            return;
+        }
+        throw new IllegalAccessError("You can't invoke handle show in handler, please instead of handling in the panel layout, maybe just need invoke super.setVisibility(View.VISIBLE)");
+    }
+
+    public q53(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = false;
+        this.c = false;
+        this.a = view2;
+    }
+
+    public boolean a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i == 0) {
+                this.b = false;
+            }
+            if (i == this.a.getVisibility()) {
+                return true;
+            }
+            if (!b() || i != 0) {
+                return false;
+            }
+            return true;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            y53.g(this.a, i);
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public int[] c(int i, int i2) {
+        InterceptResult invokeII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeII = interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2)) == null) {
+            if (this.b) {
+                this.a.setVisibility(8);
+                int makeMeasureSpec = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i2 = View.MeasureSpec.makeMeasureSpec(0, 1073741824);
+                i = makeMeasureSpec;
+            }
+            return new int[]{i, i2};
+        }
+        return (int[]) invokeII.objValue;
     }
 }

@@ -1,10 +1,10 @@
 package com.xiaomi.push;
 
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class fe {
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public ey a;
 

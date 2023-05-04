@@ -1,199 +1,225 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Environment;
+import android.view.View;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.mobstat.Config;
-import com.baidu.storage.swankv.SwanKV;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.BaseFragment;
+import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SoLoadUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.atomData.PersonPolymericActivityConfig;
+import com.baidu.tieba.personPolymeric.mode.PersonPolymericModel;
+import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.turbonet.net.OkHttp3Interceptor;
-import com.baidu.turbonet.net.TurbonetConfig;
-import com.baidu.turbonet.net.TurbonetContext;
-import java.io.File;
-import java.util.concurrent.TimeUnit;
-import okhttp3.OkHttpClient;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class g89 {
+public class g89 extends a89 implements lp8, x79 {
     public static /* synthetic */ Interceptable $ic;
-    public static OkHttpClient a;
-    public static TurbonetContext b;
-    public static long c;
-    public static boolean d;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext b;
+    public long c;
+    public boolean d;
+    public BdUniqueId e;
+    public c89 f;
+    public aa9 g;
+    public PersonPolymericModel h;
+    public b89 i;
+    public BaseFragmentActivity j;
+    public View k;
+    public PersonPostModel l;
+    public int m;
+    public List<l49> n;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947747937, "Lcom/baidu/tieba/g89;")) == null) {
-            return;
+    @Override // com.baidu.tieba.x79
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g89(BaseFragment baseFragment, c89 c89Var, BdUniqueId bdUniqueId, long j, boolean z) {
+        super(z);
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {baseFragment, c89Var, bdUniqueId, Long.valueOf(j), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947747937, "Lcom/baidu/tieba/g89;");
+        this.d = true;
+        this.m = 3;
+        BaseFragmentActivity baseFragmentActivity = baseFragment.getBaseFragmentActivity();
+        this.j = baseFragmentActivity;
+        this.b = baseFragmentActivity.getPageContext();
+        this.c = j;
+        this.f = c89Var;
+        this.e = bdUniqueId;
+        this.k = c89Var.e;
+        this.l = new PersonPostModel(this.b, bdUniqueId, null, this.a, 1);
+        aa9 aa9Var = new aa9(baseFragment, c89Var, bdUniqueId, z, this.c);
+        this.g = aa9Var;
+        aa9Var.W(this);
+        resetData();
+        this.h = this.f.p();
+        this.i = this.f.k();
+        ArrayList arrayList = new ArrayList(2);
+        this.n = arrayList;
+        arrayList.add(new l49());
+        this.n.add(new l49());
+    }
+
+    @Override // com.baidu.tieba.lp8
+    public void a() {
+        c89 c89Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (c89Var = this.f) != null) {
+            c89Var.a();
         }
     }
 
-    public static OkHttpClient a() {
+    @Override // com.baidu.tieba.lp8
+    public void b() {
+        c89 c89Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (c89Var = this.f) != null) {
+            c89Var.b();
+        }
+    }
+
+    @Override // com.baidu.tieba.x79
+    public aa9 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            b = g();
-            OkHttp3Interceptor okHttp3Interceptor = new OkHttp3Interceptor(b);
-            OkHttpClient.Builder builder = new OkHttpClient.Builder();
-            builder.connectTimeout(15000L, TimeUnit.MILLISECONDS).readTimeout(15000L, TimeUnit.MILLISECONDS).addInterceptor(okHttp3Interceptor);
-            return builder.build();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.g;
         }
-        return (OkHttpClient) invokeV.objValue;
+        return (aa9) invokeV.objValue;
     }
 
-    public static TurbonetContext g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.x79
+    public void e() {
+        aa9 aa9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            TurbonetContext turbonetContext = new TurbonetContext(TbadkCoreApplication.getInst().getContext(), "tieba", TbadkCoreApplication.getInst().getCuid(), d());
-            b = turbonetContext;
-            return turbonetContext;
-        }
-        return (TurbonetContext) invokeV.objValue;
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:26:0x0057  */
-    /* JADX WARN: Removed duplicated region for block: B:33:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String b() {
-        InterceptResult invokeV;
-        String path;
-        boolean equalsIgnoreCase;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            try {
-                String externalStorageState = Environment.getExternalStorageState();
-                equalsIgnoreCase = externalStorageState.equalsIgnoreCase("mounted");
-                if (!equalsIgnoreCase && !Environment.isExternalStorageRemovable() && !externalStorageState.equalsIgnoreCase(SwanKV.FLAVOR_SHARED)) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-            } catch (Exception unused) {
-                File cacheDir = context.getCacheDir();
-                if (cacheDir == null) {
-                    return null;
-                }
-                path = cacheDir.getPath();
-            }
-            if (!equalsIgnoreCase && !z) {
-                path = context.getCacheDir().getPath();
-                if (!path.endsWith(File.separator)) {
-                    return path.substring(0, path.length() - 1);
-                }
-                return path;
-            }
-            path = context.getExternalCacheDir().getPath();
-            if (!path.endsWith(File.separator)) {
-            }
-        } else {
-            return (String) invokeV.objValue;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (aa9Var = this.g) != null) {
+            aa9Var.M();
         }
     }
 
-    public static OkHttpClient c() {
-        InterceptResult invokeV;
+    public void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                a = a();
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.e);
+            aa9 aa9Var = this.g;
+            if (aa9Var != null) {
+                aa9Var.U();
             }
-            return a;
         }
-        return (OkHttpClient) invokeV.objValue;
     }
 
-    public static long e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.lp8
+    public void resetData() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            TurbonetContext turbonetContext = b;
-            if (turbonetContext != null && c == 0) {
-                c = turbonetContext.c();
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.l.resetThreadPn();
+            PersonPolymericModel personPolymericModel = this.h;
+            if (personPolymericModel != null) {
+                personPolymericModel.j0();
             }
-            return c;
         }
-        return invokeV.longValue;
     }
 
-    public static void f() {
+    public void i(l2a l2aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65542, null) != null) || d) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, l2aVar) == null) {
+            this.g.X(l2aVar);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048582, this, i) != null) || this.m == i) {
             return;
         }
-        d = true;
-        try {
-            SoLoadUtils.checkDownloadSo("libturbonet.so", "com.baidu.tieba.soloader.libturbonet", "turbonet");
-            c();
-        } catch (Throwable th) {
-            th.printStackTrace();
+        aa9 aa9Var = this.g;
+        if (aa9Var != null) {
+            aa9Var.T(i);
+        }
+        this.m = i;
+    }
+
+    public void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && z && this.d) {
+            a();
         }
     }
 
-    public static TurbonetConfig d() {
-        InterceptResult invokeV;
+    public void m() {
+        boolean isBigV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            TurbonetConfig turbonetConfig = new TurbonetConfig();
-            turbonetConfig.j(15);
-            turbonetConfig.c(true);
-            turbonetConfig.b(true);
-            turbonetConfig.e(true);
-            turbonetConfig.a("http://tb-video.bdstatic.com|2");
-            turbonetConfig.f(true);
-            turbonetConfig.i("bdns", "bce_http_dns_account_id", "119799");
-            turbonetConfig.i("bdns", "bce_http_dns_secret", "87JNTZjGacgUzuMBYvid");
-            turbonetConfig.i("bdbus", "min_trigger_interval", 180);
-            turbonetConfig.i("bdns", "dual_stack_bdns_cache_policy", 1);
-            File file = new File(b(), "turbonetcache");
-            if (file.exists()) {
-                if (file.isFile()) {
-                    file.delete();
-                    file.mkdirs();
-                }
+        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && TbadkCoreApplication.isLogin() && !this.a && this.c == TbadkCoreApplication.getCurrentAccountId()) {
+            this.a = true;
+            if (TbadkCoreApplication.getCurrentAccountInfo() == null) {
+                isBigV = false;
             } else {
-                file.mkdirs();
+                isBigV = TbadkCoreApplication.getCurrentAccountInfo().isBigV();
             }
-            turbonetConfig.k(file.getAbsolutePath());
-            turbonetConfig.d(3, Config.FULL_TRACE_LOG_LIMIT);
-            turbonetConfig.i("log", "lite_log_in_response_header", Boolean.TRUE);
-            turbonetConfig.i("app", "app_package_name", "com.baidu.tieba");
-            turbonetConfig.i("nq", "network_quality_enabled", Boolean.TRUE);
-            turbonetConfig.i("nq", "watch_all", Boolean.TRUE);
-            turbonetConfig.i("nq", "rejudge_interval_sec", 10);
-            turbonetConfig.i("nq", "weak_window_sec", 30);
-            turbonetConfig.i("nq", "weak_min_cnt", 10);
-            turbonetConfig.i("nq", "probe_enabled", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_retrans_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_recv_len_enable", Boolean.FALSE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_threshold_ms", 800);
-            turbonetConfig.i("nq", "weak_policy_http_ttfb_percentage", 30);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_enable", Boolean.TRUE);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_threshold_ms", 500);
-            turbonetConfig.i("nq", "weak_policy_tcp_rtt_percentage", 30);
-            turbonetConfig.i("misc", "preconnect_for_alter_quic", Boolean.TRUE);
-            return turbonetConfig;
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPolymericActivityConfig(this.b.getPageActivity()).createNormalConfig(gg.g(TbadkCoreApplication.getCurrentAccount(), 0L), true, isBigV)));
+            this.j.finish();
         }
-        return (TurbonetConfig) invokeV.objValue;
+    }
+
+    public void n(h89 h89Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, h89Var) == null) {
+            this.g.N();
+            this.j.hideLoadingView(this.k);
+            boolean z = true;
+            if (h89Var == null) {
+                this.i.y(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0d30), true);
+                this.i.l();
+                this.i.r(8);
+                return;
+            }
+            this.i.n();
+            if (h89Var.e() != null && ((h89Var.e().getHide_stat() == 1 && h89Var.e().getBlock_stat() == 1) || (h89Var.e().getHide_stat() == 1 && h89Var.e().getBlock_stat() == 2))) {
+                this.i.t(this.a);
+                this.i.r(8);
+                return;
+            }
+            this.i.r(0);
+            h89Var.b();
+            z = (h89Var.f() == null || h89Var.f().size() < 20) ? false : false;
+            if (h89Var.j() != null) {
+                h89Var.j().getSex();
+            }
+            this.d = false;
+            if (this.a && h89Var.j() != null) {
+                h89Var.j().setBimg_url(TbadkCoreApplication.getInst().getDefaultBubble());
+                h89Var.j().setDynamicUrl(TbadkCoreApplication.getInst().getDefaultBubbleDynamicRes());
+                fg5.d().i(h89Var.j());
+            }
+            l49 l49Var = this.n.get(0);
+            l49Var.a(h89Var.f());
+            l49Var.b(z);
+            this.g.Z(h89Var, z, h(h89Var));
+        }
     }
 }

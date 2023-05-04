@@ -1,103 +1,53 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.clientupdate.ClientUpdater;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.clientupdate.download.Download;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class vf8 extends t65<v65, a> {
+public class vf8 extends BdAsyncTask<String, Integer, Download> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context d;
+    public ClientUpdateInfo a;
 
-    /* loaded from: classes6.dex */
-    public class a extends BdBaseViewPagerAdapter.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TbImageView d;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(vf8 vf8Var, View view2) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vf8Var, view2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            if (view2 instanceof TbImageView) {
-                TbImageView tbImageView = (TbImageView) view2;
-                this.d = tbImageView;
-                tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vf8(Context context, BdUniqueId bdUniqueId) {
-        super(context, bdUniqueId);
+    public vf8(ClientUpdateInfo clientUpdateInfo) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, bdUniqueId};
+            Object[] objArr = {clientUpdateInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = context;
+        this.a = clientUpdateInfo;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t65
-    /* renamed from: f */
-    public a b(ViewGroup viewGroup) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public Download doInBackground(String... strArr) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            TbImageView tbImageView = new TbImageView(this.d);
-            tbImageView.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            return new a(this, tbImageView);
-        }
-        return (a) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.t65
-    /* renamed from: g */
-    public View d(ViewGroup viewGroup, a aVar, v65 v65Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, viewGroup, aVar, v65Var)) == null) {
-            aVar.d.N(v65Var.a(), 17, false);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+            if (this.a == null) {
+                return null;
+            }
+            ClientUpdater.getInstance(TbadkCoreApplication.getInst()).startDownload(this.a, null);
             return null;
         }
-        return (View) invokeLLL.objValue;
+        return (Download) invokeL.objValue;
     }
 }

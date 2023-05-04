@@ -1,90 +1,195 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.FileDescriptor;
+import java.io.PrintWriter;
 /* loaded from: classes4.dex */
-public class dm4 {
+public class dm4<D> {
     public static /* synthetic */ Interceptable $ic;
-    public static final int[] a;
-    public static final Object[] b;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public b<D> b;
+    public a<D> c;
+    public Context d;
+    public boolean e;
+    public boolean f;
+    public boolean g;
+    public boolean h;
+    public boolean i;
 
-    public static int c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            for (int i2 = 4; i2 < 32; i2++) {
-                int i3 = (1 << i2) - 12;
-                if (i <= i3) {
-                    return i3;
-                }
-            }
-            return i;
-        }
-        return invokeI.intValue;
+    /* loaded from: classes4.dex */
+    public interface a<D> {
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947709342, "Lcom/baidu/tieba/dm4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947709342, "Lcom/baidu/tieba/dm4;");
+    /* loaded from: classes4.dex */
+    public interface b<D> {
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        }
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    public String a(D d) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, d)) == null) {
+            StringBuilder sb = new StringBuilder(64);
+            gm4.a(d, sb);
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void g(a<D> aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            if (this.c == null) {
+                this.c = aVar;
                 return;
             }
+            throw new IllegalStateException("There is already a listener registered");
         }
-        a = new int[0];
-        b = new Object[0];
     }
 
-    public static int a(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public void k(b<D> bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, iArr, i, i2)) == null) {
-            int i3 = i - 1;
-            int i4 = 0;
-            while (i4 <= i3) {
-                int i5 = (i4 + i3) >>> 1;
-                int i6 = iArr[i5];
-                if (i6 < i2) {
-                    i4 = i5 + 1;
-                } else if (i6 > i2) {
-                    i3 = i5 - 1;
-                } else {
-                    return i5;
+        if (interceptable == null || interceptable.invokeL(1048587, this, bVar) == null) {
+            b<D> bVar2 = this.b;
+            if (bVar2 != null) {
+                if (bVar2 == bVar) {
+                    this.b = null;
+                    return;
                 }
+                throw new IllegalArgumentException("Attempting to unregister the wrong listener");
             }
-            return ~i4;
+            throw new IllegalStateException("No listener register");
         }
-        return invokeLII.intValue;
     }
 
-    public static boolean b(Object obj, Object obj2) {
-        InterceptResult invokeLL;
+    public void l(a<D> aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, obj, obj2)) == null) {
-            if (obj != obj2 && (obj == null || !obj.equals(obj2))) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048588, this, aVar) == null) {
+            a<D> aVar2 = this.c;
+            if (aVar2 != null) {
+                if (aVar2 == aVar) {
+                    this.c = null;
+                    return;
+                }
+                throw new IllegalArgumentException("Attempting to unregister the wrong listener");
             }
-            return true;
+            throw new IllegalStateException("No listener register");
         }
-        return invokeLL.booleanValue;
     }
 
-    public static int d(int i) {
-        InterceptResult invokeI;
+    public void b(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i)) == null) {
-            return c(i * 4) / 4;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, fileDescriptor, printWriter, strArr) == null) {
+            printWriter.print(str);
+            printWriter.print("mId=");
+            printWriter.print(this.a);
+            printWriter.print(" mListener=");
+            printWriter.println(this.b);
+            if (this.e || this.h || this.i) {
+                printWriter.print(str);
+                printWriter.print("mStarted=");
+                printWriter.print(this.e);
+                printWriter.print(" mContentChanged=");
+                printWriter.print(this.h);
+                printWriter.print(" mProcessingChange=");
+                printWriter.println(this.i);
+            }
+            if (this.f || this.g) {
+                printWriter.print(str);
+                printWriter.print("mAbandoned=");
+                printWriter.print(this.f);
+                printWriter.print(" mReset=");
+                printWriter.println(this.g);
+            }
         }
-        return invokeI.intValue;
+    }
+
+    public void f(int i, b<D> bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, bVar) == null) {
+            if (this.b == null) {
+                this.b = bVar;
+                this.a = i;
+                return;
+            }
+            throw new IllegalStateException("There is already a listener registered");
+        }
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.d;
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            c();
+            this.g = true;
+            this.e = false;
+            this.f = false;
+            this.h = false;
+            this.i = false;
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.e = true;
+            this.g = false;
+            this.f = false;
+            d();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.e = false;
+            e();
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            StringBuilder sb = new StringBuilder(64);
+            gm4.a(this, sb);
+            sb.append(" id=");
+            sb.append(this.a);
+            sb.append("}");
+            return sb.toString();
+        }
+        return (String) invokeV.objValue;
     }
 }

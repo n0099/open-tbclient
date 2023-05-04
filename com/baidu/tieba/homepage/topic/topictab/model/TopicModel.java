@@ -6,8 +6,8 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.homepage.topic.topictab.message.RequestGetTopicListMessage;
+import com.baidu.tieba.uw7;
 import com.baidu.tieba.za;
-import com.baidu.tieba.zu7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -15,7 +15,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 public class TopicModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zu7 a;
+    public uw7 a;
     public za b;
     public za c;
     public boolean d;
@@ -30,13 +30,13 @@ public class TopicModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public void Q() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                zu7 zu7Var = this.a;
-                if (zu7Var != null) {
-                    zu7Var.h0(-1, null);
+                uw7 uw7Var = this.a;
+                if (uw7Var != null) {
+                    uw7Var.i0(-1, null);
                 }
             } else if (this.d) {
             } else {
@@ -51,10 +51,10 @@ public class TopicModel extends BdBaseModel {
         }
     }
 
-    public void R(zu7 zu7Var) {
+    public void W(uw7 uw7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zu7Var) == null) {
-            this.a = zu7Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, uw7Var) == null) {
+            this.a = uw7Var;
         }
     }
 

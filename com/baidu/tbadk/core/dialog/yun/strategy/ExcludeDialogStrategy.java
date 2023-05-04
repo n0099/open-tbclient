@@ -7,9 +7,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.tbadk.data.DialogStrategiesData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.a25;
 import com.baidu.tieba.b;
-import com.baidu.tieba.vg8;
+import com.baidu.tieba.dj8;
+import com.baidu.tieba.p25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 /* loaded from: classes3.dex */
-public class ExcludeDialogStrategy implements a25 {
+public class ExcludeDialogStrategy implements p25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -63,7 +63,7 @@ public class ExcludeDialogStrategy implements a25 {
         }
     }
 
-    @Override // com.baidu.tieba.a25
+    @Override // com.baidu.tieba.p25
     @NonNull
     public Map<String, Object> a(@NonNull DialogStrategiesData dialogStrategiesData, @NonNull Map<String, Object> map, @NonNull Map<String, Object> map2) {
         InterceptResult invokeLLL;
@@ -76,7 +76,7 @@ public class ExcludeDialogStrategy implements a25 {
         return (Map) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.a25
+    @Override // com.baidu.tieba.p25
     public boolean b(@NonNull Map<String, Object> map) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
@@ -90,7 +90,7 @@ public class ExcludeDialogStrategy implements a25 {
                         obj = b.a(",", data.dialogNameList);
                         obj2 = b.a(",", data.alreadyShownDialogs);
                     }
-                    vg8 yunDialogLog = YunDialogLog.getInstance();
+                    dj8 yunDialogLog = YunDialogLog.getInstance();
                     yunDialogLog.c("YunDialogManager", "云弹窗 " + str + " 命中排斥策略，当前互斥弹窗列表：" + obj + " ，已展现弹窗列表：" + obj2);
                     return false;
                 }

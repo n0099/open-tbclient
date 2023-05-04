@@ -1,154 +1,172 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tbadk.abtest.UbsABTestHelper;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.App;
 /* loaded from: classes5.dex */
-public class op9 extends CustomMessageListener {
+public class op9 extends pp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
+    public AdvertAppInfo b1;
+    public boolean c1;
+    public String d1;
+    public String e1;
+    public String f1;
+    public long g1;
+    public int h1;
+    public boolean i1;
+    public int j1;
+    public int k1;
 
-    /* loaded from: classes5.dex */
-    public class a extends dr5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(op9 op9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {op9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dr5
-        public String doInBackground() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return UtilHelper.getClipBoardContent();
-            }
-            return (String) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements gq5<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ op9 a;
-
-        public b(op9 op9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {op9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = op9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gq5
-        /* renamed from: a */
-        public void onReturnDataInUI(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null) {
-                this.a.a.w.u(str);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public op9(MainTabActivity mainTabActivity, ro9 ro9Var) {
-        super(2005016);
+    public op9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
+        this.c1 = false;
     }
 
-    public final void b() {
+    public AdvertAppInfo getAdvertAppInfo() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            String tempString = TbSingleton.getInstance().getTempString(TbSingleton.TEMP_STRING_KEY_INTEREST_FORUM);
-            if (!TextUtils.isEmpty(tempString)) {
-                q45.m().H("user_interest_info");
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GUIDE_INTEREST_COMMIT);
-                httpMessage.addParam("interestList", tempString);
-                httpMessage.addParam("user_id", TbadkCoreApplication.getCurrentAccount());
-                MessageManager.getInstance().sendMessage(httpMessage);
-                TbSingleton.getInstance().removeTempString(TbSingleton.TEMP_STRING_KEY_INTEREST_FORUM);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b1;
         }
+        return (AdvertAppInfo) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+    public int getPosition() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-            this.a.n = true;
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-            q45.m().H("key_feedback_tip");
-            q45.m().H("key_feedback_tip_show");
-            q45.m().H("key_feedback_tip_tab_show");
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016560));
-            if (this.a.w != null) {
-                if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                    hr5.b(new a(this), new b(this));
-                } else {
-                    this.a.w.u(UtilHelper.getClipBoardContent());
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.b1;
+            if (advertAppInfo == null) {
+                return 0;
             }
-            this.a.x1();
-            b();
-            ui5.b().a();
-            ia5.f();
+            return gg.e(advertAppInfo.f, 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String s1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.b1;
+            if (advertAppInfo == null) {
+                return "";
+            }
+            return advertAppInfo.g;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String t1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.b1;
+            if (advertAppInfo == null) {
+                return "";
+            }
+            return advertAppInfo.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String u1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (this.c1) {
+                return "PB_BANNER";
+            }
+            if (this.i1) {
+                return "VIDEO_PB";
+            }
+            return "PB";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public AdvertAppInfo.ILegoAdvert v1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.b1;
+            if (advertAppInfo == null) {
+                return null;
+            }
+            return advertAppInfo.h;
+        }
+        return (AdvertAppInfo.ILegoAdvert) invokeV.objValue;
+    }
+
+    public boolean w1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            AdvertAppInfo advertAppInfo = this.b1;
+            if (advertAppInfo != null && advertAppInfo.h() == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pp9, com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        AdvertAppInfo advertAppInfo;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!iw4.c().g() && (advertAppInfo = this.b1) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
+                return AdvertAppInfo.x;
+            }
+            if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.c1) {
+                return AdvertAppInfo.x;
+            }
+            AdvertAppInfo advertAppInfo2 = this.b1;
+            if (advertAppInfo2 != null && advertAppInfo2.h != null) {
+                int i = advertAppInfo2.c;
+                if (i != 1001 && i != -1001) {
+                    if (v1() != null) {
+                        return AdvertAppInfo.z;
+                    }
+                    return null;
+                }
+                return AdvertAppInfo.x;
+            }
+            return AdvertAppInfo.x;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void x1(App app) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, app) == null) {
+            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
+            this.b1 = advertAppInfo;
+            advertAppInfo.k(app);
+            this.b1.j = u1();
         }
     }
 }

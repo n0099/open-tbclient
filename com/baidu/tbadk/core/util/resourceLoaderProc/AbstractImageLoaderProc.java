@@ -25,11 +25,11 @@ import com.baidu.tieba.R;
 import com.baidu.tieba.ag;
 import com.baidu.tieba.cg;
 import com.baidu.tieba.dg;
+import com.baidu.tieba.dr5;
 import com.baidu.tieba.fg;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.kq5;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.iw4;
 import com.baidu.tieba.tm;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.vf;
@@ -99,7 +99,7 @@ public abstract class AbstractImageLoaderProc implements dg<tm> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return sv4.c().g();
+            return iw4.c().g();
         }
         return invokeV.booleanValue;
     }
@@ -291,16 +291,16 @@ public abstract class AbstractImageLoaderProc implements dg<tm> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048587, this, new Object[]{str, str2, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z), objArr})) == null) {
             long currentTimeMillis = System.currentTimeMillis();
-            tm w = TbImageMemoryCache.s().w(str);
+            tm A = TbImageMemoryCache.v().A(str);
             if (z) {
-                if (w != null) {
+                if (A != null) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
                 zf.i(z2, System.currentTimeMillis() - currentTimeMillis);
             }
-            return w;
+            return A;
         }
         return (tm) invokeCommon.objValue;
     }
@@ -370,8 +370,8 @@ public abstract class AbstractImageLoaderProc implements dg<tm> {
             } else {
                 urlbyClientServerAddr = getUrlbyClientServerAddr(str, i9, i10);
             }
-            kq5.e(isFromCDN, urlbyClientServerAddr, str);
-            Pair<Boolean, String> d = kq5.d(urlbyClientServerAddr);
+            dr5.e(isFromCDN, urlbyClientServerAddr, str);
+            Pair<Boolean, String> d = dr5.d(urlbyClientServerAddr);
             if (((Boolean) d.first).booleanValue()) {
                 str3 = (String) d.second;
                 z = true;
@@ -473,7 +473,7 @@ public abstract class AbstractImageLoaderProc implements dg<tm> {
                 ImageLogger.imagePerfNetLog(str, false, str4, Boolean.valueOf(z), webClient.mStat, "bytes<1", currentTimeMillis2, webClient.isMobileProxy(), getProcType());
             }
             byte[] bArr3 = bArr;
-            TbImageMemoryCache.s().q(TbConfig.getPbImageSize() + bArr3.length);
+            TbImageMemoryCache.v().t(TbConfig.getPbImageSize() + bArr3.length);
             if (getProcType() == 19) {
                 i8 = 1;
                 p = mo46decodeToResource(bArr3, rect).p();
@@ -484,7 +484,7 @@ public abstract class AbstractImageLoaderProc implements dg<tm> {
                 p = decodeToResourceWithWH(bArr3, i7, i6).p();
             }
             if (z && p == null) {
-                kq5.b(str4);
+                dr5.b(str4);
                 byte[] downloadImageBytes2 = webClient.downloadImageBytes(str5, !z5);
                 boolean needCache2 = webClient.needCache();
                 if (downloadImageBytes2 != null && webClient.IsRequestSuccess()) {
@@ -587,7 +587,7 @@ public abstract class AbstractImageLoaderProc implements dg<tm> {
                 return null;
             }
             if (bitmap.getWidth() > i || bitmap.getHeight() > i2) {
-                TbImageMemoryCache.s().q(BitmapHelper.getBitmapSize(bitmap) * 2);
+                TbImageMemoryCache.v().t(BitmapHelper.getBitmapSize(bitmap) * 2);
                 return BitmapHelper.resizeBitmap(bitmap, i, i2, true);
             }
             return bitmap;
@@ -603,7 +603,7 @@ public abstract class AbstractImageLoaderProc implements dg<tm> {
             tm tmVar = (tm) obj;
             tmVar.A(i);
             tmVar.z(i2);
-            TbImageMemoryCache.s().k(str, tmVar);
+            TbImageMemoryCache.v().m(str, tmVar);
             zf.l(true, System.currentTimeMillis() - currentTimeMillis);
         }
     }

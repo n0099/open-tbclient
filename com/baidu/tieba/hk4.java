@@ -1,140 +1,110 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.common.others.lang.StringUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Iterator;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import java.util.concurrent.TimeUnit;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class hk4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static HashMap<String, ik4> a;
-    public static HashMap<String, ik4> b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public hk4() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947826584, "Lcom/baidu/tieba/hk4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947826584, "Lcom/baidu/tieba/hk4;");
+        }
+    }
+
+    public static int a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            int i = 5;
+            if (c() <= 0) {
+                return 5;
+            }
+            String string = if4.b().i().getString(PushConstants.REGISTER_STATUS_EXPIRE_TIME, "");
+            if (TextUtils.isEmpty(string)) {
+                return 5;
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(string);
+                i = jSONObject.optInt("time", 5);
+                JSONObject optJSONObject = jSONObject.optJSONObject("appkeys");
+                if (optJSONObject == null) {
+                    return i;
+                }
+                int optInt = optJSONObject.optInt(str, -1);
+                if (optInt >= 0) {
+                    return optInt;
+                }
+                return i;
+            } catch (JSONException unused) {
+                return i;
             }
         }
+        return invokeL.intValue;
+    }
+
+    public static void e(JSONObject jSONObject) {
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        String optString = jSONObject.optString("version");
+        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
+            return;
+        }
+        if4.b().i().putString("expire_time_version", optString);
+        if4.b().i().putString(PushConstants.REGISTER_STATUS_EXPIRE_TIME, optJSONObject.toString());
+    }
+
+    public static long b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return TimeUnit.HOURS.toMillis(a(str));
+        }
+        return invokeL.longValue;
+    }
+
+    public static int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a < 0) {
+                if4.b().F("swan_update_expired_time", 0);
+                a = 0;
+            }
+            return a;
+        }
+        return invokeV.intValue;
     }
 
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return gf4.c().a("SwanDownloadApiStrategy").getString("version", "0");
+            return if4.b().i().getString("expire_time_version", "0");
         }
         return (String) invokeV.objValue;
-    }
-
-    @NonNull
-    public static ik4 a(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (a == null) {
-                synchronized (hk4.class) {
-                    if (a == null) {
-                        HashMap<String, ik4> hashMap = new HashMap<>();
-                        a = hashMap;
-                        e(hashMap, "download_api_ctrl");
-                    }
-                }
-            }
-            return c(str, a);
-        }
-        return (ik4) invokeL.objValue;
-    }
-
-    @NonNull
-    public static ik4 b(@Nullable String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (b == null) {
-                synchronized (hk4.class) {
-                    if (b == null) {
-                        HashMap<String, ik4> hashMap = new HashMap<>();
-                        b = hashMap;
-                        e(hashMap, "preload_api_ctrl");
-                    }
-                }
-            }
-            return c(str, b);
-        }
-        return (ik4) invokeL.objValue;
-    }
-
-    public static void f(@Nullable JSONObject jSONObject) {
-        String str;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        JSONObject optJSONObject = jSONObject.optJSONObject("data");
-        xn4 a2 = gf4.c().a("SwanDownloadApiStrategy");
-        a2.putString("version", optString);
-        if (optJSONObject != null) {
-            str = optJSONObject.toString();
-        } else {
-            str = null;
-        }
-        a2.putString("data", str);
-    }
-
-    @NonNull
-    public static ik4 c(@Nullable String str, @NonNull HashMap<String, ik4> hashMap) {
-        InterceptResult invokeLL;
-        ik4 ik4Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, hashMap)) == null) {
-            if (!TextUtils.isEmpty(str) && (ik4Var = hashMap.get(str)) != null) {
-                return ik4Var;
-            }
-            ik4 ik4Var2 = hashMap.get("default");
-            if (ik4Var2 != null) {
-                return ik4Var2;
-            }
-            return ik4.a();
-        }
-        return (ik4) invokeLL.objValue;
-    }
-
-    public static void e(@NonNull HashMap<String, ik4> hashMap, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, hashMap, str) == null) {
-            try {
-                JSONObject optJSONObject = new JSONObject(gf4.c().a("SwanDownloadApiStrategy").getString("data", StringUtil.EMPTY_ARRAY)).optJSONObject(str);
-                if (optJSONObject != null) {
-                    Iterator<String> keys = optJSONObject.keys();
-                    while (keys.hasNext()) {
-                        String next = keys.next();
-                        if (!TextUtils.isEmpty(next)) {
-                            hashMap.put(next, ik4.b(optJSONObject.optJSONObject(next)));
-                        }
-                    }
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
     }
 }

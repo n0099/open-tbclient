@@ -1,45 +1,73 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.annotation.SuppressLint;
+import android.view.View;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class w04 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static JSONObject a(String str) {
-        InterceptResult invokeL;
+    public static boolean a(View view2, dy2 dy2Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
-                jSONObject.put("errDes", ix3.a(str));
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, dy2Var)) == null) {
+            op1 W = kt2.U().W();
+            if (W != null && W.c(view2, dy2Var)) {
+                return true;
             }
-            return jSONObject;
+            return false;
         }
-        return (JSONObject) invokeL.objValue;
+        return invokeLL.booleanValue;
     }
 
-    public static JSONObject b(int i, int i2) {
-        InterceptResult invokeII;
+    public static boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i);
-                jSONObject.put("height", i2);
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            op1 W = kt2.U().W();
+            if (W == null || !W.b() || W.h()) {
+                return false;
             }
-            return jSONObject;
+            return true;
         }
-        return (JSONObject) invokeII.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
+            op1 W = kt2.U().W();
+            if (W != null && W.d(view2)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public static boolean d(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
+            op1 W = kt2.U().W();
+            if (W == null) {
+                return false;
+            }
+            if (W.h()) {
+                SwanAppActivity activity = kt2.U().getActivity();
+                if (activity != null) {
+                    activity.setRequestedOrientation(0);
+                }
+                W.g(false);
+            }
+            return W.removeView(view2);
+        }
+        return invokeL.booleanValue;
     }
 }

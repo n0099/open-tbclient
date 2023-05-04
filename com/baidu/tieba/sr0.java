@@ -1,50 +1,182 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.nadcore.net.exception.RequestError;
-import com.baidu.nadcore.net.request.Headers;
-import com.baidu.searchbox.aperf.bosuploader.BOSTokenRequest;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.net.request.BodyStyle;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import okhttp3.Request;
-import org.apache.http.protocol.HTTP;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
 public class sr0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final byte[] g;
+    public static final sr0 h;
     public transient /* synthetic */ FieldHolder $fh;
+    public BodyStyle a;
+    public String b;
+    public String c;
+    public byte[] d;
+    public File e;
+    public Map<String, String> f;
 
-    public static Request.Builder a(@NonNull rr0 rr0Var) throws RequestError {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, rr0Var)) == null) {
-            Request.Builder builder = new Request.Builder();
-            try {
-                builder.url(rr0Var.a);
-                Object obj = rr0Var.e;
-                if (obj != null) {
-                    builder.tag(obj);
-                }
-                if (rr0Var.h) {
-                    builder.header("Content-Type", "application/x-www-form-urlencoded");
-                    builder.header(BOSTokenRequest.CHARSET, "UTF-8");
-                    builder.header(HTTP.CONN_DIRECTIVE, "close");
-                    builder.header(BOSTokenRequest.ACCEPT, "*/*");
-                }
-                Headers.a aVar = rr0Var.c;
-                if (aVar != null) {
-                    Headers c = aVar.c();
-                    for (int i = 0; i < c.g(); i++) {
-                        builder.header(c.f(i), c.h(i));
-                    }
-                }
-                String str = rr0Var.b;
-                builder.method(str, or0.g(str, rr0Var.d));
-                return builder;
-            } catch (Throwable th) {
-                throw new RequestError("Invalid request url: " + rr0Var.a, th);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948160888, "Lcom/baidu/tieba/sr0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948160888, "Lcom/baidu/tieba/sr0;");
+                return;
             }
         }
-        return (Request.Builder) invokeL.objValue;
+        byte[] bArr = new byte[0];
+        g = bArr;
+        h = d(null, bArr);
+        b(null, "");
+        c(null, new HashMap());
+    }
+
+    public sr0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static sr0 b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            sr0 sr0Var = new sr0();
+            sr0Var.k(BodyStyle.STRING);
+            sr0Var.i(str);
+            sr0Var.h(str2);
+            return sr0Var;
+        }
+        return (sr0) invokeLL.objValue;
+    }
+
+    public static sr0 c(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, map)) == null) {
+            sr0 sr0Var = new sr0();
+            sr0Var.k(BodyStyle.FORM);
+            sr0Var.i(str);
+            sr0Var.j(map);
+            return sr0Var;
+        }
+        return (sr0) invokeLL.objValue;
+    }
+
+    public static sr0 d(String str, byte[] bArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, bArr)) == null) {
+            sr0 sr0Var = new sr0();
+            sr0Var.k(BodyStyle.BYTE);
+            sr0Var.i(str);
+            sr0Var.g(bArr);
+            return sr0Var;
+        }
+        return (sr0) invokeLL.objValue;
+    }
+
+    public sr0 a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (this.f == null) {
+                this.f = new HashMap();
+            }
+            this.f.put(str, str2);
+            return this;
+        }
+        return (sr0) invokeLL.objValue;
+    }
+
+    public static sr0 e(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, map)) == null) {
+            return c("application/x-www-form-urlencoded", map);
+        }
+        return (sr0) invokeL.objValue;
+    }
+
+    public static sr0 f(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, bArr)) == null) {
+            return d("application/octet-stream", bArr);
+        }
+        return (sr0) invokeL.objValue;
+    }
+
+    public sr0 g(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bArr)) == null) {
+            this.d = bArr;
+            return this;
+        }
+        return (sr0) invokeL.objValue;
+    }
+
+    public sr0 h(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.c = str;
+            return this;
+        }
+        return (sr0) invokeL.objValue;
+    }
+
+    public sr0 i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            this.b = str;
+            return this;
+        }
+        return (sr0) invokeL.objValue;
+    }
+
+    public sr0 j(Map<String, String> map) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
+            this.f = map;
+            return this;
+        }
+        return (sr0) invokeL.objValue;
+    }
+
+    public sr0 k(BodyStyle bodyStyle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bodyStyle)) == null) {
+            this.a = bodyStyle;
+            return this;
+        }
+        return (sr0) invokeL.objValue;
     }
 }

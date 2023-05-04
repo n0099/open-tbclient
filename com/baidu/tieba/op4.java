@@ -1,76 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.net.Uri;
+import android.os.Bundle;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nh3;
+import com.baidu.cyberplayer.sdk.extractor.CyberExtractor;
+import com.baidu.tieba.fm2;
+import com.baidu.tieba.ul2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class op4 implements View.OnClickListener {
+public class op4 implements fm2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public RelativeLayout b;
-    public TextView c;
-    public ImageView d;
-    public String e;
+    public String a;
+    public fm2.a b;
+    public CyberExtractor c;
+    public volatile boolean d;
 
-    /* loaded from: classes5.dex */
-    public class a implements nh3.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ op4 a;
-
-        public a(op4 op4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {op4Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = op4Var;
+    @Override // com.baidu.tieba.ul2
+    @Nullable
+    public String j0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
-
-        @Override // com.baidu.tieba.nh3.b
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                this.a.j();
-            }
-        }
+        return (String) invokeV.objValue;
     }
 
     /* loaded from: classes5.dex */
-    public class b implements Runnable {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ op4 a;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ Map b;
+        public final /* synthetic */ op4 c;
 
-        public b(op4 op4Var) {
+        public a(op4 op4Var, String str, Map map) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {op4Var};
+                Object[] objArr = {op4Var, str, map};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -80,142 +64,127 @@ public class op4 implements View.OnClickListener {
                     return;
                 }
             }
-            this.a = op4Var;
+            this.c = op4Var;
+            this.a = str;
+            this.b = map;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.b();
-                this.a.d();
+                if (this.c.d) {
+                    if (op4.e) {
+                        Log.d("MediaExtractorWidget", "media extractor already released");
+                        return;
+                    }
+                    return;
+                }
+                this.c.c.setDataSource(this.c.getContext(), Uri.parse(zo2.a(this.a)), this.b);
+                Bundle metaData = this.c.c.getMetaData();
+                if (this.c.b != null) {
+                    this.c.b.a(metaData);
+                }
             }
         }
     }
 
-    public op4(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948039926, "Lcom/baidu/tieba/op4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948039926, "Lcom/baidu/tieba/op4;");
+                return;
+            }
+        }
+        e = ho1.a;
+    }
+
+    @Override // com.baidu.tieba.ul2
+    @Nullable
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return er2.c();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fm2
+    public void release() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d = true;
+            CyberExtractor cyberExtractor = this.c;
+            if (cyberExtractor != null) {
+                cyberExtractor.release();
+            }
+            this.c = null;
+            fm2.a aVar = this.b;
+            if (aVar != null) {
+                aVar.onRelease();
+            }
+            this.b = null;
+        }
+    }
+
+    public op4(ZeusPluginFactory.Invoker invoker, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {invoker, str};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = context;
-        e();
+        this.a = str;
+        this.d = false;
     }
 
-    public void g(String str) {
+    @Override // com.baidu.tieba.ul2
+    public void A(@NonNull ul2.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.e = str;
-            TextView textView = this.c;
-            if (textView != null) {
-                textView.setText(str);
-            }
+        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
+            this.c = new CyberExtractor(true);
+            aVar.a(true);
         }
     }
 
-    public void i(boolean z) {
-        RelativeLayout relativeLayout;
-        int i;
+    @Override // com.baidu.tieba.fm2
+    public void w(fm2.a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (relativeLayout = this.b) != null) {
-            if (z) {
-                i = 0;
-            } else {
-                i = 8;
-            }
-            relativeLayout.setVisibility(i);
+        if (interceptable == null || interceptable.invokeL(1048582, this, aVar) == null) {
+            this.b = aVar;
         }
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    @Override // com.baidu.tieba.fm2
+    public void k(String str, Map<String, String> map) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048586, this, view2) == null) && view2.getId() == R.id.obfuscated_res_0x7f0921b2) {
-            j();
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, map) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
-    }
-
-    public RelativeLayout a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (RelativeLayout) invokeV.objValue;
-    }
-
-    public void b() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 0) {
-            this.d.setVisibility(8);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            u73.M().postDelayed(new b(this), 3000L);
-        }
-    }
-
-    public void d() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (textView = this.c) != null && textView.getVisibility() == 0) {
-            this.c.setVisibility(8);
-        }
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            nh3.e().i("#com.baidu.swan.videoplayer&MediaMuteViewLayer");
-        }
-    }
-
-    public void h() {
-        ImageView imageView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (imageView = this.d) != null && imageView.getVisibility() == 8) {
-            this.d.setVisibility(0);
-            c();
-        }
-    }
-
-    public void j() {
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048585, this) == null) && !TextUtils.isEmpty(this.e) && (textView = this.c) != null && textView.getVisibility() == 8) {
-            this.c.setVisibility(0);
-            c();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            RelativeLayout relativeLayout = (RelativeLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d08a2, (ViewGroup) null);
-            this.b = relativeLayout;
-            relativeLayout.setVisibility(8);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0921b3);
-            this.c = textView;
-            textView.setVisibility(8);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0921b2);
-            this.d = imageView;
-            imageView.setOnClickListener(this);
-            this.d.setVisibility(8);
-            nh3.e().d("#com.baidu.swan.videoplayer&MediaMuteViewLayer", new a(this));
-        }
+        rk3.j(new a(this, str, map), "loadMetadata");
     }
 }

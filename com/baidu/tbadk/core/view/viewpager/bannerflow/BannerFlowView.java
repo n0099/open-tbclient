@@ -9,12 +9,12 @@ import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.i75;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.in;
-import com.baidu.tieba.s65;
-import com.baidu.tieba.t65;
-import com.baidu.tieba.v65;
-import com.baidu.tieba.w65;
+import com.baidu.tieba.j75;
+import com.baidu.tieba.l75;
+import com.baidu.tieba.m75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -26,8 +26,8 @@ public class BannerFlowView extends FrameLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ViewPager a;
     public IndicatorView b;
-    public s65 c;
-    public w65 d;
+    public i75 c;
+    public m75 d;
     public View e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -89,8 +89,8 @@ public class BannerFlowView extends FrameLayout {
             this.b = indicatorView;
             indicatorView.setSpacing(0);
             a();
-            this.c = new s65(context, this.a, this.b, null);
-            this.d = new w65(context, v65.a);
+            this.c = new i75(context, this.a, this.b, null);
+            this.d = new m75(context, l75.a);
             this.c.j(5000L);
             this.c.i(context, this.d);
             addView(this.a, new FrameLayout.LayoutParams(-1, -1));
@@ -122,11 +122,11 @@ public class BannerFlowView extends FrameLayout {
         }
     }
 
-    public void setOnItemClickListener(t65.a<v65, w65.a> aVar) {
-        w65 w65Var;
+    public void setOnItemClickListener(j75.a<l75, m75.a> aVar) {
+        m75 m75Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (w65Var = this.d) != null) {
-            w65Var.e(aVar);
+        if ((interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) && (m75Var = this.d) != null) {
+            m75Var.e(aVar);
         }
     }
 }

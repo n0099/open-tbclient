@@ -14,15 +14,15 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.fz7;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes.dex */
-public class FloatNewRecordView extends RelativeLayout implements jx7 {
+public class FloatNewRecordView extends RelativeLayout implements fz7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TBLottieAnimationView a;
@@ -167,7 +167,7 @@ public class FloatNewRecordView extends RelativeLayout implements jx7 {
     public final void e(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && getMaxDuring() - i <= 10000 && !this.f) {
-            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bc1), Integer.valueOf(((getMaxDuring() - i) / 1000) + 1)));
+            this.c.setText(String.format(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bd6), Integer.valueOf(((getMaxDuring() - i) / 1000) + 1)));
         }
     }
 
@@ -198,7 +198,7 @@ public class FloatNewRecordView extends RelativeLayout implements jx7 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.jx7
+    @Override // com.baidu.tieba.fz7
     public void t() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
@@ -214,17 +214,17 @@ public class FloatNewRecordView extends RelativeLayout implements jx7 {
     public final void d(Context context, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048579, this, context, viewGroup) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0815, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0821, this);
             setLayoutParams(new RelativeLayout.LayoutParams(-1, -1));
-            this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902ea);
-            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09188f);
-            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f091892);
+            this.a = (TBLottieAnimationView) findViewById(R.id.obfuscated_res_0x7f0902e9);
+            this.b = (ImageView) findViewById(R.id.obfuscated_res_0x7f09189b);
+            this.c = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09189e);
             ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090447);
             this.d = imageView;
             RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) imageView.getLayoutParams();
             layoutParams.width = -1;
             layoutParams.height = ii.d(context, 117.0f);
-            AudioCircleProgress audioCircleProgress = (AudioCircleProgress) findViewById(R.id.obfuscated_res_0x7f0902ec);
+            AudioCircleProgress audioCircleProgress = (AudioCircleProgress) findViewById(R.id.obfuscated_res_0x7f0902eb);
             this.e = audioCircleProgress;
             audioCircleProgress.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
             this.e.setArcWidth(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds30));
@@ -234,7 +234,7 @@ public class FloatNewRecordView extends RelativeLayout implements jx7 {
             this.a.setAnimation(R.raw.obfuscated_res_0x7f110023);
             this.a.setImageAssetsFolder("lottie_audio_recoding/");
             this.a.setRepeatCount(-1);
-            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090782)).getLayoutParams()).topMargin = (ii.j(TbadkCoreApplication.getInst()) * 36) / 100;
+            ((ViewGroup.MarginLayoutParams) ((RelativeLayout) findViewById(R.id.obfuscated_res_0x7f090785)).getLayoutParams()).topMargin = (ii.j(TbadkCoreApplication.getInst()) * 36) / 100;
             a();
         }
     }
@@ -245,9 +245,9 @@ public class FloatNewRecordView extends RelativeLayout implements jx7 {
             this.a.cancelAnimation();
             this.a.setVisibility(8);
             this.b.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bc6));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bdb));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0310);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0809c1, R.color.CAM_X0310, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0809ee, R.color.CAM_X0310, null);
             this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0310));
             WebPManager.setMaskDrawable(this.d, R.drawable.icon_pic_im_bottom_voicebuton_out, null);
             this.f = true;
@@ -260,7 +260,7 @@ public class FloatNewRecordView extends RelativeLayout implements jx7 {
         if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && !this.g) {
             this.a.setVisibility(0);
             this.b.setVisibility(8);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bbe));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bd3));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
             this.a.playAnimation();
             this.e.setArcColor(SkinManager.getColor(R.color.CAM_X0302));
@@ -276,9 +276,9 @@ public class FloatNewRecordView extends RelativeLayout implements jx7 {
             this.a.cancelAnimation();
             this.a.setVisibility(8);
             this.b.setVisibility(0);
-            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bc7));
+            this.c.setText(TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f0bdc));
             SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0319);
-            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0809c2, R.color.CAM_X0319, null);
+            WebPManager.setPureDrawable(this.b, R.drawable.obfuscated_res_0x7f0809ef, R.color.CAM_X0319, null);
             this.g = false;
         }
     }

@@ -645,7 +645,7 @@ public class ExtendedFloatingActionButton extends MaterialButton implements Coor
     }
 
     public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f04029e);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f0402a7);
     }
 
     public ExtendedFloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {

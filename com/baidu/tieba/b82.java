@@ -6,11 +6,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
 public final class b82 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final z72 a;
+    public final List<a82> a;
 
     public b82() {
         Interceptable interceptable = $ic;
@@ -25,41 +28,64 @@ public final class b82 {
                 return;
             }
         }
-        this.a = new z72();
+        this.a = new ArrayList();
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public synchronized void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.c();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.a.clear();
+            }
+        }
+    }
+
+    public synchronized boolean c() {
+        InterceptResult invokeV;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            synchronized (this) {
+                z = false;
+                Iterator<a82> it = this.a.iterator();
+                while (true) {
+                    if (!it.hasNext()) {
+                        break;
+                    } else if (it.next().c()) {
+                        z = true;
+                        break;
+                    }
+                }
+            }
+            return z;
         }
         return invokeV.booleanValue;
     }
 
-    public c82 c() {
+    public synchronized List<a82> d() {
         InterceptResult invokeV;
+        List<a82> list;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            c82 c82Var = new c82();
-            c82Var.c(this.a.d());
-            c82Var.d(this.a.c());
-            return c82Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            synchronized (this) {
+                list = this.a;
+            }
+            return list;
         }
-        return (c82) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void d() {
+    public synchronized boolean a(a82 a82Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.a.b();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, a82Var)) == null) {
+            synchronized (this) {
+                if (a82Var != null) {
+                    return this.a.add(a82Var);
+                }
+                return false;
+            }
         }
-    }
-
-    public void b(y72 y72Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y72Var) == null) {
-            this.a.a(y72Var);
-        }
+        return invokeL.booleanValue;
     }
 }

@@ -4,8 +4,8 @@ import android.app.Application;
 import android.os.Build;
 import android.text.TextUtils;
 import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,7 +13,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Serializable;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
@@ -41,10 +40,18 @@ public final class sl {
     }
 
     @JvmStatic
-    public static final void a(PackageInfo packageInfo, String str) {
+    public static final void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, packageInfo, str) == null) {
-            a.a(packageInfo, str);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            a.b(str);
+        }
+    }
+
+    @JvmStatic
+    public static final void b(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            a.c(str, str2, str3);
         }
     }
 
@@ -71,10 +78,22 @@ public final class sl {
             }
         }
 
-        public final String b() {
+        public final String a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                if (Build.VERSION.SDK_INT >= 21) {
+                    return TextUtils.join(StringUtil.ARRAY_ELEMENT_SEPARATOR, Build.SUPPORTED_ABIS);
+                }
+                return Build.CPU_ABI2;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public final String d() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
                 if (Build.VERSION.SDK_INT >= 28) {
                     return Application.getProcessName();
                 }
@@ -84,34 +103,40 @@ public final class sl {
         }
 
         @JvmStatic
-        public final void a(PackageInfo packageInfo, String str) {
-            Object obj;
+        public final void b(String str) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, str) == null) && packageInfo != null && !TextUtils.isEmpty(packageInfo.name)) {
-                String str2 = packageInfo.name;
-                Intrinsics.checkNotNullExpressionValue(str2, "packageInfo.name");
-                boolean z = false;
-                if (StringsKt__StringsKt.contains$default((CharSequence) str2, (CharSequence) "nama", false, 2, (Object) null)) {
-                    vg8 defaultLog = DefaultLog.getInstance();
-                    StringBuilder sb = new StringBuilder();
-                    if ((str == null || str.length() == 0) ? true : true) {
-                        str = "";
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+                dj8 defaultLog = DefaultLog.getInstance();
+                defaultLog.c("libnama check", "abi:" + a() + ", process: " + d() + ", thread:" + Thread.currentThread().getId() + ", msg: " + str);
+            }
+        }
+
+        @JvmStatic
+        public final void c(String name, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, name, str, str2) == null) {
+                Intrinsics.checkNotNullParameter(name, "name");
+                if (str != null && !TextUtils.isEmpty(name)) {
+                    boolean z = false;
+                    if (StringsKt__StringsKt.contains$default((CharSequence) name, (CharSequence) "nama", false, 2, (Object) null)) {
+                        dj8 defaultLog = DefaultLog.getInstance();
+                        StringBuilder sb = new StringBuilder();
+                        if ((str2 == null || str2.length() == 0) ? true : true) {
+                            str2 = "";
+                        }
+                        sb.append(str2);
+                        sb.append(", name:");
+                        sb.append(name);
+                        sb.append(", abi:");
+                        sb.append(a());
+                        sb.append(", process: ");
+                        sb.append(d());
+                        sb.append(", thread:");
+                        sb.append(Thread.currentThread().getId());
+                        sb.append(", packageinfo: ");
+                        sb.append(str);
+                        defaultLog.c("libnama check", sb.toString());
                     }
-                    sb.append(str);
-                    sb.append(", abi:");
-                    if (Build.VERSION.SDK_INT >= 21) {
-                        obj = (Serializable) Build.SUPPORTED_ABIS;
-                    } else {
-                        obj = Build.CPU_ABI2;
-                    }
-                    sb.append(obj);
-                    sb.append(", process: ");
-                    sb.append(b());
-                    sb.append(", thread:");
-                    sb.append(Thread.currentThread().getId());
-                    sb.append(", packageinfo: ");
-                    sb.append(packageInfo);
-                    defaultLog.c("libnama check", sb.toString());
                 }
             }
         }

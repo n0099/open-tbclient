@@ -1,83 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.Rect;
+import android.util.Log;
+import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public final class uy2 extends ty2<String, JSONObject> {
+public class uy2 extends ry2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948227259, "Lcom/baidu/tieba/uy2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948227259, "Lcom/baidu/tieba/uy2;");
-                return;
-            }
-        }
-        b = v73.v;
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public uy2() {
-        super("swanCookie");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ry2
+    public boolean a(Bitmap bitmap, Rect rect) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return rg3.l().o();
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vy2
-    /* renamed from: c */
-    public boolean a(@NonNull String str) {
-        InterceptResult invokeL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.equals(str, (CharSequence) this.a) && !b()) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bitmap, rect)) == null) {
+            if (ry2.c) {
+                Log.d("SolidErrorPageParser", "SolidErrorPageParser: start error page parse");
             }
-            if (b) {
-                v42.b("SwanCookieInterceptor", ">>> NAUseMap apiName=", str, " , should intercept ", Boolean.valueOf(z));
+            if (bitmap == null) {
+                return false;
             }
-            return z;
+            if (!b(bitmap, rect)) {
+                rect = new Rect(0, 0, bitmap.getWidth(), bitmap.getHeight());
+            }
+            int i = 0;
+            for (int i2 = rect.left + 1; i2 < rect.right - 1; i2++) {
+                for (int i3 = rect.top + 1; i3 < rect.bottom - 1; i3++) {
+                    int pixel = bitmap.getPixel(i2, i3);
+                    if (i == 0) {
+                        i = pixel;
+                    }
+                    if (i != pixel && pixel != 0) {
+                        if (ho1.a) {
+                            Log.d("SolidErrorPageParser", "非纯色, 图片大小 " + bitmap.getWidth() + " x " + bitmap.getHeight() + "; rect + " + rect.toShortString() + "; (" + i2 + "," + i3 + SmallTailInfo.EMOTION_SUFFIX);
+                        }
+                        return false;
+                    }
+                }
+            }
+            if (ry2.c) {
+                Log.d("SolidErrorPageParser", "color = " + i + "图片大小 " + rect.width() + " x " + rect.height());
+            }
+            return true;
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

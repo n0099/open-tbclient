@@ -1,14 +1,14 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.osa;
+import com.baidu.tieba.kwa;
 import java.util.Locale;
 /* loaded from: classes8.dex */
 public class Pose {
-    public final osa a;
+    public final kwa a;
     public final float[] b;
 
     static {
-        osa osaVar = osa.e;
+        kwa kwaVar = kwa.e;
     }
 
     public String toString() {

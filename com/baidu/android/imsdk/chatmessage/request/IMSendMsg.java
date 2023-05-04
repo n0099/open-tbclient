@@ -20,7 +20,7 @@ import com.baidu.android.imsdk.ubc.MessageUbc;
 import com.baidu.android.imsdk.ubc.UBCConstants;
 import com.baidu.android.imsdk.utils.LogUtils;
 import com.baidu.android.imsdk.utils.Utility;
-import com.baidu.tieba.w60;
+import com.baidu.tieba.y60;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -544,7 +544,7 @@ public class IMSendMsg extends Message {
                         debugInfo.msgId = msgId;
                         debugInfo.clientSource = chatMsg.getSource();
                         this.ubcData.setDebugInfo(debugInfo);
-                        w60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                        y60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                     }
                 }
                 if (jSONObject.has("auto_risk_control_status")) {
@@ -604,7 +604,7 @@ public class IMSendMsg extends Message {
                     debugInfo2.msgId = msgId;
                     debugInfo2.clientSource = chatMsg2.getSource();
                     this.ubcData.setDebugInfo(debugInfo2);
-                    w60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                    y60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
                 }
             } catch (Exception e6) {
                 e = e6;
@@ -637,7 +637,7 @@ public class IMSendMsg extends Message {
                 debugInfo22.msgId = msgId;
                 debugInfo22.clientSource = chatMsg22.getSource();
                 this.ubcData.setDebugInfo(debugInfo22);
-                w60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+                y60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
             }
             if (i5 != 0 && !z) {
                 context2 = context;
@@ -675,7 +675,7 @@ public class IMSendMsg extends Message {
             debugInfo222.msgId = msgId;
             debugInfo222.clientSource = chatMsg222.getSource();
             this.ubcData.setDebugInfo(debugInfo222);
-            w60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
+            y60.d().f(this.ubcData.generateUBCData(String.valueOf(i5), str2), UBCConstants.IS_REAL, UBCConstants.IS_SAVE_DB, UBCConstants.IS_ASYNC);
         }
     }
 }

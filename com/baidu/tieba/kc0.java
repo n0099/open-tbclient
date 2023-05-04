@@ -1,101 +1,109 @@
 package com.baidu.tieba;
 
-import android.opengl.EGL14;
-import android.opengl.EGLSurface;
-import android.util.Log;
+import android.graphics.SurfaceTexture;
+import android.view.Surface;
+import android.view.SurfaceHolder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kc0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static final String c = "kc0";
+public class kc0 extends mc0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jc0 a;
-    public EGLSurface b;
+    public Surface d;
+    public boolean e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947908145, "Lcom/baidu/tieba/kc0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947908145, "Lcom/baidu/tieba/kc0;");
-        }
-    }
-
-    public kc0(jc0 jc0Var) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kc0(lc0 lc0Var, SurfaceTexture surfaceTexture) {
+        super(lc0Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jc0Var};
+            Object[] objArr = {lc0Var, surfaceTexture};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((lc0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        a(surfaceTexture);
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kc0(lc0 lc0Var, Surface surface, boolean z) {
+        super(lc0Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lc0Var, surface, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((lc0) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = EGL14.EGL_NO_SURFACE;
-        this.a = jc0Var;
+        a(surface);
+        this.d = surface;
+        this.e = z;
     }
 
-    public void a(Object obj) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kc0(lc0 lc0Var, SurfaceHolder surfaceHolder) {
+        super(lc0Var);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-            if (this.b == EGL14.EGL_NO_SURFACE) {
-                this.b = this.a.b(obj);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {lc0Var, surfaceHolder};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((lc0) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
                 return;
             }
-            throw new IllegalStateException("surface already created");
         }
+        a(surfaceHolder);
     }
 
-    public void b(jc0 jc0Var) {
+    public void f(lc0 lc0Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jc0Var) == null) && !jc0Var.d(this.b)) {
-            jc0Var.e(this.b);
-        }
-    }
-
-    public void d(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048579, this, j) == null) {
-            this.a.h(this.b, j);
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.g(this.b);
-            this.b = EGL14.EGL_NO_SURFACE;
-        }
-    }
-
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            boolean i = this.a.i(this.b);
-            if (!i) {
-                Log.d(c, "WARNING: swapBuffers() failed");
+        if (interceptable == null || interceptable.invokeL(1048576, this, lc0Var) == null) {
+            Surface surface = this.d;
+            if (surface != null) {
+                this.a = lc0Var;
+                a(surface);
+                return;
             }
-            return i;
+            throw new RuntimeException("not yet implemented for SurfaceTexture");
         }
-        return invokeV.booleanValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c();
+            Surface surface = this.d;
+            if (surface != null) {
+                if (this.e) {
+                    surface.release();
+                }
+                this.d = null;
+            }
+        }
     }
 }

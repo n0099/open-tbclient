@@ -111,7 +111,7 @@ public final class TbLayerImageView extends FrameLayout {
             Intrinsics.checkNotNullExpressionValue(context, "context");
             TbImage tbImage = new TbImage(context, null, 0, 6, null);
             tbImage.setLayoutParams(new FrameLayout.LayoutParams(-1, -1));
-            tbImage.i(str);
+            tbImage.k(str);
             addView(tbImage);
         }
     }

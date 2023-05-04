@@ -1,8 +1,8 @@
 package com.baidu.tieba.feed.widget.uistate;
 
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.vx6;
-import com.baidu.tieba.y17;
+import com.baidu.tieba.lz6;
+import com.baidu.tieba.o37;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,9 +17,9 @@ import kotlin.jvm.functions.Function3;
 /* loaded from: classes4.dex */
 public final class PersonAttentionUiStateKt {
     public static /* synthetic */ Interceptable $ic;
-    public static final Function2<y17, TbPageContext<?>, Unit> a;
-    public static final Function3<y17, TbPageContext<?>, Object, Unit> b;
-    public static final Function1<vx6, Unit> c;
+    public static final Function2<o37, TbPageContext<?>, Unit> a;
+    public static final Function3<o37, TbPageContext<?>, Object, Unit> b;
+    public static final Function1<lz6, Unit> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -40,7 +40,7 @@ public final class PersonAttentionUiStateKt {
         c = PersonAttentionUiStateKt$DefaultOnStat$1.INSTANCE;
     }
 
-    public static final Function2<y17, TbPageContext<?>, Unit> c() {
+    public static final Function2<o37, TbPageContext<?>, Unit> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {

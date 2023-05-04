@@ -4,8 +4,10 @@ import android.os.Bundle;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentTransaction;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tieba.pl5;
+import com.baidu.tieba.im5;
+import com.baidu.tieba.pt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,11 +17,11 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class MembercenterActivity extends BaseFragmentActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MemberCenterFragment a;
+    public BaseFragment a;
     public FragmentManager b;
     public FragmentTransaction c;
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -48,17 +50,17 @@ public class MembercenterActivity extends BaseFragmentActivity {
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public pl5 getPageStayDurationItem() {
+    public im5 getPageStayDurationItem() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pl5 pageStayDurationItem = super.getPageStayDurationItem();
+            im5 pageStayDurationItem = super.getPageStayDurationItem();
             if (pageStayDurationItem != null) {
                 pageStayDurationItem.a = true;
             }
             return pageStayDurationItem;
         }
-        return (pl5) invokeV.objValue;
+        return (im5) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
@@ -74,10 +76,6 @@ public class MembercenterActivity extends BaseFragmentActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onResume();
-            MemberCenterFragment memberCenterFragment = this.a;
-            if (memberCenterFragment != null) {
-                memberCenterFragment.a();
-            }
         }
     }
 
@@ -104,9 +102,14 @@ public class MembercenterActivity extends BaseFragmentActivity {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
             String stringExtra = getIntent().getStringExtra("key_url");
-            MemberCenterFragment memberCenterFragment = new MemberCenterFragment();
-            this.a = memberCenterFragment;
-            memberCenterFragment.J1(stringExtra);
+            Bundle bundle2 = new Bundle();
+            bundle2.putString("key_url", stringExtra);
+            if (pt4.b("https://unknown-tmp/")) {
+                this.a = new NewMemberCenterFragment();
+            } else {
+                this.a = new MemberCenterFragment();
+            }
+            this.a.setArguments(bundle2);
             FragmentManager supportFragmentManager = getSupportFragmentManager();
             this.b = supportFragmentManager;
             FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();

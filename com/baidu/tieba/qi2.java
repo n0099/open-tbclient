@@ -1,256 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ad3;
-import com.baidu.tieba.pe2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qi2 extends s93 {
+public final class qi2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public static class a implements om3<yc3<ad3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ JSONObject d;
-
-        public a(CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {callbackHandler, unitedSchemeEntity, context, jSONObject};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = context;
-            this.d = jSONObject;
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return lg3.a().getBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", false);
         }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (tc3.h(yc3Var)) {
-                    try {
-                        qi2.l(this.c, this.d);
-                        UnitedSchemeUtility.callCallback(this.a, this.b, UnitedSchemeUtility.wrapCallbackParams(this.d, 0));
-                        return;
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                        this.b.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
-                        return;
-                    }
-                }
-                tc3.p(yc3Var, this.a, this.b);
-            }
-        }
+        return invokeV.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qi2(s83 s83Var) {
-        super(s83Var, "/swanAPI/debug/getDebugConfig");
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            lg3.a().putBoolean("KEY_SWAN_APP_STABILITY_OPEN_COLLECTOR", z);
         }
-    }
-
-    public static JSONObject k(String str, Object obj) throws JSONException {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, obj)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.put("name", str);
-            jSONObject.put("value", obj);
-            return jSONObject;
-        }
-        return (JSONObject) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r1v14 */
-    /* JADX WARN: Type inference failed for: r1v15, types: [boolean, int] */
-    /* JADX WARN: Type inference failed for: r1v51 */
-    public static void l(@NonNull Context context, @NonNull JSONObject jSONObject) throws JSONException {
-        ?? r1;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, jSONObject) == null) {
-            String string = context.getString(R.string.obfuscated_res_0x7f0f0142);
-            boolean s = u33.s();
-            ji2.a(s);
-            jSONObject.put("loadCts", k(string, Integer.valueOf(s ? 1 : 0)));
-            String string2 = context.getString(R.string.obfuscated_res_0x7f0f0125);
-            boolean r = u33.r();
-            ji2.a(r);
-            jSONObject.put("emitLive", k(string2, Integer.valueOf(r ? 1 : 0)));
-            String string3 = context.getString(R.string.obfuscated_res_0x7f0f0123);
-            boolean o = u33.o();
-            ji2.a(o);
-            jSONObject.put("emitHttps", k(string3, Integer.valueOf(o ? 1 : 0)));
-            String string4 = context.getString(R.string.obfuscated_res_0x7f0f0156);
-            boolean y = u33.y();
-            ji2.a(y);
-            jSONObject.put("useExtension", k(string4, Integer.valueOf(y ? 1 : 0)));
-            String string5 = context.getString(R.string.obfuscated_res_0x7f0f0121);
-            if (!u33.w() && !u33.A()) {
-                r1 = 1;
-            } else {
-                r1 = 0;
-            }
-            ji2.a(r1);
-            jSONObject.put("emitDomain", k(string5, Integer.valueOf((int) r1)));
-            String string6 = context.getString(R.string.obfuscated_res_0x7f0f012c);
-            boolean q = u33.q();
-            ji2.a(q);
-            jSONObject.put("emitWss", k(string6, Integer.valueOf(q ? 1 : 0)));
-            String string7 = context.getString(R.string.obfuscated_res_0x7f0f0124);
-            boolean x = u33.x();
-            ji2.a(x);
-            jSONObject.put("emitLaunchMode", k(string7, Integer.valueOf(x ? 1 : 0)));
-            jSONObject.put("debugEnvData", k(context.getString(R.string.obfuscated_res_0x7f0f0139), u33.g()));
-            String string8 = context.getString(R.string.obfuscated_res_0x7f0f012a);
-            boolean k = u33.k();
-            ji2.a(k);
-            jSONObject.put("emitReplaceSwanCore", k(string8, Integer.valueOf(k ? 1 : 0)));
-            String string9 = context.getString(R.string.obfuscated_res_0x7f0f0128);
-            boolean h = u33.h();
-            ji2.a(h);
-            jSONObject.put("emitReplaceGameCore", k(string9, Integer.valueOf(h ? 1 : 0)));
-            String string10 = context.getString(R.string.obfuscated_res_0x7f0f0129);
-            boolean p = u33.p();
-            ji2.a(p);
-            jSONObject.put("emitReplaceJsNative", k(string10, Integer.valueOf(p ? 1 : 0)));
-            boolean d = pe2.v.d();
-            String string11 = context.getString(R.string.obfuscated_res_0x7f0f012b);
-            ji2.a(d);
-            jSONObject.put("emitReplaceV8Core", k(string11, Integer.valueOf(d ? 1 : 0)));
-            String string12 = context.getString(R.string.obfuscated_res_0x7f0f0127);
-            boolean m = li2.m();
-            ji2.a(m);
-            jSONObject.put("emitReplaceDynamicLib", k(string12, Integer.valueOf(m ? 1 : 0)));
-            jSONObject.put("emitHostEnv", k(context.getString(R.string.obfuscated_res_0x7f0f0122), Integer.valueOf(u33.t())));
-            String string13 = context.getString(R.string.obfuscated_res_0x7f0f0149);
-            boolean a2 = oi2.a();
-            ji2.a(a2);
-            jSONObject.put("openStabilityCollector", k(string13, Integer.valueOf(a2 ? 1 : 0)));
-            String string14 = context.getString(R.string.obfuscated_res_0x7f0f0148);
-            boolean a3 = ni2.a();
-            ji2.a(a3);
-            jSONObject.put("openPerformanceTesting", k(string14, Integer.valueOf(a3 ? 1 : 0)));
-            String string15 = context.getString(R.string.obfuscated_res_0x7f0f0126);
-            boolean k2 = ki2.k();
-            ji2.a(k2);
-            jSONObject.put("emitReplaceDependency", k(string15, Integer.valueOf(k2 ? 1 : 0)));
-        }
-    }
-
-    public static boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            v73Var.e0().g(context, "mapp_cts_debug", new a(callbackHandler, unitedSchemeEntity, context, new JSONObject()));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public static boolean n(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, unitedSchemeEntity, callbackHandler)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            v42.i("getDebugConfig", "swangame getDebugConfig");
-            if (!s93.b) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(302);
-                return false;
-            }
-            JSONObject a2 = s93.a(unitedSchemeEntity, "params");
-            if (a2 == null) {
-                v42.c("getDebugConfig", "params is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!TextUtils.equals(a2.optString("category"), "swanGame")) {
-                v42.c("getDebugConfig", "params is not swangame");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else {
-                try {
-                    boolean o = u33.o();
-                    ji2.a(o);
-                    jSONObject.put("emitHttps", o ? 1 : 0);
-                    boolean q = u33.q();
-                    ji2.a(q);
-                    jSONObject.put("emitWss", q ? 1 : 0);
-                    jSONObject.put("debugEnvData", u33.g());
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "json exception");
-                    return false;
-                }
-            }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            v42.i("getDebugConfig", "swan getDebugConfig");
-            int k = u73.K().k();
-            if (k != 0) {
-                if (k != 1) {
-                    v42.c("getDebugConfig", "frame type error");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "frame type error");
-                    return false;
-                }
-                return n(unitedSchemeEntity, callbackHandler);
-            }
-            return m(context, unitedSchemeEntity, callbackHandler, v73Var);
-        }
-        return invokeLLLL.booleanValue;
     }
 }

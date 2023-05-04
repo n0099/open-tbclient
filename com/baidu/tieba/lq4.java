@@ -6,24 +6,24 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lq4 extends gq4 {
+public class lq4 extends iq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long e;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public lq4(aq4 aq4Var, long j) {
-        super(aq4Var);
+    public lq4(cq4 cq4Var, long j) {
+        super(cq4Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aq4Var, Long.valueOf(j)};
+            Object[] objArr = {cq4Var, Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((aq4) newInitContext.callArgs[0]);
+                super((cq4) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;

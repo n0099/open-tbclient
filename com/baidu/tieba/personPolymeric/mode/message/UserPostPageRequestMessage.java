@@ -8,8 +8,8 @@ import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.tieba.gg;
+import com.baidu.tieba.jr5;
 import com.baidu.tieba.personPolymeric.mode.PersonPostModel;
-import com.baidu.tieba.rq5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -106,7 +106,7 @@ public class UserPostPageRequestMessage extends NetMessage {
                 builder.begin_thread_id = l;
             }
             if (z || SocketAddCommonParamSwitch.getIsOn()) {
-                rq5.a(builder, true);
+                jr5.a(builder, true);
             }
             UserPostReqIdl.Builder builder2 = new UserPostReqIdl.Builder();
             builder2.data = builder.build(false);

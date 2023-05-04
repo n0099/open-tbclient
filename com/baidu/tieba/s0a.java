@@ -1,130 +1,227 @@
 package com.baidu.tieba;
 
-import com.baidu.minivideo.effect.core.vlogedit.MediaSegment;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.ShareDialogConfig;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
+import com.baidu.tbadk.switchs.ShareSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.source.multimedia.utils.MultiDataSourceUtil;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class s0a {
+public class s0a implements r0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public p0a a;
+    public o0a b;
+    public TbPageContext<?> c;
 
-    public static long[] a(int i, long j) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.r0a
+    public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            if (i < 0) {
-                i = 0;
-            }
-            float[] fArr = new float[i];
-            if (i > 1) {
-                float f = 1.0f / i;
-                int i2 = 0;
-                while (i2 < i) {
-                    int i3 = i2 + 1;
-                    if (i3 == i) {
-                        int i4 = i2 - 1;
-                        fArr[i2] = fArr[i4] + ((1.0f - fArr[i4]) / 2.0f);
-                    } else {
-                        fArr[i2] = i3 * f;
-                    }
-                    i2 = i3;
-                }
-            } else if (i == 1) {
-                fArr[0] = 0.5f;
-            }
-            long[] jArr = new long[i];
-            for (int i5 = 0; i5 < i; i5++) {
-                jArr[i5] = fArr[i5] * ((float) j) * 1000.0f;
-            }
-            return jArr;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
         }
-        return (long[]) invokeCommon.objValue;
     }
 
-    public static v0a b(x0a x0aVar, n0a n0aVar) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.r0a
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, x0aVar, n0aVar)) == null) {
-            if (x0aVar == null || n0aVar == null || x0aVar.e == null) {
-                return null;
-            }
-            long[] a = a(x0aVar.b, x0aVar.a);
-            MultiMediaData multiMediaData = x0aVar.e;
-            v0a v0aVar = new v0a();
-            v0aVar.e = new ArrayList();
-            v0aVar.a = multiMediaData.path;
-            v0aVar.c = x0aVar.c;
-            v0aVar.d = x0aVar.d;
-            v0aVar.b = multiMediaData.rotation;
-            for (int i = 0; i < x0aVar.b; i++) {
-                long j = multiMediaData.start + a[i];
-                p0a p0aVar = new p0a();
-                p0aVar.a = i0a.b(multiMediaData.path, j, multiMediaData.type);
-                p0aVar.b = multiMediaData.path;
-                p0aVar.f = i;
-                p0aVar.g = multiMediaData.type;
-                p0aVar.h = x0aVar.c;
-                p0aVar.i = x0aVar.d;
-                p0aVar.j = n0aVar;
-                p0aVar.d = j;
-                p0aVar.c = multiMediaData.rotation;
-                v0aVar.e.add(p0aVar);
-            }
-            return v0aVar;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
-        return (v0a) invokeLL.objValue;
     }
 
-    public static List<v0a> c(w0a w0aVar, n0a n0aVar) {
-        InterceptResult invokeLL;
-        List<p0a> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, w0aVar, n0aVar)) == null) {
-            MultiMediaData multiMediaData = null;
-            if (w0aVar == null || n0aVar == null || w0aVar.b <= 0 || qha.e(w0aVar.e) || qha.e(w0aVar.f)) {
-                return null;
-            }
-            long[] a = a(w0aVar.b, w0aVar.a);
-            ArrayList arrayList = new ArrayList();
-            v0a v0aVar = null;
-            for (int i = 0; i < w0aVar.b; i++) {
-                long j = ((float) a[i]) / 1000.0f;
-                int findInputIndexInSegments = MultiDataSourceUtil.findInputIndexInSegments(w0aVar.e, j);
-                MultiMediaData multiMediaData2 = (MultiMediaData) qha.c(w0aVar.f, findInputIndexInSegments);
-                if (multiMediaData2 != null) {
-                    if (multiMediaData2 != multiMediaData) {
-                        v0aVar = new v0a();
-                        v0aVar.e = new ArrayList();
-                        v0aVar.a = multiMediaData2.path;
-                        v0aVar.c = w0aVar.c;
-                        v0aVar.d = w0aVar.d;
-                        v0aVar.b = multiMediaData2.rotation;
-                        arrayList.add(v0aVar);
-                    }
-                    long multiMediaDataSeekTime = MultiDataSourceUtil.getMultiMediaDataSeekTime(multiMediaData2, (MediaSegment) qha.c(w0aVar.e, findInputIndexInSegments), j) * 1000;
-                    p0a p0aVar = new p0a();
-                    p0aVar.a = i0a.b(multiMediaData2.path, multiMediaDataSeekTime, multiMediaData2.type);
-                    p0aVar.b = multiMediaData2.path;
-                    p0aVar.f = i;
-                    p0aVar.g = multiMediaData2.type;
-                    p0aVar.h = w0aVar.c;
-                    p0aVar.i = w0aVar.d;
-                    p0aVar.d = multiMediaDataSeekTime;
-                    p0aVar.j = n0aVar;
-                    p0aVar.c = multiMediaData2.rotation;
-                    if (v0aVar != null && (list = v0aVar.e) != null) {
-                        list.add(p0aVar);
-                    }
-                    multiMediaData = multiMediaData2;
+    /* loaded from: classes6.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ShareItem a;
+        public final /* synthetic */ s0a b;
+
+        public a(s0a s0aVar, ShareItem shareItem) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s0aVar, shareItem};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return arrayList;
+            this.b = s0aVar;
+            this.a = shareItem;
         }
-        return (List) invokeLL.objValue;
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                yh.a(this.a.x);
+                ii.Q(this.b.c.getPageActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements DialogInterface.OnDismissListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ s0a a;
+
+        public b(s0a s0aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {s0aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = s0aVar;
+        }
+
+        @Override // android.content.DialogInterface.OnDismissListener
+        public void onDismiss(DialogInterface dialogInterface) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
+                return;
+            }
+            this.a.h();
+        }
+    }
+
+    public s0a(TbPageContext<?> tbPageContext, o0a o0aVar, Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, o0aVar, intent};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = tbPageContext;
+        this.b = o0aVar;
+        q0a q0aVar = new q0a();
+        this.a = q0aVar;
+        q0aVar.b(intent);
+        this.a.e(tbPageContext.getUniqueId());
+    }
+
+    @Override // com.baidu.tieba.r0a
+    public void a() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
+            return;
+        }
+        if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.c.getPageActivity())) {
+            return;
+        }
+        i();
+    }
+
+    @Override // com.baidu.tieba.r0a
+    public void b() {
+        p0a p0aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (p0aVar = this.a) != null) {
+            f55.m().w(f55.q(p0aVar.c()), false);
+        }
+    }
+
+    @Override // com.baidu.tieba.r0a
+    public void c() {
+        p0a p0aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (p0aVar = this.a) != null && this.b != null) {
+            this.b.H0(p0aVar.getVideoUrl());
+        }
+    }
+
+    @Override // com.baidu.tieba.r0a
+    public void d() {
+        o0a o0aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (o0aVar = this.b) != null) {
+            o0aVar.showErrorView();
+        }
+    }
+
+    @Override // com.baidu.tieba.r0a
+    public void e() {
+        o0a o0aVar;
+        p0a p0aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (o0aVar = this.b) != null && (p0aVar = this.a) != null) {
+            o0aVar.q0(p0aVar.a(), this.a.g());
+        }
+    }
+
+    public final void h() {
+        p0a p0aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (p0aVar = this.a) != null && this.b != null) {
+            this.b.C0(p0aVar.getVideoUrl());
+        }
+    }
+
+    @Override // com.baidu.tieba.r0a
+    public void onClose() {
+        o0a o0aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (o0aVar = this.b) != null) {
+            o0aVar.finishActivity();
+        }
+    }
+
+    @Override // com.baidu.tieba.r0a
+    public void onResume() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            h();
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
+            ShareItem shareItem = new ShareItem();
+            shareItem.v = this.a.d();
+            shareItem.w = this.a.i();
+            shareItem.x = this.a.f();
+            shareItem.y = this.a.f();
+            if (!hi.isEmpty(this.a.h())) {
+                shareItem.z = Uri.parse(this.a.h());
+            }
+            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.c.getPageActivity(), shareItem, true, true);
+            shareDialogConfig.setIsCopyLink(true);
+            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
+            shareDialogConfig.setOnDismissListener(new b(this));
+            this.c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
+        }
     }
 }

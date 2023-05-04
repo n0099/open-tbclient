@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ip implements is<ip, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */

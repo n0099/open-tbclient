@@ -1,79 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.me;
+import com.baidu.tieba.feed.card.FeedCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class x27 {
+/* loaded from: classes7.dex */
+public class x27 extends c17<FeedCardView, iy6<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public me<byte[]> a;
 
-    public x27() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x27(String str) {
+        super(str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        b();
     }
 
-    public void b() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.r17
+    /* renamed from: e */
+    public void b(@NonNull FeedCardView feedCardView, @NonNull iy6<?> iy6Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
-            c05.d();
-            this.a = c05.b("tb.forum_member_info");
-        }
-    }
-
-    public byte[] a(String str) {
-        InterceptResult invokeL;
-        me.b<byte[]> bVar;
-        byte[] bArr;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (StringUtils.isNull(str)) {
-                return null;
-            }
-            String str2 = str + "/" + TbadkCoreApplication.getCurrentAccount();
-            me<byte[]> meVar = this.a;
-            if (meVar != null) {
-                bVar = meVar.h(str2);
-            } else {
-                bVar = null;
-            }
-            if (bVar == null || (bArr = bVar.b) == null) {
-                return null;
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public void c(String str, byte[] bArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, bArr) == null) {
-            String currentAccount = TbadkCoreApplication.getCurrentAccount();
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            b();
-            me<byte[]> meVar = this.a;
-            meVar.e(str + "/" + currentAccount, bArr, TbConfig.MILLS_7DAYS);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, feedCardView, iy6Var) == null) {
+            feedCardView.f(iy6Var);
         }
     }
 }

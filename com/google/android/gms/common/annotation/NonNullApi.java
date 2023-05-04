@@ -11,6 +11,6 @@ import javax.annotation.meta.TypeQualifierDefault;
 @KeepForSdk
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public @interface NonNullApi {
 }

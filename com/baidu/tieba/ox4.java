@@ -1,73 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import tbclient.FrsPage.ForumHeadlineImgInfo;
+import java.util.List;
+import tbclient.BannerImage;
 /* loaded from: classes5.dex */
-public class ox4 {
+public class ox4 extends BaseCardInfo implements in {
     public static /* synthetic */ Interceptable $ic;
+    public static BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public kx4 c;
+    public List<nx4> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948047614, "Lcom/baidu/tieba/ox4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948047614, "Lcom/baidu/tieba/ox4;");
+                return;
+            }
+        }
+        b = BdUniqueId.gen();
+    }
 
     public ox4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "";
-        this.b = "";
+        this.a = new ArrayList();
     }
 
-    public String a() {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+            return b;
         }
-        return (String) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
+    public void parserProtobuf(List<BannerImage> list) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) != null) || list == null) {
             return;
         }
-        forumHeadlineImgInfo.thread_id.longValue();
-        forumHeadlineImgInfo.thread_user_id.longValue();
-        String str = forumHeadlineImgInfo.thread_user_name;
-        forumHeadlineImgInfo.img_user_id.longValue();
-        String str2 = forumHeadlineImgInfo.img_user_name;
-        this.a = forumHeadlineImgInfo.img_url;
-        this.b = forumHeadlineImgInfo.headline_url;
-        this.c = new kx4();
-        ArrayList<nx4> arrayList = new ArrayList<>();
-        String str3 = this.a;
-        String str4 = "";
-        if (str3 == null) {
-            str3 = "";
+        for (BannerImage bannerImage : list) {
+            nx4 nx4Var = new nx4();
+            nx4Var.d(bannerImage);
+            this.a.add(nx4Var);
         }
-        String str5 = this.b;
-        if (str5 != null) {
-            str4 = str5;
-        }
-        nx4 nx4Var = new nx4(str3, str4, null);
-        nx4Var.r(true);
-        arrayList.add(nx4Var);
-        this.c.g(arrayList);
     }
 }

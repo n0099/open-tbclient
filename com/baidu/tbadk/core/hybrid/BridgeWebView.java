@@ -8,6 +8,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.view.BaseWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
@@ -58,10 +59,29 @@ public class BridgeWebView extends BaseWebView {
         }
     }
 
+    public WebChromeClient getChromeClient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.chromeClient;
+        }
+        return (WebChromeClient) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebView
+    public WebViewClient getWebViewClient() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.webViewClient;
+        }
+        return (WebViewClient) invokeV.objValue;
+    }
+
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
     public void setWebChromeClient(WebChromeClient webChromeClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, webChromeClient) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webChromeClient) == null) {
             this.chromeClient = webChromeClient;
             super.setWebChromeClient(webChromeClient);
         }
@@ -70,7 +90,7 @@ public class BridgeWebView extends BaseWebView {
     @Override // com.baidu.tbadk.coreExtra.view.BaseWebView, android.webkit.WebView
     public void setWebViewClient(WebViewClient webViewClient) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webViewClient) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, webViewClient) == null) {
             this.webViewClient = webViewClient;
             super.setWebViewClient(webViewClient);
         }

@@ -8,8 +8,8 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.o16;
-import com.baidu.tieba.p16;
+import com.baidu.tieba.p26;
+import com.baidu.tieba.q26;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -72,12 +72,12 @@ public class SplashStaticHttpRequest extends HttpMessage {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("stamp", String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("params", p16.a(context, adInfo));
+                jSONObject.put("params", q26.a(context, adInfo));
             } catch (JSONException e) {
                 BdLog.e(e.getMessage());
             }
             splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, o16.b());
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, p26.b());
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
             MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);
@@ -91,12 +91,12 @@ public class SplashStaticHttpRequest extends HttpMessage {
             JSONObject jSONObject = new JSONObject();
             try {
                 jSONObject.put("stamp", String.valueOf(System.currentTimeMillis()));
-                jSONObject.put("params", p16.a(context, adInfo));
+                jSONObject.put("params", q26.a(context, adInfo));
             } catch (JSONException e) {
                 BdLog.e(e.getMessage());
             }
             splashStaticHttpRequest.addParam("parammap", jSONObject.toString());
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, o16.c());
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_STATIC_SPLASH, p26.c());
             tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
             tbHttpMessageTask.setResponsedClass(SplashStaticHttpResponse.class);
             MessageManager.getInstance().sendMessage(splashStaticHttpRequest, tbHttpMessageTask);

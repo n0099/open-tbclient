@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -164,7 +164,7 @@ public class ItemHotThreadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
             this.a = context;
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c5, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d02c8, (ViewGroup) this, true);
             setVisibility(8);
         }
     }
@@ -177,13 +177,13 @@ public class ItemHotThreadView extends LinearLayout {
             return;
         }
         if (!this.b.containsKey(String.valueOf(simpleThreadInfo.tid))) {
-            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c6, (ViewGroup) this, false);
+            view2 = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02c9, (ViewGroup) this, false);
             bVar = new b(null);
-            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f092389);
-            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f5b);
-            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f59);
-            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f5a);
-            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f58);
+            bVar.a = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0923a1);
+            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f69);
+            bVar.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f67);
+            bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f68);
+            bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090f66);
             view2.setTag(bVar);
             this.b.put(String.valueOf(simpleThreadInfo.tid), view2);
             addView(view2);
@@ -229,7 +229,7 @@ public class ItemHotThreadView extends LinearLayout {
         boolean z;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, forumDetailActivity, i) == null) {
-            iv4 layoutMode = forumDetailActivity.getLayoutMode();
+            yv4 layoutMode = forumDetailActivity.getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {

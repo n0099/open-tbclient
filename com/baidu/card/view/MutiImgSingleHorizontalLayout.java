@@ -21,12 +21,12 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.ThreadCardUtils;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ax4;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.kw4;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.ji6;
+import com.baidu.tieba.kx;
 import com.baidu.tieba.rm;
-import com.baidu.tieba.sv4;
-import com.baidu.tieba.yg6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
-public class MutiImgSingleHorizontalLayout extends LinearLayout implements ix<kw4> {
+public class MutiImgSingleHorizontalLayout extends LinearLayout implements kx<ax4> {
     public static /* synthetic */ Interceptable $ic;
     public static final int f;
     public static final int g;
@@ -48,7 +48,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements ix<kw
     public TbImageView b;
     public ImageView c;
     public boolean d;
-    public yg6<kw4> e;
+    public ji6<ax4> e;
 
     public void setPreloadSizeReadyCallback(rm rmVar) {
         Interceptable interceptable = $ic;
@@ -125,7 +125,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements ix<kw
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, threadData) == null) {
             ArrayList<MediaData> medias = threadData.getMedias();
-            if (sv4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (iw4.c().g() && ListUtils.getCount(medias) != 0) {
                 LinkedList linkedList = new LinkedList();
                 for (int i2 = 0; i2 < medias.size(); i2++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i2);
@@ -152,12 +152,12 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements ix<kw
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.kx
     /* renamed from: c */
-    public void a(kw4 kw4Var) {
+    public void a(ax4 ax4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kw4Var) == null) {
-            ThreadData threadData = kw4Var.getThreadData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ax4Var) == null) {
+            ThreadData threadData = ax4Var.getThreadData();
             ThreadCardUtils.setTitle(this.a, threadData);
             setImageData(threadData);
         }
@@ -170,10 +170,10 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements ix<kw
         }
     }
 
-    public void setSubClickListener(yg6<kw4> yg6Var) {
+    public void setSubClickListener(ji6<ax4> ji6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, yg6Var) == null) {
-            this.e = yg6Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, ji6Var) == null) {
+            this.e = ji6Var;
         }
     }
 
@@ -203,6 +203,7 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements ix<kw
             } else {
                 i3 = 47;
             }
+            mediaData.setLoadUrlType(i3);
             if (!StringHelper.equals(thumbnailsUrl, tbImageView.getUrl())) {
                 tbImageView.H();
             }
@@ -218,13 +219,13 @@ public class MutiImgSingleHorizontalLayout extends LinearLayout implements ix<kw
         }
     }
 
-    public yg6<kw4> getSubClickListener() {
+    public ji6<ax4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.e;
         }
-        return (yg6) invokeV.objValue;
+        return (ji6) invokeV.objValue;
     }
 
     @Override // android.widget.LinearLayout, android.view.View

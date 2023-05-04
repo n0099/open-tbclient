@@ -1,700 +1,253 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.editortools.EditorTools;
+import com.baidu.tieba.ap9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
 /* loaded from: classes7.dex */
 public class x9a {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile x9a s;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public int h;
-    public int i;
-    public int j;
-    public boolean k;
-    public int l;
-    public int m;
-    public boolean n;
-    public long o;
-    public boolean p;
-    public w9a q;
-    public yaa r;
 
-    public x9a() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = 614400;
-        this.f = 153600;
-        this.g = 614400;
-        this.h = 614400;
-        this.i = 100;
-        this.j = 180;
-        this.k = false;
-        this.l = 819200;
-        this.m = 60;
-        this.n = false;
-        this.o = 0L;
-        this.p = false;
-        this.q = new w9a();
-        this.r = new yaa();
-    }
+    /* loaded from: classes7.dex */
+    public static class a implements ap9.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditorTools a;
 
-    public static x9a o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (s == null) {
-                synchronized (v9a.class) {
-                    if (s == null) {
-                        s = new x9a();
-                    }
+        public a(EditorTools editorTools) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editorTools};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return s;
+            this.a = editorTools;
         }
-        return (x9a) invokeV.objValue;
-    }
 
-    public int A() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public int B() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.j;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            haa i = saa.i();
-            if (i != null) {
-                return i.m();
+        @Override // com.baidu.tieba.ap9.f
+        public void onRefresh() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.C(new jd5(2, 12, null));
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.q.a.b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean H() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.q.a.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean I() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.k;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.n;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.p;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048612, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048613, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048614, this)) == null) {
-            return this.q.a.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048616, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public int q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048617, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048618, this)) == null) {
-            return this.g;
-        }
-        return invokeV.intValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048619, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public int t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048620, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public HashSet<String> u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048621, this)) == null) {
-            return this.q.d;
-        }
-        return (HashSet) invokeV.objValue;
-    }
-
-    public long v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048622, this)) == null) {
-            return this.o;
-        }
-        return invokeV.longValue;
-    }
-
-    public int w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
-            return this.m;
-        }
-        return invokeV.intValue;
-    }
-
-    public int x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048624, this)) == null) {
-            return this.l;
-        }
-        return invokeV.intValue;
-    }
-
-    public int C(String str) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.q.n.containsKey(str) && (num = this.q.n.get(str)) != null) {
-                return num.intValue();
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean F(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            HashMap<String, caa> hashMap = this.q.j;
-            if (hashMap != null && hashMap.containsKey(str)) {
-                return this.q.j.get(str).a();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean J(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            HashMap<String, caa> hashMap = this.q.j;
-            if (hashMap != null && hashMap.containsKey(str)) {
-                return this.q.j.get(str).b();
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean K(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            Context context = this.a;
-            if (context == null || L(context) || !c(str)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean L(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, context)) == null) {
-            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getApplicationContext().getSystemService("connectivity")).getActiveNetworkInfo();
-            if (activeNetworkInfo != null && activeNetworkInfo.isConnectedOrConnecting()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean O(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            return this.q.c.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void P(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048591, this, i) != null) || i < 604800000) {
-            return;
-        }
-        this.c = i;
-        bba.a().d("ubc_data_expire_time", i);
-    }
-
-    public void Q(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048592, this, i) != null) || i < 10000) {
-            return;
-        }
-        this.d = i;
-        bba.a().d("ubc_database_limit", i);
-    }
-
-    public void R(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048593, this, i) != null) || i < 153600) {
-            return;
-        }
-        this.e = i;
-        bba.a().d("ubc_launch_upload_max_limit", i);
-    }
-
-    public void S(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048594, this, i) != null) || i < 153600) {
-            return;
-        }
-        this.h = i;
-        bba.a().d("ubc_non_real_upload_max_limit", i);
-    }
-
-    public void T(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048595, this, i) != null) || i < 153600) {
-            return;
-        }
-        this.g = i;
-        bba.a().d("ubc_real_upload_max_limit", i);
-    }
-
-    public void U(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048596, this, i) != null) || i < 30720) {
-            return;
-        }
-        this.f = i;
-        bba.a().d("ubc_single_log_max_limit", i);
-    }
-
-    public void V(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048597, this, i) != null) || i < 1) {
-            return;
-        }
-        this.b = i * 60000;
-    }
-
-    public void W(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048598, this, i) != null) || i <= 0) {
-            return;
-        }
-        this.i = i;
-        bba.a().d("ubc_upload_trigger_num", i);
-    }
-
-    public void X(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048599, this, i) != null) || i <= 0) {
-            return;
-        }
-        this.j = i;
-        bba.a().d("ubc_upload_trigger_time", i);
-    }
-
-    public void Z(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048601, this, j) == null) && this.o < j) {
-            this.o = j;
         }
     }
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
-            return this.q.e.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
+    /* loaded from: classes7.dex */
+    public static class b implements ap9.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ EditorTools a;
 
-    public int b(String str) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048603, this, str)) == null) {
-            if (this.q.o.containsKey(str) && (num = this.q.o.get(str)) != null) {
-                return num.intValue();
-            }
-            return 2;
-        }
-        return invokeL.intValue;
-    }
-
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
-            return this.q.g.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048605, this, str)) == null) {
-            if (C(str) == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
-            if (this.r.isUBCDebug() || this.q.c.contains(str)) {
-                return true;
-            }
-            return this.q.a.b;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean f(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048607, this, str)) == null) {
-            return this.q.l.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048610, this, str)) == null) {
-            if (this.q.b.contains(str)) {
-                return false;
-            }
-            if (this.q.f.contains(str)) {
-                return true;
-            }
-            return this.q.a.d;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public String j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048611, this, str)) == null) {
-            if (this.q.i.containsKey(str)) {
-                return this.q.i.get(str);
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public int n(String str) {
-        InterceptResult invokeL;
-        Integer num;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048615, this, str)) == null) {
-            if (this.q.m.containsKey(str) && (num = this.q.m.get(str)) != null) {
-                return num.intValue();
-            }
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    public void D(t9a t9aVar, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, t9aVar, context) == null) {
-            this.a = context;
-            this.b = 60000;
-            bba a = bba.a();
-            this.c = a.b("ubc_data_expire_time", 604800000);
-            this.d = a.b("ubc_database_limit", 10000);
-            t9aVar.n().y(this.q);
-            this.e = a.b("ubc_launch_upload_max_limit", 614400);
-            this.f = a.b("ubc_single_log_max_limit", 153600);
-            this.g = a.b("ubc_real_upload_max_limit", 614400);
-            this.h = a.b("ubc_non_real_upload_max_limit", 614400);
-            this.i = a.b("ubc_upload_trigger_num", 100);
-            this.j = a.b("ubc_upload_trigger_time", 180);
-            this.k = saa.i().p();
-            this.l = saa.i().f();
-            this.m = saa.i().b();
-            this.n = saa.i().g();
-            this.p = saa.i().k();
-        }
-    }
-
-    public void Y(List<aaa> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, list) == null) {
-            for (aaa aaaVar : list) {
-                String c = aaaVar.c();
-                if (!TextUtils.isEmpty(c)) {
-                    if (!aaaVar.s()) {
-                        this.q.b.add(c);
-                        this.q.f.remove(c);
-                    } else {
-                        this.q.b.remove(c);
-                        this.q.f.add(c);
-                    }
-                    if (aaaVar.o()) {
-                        this.q.c.add(c);
-                        this.q.d.remove(c);
-                    } else {
-                        this.q.c.remove(c);
-                        this.q.d.add(c);
-                    }
-                    if (aaaVar.k()) {
-                        this.q.e.add(c);
-                    } else {
-                        this.q.e.remove(c);
-                    }
-                    if (aaaVar.n()) {
-                        this.q.g.add(c);
-                    } else {
-                        this.q.g.remove(c);
-                    }
-                    int g = aaaVar.g();
-                    if (g >= 1 && g <= 100) {
-                        this.q.h.put(c, Integer.valueOf(g));
-                    } else {
-                        this.q.h.remove(c);
-                    }
-                    String a = aaaVar.a();
-                    if (!TextUtils.isEmpty(a)) {
-                        this.q.i.put(c, a);
-                    } else {
-                        this.q.i.remove(c);
-                    }
-                    int d = aaaVar.d();
-                    int e = aaaVar.e();
-                    if (d != 0 && e != 0) {
-                        this.q.j.put(c, new caa(c, e, d));
-                    }
-                    if (aaaVar.m()) {
-                        this.q.k.add(c);
-                    } else {
-                        this.q.k.remove(c);
-                    }
-                    if (aaaVar.p()) {
-                        this.q.l.add(c);
-                    } else {
-                        this.q.l.remove(c);
-                    }
-                    int b = aaaVar.b();
-                    if (aaaVar.r()) {
-                        this.q.m.put(c, Integer.valueOf(b));
-                    } else {
-                        this.q.m.remove(c);
-                    }
-                    if (aaaVar.t()) {
-                        this.q.n.remove(c);
-                    } else {
-                        this.q.n.put(c, Integer.valueOf(aaaVar.i()));
-                    }
-                    int f = aaaVar.f();
-                    if (f != 2) {
-                        this.q.o.put(c, Integer.valueOf(f));
-                    } else {
-                        this.q.o.remove(c);
-                    }
+        public b(EditorTools editorTools) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {editorTools};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = editorTools;
+        }
+
+        @Override // com.baidu.tieba.ap9.f
+        public void onRefresh() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.C(new jd5(2, 12, null));
+            }
         }
     }
 
-    public boolean g(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048608, this, str, i)) == null) {
-            if (this.q.b.contains(str)) {
-                return false;
-            }
-            if ((i & 16) == 0 && (i & 32) == 0) {
-                if (this.q.f.contains(str)) {
-                    return true;
-                }
-                return this.q.a.a;
-            } else if (!this.q.f.contains(str)) {
-                return false;
-            } else {
-                return true;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public boolean h(String str) {
+    public static w7a a(@NonNull TbPageContext<?> tbPageContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
-            if (!E() && this.r.isUBCSample() && y(str) > 0) {
-                if (new Random().nextInt(100) >= y(str)) {
-                    return true;
-                }
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbPageContext)) == null) {
+            return new w7a(tbPageContext);
         }
-        return invokeL.booleanValue;
+        return (w7a) invokeL.objValue;
     }
 
-    public int y(String str) {
+    public static y7a b(@NonNull TbPageContext<?> tbPageContext) {
         InterceptResult invokeL;
-        Integer num;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048625, this, str)) == null) {
-            if (!TextUtils.isEmpty(str) && this.q.h.containsKey(str) && (num = this.q.h.get(str)) != null) {
-                return num.intValue();
-            }
-            return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, tbPageContext)) == null) {
+            return new y7a(tbPageContext);
         }
-        return invokeL.intValue;
+        return (y7a) invokeL.objValue;
     }
 
-    public String z(String str) {
+    public static a8a d(@NonNull TbPageContext<?> tbPageContext) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048626, this, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
-                if (this.q.k.contains(str) || TextUtils.equals(str, "1876") || TextUtils.equals(str, "2980")) {
-                    return "1";
-                }
-                return "0";
-            }
-            return "0";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, tbPageContext)) == null) {
+            return new a8a(tbPageContext);
         }
-        return (String) invokeL.objValue;
+        return (a8a) invokeL.objValue;
+    }
+
+    public static b8a e(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, tbPageContext)) == null) {
+            return new b8a(tbPageContext);
+        }
+        return (b8a) invokeL.objValue;
+    }
+
+    public static c8a f(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, tbPageContext)) == null) {
+            return new c8a(tbPageContext);
+        }
+        return (c8a) invokeL.objValue;
+    }
+
+    public static d8a g(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, tbPageContext)) == null) {
+            return new d8a(tbPageContext);
+        }
+        return (d8a) invokeL.objValue;
+    }
+
+    public static f8a i(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, tbPageContext)) == null) {
+            return new f8a(tbPageContext);
+        }
+        return (f8a) invokeL.objValue;
+    }
+
+    public static g8a j(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, tbPageContext)) == null) {
+            return new g8a(tbPageContext);
+        }
+        return (g8a) invokeL.objValue;
+    }
+
+    public static h8a k(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, tbPageContext)) == null) {
+            return new h8a(tbPageContext);
+        }
+        return (h8a) invokeL.objValue;
+    }
+
+    public static i8a l(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, tbPageContext)) == null) {
+            return new i8a(tbPageContext);
+        }
+        return (i8a) invokeL.objValue;
+    }
+
+    public static l8a o(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, tbPageContext)) == null) {
+            return new l8a(tbPageContext);
+        }
+        return (l8a) invokeL.objValue;
+    }
+
+    public static m8a p(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, tbPageContext)) == null) {
+            return new m8a(tbPageContext);
+        }
+        return (m8a) invokeL.objValue;
+    }
+
+    public static n8a q(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, tbPageContext)) == null) {
+            return new n8a(tbPageContext);
+        }
+        return (n8a) invokeL.objValue;
+    }
+
+    public static o8a r(@NonNull TbPageContext<?> tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, tbPageContext)) == null) {
+            return new o8a(tbPageContext);
+        }
+        return (o8a) invokeL.objValue;
+    }
+
+    public static z7a c(@NonNull TbPageContext<?> tbPageContext, @NonNull q8a q8aVar, @NonNull EditorTools editorTools, @NonNull j7a j7aVar, @NonNull baa baaVar) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(65538, null, tbPageContext, q8aVar, editorTools, j7aVar, baaVar)) == null) {
+            z7a z7aVar = new z7a(tbPageContext, j7aVar, baaVar);
+            z7aVar.X(q8aVar);
+            z7aVar.e0(new a(editorTools));
+            return z7aVar;
+        }
+        return (z7a) invokeLLLLL.objValue;
+    }
+
+    public static e8a h(@NonNull TbPageContext<?> tbPageContext, @NonNull faa faaVar) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, tbPageContext, faaVar)) == null) {
+            return new e8a(tbPageContext, faaVar);
+        }
+        return (e8a) invokeLL.objValue;
+    }
+
+    public static j8a m(@NonNull TbPageContext<?> tbPageContext, @NonNull q8a q8aVar, @NonNull EditorTools editorTools, @NonNull faa faaVar, @NonNull j7a j7aVar, @NonNull baa baaVar) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{tbPageContext, q8aVar, editorTools, faaVar, j7aVar, baaVar})) == null) {
+            j8a j8aVar = new j8a(tbPageContext, faaVar, j7aVar, baaVar);
+            j8aVar.a0(q8aVar);
+            j8aVar.c0(new b(editorTools));
+            return j8aVar;
+        }
+        return (j8a) invokeCommon.objValue;
+    }
+
+    public static k8a n(@NonNull TbPageContext<?> tbPageContext, @NonNull q8a q8aVar, @NonNull j7a j7aVar, @NonNull baa baaVar) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65549, null, tbPageContext, q8aVar, j7aVar, baaVar)) == null) {
+            k8a k8aVar = new k8a(tbPageContext, j7aVar, baaVar);
+            k8aVar.M(q8aVar);
+            return k8aVar;
+        }
+        return (k8a) invokeLLLL.objValue;
     }
 }

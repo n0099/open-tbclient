@@ -1,263 +1,83 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.Context;
+import android.location.Address;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AbsListView;
-import android.widget.ListAdapter;
+import android.widget.ImageView;
 import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.widget.Toast;
 import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.atomData.PersonalBackdropListActivityConfig;
+import com.baidu.pass.ecommerce.bean.SuggestAddrField;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.themeCenter.MemberRecommendView;
-import com.baidu.tieba.themeCenter.background.BackgroundGroupActivity;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.util.SvgManager;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tieba.tbadkCore.location.LocationData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-@SuppressLint({"ResourceAsColor"})
 /* loaded from: classes6.dex */
 public class ur9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BackgroundGroupActivity a;
-    public View b;
-    public View c;
-    public NavigationBar d;
-    public MemberRecommendView e;
-    public BdListView f;
-    public TextView g;
-    public TextView h;
-    public int i;
-    public sr9 j;
 
-    /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ur9 a;
-
-        public a(ur9 ur9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ur9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public static void a(NetWork netWork, WriteData writeData) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, netWork, writeData) == null) && writeData != null && writeData.isHasLocationData()) {
+            netWork.addPostData("is_location", "2");
+            Address j = cf.n().j(false);
+            if (j != null) {
+                netWork.addPostData(SuggestAddrField.KEY_LAT, String.valueOf(j.getLatitude()));
+                netWork.addPostData(SuggestAddrField.KEY_LNG, String.valueOf(j.getLongitude()));
             }
-            this.a = ur9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log("c10283");
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonalBackdropListActivityConfig(this.a.a.getActivity())));
+            LocationData b = nq9.a().b();
+            if (b != null) {
+                netWork.addPostData("name", b.getFormatted_address());
+                netWork.addPostData("sn", b.getSn());
             }
         }
     }
 
-    public ur9(BackgroundGroupActivity backgroundGroupActivity, vr9 vr9Var) {
+    public static void b(Context context, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {backgroundGroupActivity, vr9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLLLL(65537, null, context, str, str2, str3) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.post_write_or_reply_lay, (ViewGroup) null);
+            inflate.setBackgroundDrawable(SkinManager.createShapeDrawableFromColor(ii.g(context, R.dimen.tbds32), SkinManager.getColor(R.color.CAM_X0701)));
+            View findViewById = inflate.findViewById(R.id.experience_score);
+            TextView textView = (TextView) inflate.findViewById(R.id.success_text);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0101);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.pre_msg);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0101);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.color_msg);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0305);
+            ImageView imageView = (ImageView) inflate.findViewById(R.id.success_img);
+            if (imageView != null) {
+                imageView.setBackgroundDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.icon_pure_toast_succeed40_svg, R.color.CAM_X0101, null));
             }
-        }
-        this.i = 0;
-        this.a = backgroundGroupActivity;
-        this.i = ii.g(backgroundGroupActivity.getPageContext().getPageActivity(), R.dimen.obfuscated_res_0x7f07029f);
-        View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d012f, (ViewGroup) null);
-        this.b = inflate;
-        this.a.setContentView(inflate);
-        this.c = this.b.findViewById(R.id.obfuscated_res_0x7f0903fe);
-        NavigationBar navigationBar = (NavigationBar) this.b.findViewById(R.id.view_navigation_bar);
-        this.d = navigationBar;
-        navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-        this.d.setTitleText(R.string.obfuscated_res_0x7f0f0f4f);
-        MemberRecommendView memberRecommendView = (MemberRecommendView) this.b.findViewById(R.id.obfuscated_res_0x7f0927c7);
-        this.e = memberRecommendView;
-        memberRecommendView.setFromType(4);
-        this.f = (BdListView) this.b.findViewById(R.id.obfuscated_res_0x7f0914a3);
-        TextView textView = new TextView(this.a.getActivity());
-        this.g = textView;
-        textView.setHeight(ii.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f07019c));
-        TextView textView2 = (TextView) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d05ab, (ViewGroup) null);
-        this.h = textView2;
-        textView2.setText(R.string.obfuscated_res_0x7f0f0bad);
-        this.h.setOnClickListener(new a(this));
-        this.j = new sr9(this.a.getPageContext(), vr9Var);
-        TextView textView3 = new TextView(this.a.getActivity());
-        textView3.setLayoutParams(new AbsListView.LayoutParams(-1, UtilHelper.getLightStatusBarHeight() + ii.g(this.a.getActivity(), R.dimen.obfuscated_res_0x7f070282)));
-        this.f.w(textView3, 0);
-        this.f.addFooterView(this.h);
-        this.f.setAdapter((ListAdapter) this.j);
-    }
-
-    public final void g(List<Object> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
-            if (list != null && list.size() > 0) {
-                this.f.setVisibility(0);
-                this.j.a(list);
-                this.j.notifyDataSetChanged();
-                return;
+            if (StringUtils.isNull(str)) {
+                str = context.getString(R.string.send_success);
             }
-            this.f.setVisibility(8);
-        }
-    }
-
-    public final List<Object> b(List<tr9> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, list)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (tr9 tr9Var : list) {
-                arrayList.add(tr9Var.b());
-                List<DressItemData> a2 = tr9Var.a();
-                int size = a2.size();
-                if (size > 3) {
-                    size = 3;
-                }
-                for (int i = 0; i < size; i = i + 2 + 1) {
-                    ArrayList arrayList2 = new ArrayList();
-                    for (int i2 = 0; i2 < 3; i2++) {
-                        int i3 = i + i2;
-                        if (i3 < size) {
-                            arrayList2.add(a2.get(i3));
-                        }
-                    }
-                    arrayList.add(arrayList2);
-                }
+            textView.setText(str);
+            if (str2 != null || str3 != null) {
+                findViewById.setVisibility(0);
+                textView2.setText(str2);
+                textView3.setText(str3);
             }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0204);
-            this.a.hideNetRefreshView(this.b);
-            this.c.setVisibility(0);
+            c(context, inflate);
         }
     }
 
-    public View d() {
-        InterceptResult invokeV;
+    public static void c(Context context, View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.c.setVisibility(8);
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.c.setVisibility(0);
-        }
-    }
-
-    public void f() {
-        sr9 sr9Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            an5.a(this.a.getPageContext(), this.b);
-            this.a.getLayoutMode().k(this.h);
-            r25.d(this.h).w(R.color.CAM_X0108);
-            NavigationBar navigationBar = this.d;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(this.a.getPageContext(), TbadkApplication.getInst().getSkinType());
-            }
-            BdListView bdListView = this.f;
-            if (bdListView != null && bdListView.getVisibility() == 0 && (sr9Var = this.j) != null) {
-                sr9Var.notifyDataSetChanged();
-            }
-            SkinManager.setBackgroundColor(this.g, R.color.CAM_X0204);
-            this.e.d();
-        }
-    }
-
-    public final boolean h(qs9 qs9Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, qs9Var)) == null) {
-            if (qs9Var != null && !StringUtils.isNull(qs9Var.c())) {
-                this.e.setVisibility(0);
-                this.e.e(qs9Var);
-                return true;
-            }
-            this.e.setVisibility(8);
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.c.setVisibility(8);
-            SkinManager.setBackgroundColor(this.b, R.color.CAM_X0201);
-            String string = this.a.getPageContext().getResources().getString(R.string.no_data_text);
-            this.a.setNetRefreshViewTopMargin(this.i);
-            this.a.showNetRefreshView(this.b, string, false);
-        }
-    }
-
-    public void k(qs9 qs9Var, List<tr9> list, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, qs9Var, list, z) == null) {
-            if (list != null && list.size() > 0) {
-                c();
-                if (h(qs9Var)) {
-                    this.f.removeHeaderView(this.g);
-                    this.f.addHeaderView(this.g);
-                } else {
-                    this.f.removeHeaderView(this.g);
-                }
-                g(b(list));
-                return;
-            }
-            j();
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, view2) == null) {
+            Toast toast = new Toast(context);
+            toast.setView(view2);
+            toast.setGravity(17, 0, 0);
+            toast.setDuration(3000);
+            GreyUtil.grey(toast);
+            toast.show();
         }
     }
 }

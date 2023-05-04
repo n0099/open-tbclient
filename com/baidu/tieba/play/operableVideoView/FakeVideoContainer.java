@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.g35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -102,7 +102,7 @@ public class FakeVideoContainer extends RelativeLayout implements View.OnClickLi
             this.c = (ImageView) findViewById(R.id.video_play);
             this.d = (EMTextView) findViewById(R.id.fake_video_info);
             this.c.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_video_play44, SkinManager.getColor(R.color.CAM_X0101), WebPManager.ResourceStateType.NORMAL));
-            r25 d = r25.d(this.d);
+            g35 d = g35.d(this.d);
             d.w(R.color.CAM_X0101);
             d.C(R.string.F_X01);
             this.a.s();

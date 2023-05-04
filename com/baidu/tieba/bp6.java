@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,100 +8,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 /* loaded from: classes3.dex */
-public class bp6 extends rj1<yh5> {
+public final class bp6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+    public static final a f;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes3.dex */
-    public class a implements yh5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(bp6 bp6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bp6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.yh5
-        public boolean a(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return ip6.k().m(str);
-            }
-            return invokeL.booleanValue;
-        }
-
-        @Override // com.baidu.tieba.yh5
-        @NonNull
-        public String b(@NonNull String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                return ip6.k().j(str);
-            }
-            return (String) invokeL.objValue;
-        }
-
-        @Override // com.baidu.tieba.yh5
-        @NonNull
-        public String c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return bp6.c;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.yh5
-        @NonNull
-        public String d(@NonNull String str, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048579, this, str, z)) == null) {
-                ip6 k = ip6.k();
-                boolean q = k.q(str);
-                boolean r = k.r(str);
-                String g = k.g(str, z);
-                if (g == null) {
-                    g = "";
-                }
-                if (!q && !r) {
-                    return e(k.h(str), g);
-                }
-                return g;
-            }
-            return (String) invokeLZ.objValue;
-        }
-
-        @Override // com.baidu.tieba.yh5
-        @NonNull
-        public String e(@NonNull String str, @NonNull String str2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-                return bp6.b + File.separator + str + File.separator + str2;
-            }
-            return (String) invokeLL.objValue;
-        }
-    }
+    public long a;
+    public float b;
+    public boolean c;
+    public float d;
+    public long e;
 
     static {
         InterceptResult invokeClinit;
@@ -119,9 +33,40 @@ public class bp6 extends rj1<yh5> {
                 return;
             }
         }
-        a = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath();
-        b = a + File.separator + ".emotions";
-        c = a + File.separator + ".collect";
+        f = new a(null);
+    }
+
+    /* loaded from: classes3.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final long b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return System.nanoTime();
+            }
+            return invokeV.longValue;
+        }
     }
 
     public bp6() {
@@ -134,19 +79,83 @@ public class bp6 extends rj1<yh5> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = 1.0f;
+        this.c = true;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rj1
-    /* renamed from: c */
-    public yh5 createService() throws ServiceNotFoundException {
+    public final long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            return this.e / 1000000;
         }
-        return (yh5) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    public final float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.floatValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static /* synthetic */ void f(bp6 bp6Var, long j, float f2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            j = bp6Var.a();
+        }
+        if ((i & 2) != 0) {
+            f2 = bp6Var.b;
+        }
+        bp6Var.e(j, f2);
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.c = z;
+        }
+    }
+
+    public final void e(long j, float f2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Float.valueOf(f2)}) == null) {
+            this.c = false;
+            this.e = j * 1000000;
+            this.b = f2;
+            this.a = f.b();
+        }
+    }
+
+    public final void g(Float f2) {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, f2) == null) {
+            long b = f.b();
+            if (this.c) {
+                j = 0;
+            } else if (f2 != null) {
+                j = f2.floatValue() * 1000000000;
+            } else {
+                j = b - this.a;
+            }
+            long j2 = ((float) j) * this.b;
+            this.e += j2;
+            this.d = ((float) j2) / 1.0E9f;
+            this.a = b;
+        }
     }
 }

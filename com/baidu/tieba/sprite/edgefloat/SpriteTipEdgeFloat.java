@@ -5,8 +5,8 @@ import androidx.core.app.NotificationCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.edgefloat.EdgeFloat;
 import com.baidu.tieba.edgefloat.EdgeFloatLifecycle;
-import com.baidu.tieba.rh9;
-import com.baidu.tieba.sprite.tips.SpriteBottomTipView;
+import com.baidu.tieba.qk9;
+import com.baidu.tieba.sprite.tips.HomePageSpriteBottomTipView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -20,7 +20,7 @@ import kotlin.Unit;
 import kotlin.jvm.functions.Function0;
 import kotlin.jvm.functions.Function1;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u0000@\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0006\n\u0002\u0010\u0002\n\u0000\u0018\u00002\u00020\u0001B;\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\u0007\u001a\u00020\u0005\u0012\u0006\u0010\b\u001a\u00020\t\u0012\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b¢\u0006\u0002\u0010\rJ\u0006\u0010\u0019\u001a\u00020\tJ\u0006\u0010\u001a\u001a\u00020\fJ\u0006\u0010\u001b\u001a\u00020\u001cR\u001b\u0010\u000e\u001a\u00020\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0010\u0010\u0011R\u001b\u0010\u0014\u001a\u00020\u00158FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0013\u001a\u0004\b\u0016\u0010\u0017¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/sprite/edgefloat/SpriteTipEdgeFloat;", "", "activity", "Landroid/app/Activity;", NotificationCompat.WearableExtender.KEY_GRAVITY, "", "startX", "startY", "canDrag", "", "pageSupportList", "", "", "(Landroid/app/Activity;IIIZLjava/util/List;)V", "edgeFloat", "Lcom/baidu/tieba/edgefloat/EdgeFloat;", "getEdgeFloat", "()Lcom/baidu/tieba/edgefloat/EdgeFloat;", "edgeFloat$delegate", "Lkotlin/Lazy;", "spriteTipView", "Lcom/baidu/tieba/sprite/tips/SpriteBottomTipView;", "getSpriteTipView", "()Lcom/baidu/tieba/sprite/tips/SpriteBottomTipView;", "spriteTipView$delegate", "isShowing", "jumpScheme", "release", "", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+@Metadata(d1 = {"\u0000B\n\u0002\u0018\u0002\n\u0002\u0010\u0000\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0003\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010 \n\u0002\u0010\u000e\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0002\b\u0005\n\u0002\u0018\u0002\n\u0002\b\u0004\n\u0002\u0010\u0002\n\u0002\b\u0003\u0018\u00002\u00020\u0001B;\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0005\u0012\u0006\u0010\u0006\u001a\u00020\u0005\u0012\u0006\u0010\u0007\u001a\u00020\u0005\u0012\u0006\u0010\b\u001a\u00020\t\u0012\f\u0010\n\u001a\b\u0012\u0004\u0012\u00020\f0\u000b¢\u0006\u0002\u0010\rJ\u0006\u0010\u0019\u001a\u00020\u001aJ\u0006\u0010\u001b\u001a\u00020\tJ\u0006\u0010\u001c\u001a\u00020\u001aR\u001b\u0010\u000e\u001a\u00020\u000f8BX\u0082\u0084\u0002¢\u0006\f\n\u0004\b\u0012\u0010\u0013\u001a\u0004\b\u0010\u0010\u0011R\u001b\u0010\u0014\u001a\u00020\u00158FX\u0086\u0084\u0002¢\u0006\f\n\u0004\b\u0018\u0010\u0013\u001a\u0004\b\u0016\u0010\u0017¨\u0006\u001d"}, d2 = {"Lcom/baidu/tieba/sprite/edgefloat/SpriteTipEdgeFloat;", "", "activity", "Landroid/app/Activity;", NotificationCompat.WearableExtender.KEY_GRAVITY, "", "startX", "startY", "canDrag", "", "pageSupportList", "", "", "(Landroid/app/Activity;IIIZLjava/util/List;)V", "edgeFloat", "Lcom/baidu/tieba/edgefloat/EdgeFloat;", "getEdgeFloat", "()Lcom/baidu/tieba/edgefloat/EdgeFloat;", "edgeFloat$delegate", "Lkotlin/Lazy;", "spriteTipView", "Lcom/baidu/tieba/sprite/tips/HomePageSpriteBottomTipView;", "getSpriteTipView", "()Lcom/baidu/tieba/sprite/tips/HomePageSpriteBottomTipView;", "spriteTipView$delegate", "gotoChatPage", "", "isShowing", "release", "recommendfrs_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
 /* loaded from: classes6.dex */
 public final class SpriteTipEdgeFloat {
     public static /* synthetic */ Interceptable $ic;
@@ -45,7 +45,7 @@ public final class SpriteTipEdgeFloat {
         }
         Intrinsics.checkNotNullParameter(activity, "activity");
         Intrinsics.checkNotNullParameter(pageSupportList, "pageSupportList");
-        this.a = LazyKt__LazyJVMKt.lazy(new Function0<SpriteBottomTipView>(activity, this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteTipEdgeFloat$spriteTipView$2
+        this.a = LazyKt__LazyJVMKt.lazy(new Function0<HomePageSpriteBottomTipView>(activity, this) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteTipEdgeFloat$spriteTipView$2
             public static /* synthetic */ Interceptable $ic;
             public final /* synthetic */ Activity $activity;
             public transient /* synthetic */ FieldHolder $fh;
@@ -76,13 +76,13 @@ public final class SpriteTipEdgeFloat {
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX WARN: Can't rename method to resolve collision */
             @Override // kotlin.jvm.functions.Function0
-            public final SpriteBottomTipView invoke() {
+            public final HomePageSpriteBottomTipView invoke() {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    SpriteBottomTipView spriteBottomTipView = new SpriteBottomTipView(this.$activity, null, 2, null);
+                    HomePageSpriteBottomTipView homePageSpriteBottomTipView = new HomePageSpriteBottomTipView(this.$activity, null, 2, null);
                     final SpriteTipEdgeFloat spriteTipEdgeFloat = this.this$0;
-                    spriteBottomTipView.setOnVisibilityChangedListener(new Function1<Boolean, Unit>(spriteTipEdgeFloat) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteTipEdgeFloat$spriteTipView$2$1$1
+                    homePageSpriteBottomTipView.setOnVisibilityChangedListener(new Function1<Boolean, Unit>(spriteTipEdgeFloat) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteTipEdgeFloat$spriteTipView$2$1$1
                         public static /* synthetic */ Interceptable $ic;
                         public transient /* synthetic */ FieldHolder $fh;
                         public final /* synthetic */ SpriteTipEdgeFloat this$0;
@@ -123,17 +123,17 @@ public final class SpriteTipEdgeFloat {
                             if (interceptable3 == null || interceptable3.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z2) == null) {
                                 if (z2) {
                                     b2 = this.this$0.b();
-                                    b2.y();
+                                    b2.C();
                                     return;
                                 }
                                 b = this.this$0.b();
-                                b.j();
+                                b.k();
                             }
                         }
                     });
-                    return spriteBottomTipView;
+                    return homePageSpriteBottomTipView;
                 }
-                return (SpriteBottomTipView) invokeV.objValue;
+                return (HomePageSpriteBottomTipView) invokeV.objValue;
             }
         });
         this.b = LazyKt__LazyJVMKt.lazy(new Function0<EdgeFloat>(activity, this, i, i2, i3, z, pageSupportList) { // from class: com.baidu.tieba.sprite.edgefloat.SpriteTipEdgeFloat$edgeFloat$2
@@ -181,14 +181,14 @@ public final class SpriteTipEdgeFloat {
                 InterceptResult invokeV;
                 Interceptable interceptable2 = $ic;
                 if (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) {
-                    rh9 rh9Var = new rh9(this.$activity);
-                    rh9Var.I(this.this$0.c());
-                    rh9Var.w(this.$gravity);
-                    rh9Var.E(this.$startX);
-                    rh9Var.F(this.$startY);
-                    rh9Var.d(this.$canDrag);
-                    rh9Var.B(this.$pageSupportList);
-                    return rh9Var.c();
+                    qk9 qk9Var = new qk9(this.$activity);
+                    qk9Var.I(this.this$0.c());
+                    qk9Var.w(this.$gravity);
+                    qk9Var.E(this.$startX);
+                    qk9Var.F(this.$startY);
+                    qk9Var.d(this.$canDrag);
+                    qk9Var.B(this.$pageSupportList);
+                    return qk9Var.c();
                 }
                 return (EdgeFloat) invokeV.objValue;
             }
@@ -204,37 +204,35 @@ public final class SpriteTipEdgeFloat {
         return (EdgeFloat) invokeV.objValue;
     }
 
-    public final SpriteBottomTipView c() {
+    public final HomePageSpriteBottomTipView c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (SpriteBottomTipView) this.a.getValue();
+            return (HomePageSpriteBottomTipView) this.a.getValue();
         }
-        return (SpriteBottomTipView) invokeV.objValue;
+        return (HomePageSpriteBottomTipView) invokeV.objValue;
     }
 
-    public final boolean d() {
-        InterceptResult invokeV;
+    public final void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return b().n();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            c().e();
         }
-        return invokeV.booleanValue;
     }
 
-    public final String e() {
+    public final boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return c().getJumpScheme();
+            return b().o();
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            EdgeFloatLifecycle.b.a().k(b());
+            EdgeFloatLifecycle.b.a().l(b());
         }
     }
 }

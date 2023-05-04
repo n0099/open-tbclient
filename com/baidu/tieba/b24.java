@@ -1,32 +1,27 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.media.MediaPlayer;
 /* loaded from: classes3.dex */
-public final class b24 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface b24 extends o14 {
+    void a(boolean z);
 
-    public void a(df2 df2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, df2Var, context) == null) {
-        }
-    }
+    void c(String str) throws Exception;
 
-    public b24() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void e(ne4 ne4Var);
+
+    void g(MediaPlayer.OnInfoListener onInfoListener);
+
+    void h(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener);
+
+    void j(MediaPlayer.OnPreparedListener onPreparedListener);
+
+    void k(MediaPlayer.OnErrorListener onErrorListener);
+
+    void n(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener);
+
+    void q(MediaPlayer.OnCompletionListener onCompletionListener);
+
+    boolean s();
+
+    void setVolume(float f);
 }

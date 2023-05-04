@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ow7;
+import com.baidu.tieba.jy7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.TopicList.TopicListResIdl;
 public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ow7 ranklistData;
+    public jy7 ranklistData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotRanklistMessage() {
@@ -35,13 +35,13 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
         }
     }
 
-    public ow7 getHotRanklistData() {
+    public jy7 getHotRanklistData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.ranklistData;
         }
-        return (ow7) invokeV.objValue;
+        return (jy7) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -66,9 +66,9 @@ public class ResponseSocketHotRanklistMessage extends SocketResponsedMessage {
                 if (getError() != 0) {
                     return topicListResIdl;
                 }
-                ow7 ow7Var = new ow7();
-                this.ranklistData = ow7Var;
-                ow7Var.b(topicListResIdl.data);
+                jy7 jy7Var = new jy7();
+                this.ranklistData = jy7Var;
+                jy7Var.b(topicListResIdl.data);
             }
             return topicListResIdl;
         }

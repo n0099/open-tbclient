@@ -1,100 +1,100 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class py1 implements ry1 {
+public class py1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final boolean c;
 
-    public abstract vz1 c(@NonNull b72 b72Var);
-
-    public abstract vz1 d(int i);
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948078273, "Lcom/baidu/tieba/py1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948078273, "Lcom/baidu/tieba/py1;");
-                return;
-            }
-        }
-        a = v73.v;
-    }
-
-    public py1() {
+    public py1(@NonNull String str, @NonNull JSONObject jSONObject, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, jSONObject, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = str2;
+        this.c = jSONObject.optBoolean("useEvent");
+    }
+
+    public void c(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity, callbackHandler, jSONObject) == null) {
+            if (this.c) {
+                kt2.U().u(new ci2(this.a, new xz1(0, jSONObject)));
+                return;
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.b);
+        }
+    }
+
+    public void e(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, unitedSchemeEntity, callbackHandler, str) == null) {
+            if (this.c) {
+                kt2.U().u(new ci2(this.a, new xz1(1001, str)));
+                return;
+            }
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(1001, str).toString(), this.b);
+        }
+    }
+
+    public void a(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, unitedSchemeEntity, callbackHandler) == null) && this.c) {
+            UnitedSchemeUtility.safeCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0).toString(), this.b);
+        }
+    }
+
+    public void d(aw1 aw1Var, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, aw1Var, jSONObject) == null) {
+            xz1 xz1Var = new xz1(0, jSONObject);
+            if (this.c) {
+                kt2.U().u(new ci2(this.a, xz1Var));
+            } else {
+                aw1Var.d(this.b, xz1Var);
             }
         }
     }
 
-    @Override // com.baidu.tieba.ry1
-    public vz1 a() {
-        InterceptResult invokeV;
+    public void f(aw1 aw1Var, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (v73.b0() == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult swanApp is null");
-                }
-                return d(1001);
+        if (interceptable == null || interceptable.invokeLL(1048581, this, aw1Var, str) == null) {
+            xz1 xz1Var = new xz1(1001, str);
+            if (this.c) {
+                kt2.U().u(new ci2(this.a, xz1Var));
+            } else {
+                aw1Var.d(this.b, xz1Var);
             }
-            e72 V = it2.U().V();
-            if (V == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fmManager is null");
-                }
-                return d(1001);
-            }
-            b72 m = V.m();
-            if (m == null) {
-                if (a) {
-                    Log.d("AbsMenuButtonHandle", "handleBoundsResult fragment is null");
-                }
-                return d(1001);
-            }
-            return c(m);
         }
-        return (vz1) invokeV.objValue;
     }
 
-    public JSONObject b(int i, int i2, int i3, int i4) throws JSONException {
-        InterceptResult invokeIIII;
+    public void b(aw1 aw1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, i3, i4)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            jSONObject.putOpt("width", Integer.valueOf(i3 - i));
-            jSONObject.putOpt("height", Integer.valueOf(i4 - i2));
-            jSONObject.putOpt("left", Integer.valueOf(i));
-            jSONObject.putOpt("right", Integer.valueOf(i3));
-            jSONObject.putOpt("top", Integer.valueOf(i2));
-            jSONObject.putOpt("bottom", Integer.valueOf(i4));
-            return jSONObject;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aw1Var) == null) && this.c) {
+            aw1Var.d(this.b, new xz1(0));
         }
-        return (JSONObject) invokeIIII.objValue;
     }
 }

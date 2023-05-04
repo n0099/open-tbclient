@@ -1,48 +1,105 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.GridView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z9b {
+public final class z9b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+    public final T b;
 
-    public static void a(int i, View view2, GridView gridView) {
-        int i2;
+    public z9b(long j, T t) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeILL(65536, null, i, view2, gridView) == null) && i != 0 && gridView != null && view2 != null) {
-            if (i >= 3) {
-                i2 = 82;
-            } else {
-                i2 = 110;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j), t};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            ViewGroup.LayoutParams layoutParams = view2.getLayoutParams();
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        if (i != 4) {
-                            gridView.setNumColumns(3);
-                            layoutParams.width = r9b.a((i2 * 3) + 14);
-                        } else {
-                            gridView.setNumColumns(2);
-                            layoutParams.width = r9b.a((i2 * 2) + 7);
-                        }
-                    } else {
-                        gridView.setNumColumns(3);
-                        layoutParams.width = r9b.a((i2 * 3) + 14);
-                    }
-                } else {
-                    gridView.setNumColumns(2);
-                    layoutParams.width = r9b.a((i2 * 2) + 7);
-                }
-            } else {
-                gridView.setNumColumns(1);
-                layoutParams.width = r9b.a(i2);
-            }
-            view2.setLayoutParams(layoutParams);
         }
+        this.b = t;
+        this.a = j;
+    }
+
+    public long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.longValue;
+    }
+
+    public T b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (T) invokeV.objValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        int hashCode;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = this.a;
+            int i = (((int) (j ^ (j >>> 32))) + 31) * 31;
+            T t = this.b;
+            if (t == null) {
+                hashCode = 0;
+            } else {
+                hashCode = t.hashCode();
+            }
+            return i + hashCode;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.format("Timestamped(timestampMillis = %d, value = %s)", Long.valueOf(this.a), this.b.toString());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || !(obj instanceof z9b)) {
+                return false;
+            }
+            z9b z9bVar = (z9b) obj;
+            if (this.a == z9bVar.a) {
+                T t = this.b;
+                T t2 = z9bVar.b;
+                if (t == t2) {
+                    return true;
+                }
+                if (t != null && t.equals(t2)) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

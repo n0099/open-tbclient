@@ -7,7 +7,7 @@ import com.google.android.gms.common.internal.safeparcel.SafeParcelWriter;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelable;
 @SafeParcelable.Class(creator = "ValidateAccountRequestCreator")
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzaj extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzaj> CREATOR = new zzak();
     @SafeParcelable.VersionField(id = 1)

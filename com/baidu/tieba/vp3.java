@@ -1,37 +1,86 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppLoginAndGetMobileDialog;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppPhoneLoginDialog;
-import com.baidu.swan.bdprivate.extensions.loginauthmobile.SwanAppQuickLoginDialog;
-import com.baidu.swan.bdprivate.extensions.quicklogin.QuickLoginInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class vp3 {
     public static /* synthetic */ Interceptable $ic;
+    public static jo1 a;
+    public static final jo1 b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static SwanAppLoginAndGetMobileDialog a(String str, boolean z, QuickLoginInfo quickLoginInfo, String str2, String str3) {
-        InterceptResult invokeCommon;
-        SwanAppLoginAndGetMobileDialog swanAppPhoneLoginDialog;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, Boolean.valueOf(z), quickLoginInfo, str2, str3})) == null) {
-            Bundle bundle = new Bundle();
-            if (quickLoginInfo != null && quickLoginInfo.supportQuickLogin) {
-                swanAppPhoneLoginDialog = new SwanAppQuickLoginDialog();
-            } else {
-                swanAppPhoneLoginDialog = new SwanAppPhoneLoginDialog();
+    /* loaded from: classes6.dex */
+    public static class a implements jo1 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.jo1
+        public void onResult(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
-            bundle.putString("auth_tip", str);
-            bundle.putBoolean("is_night", z);
-            bundle.putParcelable("quick_login_info", quickLoginInfo);
-            bundle.putString("app_id", str3);
-            bundle.putString("launch_from", str2);
-            swanAppPhoneLoginDialog.setArguments(bundle);
-            return swanAppPhoneLoginDialog;
         }
-        return (SwanAppLoginAndGetMobileDialog) invokeCommon.objValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948248432, "Lcom/baidu/tieba/vp3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948248432, "Lcom/baidu/tieba/vp3;");
+                return;
+            }
+        }
+        b = new a();
+    }
+
+    public static jo1 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            jo1 jo1Var = a;
+            if (jo1Var == null) {
+                return b;
+            }
+            return jo1Var;
+        }
+        return (jo1) invokeV.objValue;
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = null;
+        }
+    }
+
+    public static void c(jo1 jo1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, jo1Var) == null) && a != jo1Var) {
+            a = jo1Var;
+        }
     }
 }

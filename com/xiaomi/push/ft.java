@@ -7,7 +7,7 @@ import com.xiaomi.push.fv;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ft implements gh {
     public static boolean a;
 
@@ -27,7 +27,7 @@ public class ft implements gh {
     /* renamed from: a  reason: collision with other field name */
     public final String f402a = "[Slim] ";
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public class a implements ga, gi {
 
         /* renamed from: a  reason: collision with other field name */

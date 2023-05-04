@@ -1,37 +1,14 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tj3 implements om3<HybridUbcFlow> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public tj3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.om3
-    /* renamed from: b */
-    public void a(HybridUbcFlow hybridUbcFlow) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
-            cr2.x0().a(hybridUbcFlow);
-        }
-    }
+public interface tj3 {
+    public static final sj3<Long> b = new sj3<>("index_cost_recent_launch_total");
+    public static final sj3<Long> c = new sj3<>("index_cost_recent_download");
+    public static final sj3<Long> d = new sj3<>("index_cost_recent_page_switch");
+    public static final sj3<Long> e = new sj3<>("index_cost_recent_page_rendered_initial");
+    public static final sj3<Long> f = new sj3<>("index_cost_current_page_rendered");
+    public static final sj3<Long> g = new sj3<>("index_cost_startup_page_first_rendered");
+    public static final sj3<Long> h = new sj3<>("index_storage_size");
+    public static final sj3<Long> i = new sj3<>("index_cost_on_screen");
+    public static final sj3<String> j = new sj3<>("index_start_up_api_info");
+    public static final sj3<String> k = new sj3<>("index_prelink_info");
 }

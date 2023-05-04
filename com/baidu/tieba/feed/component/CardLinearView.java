@@ -6,7 +6,7 @@ import android.view.View;
 import android.view.ViewTreeObserver;
 import android.widget.LinearLayout;
 import androidx.exifinterface.media.ExifInterface;
-import com.baidu.tieba.uv6;
+import com.baidu.tieba.kx6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -20,7 +20,7 @@ import kotlin.jvm.internal.Intrinsics;
 public abstract class CardLinearView<T> extends LinearLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public uv6 a;
+    public kx6 a;
     public int b;
 
     /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
@@ -99,9 +99,9 @@ public abstract class CardLinearView<T> extends LinearLayout {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 CardLinearView cardLinearView = (CardLinearView) this.a;
                 if (cardLinearView.getWidth() != cardLinearView.b) {
-                    uv6 uv6Var = cardLinearView.a;
-                    if (uv6Var != null) {
-                        uv6Var.a();
+                    kx6 kx6Var = cardLinearView.a;
+                    if (kx6Var != null) {
+                        kx6Var.a();
                     }
                     cardLinearView.b = cardLinearView.getWidth();
                 }
@@ -144,9 +144,9 @@ public abstract class CardLinearView<T> extends LinearLayout {
         if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
             if (i != this.b) {
-                uv6 uv6Var = this.a;
-                if (uv6Var != null) {
-                    uv6Var.a();
+                kx6 kx6Var = this.a;
+                if (kx6Var != null) {
+                    kx6Var.a();
                 }
                 this.b = i;
             }

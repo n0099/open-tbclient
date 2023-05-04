@@ -4,7 +4,7 @@ import android.os.Bundle;
 import androidx.annotation.BinderThread;
 import androidx.annotation.Nullable;
 import com.google.android.gms.common.ConnectionResult;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzg extends zza {
     public final /* synthetic */ BaseGmsClient zze;
 

@@ -1,63 +1,140 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.n1b;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashSet;
+import java.util.List;
+import rx.exceptions.CompositeException;
+import rx.exceptions.OnCompletedFailedException;
+import rx.exceptions.OnErrorFailedException;
+import rx.exceptions.OnErrorNotImplementedException;
+import rx.exceptions.OnErrorThrowable;
 /* loaded from: classes6.dex */
-public abstract class v5b {
+public final class v5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Deprecated
-    public <T> n1b.a<T> a(n1b.a<T> aVar) {
-        InterceptResult invokeL;
+    public static void a(Throwable th, Throwable th2) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, aVar)) == null) ? aVar : (n1b.a) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T, R> n1b.b<? extends R, ? super T> b(n1b.b<? extends R, ? super T> bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar)) == null) ? bVar : (n1b.b) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> Throwable c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th)) == null) ? th : (Throwable) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> u1b d(u1b u1bVar) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, u1bVar)) == null) ? u1bVar : (u1b) invokeL.objValue;
-    }
-
-    @Deprecated
-    public <T> n1b.a<T> e(n1b<? extends T> n1bVar, n1b.a<T> aVar) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, n1bVar, aVar)) == null) ? aVar : (n1b.a) invokeLL.objValue;
-    }
-
-    public v5b() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, th, th2) == null) {
+            HashSet hashSet = new HashSet();
+            int i = 0;
+            while (th.getCause() != null) {
+                int i2 = i + 1;
+                if (i >= 25) {
+                    return;
+                }
+                th = th.getCause();
+                if (!hashSet.contains(th.getCause())) {
+                    hashSet.add(th.getCause());
+                    i = i2;
+                }
             }
+            try {
+                th.initCause(th2);
+            } catch (Throwable unused) {
+            }
+        }
+    }
+
+    public static Throwable b(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, th)) == null) {
+            int i = 0;
+            while (th.getCause() != null) {
+                int i2 = i + 1;
+                if (i >= 25) {
+                    return new RuntimeException("Stack too deep to get final cause");
+                }
+                th = th.getCause();
+                i = i2;
+            }
+            return th;
+        }
+        return (Throwable) invokeL.objValue;
+    }
+
+    public static RuntimeException c(Throwable th) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, th)) == null) {
+            if (!(th instanceof RuntimeException)) {
+                if (th instanceof Error) {
+                    throw ((Error) th);
+                }
+                throw new RuntimeException(th);
+            }
+            throw ((RuntimeException) th);
+        }
+        return (RuntimeException) invokeL.objValue;
+    }
+
+    public static void d(List<? extends Throwable> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, list) == null) && list != null && !list.isEmpty()) {
+            if (list.size() == 1) {
+                Throwable th = list.get(0);
+                if (!(th instanceof RuntimeException)) {
+                    if (th instanceof Error) {
+                        throw ((Error) th);
+                    }
+                    throw new RuntimeException(th);
+                }
+                throw ((RuntimeException) th);
+            }
+            throw new CompositeException(list);
+        }
+    }
+
+    public static void e(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th) == null) {
+            if (!(th instanceof OnErrorNotImplementedException)) {
+                if (!(th instanceof OnErrorFailedException)) {
+                    if (!(th instanceof OnCompletedFailedException)) {
+                        if (!(th instanceof VirtualMachineError)) {
+                            if (!(th instanceof ThreadDeath)) {
+                                if (!(th instanceof LinkageError)) {
+                                    return;
+                                }
+                                throw ((LinkageError) th);
+                            }
+                            throw ((ThreadDeath) th);
+                        }
+                        throw ((VirtualMachineError) th);
+                    }
+                    throw ((OnCompletedFailedException) th);
+                }
+                throw ((OnErrorFailedException) th);
+            }
+            throw ((OnErrorNotImplementedException) th);
+        }
+    }
+
+    public static void f(Throwable th, k5b<?> k5bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, th, k5bVar) == null) {
+            e(th);
+            k5bVar.onError(th);
+        }
+    }
+
+    public static void g(Throwable th, k5b<?> k5bVar, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65542, null, th, k5bVar, obj) == null) {
+            e(th);
+            k5bVar.onError(OnErrorThrowable.addValueAsLastCause(th, obj));
+        }
+    }
+
+    public static void h(Throwable th, o5b<?> o5bVar, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65543, null, th, o5bVar, obj) == null) {
+            e(th);
+            o5bVar.b(OnErrorThrowable.addValueAsLastCause(th, obj));
         }
     }
 }

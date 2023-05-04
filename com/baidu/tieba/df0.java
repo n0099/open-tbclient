@@ -1,20 +1,9 @@
 package com.baidu.tieba;
-
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class df0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface df0 {
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return BdUploadHandler.MEDIA_SOURCE_KEY.equals(str);
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(int i, df0 df0Var);
     }
 }

@@ -1,104 +1,493 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.ph2;
+import com.baidu.swan.pms.utils.AbiType;
+import com.baidu.tieba.nh2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import java.util.HashSet;
+import kotlin.Unit;
+import kotlin.jvm.functions.Function1;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class oh2 implements ph2.a {
+public final class oh2 implements hj4<JSONArray> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public JSONObject b;
+    public final ph2 a;
+    public final String b;
+    public zg4 c;
+    public zg4 d;
+    public qj3 e;
+    public boolean f;
+    public boolean g;
+    public final Collection<qm3<oh2>> h;
+    public final Collection<qm3<oh2>> i;
+    public nh2.b j;
 
-    public oh2(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public class a implements Function1<qj3, Unit> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ oh2 a;
+
+        public a(oh2 oh2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {oh2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = oh2Var;
+        }
+
+        /*  JADX ERROR: JadxRuntimeException in pass: InlineMethods
+            jadx.core.utils.exceptions.JadxRuntimeException: Failed to process method for inline: com.baidu.tieba.oh2.c(com.baidu.tieba.oh2, com.baidu.tieba.qj3):com.baidu.tieba.oh2
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:76)
+            	at jadx.core.dex.visitors.InlineMethods.visit(InlineMethods.java:51)
+            Caused by: java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+            	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+            	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+            	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+            	at jadx.core.dex.visitors.InlineMethods.processInvokeInsn(InlineMethods.java:65)
+            	... 1 more
+            */
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // kotlin.jvm.functions.Function1
+        /* renamed from: a */
+        public kotlin.Unit invoke(com.baidu.tieba.qj3 r5) {
+            /*
+                r4 = this;
+                com.baidu.titan.sdk.runtime.Interceptable r0 = com.baidu.tieba.oh2.a.$ic
+                if (r0 != 0) goto L38
+            L4:
+                boolean r0 = com.baidu.tieba.oh2.b()
+                if (r0 == 0) goto L2b
+                java.lang.StringBuilder r0 = new java.lang.StringBuilder
+                r0.<init>()
+                java.lang.String r1 = "install: "
+                r0.append(r1)
+                com.baidu.tieba.oh2 r1 = r4.a
+                java.lang.String r1 = r1.k()
+                r0.append(r1)
+                java.lang.String r1 = " onCallback"
+                r0.append(r1)
+                java.lang.String r0 = r0.toString()
+                java.lang.String r1 = "SoUpdating"
+                android.util.Log.i(r1, r0)
+            L2b:
+                com.baidu.tieba.oh2 r0 = r4.a
+                com.baidu.tieba.oh2.c(r0, r5)
+                com.baidu.tieba.oh2 r5 = r4.a
+                r0 = 0
+                com.baidu.tieba.oh2.d(r5, r0)
+                r5 = 0
+                return r5
+            L38:
+                r2 = r0
+                r3 = 1048576(0x100000, float:1.469368E-39)
+                com.baidu.titan.sdk.runtime.InterceptResult r0 = r2.invokeL(r3, r4, r5)
+                if (r0 == 0) goto L4
+                java.lang.Object r1 = r0.objValue
+                kotlin.Unit r1 = (kotlin.Unit) r1
+                return r1
+            */
+            throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.oh2.a.invoke(com.baidu.tieba.qj3):kotlin.Unit");
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948032176, "Lcom/baidu/tieba/oh2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948032176, "Lcom/baidu/tieba/oh2;");
                 return;
             }
         }
-        JSONObject jSONObject = new JSONObject();
-        this.b = jSONObject;
-        this.a = str;
-        try {
-            jSONObject.put(IntentConfig.PKG_ID, str);
-            if (z) {
-                update();
-            }
-        } catch (JSONException e) {
-            if (ph2.n0) {
-                e.printStackTrace();
+        k = ho1.a;
+    }
+
+    public final synchronized void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            synchronized (this) {
+                this.h.clear();
+                this.i.clear();
             }
         }
     }
 
-    public static oh2 query(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return new oh2(str, true);
-        }
-        return (oh2) invokeL.objValue;
-    }
-
-    private void update() throws JSONException {
-        PMSAppInfo u;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65538, this) == null) && isValid() && (u = sf4.i().u(this.a)) != null) {
-            this.b.put("app_name", u.appName);
-            this.b.put("pkg_vername", u.versionName);
-            this.b.put("pkg_vercode", u.versionCode);
-            this.b.put("create_time", u.createTime);
-            this.b.put("last_launch_time", u.getLastLaunchTime());
-            this.b.put("launch_count", u.getLaunchCount());
-            this.b.put("install_src", u.getInstallSrc());
-        }
-    }
-
-    @Override // com.baidu.tieba.ph2.a
-    public String a() {
+    public zg4 j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (zg4) invokeV.objValue;
+    }
+
+    public String k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.b;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ph2.a
-    public JSONObject b() {
+    public zg4 l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.c == null && !TextUtils.isEmpty(this.b)) {
+                this.c = uf4.i().t(this.b);
+            }
+            return this.c;
         }
-        return (JSONObject) invokeV.objValue;
+        return (zg4) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ph2.a
-    public boolean isValid() {
+    public nh2.b m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return (nh2.b) invokeV.objValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.g;
         }
         return invokeV.booleanValue;
+    }
+
+    public boolean o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (n() && (this.e == null || mh2.d.k(k()))) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean p() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            zg4 zg4Var = this.d;
+            if (zg4Var != null && zg4Var != this.c) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (!n() && this.f) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public oh2(@NonNull ph2 ph2Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ph2Var, str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.c = null;
+        this.d = null;
+        this.e = null;
+        this.f = false;
+        this.g = false;
+        this.h = new HashSet();
+        this.i = new HashSet();
+        this.j = null;
+        this.a = ph2Var;
+        this.b = str;
+    }
+
+    /*  JADX ERROR: NullPointerException in pass: MarkMethodsForInline
+        java.lang.NullPointerException: Cannot invoke "jadx.core.dex.instructions.args.InsnArg.isRegister()" because "arg" is null
+        	at jadx.core.dex.instructions.args.RegisterArg.sameRegAndSVar(RegisterArg.java:173)
+        	at jadx.core.dex.instructions.args.InsnArg.isSameVar(InsnArg.java:269)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.isSyntheticAccessPattern(MarkMethodsForInline.java:118)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.inlineMth(MarkMethodsForInline.java:86)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.process(MarkMethodsForInline.java:53)
+        	at jadx.core.dex.visitors.MarkMethodsForInline.visit(MarkMethodsForInline.java:37)
+        */
+    public static /* synthetic */ com.baidu.tieba.oh2 c(com.baidu.tieba.oh2 r0, com.baidu.tieba.qj3 r1) {
+        /*
+            r0.i(r1)
+            return r0
+        */
+        throw new UnsupportedOperationException("Method not decompiled: com.baidu.tieba.oh2.c(com.baidu.tieba.oh2, com.baidu.tieba.qj3):com.baidu.tieba.oh2");
+    }
+
+    /* JADX DEBUG: Marked for inline */
+    /* JADX DEBUG: Method not inlined, still used in: [com.baidu.tieba.oh2.a.a(com.baidu.tieba.qj3):kotlin.Unit] */
+    public static /* synthetic */ boolean d(oh2 oh2Var, boolean z) {
+        oh2Var.f = z;
+        return z;
+    }
+
+    public oh2 w(ph2 ph2Var, zg4 zg4Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048595, this, ph2Var, zg4Var)) == null) {
+            if (r(ph2Var)) {
+                this.d = zg4Var;
+            }
+            return this;
+        }
+        return (oh2) invokeLL.objValue;
+    }
+
+    public synchronized oh2 g(qm3<oh2> qm3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, qm3Var)) == null) {
+            synchronized (this) {
+                this.h.remove(qm3Var);
+            }
+            return this;
+        }
+        return (oh2) invokeL.objValue;
+    }
+
+    public synchronized oh2 h(qm3<oh2> qm3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, qm3Var)) == null) {
+            synchronized (this) {
+                this.i.remove(qm3Var);
+            }
+            return this;
+        }
+        return (oh2) invokeL.objValue;
+    }
+
+    public boolean r(ph2 ph2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, ph2Var)) == null) {
+            if (ph2Var != null && ph2Var == this.a) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public synchronized oh2 u(qm3<oh2> qm3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, qm3Var)) == null) {
+            synchronized (this) {
+                this.h.add(qm3Var);
+            }
+            return this;
+        }
+        return (oh2) invokeL.objValue;
+    }
+
+    public synchronized oh2 v(qm3<oh2> qm3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, qm3Var)) == null) {
+            synchronized (this) {
+                this.i.add(qm3Var);
+            }
+            return this;
+        }
+        return (oh2) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.hj4
+    /* renamed from: f */
+    public void a(@NonNull JSONArray jSONArray) {
+        boolean z;
+        long j;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray) == null) {
+            zg4 l = l();
+            if (k) {
+                Log.i("SoUpdating", "decorateParams libName=" + this.b + " localSo=" + l);
+            }
+            try {
+                for (AbiType abiType : AbiType.currentAbi().getCompatible()) {
+                    if (k) {
+                        Log.i("SoUpdating", "decorateParams loop abi=" + abiType);
+                    }
+                    if (abiType != null) {
+                        vk4 d = vk4.d(this.b, abiType);
+                        if (k) {
+                            Log.i("SoUpdating", "decorateParams loop bundleId=" + d);
+                        }
+                        if (d != null) {
+                            JSONObject jSONObject = new JSONObject();
+                            if (l != null && abiType == l.q) {
+                                z = true;
+                            } else {
+                                z = false;
+                            }
+                            if (l != null && z) {
+                                j = l.i;
+                            } else {
+                                j = 0;
+                            }
+                            String str2 = "0";
+                            if (l == null || !z) {
+                                str = "0";
+                            } else {
+                                str = l.j;
+                            }
+                            if (!TextUtils.isEmpty(str)) {
+                                str2 = str;
+                            }
+                            jSONObject.put("type", "so");
+                            jSONObject.put("bundle_id", d.b);
+                            jSONObject.put("version_code", j);
+                            jSONObject.put("version_name", str2);
+                            if (k) {
+                                Log.i("SoUpdating", "decorate abi=" + abiType + " jo=" + jSONObject);
+                            }
+                            jSONArray.put(jSONObject);
+                        }
+                    }
+                }
+            } catch (JSONException e) {
+                if (k) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public final synchronized oh2 i(qj3 qj3Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, qj3Var)) == null) {
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "finish: " + k() + " finished=" + this.g + " error=" + qj3Var);
+                }
+                if (this.g) {
+                    return this;
+                }
+                this.g = true;
+                this.e = qj3Var;
+                if (qj3Var == null) {
+                    mh2.d.v(k(), System.currentTimeMillis());
+                }
+                mh2.d.f(k());
+                t();
+                e();
+                return this;
+            }
+        }
+        return (oh2) invokeL.objValue;
+    }
+
+    public synchronized void q() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "install: " + k() + " finished=" + this.g + " installing=" + this.f);
+                }
+                if (!this.g && !this.f) {
+                    this.f = true;
+                    if (k) {
+                        Log.i("SoUpdating", "install: " + k());
+                    }
+                    mh2.d.x(k(), new a(this));
+                }
+            }
+        }
+    }
+
+    public final synchronized void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            synchronized (this) {
+                if (k) {
+                    Log.i("SoUpdating", "notifyFinish: " + k() + " mCallbacks=" + this.h.size());
+                }
+                this.g = true;
+                for (qm3<oh2> qm3Var : this.h) {
+                    if (qm3Var != null) {
+                        qm3Var.a(this);
+                    }
+                }
+            }
+        }
+    }
+
+    public synchronized void x(nh2.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, bVar) == null) {
+            synchronized (this) {
+                if (!this.g && bVar != null && 0 != bVar.b) {
+                    this.j = bVar;
+                    for (qm3<oh2> qm3Var : this.i) {
+                        if (qm3Var != null) {
+                            qm3Var.a(this);
+                        }
+                    }
+                }
+            }
+        }
     }
 }

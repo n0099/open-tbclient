@@ -1,4 +1,169 @@
 package com.baidu.tieba;
+
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultDispatcher;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.storage.PathType;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.net.URLConnection;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public interface lw1 {
+public class lw1 extends aw1 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.aw1
+    public String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "File" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.aw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "FileApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements ActivityResultConsumer {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ lw1 b;
+
+        public a(lw1 lw1Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {lw1Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = lw1Var;
+            this.a = str;
+        }
+
+        @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityResultConsumer
+        public boolean consume(ActivityResultDispatcher activityResultDispatcher, int i, Intent intent) {
+            InterceptResult invokeLIL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048576, this, activityResultDispatcher, i, intent)) == null) {
+                this.b.d(this.a, new xz1(0));
+                return true;
+            }
+            return invokeLIL.booleanValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public lw1(@NonNull yv1 yv1Var) {
+        super(yv1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yv1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((yv1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public final String x(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            int lastIndexOf = str.lastIndexOf("/");
+            if (lastIndexOf > 0) {
+                String contentTypeFor = URLConnection.getFileNameMap().getContentTypeFor(str.substring(lastIndexOf + 1));
+                if (!TextUtils.isEmpty(contentTypeFor)) {
+                    return contentTypeFor;
+                }
+                return "*/*";
+            }
+            return "*/*";
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public xz1 y(String str) {
+        InterceptResult invokeL;
+        Uri fromFile;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            q("#shareFile", false);
+            if (n()) {
+                x42.c("FileApi", "FileApi does not supported when app is invisible.");
+                return new xz1(1001, "FileApi does not supported when app is invisible.");
+            }
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
+            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("filePath");
+            String M = ff3.M(optString, x73.g0());
+            if (!TextUtils.isEmpty(optString) && ff3.s(optString) == PathType.BD_FILE && !TextUtils.isEmpty(M)) {
+                String optString2 = jSONObject.optString("cb");
+                if (TextUtils.isEmpty(optString2)) {
+                    x42.c("FileApi", "cb is required");
+                    return new xz1(202, "cb is required");
+                }
+                File file = new File(M);
+                if (file.exists() && !file.isDirectory()) {
+                    SwanAppActivity activity = kt2.U().getActivity();
+                    if (activity == null) {
+                        x42.c("FileApi", "activity null");
+                        return new xz1(1001, "activity null");
+                    }
+                    ActivityResultDispatcher resultDispatcher = activity.getResultDispatcher();
+                    Intent intent = new Intent();
+                    if (ek3.i()) {
+                        fromFile = ul3.a(activity, file);
+                        intent.setFlags(3);
+                    } else {
+                        fromFile = Uri.fromFile(file);
+                    }
+                    intent.setAction("android.intent.action.SEND");
+                    intent.putExtra("android.intent.extra.STREAM", fromFile);
+                    intent.setType(x(M));
+                    resultDispatcher.addConsumer(new a(this, optString2));
+                    resultDispatcher.startActivityForResult(Intent.createChooser(intent, "分享到..."));
+                    return xz1.f();
+                }
+                x42.c("FileApi", "file not exists");
+                return new xz1(1001, "file not exists");
+            }
+            x42.c("FileApi", "a valid filePath is required");
+            return new xz1(202, "a valid filePath is required");
+        }
+        return (xz1) invokeL.objValue;
+    }
 }

@@ -10,8 +10,8 @@ import com.baidu.searchbox.cloudcontrol.data.CloudControlRequestInfo;
 import com.baidu.searchbox.cloudcontrol.data.CloudControlResponseInfo;
 import com.baidu.searchbox.cloudcontrol.processor.ICloudControlProcessor;
 import com.baidu.searchbox.config.AppConfig;
-import com.baidu.tieba.dj1;
 import com.baidu.tieba.fj1;
+import com.baidu.tieba.hj1;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -37,10 +37,10 @@ public class CloudCommandProcessor implements ICloudControlProcessor {
     public static final String VALUE_INVALID = "0";
     public static final String VALUE_SUC = "1";
     @Inject
-    public fj1<ICloudCommandObserver> mCloudCommandObservers;
+    public hj1<ICloudCommandObserver> mCloudCommandObservers;
 
     public void initmCloudCommandObservers() {
-        dj1 b = dj1.b();
+        fj1 b = fj1.b();
         this.mCloudCommandObservers = b;
         b.a(new ICloudCommandObserver_CloudCommandProcessor_ListProvider());
     }
@@ -54,8 +54,8 @@ public class CloudCommandProcessor implements ICloudControlProcessor {
     }
 
     private ICloudCommandObserver getCommandObserver(String str) {
-        fj1<ICloudCommandObserver> fj1Var = this.mCloudCommandObservers;
-        if (fj1Var != null && fj1Var.getList() != null && this.mCloudCommandObservers.getList().size() > 0) {
+        hj1<ICloudCommandObserver> hj1Var = this.mCloudCommandObservers;
+        if (hj1Var != null && hj1Var.getList() != null && this.mCloudCommandObservers.getList().size() > 0) {
             for (ICloudCommandObserver iCloudCommandObserver : this.mCloudCommandObservers.getList()) {
                 if (TextUtils.equals(str, iCloudCommandObserver.getCommandType())) {
                     return iCloudCommandObserver;

@@ -4,9 +4,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.u35;
-import com.baidu.tieba.w35;
-import com.baidu.tieba.xb5;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.oc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,18 +27,18 @@ public class FocusFeedBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public FocusFeedBridgeHandler(u35 u35Var) {
-        super(u35Var);
+    public FocusFeedBridgeHandler(j45 j45Var) {
+        super(j45Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u35Var};
+            Object[] objArr = {j45Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((u35) newInitContext.callArgs[0]);
+                super((j45) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -46,18 +46,18 @@ public class FocusFeedBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @w35("appointNotice")
+    @l45("appointNotice")
     public void appointNotice(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null) {
             int optInt = jSONObject.optInt("activityId");
             int optInt2 = jSONObject.optInt("state");
             String optString = jSONObject.optString("curNum");
-            xb5 xb5Var = new xb5();
-            xb5Var.a(optInt);
-            xb5Var.c(optInt2);
-            xb5Var.b(optString);
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, xb5Var));
+            oc5 oc5Var = new oc5();
+            oc5Var.a(optInt);
+            oc5Var.c(optInt2);
+            oc5Var.b(optString);
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016492, oc5Var));
         }
     }
 }

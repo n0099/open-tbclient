@@ -2,9 +2,10 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sl2;
+import com.baidu.tieba.ul2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,13 +14,22 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.HashMap;
 /* loaded from: classes6.dex */
-public final class rl2<W extends sl2> {
+public abstract class rl2<W extends ul2> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final HashMap<String, pl2<W>> a;
+
+    public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
+
+    @NonNull
+    public abstract String b();
+
+    public void c(@NonNull ZeusPlugin.Command command) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -34,7 +44,7 @@ public final class rl2<W extends sl2> {
                 return;
             }
         }
-        b = fo1.a;
+        a = ho1.a;
     }
 
     public rl2() {
@@ -47,69 +57,21 @@ public final class rl2<W extends sl2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public void a(pl2<W> pl2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pl2Var) == null) {
-            if (b) {
-                Log.v("CommandDispatcher", pl2Var.b() + " command added to supported command list");
-            }
-            this.a.put(pl2Var.b(), pl2Var);
-        }
-    }
-
-    public void b(@Nullable ZeusPlugin.Command command, @Nullable W w) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command, w) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                if (w == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", "inlineWidget is null, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                pl2<W> pl2Var = this.a.get(command.what);
-                if (pl2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't dispatched");
-                        return;
-                    }
-                    return;
-                }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " command dispatched");
-                }
-                pl2Var.a(command, w);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't dispatched");
             }
         }
     }
 
-    public void c(@Nullable ZeusPlugin.Command command) {
+    public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-            if (command != null && !TextUtils.isEmpty(command.what)) {
-                pl2<W> pl2Var = this.a.get(command.what);
-                if (pl2Var == null) {
-                    if (b) {
-                        Log.e("CommandDispatcher", command.what + " command is not supported, haven't mocked");
-                        return;
-                    }
-                    return;
-                }
-                if (b) {
-                    Log.d("CommandDispatcher", command.what + " cached command return value processed");
-                }
-                pl2Var.c(command);
-            } else if (b) {
-                Log.e("CommandDispatcher", "command or command.what is null, haven't mocked");
+        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && a) {
+            String str3 = ("【" + w.j0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
+            if (!TextUtils.isEmpty(str2)) {
+                str3 = str3 + "\t【" + str2 + "】";
+            }
+            if (z) {
+                x42.i("【InlineCommand】", str3);
+            } else {
+                Log.v("【InlineCommand】", str3);
             }
         }
     }

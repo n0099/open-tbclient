@@ -8,7 +8,7 @@ import com.baidu.ar.pose.PoseAR;
 import java.util.HashMap;
 import org.json.JSONException;
 import org.json.JSONObject;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class dx {
     public static Uri a(String str, String str2) {
         return Uri.parse("content://" + str).buildUpon().appendPath(str2).build();

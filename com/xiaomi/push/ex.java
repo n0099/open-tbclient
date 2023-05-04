@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.text.TextUtils;
 import com.xiaomi.mipush.sdk.MiPushClient;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum ex {
     COMMAND_REGISTER(MiPushClient.COMMAND_REGISTER),
     COMMAND_UNREGISTER(MiPushClient.COMMAND_UNREGISTER),

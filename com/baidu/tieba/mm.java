@@ -87,7 +87,7 @@ public class mm {
                 try {
                     try {
                         if (jSONObject == null) {
-                            vg8 defaultLog = DefaultLog.getInstance();
+                            dj8 defaultLog = DefaultLog.getInstance();
                             defaultLog.b(TitanDownloadService.TAG, "response parse fail:" + this.b);
                             this.a.onResult(this.b, -1, null);
                             synchronized (mm.class) {
@@ -95,11 +95,11 @@ public class mm {
                             }
                             return;
                         }
-                        vg8 defaultLog2 = DefaultLog.getInstance();
+                        dj8 defaultLog2 = DefaultLog.getInstance();
                         defaultLog2.c(TitanDownloadService.TAG, "onResponse " + jSONObject);
                         PackageInfo j = mm.j(this.c, jSONObject);
                         if (j.errNo != 0) {
-                            vg8 defaultLog3 = DefaultLog.getInstance();
+                            dj8 defaultLog3 = DefaultLog.getInstance();
                             defaultLog3.b(TitanDownloadService.TAG, "return fail, result errno = " + j.errNo);
                             this.a.onResult(this.b, -1, null);
                             synchronized (mm.class) {
@@ -113,7 +113,7 @@ public class mm {
                             boolean unused3 = mm.a = false;
                         }
                     } catch (Exception e) {
-                        vg8 defaultLog4 = DefaultLog.getInstance();
+                        dj8 defaultLog4 = DefaultLog.getInstance();
                         defaultLog4.b(TitanDownloadService.TAG, "TitanRequester onResponse Exception:" + e);
                         this.a.onResult(this.b, -1, null);
                         synchronized (mm.class) {
@@ -203,7 +203,7 @@ public class mm {
                         messageDigest.update(bArr, 0, read);
                     }
                     String d = mm.d(messageDigest.digest());
-                    vg8 defaultLog = DefaultLog.getInstance();
+                    dj8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c(TitanDownloadService.TAG, "download file md5 = " + d);
                     if (!TextUtils.equals(this.b, d)) {
                         DefaultLog.getInstance().b(TitanDownloadService.TAG, "patch md5 not match");
@@ -294,7 +294,7 @@ public class mm {
                 }
                 a = true;
                 String z = hm.p().z(h());
-                vg8 defaultLog = DefaultLog.getInstance();
+                dj8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c(TitanDownloadService.TAG, "start require patch data, url = " + z);
                 HashMap hashMap = new HashMap();
                 hashMap.put("Content-Type", "application/json");
@@ -309,9 +309,11 @@ public class mm {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65543, null, context, str, str2, str3)) == null) {
             File i = i(context);
-            for (File file : i.listFiles()) {
-                if (file.isFile()) {
-                    file.delete();
+            if (i != null && (listFiles = i.listFiles()) != null) {
+                for (File file : listFiles) {
+                    if (file != null && file.isFile()) {
+                        file.delete();
+                    }
                 }
             }
             File file2 = new File(i, str3);
@@ -345,16 +347,16 @@ public class mm {
                 jSONObject5.put("device_ua", "android");
                 jSONObject.put("pubparam", jSONObject5);
             } catch (JSONException e) {
-                vg8 defaultLog = DefaultLog.getInstance();
+                dj8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(TitanDownloadService.TAG, "getCcsPostContent JSONException:" + e);
             }
             try {
                 String jSONObject6 = jSONObject.toString();
-                vg8 defaultLog2 = DefaultLog.getInstance();
+                dj8 defaultLog2 = DefaultLog.getInstance();
                 defaultLog2.c(TitanDownloadService.TAG, "getCcsContent = " + jSONObject6);
                 return jSONObject6.getBytes("UTF-8");
             } catch (UnsupportedEncodingException e2) {
-                vg8 defaultLog3 = DefaultLog.getInstance();
+                dj8 defaultLog3 = DefaultLog.getInstance();
                 defaultLog3.b(TitanDownloadService.TAG, "getCcsPostContent UnsupportedEncodingException:" + e2);
                 return null;
             }
@@ -370,7 +372,7 @@ public class mm {
             int optInt = jSONObject.optInt("errno", -1);
             packageInfo.errNo = optInt;
             if (optInt != 0) {
-                vg8 defaultLog = DefaultLog.getInstance();
+                dj8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(TitanDownloadService.TAG, "response errno = " + optInt);
                 return packageInfo;
             }

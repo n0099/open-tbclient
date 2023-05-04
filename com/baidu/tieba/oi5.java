@@ -1,11 +1,8 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.TbPageContext;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 /* loaded from: classes5.dex */
-public interface oi5 extends eh5 {
-    public static final String b = "com.baidu.tieba.oi5";
-
-    @NonNull
-    pi5 a(@NonNull TbPageContext tbPageContext);
+public interface oi5 {
+    void onSendMessageResult(int i, @Nullable ChatMsg chatMsg);
 }

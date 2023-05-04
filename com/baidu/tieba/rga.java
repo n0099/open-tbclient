@@ -1,97 +1,106 @@
 package com.baidu.tieba;
 
-import android.graphics.SurfaceTexture;
-import android.opengl.GLES20;
-import android.view.MotionEvent;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 /* loaded from: classes6.dex */
-public class rga extends oga {
-    public static /* synthetic */ Interceptable $ic;
+public final class rga {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static long b = 30000;
+    public static long c;
+    public static long d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean B;
 
-    @Override // com.baidu.tieba.nga, com.baidu.tieba.cha
-    public void a(wga wgaVar, SurfaceTexture surfaceTexture) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, wgaVar, surfaceTexture) == null) {
-            wgaVar.h(this.mFullScreen2D, this.t, GlUtil.IDENTITY_MATRIX);
-            wgaVar.f(surfaceTexture);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948122045, "Lcom/baidu/tieba/rga;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948122045, "Lcom/baidu/tieba/rga;");
         }
     }
 
-    public final void i(int i, float[] fArr, int i2, int i3, int i4, int i5, int i6, int i7, float[] fArr2, boolean z, boolean z2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), fArr, Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6), Integer.valueOf(i7), fArr2, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-            GLES20.glBindFramebuffer(36160, i2);
-            GLES20.glFramebufferTexture2D(36160, 36064, 3553, i3, 0);
-            GLES20.glClearColor(0.0f, 0.0f, 0.0f, 1.0f);
-            GLES20.glClear(16640);
-            if (this.z) {
-                if (z) {
-                    int i8 = this.j;
-                    int i9 = this.k;
-                    if (i8 > i9) {
-                        int i10 = this.p;
-                        float f = (i10 * 1.0f) / i8;
-                        GLES20.glViewport(0, (this.q - ((int) (i9 * f))) / 2, i10, (int) (i9 * f));
-                    } else {
-                        GLES20.glViewport(0, 0, this.p, this.q);
-                    }
-                    this.o.drawFrame(this.l, fArr2);
-                }
-                if (z2) {
-                    GLES20.glViewport(0, 0, this.p, this.q);
-                } else {
-                    GLES20.glViewport(i4 + this.w, ((this.q - i7) - i5) - this.x, i6, i7);
-                }
-                this.mFullScreen2D.drawFrame(i, fArr);
-            } else {
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(i, fArr);
-                if (z) {
-                    int i11 = i4 + this.w;
-                    int i12 = this.q;
-                    int i13 = this.k;
-                    GLES20.glViewport(i11, ((i12 - i13) - i5) - this.x, this.j, i13);
-                    this.o.drawFrame(this.l, fArr2);
-                }
-            }
-            GLES20.glBindFramebuffer(36160, 0);
-        }
-    }
-
-    public boolean j(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) ? (this.z && d(motionEvent)) || (!this.z && e(motionEvent)) : invokeL.booleanValue;
-    }
-
-    public boolean k() {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.B : invokeV.booleanValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return invokeV.longValue;
     }
 
-    @Override // com.baidu.ugc.editvideo.record.renderer.MediaBaseRenderer, com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(lf0 lf0Var, int i, float[] fArr) {
+    public static long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLIL(1048580, this, lf0Var, i, fArr) == null) && this.s && this.l != 0) {
-            try {
-                this.mTextureId = i;
-                this.m.updateTexImage();
-                this.m.getTransformMatrix(this.n);
-                f();
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, !this.B, false);
-                GLES20.glViewport(0, 0, this.p, this.q);
-                this.mFullScreen2D.drawFrame(this.t, GlUtil.IDENTITY_MATRIX);
-                i(i, fArr, this.v, this.t, this.f, this.g, this.h, this.i, this.n, false, true);
-            } catch (Throwable th) {
-                lha.c("followvideo", th.toString());
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return d;
+        }
+        return invokeV.longValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            return e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static void b(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65538, null, j) == null) {
+            b = j;
+        }
+    }
+
+    public static void f(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65542, null, j) == null) {
+            c = j;
+        }
+    }
+
+    public static void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(65543, null, z) == null) {
+            e = z;
+        }
+    }
+
+    public static void h(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(65544, null, j) == null) {
+            d = j;
         }
     }
 }

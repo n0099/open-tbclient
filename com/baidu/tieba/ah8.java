@@ -4,11 +4,14 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.HotForum.ForumInfo;
 /* loaded from: classes3.dex */
 public class ah8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
 
     public ah8() {
         Interceptable interceptable = $ic;
@@ -21,18 +24,6 @@ public class ah8 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
-        }
-    }
-
-    public void a(ForumInfo forumInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) && forumInfo != null) {
-            String str = forumInfo.avatar;
-            forumInfo.forum_id.longValue();
-            String str2 = forumInfo.forum_name;
-            forumInfo.time_out.longValue();
-            forumInfo.member_count.longValue();
-            forumInfo.thread_count.longValue();
         }
     }
 }

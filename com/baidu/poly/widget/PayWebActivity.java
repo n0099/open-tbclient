@@ -22,7 +22,7 @@ import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.sapi2.SapiWebView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jg1;
+import com.baidu.tieba.lg1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -188,7 +188,7 @@ public class PayWebActivity extends Activity {
     public void onBackPressed() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            jg1.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
+            lg1.g(119103, "4", "BAIDU-SUPER-WECHAT-WISE", "-106", "取消微信H5支付");
             setResult(0);
             finish();
             super.onBackPressed();
@@ -217,7 +217,7 @@ public class PayWebActivity extends Activity {
                 return true;
             }
             if (str.startsWith("cashier://closewindow")) {
-                jg1.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
+                lg1.g(119102, "3", "BAIDU-SUPER-WECHAT-WISE", "-105", "调起微信H5支付失败");
                 setResult(0);
                 finish();
                 return true;
@@ -238,10 +238,10 @@ public class PayWebActivity extends Activity {
     public final void d() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091189);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f091197);
             this.b = imageView;
             imageView.setOnClickListener(new a(this));
-            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092857);
+            WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f092873);
             this.a = webView;
             webView.setVerticalScrollBarEnabled(false);
             this.a.setHorizontalScrollBarEnabled(false);

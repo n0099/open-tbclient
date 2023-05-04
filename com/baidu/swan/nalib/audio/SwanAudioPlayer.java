@@ -9,9 +9,9 @@ import android.os.Looper;
 import android.os.Message;
 import android.util.SparseArray;
 import androidx.annotation.Keep;
-import com.baidu.tieba.je4;
-import com.baidu.tieba.ke4;
 import com.baidu.tieba.le4;
+import com.baidu.tieba.me4;
+import com.baidu.tieba.ne4;
 @Keep
 /* loaded from: classes3.dex */
 public class SwanAudioPlayer {
@@ -36,13 +36,13 @@ public class SwanAudioPlayer {
     public static volatile SwanAudioPlayer instance = null;
     public static int mSampleBufSize = 192;
     public static int mSampleRate = 44100;
-    public ke4 mAudioRecordListener;
+    public me4 mAudioRecordListener;
     public a mEventHandler;
     public SparseArray<MediaPlayer.OnSeekCompleteListener> mSeekMap = new SparseArray<>();
     public SparseArray<MediaPlayer.OnErrorListener> mErrorMap = new SparseArray<>();
     public SparseArray<MediaPlayer.OnPreparedListener> mPreparedMap = new SparseArray<>();
     public SparseArray<MediaPlayer.OnCompletionListener> mEndMap = new SparseArray<>();
-    public SparseArray<le4> mPausedMap = new SparseArray<>();
+    public SparseArray<ne4> mPausedMap = new SparseArray<>();
 
     private native void destroy(int i);
 
@@ -103,9 +103,9 @@ public class SwanAudioPlayer {
                             if (i != 5) {
                                 if (i != 100) {
                                     if (i == 101) {
-                                        je4 je4Var = (je4) message.obj;
+                                        le4 le4Var = (le4) message.obj;
                                         if (SwanAudioPlayer.this.mAudioRecordListener != null) {
-                                            SwanAudioPlayer.this.mAudioRecordListener.a(je4Var);
+                                            SwanAudioPlayer.this.mAudioRecordListener.a(le4Var);
                                             return;
                                         }
                                         return;
@@ -115,9 +115,9 @@ public class SwanAudioPlayer {
                                 SwanAudioPlayer.this.postRunnable(Long.parseLong(message.obj.toString()));
                                 return;
                             }
-                            le4 le4Var = (le4) SwanAudioPlayer.this.mPausedMap.get(message.arg1);
-                            if (le4Var != null) {
-                                le4Var.onPause();
+                            ne4 ne4Var = (ne4) SwanAudioPlayer.this.mPausedMap.get(message.arg1);
+                            if (ne4Var != null) {
+                                ne4Var.onPause();
                                 return;
                             }
                             return;
@@ -191,17 +191,17 @@ public class SwanAudioPlayer {
         this.mPausedMap.remove(i);
     }
 
-    public void setOnAudioRecordListener(ke4 ke4Var) {
-        this.mAudioRecordListener = ke4Var;
+    public void setOnAudioRecordListener(me4 me4Var) {
+        this.mAudioRecordListener = me4Var;
     }
 
     public void postAudioData(byte[] bArr, long j) {
         if (bArr != null) {
-            je4 je4Var = new je4();
-            je4Var.a = bArr;
-            je4Var.b = j;
-            je4Var.c = System.nanoTime();
-            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, je4Var));
+            le4 le4Var = new le4();
+            le4Var.a = bArr;
+            le4Var.b = j;
+            le4Var.c = System.nanoTime();
+            this.mEventHandler.sendMessage(this.mEventHandler.obtainMessage(101, le4Var));
         }
     }
 
@@ -213,8 +213,8 @@ public class SwanAudioPlayer {
         this.mErrorMap.put(i, onErrorListener);
     }
 
-    public void setOnPauseListener(int i, le4 le4Var) {
-        this.mPausedMap.put(i, le4Var);
+    public void setOnPauseListener(int i, ne4 ne4Var) {
+        this.mPausedMap.put(i, ne4Var);
     }
 
     public void setOnPreparedListener(int i, MediaPlayer.OnPreparedListener onPreparedListener) {

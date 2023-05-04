@@ -10,7 +10,7 @@ import androidx.annotation.Nullable;
 import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.wrappers.Wrappers;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ClientLibraryUtils {
     @KeepForSdk
     public static boolean isPackageSide() {

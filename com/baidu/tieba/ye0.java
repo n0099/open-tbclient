@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.content.res.AssetManager;
-import android.text.TextUtils;
+import android.os.AsyncTask;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,179 +10,223 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
+import java.lang.ref.WeakReference;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class ye0 {
+public class ye0 extends bf0 {
     public static /* synthetic */ Interceptable $ic;
+    public static JSONObject h;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public af0 c;
+    public WeakReference<Context> d;
+    public String e;
+    public File f;
+    public boolean g;
 
-    public ye0(Context context) {
+    /* loaded from: classes7.dex */
+    public class a extends AsyncTask<Void, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ye0 a;
+
+        public a(ye0 ye0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ye0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ye0Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: b */
+        public void onPostExecute(Boolean bool) {
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
+                super.onPostExecute(bool);
+                ye0 ye0Var = this.a;
+                if (bool.booleanValue()) {
+                    i = 2;
+                } else {
+                    i = 3;
+                }
+                ye0Var.d(i);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // android.os.AsyncTask
+        /* renamed from: a */
+        public Boolean doInBackground(Void... voidArr) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                if (ye0.h == null) {
+                    ye0.h = new JSONObject();
+                }
+                if (this.a.f == null) {
+                    try {
+                        ye0.h.put("sdcardPath", StringUtil.NULL_STRING);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                    return Boolean.FALSE;
+                } else if (!this.a.g && this.a.m()) {
+                    try {
+                        ye0.h.put("exist", true);
+                    } catch (JSONException e2) {
+                        e2.printStackTrace();
+                    }
+                    return Boolean.TRUE;
+                } else {
+                    if (!this.a.f.isDirectory()) {
+                        try {
+                            ye0.h.put("file-del", true);
+                        } catch (JSONException e3) {
+                            e3.printStackTrace();
+                        }
+                        this.a.f.delete();
+                    }
+                    File file = new File(this.a.f.getAbsoluteFile() + ".loading");
+                    boolean a = this.a.c.a(this.a.e, file);
+                    if (a) {
+                        try {
+                            ye0.h.put("assetsToSD", true);
+                        } catch (JSONException e4) {
+                            e4.printStackTrace();
+                        }
+                        a = file.renameTo(this.a.f);
+                    }
+                    if (!a) {
+                        try {
+                            ye0.h.put("renameTo-del", true);
+                        } catch (JSONException e5) {
+                            e5.printStackTrace();
+                        }
+                        cf0.b(file);
+                        if (this.a.f.exists()) {
+                            cf0.b(this.a.f);
+                        }
+                    }
+                    try {
+                        ye0.h.put("result", a);
+                    } catch (JSONException e6) {
+                        e6.printStackTrace();
+                    }
+                    if (this.a.l()) {
+                        gf0.a("ARSourceCopyManager", "sdk exist + " + ye0.h.toString());
+                    }
+                    return Boolean.valueOf(a);
+                }
+            }
+            return (Boolean) invokeL.objValue;
+        }
+    }
+
+    public ye0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
     }
 
-    public boolean a(String str, File file) {
-        InterceptResult invokeLL;
+    private Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, file)) == null) {
-            boolean b = b(str, file);
-            if (file.isDirectory()) {
-                File file2 = new File(file, ".nomedia");
-                if (!file2.exists()) {
-                    try {
-                        file2.createNewFile();
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, this)) == null) {
+            WeakReference<Context> weakReference = this.d;
+            if (weakReference != null) {
+                return weakReference.get();
             }
-            return b;
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (Context) invokeV.objValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:80:0x00de A[Catch: IOException -> 0x00da, TRY_LEAVE, TryCatch #0 {IOException -> 0x00da, blocks: (B:76:0x00d6, B:80:0x00de), top: B:88:0x00d6 }] */
-    /* JADX WARN: Removed duplicated region for block: B:88:0x00d6 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public final boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        InputStream inputStream;
-        InputStream open;
+    public final void k() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            AssetManager assets = this.a.getAssets();
-            FileOutputStream fileOutputStream = null;
-            try {
-                String[] list = assets.list(str);
-                if (list.length > 0) {
-                    if (!file.isDirectory() && file.exists()) {
-                        file.delete();
-                    }
-                    if (file.isDirectory() && !file.exists()) {
-                        file.mkdirs();
-                    }
-                    for (String str2 : list) {
-                        if (!TextUtils.isEmpty(str2)) {
-                            b(str + File.separator + str2, new File(file, str2));
-                        }
-                    }
-                    open = null;
-                } else {
-                    File parentFile = file.getParentFile();
-                    if (parentFile != null && !parentFile.exists()) {
-                        parentFile.mkdirs();
-                    }
-                    if (file.exists()) {
-                        file.delete();
-                    }
-                    file.createNewFile();
-                    open = assets.open(str);
-                    try {
-                        FileOutputStream fileOutputStream2 = new FileOutputStream(file);
-                        try {
-                            byte[] bArr = new byte[1024];
-                            while (true) {
-                                int read = open.read(bArr);
-                                if (read == -1) {
-                                    break;
-                                }
-                                fileOutputStream2.write(bArr, 0, read);
-                            }
-                            fileOutputStream2.flush();
-                            fileOutputStream = fileOutputStream2;
-                        } catch (Exception e) {
-                            e = e;
-                            fileOutputStream = fileOutputStream2;
-                            Exception exc = e;
-                            inputStream = open;
-                            e = exc;
-                            try {
-                                e.printStackTrace();
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (IOException e2) {
-                                        e2.printStackTrace();
-                                        return false;
-                                    }
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                return false;
-                            } catch (Throwable th) {
-                                th = th;
-                                if (fileOutputStream != null) {
-                                    try {
-                                        fileOutputStream.close();
-                                    } catch (IOException e3) {
-                                        e3.printStackTrace();
-                                        throw th;
-                                    }
-                                }
-                                if (inputStream != null) {
-                                    inputStream.close();
-                                }
-                                throw th;
-                            }
-                        } catch (Throwable th2) {
-                            th = th2;
-                            fileOutputStream = fileOutputStream2;
-                            Throwable th3 = th;
-                            inputStream = open;
-                            th = th3;
-                            if (fileOutputStream != null) {
-                            }
-                            if (inputStream != null) {
-                            }
-                            throw th;
-                        }
-                    } catch (Exception e4) {
-                        e = e4;
-                    } catch (Throwable th4) {
-                        th = th4;
-                    }
-                }
-                if (fileOutputStream != null) {
-                    try {
-                        fileOutputStream.close();
-                    } catch (IOException e5) {
-                        e5.printStackTrace();
-                        return true;
-                    }
-                }
-                if (open != null) {
-                    open.close();
-                    return true;
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.c = new af0(getContext());
+            new a(this).executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR, null);
+        }
+    }
+
+    public final boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return de0.m();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            File file = this.f;
+            if (file != null && file.isDirectory() && this.f.exists()) {
                 return true;
-            } catch (Exception e6) {
-                e = e6;
-                inputStream = null;
-            } catch (Throwable th5) {
-                th = th5;
-                inputStream = null;
             }
-        } else {
-            return invokeLL.booleanValue;
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.bf0
+    public void b() {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            boolean m = m();
+            JSONObject jSONObject = new JSONObject();
+            h = jSONObject;
+            if (m) {
+                try {
+                    if (ee0.a) {
+                        str = "assets";
+                    } else {
+                        str = "soloader";
+                    }
+                    jSONObject.put("type", str);
+                    h.put("exist", m);
+                    h.put("path", this.f);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (l()) {
+                    gf0.a("ARSourceCopyManager", "sdk exist + " + h.toString());
+                }
+                d(2);
+            } else if (getContext() != null) {
+                try {
+                    if (l()) {
+                        gf0.a("ARSourceCopyManager", "sdk loading .. to " + this.f.getAbsoluteFile());
+                    }
+                    k();
+                } catch (Exception e2) {
+                    e2.printStackTrace();
+                }
+            }
         }
     }
 }

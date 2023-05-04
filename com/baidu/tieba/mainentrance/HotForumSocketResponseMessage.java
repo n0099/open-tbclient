@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ah8;
-import com.baidu.tieba.bh8;
+import com.baidu.tieba.ij8;
+import com.baidu.tieba.jj8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,9 +22,9 @@ import tbclient.HotForum.HotTopicList;
 public class HotForumSocketResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ah8> forumInfoList;
+    public List<ij8> forumInfoList;
     public HotSearchInfoData mSearchInfo;
-    public List<bh8> mTopicInfoList;
+    public List<jj8> mTopicInfoList;
     public String mTopicInfoTitle;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -45,7 +45,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public List<ah8> getForumInfoList() {
+    public List<ij8> getForumInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -63,7 +63,7 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
         return (HotSearchInfoData) invokeV.objValue;
     }
 
-    public List<bh8> getTopicInfoList() {
+    public List<jj8> getTopicInfoList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -104,16 +104,16 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
             if (list != null) {
                 for (ForumInfo forumInfo : list) {
                     if (forumInfo != null) {
-                        ah8 ah8Var = new ah8();
-                        ah8Var.a(forumInfo);
-                        this.forumInfoList.add(ah8Var);
+                        ij8 ij8Var = new ij8();
+                        ij8Var.a(forumInfo);
+                        this.forumInfoList.add(ij8Var);
                     }
                 }
             }
             if (hotForumResIdl.data.hot_search != null) {
                 HotSearchInfoData hotSearchInfoData = new HotSearchInfoData();
                 this.mSearchInfo = hotSearchInfoData;
-                hotSearchInfoData.S(hotForumResIdl.data.hot_search);
+                hotSearchInfoData.X(hotForumResIdl.data.hot_search);
             }
             if (hotForumResIdl.data.hot_topic != null) {
                 this.mTopicInfoList = new ArrayList();
@@ -121,9 +121,9 @@ public class HotForumSocketResponseMessage extends SocketResponsedMessage {
                 if (list2 != null) {
                     for (HotTopicList hotTopicList : list2) {
                         if (hotTopicList != null) {
-                            bh8 bh8Var = new bh8();
-                            bh8Var.d(hotTopicList);
-                            this.mTopicInfoList.add(bh8Var);
+                            jj8 jj8Var = new jj8();
+                            jj8Var.d(hotTopicList);
+                            this.mTopicInfoList.add(jj8Var);
                         }
                     }
                 }

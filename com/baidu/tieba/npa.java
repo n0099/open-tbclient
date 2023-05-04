@@ -1,150 +1,135 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.ChannelNativeAds;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.FunAdSdk;
-import com.fun.ad.sdk.FunNativeAd;
-import com.fun.ad.sdk.internal.api.BaseFunNativeAd;
 import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.qq.e.ads.nativ.MediaView;
-import com.qq.e.ads.nativ.NativeUnifiedADData;
-import com.qq.e.ads.nativ.widget.NativeAdContainer;
-import java.util.ArrayList;
-import java.util.List;
+import java.io.ObjectInput;
+import java.io.ObjectOutput;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Objects;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class npa extends BaseFunNativeAd {
+public class npa extends iva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final NativeUnifiedADData b;
-    public final ChannelNativeAds c;
-    public final MediaView d;
-    public final epa e;
+    public final Set<Ssp> a;
+    public final Set<dqa> b;
+    public final Set<bqa> c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public npa(NativeUnifiedADData nativeUnifiedADData, MediaView mediaView, String str, Ssp.Pid pid, epa epaVar) {
-        super(str, pid);
+    public npa(int i, ObjectInput objectInput) {
+        super(i);
+        HashSet hashSet;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {nativeUnifiedADData, mediaView, str, pid, epaVar};
+            Object[] objArr = {Integer.valueOf(i), objectInput};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (Ssp.Pid) objArr2[1]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = nativeUnifiedADData;
-        this.d = mediaView;
-        this.c = ChannelNativeAds.createGdt(nativeUnifiedADData);
-        this.e = epaVar;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public ChannelNativeAds getChannelNativeAds() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (ChannelNativeAds) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getDescription() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b.getDesc() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getIconUrl() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.b.getIconUrl() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public List<String> getImageUrls() {
-        InterceptResult invokeV;
-        String imgUrl;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<String> imgList = this.b.getImgList();
-            if (imgList == null) {
-                imgList = new ArrayList<>();
+        int readInt = objectInput.readInt();
+        HashSet hashSet2 = new HashSet(readInt);
+        HashMap hashMap = new HashMap();
+        for (int i4 = 0; i4 < readInt; i4++) {
+            Ssp ssp = new Ssp(objectInput.readInt(), objectInput);
+            hashSet2.add(ssp);
+            for (Ssp.Pid pid : ssp.pids) {
+                hashMap.put(Long.valueOf(pid.id), pid);
             }
-            if (imgList.isEmpty() && (imgUrl = this.b.getImgUrl()) != null) {
-                imgList.add(imgUrl);
-            }
-            return imgList;
         }
-        return (List) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public FunNativeAd.InteractionType getInteractionType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.b.isAppAd()) {
-                int appStatus = this.b.getAppStatus();
-                if (appStatus != 0) {
-                    if (appStatus != 1) {
-                        if (appStatus != 2 && appStatus != 4) {
-                            if (appStatus != 8) {
-                                if (appStatus != 16) {
-                                    return FunNativeAd.InteractionType.TYPE_UNKNOW;
-                                }
-                            }
-                        }
-                    }
-                    return FunNativeAd.InteractionType.TYPE_BROWSE;
-                }
-                return FunNativeAd.InteractionType.TYPE_DOWNLOAD;
-            }
-            return FunNativeAd.InteractionType.TYPE_BROWSE;
+        int readInt2 = objectInput.readInt();
+        HashSet hashSet3 = new HashSet(readInt2);
+        for (int i5 = 0; i5 < readInt2; i5++) {
+            hashSet3.add(new dqa(objectInput.readInt(), objectInput, hashMap));
         }
-        return (FunNativeAd.InteractionType) invokeV.objValue;
+        this.a = Collections.unmodifiableSet(hashSet2);
+        this.b = Collections.unmodifiableSet(hashSet3);
+        if (i == 1) {
+            int readInt3 = objectInput.readInt();
+            hashSet = new HashSet(readInt3);
+            for (int i6 = 0; i6 < readInt3; i6++) {
+                hashSet.add(new bqa(objectInput.readInt(), objectInput, hashMap));
+            }
+        } else {
+            hashSet = new HashSet();
+        }
+        this.c = Collections.unmodifiableSet(hashSet);
     }
 
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public String getTitle() {
-        InterceptResult invokeV;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public npa(Set<Ssp> set, Set<dqa> set2, Set<bqa> set3) {
+        super(1);
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.b.getTitle() : (String) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.FunNativeAd, com.fun.ad.sdk.FunNativeInfo
-    public View getVideoView() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) ? this.d : (View) invokeV.objValue;
-    }
-
-    @Override // com.fun.ad.sdk.internal.api.BaseFunNativeAd
-    public void showInternal(Context context, ViewGroup viewGroup, List<View> list, List<View> list2, FunAdInteractionListener funAdInteractionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(1048583, this, context, viewGroup, list, list2, funAdInteractionListener) == null) {
-            if (viewGroup instanceof NativeAdContainer) {
-                this.e.o(this.b, this.mSid, (NativeAdContainer) viewGroup, this.d, list, funAdInteractionListener, this.c.getGdtADStatusChangeListener());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {set, set2, set3};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            LogPrinter.e("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer", new Object[0]);
-            if (FunAdSdk.isLogEnabled()) {
-                throw new IllegalArgumentException("adContainer must derive from com.qq.e.ads.nativ.widgetNativeAdContainer");
+        }
+        this.a = set;
+        this.b = set2;
+        this.c = set3;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj == null || npa.class != obj.getClass()) {
+                return false;
+            }
+            npa npaVar = (npa) obj;
+            return Objects.equals(this.a, npaVar.a) && Objects.equals(this.b, npaVar.b);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? Objects.hash(this.a, this.b) : invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.iva
+    public void srzableInternal(ObjectOutput objectOutput) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, objectOutput) == null) {
+            objectOutput.writeInt(this.a.size());
+            for (Ssp ssp : this.a) {
+                ssp.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.b.size());
+            for (dqa dqaVar : this.b) {
+                dqaVar.srzable(objectOutput);
+            }
+            objectOutput.writeInt(this.c.size());
+            for (bqa bqaVar : this.c) {
+                bqaVar.srzable(objectOutput);
             }
         }
     }

@@ -1,7 +1,6 @@
 package com.baidu.tieba;
 
 import androidx.core.content.FileProvider;
-import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,8 +14,7 @@ public class ko2 {
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
     public String b;
-    public String c;
-    public int d;
+    public int c;
 
     public ko2() {
         Interceptable interceptable = $ic;
@@ -40,8 +38,7 @@ public class ko2 {
             try {
                 jSONObject.put("userId", this.a);
                 jSONObject.put(FileProvider.DISPLAYNAME_FIELD, this.b);
-                jSONObject.put(Config.EVENT_ATTR, this.c);
-                jSONObject.put("role", this.d);
+                jSONObject.put("volumeLevel", this.c);
                 return jSONObject;
             } catch (JSONException unused) {
                 return null;

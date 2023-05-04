@@ -4,7 +4,7 @@ import android.os.IBinder;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.google.android.gms.dynamic.IObjectWrapper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzad extends com.google.android.gms.internal.common.zza implements zzaf {
     public zzad(IBinder iBinder) {
         super(iBinder, "com.google.android.gms.common.internal.IGoogleCertificatesApi");

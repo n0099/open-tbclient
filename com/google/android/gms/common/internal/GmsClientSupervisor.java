@@ -11,7 +11,7 @@ import com.google.android.gms.common.annotation.KeepForSdk;
 import com.google.android.gms.common.util.VisibleForTesting;
 import java.util.concurrent.Executor;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class GmsClientSupervisor {
     @Nullable
     @VisibleForTesting

@@ -59,7 +59,7 @@ public class BDServiceTools implements IBridgeApi {
                 oVar.a((JSONObject) null);
             } catch (Exception e) {
                 e.printStackTrace();
-                b.f.post(new k1(R.string.obfuscated_res_0x7f0f0661, 0));
+                b.f.post(new k1(R.string.obfuscated_res_0x7f0f066e, 0));
                 oVar.a("10102", "Unknow Exception!");
             }
         }

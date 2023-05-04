@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import java.text.SimpleDateFormat;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cn {
     public static String a;
 

@@ -1,43 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.searchbox.http.cookie.CookieManager;
+import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.tieba.ah4;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gf4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface gf4 {
+    hi4 A();
 
-    @Inject
-    public static gk4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return fr2.a();
-        }
-        return (gk4) invokeV.objValue;
-    }
+    int B();
 
-    @Inject
-    public static ef4 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return kr2.a();
-        }
-        return (ef4) invokeV.objValue;
-    }
+    void C();
 
-    @Inject
-    public static ng4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return mr2.a();
-        }
-        return (ng4) invokeV.objValue;
-    }
+    void D(mj4 mj4Var);
+
+    String E();
+
+    int F(String str, int i);
+
+    void G(String str, String str2, Throwable th);
+
+    void H(ak4 ak4Var);
+
+    String I();
+
+    String J(int i);
+
+    void K(String str, String str2, String str3, int i, JSONObject jSONObject, boolean z);
+
+    void L(String str, String str2, String str3, @Nullable Throwable th, boolean z);
+
+    gh4 M();
+
+    float a();
+
+    String b();
+
+    String c();
+
+    void d(byte[] bArr);
+
+    String e();
+
+    CookieManager f();
+
+    String g();
+
+    String h();
+
+    zn4 i();
+
+    long j(int i);
+
+    void k(JSONArray jSONArray, String str, String str2);
+
+    List<qg4> l(String str, long j);
+
+    void m(String str, String str2, ah4.c cVar);
+
+    gh4 n();
+
+    boolean o(boolean z, @NonNull JSONArray jSONArray);
+
+    void p(String str, JSONObject jSONObject, wg4 wg4Var, List<xg4> list);
+
+    String q();
+
+    boolean r(@Nullable yg4 yg4Var);
+
+    void s(PMSAppInfo pMSAppInfo, JSONObject jSONObject, boolean z);
+
+    void t(pk4 pk4Var, fl4 fl4Var);
+
+    String u();
+
+    String v(int i);
+
+    long w(int i);
+
+    boolean x();
+
+    void y(String str, String str2);
+
+    void z(String str, String str2, String str3, boolean z);
 }

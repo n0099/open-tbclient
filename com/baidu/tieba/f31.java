@@ -1,6 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.thread.task.ElasticTask;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,8 +13,9 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class f31 {
     public static /* synthetic */ Interceptable $ic;
-    public static e31 a;
+    public static volatile f31 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
 
     static {
         InterceptResult invokeClinit;
@@ -39,26 +42,43 @@ public class f31 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = 0L;
     }
 
-    public static e31 a() {
+    public static f31 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
+            if (b == null) {
                 synchronized (f31.class) {
-                    if (a == null) {
-                        a = (e31) ServiceManager.getService(e31.a);
-                    }
-                    if (a == null) {
-                        a = e31.b;
+                    if (b == null) {
+                        b = new f31();
                     }
                 }
             }
-            return a;
+            return b;
         }
-        return (e31) invokeV.objValue;
+        return (f31) invokeV.objValue;
+    }
+
+    public ElasticTask a(@NonNull Runnable runnable, @NonNull String str, int i) {
+        InterceptResult invokeLLI;
+        ElasticTask elasticTask;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, runnable, str, i)) == null) {
+            if (runnable != null && !TextUtils.isEmpty(str)) {
+                synchronized (this) {
+                    long j = this.a + 1;
+                    this.a = j;
+                    elasticTask = new ElasticTask(runnable, str, j, i);
+                }
+                return elasticTask;
+            }
+            throw new IllegalArgumentException("illegal params");
+        }
+        return (ElasticTask) invokeLLI.objValue;
     }
 }

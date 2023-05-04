@@ -1,61 +1,54 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.ContextThemeWrapper;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Gallery;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
+import android.app.Activity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import com.yy.mobile.framework.revenuesdk.baseapi.IResult;
+import com.yy.mobile.framework.revenuesdk.baseapi.PayCallBackBean;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.BannerConfigItem;
-import kotlin.TypeCastException;
+import com.yy.mobile.framework.revenuesdk.payapi.IAppPayService;
+import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
+import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.yy.mobile.framework.revenuesdk.payapi.bean.ProductInfo;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.BannerConfigResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.MyBalanceResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.ProductListResult;
+import com.yy.mobile.framework.revenuesdk.payapi.callbackresult.SplitOrderConfigResult;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
+import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
-import tv.athena.revenue.payui.model.ImageLoaderSupplier;
+import tv.athena.revenue.api.IMiddleRevenue;
+import tv.athena.revenue.api.MiddleRevenueConfig;
+import tv.athena.revenue.api.pay.IMiddlePayService;
+import tv.athena.revenue.api.pay.params.AppCustomExpand;
+import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes6.dex */
-public final class uab extends sab<BannerConfigItem.BannerInfo> {
+public final class uab implements lab {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ImageLoaderSupplier c;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948205683, "Lcom/baidu/tieba/uab;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948205683, "Lcom/baidu/tieba/uab;");
-        }
-    }
+    public final String a;
+    public jab b;
+    public final IMiddleRevenue c;
 
     /* loaded from: classes6.dex */
-    public final class a {
+    public static final class a implements IResult<BannerConfigResult> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public ImageView a;
-        public final /* synthetic */ uab b;
+        public final /* synthetic */ IResult a;
 
-        /* JADX DEBUG: Incorrect args count in method signature: ()V */
-        public a(uab uabVar) {
+        public a(IResult iResult) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uabVar};
+                Object[] objArr = {iResult};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -65,150 +58,280 @@ public final class uab extends sab<BannerConfigItem.BannerInfo> {
                     return;
                 }
             }
-            this.b = uabVar;
+            this.a = iResult;
         }
 
-        public final void c(ImageView imageView) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(BannerConfigResult bannerConfigResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, imageView) == null) {
-                this.a = imageView;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, bannerConfigResult, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onSuccess(bannerConfigResult, payCallBackBean);
             }
         }
 
-        public final ImageView a() {
-            InterceptResult invokeV;
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (ImageView) invokeV.objValue;
-        }
-
-        public final void b(BannerConfigItem.BannerInfo bannerInfo, int i, Context context) {
-            ImageView imageView;
-            ImageLoaderSupplier e;
-            String str;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bannerInfo, i, context) == null) && (imageView = this.a) != null && (e = this.b.e()) != null) {
-                if (bannerInfo != null) {
-                    str = bannerInfo.imageUrl;
-                } else {
-                    str = null;
-                }
-                ImageLoaderSupplier.ImageParam imageParam = new ImageLoaderSupplier.ImageParam(str, -1, -1);
-                if (context instanceof ContextThemeWrapper) {
-                    ContextThemeWrapper contextThemeWrapper = (ContextThemeWrapper) context;
-                    if (jab.a.a(contextThemeWrapper.getBaseContext())) {
-                        RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context.baseContext:" + contextThemeWrapper.getBaseContext());
-                        Context baseContext = contextThemeWrapper.getBaseContext();
-                        Intrinsics.checkExpressionValueIsNotNull(baseContext, "context.baseContext");
-                        e.onLoad(baseContext, imageView, imageParam);
-                        return;
-                    }
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context.baseContext null", new Object[0]);
-                } else if (jab.a.a(context)) {
-                    RLog.debug("PluginCenterBannerAdapter", "imageLoaderSupplier load success context:" + context);
-                    e.onLoad(context, imageView, imageParam);
-                } else {
-                    RLog.error("PluginCenterBannerAdapter", "imageLoaderSupplier load error context null", new Object[0]);
-                }
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onFail(i, str, payCallBackBean);
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public uab(Context context) {
-        super(context);
+    /* loaded from: classes6.dex */
+    public static final class b implements IResult<MyBalanceResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IResult a;
+
+        public b(IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(MyBalanceResult myBalanceResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, myBalanceResult, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onSuccess(myBalanceResult, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onFail(i, str, payCallBackBean);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class c implements IResult<ProductListResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IResult a;
+
+        public c(IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(ProductListResult productListResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, productListResult, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onSuccess(productListResult, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onFail(i, str, payCallBackBean);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class d implements IResult<SplitOrderConfigResult> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ IResult a;
+
+        public d(IResult iResult) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iResult};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = iResult;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        /* renamed from: a */
+        public void onSuccess(SplitOrderConfigResult splitOrderConfigResult, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, splitOrderConfigResult, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onSuccess(splitOrderConfigResult, payCallBackBean);
+            }
+        }
+
+        @Override // com.yy.mobile.framework.revenuesdk.baseapi.IResult
+        public void onFail(int i, String str, PayCallBackBean payCallBackBean) {
+            IResult iResult;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, payCallBackBean) == null) && (iResult = this.a) != null) {
+                iResult.onFail(i, str, payCallBackBean);
+            }
+        }
+    }
+
+    public uab(MiddleRevenueConfig middleRevenueConfig, IMiddleRevenue iMiddleRevenue) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {middleRevenueConfig, iMiddleRevenue};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.debug("PluginCenterBannerAdapter", "constructor");
+        this.c = iMiddleRevenue;
+        this.a = "YYPayMiddleService";
+        this.b = new tab(middleRevenueConfig);
+        String str = this.a;
+        RLog.info(str, this + " queryParamsProvider:" + this.b + WebvttCueParser.CHAR_SPACE + "revenue:" + this.c + " config:" + middleRevenueConfig.hashCode() + WebvttCueParser.CHAR_SPACE);
     }
 
-    @NonNull
-    public final a d(View view2) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.lab
+    public void a(int[] iArr, IResult<BannerConfigResult> iResult) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            a aVar = new a(this);
-            aVar.c((ImageView) view2.findViewById(R.id.top_banner_image));
-            ImageView a2 = aVar.a();
-            if (a2 == null) {
-                Intrinsics.throwNpe();
+        if (interceptable == null || interceptable.invokeLL(1048576, this, iArr, iResult) == null) {
+            GetBannerConfigReqParams a2 = this.b.a();
+            Intrinsics.checkExpressionValueIsNotNull(a2, "queryParamsProvider.getBannerConfigReqParams()");
+            a2.setTypes(iArr);
+            IAppPayService appPayService = this.c.getAppPayService();
+            if (appPayService == null) {
+                RLog.error(this.a, "queryBannerConfig error appPayService null", new Object[0]);
+            } else {
+                appPayService.queryBannerConfigRequest(a2, new a(iResult));
             }
-            a2.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            view2.setTag(aVar);
-            return aVar;
         }
-        return (a) invokeL.objValue;
     }
 
-    public final ImageLoaderSupplier e() {
+    @Override // com.baidu.tieba.lab
+    public void e(Map<String, String> map, IResult<ProductListResult> iResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, map, iResult) == null) {
+            QueryCurrencyReqParams e = this.b.e(map);
+            Intrinsics.checkExpressionValueIsNotNull(e, "queryParamsProvider.getQ…qParams(clinetInfoExpand)");
+            IMiddlePayService middlePayService = this.c.getMiddlePayService();
+            if (middlePayService == null) {
+                RLog.error(this.a, "queryProductList error middlePayService null", new Object[0]);
+            } else {
+                middlePayService.queryProductList(e, new c(iResult));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lab
+    public void b(Activity activity, PayFlowType payFlowType, PayType payType, ProductInfo productInfo, AppCustomExpand appCustomExpand, Map<String, String> map, IPayCallback<String> iPayCallback, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, payFlowType, payType, productInfo, appCustomExpand, map, iPayCallback, str, str2, str3}) == null) {
+            mab c2 = this.b.c(payFlowType, map);
+            Intrinsics.checkExpressionValueIsNotNull(c2, "queryParamsProvider.getM…owType, clinetInfoExpand)");
+            c2.s(iPayCallback);
+            c2.q(activity);
+            c2.v(productInfo);
+            c2.x(payType);
+            c2.r(appCustomExpand);
+            c2.C(str);
+            c2.w(payFlowType.getTypeId());
+            c2.z(str3);
+            if (str2 != null) {
+                c2.y(str2);
+            }
+            IMiddlePayService middlePayService = this.c.getMiddlePayService();
+            if (middlePayService == null) {
+                RLog.error(this.a, "queryProductList error middlePayService null", new Object[0]);
+            } else {
+                middlePayService.a(c2);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lab
+    public void c(IResult<MyBalanceResult> iResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iResult) == null) {
+            QueryCurrencyReqParams b2 = this.b.b();
+            Intrinsics.checkExpressionValueIsNotNull(b2, "queryParamsProvider.getQueryMyBalanceReqParams()");
+            IAppPayService appPayService = this.c.getAppPayService();
+            if (appPayService == null) {
+                RLog.error(this.a, "queryMyBalance error appPayService null", new Object[0]);
+            } else {
+                appPayService.queryMyBalance(b2, new b(iResult));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.lab
+    public void d(int i, String str, long j, IResult<SplitOrderConfigResult> iResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j), iResult}) == null) {
+            GetSplitOrderConfigReqParams d2 = this.b.d(i, str, j);
+            Intrinsics.checkExpressionValueIsNotNull(d2, "queryParamsProvider.getS…ms(type, orderId, amount)");
+            IAppPayService appPayService = this.c.getAppPayService();
+            if (appPayService == null) {
+                RLog.error(this.a, "querySplitOrderConfig error appPayService null", new Object[0]);
+            } else {
+                appPayService.querySplitOrderConfig(d2, new d(iResult));
+            }
+        }
+    }
+
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a + hashCode() + " :{revenue:" + this.c + '}';
         }
-        return (ImageLoaderSupplier) invokeV.objValue;
-    }
-
-    public final void f(BannerConfigItem.BannerInfo bannerInfo, a aVar, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, bannerInfo, aVar, i) == null) && bannerInfo != null) {
-            Context mContext = this.b;
-            Intrinsics.checkExpressionValueIsNotNull(mContext, "mContext");
-            aVar.b(bannerInfo, i, mContext);
-        }
-    }
-
-    public final void g(ImageLoaderSupplier imageLoaderSupplier) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, imageLoaderSupplier) == null) {
-            this.c = imageLoaderSupplier;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048580, this, i, view2, viewGroup)) == null) {
-            Object obj = null;
-            if (view2 == null) {
-                view2 = LayoutInflater.from(this.b).inflate(R.layout.pay_ui_layout_plugincenter_banner_item, (ViewGroup) null);
-                if (view2 == null) {
-                    Intrinsics.throwNpe();
-                }
-                view2.setLayoutParams(new Gallery.LayoutParams(-1, -1));
-                aVar = d(view2);
-            } else {
-                if (view2 != null) {
-                    obj = view2.getTag();
-                }
-                if (obj != null) {
-                    aVar = (a) obj;
-                } else {
-                    throw new TypeCastException("null cannot be cast to non-null type tv.athena.revenue.payui.view.banner.PluginCenterBannerAdapter.ViewHolder");
-                }
-            }
-            BannerConfigItem.BannerInfo item = getItem(i);
-            Intrinsics.checkExpressionValueIsNotNull(item, "getItem(position)");
-            f(item, aVar, i);
-            return view2;
-        }
-        return (View) invokeILL.objValue;
+        return (String) invokeV.objValue;
     }
 }

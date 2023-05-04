@@ -1,62 +1,61 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
+import android.content.BroadcastReceiver;
 import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.content.Intent;
+import android.content.IntentFilter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
-import com.baidu.tbadk.core.util.MemberPayStatistic;
-import com.baidu.tieba.d05;
-import com.baidu.tieba.memberCenter.tail.data.TailData;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService;
+import com.baidu.searchbox.live.nps.LiveNPSPluginManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.wallet.YYPayManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.tencent.mm.opensdk.modelpay.PayReq;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sm8 extends BaseAdapter {
+public class sm8 implements ThirdPartWxRechargeService {
     public static /* synthetic */ Interceptable $ic;
+    public static BroadcastReceiver b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public wm8 b;
-    public View.OnClickListener c;
-    public View.OnClickListener d;
-    public View.OnClickListener e;
+    public IWXAPI a;
 
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) ? i : invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 3;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948156331, "Lcom/baidu/tieba/sm8;")) == null) {
+            return;
         }
-        return invokeV.intValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948156331, "Lcom/baidu/tieba/sm8;");
+        }
     }
 
     /* loaded from: classes6.dex */
-    public class a implements View.OnClickListener {
+    public class a extends BroadcastReceiver {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sm8 a;
+        public final /* synthetic */ sm8 this$0;
+        public final /* synthetic */ ThirdPartWxRechargeService.WxPayType val$wxPayType;
 
-        public a(sm8 sm8Var) {
+        public a(sm8 sm8Var, ThirdPartWxRechargeService.WxPayType wxPayType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {sm8Var};
+                Object[] objArr = {sm8Var, wxPayType};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -66,274 +65,114 @@ public class sm8 extends BaseAdapter {
                     return;
                 }
             }
-            this.a = sm8Var;
+            this.this$0 = sm8Var;
+            this.val$wxPayType = wxPayType;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.a.a, 1, false, 6);
-                memberPayActivityConfig.setSceneId("4009001001");
-                memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sm8 a;
-
-        public b(sm8 sm8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sm8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                intent.getExtras();
+                if (this.val$wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
+                    str = "wx_pay_result";
+                } else {
+                    str = "yy_wx_pay_result";
                 }
-            }
-            this.a = sm8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || view2.getTag() == null) {
-                return;
-            }
-            if (!this.a.b.g()) {
-                sm8 sm8Var = this.a;
-                sm8Var.h(sm8Var.a.getString(R.string.obfuscated_res_0x7f0f0318));
-                return;
-            }
-            TailData b = ((um8) view2.getTag()).b();
-            this.a.b.o(b.getId(), !b.isSelected());
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements d05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sm8 a;
-
-        public c(sm8 sm8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sm8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = sm8Var;
-        }
-
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                d05Var.dismiss();
-                MemberPayActivityConfig memberPayActivityConfig = new MemberPayActivityConfig(this.a.a, 1, false, 6);
-                memberPayActivityConfig.setSceneId("4009001001");
-                memberPayActivityConfig.setReferPageClickZone(MemberPayStatistic.REFER_PAGE_POSTING, MemberPayStatistic.CLICK_ZONE_TAILS_POP_UPS_OPENDE_RENEWALFEE_BUTTON);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, memberPayActivityConfig));
+                HashMap hashMap = new HashMap();
+                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, Integer.valueOf(intent.getExtras().getInt("errorCode", -1)));
+                hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, intent.getExtras().getString("errorMsg"));
+                LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str, hashMap);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class d implements d05.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public d(sm8 sm8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {sm8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                d05Var.dismiss();
-            }
-        }
-    }
-
-    public sm8(Context context, wm8 wm8Var, View.OnClickListener onClickListener) {
+    public sm8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, wm8Var, onClickListener};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.d = new a(this);
-        this.e = new b(this);
-        this.a = context;
-        this.c = onClickListener;
-        this.b = wm8Var;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.widget.Adapter
-    /* renamed from: e */
-    public TailData getItem(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
+    public void initWx() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (i >= this.b.i().size()) {
-                return null;
-            }
-            return this.b.i().get(i);
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a == null) {
+            this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
         }
-        return (TailData) invokeI.objValue;
     }
 
-    public final View g(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, view2)) == null) {
-            if (view2 == null || !(view2.getTag() instanceof vm8)) {
-                vm8 vm8Var = new vm8();
-                View a2 = vm8Var.a(this.a);
-                vm8Var.c(this.d);
-                vm8Var.b();
-                return a2;
-            }
-            return view2;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            if (this.b.i().size() == 0) {
-                return 2;
-            }
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    public final View d(View view2) {
-        InterceptResult invokeL;
-        tm8 tm8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 != null && (view2.getTag() instanceof tm8)) {
-                tm8Var = (tm8) view2.getTag();
-            } else {
-                tm8Var = new tm8();
-                view2 = tm8Var.a(this.a);
-                tm8Var.c(this.c);
-                tm8Var.b();
-            }
-            tm8Var.d(3);
-            return view2;
-        }
-        return (View) invokeL.objValue;
-    }
-
-    public final View f(TailData tailData, View view2) {
-        InterceptResult invokeLL;
-        um8 um8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, tailData, view2)) == null) {
-            if (tailData == null) {
-                return null;
-            }
-            if (view2 != null && (view2.getTag() instanceof um8)) {
-                um8Var = (um8) view2.getTag();
-            } else {
-                um8Var = new um8();
-                view2 = um8Var.a(this.a);
-                um8Var.e(this.e);
-                um8Var.c();
-            }
-            um8Var.f(tailData);
-            um8Var.h(tailData);
-            return view2;
-        }
-        return (View) invokeLL.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public int getCount() {
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
+    public boolean isWxInstalled() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.b.i().size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (this.a == null) {
+                this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+            }
+            return this.a.isWXAppInstalled();
         }
-        return invokeV.intValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
+    public final PayReq a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
-            if (getItemViewType(i) == 0) {
-                return f(getItem(i), view2);
-            }
-            if (getItemViewType(i) == 2) {
-                return d(view2);
-            }
-            if (getItemViewType(i) == 3) {
-                return g(view2);
-            }
-            return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            PayReq payReq = new PayReq();
+            payReq.appId = jSONObject.optString("appid");
+            payReq.partnerId = jSONObject.optString("partnerid");
+            payReq.prepayId = jSONObject.optString("prepayid");
+            payReq.packageValue = jSONObject.optString("package");
+            payReq.nonceStr = jSONObject.optString("noncestr");
+            payReq.timeStamp = jSONObject.optString("timestamp");
+            payReq.sign = jSONObject.optString("sign");
+            payReq.extData = "YY";
+            return payReq;
         }
-        return (View) invokeILL.objValue;
+        return (PayReq) invokeL.objValue;
     }
 
-    @SuppressLint({"ResourceAsColor"})
-    public final void h(String str) {
-        a9<?> a2;
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartWxRechargeService
+    public void wxRecharge(String str, ThirdPartWxRechargeService.WxPayType wxPayType) {
+        String str2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, str) != null) || (a2 = g9.a(this.a)) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, str, wxPayType) == null) {
+            try {
+                if (this.a == null) {
+                    this.a = WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), null);
+                }
+                PayReq a2 = a(new JSONObject(str));
+                this.a.registerApp(a2.appId);
+                if (!this.a.sendReq(a2)) {
+                    if (wxPayType instanceof ThirdPartWxRechargeService.WxPayType.WxPayYYLive) {
+                        str2 = "wx_pay_result";
+                    } else {
+                        str2 = "yy_wx_pay_result";
+                    }
+                    HashMap hashMap = new HashMap();
+                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_CODE, 6);
+                    hashMap.put(YYPayManager.KEY_WX_RECHARGE_RESULT_ERROR_STR, "wx_start_failed");
+                    LiveNPSPluginManager.getInstance().dispatchHostEvent(TbadkCoreApplication.getInst().getContext(), str2, hashMap);
+                }
+                if (b != null) {
+                    TbadkCoreApplication.getInst().unregisterReceiver(b);
+                }
+                b = new a(this, wxPayType);
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("WXPayResult");
+                TbadkCoreApplication.getInst().registerReceiver(b, intentFilter);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        d05 d05Var = new d05(a2.getPageActivity());
-        d05Var.setButtonTextColor(R.color.CAM_X0305);
-        d05Var.setMessage(str).setNegativeButton(this.a.getString(R.string.obfuscated_res_0x7f0f038d), new d(this)).setPositiveButton(this.a.getString(R.string.open_now), new c(this)).create(a2).show();
     }
 }

@@ -3,7 +3,7 @@ package com.google.android.gms.common.internal;
 import android.os.Parcel;
 import android.os.Parcelable;
 import com.google.android.gms.common.internal.safeparcel.SafeParcelReader;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzai implements Parcelable.Creator<RootTelemetryConfiguration> {
     /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
     @Override // android.os.Parcelable.Creator

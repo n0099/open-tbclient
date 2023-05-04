@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.JSRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,15 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.concurrent.locks.ReentrantLock;
+import java.util.Iterator;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class ba4 {
+public final class ba4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final ReentrantLock c;
-    public static volatile ba4 d;
+    public static ArrayList<y94> a;
+    public static ArrayList<Integer> b;
+    public static final ba4 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<da4> a;
-    public ea4 b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +33,9 @@ public class ba4 {
                 return;
             }
         }
-        c = new ReentrantLock();
+        c = new ba4();
+        a = new ArrayList<>();
+        b = new ArrayList<>();
     }
 
     public ba4() {
@@ -46,82 +48,77 @@ public class ba4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList(3);
-    }
-
-    public static ba4 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (ba4.class) {
-                    if (d == null) {
-                        d = new ba4();
-                    }
-                }
-            }
-            return d;
-        }
-        return (ba4) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.b = null;
-            this.a.clear();
-        }
-    }
-
-    public final void c(da4 da4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, da4Var) == null) {
-            c.lock();
-            try {
-                if (this.b != null) {
-                    this.b.a(da4Var);
-                } else {
-                    this.a.add(da4Var);
-                }
-            } finally {
-                c.unlock();
             }
         }
     }
 
-    public void f(ea4 ea4Var) {
+    public final void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, ea4Var) == null) {
-            this.b = ea4Var;
-            e();
-        }
-    }
-
-    public void d(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            v42.i("SwanGameBundleUpdateManager", String.format("sendJSMessage : eventType = %s; hasUpdate = %s", str, Boolean.valueOf(z)));
-            da4 da4Var = new da4(str);
-            da4Var.hasUpdate = z;
-            c(da4Var);
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.a.isEmpty() && this.b != null) {
-            c.lock();
-            try {
-                for (da4 da4Var : this.a) {
-                    this.b.a(da4Var);
-                }
-                this.a.clear();
-            } finally {
-                c.unlock();
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            Iterator<y94> it = a.iterator();
+            while (it.hasNext()) {
+                it.next().close();
             }
+        }
+    }
+
+    public final void a(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048576, this, i) != null) || b.contains(Integer.valueOf(i))) {
+            return;
+        }
+        b.add(Integer.valueOf(i));
+    }
+
+    public final y94 b(JSRuntime jsRuntime) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jsRuntime)) == null) {
+            Intrinsics.checkNotNullParameter(jsRuntime, "jsRuntime");
+            y94 y94Var = new y94(jsRuntime);
+            a.add(y94Var);
+            return y94Var;
+        }
+        return (y94) invokeL.objValue;
+    }
+
+    public final boolean c(y94 socket) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, socket)) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean d(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            return b.contains(Integer.valueOf(i));
+        }
+        return invokeI.booleanValue;
+    }
+
+    public final void e(y94 socket) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, socket) == null) {
+            Intrinsics.checkNotNullParameter(socket, "socket");
+            if (a.contains(socket)) {
+                g(socket.A());
+                a.remove(socket);
+            }
+        }
+    }
+
+    public final void g(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            b.remove(Integer.valueOf(i));
         }
     }
 }

@@ -1,5 +1,5 @@
 package com.xiaomi.push;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public enum hn {
     MISC_CONFIG(1),
     PLUGIN_CONFIG(2);

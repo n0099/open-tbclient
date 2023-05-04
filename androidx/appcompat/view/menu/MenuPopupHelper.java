@@ -36,7 +36,7 @@ public class MenuPopupHelper implements MenuHelper {
     public MenuPresenter.Callback mPresenterCallback;
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder) {
-        this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f040564, 0);
+        this(context, menuBuilder, null, false, R.attr.obfuscated_res_0x7f04056d, 0);
     }
 
     public void show(int i, int i2) {
@@ -58,7 +58,7 @@ public class MenuPopupHelper implements MenuHelper {
     }
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2) {
-        this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f040564, 0);
+        this(context, menuBuilder, view2, false, R.attr.obfuscated_res_0x7f04056d, 0);
     }
 
     public MenuPopupHelper(@NonNull Context context, @NonNull MenuBuilder menuBuilder, @NonNull View view2, boolean z, @AttrRes int i) {

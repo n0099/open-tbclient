@@ -13,9 +13,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cs9;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tieba.xv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -34,7 +34,7 @@ public class BubbleItemView extends LinearLayout {
     public ImageView h;
     public TbImageView i;
     public DressItemData j;
-    public cs9 k;
+    public xv9 k;
     public boolean l;
     public View.OnClickListener m;
 
@@ -142,10 +142,10 @@ public class BubbleItemView extends LinearLayout {
         f();
     }
 
-    public void setController(cs9 cs9Var) {
+    public void setController(xv9 xv9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cs9Var) == null) {
-            this.k = cs9Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, xv9Var) == null) {
+            this.k = xv9Var;
         }
     }
 
@@ -166,9 +166,9 @@ public class BubbleItemView extends LinearLayout {
         boolean z = true;
         boolean z2 = !TextUtils.isEmpty(dressItemData.getDynamicUrl());
         if (dressItemData.isDefault()) {
-            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f08070e);
+            this.d.setDefaultResource(R.drawable.obfuscated_res_0x7f080716);
             this.d.N("", 10, false);
-            this.e.setText(R.string.obfuscated_res_0x7f0f04c1);
+            this.e.setText(R.string.obfuscated_res_0x7f0f04cb);
             this.e.setGravity(17);
             this.e.setTextSize(0, ii.g(this.a, R.dimen.obfuscated_res_0x7f0701f9));
             this.e.setTextColor(getResources().getColor(R.color.CAM_X0108));
@@ -221,22 +221,22 @@ public class BubbleItemView extends LinearLayout {
     public final void f() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0179, this);
+            View inflate = LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d017c, this);
             this.b = inflate;
-            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0915e1);
+            this.c = (FrameLayout) inflate.findViewById(R.id.obfuscated_res_0x7f0915ef);
             this.d = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0903c5);
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a4f);
+            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091a5c);
             this.f = tbImageView;
             tbImageView.setDefaultResource(R.drawable.transparent_bg);
             this.f.setDefaultBgResource(R.drawable.transparent_bg);
-            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09214b);
+            TbImageView tbImageView2 = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09215f);
             this.g = tbImageView2;
             tbImageView2.setDefaultResource(R.drawable.transparent_bg);
             this.g.setDefaultBgResource(R.drawable.transparent_bg);
-            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906bf);
+            this.h = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906c2);
             this.e = new TextView(this.a);
             this.d.setOnClickListener(this.m);
-            this.i = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f75);
+            this.i = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f090f84);
         }
     }
 }

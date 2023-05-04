@@ -1,305 +1,121 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.text.TextPaint;
-import android.text.TextUtils;
-import android.text.method.LinkMovementMethod;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.graphics.Rect;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.atomData.PbActivityConfig;
+import com.baidu.tbadk.core.data.BaijiahaoData;
+import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbEnum;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.chat.MsglistActivity;
-import com.baidu.tieba.im.message.chat.ChatMessage;
-import com.baidu.tieba.im.message.chat.PersonalChatMessage;
-import com.baidu.tieba.setting.SecretSettingActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mx7 extends x8<MsglistActivity<?>> {
+public class mx7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView b;
-    public LinearLayout c;
-    public TextView d;
-    public TextView e;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
-        public final /* synthetic */ mx7 d;
-
-        public a(mx7 mx7Var, long j, String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mx7Var, Long.valueOf(j), str, str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = mx7Var;
-            this.a = j;
-            this.b = str;
-            this.c = str2;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.d.mContext.getPageActivity(), String.valueOf(this.a), this.b, this.c, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b extends jq5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ChatMessage a;
-        public final /* synthetic */ mx7 b;
-
-        public b(mx7 mx7Var, ChatMessage chatMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mx7Var, chatMessage};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = mx7Var;
-            this.a = chatMessage;
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(@NonNull View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.b.mContext == null) {
+    public static void a(qi6 qi6Var, StatisticItem statisticItem) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65536, null, qi6Var, statisticItem) == null) && qi6Var != null && qi6Var.getThreadData() != null && statisticItem != null) {
+            if (qi6Var.getThreadData().getBaijiahaoData() != null) {
+                BaijiahaoData baijiahaoData = qi6Var.getThreadData().getBaijiahaoData();
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 3);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM4, baijiahaoData.oriUgcNid);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM6, baijiahaoData.oriUgcVid);
                 return;
             }
-            iz8 iz8Var = new iz8(TbadkCoreApplication.getInst());
-            iz8Var.b(this.b.mContext.getUniqueId());
-            iz8Var.c(String.valueOf(this.a.getUserId()));
-            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1));
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(@NonNull TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
-                textPaint.setUnderlineText(false);
-            }
+            statisticItem.param(TiebaStatic.Params.OBJ_PARAM5, 1);
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class c extends jq5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c(mx7 mx7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mx7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
-        public void updateDrawState(@NonNull TextPaint textPaint) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
-                super.updateDrawState(textPaint);
-                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
-                textPaint.setUnderlineText(false);
-            }
-        }
-
-        @Override // android.text.style.ClickableSpan
-        public void onClick(@NonNull View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SecretSettingActivityConfig(TbadkCoreApplication.getInst())));
-                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 2));
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mx7(TbPageContext<MsglistActivity<?>> tbPageContext) {
-        super(tbPageContext, R.layout.msg_msgmid_view);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((a9) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = null;
-        B();
-    }
-
-    public void E(ChatMessage chatMessage) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) {
-            this.c.setVisibility(8);
-            if (chatMessage == null) {
-                this.b.setText("");
-            } else if (!C(chatMessage) && !D(chatMessage)) {
-                this.b.setVisibility(0);
-                String C = f28.C(chatMessage);
-                if (!TextUtils.isEmpty(C)) {
-                    this.b.setText(C);
-                } else {
-                    this.b.setText("");
-                }
-            }
-        }
-    }
-
-    public final void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) u(R.id.tex_msgcontent);
-            this.b = textView;
-            textView.setMovementMethod(LinkMovementMethod.getInstance());
-            this.c = (LinearLayout) u(R.id.lay_add_friend);
-            this.d = (TextView) u(R.id.btn_add_friend);
-            this.e = (TextView) u(R.id.text_add_friend);
-            this.c.setVisibility(8);
-        }
-    }
-
-    public final boolean C(ChatMessage chatMessage) {
+    public static boolean b(ThreadData threadData) {
         InterceptResult invokeL;
-        UserData toUserInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMessage)) == null) {
-            if (chatMessage != null && (chatMessage instanceof PersonalChatMessage) && chatMessage.getMsgType() == 11 && !TextUtils.isEmpty(chatMessage.getContent())) {
-                try {
-                    JSONObject jSONObject = new JSONObject(chatMessage.getContent());
-                    String optString = jSONObject.optString("eventId");
-                    if (optString != null && optString.equals(TbEnum.SystemMessage.EVENT_ID_ADD_FRIEND)) {
-                        this.c.setVisibility(0);
-                        this.b.setVisibility(8);
-                        String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
-                        JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
-                        if (optJSONObject == null) {
-                            return false;
-                        }
-                        int optInt = optJSONObject.optInt("button_type");
-                        String optString3 = optJSONObject.optString("name");
-                        long optLong = optJSONObject.optLong("userId");
-                        if (chatMessage.getUserId() == optLong) {
-                            toUserInfo = chatMessage.getUserInfo();
-                        } else {
-                            toUserInfo = chatMessage.getToUserInfo();
-                        }
-                        String userName = toUserInfo.getUserName();
-                        String portrait = toUserInfo.getPortrait();
-                        this.e.setText(optString2);
-                        if (optInt == 1) {
-                            this.d.setVisibility(0);
-                            this.d.setText(optString3);
-                            this.d.setOnClickListener(new a(this, optLong, userName, portrait));
-                            return true;
-                        }
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, threadData)) == null) {
+            if (threadData == null || threadData.isShareThread) {
+                return false;
             }
-            return false;
+            int i = threadData.threadType;
+            if (i != 0 && i != 11 && i != 40 && !threadData.isUgcThreadType()) {
+                return false;
+            }
+            return true;
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean D(ChatMessage chatMessage) {
-        InterceptResult invokeL;
+    public static void c(ax4 ax4Var, Context context, int i, boolean z, Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage)) == null) {
-            if (chatMessage != null && (chatMessage instanceof PersonalChatMessage) && chatMessage.getMsgType() == 11 && !TextUtils.isEmpty(chatMessage.getContent())) {
-                try {
-                    String optString = new JSONObject(chatMessage.getContent()).optString("eventId");
-                    if (!TextUtils.isEmpty(optString) && optString.equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
-                        this.c.setVisibility(8);
-                        this.b.setVisibility(0);
-                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-                        String string = TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning0);
-                        SpannableString spannableString = new SpannableString(TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning_report));
-                        String string2 = TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning1);
-                        SpannableString spannableString2 = new SpannableString(TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning_close_stranger));
-                        String string3 = TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning2);
-                        b bVar = new b(this, chatMessage);
-                        c cVar = new c(this);
-                        spannableString.setSpan(bVar, 0, spannableString.length(), 33);
-                        spannableString2.setSpan(cVar, 0, spannableString2.length(), 33);
-                        spannableStringBuilder.append((CharSequence) string).append((CharSequence) spannableString).append((CharSequence) string2).append((CharSequence) spannableString2).append((CharSequence) string3);
-                        this.b.setText(spannableStringBuilder);
-                        this.b.setMovementMethod(LinkMovementMethod.getInstance());
-                        return true;
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
-                }
+        if ((interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{ax4Var, context, Integer.valueOf(i), Boolean.valueOf(z), rect}) == null) && ax4Var != null && ax4Var.getThreadData() != null && context != null) {
+            ThreadData threadData = ax4Var.getThreadData();
+            PbActivityConfig createFromThreadCfg = new PbActivityConfig(context).createFromThreadCfg(threadData, null, "video_tab", 18003, true, false, false);
+            createFromThreadCfg.setForumId(String.valueOf(threadData.getFid()));
+            createFromThreadCfg.setFrom("from_video_tab");
+            createFromThreadCfg.setForumName(threadData.getForum_name());
+            createFromThreadCfg.setStartFrom(i);
+            createFromThreadCfg.setVideoOriginArea(rect);
+            if (ax4Var.getPbInputLocate() != null) {
+                createFromThreadCfg.addLocateParam(ax4Var.getPbInputLocate());
             }
-            return false;
+            if (TbSingleton.getInstance().isPbPreloadSwitchOn() && b(threadData)) {
+                createFromThreadCfg.setNeedPreLoad(true);
+                q67.update(threadData);
+            }
+            createFromThreadCfg.setVideo_source("video_tab");
+            createFromThreadCfg.setJumpGodReply(z);
+            vh6.a(threadData.getTid());
+            MessageManager.getInstance().sendMessage(new CustomMessage(2004001, createFromThreadCfg));
         }
-        return invokeL.booleanValue;
+    }
+
+    public static void d(qi6 qi6Var) {
+        StatisticItem n;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, qi6Var) == null) && qi6Var != null && (n = qi6Var.n("c13583", true)) != null) {
+            a(qi6Var, n);
+            TiebaStatic.log(n);
+        }
+    }
+
+    public static void e(qi6 qi6Var) {
+        StatisticItem n;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, qi6Var) == null) && qi6Var != null && (n = qi6Var.n("c13584", true)) != null) {
+            a(qi6Var, n);
+            n.param(TiebaStatic.Params.OBJ_FLOOR, qi6Var.position + 1);
+            TiebaStatic.log(n);
+        }
+    }
+
+    public static void f(qi6 qi6Var) {
+        StatisticItem n;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65541, null, qi6Var) == null) && qi6Var != null && (n = qi6Var.n("c13585", true)) != null) {
+            a(qi6Var, n);
+            TiebaStatic.log(n);
+        }
+    }
+
+    public static void g(qi6 qi6Var) {
+        StatisticItem n;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65542, null, qi6Var) == null) && qi6Var != null && (n = qi6Var.n("c13586", true)) != null) {
+            a(qi6Var, n);
+            TiebaStatic.log(n);
+        }
+    }
+
+    public static void h(qi6 qi6Var) {
+        StatisticItem n;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65543, null, qi6Var) == null) && qi6Var != null && (n = qi6Var.n("c13587", true)) != null) {
+            a(qi6Var, n);
+            TiebaStatic.log(n);
+        }
     }
 }

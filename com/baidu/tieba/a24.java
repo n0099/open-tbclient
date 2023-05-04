@@ -1,272 +1,36 @@
 package com.baidu.tieba;
 
-import android.media.MediaPlayer;
+import android.media.MediaMetadataRetriever;
 import android.os.Handler;
+import android.os.HandlerThread;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.swan.nalib.audio.SwanAudioPlayer;
+import com.baidu.tieba.z14;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.net.MalformedURLException;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class a24 implements z14 {
+public class a24 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
+    public static volatile a24 h;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanAudioPlayer a;
-    public String b;
-    public boolean c;
-    public float d;
-    public int e;
-    public MediaPlayer.OnPreparedListener f;
-    public MediaPlayer.OnCompletionListener g;
-    public MediaPlayer.OnErrorListener h;
-    public MediaPlayer.OnSeekCompleteListener i;
-    public le4 j;
-    public Handler k;
-
-    @Override // com.baidu.tieba.z14
-    public void g(MediaPlayer.OnInfoListener onInfoListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onInfoListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void n(MediaPlayer.OnBufferingUpdateListener onBufferingUpdateListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, onBufferingUpdateListener) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes3.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ a24 b;
-
-        /* loaded from: classes3.dex */
-        public class a implements MediaPlayer.OnPreparedListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.media.MediaPlayer.OnPreparedListener
-            public void onPrepared(MediaPlayer mediaPlayer) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && this.a.b.f != null) {
-                    this.a.b.f.onPrepared(mediaPlayer);
-                }
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class b implements MediaPlayer.OnCompletionListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public b(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.media.MediaPlayer.OnCompletionListener
-            public void onCompletion(MediaPlayer mediaPlayer) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && this.a.b.g != null) {
-                    this.a.b.g.onCompletion(mediaPlayer);
-                }
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class c implements MediaPlayer.OnSeekCompleteListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public c(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.media.MediaPlayer.OnSeekCompleteListener
-            public void onSeekComplete(MediaPlayer mediaPlayer) {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) && this.a.b.i != null) {
-                    this.a.b.i.onSeekComplete(mediaPlayer);
-                }
-            }
-        }
-
-        /* loaded from: classes3.dex */
-        public class d implements MediaPlayer.OnErrorListener {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public d(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // android.media.MediaPlayer.OnErrorListener
-            public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-                InterceptResult invokeLII;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                    if (this.a.b.h != null) {
-                        return this.a.b.h.onError(mediaPlayer, i, i2);
-                    }
-                    return false;
-                }
-                return invokeLII.booleanValue;
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.a24$e$e  reason: collision with other inner class name */
-        /* loaded from: classes3.dex */
-        public class C0207e implements le4 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public C0207e(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // com.baidu.tieba.le4
-            public void onPause() {
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b.j != null) {
-                    this.a.b.j.onPause();
-                }
-            }
-        }
-
-        public e(a24 a24Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a24Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = a24Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.b = this.a;
-                File file = new File(this.a);
-                if (file.exists() && !file.isDirectory()) {
-                    a24 a24Var = this.b;
-                    a24Var.e = a24Var.a.setDataSource(this.a, (int) file.length());
-                    this.b.a.setOnPreparedListener(this.b.e, new a(this));
-                    this.b.a.setOnCompletionListener(this.b.e, new b(this));
-                    this.b.a.setOnSeekCompleteListener(this.b.e, new c(this));
-                    this.b.a.setOnErrorListener(this.b.e, new d(this));
-                    this.b.a.setOnPauseListener(this.b.e, new C0207e(this));
-                    this.b.a.prepare(this.b.e);
-                }
-            }
-        }
-    }
+    public x14 a;
+    public HashMap<String, Long> b;
+    public String c;
+    public HandlerThread d;
+    public Handler e;
+    public SwanAudioPlayer f;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -295,8 +59,9 @@ public class a24 implements z14 {
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && 2 != this.a.a.getState(this.a.e)) {
-                this.a.a.play(this.a.e, this.a.d, this.a.c);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.f = SwanAudioPlayer.getInstance();
+                SwanAudioPlayer.settingNativeAudioParameters(AppRuntime.getApplication());
             }
         }
     }
@@ -329,7 +94,7 @@ public class a24 implements z14 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.pause(this.a.e);
+                this.a.f.pauseAll();
             }
         }
     }
@@ -338,44 +103,9 @@ public class a24 implements z14 {
     public class c implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ float a;
-        public final /* synthetic */ a24 b;
-
-        public c(a24 a24Var, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a24Var, Float.valueOf(f)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = a24Var;
-            this.a = f;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.a.seek(this.b.e, (int) this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ a24 a;
 
-        public d(a24 a24Var) {
+        public c(a24 a24Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -397,84 +127,88 @@ public class a24 implements z14 {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a.stop(this.a.e);
+                this.a.f.resume();
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class f implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ boolean a;
-        public final /* synthetic */ a24 b;
-
-        public f(a24 a24Var, boolean z) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947563270, "Lcom/baidu/tieba/a24;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a24Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = a24Var;
-            this.a = z;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947563270, "Lcom/baidu/tieba/a24;");
+                return;
+            }
         }
+        g = ho1.a;
+        qd3.b();
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (2 == this.b.a.getState(this.b.e)) {
-                    this.b.a.setLoop(this.b.e, this.a);
+    public static a24 h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (h == null) {
+                synchronized (a24.class) {
+                    if (h == null) {
+                        h = new a24();
+                    }
                 }
-                this.b.c = this.a;
             }
+            return h;
+        }
+        return (a24) invokeV.objValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.d == null) {
+            HandlerThread handlerThread = new HandlerThread("audio_thread");
+            this.d = handlerThread;
+            handlerThread.start();
+            this.e = new Handler(this.d.getLooper());
         }
     }
 
-    /* loaded from: classes3.dex */
-    public class g implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ float a;
-        public final /* synthetic */ a24 b;
-
-        public g(a24 a24Var, float f) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {a24Var, Float.valueOf(f)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = a24Var;
-            this.a = f;
+    public Handler e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
         }
+        return (Handler) invokeV.objValue;
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (2 == this.b.a.getState(this.b.e)) {
-                    this.b.a.setVolume(this.b.e, this.a);
-                }
-                this.b.d = this.a;
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            SwanAudioPlayer swanAudioPlayer = this.f;
+            if (swanAudioPlayer != null) {
+                swanAudioPlayer.isAudioPlayer();
+                return false;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void k() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && this.f != null) {
+            e().post(new c(this));
+        }
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.f != null) {
+            e().postDelayed(new b(this), 50L);
         }
     }
 
@@ -482,141 +216,87 @@ public class a24 implements z14 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = SwanAudioPlayer.getInstance();
-        this.k = y14.h().e();
+        this.b = new HashMap<>();
+        this.c = t14.g();
+        this.a = new x14(this.c);
+        c();
+        e().post(new a(this));
     }
 
-    @Override // com.baidu.tieba.m14
-    public void destroy() {
+    public String g(String str) throws MalformedURLException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.release(this.e);
-            stop();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return this.c + t14.d(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void j(String str, w14 w14Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048582, this, str, w14Var) == null) {
+            this.a.e(str, w14Var);
         }
     }
 
-    @Override // com.baidu.tieba.m14
-    public int getDuration() {
-        InterceptResult invokeV;
+    public void m(JsArrayBuffer jsArrayBuffer, z14.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.getDuration(this.e);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.m14
-    public void pause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.k.post(new b(this));
+        if (interceptable == null || interceptable.invokeLL(1048585, this, jsArrayBuffer, bVar) == null) {
+            z14.f().h(jsArrayBuffer, bVar);
         }
     }
 
-    @Override // com.baidu.tieba.m14
-    public void play() {
+    public synchronized b24 d(String str, boolean z) {
+        InterceptResult invokeLZ;
+        c24 c24Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.k.post(new a(this));
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z)) == null) {
+            synchronized (this) {
+                if (g) {
+                    Log.e("AudioPlayerManager", "create media player src = " + str);
+                }
+                c24Var = new c24();
+            }
+            return c24Var;
         }
+        return (b24) invokeLZ.objValue;
     }
 
-    @Override // com.baidu.tieba.m14
-    public void stop() {
+    public long f(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.k.post(new d(this));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (this.b.containsKey(str)) {
+                return this.b.get(str).longValue();
+            }
+            MediaMetadataRetriever mediaMetadataRetriever = new MediaMetadataRetriever();
+            try {
+                try {
+                    mediaMetadataRetriever.setDataSource(str);
+                    long parseLong = Long.parseLong(mediaMetadataRetriever.extractMetadata(9));
+                    mediaMetadataRetriever.release();
+                    this.b.put(str, Long.valueOf(parseLong));
+                    return parseLong;
+                } catch (Exception e) {
+                    if (g) {
+                        e.printStackTrace();
+                    }
+                    mediaMetadataRetriever.release();
+                    return 0L;
+                }
+            } finally {
+                mediaMetadataRetriever.release();
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.m14
-    public int v() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return this.a.getPosition(this.e);
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void a(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.k.post(new f(this, z));
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void c(String str) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            this.k.post(new e(this, str));
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void f(le4 le4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, le4Var) == null) {
-            this.j = le4Var;
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void h(MediaPlayer.OnSeekCompleteListener onSeekCompleteListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, onSeekCompleteListener) == null) {
-            this.i = onSeekCompleteListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void j(MediaPlayer.OnPreparedListener onPreparedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onPreparedListener) == null) {
-            this.f = onPreparedListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void k(MediaPlayer.OnErrorListener onErrorListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onErrorListener) == null) {
-            this.h = onErrorListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void q(MediaPlayer.OnCompletionListener onCompletionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, onCompletionListener) == null) {
-            this.g = onCompletionListener;
-        }
-    }
-
-    @Override // com.baidu.tieba.m14
-    public void seek(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048590, this, f2) == null) {
-            this.k.post(new c(this, f2));
-        }
-    }
-
-    @Override // com.baidu.tieba.z14
-    public void setVolume(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048591, this, f2) == null) {
-            this.k.post(new g(this, f2));
-        }
+        return invokeL.longValue;
     }
 }

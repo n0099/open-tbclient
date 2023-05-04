@@ -8,7 +8,7 @@ import com.baidu.searchbox.aperf.param.ThreadCollector;
 import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.config.AppConfig;
 import com.baidu.searchbox.ruka.ioc.IBlockMonitor;
-import com.baidu.tieba.yra;
+import com.baidu.tieba.uva;
 import com.github.anrwatchdog.ANRError;
 import java.text.SimpleDateFormat;
 import java.util.LinkedHashMap;
@@ -23,14 +23,14 @@ public class BlockMonitor implements IBlockMonitor {
     public static final SimpleDateFormat TIME_FORMATTER = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
     public static String sBlockTimeStamp;
     public boolean mMonitorStarted = false;
-    public yra mBlockWatchDog = null;
+    public uva mBlockWatchDog = null;
 
     /* loaded from: classes2.dex */
-    public static class BlockListenerImpl implements yra.f {
+    public static class BlockListenerImpl implements uva.f {
         public BlockListenerImpl() {
         }
 
-        @Override // com.baidu.tieba.yra.f
+        @Override // com.baidu.tieba.uva.f
         public void onAppNotResponding(ANRError aNRError) {
             Log.d(BlockMonitor.TAG, "BlockWatchDog catch block", aNRError);
             BlockMonitor.collectData(aNRError.getSTStackMap());
@@ -44,9 +44,9 @@ public class BlockMonitor implements IBlockMonitor {
 
     @Override // com.baidu.searchbox.ruka.ioc.IBlockMonitor
     public void stopBlockMonitor() {
-        yra yraVar;
-        if (this.mMonitorStarted && (yraVar = this.mBlockWatchDog) != null) {
-            yraVar.interrupt();
+        uva uvaVar;
+        if (this.mMonitorStarted && (uvaVar = this.mBlockWatchDog) != null) {
+            uvaVar.interrupt();
             this.mMonitorStarted = false;
         }
     }
@@ -100,9 +100,9 @@ public class BlockMonitor implements IBlockMonitor {
             return;
         }
         this.mMonitorStarted = true;
-        yra yraVar = new yra(i);
-        this.mBlockWatchDog = yraVar;
-        yraVar.e();
+        uva uvaVar = new uva(i);
+        this.mBlockWatchDog = uvaVar;
+        uvaVar.e();
         this.mBlockWatchDog.d(true);
         this.mBlockWatchDog.c(new BlockListenerImpl());
         if (AppConfig.isDebug()) {

@@ -1,305 +1,173 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import android.view.MotionEvent;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.ScrollView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j42 {
+public final class j42 extends e32 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String L;
+    public int M;
+    public String N;
+    public String O;
+    public boolean P;
+    public boolean Q;
+    public boolean R;
+    public boolean S;
+    public boolean T;
+    public int U;
+    public int V;
+    public boolean W;
+    public boolean X;
 
-    /* loaded from: classes5.dex */
-    public static class a implements View.OnTouchListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.view.View.OnTouchListener
-        public boolean onTouch(View view2, MotionEvent motionEvent) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
-                if (view2.getParent() != null) {
-                    view2.getParent().requestDisallowInterceptTouchEvent(true);
-                    return false;
-                }
-                return false;
-            }
-            return invokeLL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ScrollView a;
-        public final /* synthetic */ d42 b;
-
-        public b(ScrollView scrollView, d42 d42Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {scrollView, d42Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = scrollView;
-            this.b = d42Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.smoothScrollTo(0, this.b.D);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833249, "Lcom/baidu/tieba/j42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833249, "Lcom/baidu/tieba/j42;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public j42() {
+        super("textArea", "componentId");
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fo1.a;
+        this.L = "";
+        this.N = "";
+        this.O = "";
     }
 
-    public static FrameLayout.LayoutParams a() {
-        InterceptResult invokeV;
+    private void i() {
+        JSONObject jSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-1, -1);
-            layoutParams.leftMargin = 0;
-            layoutParams.topMargin = 0;
-            return layoutParams;
+        if ((interceptable == null || interceptable.invokeV(65537, this) == null) && (jSONObject = this.j) != null) {
+            int g = ol3.g(c(jSONObject, "minHeight", 0.0f));
+            if (g < 0) {
+                g = 0;
+            }
+            this.U = g;
+            int g2 = ol3.g(c(this.j, "maxHeight", 2.1474836E9f));
+            if (g2 < 0) {
+                g2 = Integer.MAX_VALUE;
+            }
+            this.V = g2;
         }
-        return (FrameLayout.LayoutParams) invokeV.objValue;
     }
 
-    public static boolean b(@NonNull k42 k42Var, @NonNull l32 l32Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
-        InterceptResult invokeLLL;
+    @Override // com.baidu.tieba.e32, com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public void a(JSONObject jSONObject) throws JSONException {
+        dy2 dy2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, k42Var, l32Var, swanAppComponentContainerView)) == null) {
-            v42.c("Component-Container-Scroll", "insert component（scroll）");
-            if (l32Var.h == null) {
-                o42.a("Component-Container-Scroll", "insert component（scroll） with a null position");
-                return false;
-            } else if (TextUtils.isEmpty(l32Var.d)) {
-                ScrollView h = h(swanAppComponentContainerView, l32Var);
-                if (h == null || !k42Var.a.c(h, l32Var.h)) {
-                    return false;
-                }
-                return true;
-            } else {
-                SwanAppComponentContainerView a2 = k42Var.a(l32Var.d);
-                if (a2 == null) {
-                    v42.c("Component-Container-Scroll", "insert component（scroll） to parent with a null parent container view");
-                    return false;
-                }
-                ScrollView h2 = h(swanAppComponentContainerView, l32Var);
-                if (h2 == null) {
-                    v42.c("Component-Container-Scroll", "insert component（scroll） to parent with a null scroll view");
-                    return false;
-                }
-                a2.addView(h2, l32Var.b());
-                return true;
-            }
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean g(@NonNull k42 k42Var, @NonNull l32 l32Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65543, null, k42Var, l32Var, swanAppComponentContainerView)) == null) {
-            if (TextUtils.isEmpty(l32Var.d)) {
-                return k42Var.a.removeView(swanAppComponentContainerView.getScrollView());
-            }
-            SwanAppComponentContainerView a2 = k42Var.a(l32Var.d);
-            if (a2 == null) {
-                v42.c("Component-Container-Scroll", "remove component（scroll） to parent with a null parent container view");
-                return false;
-            }
-            ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-            boolean z = true;
-            if (scrollView != null && scrollView.getParent() == a2) {
-                a2.removeView(scrollView);
-                return true;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("remove component（scroll）to parent with a illegal parent view");
-            if (scrollView != null) {
-                z = false;
-            }
-            sb.append(z);
-            o42.a("Component-Container-Scroll", sb.toString());
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static boolean c(@NonNull l32 l32Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, l32Var)) == null) {
-            if ((l32Var instanceof d42) && TextUtils.equals(((d42) l32Var).E, "scroll")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean d(@NonNull k42 k42Var, @NonNull k32 k32Var, @NonNull l32 l32Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull n42 n42Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, k42Var, k32Var, l32Var, swanAppComponentContainerView, n42Var)) == null) {
-            if (!(l32Var instanceof d42)) {
-                return false;
-            }
-            ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-            if (n42Var.a(7)) {
-                if (a) {
-                    Log.d("Component-Container-Scroll", "update component（scroll）overflow_y");
-                }
-                if (scrollView != null) {
-                    if (scrollView.getParent() == null) {
-                        return false;
-                    }
-                    ((ViewGroup) swanAppComponentContainerView.getParent()).removeView(swanAppComponentContainerView);
-                    ((ViewGroup) scrollView.getParent()).removeView(scrollView);
-                    swanAppComponentContainerView.setScrollView(null);
-                } else {
-                    ((ViewGroup) swanAppComponentContainerView.getParent()).removeView(swanAppComponentContainerView);
-                }
-                if (k42Var.b(k32Var)) {
-                    return true;
-                }
-                o42.a("Component-Container-Scroll", "update component（scroll） overflow_y fail");
-            }
-            return false;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public static boolean e(@NonNull k42 k42Var, @NonNull l32 l32Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65541, null, k42Var, l32Var, swanAppComponentContainerView)) == null) {
-            if (a) {
-                Log.d("Component-Container-Scroll", "update component（scroll）position");
-            }
-            String str = l32Var.d;
-            if (TextUtils.isEmpty(str)) {
-                ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-                ScrollView scrollView2 = swanAppComponentContainerView;
-                if (scrollView != null) {
-                    scrollView2 = swanAppComponentContainerView.getScrollView();
-                }
-                return k42Var.a.a(scrollView2, l32Var.h);
-            }
-            SwanAppComponentContainerView a2 = k42Var.a(str);
-            if (a2 == null) {
-                v42.c("Component-Container-Scroll", "update component（scroll）to parent with a null parent container view");
-                return false;
-            }
-            ScrollView scrollView3 = swanAppComponentContainerView.getScrollView();
-            boolean z = true;
-            if (scrollView3 != null && scrollView3.getParent() == a2) {
-                a2.updateViewLayout(scrollView3, l32Var.b());
-                return true;
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("update component（scroll）to parent with a illegal parent view (Scroll) ");
-            if (scrollView3 != null) {
-                z = false;
-            }
-            sb.append(z);
-            o42.a("Component-Container-Scroll", sb.toString());
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void f(@NonNull k42 k42Var, @NonNull k32 k32Var, @NonNull l32 l32Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull n42 n42Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLLL(65542, null, k42Var, k32Var, l32Var, swanAppComponentContainerView, n42Var) != null) || !(l32Var instanceof d42)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        ScrollView scrollView = swanAppComponentContainerView.getScrollView();
-        if (n42Var.a(8)) {
-            if (a) {
-                Log.d("Component-Container-Scroll", "update component（scroll） scroll_top");
-            }
-            if (scrollView != null) {
-                scrollView.smoothScrollTo(0, ((d42) l32Var).D);
+        super.a(jSONObject);
+        this.t = jSONObject.optString("value");
+        this.L = jSONObject.optString("placeholder");
+        o(jSONObject);
+        boolean z = false;
+        this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, false);
+        boolean optBoolean = jSONObject.optBoolean("autoHeight", false);
+        this.Q = optBoolean;
+        if (optBoolean && (dy2Var = this.h) != null) {
+            dy2Var.j(-2);
+            this.h.k(true);
+        }
+        boolean optBoolean2 = jSONObject.optBoolean("fixed");
+        this.R = optBoolean2;
+        dy2 dy2Var2 = this.h;
+        if (dy2Var2 != null) {
+            dy2Var2.i(optBoolean2);
+        }
+        this.S = jSONObject.optBoolean("showConfirmBar", true);
+        this.T = jSONObject.optBoolean("adjustPosition", true);
+        this.W = jSONObject.optBoolean("disabled", false);
+        if (jSONObject.optInt("confirmHold") == 1) {
+            z = true;
+        }
+        this.X = z;
+        i();
+    }
+
+    @Override // com.baidu.tieba.e32, com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.n32
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            super.g(jSONObject);
+            this.W = jSONObject.optBoolean("disabled", this.W);
+            this.L = jSONObject.optString("placeholder", this.L);
+            this.t = jSONObject.optString("value", this.t);
+            this.P = jSONObject.optBoolean(AddFriendActivityConfig.TYPE_FOCUS, this.P);
+            this.S = jSONObject.optBoolean("showConfirmBar", this.S);
+            this.T = jSONObject.optBoolean("adjustPosition", this.T);
+            n(jSONObject);
+            p(jSONObject);
+            o(jSONObject);
+            i();
+        }
+    }
+
+    public final void n(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("autoHeight", this.Q);
+            this.Q = optBoolean;
+            dy2 dy2Var = this.h;
+            if (dy2Var != null) {
+                if (optBoolean) {
+                    dy2Var.j(-2);
+                    this.h.k(true);
+                    return;
+                }
+                int c = dy2Var.c();
+                int i = this.K;
+                if (i > 0) {
+                    c = i;
+                }
+                this.h.j(c);
+                this.h.k(false);
             }
         }
     }
 
-    @Nullable
-    public static ScrollView h(@NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull l32 l32Var) {
-        InterceptResult invokeLL;
+    public final void o(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, swanAppComponentContainerView, l32Var)) == null) {
-            if (!(l32Var instanceof d42)) {
-                return null;
-            }
-            ScrollView scrollView = new ScrollView(swanAppComponentContainerView.getContext());
-            scrollView.setFillViewport(true);
-            scrollView.setOnTouchListener(new a());
-            FrameLayout frameLayout = new FrameLayout(swanAppComponentContainerView.getContext());
-            frameLayout.addView(swanAppComponentContainerView, a());
-            scrollView.addView(frameLayout);
-            swanAppComponentContainerView.postDelayed(new b(scrollView, (d42) l32Var), 100L);
-            swanAppComponentContainerView.setScrollView(scrollView);
-            return scrollView;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jSONObject) == null) && (optJSONObject = jSONObject.optJSONObject("placeholderStyle")) != null) {
+            this.M = optJSONObject.optInt(TtmlNode.ATTR_TTS_FONT_SIZE);
+            this.N = optJSONObject.optString(TtmlNode.ATTR_TTS_FONT_WEIGHT);
+            this.O = optJSONObject.optString("color");
         }
-        return (ScrollView) invokeLL.objValue;
+    }
+
+    public final void p(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
+            boolean optBoolean = jSONObject.optBoolean("fixed", this.R);
+            this.R = optBoolean;
+            dy2 dy2Var = this.h;
+            if (dy2Var != null) {
+                dy2Var.i(optBoolean);
+            }
+        }
+    }
+
+    public void q(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.P = z;
+        }
     }
 }

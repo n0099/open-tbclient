@@ -1,117 +1,91 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.MessageRedDotView;
-import com.baidu.tbadk.core.view.NavigationBar;
+import com.baidu.tbadk.core.data.PbGoodsData;
+import com.baidu.tbadk.core.data.PbLinkData;
+import com.baidu.tbadk.core.view.MultiLinkCardView;
+import com.baidu.tieba.rw6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ak6 {
+public class ak6 implements rw6.g {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public RelativeLayout c;
-    public ImageView d;
-    public MessageRedDotView e;
 
-    public ak6(Context context) {
+    public ak6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.widget_message_entrance, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (RelativeLayout) inflate.findViewById(R.id.message_view_layout);
-        this.d = (ImageView) this.b.findViewById(R.id.img_message);
-        MessageRedDotView messageRedDotView = (MessageRedDotView) this.b.findViewById(R.id.img_red_tip);
-        this.e = messageRedDotView;
-        messageRedDotView.setShadowEnabled(false);
     }
 
-    public MessageRedDotView a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rw6.l
+    public void a(@NonNull ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
-        }
-        return (MessageRedDotView) invokeV.objValue;
-    }
-
-    public ImageView b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return (ImageView) invokeV.objValue;
-    }
-
-    public View c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.e.e();
-            this.d.setImageDrawable(WebPManager.getPureDrawable(R.drawable.icon_pure_topbar_information40, SkinManager.getColor(R.color.CAM_X0106), WebPManager.ResourceStateType.NORMAL_PRESS));
+        if ((interceptable == null || interceptable.invokeL(1048576, this, viewGroup) == null) && (viewGroup instanceof MultiLinkCardView)) {
+            ((MultiLinkCardView) viewGroup).b();
         }
     }
 
-    public void g(int i) {
-        View view2;
+    @Override // com.baidu.tieba.rw6.g
+    @NonNull
+    public ViewGroup create(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (view2 = this.b) != null) {
-            view2.setVisibility(i);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            return new MultiLinkCardView(context);
         }
+        return (ViewGroup) invokeL.objValue;
     }
 
-    public void e(boolean z, int i) {
+    @Override // com.baidu.tieba.rw6.g
+    public void update(@NonNull ViewGroup viewGroup, @NonNull rx6 rx6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) {
-            if (z) {
-                this.e.f(i);
-                this.e.setVisibility(0);
-                return;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, viewGroup, rx6Var) == null) && (viewGroup instanceof MultiLinkCardView)) {
+            List<az6> d = rx6Var.d();
+            ArrayList arrayList = new ArrayList();
+            ArrayList arrayList2 = new ArrayList();
+            for (az6 az6Var : d) {
+                if (az6Var.i() == 6) {
+                    PbGoodsData pbGoodsData = new PbGoodsData();
+                    pbGoodsData.title = az6Var.h();
+                    pbGoodsData.picUrl = az6Var.f();
+                    pbGoodsData.price = az6Var.c();
+                    pbGoodsData.linkUrl = az6Var.e();
+                    pbGoodsData.sort = az6Var.g();
+                    pbGoodsData.linkFrom = az6Var.d();
+                    pbGoodsData.goodsUrlH5 = az6Var.a();
+                    arrayList2.add(pbGoodsData);
+                } else {
+                    PbLinkData pbLinkData = new PbLinkData();
+                    pbLinkData.title = az6Var.h();
+                    pbLinkData.linkUrl = az6Var.e();
+                    pbLinkData.picUrl = az6Var.f();
+                    pbLinkData.linkFrom = az6Var.d();
+                    pbLinkData.extTxt = az6Var.c();
+                    pbLinkData.sort = az6Var.g();
+                    pbLinkData.urlType = az6Var.i();
+                    pbLinkData.content1 = az6Var.a();
+                    pbLinkData.content2 = az6Var.b();
+                    arrayList.add(pbLinkData);
+                }
             }
-            this.e.setVisibility(8);
-        }
-    }
-
-    public void f(NavigationBar.ControlAlign controlAlign, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(1048581, this, controlAlign, z) == null) && !z && controlAlign == NavigationBar.ControlAlign.HORIZONTAL_RIGHT) {
-            ((RelativeLayout.LayoutParams) this.d.getLayoutParams()).rightMargin = -ii.g(this.a, R.dimen.tbds10);
-            ((RelativeLayout.LayoutParams) this.e.getLayoutParams()).rightMargin = -ii.g(this.a, R.dimen.tbds10);
-            this.c.getLayoutParams().width = ii.g(this.a, R.dimen.obfuscated_res_0x7f070307);
+            ((MultiLinkCardView) viewGroup).a(arrayList, arrayList2);
         }
     }
 }

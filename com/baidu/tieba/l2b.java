@@ -3,75 +3,112 @@ package com.baidu.tieba;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.internal.operators.NotificationLite;
-import rx.internal.operators.OnSubscribeCombineLatest$LatestCoordinator;
+import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
+import com.opensource.svgaplayer.proto.FrameEntity;
+import com.opensource.svgaplayer.proto.SpriteEntity;
+import java.util.ArrayList;
+import java.util.List;
+import kotlin.collections.CollectionsKt__CollectionsKt;
+import kotlin.collections.CollectionsKt__IterablesKt;
+import kotlin.collections.CollectionsKt___CollectionsKt;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class l2b<T, R> extends t1b<T> {
+public final class l2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final OnSubscribeCombineLatest$LatestCoordinator<T, R> e;
-    public final int f;
-    public boolean g;
+    public final String a;
+    public final List<m2b> b;
 
-    public l2b(OnSubscribeCombineLatest$LatestCoordinator<T, R> onSubscribeCombineLatest$LatestCoordinator, int i) {
+    public l2b(SpriteEntity spriteEntity) {
+        List<m2b> emptyList;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {onSubscribeCombineLatest$LatestCoordinator, Integer.valueOf(i)};
+            Object[] objArr = {spriteEntity};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = onSubscribeCombineLatest$LatestCoordinator;
-        this.f = i;
-        e(onSubscribeCombineLatest$LatestCoordinator.bufferSize);
-    }
-
-    public void g(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            e(j);
+        this.a = spriteEntity.imageKey;
+        List<FrameEntity> list = spriteEntity.frames;
+        if (list != null) {
+            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
+            m2b m2bVar = null;
+            for (FrameEntity it : list) {
+                Intrinsics.checkExpressionValueIsNotNull(it, "it");
+                m2b m2bVar2 = new m2b(it);
+                if ((!m2bVar2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) m2bVar2.d())).e() && m2bVar != null) {
+                    m2bVar2.f(m2bVar.d());
+                }
+                emptyList.add(m2bVar2);
+                m2bVar = m2bVar2;
+            }
+        } else {
+            emptyList = CollectionsKt__CollectionsKt.emptyList();
         }
+        this.b = emptyList;
     }
 
-    @Override // com.baidu.tieba.o1b
-    public void onError(Throwable th) {
+    public l2b(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
-            if (this.g) {
-                u5b.j(th);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            this.e.onError(th);
-            this.g = true;
-            this.e.combine(null, this.f);
         }
+        this.a = jSONObject.optString("imageKey");
+        ArrayList arrayList = new ArrayList();
+        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
+        if (optJSONArray != null) {
+            int length = optJSONArray.length();
+            for (int i3 = 0; i3 < length; i3++) {
+                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
+                if (optJSONObject != null) {
+                    m2b m2bVar = new m2b(optJSONObject);
+                    if ((!m2bVar.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) m2bVar.d())).e() && arrayList.size() > 0) {
+                        m2bVar.f(((m2b) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
+                    }
+                    arrayList.add(m2bVar);
+                }
+            }
+        }
+        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
     }
 
-    @Override // com.baidu.tieba.o1b
-    public void onNext(T t) {
+    public final List<m2b> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || this.g) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        this.e.combine(NotificationLite.h(t), this.f);
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.o1b
-    public void onCompleted() {
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        this.g = true;
-        this.e.combine(null, this.f);
+        return (String) invokeV.objValue;
     }
 }

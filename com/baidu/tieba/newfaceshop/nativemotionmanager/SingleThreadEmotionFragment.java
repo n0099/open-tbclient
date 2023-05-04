@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.BaseFragment;
 import com.baidu.tieba.faceshop.EmotionPackageData;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.jq8;
 import com.baidu.tieba.newfaceshop.nativemotionmanager.model.SingleThreadEmotionModel;
-import com.baidu.tieba.pq8;
+import com.baidu.tieba.ss8;
+import com.baidu.tieba.ys8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,15 +21,15 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class SingleThreadEmotionFragment extends BaseFragment implements jq8<List<EmotionPackageData>> {
+public class SingleThreadEmotionFragment extends BaseFragment implements ss8<List<EmotionPackageData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pq8 a;
+    public ys8 a;
     public SingleThreadEmotionModel b;
     public CustomMessageListener c;
 
-    @Override // com.baidu.tieba.jq8
-    public void T0() {
+    @Override // com.baidu.tieba.ss8
+    public void U0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
         }
@@ -103,7 +103,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements jq8<Lis
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.b.a != null) {
                 this.b.a.update(this.a);
-                this.b.I1();
+                this.b.J1();
             }
         }
     }
@@ -136,7 +136,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements jq8<Lis
         public void run() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.a != null) {
-                this.a.a.i();
+                this.a.a.h();
             }
         }
     }
@@ -157,7 +157,7 @@ public class SingleThreadEmotionFragment extends BaseFragment implements jq8<Lis
         this.c = new a(this, 2921314);
     }
 
-    public final void H1() {
+    public final void I1() {
         SingleThreadEmotionModel singleThreadEmotionModel;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (singleThreadEmotionModel = this.b) != null) {
@@ -165,11 +165,11 @@ public class SingleThreadEmotionFragment extends BaseFragment implements jq8<Lis
         }
     }
 
-    public final void I1() {
-        pq8 pq8Var;
+    public final void J1() {
+        ys8 ys8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (pq8Var = this.a) != null) {
-            pq8Var.b();
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ys8Var = this.a) != null) {
+            ys8Var.b();
         }
     }
 
@@ -183,12 +183,12 @@ public class SingleThreadEmotionFragment extends BaseFragment implements jq8<Lis
             }
             SingleThreadEmotionModel singleThreadEmotionModel = this.b;
             if (singleThreadEmotionModel != null) {
-                singleThreadEmotionModel.W();
+                singleThreadEmotionModel.b0();
             }
         }
     }
 
-    @Override // com.baidu.tieba.jq8
+    @Override // com.baidu.tieba.ss8
     public void onFail() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
@@ -197,8 +197,8 @@ public class SingleThreadEmotionFragment extends BaseFragment implements jq8<Lis
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jq8
-    /* renamed from: J1 */
+    @Override // com.baidu.tieba.ss8
+    /* renamed from: K1 */
     public void onSuccess(List<EmotionPackageData> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
@@ -211,9 +211,9 @@ public class SingleThreadEmotionFragment extends BaseFragment implements jq8<Lis
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.onChangeSkinType(i);
-            pq8 pq8Var = this.a;
-            if (pq8Var != null) {
-                pq8Var.d(i);
+            ys8 ys8Var = this.a;
+            if (ys8Var != null) {
+                ys8Var.d(i);
             }
         }
     }
@@ -223,12 +223,12 @@ public class SingleThreadEmotionFragment extends BaseFragment implements jq8<Lis
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, layoutInflater, viewGroup, bundle)) == null) {
-            this.a = new pq8(getPageContext());
+            this.a = new ys8(getPageContext());
             SingleThreadEmotionModel singleThreadEmotionModel = new SingleThreadEmotionModel();
             this.b = singleThreadEmotionModel;
-            singleThreadEmotionModel.Y(this);
+            singleThreadEmotionModel.d0(this);
             registerListener(this.c);
-            H1();
+            I1();
             return this.a.a();
         }
         return (View) invokeLLL.objValue;

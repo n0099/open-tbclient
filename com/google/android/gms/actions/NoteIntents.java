@@ -1,7 +1,7 @@
 package com.google.android.gms.actions;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NoteIntents {
     @NonNull
     public static final String ACTION_APPEND_NOTE = "com.google.android.gms.actions.APPEND_NOTE";

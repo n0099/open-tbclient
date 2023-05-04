@@ -18,9 +18,9 @@ import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
 import com.baidu.tieba.aj;
+import com.baidu.tieba.ea5;
+import com.baidu.tieba.ga5;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.n95;
-import com.baidu.tieba.p95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -238,7 +238,7 @@ public class NotificationHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
             SwitchData switchData = new SwitchData();
-            if (!n95.L() && n95.R()) {
+            if (!ea5.L() && ea5.R()) {
                 long currentTimeMillis = System.currentTimeMillis();
                 if (currentTimeMillis - TbadkCoreApplication.getInst().getLastNotifyTime() >= 5000) {
                     AudioManager audioManager = (AudioManager) context.getSystemService("audio");
@@ -252,13 +252,13 @@ public class NotificationHelper {
                     } else {
                         z2 = false;
                     }
-                    if (p95.d().B()) {
+                    if (ga5.d().B()) {
                         switchData.isSound = true;
                         if (z || z2) {
                             switchData.isSound = false;
                         }
                     }
-                    if (p95.d().C()) {
+                    if (ga5.d().C()) {
                         switchData.isVibrate = true;
                         if (z) {
                             switchData.isVibrate = false;
@@ -270,7 +270,7 @@ public class NotificationHelper {
                     TbadkCoreApplication.getInst().setLastNotifyTime(currentTimeMillis);
                 }
             }
-            if (p95.d().x()) {
+            if (ga5.d().x()) {
                 switchData.isLight = true;
             }
             return switchData;

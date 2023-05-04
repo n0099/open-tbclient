@@ -3,7 +3,7 @@ package com.google.android.gms.common.api;
 import androidx.annotation.NonNull;
 import com.google.android.gms.common.Feature;
 import com.google.android.gms.common.annotation.KeepForSdk;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class UnsupportedApiCallException extends UnsupportedOperationException {
     public final Feature zza;
 

@@ -64,7 +64,7 @@ public class km extends RequestParams.Channel {
             public void onResult(String str, int i, String str2) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                    vg8 defaultLog = DefaultLog.getInstance();
+                    dj8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c(TitanDownloadService.TAG, "install " + str + " result: " + i);
                 }
             }
@@ -92,7 +92,7 @@ public class km extends RequestParams.Channel {
         public void onDownloadError(PackageInfo packageInfo, ErrorInfo errorInfo) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, packageInfo, errorInfo) == null) {
-                vg8 defaultLog = DefaultLog.getInstance();
+                dj8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(TitanDownloadService.TAG, "onDownloadError PackageInfo:" + packageInfo + " errorInfo:" + errorInfo);
                 super.onDownloadError(packageInfo, errorInfo);
             }
@@ -103,7 +103,7 @@ public class km extends RequestParams.Channel {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, packageInfo, errorInfo) == null) {
                 super.onDownloadSuccess(packageInfo, errorInfo);
-                vg8 defaultLog = DefaultLog.getInstance();
+                dj8 defaultLog = DefaultLog.getInstance();
                 defaultLog.c(TitanDownloadService.TAG, "onDownloadSuccess PackageInfo:" + packageInfo + " errorInfo:" + errorInfo);
                 nm.b(AppRuntime.getAppContext(), new a(this), packageInfo, false);
             }
@@ -162,7 +162,7 @@ public class km extends RequestParams.Channel {
                 }
                 try {
                     JSONObject jSONObject2 = jSONObject.getJSONObject("com.baidu.titan.patch");
-                    vg8 defaultLog = DefaultLog.getInstance();
+                    dj8 defaultLog = DefaultLog.getInstance();
                     defaultLog.c(TitanDownloadService.TAG, "onReceiveData:" + jSONObject2);
                     PackageInfo parsePkgItem = ParseUtils.parsePkgItem("132", "com.baidu.titan.patch", jSONObject2);
                     CheckData checkData = new CheckData();

@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,140 +9,47 @@ import java.io.File;
 /* loaded from: classes7.dex */
 public class y42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static String b;
-    public static String c;
-    public static x42 d;
-    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948280114, "Lcom/baidu/tieba/y42;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948280114, "Lcom/baidu/tieba/y42;");
-                return;
-            }
+    public static File a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return new File(tq2.q(), "sConsole-core");
         }
-        a = fo1.a;
-        b = "";
-        c = "";
-        e = 0;
+        return (File) invokeV.objValue;
     }
 
-    public static String a() {
+    public static long b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return b;
+            return lg3.a().getLong("get_app_console_core_code", -1L);
         }
-        return (String) invokeV.objValue;
+        return invokeV.longValue;
     }
 
     public static String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (e == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (e == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d != null) {
-                return d.c() + File.separator + b;
-            }
-            return "";
+            return lg3.a().getString("get_app_console_core", "-1");
         }
         return (String) invokeV.objValue;
     }
 
-    public static String d() {
-        InterceptResult invokeV;
+    public static void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d != null) {
-                return d.c() + File.separator + c;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void g(Bundle bundle) {
-        x42 x42Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65543, null, bundle) == null) && (x42Var = d) != null) {
-            x42Var.b(bundle);
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            e("-1", -1L);
         }
     }
 
-    public static void i(String str) {
+    public static void e(@NonNull String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            b = str;
-        }
-    }
-
-    public static void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            c = str;
-        }
-    }
-
-    public static void h(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
-            String i = uk3.i(bundle, "extraWSUrl");
-            String i2 = uk3.i(bundle, "adb_debug_path");
-            if (!TextUtils.isEmpty(i)) {
-                d = new q52();
-                e = 1;
-            } else if (!TextUtils.isEmpty(i2)) {
-                d = new a52();
-                e = 2;
-            } else {
-                if (a) {
-                    Log.d("UserDebugParams", "not debug mode");
-                }
-                e = 0;
-                d = null;
-                return;
-            }
-            d.a(bundle);
+        if (interceptable == null || interceptable.invokeLJ(InputDeviceCompat.SOURCE_TRACKBALL, null, str, j) == null) {
+            lg3.a().putString("get_app_console_core", str);
+            lg3.a().putLong("get_app_console_core_code", j);
         }
     }
 }

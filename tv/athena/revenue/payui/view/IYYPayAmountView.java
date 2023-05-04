@@ -4,8 +4,8 @@ import android.app.Activity;
 import android.view.View;
 import android.view.Window;
 import androidx.annotation.Keep;
-import com.baidu.tieba.g9b;
-import com.baidu.tieba.kab;
+import com.baidu.tieba.edb;
+import com.baidu.tieba.ieb;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
@@ -13,7 +13,7 @@ import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.payui.model.PayScene;
 @Keep
 /* loaded from: classes9.dex */
-public interface IYYPayAmountView extends kab {
+public interface IYYPayAmountView extends ieb {
 
     @Keep
     /* loaded from: classes9.dex */
@@ -26,19 +26,19 @@ public interface IYYPayAmountView extends kab {
 
         void toHelpCenterPage();
 
-        void toPayWayDialog(g9b g9bVar, List<PayWayInfo> list, String str);
+        void toPayWayDialog(edb edbVar, List<PayWayInfo> list, String str);
     }
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     /* synthetic */ void attachWindow(Window window);
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     /* synthetic */ View getContentView();
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     /* synthetic */ void refreshView();
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     /* synthetic */ void refreshWindow(WindowParams windowParams);
 
     void setCallback(Callback callback);

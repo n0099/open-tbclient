@@ -1,33 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
-import com.baidu.searchbox.download.center.clearcache.UserSettingForceListListener;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class w72 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public static class a implements SwanAppNetworkUtils.b {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
+        public final /* synthetic */ SwanAppActivity a;
 
-        public a(String str) {
+        public a(SwanAppActivity swanAppActivity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {str};
+                Object[] objArr = {swanAppActivity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,88 +33,39 @@ public class w72 {
                     return;
                 }
             }
-            this.a = str;
+            this.a = swanAppActivity;
         }
 
-        @Override // com.baidu.swan.apps.network.SwanAppNetworkUtils.b
-        public void onResult(int i) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-                w72.b(this.a, i);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.finish();
             }
         }
     }
 
-    public static void a(String str) {
+    public static String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
-            SwanAppNetworkUtils.b(new a(str));
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static void c() {
+        SwanAppActivity activity;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65538, null) == null) && (activity = kt2.U().getActivity()) != null && !activity.isFinishing() && !activity.isDestroyed()) {
+            rl3.a0(new a(activity));
         }
     }
 
-    public static void b(String str, int i) {
-        String str2;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65537, null, str, i) == null) {
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        str2 = "unknown";
-                    } else {
-                        str2 = "offline";
-                    }
-                } else {
-                    str2 = "bad";
-                }
-            } else {
-                str2 = FrsActivityConfig.GOOD;
-            }
-            c(str, str2);
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            d(str, str2, null);
-        }
-    }
-
-    public static void d(String str, String str2, @Nullable String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
-            e(str, str2, str3, 0, 0, 0, 0L);
-        }
-    }
-
-    public static void e(String str, String str2, @Nullable String str3, int i, int i2, int i3, long j) {
-        Object obj;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Long.valueOf(j)}) == null) {
-            xe3 xe3Var = new xe3();
-            xe3Var.a = "swan";
-            xe3Var.b = str;
-            xe3Var.a("appid", u73.K().getAppId());
-            xe3Var.a(DpStatConstants.KEY_NETWORK_STATUS, str2);
-            if (!TextUtils.isEmpty(str3)) {
-                xe3Var.a("request", str3);
-                xe3Var.a("request_total", String.valueOf(i));
-                xe3Var.a("request_fail", String.valueOf(i2));
-                xe3Var.a("request_slow", String.valueOf(i3));
-                xe3Var.a("error_duration", String.valueOf(j));
-            }
-            String str4 = "1";
-            if (a82.d().c()) {
-                obj = "1";
-            } else {
-                obj = "0";
-            }
-            xe3Var.a("jserror", obj);
-            if (!v72.b()) {
-                str4 = "0";
-            }
-            xe3Var.a(UserSettingForceListListener.FORCE_LIST_ITEM_SHOW_KEY, str4);
-            oe3.x("1619", xe3Var);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            a = str;
         }
     }
 }

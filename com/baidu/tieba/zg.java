@@ -30,10 +30,11 @@ public class zg {
             diskFileOperate.setSdCard(z);
             diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
             ub.f().call(diskFileOperate);
-            if (diskFileOperate.getFileInfo() == null || diskFileOperate.getFileInfo().listFiles() == null) {
+            File fileInfo = diskFileOperate.getFileInfo();
+            if (fileInfo == null) {
                 return null;
             }
-            return diskFileOperate.getFileInfo().listFiles();
+            return fileInfo.listFiles();
         }
         return (File[]) invokeZ.objValue;
     }

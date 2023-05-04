@@ -9,14 +9,14 @@ import com.xiaomi.clientreport.manager.ClientReportClient;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class em {
     public static a a;
 
     /* renamed from: a  reason: collision with other field name */
     public static Map<String, hr> f314a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void uploader(Context context, hl hlVar);
     }

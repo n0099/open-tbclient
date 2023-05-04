@@ -1,77 +1,140 @@
 package com.baidu.tieba;
 
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.payapi.PayType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes4.dex */
-public class eab {
+public final class eab implements q5b {
     public static /* synthetic */ Interceptable $ic;
+    public static final w5b b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final AtomicReference<w5b> a;
 
-    public static PayType a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
-            if (PayType.ALI_PAY.getChannel().equals(str) && PayType.ALI_PAY.getMethod().equals(str2)) {
-                return PayType.ALI_PAY;
+    /* loaded from: classes4.dex */
+    public static class a implements w5b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.w5b
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             }
-            if (PayType.WECHAT_PAY.getChannel().equals(str) && PayType.WECHAT_PAY.getMethod().equals(str2)) {
-                return PayType.WECHAT_PAY;
-            }
-            if (PayType.DXM_PAY.getChannel().equals(str) && PayType.DXM_PAY.getMethod().equals(str2)) {
-                return PayType.DXM_PAY;
-            }
-            if (PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2)) {
-                return PayType.DXM_PAY_KJ;
-            }
-            if (PayType.QQ_PAY.getChannel().equals(str) && PayType.QQ_PAY.getMethod().equals(str2)) {
-                return PayType.QQ_PAY;
-            }
-            if (PayType.UNION_PAY.getChannel().equals(str) && PayType.UNION_PAY.getMethod().equals(str2)) {
-                return PayType.UNION_PAY;
-            }
-            if (PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2)) {
-                return PayType.DXM_PAY_H5;
-            }
-            return null;
         }
-        return (PayType) invokeLL.objValue;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
     }
 
-    public static boolean b(String str, String str2) {
-        InterceptResult invokeLL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947729027, "Lcom/baidu/tieba/eab;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947729027, "Lcom/baidu/tieba/eab;");
+                return;
+            }
+        }
+        b = new a();
+    }
+
+    public eab() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (PayType.DXM_PAY_H5.getChannel().equals(str) && PayType.DXM_PAY_H5.getMethod().equals(str2)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicReference<>();
+    }
+
+    public static eab a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return new eab();
+        }
+        return (eab) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.q5b
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.get() == b) {
                 return true;
             }
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static boolean c(String str, String str2) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.tieba.q5b
+    public void unsubscribe() {
+        w5b andSet;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            if (PayType.DXM_PAY_KJ.getChannel().equals(str) && PayType.DXM_PAY_KJ.getMethod().equals(str2)) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            w5b w5bVar = this.a.get();
+            w5b w5bVar2 = b;
+            if (w5bVar != w5bVar2 && (andSet = this.a.getAndSet(w5bVar2)) != null && andSet != b) {
+                andSet.call();
             }
-            return false;
         }
-        return invokeLL.booleanValue;
     }
 
-    public static boolean d(String str, String str2) {
-        InterceptResult invokeLL;
+    public eab(w5b w5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!c(str, str2) && !b(str, str2) && !PayType.MOCK_TEST_PAY.getChannel().equals(str) && !PayType.UNION_PAY.getChannel().equals(str)) {
-                return false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {w5bVar};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            return true;
         }
-        return invokeLL.booleanValue;
+        this.a = new AtomicReference<>(w5bVar);
+    }
+
+    public static eab b(w5b w5bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, w5bVar)) == null) {
+            return new eab(w5bVar);
+        }
+        return (eab) invokeL.objValue;
     }
 }

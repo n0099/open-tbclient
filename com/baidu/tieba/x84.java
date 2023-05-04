@@ -1,14 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.l44;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class x84 extends cg2 {
+import org.json.JSONException;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public class x84 extends y84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String b;
+    public int c;
 
     public x84() {
         Interceptable interceptable = $ic;
@@ -24,13 +29,20 @@ public class x84 extends cg2 {
         }
     }
 
-    @Override // com.baidu.tieba.eg2
-    public void a(String str) {
+    @Override // com.baidu.tieba.y84
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            l44.d.d(str);
-            fk2.k(str);
-            z84.k(str);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("packageName", this.b);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, this.c);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, this.a);
+            } catch (JSONException unused) {
+            }
+            return jSONObject;
         }
+        return (JSONObject) invokeV.objValue;
     }
 }

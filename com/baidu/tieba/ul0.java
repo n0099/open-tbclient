@@ -1,48 +1,44 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import com.baidu.tieba.rl0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ul0 {
+public abstract class ul0<T extends rl0> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public final Class<?> b;
-    public final int c;
-    public final sl0<?> d;
+    public final Class<T> a;
 
-    public ul0(int i, Object obj, Class<?> cls, sl0<?> sl0Var) {
+    public abstract void onEvent(@NonNull T t);
+
+    public ul0(Class<T> cls) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), obj, cls, sl0Var};
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = i;
-        this.a = obj;
-        this.b = cls;
-        this.d = sl0Var;
+        this.a = cls;
     }
 
-    @NonNull
-    public String toString() {
+    public final Class<T> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SubscribeInfo:{\n    threadMode:" + this.c + "\n    tag:" + this.a + "\n    eventClass:" + this.b + "\n    subscriber:" + this.d + "\n}";
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (Class) invokeV.objValue;
     }
 }

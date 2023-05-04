@@ -1,47 +1,51 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.mvc.core.ViewEventCenter;
-import com.baidu.tieba.qk5;
+import android.app.Activity;
+import android.text.TextUtils;
+import com.baidu.tbadk.TbPageContextSupport;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.mutiprocess.urlmanager.UrlDealEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public abstract class vk5<D, S extends qk5> extends yk5<D, S> {
+public class vk5 implements pj5<UrlDealEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vk5(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter) {
-        super(tbPageContext, view2, viewEventCenter);
+    public vk5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, view2, viewEventCenter};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    public int i() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.pj5
+    /* renamed from: a */
+    public boolean onEvent(UrlDealEvent urlDealEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.e;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, urlDealEvent)) == null) {
+            if (urlDealEvent != null && !TextUtils.isEmpty(urlDealEvent.url) && urlDealEvent.getType() == 3) {
+                Activity mainActivity = TbadkCoreApplication.getInst().getMainActivity();
+                if (mainActivity instanceof TbPageContextSupport) {
+                    UrlManager.getInstance().dealOneLink(((TbPageContextSupport) mainActivity).getPageContext(), new String[]{urlDealEvent.url});
+                    return true;
+                }
+            }
+            return false;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 }

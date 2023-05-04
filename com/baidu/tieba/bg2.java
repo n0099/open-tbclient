@@ -1,16 +1,42 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.searchbox.v8engine.V8EngineConfiguration;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class bg2 implements lf2 {
+public abstract class bg2 implements cg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.cg2
+    @Nullable
+    public V8EngineConfiguration.CodeCacheSetting b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return null;
+        }
+        return (V8EngineConfiguration.CodeCacheSetting) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.cg2
+    public void c(ff2 ff2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ff2Var) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.cg2
+    public void d(ff2 ff2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ff2Var) == null) {
+        }
+    }
 
     public bg2() {
         Interceptable interceptable = $ic;
@@ -24,25 +50,5 @@ public class bg2 implements lf2 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.lf2
-    public String getUserAgent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return uj3.a();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.lf2
-    public df2 a(String str, ag2 ag2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, ag2Var, v8ThreadDelegatePolicy)) == null) {
-            return new hf2(str, ag2Var, v8ThreadDelegatePolicy);
-        }
-        return (df2) invokeLLL.objValue;
     }
 }

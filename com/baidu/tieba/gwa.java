@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.ActivityManager;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.aideviceperformance.utils.HardwareInfoUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,132 +10,155 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.InvocationTargetException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileFilter;
+import java.io.FileReader;
+import java.io.IOException;
+import java.util.regex.Pattern;
 /* loaded from: classes4.dex */
-public final class gwa {
+public class gwa {
     public static /* synthetic */ Interceptable $ic;
-    public static Map<Class<?>, cwa> b;
-    public static Map<Class<?>, Object> c;
+    public static int a;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<Class<?>, cwa> a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947809720, "Lcom/baidu/tieba/gwa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947809720, "Lcom/baidu/tieba/gwa;");
-                return;
-            }
-        }
-        b = new HashMap();
-        c = new HashMap();
-    }
-
-    public gwa(List<cwa> list, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {list, context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap();
-        new HashMap();
-        c(list, context);
-    }
-
-    public static Constructor a(Class cls, Class... clsArr) {
-        InterceptResult invokeLL;
-        Constructor<?>[] declaredConstructors;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
-            boolean z = false;
-            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
-                Class<?>[] parameterTypes = constructor.getParameterTypes();
-                if (parameterTypes.length == clsArr.length) {
-                    for (int i = 0; i < clsArr.length; i++) {
-                        z = parameterTypes[i] == clsArr[i];
-                    }
-                    if (z) {
-                        return constructor;
-                    }
-                }
-            }
-            return null;
-        }
-        return (Constructor) invokeLL.objValue;
-    }
-
-    public final void b(String str, Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
-            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
-            StringBuilder sb = new StringBuilder();
-            sb.append("cause message:");
-            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
-            Log.e("ServiceRepository", sb.toString());
-        }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void c(List<cwa> list, Context context) {
-        Map<Class<?>, cwa> map;
-        String str;
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947809720, "Lcom/baidu/tieba/gwa;")) == null) {
             return;
         }
-        for (cwa cwaVar : list) {
-            if (cwaVar.c()) {
-                if (!b.containsKey(cwaVar.a())) {
-                    map = b;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947809720, "Lcom/baidu/tieba/gwa;");
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements FileFilter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                if (cwaVar.b() && cwaVar.getType() != null && !c.containsKey(cwaVar.a())) {
-                    try {
-                        Constructor a = a(cwaVar.getType(), Context.class);
-                        c.put(cwaVar.a(), a == null ? a.newInstance(context) : cwaVar.getType().newInstance());
-                    } catch (IllegalAccessException e) {
-                        e = e;
-                        str = "AccessException";
-                        b(str, e);
-                    } catch (InstantiationException e2) {
-                        e = e2;
-                        str = "InstantiationException";
-                        b(str, e);
-                    } catch (InvocationTargetException e3) {
-                        e = e3;
-                        str = "TargetException";
-                        b(str, e);
-                    }
-                }
-            } else {
-                map = this.a;
-            }
-            map.put(cwaVar.a(), cwaVar);
-            if (cwaVar.b()) {
-                Constructor a2 = a(cwaVar.getType(), Context.class);
-                c.put(cwaVar.a(), a2 == null ? a2.newInstance(context) : cwaVar.getType().newInstance());
             }
         }
+
+        @Override // java.io.FileFilter
+        public boolean accept(File file) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, file)) == null) {
+                return Pattern.matches("cpu[0-9]", file.getName());
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    public static long a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
+            ((ActivityManager) yva.getContext().provideContext().getSystemService("activity")).getMemoryInfo(memoryInfo);
+            return memoryInfo.availMem / 1024;
+        }
+        return invokeV.longValue;
+    }
+
+    public static int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == 0) {
+                try {
+                    a = new File("/sys/devices/system/cpu/").listFiles(new a()).length;
+                } catch (Exception e) {
+                    Log.e("PerformanceUtils", "getNumCores exception", e);
+                    a = 1;
+                }
+            }
+            return a;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:41:0x0058 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:42:0x0015 */
+    /* JADX DEBUG: Multi-variable search result rejected for r5v15, resolved type: java.lang.Integer */
+    /* JADX WARN: Multi-variable type inference failed */
+    public static long c() {
+        InterceptResult invokeV;
+        FileReader fileReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == 0) {
+                long j = -1;
+                FileReader fileReader2 = null;
+                try {
+                    try {
+                        try {
+                            fileReader = new FileReader(HardwareInfoUtils.MEM_INFO_FILE);
+                        } catch (IOException e) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e);
+                        }
+                    } catch (IOException e2) {
+                        e = e2;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    BufferedReader bufferedReader = new BufferedReader(fileReader, 8192);
+                    String readLine = bufferedReader.readLine();
+                    String str = readLine;
+                    if (readLine != null) {
+                        Integer valueOf = Integer.valueOf(readLine.split("\\s+")[1]);
+                        j = valueOf.intValue();
+                        str = valueOf;
+                    }
+                    bufferedReader.close();
+                    fileReader.close();
+                    fileReader2 = str;
+                } catch (IOException e3) {
+                    e = e3;
+                    fileReader2 = fileReader;
+                    Log.e("PerformanceUtils", "getTotalMemory exception = ", e);
+                    if (fileReader2 != null) {
+                        fileReader2.close();
+                        fileReader2 = fileReader2;
+                    }
+                    b = j;
+                    return b;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileReader2 = fileReader;
+                    if (fileReader2 != null) {
+                        try {
+                            fileReader2.close();
+                        } catch (IOException e4) {
+                            Log.e("PerformanceUtils", "close localFileReader exception = ", e4);
+                        }
+                    }
+                    throw th;
+                }
+                b = j;
+            }
+            return b;
+        }
+        return invokeV.longValue;
     }
 }

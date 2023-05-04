@@ -14,9 +14,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.io9;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.xr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -75,7 +75,7 @@ public class TbSettingTextTipView extends FrameLayout {
             }
             SkinManager.setViewTextColor(textView, i2);
             SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.g, R.drawable.icon_pure_list_arrow16_right_svg, R.color.CAM_X0109, SvgManager.SvgResourceStateType.NORMAL);
-            r25.d(this).i(R.color.CAM_X0205);
+            g35.d(this).i(R.color.CAM_X0205);
         }
     }
 
@@ -159,10 +159,10 @@ public class TbSettingTextTipView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.tb_setting_text_tip_view, (ViewGroup) this, true);
-            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090772);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ef);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c7);
-            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bd);
+            this.c = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090775);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f092307);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0923df);
+            this.g = (ImageView) findViewById(R.id.obfuscated_res_0x7f0902bc);
         }
     }
 
@@ -193,7 +193,7 @@ public class TbSettingTextTipView extends FrameLayout {
     public void e(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, io9.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, xr9.TbSettingView);
             if (obtainStyledAttributes != null) {
                 String string = obtainStyledAttributes.getString(1);
                 String string2 = obtainStyledAttributes.getString(4);

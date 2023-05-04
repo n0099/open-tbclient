@@ -1,80 +1,167 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.searchbox.v8engine.net.NetRequest;
-import com.baidu.searchbox.v8engine.net.NetRequestParam;
-import com.baidu.searchbox.v8engine.net.NetRequestResult;
+import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.http.callback.ResponseCallback;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import okhttp3.Response;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ex1 implements NetRequest.RequestInterceptor {
+public class ex1 extends dx1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public ex1() {
+    @Override // com.baidu.tieba.aw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "CallServiceApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes4.dex */
+    public class a extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ ex1 c;
+
+        public a(ex1 ex1Var, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ex1Var, str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = ex1Var;
+            this.a = str;
+            this.b = str2;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
+                x42.i("CallServiceApi", "Cloud capability request failed: " + this.a + "\n" + Log.getStackTraceString(exc));
+                ex1 ex1Var = this.c;
+                String str2 = this.b;
+                if (TextUtils.isEmpty(exc.getMessage())) {
+                    str = "请求失败";
+                } else {
+                    str = exc.getMessage() + "";
+                }
+                ex1Var.d(str2, new xz1(1001, str));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) == null) {
+                JSONObject jSONObject2 = new JSONObject();
+                try {
+                    jSONObject2.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, String.valueOf(i));
+                    jSONObject2.put("data", jSONObject);
+                } catch (JSONException e) {
+                    x42.b("CallServiceApi", Log.getStackTraceString(e));
+                }
+                x42.b("CallServiceApi", "Cloud capability '" + this.a + "' request success: data:" + jSONObject2.toString());
+                this.c.d(this.b, new xz1(0, jSONObject2));
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return xk3.d(response.body().string());
+                }
+                return null;
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ex1(@NonNull yv1 yv1Var) {
+        super(yv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((yv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
     }
 
-    /* JADX DEBUG: Another duplicated slice has different insns count: {[INVOKE]}, finally: {[INVOKE, INVOKE, IF, IF] complete} */
-    @Override // com.baidu.searchbox.v8engine.net.NetRequest.RequestInterceptor
-    public boolean shouldInterceptRequest(NetRequestResult netRequestResult, NetRequestParam netRequestParam) {
-        InterceptResult invokeLL;
+    public xz1 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, netRequestResult, netRequestParam)) == null) {
-            if (netRequestParam == null) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#callService", false);
+            if (x73.b0() == null) {
+                x42.b("CallServiceApi", "swan app is null");
+                return new xz1(1001, "swan app is null");
             }
-            String url = netRequestParam.getUrl();
-            if (TextUtils.isEmpty(url)) {
-                if (netRequestResult != null) {
-                    netRequestResult.setStatusCodeAndMsg(1001, "illegal url");
-                }
-                return true;
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
             }
-            String str = null;
-            JsObject jsObject = netRequestParam.getJsObject();
-            if (jsObject != null) {
-                try {
-                    int propertyIndex = jsObject.getPropertyIndex("__plugin__");
-                    if (propertyIndex > 0) {
-                        str = jsObject.toString(propertyIndex);
-                    }
-                    int c = m83.c("request", url, str);
-                    if (c != 0) {
-                        vz1 Y = jx1.Y(c);
-                        netRequestResult.setStatusCodeAndMsg(Y.b, Y.c);
-                        return true;
-                    }
-                } finally {
-                    if (fx1.e() && jsObject != null) {
-                        jsObject.release();
-                    }
-                }
+            JSONObject jSONObject = (JSONObject) s.second;
+            String optString = jSONObject.optString("cb");
+            if (TextUtils.isEmpty(optString)) {
+                x42.b("CallServiceApi", "cb is empty");
+                return new xz1(201, "cb is empty");
             }
-            if (fx1.e() && jsObject != null) {
-                jsObject.release();
+            String optString2 = jSONObject.optString("service");
+            if (TextUtils.isEmpty(optString2)) {
+                x42.b("CallServiceApi", "service is empty");
+                return new xz1(201, "service is empty");
             }
-            if (!TextUtils.isEmpty(str)) {
-                netRequestParam.addHeader("X-SWAN-HOSTSIGN", s33.b(t33.h(str)));
-            }
-            netRequestParam.addHeader("Referer", kx1.d());
-            netRequestParam.addHeader("User-Agent", ne4.b().getUserAgent());
-            return false;
+            y(optString2, jSONObject.optJSONObject("data"), optString);
+            return new xz1(0);
         }
-        return invokeLL.booleanValue;
+        return (xz1) invokeL.objValue;
+    }
+
+    public final void y(String str, JSONObject jSONObject, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, str, jSONObject, str2) == null) {
+            fx1 fx1Var = new fx1();
+            fx1Var.g(str);
+            fx1Var.f(jSONObject);
+            fx1Var.c(new a(this, str, str2));
+        }
     }
 }

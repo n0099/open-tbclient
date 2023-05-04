@@ -157,7 +157,7 @@ public class Slider extends BaseSlider<Slider, OnChangeListener, OnSliderTouchLi
     }
 
     public Slider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040645);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04064e);
     }
 
     @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback

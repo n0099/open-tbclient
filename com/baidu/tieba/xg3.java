@@ -1,50 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.SparseIntArray;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.auth.FeatureCodes;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.GregorianCalendar;
-import java.util.TimeZone;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class xg3 {
+public final class xg3 extends yg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Pattern a;
-    public static final Pattern b;
-    public static final SparseIntArray c;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean g;
 
     /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ ArrayList a;
+        public final /* synthetic */ xg3 b;
 
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
-        public int c;
-        public int d;
-        public int e;
-        public int f;
-
-        public b() {
+        public a(xg3 xg3Var, ArrayList arrayList) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xg3Var, arrayList};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -54,203 +37,142 @@ public final class xg3 {
                     return;
                 }
             }
-            this.a = -1;
-            this.b = -1;
-            this.c = -1;
-            this.d = -1;
-            this.e = -1;
-            this.f = -1;
+            this.b = xg3Var;
+            this.a = arrayList;
         }
 
-        public boolean a() {
-            InterceptResult invokeV;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a != -1 && this.b != -1 && this.c != -1 && this.d != -1 && this.e != -1 && this.f != -1) {
-                    return false;
-                }
-                return true;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.m(this.a);
+                this.b.j();
             }
-            return invokeV.booleanValue;
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948299365, "Lcom/baidu/tieba/xg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948299365, "Lcom/baidu/tieba/xg3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xg3(tg3 tg3Var) {
+        super(tg3Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tg3Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((tg3) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Pattern.compile("([0-9]{1,2})[- ]([A-Za-z]{3,9})[- ]([0-9]{2,4})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])");
-        b = Pattern.compile("[ ]([A-Za-z]{3,9})[ ]+([0-9]{1,2})[ ]([0-9]{1,2}:[0-9][0-9]:[0-9][0-9])[ ]([0-9]{2,4})");
-        SparseIntArray sparseIntArray = new SparseIntArray();
-        c = sparseIntArray;
-        sparseIntArray.put(d("jan"), 0);
-        c.put(d("feb"), 1);
-        c.put(d("mar"), 2);
-        c.put(d("apr"), 3);
-        c.put(d("may"), 4);
-        c.put(d("jun"), 5);
-        c.put(d("jul"), 6);
-        c.put(d("aug"), 7);
-        c.put(d("sep"), 8);
-        c.put(d("oct"), 9);
-        c.put(d("nov"), 10);
-        c.put(d("dec"), 11);
     }
 
-    public static int a(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
+    @Override // com.baidu.tieba.yg3
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    return ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                }
-                return group.charAt(0) - '0';
-            } catch (Exception unused) {
-                return -1;
-            }
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.b.a()) {
+            return;
         }
-        return invokeLI.intValue;
-    }
-
-    public static int b(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, matcher, i)) == null) {
-            try {
-                return c.get(d(matcher.group(i)), -1);
-            } catch (Exception unused) {
-                return -1;
-            }
+        long j = 0;
+        if (yg3.f) {
+            j = System.currentTimeMillis();
         }
-        return invokeLI.intValue;
-    }
-
-    public static int c(@NonNull Matcher matcher, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, matcher, i)) == null) {
-            try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return -1;
-                }
-                if (group.length() == 2) {
-                    int charAt = ((group.charAt(0) - '0') * 10) + (group.charAt(1) - '0');
-                    if (charAt >= 70) {
-                        return charAt + FeatureCodes.SKY_SEG;
-                    }
-                    return charAt + 2000;
-                } else if (group.length() == 3) {
-                    return ((group.charAt(0) - '0') * 100) + ((group.charAt(1) - '0') * 10) + (group.charAt(2) - '0') + FeatureCodes.SKY_SEG;
-                } else {
-                    if (group.length() == 4) {
-                        return ((group.charAt(0) - '0') * 1000) + ((group.charAt(1) - '0') * 100) + ((group.charAt(2) - '0') * 10) + (group.charAt(3) - '0');
-                    }
-                    return 1970;
-                }
-            } catch (Exception unused) {
-                return -1;
-            }
+        this.a.g(new a(this, this.b.n()));
+        if (yg3.f) {
+            Log.d("SwanCookieSyncPolicy", "saveCacheToDatabase costTime:" + (System.currentTimeMillis() - j));
         }
-        return invokeLI.intValue;
     }
 
-    public static int d(String str) {
-        InterceptResult invokeL;
+    public final void j() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            int i = -1;
-            if (!TextUtils.isEmpty(str) && str.length() >= 3) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                    i += Character.toLowerCase(str.charAt(i2)) - 'a';
-                }
-            }
-            return i;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.g) {
+            return;
         }
-        return invokeL.intValue;
+        long j = 0;
+        if (yg3.f) {
+            j = System.currentTimeMillis();
+        }
+        this.a.b();
+        this.g = true;
+        if (yg3.f) {
+            Log.d("SwanCookieSyncPolicy", "clearExpiredCookies costTime:" + (System.currentTimeMillis() - j));
+        }
     }
 
-    public static long e(String str) {
-        InterceptResult invokeL;
+    public void l() {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return -1L;
-            }
-            b bVar = new b(null);
-            Matcher matcher = a.matcher(str);
-            if (matcher.find()) {
-                bVar.c = a(matcher, 1);
-                bVar.b = b(matcher, 2);
-                bVar.a = c(matcher, 3);
-                f(bVar, matcher, 4);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (yg3.f) {
+                j = System.currentTimeMillis();
             } else {
-                Matcher matcher2 = b.matcher(str);
-                if (!matcher2.find()) {
-                    return -1L;
-                }
-                bVar.b = b(matcher2, 1);
-                bVar.c = a(matcher2, 2);
-                f(bVar, matcher2, 3);
-                bVar.a = c(matcher2, 4);
+                j = 0;
             }
-            if (bVar.a()) {
-                return -1L;
+            this.a.h();
+            if (yg3.f) {
+                Log.d("SwanCookieSyncPolicy", "preInitDatabase costTime:" + (System.currentTimeMillis() - j));
             }
-            if (bVar.a >= 2038) {
-                bVar.a = 2038;
-                bVar.b = 0;
-                bVar.c = 1;
-            }
-            GregorianCalendar gregorianCalendar = new GregorianCalendar();
-            gregorianCalendar.setTimeZone(TimeZone.getTimeZone("UTC"));
-            gregorianCalendar.set(bVar.a, bVar.b, bVar.c, bVar.d, bVar.e, bVar.f);
-            return gregorianCalendar.getTimeInMillis();
         }
-        return invokeL.longValue;
     }
 
-    public static void f(@NonNull b bVar, @NonNull Matcher matcher, int i) {
-        int i2;
-        int i3;
-        int i4;
+    public ArrayList<sg3> k(String str) {
+        InterceptResult invokeL;
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65542, null, bVar, matcher, i) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (yg3.f) {
+                j = System.currentTimeMillis();
+            } else {
+                j = 0;
+            }
+            ArrayList<sg3> arrayList = new ArrayList<>();
             try {
-                String group = matcher.group(i);
-                if (TextUtils.isEmpty(group)) {
-                    return;
+                arrayList = this.a.e(str);
+            } catch (Exception e) {
+                x42.k("SwanCookieSyncPolicy", Log.getStackTraceString(e));
+            }
+            if (yg3.f) {
+                Log.d("SwanCookieSyncPolicy", "getCookiesForDomain costTime:" + (System.currentTimeMillis() - j));
+            }
+            return arrayList;
+        }
+        return (ArrayList) invokeL.objValue;
+    }
+
+    public final void m(ArrayList<sg3> arrayList) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, arrayList) == null) && arrayList != null && !arrayList.isEmpty()) {
+            if (yg3.f) {
+                Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash start");
+            }
+            Iterator<sg3> it = arrayList.iterator();
+            while (it.hasNext()) {
+                sg3 next = it.next();
+                if (next != null) {
+                    if (yg3.f) {
+                        Log.d("SwanCookieSyncPolicy", "syncFromRamToFlash result cookie:" + next.toString());
+                    }
+                    int i = next.i;
+                    if (i != 0) {
+                        if (i != 2) {
+                            if (i == 3) {
+                                this.a.d(next.a, next.b, next.c);
+                                this.a.a(next);
+                                this.b.y(next);
+                            }
+                        } else {
+                            this.a.d(next.a, next.b, next.c);
+                            this.b.g(next);
+                        }
+                    } else {
+                        this.a.a(next);
+                        this.b.y(next);
+                    }
                 }
-                int charAt = group.charAt(0) - '0';
-                if (group.charAt(1) != ':') {
-                    i2 = 2;
-                    charAt = (charAt * 10) + (group.charAt(1) - '0');
-                } else {
-                    i2 = 1;
-                }
-                bVar.d = charAt;
-                bVar.e = ((group.charAt(i3) - '0') * 10) + (group.charAt(i4) - '0');
-                int i5 = i2 + 1 + 1 + 1 + 1;
-                bVar.f = ((group.charAt(i5) - '0') * 10) + (group.charAt(i5 + 1) - '0');
-            } catch (Exception unused) {
             }
         }
     }

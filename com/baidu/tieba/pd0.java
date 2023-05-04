@@ -1,105 +1,130 @@
 package com.baidu.tieba;
 
+import android.content.SharedPreferences;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.LinkedBlockingQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public final class pd0 {
+public class pd0 {
     public static /* synthetic */ Interceptable $ic;
-    public static pd0 b;
+    public static String c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExecutorService a;
+    public SharedPreferences a;
+    public Set<String> b;
 
     /* loaded from: classes5.dex */
-    public static class a implements ThreadFactory {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-        public final String b;
-        public int c;
+    }
 
-        public a(String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static pd0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-521963441, "Lcom/baidu/tieba/pd0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-521963441, "Lcom/baidu/tieba/pd0$b;");
                     return;
                 }
             }
-            this.a = new AtomicInteger(1);
-            this.c = 5;
-            this.b = str + "-";
-            this.c = i;
+            a = new pd0(null);
         }
+    }
 
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                Thread thread = new Thread(runnable, this.b + this.a.getAndIncrement());
-                if (thread.isDaemon()) {
-                    thread.setDaemon(true);
-                }
-                thread.setPriority(this.c);
-                return thread;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948058061, "Lcom/baidu/tieba/pd0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return (Thread) invokeL.objValue;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948058061, "Lcom/baidu/tieba/pd0;");
+                return;
+            }
         }
+        c = f55.q("advert_hide_list");
     }
 
     public pd0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        new ThreadPoolExecutor(0, 5, 180L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread", 5));
-        this.a = new ThreadPoolExecutor(1, 1, 0L, TimeUnit.SECONDS, new LinkedBlockingQueue(), new a("cyber-thread-Single", 5));
+        this.a = TbadkCoreApplication.getInst().getSharedPreferences("mcn_advert_hide_list", 0);
     }
 
-    public static synchronized pd0 b() {
+    public static pd0 b() {
         InterceptResult invokeV;
-        pd0 pd0Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (pd0.class) {
-                if (b == null) {
-                    b = new pd0();
-                }
-                pd0Var = b;
-            }
-            return pd0Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
         return (pd0) invokeV.objValue;
     }
 
-    public void a(Runnable runnable) {
+    public /* synthetic */ pd0(a aVar) {
+        this();
+    }
+
+    public boolean a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-            this.a.execute(runnable);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (StringUtils.isNull(str)) {
+                return false;
+            }
+            if (this.b == null) {
+                this.b = this.a.getStringSet(c, null);
+            }
+            Set<String> set = this.b;
+            if (set == null) {
+                return false;
+            }
+            return set.contains(str);
         }
+        return invokeL.booleanValue;
+    }
+
+    public void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        Set<String> stringSet = this.a.getStringSet(c, null);
+        this.b = stringSet;
+        if (stringSet == null) {
+            this.b = new HashSet();
+        }
+        this.b.add(str);
+        this.a.edit().putStringSet(c, this.b).commit();
     }
 }

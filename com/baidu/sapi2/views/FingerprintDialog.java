@@ -109,7 +109,7 @@ public class FingerprintDialog extends Dialog implements FingerprintDialogInterf
 
     @Override // com.baidu.sapi2.touchid.FingerprintDialogInterface
     public FingerprintDialogInterface setIconInvisible() {
-        findViewById(R.id.obfuscated_res_0x7f090f68).setVisibility(8);
+        findViewById(R.id.obfuscated_res_0x7f090f77).setVisibility(8);
         return this;
     }
 

@@ -1,50 +1,38 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.graphics.Bitmap;
+import android.media.MediaPlayer;
 import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public class uo4 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface uo4 {
 
-    public static boolean a(Activity activity, View view2) {
-        InterceptResult invokeLL;
-        ViewGroup viewGroup;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, activity, view2)) == null) {
-            if (activity != null && view2 != null && (viewGroup = (ViewGroup) activity.getWindow().getDecorView()) != null) {
-                b(view2);
-                viewGroup.removeView(view2);
-                viewGroup.addView(view2);
-                return true;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
+    /* loaded from: classes6.dex */
+    public interface a {
+        void a(b bVar);
+
+        void b(b bVar, int i, int i2);
+
+        void c(b bVar, int i, int i2, int i3);
     }
 
-    public static boolean b(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-            if (view2 != null && view2.getParent() != null && (view2.getParent() instanceof ViewGroup)) {
-                ViewGroup viewGroup = (ViewGroup) view2.getParent();
-                if (viewGroup.indexOfChild(view2) != -1) {
-                    try {
-                        viewGroup.removeView(view2);
-                        return true;
-                    } catch (Exception unused) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(MediaPlayer mediaPlayer);
+
+        uo4 b();
     }
+
+    void a(a aVar);
+
+    void b(a aVar);
+
+    Bitmap getBitmap();
+
+    View getView();
+
+    void release();
+
+    void setAspectRatio(int i);
+
+    void setVideoSize(int i, int i2);
 }

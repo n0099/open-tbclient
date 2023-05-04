@@ -20,12 +20,12 @@ import com.baidu.tbadk.core.atomData.RecordVideoActivityConfig;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ou9;
-import com.baidu.tieba.ov9;
+import com.baidu.tieba.il6;
+import com.baidu.tieba.jy9;
+import com.baidu.tieba.jz9;
 import com.baidu.tieba.video.editvideo.EditVideoActivity;
 import com.baidu.tieba.video.record.RecordVideoActivity;
 import com.baidu.tieba.vl;
-import com.baidu.tieba.wj6;
 import com.baidu.tieba.wl;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -182,12 +182,12 @@ public class LocalVideoActivityStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<wj6> run(CustomMessage<Object> customMessage) {
+        public CustomResponsedMessage<il6> run(CustomMessage<Object> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && (customMessage.getData() instanceof ou9)) {
-                    return new CustomResponsedMessage<>(2921466, new ov9((ou9) customMessage.getData()));
+                if (customMessage != null && (customMessage.getData() instanceof jy9)) {
+                    return new CustomResponsedMessage<>(2921466, new jz9((jy9) customMessage.getData()));
                 }
                 return null;
             }

@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
 @KeepForSdk
 @Documented
 @Retention(RetentionPolicy.CLASS)
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public @interface HideFirstParty {
 }

@@ -1,107 +1,159 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class n11 {
+public final class n11 extends g21 {
     public static /* synthetic */ Interceptable $ic;
+    public static final y11 A;
+    public static final y11[] B;
+    public static final y11[][] C;
+    public static final y11[] D;
+    public static final y11 o;
+    public static final y11 p;
+    public static final y11 q;
+    public static final y11 r;
+    public static final y11 s;
+    public static final y11 t;
+    public static final y11 u;
+    public static final y11 v;
+    public static final y11 w;
+    public static final y11 x;
+    public static final y11 y;
+    public static final y11 z;
     public transient /* synthetic */ FieldHolder $fh;
+    public final StringColumn a;
+    public final IntegerColumn b;
+    public final IntegerColumn c;
+    public final StringColumn d;
+    public final StringColumn e;
+    public final StringColumn f;
+    public final IntegerColumn g;
+    public final IntegerColumn h;
+    public final LongColumn i;
+    public final LongColumn j;
+    public final StringColumn k;
+    public final StringColumn l;
+    public final StringColumn m;
+    public final Column[] n;
 
-    /* loaded from: classes5.dex */
-    public static class a extends kr0<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ o11 a;
+    @Override // com.baidu.tieba.g21
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "t_apk_info" : (String) invokeV.objValue;
+    }
 
-        public String f(Headers headers, String str, int i) throws Exception {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a(o11 o11Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947949499, "Lcom/baidu/tieba/n11;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {o11Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = o11Var;
-        }
-
-        @Override // com.baidu.tieba.ir0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) && this.a.c()) {
-                m11.b(this.a.a(i, exc.getMessage()));
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947949499, "Lcom/baidu/tieba/n11;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.jr0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jr0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) && this.a.c()) {
-                m11.b(this.a.a(i, "success"));
-            }
-        }
+        o = g21.b(4, "key", "                   key", 0, 2);
+        p = g21.a(2, "task_id", "               task_id", 1);
+        q = g21.a(2, "status", "                status", 2);
+        r = g21.a(4, "package_name", "          package_name", 3);
+        s = g21.a(4, "url", "                   url", 4);
+        t = g21.a(4, "file", "                  file", 5);
+        u = g21.a(2, "progress", "              progress", 6);
+        v = g21.a(2, "v_progress", "            v_progress", 7);
+        w = g21.a(3, "start_download_time", "   start_download_time", 8);
+        x = g21.a(3, "finished_download_time", "finished_download_time", 9);
+        y = g21.a(4, "mt", "                    mt", 10);
+        z = g21.a(4, "ctrl", "                  ctrl", 11);
+        y11 a = g21.a(4, "extra", "                 extra", 12);
+        A = a;
+        y11 y11Var = o;
+        B = new y11[]{y11Var, p, q, r, s, t, u, v, w, x, y, z, a};
+        C = new y11[0];
+        D = new y11[]{y11Var};
     }
 
-    public static void a(@Nullable o11 o11Var) {
-        n31 n31Var;
+    public n11() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, o11Var) == null) && o11Var != null && !TextUtils.isEmpty(o11Var.d())) {
-            rr0 rr0Var = new rr0();
-            rr0Var.l(o11Var.d());
-            rr0Var.g(3000);
-            rr0Var.c();
-            if (!TextUtils.isEmpty(o11Var.e)) {
-                rr0Var.d("User-Agent", o11Var.e);
-            } else {
-                rr0Var.d("User-Agent", ji0.e());
-            }
-            yq0.b().a().a(rr0Var, new a(o11Var));
-            if (h31.a && (n31Var = (n31) g31.a().a(n31.class)) != null) {
-                n31Var.b(new i31("计费", "", "并行计费"));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new StringColumn(o);
+        this.b = new IntegerColumn(p);
+        this.c = new IntegerColumn(q);
+        this.d = new StringColumn(r);
+        this.e = new StringColumn(s);
+        this.f = new StringColumn(t);
+        this.g = new IntegerColumn(u);
+        this.h = new IntegerColumn(v);
+        this.i = new LongColumn(w);
+        this.j = new LongColumn(x);
+        this.k = new StringColumn(y);
+        this.l = new StringColumn(z);
+        StringColumn stringColumn = new StringColumn(A);
+        this.m = stringColumn;
+        this.n = new Column[]{this.a, this.b, this.c, this.d, this.e, this.f, this.g, this.h, this.i, this.j, this.k, this.l, stringColumn};
     }
 
-    public static void b(@Nullable String str) {
-        n31 n31Var;
+    @Override // com.baidu.tieba.g21
+    public Column[] c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.n;
         }
-        rr0 rr0Var = new rr0();
-        rr0Var.l(str);
-        rr0Var.g(3000);
-        rr0Var.d("User-Agent", ji0.e());
-        rr0Var.c();
-        yq0.b().a().a(rr0Var, null);
-        if (h31.a && (n31Var = (n31) g31.a().a(n31.class)) != null) {
-            n31Var.b(new i31("计费", "", "并行计费"));
+        return (Column[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g21
+    public y11[] d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return B;
         }
+        return (y11[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g21
+    public y11[][] e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return C;
+        }
+        return (y11[][]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.g21
+    public y11[] f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return D;
+        }
+        return (y11[]) invokeV.objValue;
     }
 }

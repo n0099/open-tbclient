@@ -1,81 +1,76 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ScheduledThreadPoolExecutor;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
+import java.io.IOException;
+import java.net.HttpURLConnection;
+import java.net.URL;
+import java.util.Locale;
+import javax.net.ssl.HttpsURLConnection;
 /* loaded from: classes3.dex */
 public class bl1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile bl1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public ThreadPoolExecutor a;
-    public ScheduledThreadPoolExecutor b;
 
-    public bl1() {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str == null) {
+                return null;
             }
+            if (c(str).booleanValue() || d(str).booleanValue()) {
+                return str.split("\\?")[0];
+            }
+            return str;
         }
-        b();
+        return (String) invokeL.objValue;
     }
 
-    public static bl1 a() {
-        InterceptResult invokeV;
+    public static HttpURLConnection b(URL url) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (bl1.class) {
-                    if (c == null) {
-                        c = new bl1();
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, url)) == null) {
+            if (url.getProtocol().toLowerCase().equals("https")) {
+                al1.a();
+                return (HttpsURLConnection) url.openConnection();
             }
-            return c;
+            return (HttpURLConnection) url.openConnection();
         }
-        return (bl1) invokeV.objValue;
+        return (HttpURLConnection) invokeL.objValue;
     }
 
-    public final void b() {
+    public static Boolean c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = cl1.g(5, 15);
-            this.b = cl1.f(3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTP);
         }
+        return (Boolean) invokeL.objValue;
     }
 
-    public void c(Runnable runnable) {
+    public static Boolean d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable) == null) && runnable != null) {
-            try {
-                this.a.submit(runnable);
-            } catch (Throwable unused) {
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            return e(str, UrlSchemaHelper.SCHEMA_TYPE_HTTPS);
         }
+        return (Boolean) invokeL.objValue;
     }
 
-    public void d(al1 al1Var, long j, long j2, TimeUnit timeUnit) {
-        ScheduledThreadPoolExecutor scheduledThreadPoolExecutor;
+    public static Boolean e(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{al1Var, Long.valueOf(j), Long.valueOf(j2), timeUnit}) == null) && al1Var != null && (scheduledThreadPoolExecutor = this.b) != null && !scheduledThreadPoolExecutor.isShutdown()) {
-            try {
-                al1Var.i(System.currentTimeMillis());
-                al1Var.h(this.b.scheduleAtFixedRate(al1Var, j, j2, timeUnit));
-            } catch (Throwable unused) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            boolean z = false;
+            if (str != null && str.trim().toLowerCase(Locale.getDefault()).indexOf(str2) == 0) {
+                z = true;
             }
+            return Boolean.valueOf(z);
         }
+        return (Boolean) invokeLL.objValue;
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Intent;
+import androidx.annotation.Nullable;
+import com.baidu.tieba.eu1;
 /* loaded from: classes4.dex */
-public interface gu1 {
-    void onActivityResult(Activity activity, int i, int i2, Intent intent);
+public interface gu1<T extends eu1> extends du1<T> {
+    @Nullable
+    vb3 getParams();
 }

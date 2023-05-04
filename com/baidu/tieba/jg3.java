@@ -1,76 +1,74 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.os.Bundle;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public final class jg3 {
+public class jg3 extends hg3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, dg3> a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947882291, "Lcom/baidu/tieba/jg3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947882291, "Lcom/baidu/tieba/jg3;");
-                return;
-            }
-        }
-        boolean z = fo1.a;
-        a = new HashMap();
-    }
 
     public jg3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static dg3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b("searchbox_webapps_sp");
-        }
-        return (dg3) invokeV.objValue;
-    }
-
-    public static dg3 b(String str) {
+    @Override // com.baidu.tieba.hg3
+    @SuppressLint({"BDThrowableCheck"})
+    public Bundle c(gg3 gg3Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            dg3 dg3Var = a.get(str);
-            if (dg3Var == null) {
-                synchronized (jg3.class) {
-                    dg3Var = a.get(str);
-                    if (dg3Var == null) {
-                        dg3Var = new dg3(str);
-                        a.put(str, dg3Var);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, gg3Var)) == null) {
+            fg3 b = lg3.b(gg3Var.a);
+            if (b == null) {
+                if (!hg3.a) {
+                    return Bundle.EMPTY;
                 }
+                throw new IllegalArgumentException("illegal sp.");
             }
-            return dg3Var;
+            int i = gg3Var.b;
+            if (i != 1) {
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                if (hg3.a) {
+                                    throw new IllegalArgumentException("wrong info params.");
+                                }
+                            } else {
+                                b.putFloat(gg3Var.c, Float.parseFloat(gg3Var.d));
+                            }
+                        } else {
+                            b.putString(gg3Var.c, gg3Var.d);
+                        }
+                    } else {
+                        b.putBoolean(gg3Var.c, Boolean.parseBoolean(gg3Var.d));
+                    }
+                } else {
+                    b.putLong(gg3Var.c, Long.parseLong(gg3Var.d));
+                }
+            } else {
+                b.putInt(gg3Var.c, Integer.parseInt(gg3Var.d));
+            }
+            if (hg3.a) {
+                Log.d("SwanAppSpDelegation", "Put: " + gg3Var);
+            }
+            return Bundle.EMPTY;
         }
-        return (dg3) invokeL.objValue;
+        return (Bundle) invokeL.objValue;
     }
 }

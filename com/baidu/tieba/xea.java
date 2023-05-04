@@ -1,17 +1,46 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
-import java.lang.reflect.Type;
 /* loaded from: classes7.dex */
-public class xea implements wea {
+public class xea {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final xea a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-290546953, "Lcom/baidu/tieba/xea$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-290546953, "Lcom/baidu/tieba/xea$b;");
+                    return;
+                }
+            }
+            a = new xea(null);
+        }
+    }
 
     public xea() {
         Interceptable interceptable = $ic;
@@ -27,57 +56,55 @@ public class xea implements wea {
         }
     }
 
-    @Override // com.baidu.tieba.wea
-    public String a(Object obj) {
-        InterceptResult invokeL;
+    public static xea a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-            try {
-                if (oda.c().d() != null && oda.c().d().c() != null) {
-                    return oda.c().d().c().a(obj);
-                }
-                return new Gson().toJson(obj);
-            } catch (Exception e) {
-                rha.b(e.getMessage());
-                return "";
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (String) invokeL.objValue;
+        return (xea) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.wea
-    public <T> T b(String str, Class<T> cls) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, cls)) == null) {
-            try {
-                if (oda.c().d() != null && oda.c().d().c() != null) {
-                    return (T) oda.c().d().c().b(str, cls);
-                }
-                return (T) new Gson().fromJson(str, (Class<Object>) cls);
-            } catch (Exception e) {
-                rha.b(e.getMessage());
-                return null;
-            }
-        }
-        return (T) invokeLL.objValue;
+    public /* synthetic */ xea(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.wea
-    public <T> T c(String str, Type type) {
-        InterceptResult invokeLL;
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, type)) == null) {
-            try {
-                if (oda.c().d() != null && oda.c().d().c() != null) {
-                    return (T) oda.c().d().c().c(str, type);
-                }
-                return (T) new Gson().fromJson(str, type);
-            } catch (Exception e) {
-                rha.b(e.getMessage());
-                return null;
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return oea.f(str, i);
         }
-        return (T) invokeLL.objValue;
+        return invokeLI.intValue;
+    }
+
+    public long c(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j)) == null) {
+            return oea.g(str, j);
+        }
+        return invokeLJ.longValue;
+    }
+
+    public void d(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            oea.n(str, i);
+        }
+    }
+
+    public void e(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(1048579, this, str, j) == null) {
+            oea.o(str, j);
+        }
+    }
+
+    public void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
+            oea.p(str, str2);
+        }
     }
 }

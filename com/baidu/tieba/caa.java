@@ -1,104 +1,122 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.atomData.AlbumFloatActivityConfig;
+import com.baidu.tbadk.core.atomData.WorkPublishOpenHelper;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.PostPrefixData;
+import com.baidu.tbadk.coreExtra.data.WriteData;
+import com.baidu.tbadk.img.WriteImagesInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class caa {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean f;
-    public static String g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public long d;
-    public int e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669414, "Lcom/baidu/tieba/caa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947669414, "Lcom/baidu/tieba/caa;");
+    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
+        String str;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, tbPageContext, writeData) == null) {
+            String str2 = "";
+            if (p5a.b()) {
+                if (TextUtils.isEmpty(writeData.getTitle())) {
+                    str = "";
+                    i = 1;
+                } else {
+                    str = writeData.getTitle();
+                    i = 5;
+                }
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    p5a.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), 3, Boolean.FALSE, "", "", "");
+                    return;
+                }
+                p5a.f(tbPageContext, str, writeData.getContent(), writeData.getForumId(), writeData.getForumName(), i, Boolean.TRUE, "", "", "");
                 return;
             }
+            if (writeData.getWriteImagesInfo() != null) {
+                str2 = writeData.getWriteImagesInfo().toJsonString();
+            }
+            c(tbPageContext, writeData, str2, writeData.getFrom(), writeData.getDisableAudioMessage(), writeData.isVoiceEnable(), writeData.getPrefixData(), true);
         }
-        f = baa.a & true;
-        g = "ControlData";
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public static void b(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, @NonNull WriteImagesInfo writeImagesInfo, String str, String str2, boolean z, PostPrefixData postPrefixData) {
+        String str3;
+        JSONObject json;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int i = this.e;
-            if (i != 0 && i == this.c) {
-                return true;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{tbPageContext, writeData, writeImagesInfo, str, str2, Boolean.valueOf(z), postPrefixData}) == null) {
+            String jsonString = writeImagesInfo.toJsonString();
+            if (writeData.getType() == 11 && (json = writeImagesInfo.toJson()) != null) {
+                try {
+                    json.put("maxImagesAllowed", 9 - writeImagesInfo.size());
+                    json.put("chosedFiles", (Object) null);
+                    jsonString = json.toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                    str3 = null;
+                }
             }
-            return false;
+            str3 = jsonString;
+            c(tbPageContext, writeData, str3, str, str2, z, postPrefixData, false);
         }
-        return invokeV.booleanValue;
     }
 
-    public caa(String str, int i, int i2) {
+    public static void c(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData, String str, String str2, String str3, boolean z, PostPrefixData postPrefixData, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{tbPageContext, writeData, str, str2, str3, Boolean.valueOf(z), postPrefixData, Boolean.valueOf(z2)}) == null) {
+            AlbumFloatActivityConfig albumFloatActivityConfig = new AlbumFloatActivityConfig(tbPageContext.getPageActivity(), str, true, true);
+            albumFloatActivityConfig.getIntent().putExtra("forum_id", writeData.getForumId());
+            albumFloatActivityConfig.getIntent().putExtra("forum_name", writeData.getForumName());
+            albumFloatActivityConfig.getIntent().putExtra("from", str2);
+            albumFloatActivityConfig.setRequestCode(TaskResponseData.ERROR_NO_TASK_OFFLINE_03);
+            albumFloatActivityConfig.setAlbumThread(0);
+            albumFloatActivityConfig.setCanSelectVideo(z2);
+            albumFloatActivityConfig.setCanSelectOnlyVideo(z2);
+            albumFloatActivityConfig.setCanEditImage(false);
+            albumFloatActivityConfig.setFromWrite(3);
+            albumFloatActivityConfig.setCallFrom(writeData.getCallFrom());
+            albumFloatActivityConfig.setStatisticFrom(writeData.getStatisticFrom());
+            albumFloatActivityConfig.setFrsTabInfo(writeData.getFrsTabInfoData());
+            if (z2) {
+                if (!TextUtils.isEmpty(writeData.getTitle())) {
+                    albumFloatActivityConfig.setVideoTitle(writeData.getTitle());
+                } else {
+                    albumFloatActivityConfig.setVideoTitle("");
+                }
+                albumFloatActivityConfig.setBarName(writeData.getForumName());
+                albumFloatActivityConfig.setBarID(writeData.getForumId());
+                if (!TextUtils.isEmpty(writeData.getForumId()) && !TextUtils.isEmpty(writeData.getForumName())) {
+                    albumFloatActivityConfig.setCanChangeBarName(false);
+                } else {
+                    albumFloatActivityConfig.setCanChangeBarName(true);
+                }
+                albumFloatActivityConfig.setVideoAbstract(writeData.getContent());
             }
+            AntiData antiData = new AntiData();
+            antiData.voice_message = str3;
+            antiData.setIfVoice(z);
+            albumFloatActivityConfig.setExtraData(antiData, postPrefixData, writeData.getFirstDir(), writeData.getSecondDir());
+            tbPageContext.sendMessage(new CustomMessage(2002001, albumFloatActivityConfig));
         }
-        this.a = str;
-        this.b = i;
-        this.c = i2;
     }
 
-    public boolean a() {
-        InterceptResult invokeV;
+    public static void d(@NonNull TbPageContext<?> tbPageContext, @NonNull WriteData writeData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.b != 0 && this.c != 0) {
-                Long valueOf = Long.valueOf(System.currentTimeMillis());
-                if (f) {
-                    Log.d(g, "id " + this.a + " mLimitUnit " + this.b + " mLimitCnt " + this.c + "mCount =  " + this.e + " duration " + ((valueOf.longValue() - this.d) / 1000));
-                }
-                if (this.d != 0 && (valueOf.longValue() - this.d) / 1000 <= this.b && this.e >= this.c) {
-                    if (f) {
-                        Log.d(g, "control");
-                    }
-                    return true;
-                }
-                if (this.d == 0) {
-                    this.d = valueOf.longValue();
-                } else if ((valueOf.longValue() - this.d) / 1000 > this.b) {
-                    this.d = valueOf.longValue();
-                    this.e = 0;
-                    if (f) {
-                        Log.d(g, "reset");
-                    }
-                }
-                this.e++;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tbPageContext, writeData) == null) {
+            int a = p5a.a();
+            if (p5a.c(a)) {
+                p5a.e(tbPageContext.getPageActivity(), a, WorkPublishOpenHelper.OPEN_WORK_PUBLISH_FROM_FRS_WRITE);
+            } else {
+                a(tbPageContext, writeData);
             }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 }

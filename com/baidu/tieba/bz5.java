@@ -1,40 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class bz5 {
     public static /* synthetic */ Interceptable $ic;
+    public static bz5 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public jm0 a;
 
-    public static boolean a(String str) {
-        InterceptResult invokeL;
+    public bz5() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return b(str, null);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        this.a = fm0.b().a();
     }
 
-    public static boolean b(String str, @Nullable Context context) {
-        InterceptResult invokeLL;
+    public static bz5 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, context)) == null) {
-            return c(str, context, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (bz5.class) {
+                    if (b == null) {
+                        b = new bz5();
+                    }
+                }
+            }
+            return b;
         }
-        return invokeLL.booleanValue;
+        return (bz5) invokeV.objValue;
     }
 
-    public static boolean c(String str, @Nullable Context context, @Nullable Map<String, Object> map) {
-        InterceptResult invokeLLL;
+    public int b(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, context, map)) == null) {
-            return sh0.e(str, context, map, null);
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            return this.a.a(str, i);
         }
-        return invokeLLL.booleanValue;
+        return invokeLI.intValue;
     }
 }

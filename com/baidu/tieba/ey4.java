@@ -1,32 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.data.AntiData;
-import com.baidu.tbadk.core.data.UserData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import tbclient.FrsPage.ForumHeadlineImgInfo;
 /* loaded from: classes4.dex */
 public class ey4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public UserData a;
-    public AntiData b;
-    public ArrayList<String> c;
-    public String d;
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-        }
-    }
+    public String a;
+    public String b;
+    public ay4 c;
 
     public ey4() {
         Interceptable interceptable = $ic;
@@ -41,68 +29,45 @@ public class ey4 {
                 return;
             }
         }
-        this.c = null;
-        this.a = new UserData();
-        this.b = new AntiData();
-        this.c = new ArrayList<>();
-        f(0);
+        this.a = "";
+        this.b = "";
     }
 
-    public AntiData a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (AntiData) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+            return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public UserData c() {
-        InterceptResult invokeV;
+    public void b(ForumHeadlineImgInfo forumHeadlineImgInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, forumHeadlineImgInfo) != null) || forumHeadlineImgInfo == null) {
+            return;
         }
-        return (UserData) invokeV.objValue;
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            try {
-                e(new JSONObject(str));
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        forumHeadlineImgInfo.thread_id.longValue();
+        forumHeadlineImgInfo.thread_user_id.longValue();
+        String str = forumHeadlineImgInfo.thread_user_name;
+        forumHeadlineImgInfo.img_user_id.longValue();
+        String str2 = forumHeadlineImgInfo.img_user_name;
+        this.a = forumHeadlineImgInfo.img_url;
+        this.b = forumHeadlineImgInfo.headline_url;
+        this.c = new ay4();
+        ArrayList<dy4> arrayList = new ArrayList<>();
+        String str3 = this.a;
+        String str4 = "";
+        if (str3 == null) {
+            str3 = "";
         }
-    }
-
-    public void e(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            try {
-                this.a.parserJson(jSONObject.optJSONObject("user"));
-                this.b.parserJson(jSONObject.optJSONObject(SubPbActivityConfig.KEY_ANTI));
-                JSONArray optJSONArray = jSONObject.optJSONArray("suggnames");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        this.c.add(optJSONArray.optString(i, null));
-                    }
-                }
-                f(jSONObject.optInt("retrytime"));
-                this.d = jSONObject.optString("growth_switch");
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
+        String str5 = this.b;
+        if (str5 != null) {
+            str4 = str5;
         }
+        dy4 dy4Var = new dy4(str3, str4, null);
+        dy4Var.r(true);
+        arrayList.add(dy4Var);
+        this.c.g(arrayList);
     }
 }

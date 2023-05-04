@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.xiaomi.push.ci;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ce extends ci.d {
     public String a;
 

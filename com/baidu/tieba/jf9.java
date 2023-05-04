@@ -1,287 +1,170 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import android.view.View;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.BrowserType;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.util.IBaiduIdentityContext;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.DragImageView;
+import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public class jf9 implements IBaiduIdentityContext {
+public class jf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final TbPageContext<?> a;
+    public final DragImageView.h b;
+    public final boolean c;
+    public Map<AdvertAppInfo, if9> d;
+    public if9 e;
 
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public byte[] encryptByNativeBds(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) ? new byte[0] : (byte[]) invokeLL.objValue;
-    }
+    /* loaded from: classes5.dex */
+    public class a implements pg8 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ if9 a;
 
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getAppMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return null;
+        public a(jf9 jf9Var, if9 if9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jf9Var, if9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = if9Var;
         }
-        return (String) invokeV.objValue;
-    }
 
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getBDVCInfo() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getIid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public boolean getJoinUserExperiencePreference(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getLocString(Context context, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, context, i)) == null) {
-            return null;
-        }
-        return (String) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getLocationInfo(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, context)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getMatrixstyle() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getOEMChannel(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getOsBranch() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getPassUid(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, context)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getPkgName() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public boolean getPrivacySwitch(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, context)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String[] getProcessUARegex(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, context)) == null) ? new String[0] : (String[]) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getSearchBoxTypeId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, context)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getTn(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, context)) == null) {
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String getZid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public boolean isAgreePrivacy() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public boolean isBlinkEnable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public boolean isDataFlowPopDialog(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, context)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public boolean isPeakTime() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public boolean isSelfUpdateInstalled(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, context)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public CookieManager obtainCookieManager(boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048598, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            return null;
-        }
-        return (CookieManager) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String processUrlExternal(String str, boolean z) {
-        InterceptResult invokeLZ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048599, this, str, z)) == null) {
-            return null;
-        }
-        return (String) invokeLZ.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public String processUserAgentExternal(String str, BrowserType browserType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048600, this, str, browserType)) == null) {
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.util.IBaiduIdentityContext
-    public void setCookieManualNoBdussOperate(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048601, this, str, str2, z) == null) {
+        @Override // com.baidu.tieba.pg8
+        public void a(int i, HashMap<String, Object> hashMap) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, hashMap) == null) {
+                AdvertAppInfo a = this.a.a();
+                if (i != 0 && a != null) {
+                    String str = "image";
+                    if (hashMap != null) {
+                        String str2 = (String) hashMap.get("da_area");
+                        if (!TextUtils.isEmpty(str2)) {
+                            str = str2;
+                        }
+                    }
+                    if (be9.h(i)) {
+                        of9.f(a, 0, str, i);
+                    } else {
+                        of9.m(a, 0, str);
+                    }
+                    xg8.c(a);
+                }
+            }
         }
     }
 
-    public jf9() {
+    public jf9(@NonNull TbPageContext<?> tbPageContext, boolean z, DragImageView.h hVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, Boolean.valueOf(z), hVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = tbPageContext;
+        this.c = z;
+        this.b = hVar;
+        this.d = new HashMap();
+    }
+
+    public if9 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if9 if9Var = new if9(this.a);
+            if9Var.b();
+            if9Var.setBusinessType(99);
+            if9Var.setFromCDN(this.c);
+            if9Var.C(this.b);
+            if9Var.setAfterClickSchemeListener(new a(this, if9Var));
+            return if9Var;
+        }
+        return (if9) invokeV.objValue;
+    }
+
+    public View b(AdvertAppInfo advertAppInfo, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, advertAppInfo, z)) == null) {
+            if (advertAppInfo != null && (advertAppInfo.h instanceof AdCard)) {
+                if9 if9Var = this.d.get(advertAppInfo);
+                if (if9Var == null) {
+                    if9Var = a();
+                    this.d.put(advertAppInfo, if9Var);
+                }
+                if9Var.c((AdCard) advertAppInfo.h);
+                this.e = if9Var;
+                if (z) {
+                    if9Var.w();
+                }
+                return if9Var.r();
+            }
+            return null;
+        }
+        return (View) invokeLZ.objValue;
+    }
+
+    public void c() {
+        if9 if9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (if9Var = this.e) != null) {
+            if9Var.w();
+        }
+    }
+
+    public void d() {
+        if9 if9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (if9Var = this.e) != null) {
+            if9Var.A();
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            for (if9 if9Var : this.d.values()) {
+                if (if9Var != null) {
+                    if9Var.B();
+                }
+            }
+            this.d.clear();
+        }
+    }
+
+    public void f(AdvertAppInfo advertAppInfo) {
+        if9 if9Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, advertAppInfo) == null) && advertAppInfo != null && (if9Var = this.d.get(advertAppInfo)) != null) {
+            if9Var.B();
+            this.d.remove(advertAppInfo);
         }
     }
 }

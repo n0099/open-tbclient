@@ -1,21 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.facebook.drawee.generic.GenericDraweeHierarchy;
-import com.facebook.imagepipeline.request.ImageRequestBuilder;
-import java.util.Map;
+import com.baidu.swan.apps.SwanAppActivity;
 import org.json.JSONObject;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public interface ps1 {
-    void a(Context context, JSONObject jSONObject);
+    void a();
 
-    void b(Context context, JSONObject jSONObject);
+    void b(String str, nw1 nw1Var);
 
-    void c(GenericDraweeHierarchy genericDraweeHierarchy, boolean z);
+    void c(SwanAppActivity swanAppActivity, String str, nw1 nw1Var);
 
-    void d(Context context, String[] strArr, int i);
-
-    ImageRequestBuilder e(ImageRequestBuilder imageRequestBuilder, Map<String, String> map);
-
-    void f(Context context, JSONObject jSONObject);
+    void d(String str, String str2, JSONObject jSONObject, nw1 nw1Var);
 }

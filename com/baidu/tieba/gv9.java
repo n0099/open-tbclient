@@ -1,147 +1,242 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.opengl.EGL14;
-import android.opengl.EGLConfig;
-import android.opengl.EGLContext;
-import android.opengl.EGLDisplay;
-import android.opengl.EGLExt;
-import android.opengl.EGLSurface;
-import android.util.Log;
-import android.view.Surface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.internal.monitor.MonitorType;
-@TargetApi(18)
+import tbclient.ThemeCardPropMain;
 /* loaded from: classes4.dex */
 public class gv9 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long k = 1350000;
     public transient /* synthetic */ FieldHolder $fh;
-    public EGLDisplay a;
-    public EGLContext b;
-    public EGLSurface c;
-    public Surface d;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public int g;
+    public int h;
+    public int i;
+    public int j;
 
-    public gv9(Surface surface) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947807519, "Lcom/baidu/tieba/gv9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947807519, "Lcom/baidu/tieba/gv9;");
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        }
+    }
+
+    public gv9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {surface};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        if (surface != null) {
-            this.d = surface;
-            b();
-            return;
-        }
-        throw null;
+        this.j = 0;
     }
 
-    public final void a(String str) {
+    public long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            boolean z = false;
-            while (true) {
-                int eglGetError = EGL14.eglGetError();
-                if (eglGetError == 12288) {
-                    break;
-                }
-                Log.e("InputSurface", str + ": EGL error: 0x" + Integer.toHexString(eglGetError));
-                z = true;
-            }
-            if (!z) {
-                return;
-            }
-            throw new RuntimeException("EGL error encountered (see log)");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.longValue;
     }
 
-    public final void b() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            EGLDisplay eglGetDisplay = EGL14.eglGetDisplay(0);
-            this.a = eglGetDisplay;
-            if (eglGetDisplay != EGL14.EGL_NO_DISPLAY) {
-                int[] iArr = new int[2];
-                if (EGL14.eglInitialize(eglGetDisplay, iArr, 0, iArr, 1)) {
-                    EGLConfig[] eGLConfigArr = new EGLConfig[1];
-                    if (EGL14.eglChooseConfig(this.a, new int[]{MonitorType.MONITOR_TYPE_DOWNLOAD_WEBKIT, 8, MonitorType.MONITOR_TYPE_INIT_WEBKIT, 8, 12322, 8, 12352, 4, 12610, 1, 12344}, 0, eGLConfigArr, 0, 1, new int[1], 0)) {
-                        this.b = EGL14.eglCreateContext(this.a, eGLConfigArr[0], EGL14.EGL_NO_CONTEXT, new int[]{12440, 2, 12344}, 0);
-                        a("eglCreateContext");
-                        if (this.b != null) {
-                            this.c = EGL14.eglCreateWindowSurface(this.a, eGLConfigArr[0], this.d, new int[]{12344}, 0);
-                            a("eglCreateWindowSurface");
-                            if (this.c != null) {
-                                return;
-                            }
-                            throw new RuntimeException("surface was null");
-                        }
-                        throw new RuntimeException("null context");
-                    }
-                    throw new RuntimeException("unable to find RGB888+recordable ES2 EGL config");
-                }
-                this.a = null;
-                throw new RuntimeException("unable to initialize EGL14");
-            }
-            throw new RuntimeException("unable to get EGL14 display");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public void c() {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            EGLDisplay eGLDisplay = this.a;
-            EGLSurface eGLSurface = this.c;
-            if (EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, this.b)) {
-                return;
-            }
-            throw new RuntimeException("eglMakeCurrent failed");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.j;
         }
+        return invokeV.intValue;
     }
 
-    public boolean f() {
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return EGL14.eglSwapBuffers(this.a, this.c);
+            return this.h;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public void d() {
+    public int g() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (EGL14.eglGetCurrentContext().equals(this.b)) {
-                EGLDisplay eGLDisplay = this.a;
-                EGLSurface eGLSurface = EGL14.EGL_NO_SURFACE;
-                EGL14.eglMakeCurrent(eGLDisplay, eGLSurface, eGLSurface, EGL14.EGL_NO_CONTEXT);
-            }
-            EGL14.eglDestroySurface(this.a, this.c);
-            EGL14.eglDestroyContext(this.a, this.b);
-            this.d.release();
-            this.a = null;
-            this.b = null;
-            this.c = null;
-            this.d = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public int h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void k(ThemeCardPropMain themeCardPropMain) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048586, this, themeCardPropMain) != null) || themeCardPropMain == null) {
+            return;
+        }
+        this.a = themeCardPropMain.props_id.longValue();
+        this.b = themeCardPropMain.title;
+        this.c = themeCardPropMain.description;
+        this.d = themeCardPropMain.example_url;
+        this.e = themeCardPropMain.permission;
+        this.f = themeCardPropMain.props_state_img;
+        this.g = themeCardPropMain.in_use.intValue();
+        this.h = themeCardPropMain.free_user_level.intValue();
+        String str = themeCardPropMain.activity_url;
+        this.i = themeCardPropMain.is_finished.intValue();
+    }
+
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048588, this, j) == null) {
+            this.a = j;
         }
     }
 
-    public void e(long j) {
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            EGLExt.eglPresentationTimeANDROID(this.a, this.c, j);
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.f = str;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.j = i;
+        }
+    }
+
+    public void p(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void q(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
+            this.d = str;
+        }
+    }
+
+    public void r(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
+            this.h = i;
+        }
+    }
+
+    public void s(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
+            this.g = i;
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void u(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048597, this, str) == null) {
+            this.b = str;
         }
     }
 }

@@ -1,87 +1,153 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
-import com.baidu.tbadk.data.LiveRemindData;
-import com.baidu.tbadk.data.LiveRemindNormalConfigData;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
+import android.util.Log;
+import com.baidu.adp.base.BdBaseApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes4.dex */
 public class d45 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d45 d;
+    public static final c a;
+    public static final c b;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public LiveRemindData a;
-    public LiveRemindNormalConfigData b;
-    public List<LiveRemindRecommendData> c;
 
-    public d45() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static d45 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (d == null) {
-                synchronized (d45.class) {
-                    if (d == null) {
-                        d = new d45();
-                    }
+    /* loaded from: classes4.dex */
+    public interface c {
+        void a(String str, String str2, String str3);
+    }
+
+    /* loaded from: classes4.dex */
+    public static final class b implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return d;
         }
-        return (d45) invokeV.objValue;
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.d45.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                if (str2 != null) {
+                    str3 = "code:" + str2 + " message:" + str3;
+                }
+                Log.e("BridgeLogger", str3);
+            }
+        }
     }
 
-    public final void b() {
-        List<LiveRemindRecommendData> list;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.c) != null && list.size() >= 1) {
-            LiveRemindConfig.c().e(this.c.get(0));
-        }
-    }
+    /* loaded from: classes4.dex */
+    public static final class d implements c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public LiveRemindRecommendData c(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            if (this.c != null) {
-                for (int i2 = 0; i2 < this.c.size(); i2++) {
-                    if (this.c.get(i2) != null && this.c.get(i2).getShowPage() == i) {
-                        return this.c.get(i2);
-                    }
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
-            return null;
         }
-        return (LiveRemindRecommendData) invokeI.objValue;
+
+        public /* synthetic */ d(a aVar) {
+            this();
+        }
+
+        @Override // com.baidu.tieba.d45.c
+        public void a(String str, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+                StatisticItem statisticItem = new StatisticItem("c10729");
+                statisticItem.param("obj_param1", str);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, str2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM3, str3);
+                if (BdBaseApplication.getInst() != null) {
+                    TiebaStatic.log(statisticItem);
+                }
+            }
+        }
     }
 
-    public void d(LiveRemindData liveRemindData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, liveRemindData) != null) || liveRemindData == null) {
-            return;
+    static {
+        InterceptResult invokeClinit;
+        boolean z;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947654596, "Lcom/baidu/tieba/d45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947654596, "Lcom/baidu/tieba/d45;");
+                return;
+            }
         }
-        this.a = liveRemindData;
-        this.b = liveRemindData.getNormalConfig();
-        this.c = liveRemindData.getLiveRecommendList();
-        b();
+        a = new b(null);
+        b = new d(null);
+        if (BdBaseApplication.getInst() != null && !BdBaseApplication.getInst().isDebugMode()) {
+            z = false;
+        } else {
+            z = true;
+        }
+        c = z;
+    }
+
+    public static void a(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65537, null, str) == null) && c) {
+            a.a(null, null, str);
+        }
+    }
+
+    public static void b(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
+            a(str3);
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            if (c) {
+                a.a(str, str2, str3);
+            }
+            b.a(str, str2, str3);
+        }
     }
 }

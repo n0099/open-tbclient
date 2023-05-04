@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,16 +10,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class tn2 extends pl2<go2> {
+public class tn2 extends rl2<io2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setEnlargeEye" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setCameraFace" : (String) invokeV.objValue;
     }
 
     public tn2() {
@@ -36,16 +37,21 @@ public class tn2 extends pl2<go2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull go2 go2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull io2 io2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, go2Var) == null) {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, io2Var) == null) {
             String str = command.what;
-            d(go2Var, str, "" + command.obj, true);
+            d(io2Var, str, "" + command.obj, true);
             Object obj = command.obj;
-            if (obj instanceof Integer) {
-                go2Var.e(((Integer) obj).intValue());
+            if (obj instanceof String) {
+                String str2 = (String) obj;
+                if (TextUtils.equals(str2, "back")) {
+                    io2Var.setCameraFace(false);
+                } else if (TextUtils.equals(str2, "front")) {
+                    io2Var.setCameraFace(true);
+                }
             }
         }
     }

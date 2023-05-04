@@ -1,55 +1,48 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
 import android.text.TextUtils;
-import android.util.Base64;
 import android.util.Log;
 import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.http.request.HttpRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.tieba.af4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.util.MimeTypes;
 import java.io.IOException;
 import java.nio.charset.Charset;
-import okhttp3.Call;
-import okhttp3.Callback;
+import java.util.HashMap;
 import okhttp3.Headers;
 import okhttp3.Response;
 import okhttp3.ResponseBody;
 import okio.Buffer;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mr3 extends lr3 {
+public class mr3<T> extends nr3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean k;
     public transient /* synthetic */ FieldHolder $fh;
-    public Callback d;
-    public JSONObject e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public int j;
+    public String d;
+    public String e;
+    public ResponseCallback<T> f;
+    public int g;
+    public af4.a h;
+
+    @Override // com.baidu.tieba.nr3
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "POST" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a extends ResponseCallback {
+    public class a extends ResponseCallback<String> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mr3 a;
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
+        public T a;
+        public final /* synthetic */ mr3 b;
 
         public a(mr3 mr3Var) {
             Interceptable interceptable = $ic;
@@ -66,256 +59,193 @@ public class mr3 extends lr3 {
                     return;
                 }
             }
-            this.a = mr3Var;
+            this.b = mr3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (tq3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onSuccess=" + str);
+                }
+                if (TextUtils.equals(str, "recovery")) {
+                    if (zq3.l().m().b()) {
+                        zq3.l().m().a();
+                        this.b.i(true);
+                        this.b.p();
+                        return;
+                    }
+                    this.b.f.onFail(new Exception("Exceeded the limit of continuous downgrade"));
+                    return;
+                }
+                zq3.l().m().k();
+                mr3 mr3Var = this.b;
+                if (mr3Var.a) {
+                    if (mr3Var.b == 1) {
+                        yq3.a(MimeTypes.BASE_TYPE_APPLICATION);
+                        if (this.b.f != null) {
+                            this.b.f.onSuccess(this.a, i);
+                        }
+                        this.b.g = 0;
+                    } else if (mr3.m(mr3Var) >= 3) {
+                        ResponseCallback responseCallback = this.b.f;
+                        responseCallback.onFail(new IOException("request fail : " + this.a));
+                        this.b.g = 0;
+                    } else {
+                        mr3 mr3Var2 = this.b;
+                        mr3Var2.q(mr3Var2.d, this.b.e, this.b.f);
+                    }
+                } else if (mr3Var.f != null) {
+                    this.b.f.onSuccess(this.a, i);
+                    this.b.g = 0;
+                }
+            }
         }
 
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
         public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                if (rq3.a) {
-                    Log.d("BDTLS", "Bdtls Request API onFailure = " + exc.getMessage());
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                if (tq3.a) {
+                    Log.d("BDTLS", "BdtlsPostRequest onFail=" + exc.getMessage());
                 }
-                if (this.a.d != null) {
-                    if (exc instanceof IOException) {
-                        this.a.d.onFailure(null, (IOException) exc);
-                    } else {
-                        this.a.d.onFailure(null, new IOException(exc));
-                    }
+                if (this.b.f != null) {
+                    this.b.f.onFail(exc);
                 }
             }
         }
 
+        /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
+        public String parseResponse(Response response, int i) throws Exception {
             InterceptResult invokeLI;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                this.a.n(null, response);
-                return response;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                Headers headers = response.headers();
+                String str = headers.get("Bdtls");
+                if (headers != null && TextUtils.equals(str, "recovery")) {
+                    zq3.l().m().s(0);
+                    return "recovery";
+                }
+                mr3 mr3Var = this.b;
+                if (mr3Var.a) {
+                    ResponseBody body = response.body();
+                    String g = this.b.g(body.bytes());
+                    if (tq3.a) {
+                        Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
+                    }
+                    if (this.b.b == 1) {
+                        Buffer buffer = new Buffer();
+                        buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
+                        Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
+                        if (this.b.f != null) {
+                            this.a = (T) this.b.f.parseResponse(build, i);
+                        }
+                    }
+                    return g;
+                } else if (mr3Var.f != null) {
+                    this.a = (T) this.b.f.parseResponse(response, i);
+                    return "";
+                } else {
+                    return "";
+                }
             }
-            return invokeLI.objValue;
+            return (String) invokeLI.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947982235, "Lcom/baidu/tieba/mr3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947982235, "Lcom/baidu/tieba/mr3;");
-                return;
-            }
-        }
-        k = fo1.a;
-    }
-
-    public final void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.j++;
-            o(this.g);
-        }
-    }
-
-    public mr3(v73 v73Var, JSONObject jSONObject, String str, Callback callback) {
+    public mr3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {v73Var, jSONObject, str, callback};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = callback;
-        this.f = str;
-        m(jSONObject);
-        d(this.e.optString("method"));
+        this.d = null;
+        this.e = null;
+        this.f = null;
     }
 
-    @Override // com.baidu.tieba.lr3
+    public final void p() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            q(this.d, this.e, this.f);
+        }
+    }
+
+    public static /* synthetic */ int m(mr3 mr3Var) {
+        int i = mr3Var.g;
+        mr3Var.g = i + 1;
+        return i;
+    }
+
+    @Override // com.baidu.tieba.nr3
     public void e(IOException iOException) {
-        Callback callback;
+        ResponseCallback<T> responseCallback;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, iOException) == null) && (callback = this.d) != null) {
-            callback.onFailure(null, iOException);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iOException) == null) && (responseCallback = this.f) != null) {
+            responseCallback.onFail(iOException);
         }
     }
 
-    public final void l(HttpRequest httpRequest) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, httpRequest) != null) || httpRequest == null) {
-            return;
-        }
-        httpRequest.executeAsync(new a(this));
-    }
-
-    public final void m(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, jSONObject) == null) {
-            this.e = jSONObject;
-            this.h = jSONObject.optString("url");
-            JSONObject optJSONObject = this.e.optJSONObject("ext");
-            if (optJSONObject != null) {
-                this.i = optJSONObject.optString("customHost");
-            }
-        }
-    }
-
-    public void o(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            this.g = str;
-            JSONObject jSONObject = this.e;
-            if (jSONObject != null) {
-                str2 = jSONObject.optString("data");
-            } else {
-                str2 = "";
-            }
-            a(str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.lr3
+    @Override // com.baidu.tieba.nr3
     public void f(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            if (rq3.a) {
-                Log.d("BdtlsRequestApi", "onRequestError=" + i);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (tq3.a) {
+                Log.d("BDTLS", "onRequestError=" + i);
             }
-            Callback callback = this.d;
-            if (callback != null) {
-                callback.onFailure(null, new IOException("request error  code : " + i));
+            ResponseCallback<T> responseCallback = this.f;
+            if (responseCallback != null) {
+                responseCallback.onFail(new Exception("request error  code : " + i));
             }
         }
     }
 
-    @Override // com.baidu.tieba.lr3
+    @Override // com.baidu.tieba.nr3
     public void h(byte[] bArr) {
-        JSONObject jSONObject;
-        HttpRequest httpRequest;
-        Callback callback;
-        String str;
-        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject = new JSONObject(this.e.toString());
-                try {
-                    Uri parse = Uri.parse(this.h);
-                    String path = parse.getPath();
-                    String query = parse.getQuery();
-                    if (TextUtils.isEmpty(this.i)) {
-                        str = sq3.b;
-                    } else {
-                        str = this.i + "/bdtls";
-                    }
-                    StringBuilder sb = new StringBuilder(str + "/" + this.g);
-                    String str3 = "";
-                    if (TextUtils.isEmpty(path)) {
-                        path = "";
-                    }
-                    sb.append(path);
-                    if (!TextUtils.isEmpty(query)) {
-                        str3 = "?" + query;
-                    }
-                    sb.append(str3);
-                    if (k) {
-                        Log.d("BdtlsRequestApi", "bdtls url is : " + sb.toString());
-                    }
-                    JSONObject optJSONObject = jSONObject.optJSONObject("header");
-                    if (this.a) {
-                        if (TextUtils.equals(b(), "GET")) {
-                            str2 = Base64.encodeToString(bArr, 2);
-                        } else {
-                            jSONObject.putOpt("data", bArr);
-                            str2 = "Bdtls";
-                        }
-                        optJSONObject.put("Bdtls", str2);
-                    }
-                    jSONObject.putOpt("header", optJSONObject);
-                    jSONObject.putOpt("url", sb.toString());
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject2 = jSONObject;
-                    if (k) {
-                        Log.e("BdtlsRequestApi", "Bdtls request data is invalid", e);
-                    }
-                    jSONObject = jSONObject2;
-                    httpRequest = (HttpRequest) jx1.C(jSONObject, this.f).first;
-                    if (httpRequest == null) {
-                        callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
-                    }
-                    l(httpRequest);
-                }
-            } catch (JSONException e2) {
-                e = e2;
+        if (interceptable == null || interceptable.invokeL(1048579, this, bArr) == null) {
+            String str = this.d;
+            HashMap hashMap = new HashMap();
+            hashMap.put("Content-Type", "application/json");
+            if (this.a) {
+                hashMap.put("Bdtls", "Bdtls");
             }
-            httpRequest = (HttpRequest) jx1.C(jSONObject, this.f).first;
-            if (httpRequest == null && (callback = this.d) != null) {
-                callback.onFailure(null, new IOException("request build fail, maybe your url is invalid"));
+            if (tq3.a) {
+                Log.d("BDTLS", "BdtlsPostRequest url=" + str);
             }
-            l(httpRequest);
+            zc3 a2 = er2.q().a();
+            PostByteRequest.PostByteRequestBuilder postByteRequest = bf4.g().postByteRequest();
+            af4.a aVar = this.h;
+            if (aVar != null) {
+                postByteRequest.connectionTimeout(aVar.a).readTimeout(this.h.b).writeTimeout(this.h.c);
+            }
+            postByteRequest.mediaType("application/json").url(str).cookieManager(a2).headers(hashMap).content(bArr).build().executeAsync(new a(this));
         }
     }
 
-    public final void n(Call call, Response response) throws IOException {
+    public void q(String str, String str2, ResponseCallback<T> responseCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, call, response) == null) {
-            Headers headers = response.headers();
-            if (headers != null && TextUtils.equals(headers.get("Bdtls"), "recovery")) {
-                xq3.l().m().s(0);
-                if (xq3.l().m().b()) {
-                    xq3.l().m().a();
-                    i(true);
-                    p();
-                    return;
-                }
-                this.d.onFailure(call, new IOException("Exceeded the limit of continuous recovery"));
-                return;
-            }
-            xq3.l().m().k();
-            if (this.a) {
-                ResponseBody body = response.body();
-                String g = g(body.bytes());
-                if (rq3.a) {
-                    Log.d("BDTLS", "BdtlsPostRequest parseResponse=" + g);
-                }
-                if (this.b == 1) {
-                    Buffer buffer = new Buffer();
-                    buffer.writeString(g, Charset.forName(IMAudioTransRequest.CHARSET));
-                    Response build = response.newBuilder().body(ResponseBody.create(body.contentType(), buffer.size(), buffer)).build();
-                    Callback callback = this.d;
-                    if (callback != null) {
-                        callback.onResponse(call, build);
-                    }
-                    this.j = 0;
-                    return;
-                } else if (this.j < 3) {
-                    p();
-                    return;
-                } else {
-                    this.d.onFailure(call, new IOException("Url or serviceId is invalid"));
-                    this.j = 0;
-                    return;
-                }
-            }
-            Callback callback2 = this.d;
-            if (callback2 != null) {
-                callback2.onResponse(call, response);
-            }
+        if ((interceptable != null && interceptable.invokeLLL(1048581, this, str, str2, responseCallback) != null) || TextUtils.isEmpty(str)) {
+            return;
         }
+        this.d = str;
+        this.e = str2;
+        this.f = responseCallback;
+        if (tq3.a) {
+            Log.d("BDTLS", "requestPost url=" + str);
+            Log.d("BDTLS", "requestPost body=" + str2);
+        }
+        a(this.e);
     }
 }

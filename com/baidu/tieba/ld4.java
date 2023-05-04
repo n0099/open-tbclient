@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.AnimatorSet;
+import android.animation.ObjectAnimator;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.constraintlayout.motion.widget.Key;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.map.location.model.SelectedLocationInfo;
-import com.baidu.tieba.gd4;
-import com.baidu.tieba.wc4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,57 +16,64 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class ld4 extends hc4<fu2> implements gd4.b {
+public class ld4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final int f;
     public transient /* synthetic */ FieldHolder $fh;
-    public eu2 a;
-    public fu2 b;
+    public View a;
+    public View b;
+    public View c;
+    public boolean d;
+    public b e;
 
     /* loaded from: classes5.dex */
-    public class a implements wc4.c {
+    public interface b {
+        void a(boolean z);
+
+        void b(boolean z);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends AnimatorListenerAdapter {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ eu2 a;
-        public final /* synthetic */ String b;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ int b;
         public final /* synthetic */ ld4 c;
 
-        public a(ld4 ld4Var, eu2 eu2Var, String str) {
+        public a(ld4 ld4Var, boolean z, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ld4Var, eu2Var, str};
+                Object[] objArr = {ld4Var, Boolean.valueOf(z), Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
             this.c = ld4Var;
-            this.a = eu2Var;
-            this.b = str;
+            this.a = z;
+            this.b = i;
         }
 
-        @Override // com.baidu.tieba.wc4.c
-        public void onFail() {
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                v42.o("map", "location permission fail");
-                this.a.b(this.b, 1003, "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.wc4.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                v42.o("map", "location permission success");
-                this.c.g();
+            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
+                super.onAnimationEnd(animator);
+                animator.removeAllListeners();
+                if (!this.a) {
+                    this.c.c(this.b);
+                }
+                if (this.c.e != null) {
+                    this.c.e.a(this.a);
+                }
             }
         }
     }
@@ -81,109 +91,83 @@ public class ld4 extends hc4<fu2> implements gd4.b {
                 return;
             }
         }
-        boolean z = fo1.a;
+        f = ol3.g(58.0f);
     }
 
-    public ld4() {
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ld4(View view2, FrameLayout frameLayout, View view3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {view2, frameLayout, view3};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = view2;
+        this.b = frameLayout;
+        this.c = view3;
     }
 
-    public static ld4 h() {
-        InterceptResult invokeV;
+    public final void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return new ld4();
-        }
-        return (ld4) invokeV.objValue;
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            gd4 e3 = gd4.e3(null);
-            e3.j3(this);
-            e3.l3();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            ViewGroup.LayoutParams layoutParams = this.a.getLayoutParams();
+            layoutParams.height = this.a.getHeight() - (i * 2);
+            this.a.setLayoutParams(layoutParams);
         }
     }
 
-    @Override // com.baidu.tieba.gd4.b
-    public void onCancel() {
-        fu2 fu2Var;
+    public void e(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            v42.i("map", "choose location cancel");
-            eu2 eu2Var = this.a;
-            if (eu2Var != null && (fu2Var = this.b) != null) {
-                eu2Var.b(fu2Var.z, 1002, "choose location canceled");
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            b bVar = this.e;
+            if (bVar != null) {
+                bVar.b(z);
+            }
+            this.d = z;
+            int i = f;
+            if (z) {
+                i = -i;
+            }
+            float[] fArr = new float[2];
+            if (z) {
+                fArr[0] = 0.0f;
+                fArr[1] = i;
+            } else {
+                fArr[0] = -i;
+                fArr[1] = 0.0f;
+            }
+            float[] fArr2 = new float[2];
+            if (z) {
+                fArr2[0] = 0.0f;
+                fArr2[1] = i * 2;
+            } else {
+                fArr2[0] = (-i) * 2;
+                fArr2[1] = 0.0f;
+            }
+            AnimatorSet animatorSet = new AnimatorSet();
+            animatorSet.playTogether(ObjectAnimator.ofFloat(this.b, Key.TRANSLATION_Y, fArr), ObjectAnimator.ofFloat(this.a, Key.TRANSLATION_Y, fArr2), ObjectAnimator.ofFloat(this.c, Key.TRANSLATION_Y, fArr2));
+            animatorSet.setDuration(200L);
+            animatorSet.start();
+            animatorSet.addListener(new a(this, z, i));
+            if (z) {
+                c(i);
             }
         }
-    }
-
-    @Override // com.baidu.tieba.gd4.b
-    public void onError() {
-        fu2 fu2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            v42.i("map", "choose location fail");
-            eu2 eu2Var = this.a;
-            if (eu2Var != null && (fu2Var = this.b) != null) {
-                eu2Var.b(fu2Var.z, 1007, "choose location failed");
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.gd4.b
-    public void a(SelectedLocationInfo selectedLocationInfo) {
-        eu2 eu2Var;
-        fu2 fu2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, selectedLocationInfo) == null) && (eu2Var = this.a) != null && (fu2Var = this.b) != null) {
-            eu2Var.c(fu2Var.z, selectedLocationInfo.toJson());
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.hc4
-    /* renamed from: f */
-    public boolean b(Context context, fu2 fu2Var, eu2 eu2Var, v73 v73Var, JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, fu2Var, eu2Var, v73Var, jSONObject)) == null) {
-            return e(context, fu2Var, eu2Var, v73Var);
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public final boolean e(Context context, fu2 fu2Var, eu2 eu2Var, v73 v73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, fu2Var, eu2Var, v73Var)) == null) {
-            v42.i("map", "ChooseLocationAction start");
-            if (!fu2Var.isValid()) {
-                v42.c("map", "model is invalid");
-                return false;
-            }
-            String str = fu2Var.z;
-            if (TextUtils.isEmpty(str)) {
-                v42.c("map", "cb is empty");
-                return false;
-            }
-            this.a = eu2Var;
-            this.b = fu2Var;
-            wc4.b(context, new a(this, eu2Var, str));
-            v42.i("map", "ChooseLocationAction end");
-            return true;
-        }
-        return invokeLLLL.booleanValue;
     }
 }

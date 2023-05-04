@@ -30,11 +30,11 @@ public class yk {
     public volatile ml a;
 
     /* loaded from: classes7.dex */
-    public static class a implements jd1 {
+    public static class a implements ld1 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.jd1
+        @Override // com.baidu.tieba.ld1
         public void onProgress(long j, long j2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
@@ -55,7 +55,7 @@ public class yk {
             }
         }
 
-        @Override // com.baidu.tieba.jd1
+        @Override // com.baidu.tieba.ld1
         public void onResult(int i, String str) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) && BdBaseApplication.getInst().isDebugMode()) {

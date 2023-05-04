@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class mu0 extends tu0 {
+public class mu0 extends vu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,28 +25,12 @@ public class mu0 extends tu0 {
         }
     }
 
-    public static tu0 w(@NonNull String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, str, i)) == null) {
-            tu0 m = tu0.m(str, 7);
-            m.u(1);
-            m.s(i);
-            return m;
-        }
-        return (tu0) invokeLI.objValue;
-    }
-
-    @Override // com.baidu.tieba.tu0
-    public boolean b(@NonNull uv0 uv0Var) {
+    public static vu0 w(@NonNull String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, uv0Var)) == null) {
-            if (1 != uv0Var.getType()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return vu0.m(str, 4);
         }
-        return invokeL.booleanValue;
+        return (vu0) invokeL.objValue;
     }
 }

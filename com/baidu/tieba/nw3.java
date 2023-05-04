@@ -1,43 +1,20 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-@Autowired
+import android.view.View;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nw3 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface nw3 {
+    void a(String str, JSONObject jSONObject);
 
-    @Inject(force = false)
-    public static ow3 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return o44.a();
-        }
-        return (ow3) invokeV.objValue;
-    }
+    boolean b();
 
-    @Inject
-    public static pw3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return hr2.a();
-        }
-        return (pw3) invokeV.objValue;
-    }
+    boolean c(View view2);
 
-    @Inject
-    public static qw3 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new ir2();
-        }
-        return (qw3) invokeV.objValue;
-    }
+    boolean d(View view2, hv3 hv3Var);
+
+    void e();
+
+    boolean f(View view2, hv3 hv3Var);
+
+    boolean removeView(View view2);
 }

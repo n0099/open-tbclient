@@ -36,7 +36,7 @@ import java.util.concurrent.Executor;
 import java.util.concurrent.atomic.AtomicInteger;
 import javax.annotation.concurrent.GuardedBy;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class BaseGmsClient<T extends IInterface> {
     @KeepForSdk
     public static final int CONNECT_STATE_CONNECTED = 4;
@@ -104,7 +104,7 @@ public abstract class BaseGmsClient<T extends IInterface> {
     public static final String[] GOOGLE_PLUS_REQUIRED_FEATURES = {"service_esmobile", "service_googleme"};
 
     @KeepForSdk
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface BaseConnectionCallbacks {
         @KeepForSdk
         public static final int CAUSE_DEAD_OBJECT_EXCEPTION = 3;
@@ -119,21 +119,21 @@ public abstract class BaseGmsClient<T extends IInterface> {
     }
 
     @KeepForSdk
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface BaseOnConnectionFailedListener {
         @KeepForSdk
         void onConnectionFailed(@NonNull ConnectionResult connectionResult);
     }
 
     @KeepForSdk
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ConnectionProgressReportCallbacks {
         @KeepForSdk
         void onReportServiceBinding(@NonNull ConnectionResult connectionResult);
     }
 
     @KeepForSdk
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface SignOutCallbacks {
         @KeepForSdk
         void onSignOutComplete();
@@ -270,7 +270,7 @@ public abstract class BaseGmsClient<T extends IInterface> {
         return false;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public class LegacyClientCallbackAdapter implements ConnectionProgressReportCallbacks {
         @KeepForSdk
         public LegacyClientCallbackAdapter() {

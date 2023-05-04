@@ -1,14 +1,16 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.res.Configuration;
-import android.os.Parcelable;
-import android.util.AttributeSet;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
+import android.app.Activity;
+import android.app.Dialog;
+import android.content.DialogInterface;
+import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.annotation.StyleRes;
 import androidx.core.view.InputDeviceCompat;
+import androidx.fragment.app.DialogFragment;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.support.v4.app.Fragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,22 +18,31 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.FileDescriptor;
-import java.io.PrintWriter;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class pl4 {
+public class pl4 extends Fragment implements DialogInterface.OnCancelListener, DialogInterface.OnDismissListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ql4<?> a;
+    public int b0;
+    public int c0;
+    public boolean d0;
+    public boolean e0;
+    public int f0;
+    public Dialog g0;
+    public boolean h0;
+    public boolean i0;
+    public boolean j0;
 
-    public pl4(ql4<?> ql4Var) {
+    @Override // android.content.DialogInterface.OnCancelListener
+    public void onCancel(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, dialogInterface) == null) {
+        }
+    }
+
+    public pl4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ql4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,275 +52,267 @@ public class pl4 {
                 return;
             }
         }
-        this.a = ql4Var;
+        this.b0 = 0;
+        this.c0 = 0;
+        this.d0 = true;
+        this.e0 = true;
+        this.f0 = -1;
     }
 
-    public static final pl4 b(ql4<?> ql4Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void C0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ql4Var)) == null) {
-            return new pl4(ql4Var);
-        }
-        return (pl4) invokeL.objValue;
-    }
-
-    public void D(hm4<String, vl4> hm4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, hm4Var) == null) {
-            this.a.u(hm4Var);
-        }
-    }
-
-    public void a(Fragment fragment) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, fragment) == null) {
-            ql4<?> ql4Var = this.a;
-            ql4Var.e.j(ql4Var, ql4Var, fragment);
-        }
-    }
-
-    public void d(Configuration configuration) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, configuration) == null) {
-            this.a.e.o(configuration);
-        }
-    }
-
-    public boolean e(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, menuItem)) == null) {
-            return this.a.e.p(menuItem);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean j(MenuItem menuItem) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, menuItem)) == null) {
-            return this.a.e.v(menuItem);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void k(Menu menu) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048592, this, menu) == null) {
-            this.a.e.w(menu);
-        }
-    }
-
-    public boolean m(Menu menu) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, menu)) == null) {
-            return this.a.e.y(menu);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void t(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048601, this, z) == null) {
-            this.a.e(z);
-        }
-    }
-
-    public List<Fragment> w(List<Fragment> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, list)) == null) {
-            if (this.a.e.d == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.C0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                this.h0 = true;
+                dialog.dismiss();
+                this.g0 = null;
             }
-            if (list == null) {
-                list = new ArrayList<>(x());
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void D0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            super.D0();
+            if (!this.j0 && !this.i0) {
+                this.i0 = true;
             }
-            list.addAll(this.a.e.d);
-            return list;
         }
-        return (List) invokeL.objValue;
     }
 
-    public View A(View view2, String str, Context context, AttributeSet attributeSet) {
-        InterceptResult invokeLLLL;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void M0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
-            return this.a.e.onCreateView(view2, str, context, attributeSet);
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            super.M0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                this.h0 = false;
+                dialog.show();
+            }
         }
-        return (View) invokeLLLL.objValue;
     }
 
-    public void u(String str, FileDescriptor fileDescriptor, PrintWriter printWriter, String[] strArr) {
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void N0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(1048602, this, str, fileDescriptor, printWriter, strArr) == null) {
-            this.a.f(str, fileDescriptor, printWriter, strArr);
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            super.N0();
+            Dialog dialog = this.g0;
+            if (dialog != null) {
+                dialog.hide();
+            }
         }
     }
 
-    public void B() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.t();
-        }
-    }
-
-    public hm4<String, vl4> E() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.v();
-        }
-        return (hm4) invokeV.objValue;
-    }
-
-    public List<Fragment> F() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a.e.c0();
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public Parcelable G() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.e.e0();
-        }
-        return (Parcelable) invokeV.objValue;
-    }
-
-    public void c() {
+    public void p1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.e.n();
+            q1(false);
         }
     }
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.a.e.q();
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.a.e.s();
-        }
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.e.u();
-        }
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            this.a.e.x();
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
-            this.a.e.z();
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            this.a.e.A();
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
-            this.a.e.B();
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
-            this.a.e.C();
-        }
-    }
-
-    public void r() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
-            this.a.c();
-        }
-    }
-
-    public void s() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
-            this.a.d();
-        }
-    }
-
-    public boolean v() {
+    public Dialog r1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
-            return this.a.e.E();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.g0;
         }
-        return invokeV.booleanValue;
+        return (Dialog) invokeV.objValue;
     }
 
-    public int x() {
+    @StyleRes
+    public int s1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            ArrayList<Fragment> arrayList = this.a.e.d;
-            if (arrayList == null) {
-                return 0;
-            }
-            return arrayList.size();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.c0;
         }
         return invokeV.intValue;
     }
 
-    public rl4 y() {
-        InterceptResult invokeV;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public LayoutInflater D(Bundle bundle) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return this.a.g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle)) == null) {
+            if (!this.e0) {
+                return super.D(bundle);
+            }
+            Dialog t1 = t1(bundle);
+            this.g0 = t1;
+            if (t1 != null) {
+                u1(t1, this.b0);
+                return (LayoutInflater) this.g0.getContext().getSystemService("layout_inflater");
+            }
+            return (LayoutInflater) this.t.getContext().getSystemService("layout_inflater");
         }
-        return (rl4) invokeV.objValue;
+        return (LayoutInflater) invokeL.objValue;
     }
 
-    public void z() {
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void L0(Bundle bundle) {
+        Bundle onSaveInstanceState;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048607, this) == null) {
-            this.a.e.V();
+        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+            super.L0(bundle);
+            Dialog dialog = this.g0;
+            if (dialog != null && (onSaveInstanceState = dialog.onSaveInstanceState()) != null) {
+                bundle.putBundle(DialogFragment.SAVED_DIALOG_STATE_TAG, onSaveInstanceState);
+            }
+            int i = this.b0;
+            if (i != 0) {
+                bundle.putInt(DialogFragment.SAVED_STYLE, i);
+            }
+            int i2 = this.c0;
+            if (i2 != 0) {
+                bundle.putInt(DialogFragment.SAVED_THEME, i2);
+            }
+            boolean z = this.d0;
+            if (!z) {
+                bundle.putBoolean(DialogFragment.SAVED_CANCELABLE, z);
+            }
+            boolean z2 = this.e0;
+            if (!z2) {
+                bundle.putBoolean(DialogFragment.SAVED_SHOWS_DIALOG, z2);
+            }
+            int i3 = this.f0;
+            if (i3 != -1) {
+                bundle.putInt(DialogFragment.SAVED_BACK_STACK_ID, i3);
+            }
         }
     }
 
-    public void C(Parcelable parcelable, List<Fragment> list) {
+    public void q1(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, parcelable, list) == null) {
-            this.a.e.b0(parcelable, list);
+        if ((interceptable != null && interceptable.invokeZ(1048585, this, z) != null) || this.i0) {
+            return;
+        }
+        this.i0 = true;
+        this.j0 = false;
+        Dialog dialog = this.g0;
+        if (dialog != null) {
+            dialog.dismiss();
+            this.g0 = null;
+        }
+        this.h0 = true;
+        if (this.f0 >= 0) {
+            B().e(this.f0, 1);
+            this.f0 = -1;
+            return;
+        }
+        vl4 a = B().a();
+        a.h(this);
+        if (z) {
+            a.f();
+        } else {
+            a.e();
         }
     }
 
-    public boolean g(Menu menu, MenuInflater menuInflater) {
-        InterceptResult invokeLL;
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void r0(Bundle bundle) {
+        Bundle bundle2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, menu, menuInflater)) == null) {
-            return this.a.e.r(menu, menuInflater);
+        if (interceptable == null || interceptable.invokeL(1048586, this, bundle) == null) {
+            super.r0(bundle);
+            if (!this.e0) {
+                return;
+            }
+            View b0 = b0();
+            if (b0 != null) {
+                if (b0.getParent() == null) {
+                    this.g0.setContentView(b0);
+                } else {
+                    throw new IllegalStateException("DialogFragment can not be attached to a container view");
+                }
+            }
+            this.g0.setOwnerActivity(getActivity());
+            this.g0.setCancelable(this.d0);
+            this.g0.setOnCancelListener(this);
+            this.g0.setOnDismissListener(this);
+            if (bundle != null && (bundle2 = bundle.getBundle(DialogFragment.SAVED_DIALOG_STATE_TAG)) != null) {
+                this.g0.onRestoreInstanceState(bundle2);
+            }
         }
-        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void w0(@Nullable Bundle bundle) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
+            super.w0(bundle);
+            if (this.x == 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.e0 = z;
+            if (bundle != null) {
+                this.b0 = bundle.getInt(DialogFragment.SAVED_STYLE, 0);
+                this.c0 = bundle.getInt(DialogFragment.SAVED_THEME, 0);
+                this.d0 = bundle.getBoolean(DialogFragment.SAVED_CANCELABLE, true);
+                this.e0 = bundle.getBoolean(DialogFragment.SAVED_SHOWS_DIALOG, this.e0);
+                this.f0 = bundle.getInt(DialogFragment.SAVED_BACK_STACK_ID, -1);
+            }
+        }
+    }
+
+    public void onDismiss(DialogInterface dialogInterface) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, dialogInterface) == null) && !this.h0) {
+            q1(true);
+        }
+    }
+
+    @Override // com.baidu.swan.support.v4.app.Fragment
+    public void t0(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, activity) == null) {
+            super.t0(activity);
+            if (!this.j0) {
+                this.i0 = false;
+            }
+        }
+    }
+
+    @NonNull
+    public Dialog t1(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bundle)) == null) {
+            return new Dialog(getActivity(), s1());
+        }
+        return (Dialog) invokeL.objValue;
+    }
+
+    public void u1(Dialog dialog, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048591, this, dialog, i) == null) {
+            if (i != 1 && i != 2) {
+                if (i == 3) {
+                    dialog.getWindow().addFlags(24);
+                } else {
+                    return;
+                }
+            }
+            dialog.requestWindowFeature(1);
+        }
+    }
+
+    public void v1(tl4 tl4Var, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048592, this, tl4Var, str) == null) {
+            this.i0 = false;
+            this.j0 = true;
+            vl4 a = tl4Var.a();
+            a.c(this, str);
+            a.e();
+        }
     }
 }

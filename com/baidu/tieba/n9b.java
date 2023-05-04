@@ -1,47 +1,192 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.IRevenue;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.EventAlias;
-import com.yy.mobile.framework.revenuesdk.baseapi.reporter.HiidoReport;
-import com.yy.mobile.framework.revenuesdk.payapi.statistics.IPayServiceStatistics;
-import tv.athena.revenue.RevenueManager;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.exceptions.OnErrorThrowable;
+import rx.internal.operators.NotificationLite;
 /* loaded from: classes5.dex */
-public class n9b {
+public class n9b<T> implements k5b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final k5b<? super T> a;
+    public boolean b;
+    public volatile boolean c;
+    public a d;
 
-    public static IPayServiceStatistics a(int i, int i2) {
-        InterceptResult invokeII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65536, null, i, i2)) == null) {
-            IRevenue revenue = RevenueManager.instance().getRevenue(i, i2);
-            if (revenue == null) {
-                RLog.error("MonitorReporter", "getMonitorReporter error revenue null", new Object[0]);
-                return null;
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Object[] a;
+        public int b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            return revenue.getPayServiceStatistics();
         }
-        return (IPayServiceStatistics) invokeII.objValue;
+
+        public void a(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                int i = this.b;
+                Object[] objArr = this.a;
+                if (objArr == null) {
+                    objArr = new Object[16];
+                    this.a = objArr;
+                } else if (i == objArr.length) {
+                    Object[] objArr2 = new Object[(i >> 2) + i];
+                    System.arraycopy(objArr, 0, objArr2, 0, i);
+                    this.a = objArr2;
+                    objArr = objArr2;
+                }
+                objArr[i] = obj;
+                this.b = i + 1;
+            }
+        }
     }
 
-    public static void b(int i, int i2, int i3, String str) {
+    public n9b(k5b<? super T> k5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), str}) == null) {
-            IPayServiceStatistics a = a(i, i2);
-            if (a == null) {
-                RLog.error("MonitorReporter", "onShowPayFailResult error payReporter null", new Object[0]);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {k5bVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            HiidoReport.CReportResponse cReportResponse = new HiidoReport.CReportResponse();
-            cReportResponse.mEventId = "6";
-            cReportResponse.mEventaliae = EventAlias.PayEventAlias.SHOW_PAY_RESULT;
-            cReportResponse.mErrCode = i3 + "";
-            cReportResponse.mErrMsg = str;
-            a.onShowPayResult(cReportResponse);
+        }
+        this.a = k5bVar;
+    }
+
+    @Override // com.baidu.tieba.k5b
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c) {
+            return;
+        }
+        synchronized (this) {
+            if (this.c) {
+                return;
+            }
+            this.c = true;
+            if (this.b) {
+                a aVar = this.d;
+                if (aVar == null) {
+                    aVar = new a();
+                    this.d = aVar;
+                }
+                aVar.a(NotificationLite.b());
+                return;
+            }
+            this.b = true;
+            this.a.onCompleted();
+        }
+    }
+
+    @Override // com.baidu.tieba.k5b
+    public void onError(Throwable th) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            v5b.e(th);
+            if (this.c) {
+                return;
+            }
+            synchronized (this) {
+                if (this.c) {
+                    return;
+                }
+                this.c = true;
+                if (this.b) {
+                    a aVar = this.d;
+                    if (aVar == null) {
+                        aVar = new a();
+                        this.d = aVar;
+                    }
+                    aVar.a(NotificationLite.c(th));
+                    return;
+                }
+                this.b = true;
+                this.a.onError(th);
+            }
+        }
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:67:0x0031, code lost:
+        continue;
+     */
+    @Override // com.baidu.tieba.k5b
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void onNext(T t) {
+        Object[] objArr;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) != null) || this.c) {
+            return;
+        }
+        synchronized (this) {
+            if (this.c) {
+                return;
+            }
+            if (this.b) {
+                a aVar = this.d;
+                if (aVar == null) {
+                    aVar = new a();
+                    this.d = aVar;
+                }
+                aVar.a(NotificationLite.h(t));
+                return;
+            }
+            this.b = true;
+            try {
+                this.a.onNext(t);
+                while (true) {
+                    synchronized (this) {
+                        a aVar2 = this.d;
+                        if (aVar2 == null) {
+                            this.b = false;
+                            return;
+                        }
+                        this.d = null;
+                        for (Object obj : aVar2.a) {
+                            if (obj == null) {
+                                break;
+                            }
+                            try {
+                                if (NotificationLite.a(this.a, obj)) {
+                                    this.c = true;
+                                    return;
+                                }
+                            } catch (Throwable th) {
+                                this.c = true;
+                                v5b.e(th);
+                                this.a.onError(OnErrorThrowable.addValueAsLastCause(th, t));
+                                return;
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                this.c = true;
+                v5b.g(th2, this.a, t);
+            }
         }
     }
 }

@@ -1,31 +1,40 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.app.AlertDialog;
+import android.content.Context;
+import android.view.View;
+import android.view.Window;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.browser.core.webview.base.BaseWebView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gc6 extends fc6<BaseWebView> {
+public class gc6 extends AlertDialog {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TextView b;
+    public String c;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gc6(int i) {
-        super(i);
+    public gc6(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -33,43 +42,30 @@ public class gc6 extends fc6<BaseWebView> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fc6
-    /* renamed from: d */
-    public synchronized BaseWebView a() {
-        InterceptResult invokeV;
-        BaseWebView baseWebView;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this) {
-                baseWebView = (BaseWebView) super.a();
-                if (baseWebView != null) {
-                    baseWebView.k();
-                }
-            }
-            return baseWebView;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            SkinManager.setBackgroundShapeDrawable(this.a, ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds5), R.color.cp_cont_b_alpha80, R.color.cp_cont_b_alpha80, i);
         }
-        return (BaseWebView) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.fc6
-    /* renamed from: e */
-    public synchronized boolean c(@NonNull BaseWebView baseWebView) {
-        InterceptResult invokeL;
-        boolean c;
+    @Override // android.app.Dialog
+    public void show() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, baseWebView)) == null) {
-            synchronized (this) {
-                c = super.c(baseWebView);
-                if (c) {
-                    baseWebView.j();
-                } else {
-                    baseWebView.destroy();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.show();
+            Window window = getWindow();
+            if (window != null) {
+                window.setDimAmount(0.0f);
+                window.setContentView(R.layout.obfuscated_res_0x7f0d03ee);
+                GreyUtil.grey(window);
+                this.a = window.findViewById(R.id.obfuscated_res_0x7f09246a);
+                this.b = (TextView) window.findViewById(R.id.toast_tv);
+                if (!StringUtils.isNull(this.c)) {
+                    this.b.setText(this.c);
                 }
+                a(TbadkCoreApplication.getInst().getSkinType());
             }
-            return c;
         }
-        return invokeL.booleanValue;
     }
 }

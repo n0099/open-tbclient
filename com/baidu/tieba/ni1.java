@@ -1,815 +1,842 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
 import android.text.TextUtils;
-import android.util.Base64;
+import android.util.Log;
+import android.webkit.URLUtil;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.pms.db.PackageTable;
-import com.baidu.spswitch.emotion.resource.EmotionResourceProvider;
-import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.b41;
-import com.baidu.tieba.setting.model.imageWatermarkType.SetImageWatermarkTypeReqMsg;
+import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tieba.vr0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
-import com.google.android.exoplayer2.text.ttml.TtmlNode;
-import com.meizu.cloud.pushsdk.constants.PushConstants;
-import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
-import java.text.DecimalFormat;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
+import java.util.Collections;
+import java.util.HashMap;
+import java.util.Iterator;
 import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ni1 {
     public static /* synthetic */ Interceptable $ic;
+    public static d a;
+    public static List<pi1> b;
+    public static pi1 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int A;
-    public int B;
-    public String C;
-    public int D;
-    public int E;
-    public int F;
-    public int G;
-    public String H;
-    public float I;
-    public int J;
-    public JSONObject K;
-    public JSONObject L;
-    public int M;
-    public int N;
-    public String O;
-    public float P;
-    public int Q;
-    public long R;
-    public long S;
-    public int T;
-    public float U;
-    public String V;
-    public String W;
-    public int X;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public int f;
-    public String g;
-    public int h;
-    public int i;
-    public String j;
-    public String k;
-    public String l;
-    public int m;
-    public int n;
-    public String o;
-    public String p;
-    public String[] q;
-    public String[] r;
-    public long s;
-    public long t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public boolean y;
-    public String z;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ File a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ File c;
+        public final /* synthetic */ String d;
+        public final /* synthetic */ String e;
 
-        public static void a(JSONObject jSONObject, ni1 ni1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65536, null, jSONObject, ni1Var) == null) {
-                try {
-                    ni1Var.a = jSONObject.optInt("advisible");
-                    ni1Var.b = jSONObject.optString("id");
-                    ni1Var.c = jSONObject.optString("ukey");
-                    ni1Var.d = jSONObject.optString("extra");
-                    ni1Var.e = jSONObject.optString(TtmlNode.TAG_LAYOUT);
-                    ni1Var.f = jSONObject.optInt("type");
-                    ni1Var.k = jSONObject.optString(BigdayActivityConfig.JUMP_URL);
-                    ni1Var.o = jSONObject.optString("action");
-                    ni1Var.p = jSONObject.optString("action_cmd");
-                    ni1Var.l = jSONObject.optString("flag_name");
-                    ni1Var.m = jSONObject.optInt("logo_type");
-                    ni1Var.n = jSONObject.optInt(CriusAttrConstants.DISPLAY);
-                    if (ni1Var.n()) {
-                        b.a(jSONObject, ni1Var);
-                    } else {
-                        c.a(jSONObject, ni1Var);
-                    }
-                    JSONArray optJSONArray = jSONObject.optJSONArray("show_urls");
-                    if (optJSONArray != null) {
-                        ni1Var.q = new String[optJSONArray.length()];
-                        int length = optJSONArray.length();
-                        for (int i = 0; i < length; i++) {
-                            ni1Var.q[i] = optJSONArray.optString(i);
-                        }
-                    }
-                    JSONArray optJSONArray2 = jSONObject.optJSONArray("click_urls");
-                    if (optJSONArray2 != null) {
-                        ni1Var.r = new String[optJSONArray2.length()];
-                        int length2 = optJSONArray2.length();
-                        for (int i2 = 0; i2 < length2; i2++) {
-                            ni1Var.r[i2] = optJSONArray2.optString(i2);
-                        }
-                    }
-                    ni1Var.s = jSONObject.optLong("start");
-                    ni1Var.t = jSONObject.optLong("end");
-                    ni1Var.u = jSONObject.optInt("expose_interval");
-                    ni1Var.v = jSONObject.optInt("expose_times");
-                    ni1Var.w = jSONObject.optInt("preload_type");
-                    ni1Var.z = jSONObject.optString("click_float_lottie_url");
-                    ni1Var.A = jSONObject.optInt("float_bar_show", 1);
-                    ni1Var.B = jSONObject.optInt("click_float_opt", 1);
-                    ni1Var.C = jSONObject.optString("style_desc");
-                    ni1Var.x = jSONObject.optInt("curRate");
-                    ni1Var.E = jSONObject.optInt(TiebaStatic.Params.AD_TYPE);
-                    ni1Var.F = jSONObject.optInt("ad_sort");
-                    ni1Var.G = jSONObject.optInt("gesture_lottie_type");
-                    ni1Var.H = jSONObject.optString("gesture_lottie_url");
-                    ni1Var.I = (float) jSONObject.optDouble("gesture_lottie_sensitivity", 0.0d);
-                    ni1Var.X = jSONObject.optInt("gesture_lottie_direction", 1);
-                    int optInt = jSONObject.optInt("is_topview", 0);
-                    ni1Var.J = optInt;
-                    if (optInt == 1 && jSONObject.optJSONObject("topview_data") != null) {
-                        ni1Var.K = jSONObject.optJSONObject("topview_data");
-                    }
-                    if (jSONObject.optJSONObject("animation_data") != null) {
-                        ni1Var.L = jSONObject.optJSONObject("animation_data");
-                    }
-                    ni1Var.M = jSONObject.optInt("shake_update_interval", 67);
-                    ni1Var.N = jSONObject.optInt("shake_direction_count", 2);
-                    ni1Var.O = jSONObject.optString("key");
-                    ni1Var.P = (float) jSONObject.optDouble("hot_shake_sensitivity", 0.0d);
-                    ni1Var.Q = jSONObject.optInt("hot_background_time", 0);
-                    ni1Var.V = jSONObject.optString("m_ua");
-                    ni1Var.W = jSONObject.optString("m_pn");
-                    ni1Var.R = jSONObject.optLong("start_backup");
-                    ni1Var.S = jSONObject.optLong("end_backup");
-                    ni1Var.T = jSONObject.optInt("virtual", 0);
-                    ni1Var.U = (float) jSONObject.optDouble("shake_action_delay_time", -1.0d);
-                } catch (Exception unused) {
-                }
-            }
-        }
+        /* renamed from: com.baidu.tieba.ni1$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0368a implements vr0.b {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
 
-        public static void c(JSONObject jSONObject, ni1 ni1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65538, null, jSONObject, ni1Var) == null) {
-                try {
-                    jSONObject.put("advisible", ni1Var.a);
-                    jSONObject.put("id", ni1Var.b);
-                    jSONObject.put("ukey", ni1Var.c);
-                    jSONObject.put("extra", ni1Var.d);
-                    jSONObject.put(TtmlNode.TAG_LAYOUT, ni1Var.e);
-                    jSONObject.put("type", ni1Var.f);
-                    jSONObject.put(BigdayActivityConfig.JUMP_URL, ni1Var.k);
-                    jSONObject.put("action", ni1Var.o);
-                    jSONObject.put("action_cmd", ni1Var.p);
-                    jSONObject.put("flag_name", ni1Var.l);
-                    jSONObject.put("logo_type", ni1Var.m);
-                    jSONObject.put(CriusAttrConstants.DISPLAY, ni1Var.n);
-                    jSONObject.put("start", ni1Var.s);
-                    jSONObject.put("end", ni1Var.t);
-                    jSONObject.put("expose_times", ni1Var.v);
-                    jSONObject.put("expose_interval", ni1Var.u);
-                    jSONObject.put("preload_type", ni1Var.w);
-                    jSONObject.put("curRate", ni1Var.x);
-                    jSONObject.put("click_float_lottie_url", ni1Var.z);
-                    jSONObject.put("float_bar_show", ni1Var.A);
-                    jSONObject.put("click_float_opt", ni1Var.B);
-                    jSONObject.put("style_desc", ni1Var.C);
-                    jSONObject.put(TiebaStatic.Params.AD_TYPE, ni1Var.E);
-                    jSONObject.put("ad_sort", ni1Var.F);
-                    jSONObject.put("gesture_lottie_type", ni1Var.G);
-                    jSONObject.put("gesture_lottie_url", ni1Var.H);
-                    jSONObject.put("gesture_lottie_sensitivity", ni1Var.I);
-                    jSONObject.put("gesture_lottie_direction", ni1Var.X);
-                    jSONObject.put("is_topview", ni1Var.J);
-                    jSONObject.put("start_backup", ni1Var.R);
-                    jSONObject.put("end_backup", ni1Var.S);
-                    if (ni1Var.J == 1 && ni1Var.K != null) {
-                        jSONObject.put("topview_data", ni1Var.K);
-                    }
-                    if (ni1Var.L != null) {
-                        jSONObject.put("animation_data", ni1Var.L);
-                    }
-                    jSONObject.put("shake_update_interval", ni1Var.M);
-                    jSONObject.put("shake_direction_count", ni1Var.N);
-                    jSONObject.put("key", ni1Var.O);
-                    jSONObject.put("hot_shake_sensitivity", ni1Var.P);
-                    jSONObject.put("hot_background_time", ni1Var.Q);
-                    jSONObject.put("virtual", ni1Var.T);
-                    jSONObject.put("shake_action_delay_time", ni1Var.U);
-                    jSONObject.put("m_ua", ni1Var.V);
-                    jSONObject.put("m_pn", ni1Var.W);
-                    if (ni1Var.q != null) {
-                        if (b41.b.c()) {
-                            jSONObject.put("show_urls", new JSONArray(ni1Var.q));
-                        } else {
-                            jSONObject.put("show_urls", new JSONArray((Collection) Arrays.asList(ni1Var.q)));
-                        }
-                    }
-                    if (ni1Var.r != null) {
-                        if (b41.b.c()) {
-                            jSONObject.put("click_urls", new JSONArray(ni1Var.r));
-                        } else {
-                            jSONObject.put("click_urls", new JSONArray((Collection) Arrays.asList(ni1Var.r)));
-                        }
-                    }
-                    if (ni1Var.n()) {
-                        b.b(jSONObject, ni1Var);
-                    } else {
-                        c.b(jSONObject, ni1Var);
-                    }
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        public static void b(JSONObject jSONObject, ni1 ni1Var) {
-            JSONObject optJSONObject;
-            JSONObject optJSONObject2;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, ni1Var) == null) {
-                try {
-                    JSONArray optJSONArray = jSONObject.optJSONArray("adInfo");
-                    if (optJSONArray == null || (optJSONObject = optJSONArray.optJSONObject(0)) == null) {
+            public C0368a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
                         return;
                     }
-                    ni1Var.a = optJSONObject.optInt("advisible", 1);
-                    ni1Var.b = optJSONObject.optString("id");
-                    ni1Var.c = optJSONObject.optString("ukey");
-                    JSONArray optJSONArray2 = optJSONObject.optJSONArray("extra");
-                    if (optJSONArray2 != null && optJSONArray2.length() > 0) {
-                        int i = 0;
-                        while (true) {
-                            if (i >= optJSONArray2.length()) {
+                }
+                this.a = aVar;
+            }
+
+            @Override // com.baidu.tieba.vr0.b
+            public void a(String str, int i) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                    ClogBuilder.LogType logType = ClogBuilder.LogType.DOWNLOAD_FAILED;
+                    a aVar = this.a;
+                    o11.b(new q11(logType, aVar.b, aVar.d, true).b(i, str, "download"));
+                }
+            }
+
+            @Override // com.baidu.tieba.vr0.b
+            public void b() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    a aVar = this.a;
+                    ni1.A(aVar.a, aVar.c);
+                    mi1.m().g();
+                }
+            }
+        }
+
+        public a(File file, String str, File file2, String str2, String str3) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {file, str, file2, str2, str3};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = file;
+            this.b = str;
+            this.c = file2;
+            this.d = str2;
+            this.e = str3;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    vr0.a(this.a, this.b, new C0368a(this), this.e);
+                } catch (Exception e) {
+                    o11.b(new q11(ClogBuilder.LogType.DOWNLOAD_FAILED, this.b, this.d, true).b(-1, e.getMessage(), "download"));
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pi1 a;
+
+        public b(pi1 pi1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pi1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pi1Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ni1.C(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ List a;
+
+        public c(List list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = list;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            List list;
+            pi1 pi1Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (list = this.a) != null && list.size() != 0) {
+                ArrayList arrayList = new ArrayList(3);
+                Iterator it = this.a.iterator();
+                while (it.hasNext() && (pi1Var = (pi1) it.next()) != null) {
+                    if (ni1.v(pi1Var.w)) {
+                        ni1.j(pi1Var);
+                    } else {
+                        arrayList.add(pi1Var);
+                    }
+                }
+                if (arrayList.size() > 0) {
+                    if (ni1.a == null) {
+                        d unused = ni1.a = new d(arrayList, null);
+                        li0.b().registerReceiver(ni1.a, ni1.a.getIntentFilter());
+                        return;
+                    }
+                    ni1.a.setNeedDownloadList(arrayList);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public List<pi1> mNeedDownloadList;
+
+        public d(List<pi1> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {list};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mNeedDownloadList = list;
+        }
+
+        public void setNeedDownloadList(List<pi1> list) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
+                this.mNeedDownloadList = list;
+            }
+        }
+
+        public /* synthetic */ d(List list, a aVar) {
+            this(list);
+        }
+
+        public IntentFilter getIntentFilter() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new IntentFilter("android.net.conn.CONNECTIVITY_CHANGE");
+            }
+            return (IntentFilter) invokeV.objValue;
+        }
+
+        public List<pi1> getNeedDownloadList() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.mNeedDownloadList;
+            }
+            return (List) invokeV.objValue;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, intent) == null) {
+                Log.d("SourceManager", "onReceive: receiver");
+                if (!TextUtils.equals(intent.getAction(), "android.net.conn.CONNECTIVITY_CHANGE")) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (pi1 pi1Var : this.mNeedDownloadList) {
+                    if (ni1.v(pi1Var.w)) {
+                        Log.d("SourceManager", "onReceive: " + pi1Var);
+                        ni1.j(pi1Var);
+                    } else {
+                        arrayList.add(pi1Var);
+                    }
+                }
+                this.mNeedDownloadList = arrayList;
+            }
+        }
+    }
+
+    public static boolean A(File file, File file2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, file2)) == null) {
+            if (file != null && file2 != null) {
+                return file.renameTo(file2);
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static int f(pi1 pi1Var, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65546, null, pi1Var, i)) == null) {
+            return g(pi1Var, false, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public static void B(List<pi1> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, list) == null) {
+            p21.d(new c(list), "ScheduleDownloadSplashSourceThread");
+        }
+    }
+
+    public static void D(pi1 pi1Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, pi1Var) == null) && pi1Var.v >= 1) {
+            int i = pi1Var.x;
+            if (i < Integer.MAX_VALUE) {
+                pi1Var.x = i + 1;
+            }
+            p21.d(new b(pi1Var), "updateSplashDataItemRate");
+        }
+    }
+
+    public static void E(List<pi1> list) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, list) == null) && list != null && list.size() != 0) {
+            b = Collections.synchronizedList(list);
+            z(list, q());
+        }
+    }
+
+    public static File r(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65558, null, str)) == null) {
+            String m = m(str);
+            if (TextUtils.isEmpty(m)) {
+                return null;
+            }
+            return new File(o(), m);
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static File u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65561, null, str)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            stringBuffer.append(str);
+            stringBuffer.append(".tmp");
+            return new File(o(), stringBuffer.toString());
+        }
+        return (File) invokeL.objValue;
+    }
+
+    public static boolean v(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65562, null, i)) == null) {
+            if (new ir0(li0.b()).a() || i == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static List<pi1> x(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65564, null, z)) == null) {
+            return y(z, 0);
+        }
+        return (List) invokeZ.objValue;
+    }
+
+    public static void C(pi1 pi1Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, pi1Var) == null) {
+            ArrayList arrayList = new ArrayList();
+            File q = q();
+            List<pi1> s = s();
+            if (s != null && s.size() != 0) {
+                for (int i = 0; i < s.size(); i++) {
+                    pi1 pi1Var2 = s.get(i);
+                    if (TextUtils.equals(pi1Var.b, pi1Var2.b)) {
+                        pi1.t(pi1Var2, pi1Var);
+                        arrayList.add(pi1Var2);
+                    } else {
+                        arrayList.add(pi1Var2);
+                    }
+                }
+                z(arrayList, q);
+            }
+        }
+    }
+
+    public static String l(File file) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, file)) == null) {
+            StringBuilder sb = new StringBuilder();
+            BufferedReader bufferedReader = null;
+            try {
+                try {
+                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file));
+                    while (true) {
+                        try {
+                            String readLine = bufferedReader2.readLine();
+                            if (readLine == null) {
                                 break;
                             }
-                            JSONObject optJSONObject3 = optJSONArray2.optJSONObject(i);
-                            if (optJSONObject3 != null) {
-                                String optString = optJSONObject3.optString("k");
-                                String optString2 = optJSONObject3.optString("v");
-                                if (!TextUtils.isEmpty(optString2) && TextUtils.equals("extraParam", optString)) {
-                                    ni1Var.d = optString2;
-                                    break;
+                            sb.append(readLine);
+                        } catch (Exception unused) {
+                            bufferedReader = bufferedReader2;
+                            if (bufferedReader != null) {
+                                bufferedReader.close();
+                            }
+                            return sb.toString();
+                        } catch (Throwable th) {
+                            th = th;
+                            bufferedReader = bufferedReader2;
+                            if (bufferedReader != null) {
+                                try {
+                                    bufferedReader.close();
+                                } catch (Exception unused2) {
                                 }
                             }
-                            i++;
+                            throw th;
                         }
                     }
-                    JSONArray optJSONArray3 = optJSONObject.optJSONArray("material");
-                    if (optJSONArray3 != null && (optJSONObject2 = optJSONArray3.optJSONObject(0)) != null) {
-                        JSONArray optJSONArray4 = optJSONObject2.optJSONArray("info");
-                        if (optJSONArray4 == null) {
-                            String optString3 = optJSONObject2.optString("info");
-                            if (!TextUtils.isEmpty(optString3)) {
-                                optJSONArray4 = new JSONArray(optString3);
-                            }
-                        }
-                        if (optJSONArray4 != null) {
-                            JSONObject optJSONObject4 = optJSONArray4.optJSONObject(0);
-                            ni1Var.e = optJSONObject4.optString(TtmlNode.TAG_LAYOUT);
-                            JSONObject optJSONObject5 = optJSONObject4.optJSONObject("common");
-                            if (optJSONObject5 != null) {
-                                ni1Var.f = optJSONObject5.optInt("type");
-                                ni1Var.k = optJSONObject5.optString(BigdayActivityConfig.JUMP_URL);
-                                ni1Var.o = optJSONObject5.optString("action");
-                                ni1Var.p = optJSONObject5.optString("action_cmd");
-                                ni1Var.l = optJSONObject5.optString("flag_name");
-                                ni1Var.m = optJSONObject5.optInt("logo_type");
-                                ni1Var.n = optJSONObject5.optInt(CriusAttrConstants.DISPLAY);
-                                JSONArray optJSONArray5 = optJSONObject5.optJSONArray("image_list");
-                                ni1Var.z = optJSONObject5.optString("click_float_lottie_url");
-                                ni1Var.E = optJSONObject5.optInt(TiebaStatic.Params.AD_TYPE);
-                                ni1Var.F = optJSONObject5.optInt("ad_sort");
-                                ni1Var.G = optJSONObject5.optInt("gesture_lottie_type");
-                                ni1Var.H = optJSONObject5.optString("gesture_lottie_url");
-                                ni1Var.I = (float) optJSONObject5.optDouble("gesture_lottie_sensitivity", 0.0d);
-                                ni1Var.X = optJSONObject5.optInt("gesture_lottie_direction", 1);
-                                ni1Var.J = optJSONObject5.optInt("is_topview", 0);
-                                if (ni1Var.n() && optJSONArray5 != null && optJSONArray5.length() > 0) {
-                                    b.a(optJSONArray5.optJSONObject(0), ni1Var);
-                                } else {
-                                    c.a(optJSONObject5, ni1Var);
-                                }
-                                ni1Var.L = optJSONObject5.optJSONObject("animation_data");
-                                ni1Var.M = optJSONObject5.optInt("shake_update_interval", 67);
-                                ni1Var.N = optJSONObject5.optInt("shake_direction_count", 2);
-                                ni1Var.O = optJSONObject5.optString("key");
-                                ni1Var.P = (float) optJSONObject5.optDouble("hot_shake_sensitivity", 0.0d);
-                                ni1Var.T = optJSONObject5.optInt("virtual", 0);
-                                ni1Var.U = (float) optJSONObject5.optDouble("shake_action_delay_time", -1.0d);
-                            }
-                            JSONArray optJSONArray6 = optJSONObject4.optJSONArray("show_urls");
-                            if (optJSONArray6 != null) {
-                                ni1Var.q = new String[optJSONArray6.length()];
-                                int length = optJSONArray6.length();
-                                for (int i2 = 0; i2 < length; i2++) {
-                                    ni1Var.q[i2] = optJSONArray6.optString(i2);
-                                }
-                            }
-                            JSONArray optJSONArray7 = optJSONObject4.optJSONArray("click_urls");
-                            if (optJSONArray7 != null) {
-                                ni1Var.r = new String[optJSONArray7.length()];
-                                int length2 = optJSONArray7.length();
-                                for (int i3 = 0; i3 < length2; i3++) {
-                                    ni1Var.r[i3] = optJSONArray7.optString(i3);
-                                }
-                            }
-                            JSONObject optJSONObject6 = optJSONObject4.optJSONObject("policy");
-                            if (optJSONObject6 != null) {
-                                JSONObject optJSONObject7 = optJSONObject6.optJSONObject(PushConstants.REGISTER_STATUS_EXPIRE_TIME);
-                                if (optJSONObject7 != null) {
-                                    ni1Var.s = optJSONObject7.optLong("start");
-                                    ni1Var.t = optJSONObject7.optLong("end");
-                                }
-                                ni1Var.u = optJSONObject6.optInt("expose_interval");
-                                ni1Var.v = optJSONObject6.optInt("expose_times");
-                                ni1Var.w = optJSONObject6.optInt("preload_type");
-                                ni1Var.A = optJSONObject6.optInt("float_bar_show", 1);
-                                ni1Var.B = optJSONObject6.optInt("click_float_opt", 1);
-                                ni1Var.C = optJSONObject6.optString("style_desc");
-                                ni1Var.Q = optJSONObject6.optInt("hot_background_time", 0);
-                                JSONObject optJSONObject8 = optJSONObject6.optJSONObject("expire_time_backup");
-                                String optString4 = optJSONObject6.optString("m_ua");
-                                if (!TextUtils.isEmpty(optString4)) {
-                                    ni1Var.V = new String(Base64.decode(optString4.getBytes(), 0));
-                                }
-                                String optString5 = optJSONObject6.optString("m_pn");
-                                if (!TextUtils.isEmpty(optString5)) {
-                                    ni1Var.W = new String(Base64.decode(optString5.getBytes(), 0));
-                                }
-                                if (optJSONObject8 != null) {
-                                    ni1Var.R = optJSONObject8.optLong("start");
-                                    ni1Var.S = optJSONObject8.optLong("end");
-                                }
-                            }
-                            JSONObject optJSONObject9 = optJSONObject4.optJSONObject("topview_data");
-                            if (ni1Var.J == 1 && optJSONObject9 != null) {
-                                JSONObject optJSONObject10 = optJSONObject9.optJSONObject("content");
-                                if (optJSONObject10 == null) {
-                                    ni1Var.J = 0;
-                                    return;
-                                }
-                                JSONObject jSONObject2 = new JSONObject();
-                                x01.f(jSONObject2, "click_float_lottie_url", ni1Var.z);
-                                x01.d(jSONObject2, "click_float_opt", ni1Var.B);
-                                x01.d(jSONObject2, "float_bar_show", ni1Var.A);
-                                x01.g(jSONObject2, SetImageWatermarkTypeReqMsg.SWITCH, true);
-                                x01.f(jSONObject2, "style_desc", ni1Var.C);
-                                x01.d(jSONObject2, "countdown", ni1Var.n);
-                                x01.f(jSONObject2, "source_path", li1.r(ni1Var.g));
-                                x01.f(optJSONObject10, "topview", jSONObject2);
-                                ni1Var.K = optJSONObject9;
-                            }
-                        }
-                    }
-                } catch (Exception unused) {
+                    bufferedReader2.close();
+                } catch (Exception unused3) {
                 }
+            } catch (Exception unused4) {
+            } catch (Throwable th2) {
+                th = th2;
             }
+            return sb.toString();
         }
-
-        public static void d(ni1 ni1Var, ni1 ni1Var2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65539, null, ni1Var, ni1Var2) == null) {
-                ni1Var.a = ni1Var2.a;
-                ni1Var.b = ni1Var2.b;
-                ni1Var.c = ni1Var2.c;
-                ni1Var.d = ni1Var2.d;
-                ni1Var.e = ni1Var2.e;
-                ni1Var.f = ni1Var2.f;
-                ni1Var.g = ni1Var2.g;
-                ni1Var.h = ni1Var2.h;
-                ni1Var.i = ni1Var2.i;
-                ni1Var.j = ni1Var2.j;
-                ni1Var.k = ni1Var2.k;
-                ni1Var.l = ni1Var2.l;
-                ni1Var.m = ni1Var2.m;
-                ni1Var.n = ni1Var2.n;
-                ni1Var.o = ni1Var2.o;
-                ni1Var.p = ni1Var2.p;
-                ni1Var.q = ni1Var2.q;
-                ni1Var.r = ni1Var2.r;
-                ni1Var.s = ni1Var2.s;
-                ni1Var.t = ni1Var2.t;
-                ni1Var.u = ni1Var2.u;
-                ni1Var.v = ni1Var2.v;
-                ni1Var.x = ni1Var2.x;
-                ni1Var.z = ni1Var2.z;
-                ni1Var.A = ni1Var2.A;
-                ni1Var.B = ni1Var2.B;
-                ni1Var.C = ni1Var2.C;
-                ni1Var.E = ni1Var2.E;
-                ni1Var.F = ni1Var2.F;
-                ni1Var.G = ni1Var2.G;
-                ni1Var.H = ni1Var2.H;
-                ni1Var.I = ni1Var2.I;
-            }
-        }
+        return (String) invokeL.objValue;
     }
 
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a(JSONObject jSONObject, ni1 ni1Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, jSONObject, ni1Var) == null) && jSONObject != null) {
-                try {
-                    ni1Var.g = jSONObject.optString("url");
-                    ni1Var.h = jSONObject.optInt("width");
-                    ni1Var.i = jSONObject.optInt("height");
-                    ni1Var.j = jSONObject.optString("imageMd5");
-                } catch (Exception unused) {
-                }
-            }
-        }
-
-        public static void b(JSONObject jSONObject, ni1 ni1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, ni1Var) == null) {
-                try {
-                    jSONObject.put("url", ni1Var.g);
-                    jSONObject.put("imageMd5", ni1Var.j);
-                    jSONObject.put("width", ni1Var.h);
-                    jSONObject.put("height", ni1Var.i);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public static void a(JSONObject jSONObject, ni1 ni1Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(65536, null, jSONObject, ni1Var) == null) && jSONObject != null) {
-                try {
-                    ni1Var.g = jSONObject.optString("url");
-                    ni1Var.h = jSONObject.optInt("width");
-                    ni1Var.i = jSONObject.optInt("height");
-                    ni1Var.j = jSONObject.optString(PackageTable.MD5);
-                } catch (Exception unused) {
-                }
-            }
-        }
-
-        public static void b(JSONObject jSONObject, ni1 ni1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(65537, null, jSONObject, ni1Var) == null) {
-                try {
-                    jSONObject.put("url", ni1Var.g);
-                    jSONObject.put(PackageTable.MD5, ni1Var.j);
-                    jSONObject.put("width", ni1Var.h);
-                    jSONObject.put("height", ni1Var.i);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public ni1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.x = 0;
-        this.y = false;
-        this.U = -1.0f;
-    }
-
-    public float g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            float f = mi1.f;
-            if (f > 0.0f) {
-                return f;
-            }
-            return this.U;
-        }
-        return invokeV.floatValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            int i = mi1.e;
-            if (i > 0) {
-                return i;
-            }
-            return this.N;
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            int i = mi1.d;
-            if (i > 0) {
-                return i;
-            }
-            return this.M;
-        }
-        return invokeV.intValue;
-    }
-
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (TextUtils.equals(this.e, "splash_image")) {
-                return "image";
-            }
-            if (TextUtils.equals(this.e, "splash_video")) {
-                return "video";
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (this.E == 3) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.f == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            int i = this.E;
-            if (i == 0 || i == 1 || i == 2) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return TextUtils.equals(this.e, "splash_image");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            int i = this.G;
-            if (i == 1 || i == 7) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return TextUtils.equals(this.e, "splash_video");
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            if (this.T == 1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            a.c(jSONObject, this);
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean b(ni1 ni1Var) {
+    public static String m(String str) {
         InterceptResult invokeL;
-        String str;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ni1Var)) == null) {
-            if (TextUtils.isEmpty(ni1Var.d)) {
-                str = "7";
-                z = false;
-            } else {
-                str = "";
-                z = true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
             }
-            String str2 = PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW;
-            if (z && TextUtils.isEmpty(ni1Var.g)) {
-                str = PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW;
-                z = false;
+            StringBuilder sb = new StringBuilder();
+            sb.append(h41.b(str, false));
+            int lastIndexOf = str.lastIndexOf(".");
+            int lastIndexOf2 = str.lastIndexOf("/");
+            if (lastIndexOf < lastIndexOf2 || lastIndexOf == -1 || lastIndexOf2 == -1) {
+                return null;
             }
-            if (z && System.currentTimeMillis() / 1000 > ni1Var.t) {
-                str = "68";
-                z = false;
-            }
-            if (z && ni1Var.p() && (ni1Var.g.endsWith(".jpeg") || ni1Var.g.endsWith(".jpg") || ni1Var.g.endsWith(EmotionResourceProvider.EMOTION_RES_NAME_SUFFIX) || ni1Var.g.endsWith(".webp"))) {
-                str = PayUVEventType.PAY_RUBY_ENTRANCE_BANNER_SHOW;
-                z = false;
-            }
-            if (z && ni1Var.n() && (ni1Var.g.endsWith(DefaultHlsExtractorFactory.MP4_FILE_EXTENSION) || ni1Var.g.endsWith(".MP4") || ni1Var.g.endsWith(".mov"))) {
-                z = false;
-            } else {
-                str2 = str;
-            }
-            if (z) {
+            sb.append(str.substring(lastIndexOf));
+            return sb.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static File o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
+            File file = new File(li0.b().getFilesDir(), SpeedStatsUtils.UBC_VALUE_SPLASH);
+            file.mkdirs();
+            return file;
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static File q() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
+            return new File(o(), "splash.dat");
+        }
+        return (File) invokeV.objValue;
+    }
+
+    public static List<pi1> w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
+            return y(false, 0);
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static boolean e(@NonNull pi1 pi1Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, pi1Var)) == null) {
+            long j = pi1Var.R;
+            long j2 = pi1Var.S;
+            if (j <= 0 || j2 <= 0) {
                 return true;
             }
-            new BaseVM(ni1Var).g(str2);
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            if (currentTimeMillis >= j && currentTimeMillis <= j2) {
+                return true;
+            }
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    public static ni1 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public static void j(pi1 pi1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
-            ni1 ni1Var = new ni1();
-            try {
-                a.a(jSONObject, ni1Var);
-            } catch (Exception unused) {
-            }
-            return ni1Var;
+        if ((interceptable != null && interceptable.invokeL(65550, null, pi1Var) != null) || !URLUtil.isNetworkUrl(pi1Var.g)) {
+            return;
         }
-        return (ni1) invokeL.objValue;
+        k(pi1Var.g, pi1Var.d, pi1Var.V);
+        if (!TextUtils.isEmpty(pi1Var.z)) {
+            k(pi1Var.z, pi1Var.d, pi1Var.V);
+        }
+        if (!TextUtils.isEmpty(pi1Var.H)) {
+            k(pi1Var.H, pi1Var.d, pi1Var.V);
+        }
     }
 
-    public static ni1 d(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    @Nullable
+    public static pi1 n(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            try {
-                ni1 ni1Var = new ni1();
-                a.b(jSONObject, ni1Var);
-                return ni1Var;
-            } catch (Exception unused) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(65554, null, i)) == null) {
+            List<pi1> y = y(true, i);
+            if (y != null && y.size() > 0) {
+                for (int i2 = 0; i2 < y.size(); i2++) {
+                    pi1 pi1Var = y.get(i2);
+                    if (pi1Var != null && pi1Var.m() && e(pi1Var)) {
+                        return pi1Var;
+                    }
+                }
                 return null;
             }
+            return null;
         }
-        return (ni1) invokeL.objValue;
+        return (pi1) invokeI.objValue;
     }
 
-    public static List<ni1> r(JSONArray jSONArray) {
+    @Nullable
+    public static pi1 p(String str) {
         InterceptResult invokeL;
-        ni1 d;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                try {
-                    d = d((JSONObject) jSONArray.get(i));
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                }
-                if (d == null) {
-                    break;
-                }
-                if (d.a != 0 && b(d)) {
-                    arrayList.add(d);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65556, null, str)) == null) {
+            List<pi1> x = x(false);
+            if (y01.g(x)) {
+                return null;
+            }
+            for (int i = 0; i < x.size(); i++) {
+                pi1 pi1Var = x.get(i);
+                if (pi1Var != null && TextUtils.equals(str, pi1Var.c)) {
+                    return pi1Var;
                 }
             }
-            return arrayList;
+            return null;
         }
-        return (List) invokeL.objValue;
+        return (pi1) invokeL.objValue;
     }
 
-    public static void t(ni1 ni1Var, ni1 ni1Var2) {
+    public static int g(pi1 pi1Var, boolean z, int i) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, ni1Var, ni1Var2) == null) {
-            a.d(ni1Var, ni1Var2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65547, null, new Object[]{pi1Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            return h(pi1Var, z, i, System.currentTimeMillis());
         }
+        return invokeCommon.intValue;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static int h(pi1 pi1Var, boolean z, int i, long j) {
+        InterceptResult invokeCommon;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            DecimalFormat decimalFormat = new DecimalFormat("0.00");
-            return decimalFormat.format(e()) + "-" + i() + "-" + h() + "_" + g();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public float e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.G != 7) {
-                return this.I;
-            }
-            if (fi1.b() == 1) {
-                float f = mi1.c;
-                if (f > 0.0f) {
-                    return f;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65548, null, new Object[]{pi1Var, Boolean.valueOf(z), Integer.valueOf(i), Long.valueOf(j)})) == null) {
+            if (pi1Var.k()) {
+                if (!oi1.a(hi1.b())) {
+                    i2 = 1024;
+                } else {
+                    i2 = 0;
                 }
-                float f2 = this.P;
-                if (f2 > 0.0f) {
-                    return f2;
+                if (ri1.a() >= oi1.d()) {
+                    i2 |= 2048;
+                }
+                if (!oi1.c(true)) {
+                    i2 |= 4096;
+                }
+                if (i2 != 0) {
+                    return i2;
                 }
             } else {
-                float f3 = mi1.b;
-                if (f3 > 0.0f) {
-                    return f3;
-                }
-                float f4 = this.I;
-                if (f4 > 0.0f) {
-                    return f4;
+                i2 = 0;
+            }
+            if (pi1Var.y) {
+                return i2;
+            }
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            long j2 = j / 1000;
+            long c2 = ri1.c();
+            if ((c41.a(System.currentTimeMillis(), j) < 2 && j2 < pi1Var.s) || j2 > pi1Var.t) {
+                i2 |= 2;
+            }
+            if (z) {
+                int i3 = pi1Var.x;
+                int i4 = pi1Var.v;
+                if (i3 >= i4 || i4 == 0) {
+                    i2 |= 8;
                 }
             }
-            return this.I;
+            if (currentTimeMillis - c2 < pi1Var.u * 60000) {
+                i2 |= 16;
+            }
+            File r = r(pi1Var.g);
+            if (r == null || !r.exists()) {
+                i2 |= 4;
+            }
+            if (i == 1 && bi1.a().d() != null && bi1.a().d().optInt("hot_launch_splash_policy", 0) == 2 && TextUtils.equals(pi1Var.e, "splash_video")) {
+                i2 |= 256;
+            }
+            long currentTimeMillis2 = (System.currentTimeMillis() - hi1.a()) / 1000;
+            if (i == 1 && oi1.q() && pi1Var.Q > 0 && (System.currentTimeMillis() - hi1.a()) / 1000 < pi1Var.Q) {
+                i2 |= 16384;
+            }
+            if (pi1Var.o() && oi1.M()) {
+                return i2 | 32768;
+            }
+            return i2;
         }
-        return invokeV.floatValue;
+        return invokeCommon.intValue;
     }
 
-    public JSONObject f() {
+    public static void i(@Nullable List<pi1> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65549, null, list) == null) {
+            if (list != null && !list.isEmpty()) {
+                File[] listFiles = o().listFiles();
+                if (listFiles != null && listFiles.length != 0) {
+                    ArrayList arrayList = new ArrayList(list.size());
+                    for (pi1 pi1Var : list) {
+                        if (pi1Var != null) {
+                            arrayList.add(m(pi1Var.g));
+                            arrayList.add(m(pi1Var.z));
+                            arrayList.add(m(pi1Var.H));
+                        }
+                    }
+                    pi1 pi1Var2 = c;
+                    if (pi1Var2 != null) {
+                        arrayList.add(m(pi1Var2.g));
+                        arrayList.add(m(c.z));
+                        arrayList.add(m(c.H));
+                    }
+                    for (File file : listFiles) {
+                        if (!arrayList.contains(file.getName())) {
+                            file.delete();
+                        }
+                    }
+                    return;
+                }
+                return;
+            }
+            g41.c(o());
+        }
+    }
+
+    public static void k(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) {
+            File r = r(str);
+            if (r != null && r.exists()) {
+                return;
+            }
+            File u = u(h41.b(str, false));
+            if (u.exists()) {
+                u.delete();
+            }
+            p21.d(new a(u, str, r, str2, str3), "download splash resource");
+        }
+    }
+
+    public static List<pi1> s() {
+        InterceptResult invokeV;
+        String l;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
+            List<pi1> list = b;
+            if (list != null) {
+                return list;
+            }
+            b = new CopyOnWriteArrayList();
+            File q = q();
+            if (!q.exists() || (l = l(q)) == null) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(l);
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    b.add(pi1.c(jSONArray.optJSONObject(i)));
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public static HashMap<String, pi1> t() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.C)) {
-                try {
-                    return new JSONObject(this.C);
-                } catch (JSONException e) {
-                    e.printStackTrace();
-                    return new JSONObject();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
+            HashMap<String, pi1> hashMap = new HashMap<>();
+            File q = q();
+            if (!q.exists()) {
+                return null;
             }
-            return new JSONObject();
+            try {
+                JSONArray jSONArray = new JSONArray(l(q));
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    pi1 c2 = pi1.c((JSONObject) jSONArray.get(i));
+                    hashMap.put(c2.b, c2);
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return hashMap;
         }
-        return (JSONObject) invokeV.objValue;
+        return (HashMap) invokeV.objValue;
+    }
+
+    public static List<pi1> y(boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65565, null, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            List<pi1> s = s();
+            if (s != null && s.size() != 0) {
+                ArrayList arrayList = new ArrayList();
+                JSONObject jSONObject = new JSONObject();
+                int i2 = 0;
+                for (int i3 = 0; i3 < s.size(); i3++) {
+                    pi1 pi1Var = s.get(i3);
+                    int g = g(pi1Var, z, i);
+                    if (g == 0) {
+                        arrayList.add(pi1Var);
+                    } else {
+                        i2 |= g;
+                        try {
+                            jSONObject.put(pi1Var.c, g);
+                        } catch (JSONException unused) {
+                        }
+                    }
+                }
+                if (arrayList.size() == 0) {
+                    BaseVM.i(i2, jSONObject.toString());
+                    return null;
+                }
+                return arrayList;
+            }
+            BaseVM.h(1);
+            return null;
+        }
+        return (List) invokeCommon.objValue;
+    }
+
+    public static boolean z(List<pi1> list, File file) {
+        InterceptResult invokeLL;
+        StringBuffer stringBuffer;
+        int i;
+        FileWriter fileWriter;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65566, null, list, file)) == null) {
+            int i2 = 0;
+            if (list.size() <= 0) {
+                return false;
+            }
+            FileWriter fileWriter2 = null;
+            try {
+                pi1[] pi1VarArr = (pi1[]) list.toArray(new pi1[list.size() - 1]);
+                stringBuffer = new StringBuffer();
+                stringBuffer.append(PreferencesUtil.LEFT_MOUNT);
+                int length = pi1VarArr.length;
+                while (true) {
+                    i = length - 1;
+                    if (i2 >= i) {
+                        break;
+                    }
+                    stringBuffer.append(pi1VarArr[i2].s());
+                    stringBuffer.append(",");
+                    i2++;
+                }
+                stringBuffer.append(pi1VarArr[i].s());
+                stringBuffer.append(PreferencesUtil.RIGHT_MOUNT);
+                fileWriter = new FileWriter(file);
+            } catch (IOException unused) {
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                fileWriter.write(stringBuffer.toString());
+                try {
+                    fileWriter.close();
+                } catch (Exception unused2) {
+                }
+                return true;
+            } catch (IOException unused3) {
+                fileWriter2 = fileWriter;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (Exception unused4) {
+                    }
+                }
+                return true;
+            } catch (Throwable th2) {
+                fileWriter2 = fileWriter;
+                th = th2;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (Exception unused5) {
+                    }
+                }
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

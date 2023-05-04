@@ -1,57 +1,61 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
+import android.text.TextPaint;
+import android.text.style.ClickableSpan;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class j07 {
+public class j07 extends ClickableSpan {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public a b;
+    public int a;
 
-    /* loaded from: classes5.dex */
-    public interface a<T> {
-        void a(T t);
+    @Override // android.text.style.ClickableSpan
+    public void onClick(View widget) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, widget) == null) {
+            Intrinsics.checkNotNullParameter(widget, "widget");
+        }
     }
 
-    public abstract void a();
-
-    public abstract boolean b();
-
-    public abstract void c(Object obj);
-
-    public abstract void d();
-
-    public abstract void e();
-
-    public abstract boolean g(@NonNull String str);
-
-    public j07(Context context) {
+    public j07() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = context;
     }
 
-    public void f(a aVar) {
+    public final void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, aVar) == null) {
-            this.b = aVar;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
+        }
+    }
+
+    @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+    public void updateDrawState(TextPaint ds) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ds) == null) {
+            Intrinsics.checkNotNullParameter(ds, "ds");
+            int i = this.a;
+            if (i == 0) {
+                ds.setColor(ds.linkColor);
+            } else {
+                ds.setColor(i);
+            }
+            ds.setUnderlineText(false);
         }
     }
 }

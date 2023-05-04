@@ -1,20 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class um5 extends qa {
+public class um5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public Long a;
+    public int b;
+    public Long c;
+    public int d;
+    public String e;
+    public String f;
+    public int g;
+    public Long h;
+    public int i;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public um5() {
-        super(0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -22,29 +27,18 @@ public class um5 extends qa {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ua
-    /* renamed from: c */
-    public HttpResponsedMessage a(HttpResponsedMessage httpResponsedMessage) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpResponsedMessage)) == null) {
-            if (httpResponsedMessage == null) {
-                return null;
-            }
-            if (httpResponsedMessage.getError() == 2260104) {
-                iq5.a();
-            }
-            return httpResponsedMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "YYPayResult{amount=" + this.a + ", appid=" + this.b + ", currencyAmount=" + this.c + ", currencyType=" + this.d + ", expand='" + this.e + "', orderId='" + this.f + "', status=" + this.g + ", uid=" + this.h + ", usedChannel=" + this.i + '}';
         }
-        return (HttpResponsedMessage) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

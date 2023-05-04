@@ -1,134 +1,106 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.YYLiveUtil;
-import com.baidu.tbadk.core.util.schemeaction.SchemeActionHelper;
-import com.baidu.tbadk.data.LiveRemindRecommendData;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i95 {
     public static /* synthetic */ Interceptable $ic;
-    public static int a;
-    public static int b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
-    public static String a(String str, int i) {
-        InterceptResult invokeLI;
-        String str2;
+    public i95() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (i == 1) {
-                str2 = "index";
-            } else if (i == 2) {
-                str2 = "pb_live";
-            } else if (i == 3) {
-                int i2 = a;
-                if (i2 == 1) {
-                    str2 = "video_bar_live";
-                } else {
-                    if (i2 == 2) {
-                        str2 = "video_immer_live";
-                    }
-                    str2 = "";
-                }
-            } else {
-                if (i == 4) {
-                    str2 = YYLiveUtil.SOURCE_PB_DATU_EOF;
-                }
-                str2 = "";
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            return str + "?source=" + str2;
         }
-        return (String) invokeLI.objValue;
     }
 
-    public static String b(LiveRemindRecommendData liveRemindRecommendData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, liveRemindRecommendData)) == null) {
-            if (liveRemindRecommendData != null && !StringUtils.isNull(liveRemindRecommendData.getLiveIconScheme())) {
-                b = liveRemindRecommendData.getShowPage();
-                String liveIconScheme = liveRemindRecommendData.getLiveIconScheme();
-                if (liveRemindRecommendData.getShowPage() == 3) {
-                    String c = c();
-                    if (liveIconScheme.contains("closeLink")) {
-                        return SchemeActionHelper.replaceUrlParameter(liveIconScheme.replace("VIDEOICONBACK", c + "_back"), "source", c);
-                    }
-                    return SchemeActionHelper.replaceUrlParameter(liveIconScheme, "source", c);
-                }
-                return liveIconScheme;
-            }
-            return null;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            int i = a;
-            if (i == 1) {
-                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_CHANNEL;
-            }
-            if (i == 2) {
-                return YYLiveUtil.SOURCE_HOMEPAGE_VIDEO_MIDDLE;
-            }
-            int i2 = b;
-            if (i2 == 1) {
-                return "index_gz";
-            }
-            if (i2 == 2) {
-                return AddFriendActivityConfig.TYPE_PB_HEAD;
-            }
-            return YYLiveUtil.SOURCE_NOT_DEFINE;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
         return (String) invokeV.objValue;
     }
 
-    public static void e() {
+    public String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static void f() {
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65541, null) == null) {
-            new StatisticItem(TbadkCoreStatisticKey.KEY_HOME_LIVE_ICON_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1).eventStat();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f;
         }
+        return (String) invokeV.objValue;
     }
 
-    public static String d(String str) {
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static i95 g(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            Uri parse = Uri.parse(str);
-            if (parse == null) {
-                return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            i95 i95Var = new i95();
+            if (jSONObject != null) {
+                i95Var.a = jSONObject.optString("source");
+                i95Var.b = jSONObject.optString("show_text");
+                i95Var.c = jSONObject.optString("show_link");
+                i95Var.d = jSONObject.optString("show_image");
+                i95Var.e = jSONObject.optString("show_time");
+                i95Var.f = jSONObject.optString("show_max");
             }
-            String queryParameter = parse.getQueryParameter("source");
-            if (StringUtils.isNull(queryParameter)) {
-                return "";
-            }
-            return queryParameter;
+            return i95Var;
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            a = i;
-        }
+        return (i95) invokeL.objValue;
     }
 }

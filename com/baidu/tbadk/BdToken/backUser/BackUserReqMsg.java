@@ -2,7 +2,7 @@ package com.baidu.tbadk.BdToken.backUser;
 
 import com.baidu.adp.framework.message.NetMessage;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.rq5;
+import com.baidu.tieba.jr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class BackUserReqMsg extends NetMessage {
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
             try {
                 DataReq.Builder builder = new DataReq.Builder();
-                rq5.c(builder, true, true, false);
+                jr5.c(builder, true, true, false);
                 BackUserReqIdl.Builder builder2 = new BackUserReqIdl.Builder();
                 builder2.data = builder.build(false);
                 return builder2.build(false);

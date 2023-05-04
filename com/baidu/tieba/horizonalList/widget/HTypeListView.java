@@ -101,7 +101,7 @@ public class HTypeListView extends HListView {
     public void setData(List<? extends in> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.a.f(list);
+            this.a.i(list);
         }
     }
 
@@ -116,7 +116,7 @@ public class HTypeListView extends HListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.b();
+            return this.a.c();
         }
         return (List) invokeV.objValue;
     }

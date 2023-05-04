@@ -1,97 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.tl0;
+import android.view.ViewGroup;
+import androidx.annotation.NonNull;
+import com.baidu.nadcore.download.view.IDownloadViewCreator;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentLinkedQueue;
-import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes5.dex */
-public class kl0 implements rl0, Runnable {
+public class kl0 {
     public static /* synthetic */ Interceptable $ic;
+    public static IDownloadViewCreator a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ConcurrentLinkedQueue<tl0.b<?>> a;
-    public final AtomicBoolean b;
 
-    /* loaded from: classes5.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final kl0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-657721059, "Lcom/baidu/tieba/kl0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-657721059, "Lcom/baidu/tieba/kl0$a;");
-                    return;
-                }
-            }
-            a = new kl0();
-        }
-    }
-
-    public kl0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new ConcurrentLinkedQueue<>();
-        this.b = new AtomicBoolean(false);
-    }
-
-    public static rl0 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
-        }
-        return (rl0) invokeV.objValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947916794, "Lcom/baidu/tieba/kl0;")) == null) {
             return;
         }
-        while (true) {
-            tl0.b<?> poll = this.a.poll();
-            if (poll != null) {
-                poll.a.onEvent(poll.b);
-            } else {
-                this.b.set(false);
-                return;
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947916794, "Lcom/baidu/tieba/kl0;");
         }
     }
 
-    @Override // com.baidu.tieba.rl0
-    public <T extends pl0> void a(ul0 ul0Var, sl0<T> sl0Var, T t) {
+    public static tk0<?> a(@NonNull ViewGroup viewGroup, IDownloadViewCreator.ViewType viewType) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, ul0Var, sl0Var, t) == null) {
-            this.a.offer(new tl0.b<>(ul0Var, sl0Var, t));
-            if (this.b.compareAndSet(false, true)) {
-                n21.c(this, "AsyncDeliver", 3);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, viewGroup, viewType)) == null) {
+            if (a == null) {
+                synchronized (ai0.class) {
+                    if (a == null) {
+                        a = (IDownloadViewCreator) ServiceManager.getService(IDownloadViewCreator.a);
+                    }
+                    if (a == null) {
+                        a = IDownloadViewCreator.b;
+                    }
+                }
             }
+            return a.a(viewGroup, viewType);
         }
+        return (tk0) invokeLL.objValue;
     }
 }

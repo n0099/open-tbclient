@@ -1,69 +1,51 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sq9 extends CustomMessageListener {
+public class sq9 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public cp9 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sq9(MainTabActivity mainTabActivity) {
-        super(2921736);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948160206, "Lcom/baidu/tieba/sq9;")) == null) {
+            return;
         }
-        this.a = mainTabActivity;
-        this.b = mainTabActivity.e;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948160206, "Lcom/baidu/tieba/sq9;");
+        }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        cp9 cp9Var;
+    public static void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && SpeedStatsUtils.UBC_VALUE_SPLASH.equals(customResponsedMessage.getData())) {
-            MainTabActivity mainTabActivity = this.a;
-            this.b = mainTabActivity.e;
-            mainTabActivity.M1(true);
-            if (MainTabActivity.Y && (cp9Var = this.b) != null && cp9Var.h() != null) {
-                this.b.h().a();
-            }
-            cp9 cp9Var2 = this.b;
-            if (cp9Var2 != null && cp9Var2.c() != null) {
-                this.b.c().b();
-            }
-            et9.c().b();
-            et9.c().a();
-            if (j35.a().f()) {
-                j35.a().g(this.a.getClass().getName());
-                j35.a().l(false);
-            }
-            if (j35.a().e()) {
-                j35.a().b();
-                j35.a().h(this.a.getClass().getName());
-                j35.a().k(false);
-            }
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            a = false;
         }
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            a = true;
+        }
+    }
+
+    public static boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return a;
+        }
+        return invokeV.booleanValue;
     }
 }

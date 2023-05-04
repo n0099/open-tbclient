@@ -1,178 +1,258 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.content.ContentValues;
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.ecommerce.StatKey;
-import com.baidu.searchbox.dns.transmit.model.DnsModel;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketException;
+import com.baidu.swan.apps.console.v8inspector.websocket.WebSocketFrame;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.Map;
+import okhttp3.internal.ws.WebSocketProtocol;
+import org.apache.http.protocol.HTTP;
 /* loaded from: classes4.dex */
-public class e62 extends s93 {
+public class e62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public String c;
+    public int a;
+    public InputStream b;
+    public OutputStream c;
+    public a d;
+    public WebSocketFrame.OpCode e;
+    public final List<WebSocketFrame> f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e62(s83 s83Var) {
-        super(s83Var, "/swanAPI/setPhoneContact");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(WebSocketFrame webSocketFrame);
+
+        void b(IOException iOException);
+
+        void onClose();
+
+        void onOpen();
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947686216, "Lcom/baidu/tieba/e62;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947686216, "Lcom/baidu/tieba/e62;");
                 return;
             }
         }
+        g = ho1.a;
     }
 
-    @SuppressLint({"BDOfflineUrl"})
-    private void insert(Context context, d62 d62Var, CallbackHandler callbackHandler) {
+    public e62() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, this, context, d62Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
-            intent.putExtra("name", d62Var.d());
-            intent.putExtra("email", d62Var.r);
-            intent.putParcelableArrayListExtra("data", k(d62Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = 1;
+        this.e = null;
+        this.f = new LinkedList();
     }
 
-    public final void j(Context context, d62 d62Var, CallbackHandler callbackHandler) {
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, d62Var, callbackHandler) == null) {
-            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
-            intent.setType("vnd.android.cursor.item/contact");
-            intent.putExtra("name", d62Var.d());
-            intent.putExtra("email", d62Var.r);
-            intent.putParcelableArrayListExtra("data", k(d62Var));
-            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
-            l(context, intent, callbackHandler);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a == 4) {
+            return;
         }
+        bo4.d(this.b);
+        bo4.d(this.c);
+        this.a = 4;
+        this.d.onClose();
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    public static boolean f(Map<String, String> map) {
+        InterceptResult invokeL;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (context != null && callbackHandler != null && v73Var != null) {
-                if (v73Var.n0()) {
-                    if (s93.b) {
-                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
-                    return false;
-                }
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                if (s93.b) {
-                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
-                }
-                String optString = optParamsAsJo.optString("action");
-                if (TextUtils.isEmpty(optString)) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                d62 a = d62.a(optParamsAsJo);
-                if (!a.t()) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                this.c = optParamsAsJo.optString("cb");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != -1183792455) {
-                    if (hashCode == 3108362 && optString.equals(StatKey.EDITADDR_TAG_STAGE_EDIT)) {
-                        c = 1;
-                    }
-                } else if (optString.equals("insert")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c != 1) {
-                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                        return false;
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    j(context, a, callbackHandler);
-                    return true;
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                insert(context, a, callbackHandler);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, map)) == null) {
+            String str = map.get("Upgrade".toLowerCase());
+            String str2 = map.get(HTTP.CONN_DIRECTIVE.toLowerCase());
+            if (str2 != null && str2.toLowerCase().contains("Upgrade".toLowerCase())) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if ("websocket".equalsIgnoreCase(str) && z) {
                 return true;
             }
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
             return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final ArrayList<ContentValues> k(d62 d62Var) {
+    public static String g(String str) throws NoSuchAlgorithmException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, d62Var)) == null) {
-            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
-            arrayList.add(d62Var.j());
-            arrayList.add(d62Var.h());
-            arrayList.add(d62Var.s());
-            arrayList.add(d62Var.i());
-            arrayList.add(d62Var.g());
-            arrayList.add(d62Var.r());
-            arrayList.add(d62Var.k());
-            arrayList.add(d62Var.o());
-            arrayList.add(d62Var.n());
-            arrayList.add(d62Var.m());
-            arrayList.add(d62Var.l());
-            arrayList.add(d62Var.b());
-            arrayList.add(d62Var.p());
-            arrayList.add(d62Var.e());
-            return arrayList;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            MessageDigest messageDigest = MessageDigest.getInstance("SHA-1");
+            messageDigest.update((str + WebSocketProtocol.ACCEPT_MAGIC).getBytes());
+            return Base64.encodeToString(messageDigest.digest(), 2);
         }
-        return (ArrayList) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
+    public void a(WebSocketFrame.CloseCode closeCode, String str) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
-            try {
-                context.startActivity(intent);
-                if (!TextUtils.isEmpty(this.c)) {
-                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, DnsModel.MSG_OK).toString());
+        if (interceptable == null || interceptable.invokeLL(1048576, this, closeCode, str) == null) {
+            int i = this.a;
+            this.a = 3;
+            if (i == 2) {
+                j(new WebSocketFrame.b(closeCode, str));
+            } else {
+                b();
+            }
+        }
+    }
+
+    public void h(InputStream inputStream, OutputStream outputStream) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048581, this, inputStream, outputStream) == null) {
+            this.b = inputStream;
+            this.c = outputStream;
+            this.a = 2;
+            a aVar = this.d;
+            if (aVar != null) {
+                aVar.onOpen();
+            }
+            i();
+        }
+    }
+
+    public final void c(WebSocketFrame webSocketFrame) throws IOException {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webSocketFrame) == null) {
+            WebSocketFrame.CloseCode closeCode = WebSocketFrame.CloseCode.NormalClosure;
+            if (webSocketFrame instanceof WebSocketFrame.b) {
+                WebSocketFrame.b bVar = (WebSocketFrame.b) webSocketFrame;
+                closeCode = bVar.v();
+                str = bVar.w();
+            } else {
+                str = "";
+            }
+            if (this.a == 3) {
+                b();
+            } else {
+                a(closeCode, str);
+            }
+        }
+    }
+
+    public synchronized void j(WebSocketFrame webSocketFrame) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, webSocketFrame) == null) {
+            synchronized (this) {
+                webSocketFrame.t(this.c);
+            }
+        }
+    }
+
+    public void k(a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
+            this.d = aVar;
+        }
+    }
+
+    public final void d(WebSocketFrame webSocketFrame) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, webSocketFrame) == null) {
+            if (webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
+                if (this.e != null && g) {
+                    throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Previous continuous frame sequence not completed.");
                 }
-            } catch (Exception e) {
-                if (s93.b) {
-                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
+                this.e = webSocketFrame.f();
+                this.f.clear();
+                this.f.add(webSocketFrame);
+            } else if (webSocketFrame.h()) {
+                if (this.e != null) {
+                    this.f.add(webSocketFrame);
+                    this.d.a(new WebSocketFrame(this.e, this.f));
+                    this.e = null;
+                    this.f.clear();
+                    return;
                 }
-                if (!TextUtils.isEmpty(this.c)) {
-                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
+            } else if (this.e != null) {
+                this.f.add(webSocketFrame);
+            } else {
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence was not started.");
+            }
+        }
+    }
+
+    public final void e(WebSocketFrame webSocketFrame) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, webSocketFrame) == null) {
+            if (webSocketFrame.f() == WebSocketFrame.OpCode.Close) {
+                c(webSocketFrame);
+            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Ping) {
+                j(new WebSocketFrame(WebSocketFrame.OpCode.Pong, true, webSocketFrame.d()));
+            } else if (webSocketFrame.f() == WebSocketFrame.OpCode.Pong) {
+                if (g) {
+                    Log.i("V8WebSocket", "A pong request has received.");
+                }
+            } else if (webSocketFrame.h() && webSocketFrame.f() != WebSocketFrame.OpCode.Continuation) {
+                if (this.e == null) {
+                    if (webSocketFrame.f() != WebSocketFrame.OpCode.Text && webSocketFrame.f() != WebSocketFrame.OpCode.Binary) {
+                        throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Non control or continuous frame expected.");
+                    }
+                    this.d.a(webSocketFrame);
+                    return;
+                }
+                throw new WebSocketException(WebSocketFrame.CloseCode.ProtocolError, "Continuous frame sequence not completed.");
+            } else {
+                d(webSocketFrame);
+            }
+        }
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            while (this.a == 2) {
+                try {
+                    try {
+                        e(WebSocketFrame.k(this.b));
+                    } catch (IOException e) {
+                        if (this.d != null) {
+                            this.d.b(e);
+                        }
+                        x42.d("V8WebSocket", "parse web socket frame fail", e);
+                    }
+                } finally {
+                    b();
                 }
             }
         }

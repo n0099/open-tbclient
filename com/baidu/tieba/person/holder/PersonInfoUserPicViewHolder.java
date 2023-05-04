@@ -9,8 +9,8 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dc5;
 import com.baidu.tieba.in;
+import com.baidu.tieba.wc5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -46,22 +46,22 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
             }
         }
         this.e = 3;
-        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b49);
+        TbImageView tbImageView = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f091b58);
         this.a = tbImageView;
         tbImageView.setDefaultBgResource(R.color.CAM_X0205);
-        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091884);
-        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923d5);
+        this.c = view2.findViewById(R.id.obfuscated_res_0x7f091891);
+        this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0923ee);
     }
 
     public void a(in inVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, inVar) != null) || !(inVar instanceof dc5)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, inVar) != null) || !(inVar instanceof wc5)) {
             return;
         }
         this.d = inVar;
-        dc5 dc5Var = (dc5) inVar;
-        if (dc5Var.c()) {
-            String b = dc5Var.b();
+        wc5 wc5Var = (wc5) inVar;
+        if (wc5Var.c()) {
+            String b = wc5Var.b();
             this.b.setVisibility(0);
             if (StringUtils.isNull(b)) {
                 this.a.setDefaultResource(R.drawable.pic_mycenter_avatar_def_i);
@@ -71,7 +71,7 @@ public class PersonInfoUserPicViewHolder extends TypeAdapter.ViewHolder {
         } else {
             this.a.setDefaultResource(R.drawable.img_default_100);
             this.b.setVisibility(8);
-            this.a.N(dc5Var.b(), 10, false);
+            this.a.N(wc5Var.b(), 10, false);
         }
         getView().setOnClickListener(this.f);
         c(TbadkCoreApplication.getInst().getSkinType());

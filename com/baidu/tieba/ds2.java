@@ -1,103 +1,94 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.app.Activity;
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import android.widget.FrameLayout;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
-public class ds2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final boolean DEBUG;
-    public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Activity> mActivityRef;
-    public CallbackHandler mCallbackHandler;
-    public Context mContext;
-    public t62 mJsContainer;
-    public UnitedSchemeMainDispatcher mMainDispatcher;
+public interface ds2 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947715046, "Lcom/baidu/tieba/ds2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947715046, "Lcom/baidu/tieba/ds2;");
-                return;
-            }
-        }
-        DEBUG = fo1.a;
+    /* loaded from: classes4.dex */
+    public interface a {
+        void b(ds2 ds2Var);
     }
 
-    public Context getDispatchContext() {
-        InterceptResult invokeV;
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Activity> weakReference = this.mActivityRef;
-            if (weakReference != null) {
-                activity = weakReference.get();
-            } else {
-                activity = null;
-            }
-            if (activity == null) {
-                return this.mContext;
-            }
-            return activity;
-        }
-        return (Context) invokeV.objValue;
+    /* loaded from: classes4.dex */
+    public interface b {
+        boolean f(ds2 ds2Var, int i, int i2);
     }
 
-    @SuppressLint({"BDThrowableCheck"})
-    public ds2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, t62 t62Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, t62Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.mContext = context;
-        this.mMainDispatcher = unitedSchemeMainDispatcher;
-        this.mCallbackHandler = callbackHandler;
-        this.mJsContainer = t62Var;
-        if (DEBUG) {
-            if (context == null || unitedSchemeMainDispatcher == null) {
-                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
-            }
-        }
+    /* loaded from: classes4.dex */
+    public interface c {
+        void c(ds2 ds2Var);
     }
 
-    public void setActivityRef(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
-            this.mActivityRef = new WeakReference<>(activity);
-        }
+    /* loaded from: classes4.dex */
+    public interface d {
+        void e(ds2 ds2Var);
     }
 
-    public void setCallbackHandler(CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
-            this.mCallbackHandler = callbackHandler;
-        }
+    /* loaded from: classes4.dex */
+    public interface e {
+        void a(ds2 ds2Var);
     }
+
+    /* loaded from: classes4.dex */
+    public interface f {
+        void d(ds2 ds2Var);
+    }
+
+    void a(FrameLayout frameLayout);
+
+    void b();
+
+    void c();
+
+    void d(boolean z);
+
+    ds2 e(Context context, @NonNull rw2 rw2Var);
+
+    void f();
+
+    void g(a aVar);
+
+    int getCurrentPosition();
+
+    int getDuration();
+
+    void h(rw2 rw2Var, boolean z);
+
+    void i(String str);
+
+    boolean isEnd();
+
+    boolean isPlaying();
+
+    void j(e eVar);
+
+    void k(f fVar);
+
+    void l(boolean z, int i);
+
+    void m(d dVar);
+
+    void mute(boolean z);
+
+    void n(rw2 rw2Var);
+
+    void o(rw2 rw2Var);
+
+    boolean onBackPressed();
+
+    void p(b bVar);
+
+    void pause();
+
+    int q(String str);
+
+    void r(c cVar);
+
+    void resume();
+
+    void seekTo(int i);
+
+    void stop();
 }

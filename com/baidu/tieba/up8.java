@@ -1,63 +1,27 @@
 package com.baidu.tieba;
-
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class up8 implements Comparable<up8> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public String c;
-    public String d;
-    public int e;
-    public int f;
+public interface up8 {
+    void a(String str);
 
-    public up8() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void b(String str, int i, int i2, String str2);
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // java.lang.Comparable
-    /* renamed from: a */
-    public int compareTo(up8 up8Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, up8Var)) == null) {
-            if (this == up8Var) {
-                return 0;
-            }
-            if (up8Var == null || this.a <= up8Var.a) {
-                return -1;
-            }
-            return 1;
-        }
-        return invokeL.intValue;
-    }
+    void c(String str, int i, String str2);
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof up8) || compareTo((up8) obj) != 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    boolean d(String str);
+
+    boolean e(String str);
+
+    void f(String str, int i, String str2);
+
+    void g(String str, int i, String str2);
+
+    void h(String str, String str2);
+
+    void i(String str, String str2);
+
+    void j(String str);
+
+    void k(String str);
+
+    void l(String str, int i, String str2);
 }

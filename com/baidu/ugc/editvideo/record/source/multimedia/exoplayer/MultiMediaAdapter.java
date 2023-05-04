@@ -1,7 +1,7 @@
 package com.baidu.ugc.editvideo.record.source.multimedia.exoplayer;
 
 import android.text.TextUtils;
-import com.baidu.tieba.qha;
+import com.baidu.tieba.mla;
 import com.baidu.ugc.editvideo.data.MultiMediaData;
 import java.util.ArrayList;
 import java.util.List;
@@ -73,9 +73,9 @@ public abstract class MultiMediaAdapter {
     }
 
     public synchronized void clear() {
-        int b = qha.b(this.mItems);
+        int b = mla.b(this.mItems);
         for (int i = 0; i < b; i++) {
-            ItemInfo itemInfo = (ItemInfo) qha.c(this.mItems, i);
+            ItemInfo itemInfo = (ItemInfo) mla.c(this.mItems, i);
             if (itemInfo != null) {
                 destroyPlayer(itemInfo.position, itemInfo.data);
             }
@@ -84,12 +84,12 @@ public abstract class MultiMediaAdapter {
     }
 
     public synchronized void clearByIndex(int i) {
-        int b = qha.b(this.mItems);
+        int b = mla.b(this.mItems);
         int i2 = -1;
         int i3 = 0;
         while (true) {
             if (i3 < b) {
-                ItemInfo itemInfo = (ItemInfo) qha.c(this.mItems, i3);
+                ItemInfo itemInfo = (ItemInfo) mla.c(this.mItems, i3);
                 if (itemInfo != null && itemInfo.position == i) {
                     destroyPlayer(itemInfo.position, itemInfo.data);
                     i2 = i3;
@@ -100,7 +100,7 @@ public abstract class MultiMediaAdapter {
                 break;
             }
         }
-        qha.g(this.mItems, i2);
+        mla.g(this.mItems, i2);
     }
 
     public abstract void destroyPlayer(int i, MultiMediaData multiMediaData);
@@ -108,9 +108,9 @@ public abstract class MultiMediaAdapter {
     public abstract int getCount();
 
     public ItemInfo infoForPosition(int i) {
-        int b = qha.b(this.mItems);
+        int b = mla.b(this.mItems);
         for (int i2 = 0; i2 < b; i2++) {
-            ItemInfo itemInfo = (ItemInfo) qha.c(this.mItems, i2);
+            ItemInfo itemInfo = (ItemInfo) mla.c(this.mItems, i2);
             if (itemInfo != null && itemInfo.position == i) {
                 return itemInfo;
             }
@@ -156,15 +156,15 @@ public abstract class MultiMediaAdapter {
         } else {
             i3 = -1;
         }
-        int b = qha.b(this.mItems);
+        int b = mla.b(this.mItems);
         for (int i4 = 0; i4 < b; i4++) {
-            ItemInfo itemInfo2 = (ItemInfo) qha.c(this.mItems, i4);
+            ItemInfo itemInfo2 = (ItemInfo) mla.c(this.mItems, i4);
             if (itemInfo2 != null && itemInfo2.position != i2 && itemInfo2.position != i3 && itemInfo2.position != this.mCurItem) {
                 destroyPlayer(itemInfo2.position, itemInfo2.data);
             }
         }
         this.mItems.clear();
-        qha.a(this.mItems, this.mChangedList);
+        mla.a(this.mItems, this.mChangedList);
         this.mChangedList.clear();
         if (!isPlayerType) {
             this.mCurItem = -1;
@@ -172,13 +172,13 @@ public abstract class MultiMediaAdapter {
     }
 
     public synchronized void seek0AndClearOther(MultiMediaData multiMediaData, int i) {
-        int b = qha.b(this.mItems);
+        int b = mla.b(this.mItems);
         for (int i2 = 0; i2 < b; i2++) {
-            ItemInfo itemInfo = (ItemInfo) qha.c(this.mItems, i2);
+            ItemInfo itemInfo = (ItemInfo) mla.c(this.mItems, i2);
             if (itemInfo != null) {
                 if (multiMediaData == null || itemInfo.data == null || !TextUtils.equals(multiMediaData.uuid, itemInfo.data.uuid)) {
                     destroyPlayer(itemInfo.position, itemInfo.data);
-                    qha.g(this.mItems, i2);
+                    mla.g(this.mItems, i2);
                 } else {
                     itemInfo.position = i;
                 }

@@ -1,73 +1,50 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.FileDescriptor;
 /* loaded from: classes4.dex */
-public final class eg1 {
+public class eg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static eg1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947733274, "Lcom/baidu/tieba/eg1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public static int a(BitmapFactory.Options options, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, options, i, i2)) == null) {
+            int i3 = options.outHeight;
+            int i4 = options.outWidth;
+            int i5 = 1;
+            if (i3 > i2 || i4 > i) {
+                int i6 = i3 / 2;
+                int i7 = i4 / 2;
+                while (i6 / i5 >= i2 && i7 / i5 >= i) {
+                    i5 *= 2;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947733274, "Lcom/baidu/tieba/eg1;");
-                return;
+            return i5;
+        }
+        return invokeLII.intValue;
+    }
+
+    public static Bitmap b(FileDescriptor fileDescriptor, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65537, null, fileDescriptor, i, i2)) == null) {
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inJustDecodeBounds = true;
+            BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
+            int a = a(options, i, i2);
+            options.inSampleSize = a;
+            options.inJustDecodeBounds = false;
+            if (a <= 1) {
+                return BitmapFactory.decodeFileDescriptor(fileDescriptor);
             }
+            return BitmapFactory.decodeFileDescriptor(fileDescriptor, null, options);
         }
-        b = new eg1();
-    }
-
-    public eg1() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public static eg1 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (eg1) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public void c(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
-            this.a = activity.getTaskId();
-        }
+        return (Bitmap) invokeLII.objValue;
     }
 }

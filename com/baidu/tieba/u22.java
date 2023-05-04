@@ -1,141 +1,92 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Color;
-import android.graphics.Matrix;
-import android.util.Base64;
-import android.view.View;
-import androidx.annotation.NonNull;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u22 extends s22 {
+public class u22 extends n32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int k;
-    public int l;
-    public int m;
-    public int n;
+    public boolean j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948159028, "Lcom/baidu/tieba/u22;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948159028, "Lcom/baidu/tieba/u22;");
+                return;
+            }
+        }
+        boolean z = ho1.a;
+    }
+
+    @Override // com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public u22(String str) {
-        super(str);
+        super("canvas", "canvasId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
             Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.j = false;
         try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.k = ml3.g((float) jSONObject.optDouble("x"));
-            this.l = ml3.g((float) jSONObject.optDouble("y"));
-            this.m = ml3.g((float) jSONObject.optDouble("width"));
-            this.n = ml3.g((float) jSONObject.optDouble("height"));
-        } catch (Exception e) {
-            v42.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
+            a(new JSONObject(str));
+        } catch (JSONException e) {
+            x42.d("Canvas", "parsing CanvasBasicthis occurs exception", e);
         }
     }
 
-    public final byte[] h(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public void a(JSONObject jSONObject) throws JSONException {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bitmap)) == null) {
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            int i = width * height;
-            int[] iArr = new int[i];
-            bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-            byte[] bArr = new byte[i * 4];
-            for (int i2 = 0; i2 < i; i2++) {
-                int i3 = iArr[i2];
-                int i4 = i2 * 4;
-                bArr[i4] = (byte) Color.red(i3);
-                bArr[i4 + 1] = (byte) Color.green(i3);
-                bArr[i4 + 2] = (byte) Color.blue(i3);
-                bArr[i4 + 3] = (byte) Color.alpha(i3);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public JSONObject i(@NonNull View view2) {
-        InterceptResult invokeL;
-        String str;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2)) == null) {
-            int measuredWidth = view2.getMeasuredWidth();
-            int measuredHeight = view2.getMeasuredHeight();
-            int i2 = 0;
-            if (measuredWidth > 0 && measuredHeight > 0) {
-                int i3 = this.k;
-                this.k = (i3 < 0 || i3 >= measuredWidth) ? 0 : 0;
-                int i4 = this.l;
-                this.l = (i4 < 0 || i4 >= measuredHeight) ? 0 : 0;
-                int i5 = this.m;
-                if (i5 <= 0 || this.k + i5 > measuredWidth) {
-                    i5 = measuredWidth - this.k;
-                }
-                this.m = i5;
-                int i6 = this.n;
-                if (i6 <= 0 || this.l + i6 > measuredHeight) {
-                    i6 = measuredHeight - this.l;
-                }
-                this.n = i6;
-                Bitmap createBitmap = Bitmap.createBitmap(this.m, i6, Bitmap.Config.ARGB_4444);
-                Canvas canvas = new Canvas(createBitmap);
-                canvas.drawARGB(0, 0, 0, 0);
-                canvas.translate(-this.k, -this.l);
-                view2.draw(canvas);
-                Bitmap j = j(createBitmap);
-                str = Base64.encodeToString(h(j), 2);
-                i2 = j.getWidth();
-                i = j.getHeight();
+        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
+            super.a(jSONObject);
+            if (!TextUtils.equals(jSONObject.optString("hide"), "1") && !jSONObject.optBoolean("hide")) {
+                z = false;
             } else {
-                v42.b("canvasGetImageData", "canvas size is invalid.");
-                str = "";
-                i = 0;
+                z = true;
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("width", i2);
-                jSONObject.put("height", i);
-                jSONObject.put("data", str);
-            } catch (Exception e) {
-                v42.d("canvasGetImageData", "CanvasGetImageData meets json exception", e);
-            }
-            return jSONObject;
+            this.f = z;
+            this.j = !TextUtils.equals(jSONObject.optString("disableScroll"), "0");
+            this.g = !TextUtils.equals(jSONObject.optString("gesture"), "0");
         }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    @NonNull
-    public final Bitmap j(@NonNull Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bitmap)) == null) {
-            float l = 1.0f / ml3.l(cr2.c());
-            Matrix matrix = new Matrix();
-            matrix.postScale(l, l);
-            return Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-        }
-        return (Bitmap) invokeL.objValue;
     }
 }

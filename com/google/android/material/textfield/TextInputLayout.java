@@ -1025,7 +1025,7 @@ public class TextInputLayout extends LinearLayout {
     }
 
     public TextInputLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040708);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f040711);
     }
 
     private int calculateExpandedLabelTop(@NonNull Rect rect, float f) {
@@ -1209,7 +1209,7 @@ public class TextInputLayout extends LinearLayout {
                 this.hoveredFilledBackgroundColor = colorStateList.getColorForState(new int[]{16843623, 16842910}, -1);
             } else {
                 this.focusedFilledBackgroundColor = this.defaultFilledBackgroundColor;
-                ColorStateList colorStateList2 = AppCompatResources.getColorStateList(context2, R.color.obfuscated_res_0x7f060690);
+                ColorStateList colorStateList2 = AppCompatResources.getColorStateList(context2, R.color.obfuscated_res_0x7f060694);
                 this.disabledFilledBackgroundColor = colorStateList2.getColorForState(new int[]{-16842910}, -1);
                 this.hoveredFilledBackgroundColor = colorStateList2.getColorForState(new int[]{16843623}, -1);
             }
@@ -1227,9 +1227,9 @@ public class TextInputLayout extends LinearLayout {
         }
         ColorStateList colorStateList4 = MaterialResources.getColorStateList(context2, obtainTintedStyledAttributes, 10);
         this.focusedStrokeColor = obtainTintedStyledAttributes.getColor(10, 0);
-        this.defaultStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0606a2);
-        this.disabledColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0606a3);
-        this.hoveredStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0606a6);
+        this.defaultStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0606a6);
+        this.disabledColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0606a7);
+        this.hoveredStrokeColor = ContextCompat.getColor(context2, R.color.obfuscated_res_0x7f0606aa);
         if (colorStateList4 != null) {
             setBoxStrokeColorStateList(colorStateList4);
         }
@@ -1242,7 +1242,7 @@ public class TextInputLayout extends LinearLayout {
         int resourceId = obtainTintedStyledAttributes.getResourceId(31, 0);
         CharSequence text = obtainTintedStyledAttributes.getText(26);
         boolean z = obtainTintedStyledAttributes.getBoolean(27, false);
-        CheckableImageButton checkableImageButton = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0236, (ViewGroup) this.endLayout, false);
+        CheckableImageButton checkableImageButton = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) this.endLayout, false);
         this.errorIconView = checkableImageButton;
         checkableImageButton.setVisibility(8);
         if (obtainTintedStyledAttributes.hasValue(28)) {
@@ -1254,7 +1254,7 @@ public class TextInputLayout extends LinearLayout {
         if (obtainTintedStyledAttributes.hasValue(30)) {
             setErrorIconTintMode(ViewUtils.parseTintMode(obtainTintedStyledAttributes.getInt(30, -1), null));
         }
-        this.errorIconView.setContentDescription(getResources().getText(R.string.obfuscated_res_0x7f0f05e2));
+        this.errorIconView.setContentDescription(getResources().getText(R.string.obfuscated_res_0x7f0f05ef));
         ViewCompat.setImportantForAccessibility(this.errorIconView, 2);
         this.errorIconView.setClickable(false);
         this.errorIconView.setPressable(false);
@@ -1272,7 +1272,7 @@ public class TextInputLayout extends LinearLayout {
         setCounterMaxLength(obtainTintedStyledAttributes.getInt(15, -1));
         this.counterTextAppearance = obtainTintedStyledAttributes.getResourceId(18, 0);
         this.counterOverflowTextAppearance = obtainTintedStyledAttributes.getResourceId(16, 0);
-        CheckableImageButton checkableImageButton2 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0237, (ViewGroup) this.startLayout, false);
+        CheckableImageButton checkableImageButton2 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d023a, (ViewGroup) this.startLayout, false);
         this.startIconView = checkableImageButton2;
         checkableImageButton2.setVisibility(8);
         setStartIconOnClickListener(null);
@@ -1291,7 +1291,7 @@ public class TextInputLayout extends LinearLayout {
             setStartIconTintMode(ViewUtils.parseTintMode(obtainTintedStyledAttributes.getInt(58, -1), null));
         }
         setBoxBackgroundMode(obtainTintedStyledAttributes.getInt(4, 0));
-        CheckableImageButton checkableImageButton3 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0236, (ViewGroup) this.endIconFrame, false);
+        CheckableImageButton checkableImageButton3 = (CheckableImageButton) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0239, (ViewGroup) this.endIconFrame, false);
         this.endIconView = checkableImageButton3;
         this.endIconFrame.addView(checkableImageButton3);
         this.endIconView.setVisibility(8);
@@ -1330,14 +1330,14 @@ public class TextInputLayout extends LinearLayout {
         }
         AppCompatTextView appCompatTextView = new AppCompatTextView(context2);
         this.prefixTextView = appCompatTextView;
-        appCompatTextView.setId(R.id.obfuscated_res_0x7f09233c);
+        appCompatTextView.setId(R.id.obfuscated_res_0x7f092354);
         this.prefixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2));
         ViewCompat.setAccessibilityLiveRegion(this.prefixTextView, 1);
         this.startLayout.addView(this.startIconView);
         this.startLayout.addView(this.prefixTextView);
         AppCompatTextView appCompatTextView2 = new AppCompatTextView(context2);
         this.suffixTextView = appCompatTextView2;
-        appCompatTextView2.setId(R.id.obfuscated_res_0x7f09233d);
+        appCompatTextView2.setId(R.id.obfuscated_res_0x7f092355);
         this.suffixTextView.setLayoutParams(new FrameLayout.LayoutParams(-2, -2, 80));
         ViewCompat.setAccessibilityLiveRegion(this.suffixTextView, 1);
         this.endLayout.addView(this.suffixTextView);
@@ -2128,9 +2128,9 @@ public class TextInputLayout extends LinearLayout {
     public static void updateCounterContentDescription(@NonNull Context context, @NonNull TextView textView, int i, int i2, boolean z) {
         int i3;
         if (z) {
-            i3 = R.string.obfuscated_res_0x7f0f03bf;
+            i3 = R.string.obfuscated_res_0x7f0f03bd;
         } else {
-            i3 = R.string.obfuscated_res_0x7f0f03be;
+            i3 = R.string.obfuscated_res_0x7f0f03bc;
         }
         textView.setContentDescription(context.getString(i3, Integer.valueOf(i), Integer.valueOf(i2)));
     }
@@ -2229,7 +2229,7 @@ public class TextInputLayout extends LinearLayout {
             if (z2 != this.counterOverflowed) {
                 updateCounterTextAppearanceAndColor();
             }
-            this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.obfuscated_res_0x7f0f03c0, Integer.valueOf(i), Integer.valueOf(this.counterMaxLength))));
+            this.counterView.setText(BidiFormatter.getInstance().unicodeWrap(getContext().getString(R.string.obfuscated_res_0x7f0f03be, Integer.valueOf(i), Integer.valueOf(this.counterMaxLength))));
         }
         if (this.editText != null && z2 != this.counterOverflowed) {
             updateLabelState(false);
@@ -2323,7 +2323,7 @@ public class TextInputLayout extends LinearLayout {
         if (z) {
             AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
             this.placeholderTextView = appCompatTextView;
-            appCompatTextView.setId(R.id.obfuscated_res_0x7f09233b);
+            appCompatTextView.setId(R.id.obfuscated_res_0x7f092353);
             ViewCompat.setAccessibilityLiveRegion(this.placeholderTextView, 1);
             setPlaceholderTextAppearance(this.placeholderTextAppearance);
             setPlaceholderTextColor(this.placeholderTextColor);
@@ -2657,7 +2657,7 @@ public class TextInputLayout extends LinearLayout {
         }
         if (z) {
             TextViewCompat.setTextAppearance(textView, R.style.obfuscated_res_0x7f1001c6);
-            textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0605b9));
+            textView.setTextColor(ContextCompat.getColor(getContext(), R.color.obfuscated_res_0x7f0605bd));
         }
     }
 
@@ -2713,7 +2713,7 @@ public class TextInputLayout extends LinearLayout {
             if (z) {
                 AppCompatTextView appCompatTextView = new AppCompatTextView(getContext());
                 this.counterView = appCompatTextView;
-                appCompatTextView.setId(R.id.obfuscated_res_0x7f092338);
+                appCompatTextView.setId(R.id.obfuscated_res_0x7f092350);
                 Typeface typeface = this.typeface;
                 if (typeface != null) {
                     this.counterView.setTypeface(typeface);

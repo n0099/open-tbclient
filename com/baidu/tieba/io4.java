@@ -1,27 +1,24 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Environment;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class io4 implements jo4<String> {
+public class io4<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public List<lo4<T>> a;
 
-    public io4(Context context) {
+    public io4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,65 +28,77 @@ public class io4 implements jo4<String> {
                 return;
             }
         }
-        this.a = context.getApplicationContext();
+        this.a = new ArrayList(6);
     }
 
-    public final void e(String str) {
+    public void a(lo4<T> lo4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || !TextUtils.equals("mounted", Environment.getExternalStorageState()) || !ro4.a(this.a, "android.permission.WRITE_EXTERNAL_STORAGE")) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, lo4Var) == null) && lo4Var != null && !this.a.contains(lo4Var)) {
+            this.a.add(lo4Var);
         }
-        po4.d(str, new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid"));
     }
 
-    @Override // com.baidu.tieba.jo4
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !ro4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                return true;
-            }
-            return !new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid").exists();
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jo4
-    /* renamed from: b */
-    public String get() {
+    public T b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c();
+            ArrayList<lo4> arrayList = new ArrayList();
+            Iterator<lo4<T>> it = this.a.iterator();
+            T t = null;
+            while (true) {
+                if (!it.hasNext()) {
+                    break;
+                }
+                lo4<T> next = it.next();
+                T t2 = next.get();
+                if (c(t2)) {
+                    t = t2;
+                    break;
+                }
+                arrayList.add(next);
+                t = t2;
+            }
+            if (arrayList.size() > 0) {
+                for (lo4 lo4Var : arrayList) {
+                    lo4Var.put(t);
+                }
+            }
+            return t;
         }
-        return (String) invokeV.objValue;
+        return (T) invokeV.objValue;
     }
 
-    public final String c() {
-        InterceptResult invokeV;
+    public final boolean c(T t) {
+        InterceptResult invokeL;
+        char[] charArray;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.equals("mounted", Environment.getExternalStorageState()) || !ro4.a(this.a, com.kuaishou.weapon.p0.h.i)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
+            if (t == null || !(t instanceof String)) {
+                return false;
             }
-            File file = new File(new File(Environment.getExternalStorageDirectory(), "backups/.SystemConfig"), ".uuid");
-            if (!file.exists()) {
-                return null;
+            String str = (String) t;
+            if (str.length() != 32) {
+                return false;
             }
-            return po4.c(file);
+            for (char c : str.toCharArray()) {
+                if ((c < 'A' || c > 'Z') && (c < '0' || c > '9')) {
+                    return false;
+                }
+            }
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jo4
-    /* renamed from: d */
-    public void put(String str) {
+    public void d(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            e(str);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, t) != null) || c(t)) {
+            return;
+        }
+        for (lo4<T> lo4Var : this.a) {
+            if (lo4Var.a()) {
+                lo4Var.put(t);
+            }
         }
     }
 }

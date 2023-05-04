@@ -28,22 +28,22 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.pageInfo.TbPageTag;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b97;
+import com.baidu.tieba.eh5;
 import com.baidu.tieba.frs.adModel.ADHttpResponseMessage;
 import com.baidu.tieba.frs.adModel.ADRequestModel;
 import com.baidu.tieba.frs.adModel.ADSocketResponseMessage;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.h57;
-import com.baidu.tieba.h67;
-import com.baidu.tieba.h77;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.in;
-import com.baidu.tieba.j67;
-import com.baidu.tieba.j77;
-import com.baidu.tieba.jt4;
-import com.baidu.tieba.l77;
-import com.baidu.tieba.lg5;
+import com.baidu.tieba.pt4;
 import com.baidu.tieba.sn;
+import com.baidu.tieba.x67;
+import com.baidu.tieba.x77;
+import com.baidu.tieba.x87;
+import com.baidu.tieba.z77;
+import com.baidu.tieba.z87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -52,21 +52,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes4.dex */
-public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j67 {
+public class FrsADFragment extends BaseFragment implements x77, BdListView.p, z77 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l77 a;
+    public b97 a;
     public ADRequestModel.b b;
     public ADRequestModel c;
     public TbPageContext d;
     public long e;
     public int f;
     public int g;
-    public h77 h;
+    public x87 h;
     public boolean i;
-    public List<j77> j;
+    public List<z87> j;
     public ArrayList<in> k;
-    public lg5 l;
+    public eh5 l;
     public int m;
     public int n;
     public CustomMessageListener o;
@@ -75,17 +75,17 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
     public CustomMessageListener r;
     public sn s;
 
-    @Override // com.baidu.tieba.j67
-    public void k0() {
+    @Override // com.baidu.tieba.z77
+    public void l0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.h67
-    public void n0(boolean z) {
+    @Override // com.baidu.tieba.x77
+    public void o0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
         }
     }
 
@@ -157,7 +157,7 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, aDSocketResponseMessage) == null) && aDSocketResponseMessage != null && this.a.a != null) {
                 if (aDSocketResponseMessage.getError() != 0) {
-                    this.a.Z1();
+                    this.a.a2();
                     return;
                 }
                 this.a.f = (int) aDSocketResponseMessage.getOffset();
@@ -168,7 +168,7 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
                     z = false;
                 }
                 frsADFragment.i = z;
-                this.a.u();
+                this.a.B();
             }
         }
 
@@ -177,7 +177,7 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aDHttpResponseMessage) == null) && aDHttpResponseMessage != null && this.a.a != null) {
                 if (aDHttpResponseMessage.getError() != 0) {
-                    this.a.Z1();
+                    this.a.a2();
                     return;
                 }
                 this.a.f = (int) aDHttpResponseMessage.getOffset();
@@ -188,7 +188,7 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
                     z = false;
                 }
                 frsADFragment.i = z;
-                this.a.u();
+                this.a.B();
             }
         }
     }
@@ -272,19 +272,19 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
             }
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer) && Integer.parseInt(data.toString()) == 90) {
-                if (this.a.R1() != null) {
-                    this.a.R1().setSelection(0);
+                if (this.a.S1() != null) {
+                    this.a.S1().setSelection(0);
                 }
                 if (this.a.l == null || !this.a.l.isViewAttached()) {
-                    l77 l77Var = this.a.a;
-                    if (l77Var != null) {
-                        l77Var.p();
+                    b97 b97Var = this.a.a;
+                    if (b97Var != null) {
+                        b97Var.p();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
                         return;
                     }
                     return;
                 }
-                this.a.U1(0);
+                this.a.V1(0);
             }
         }
     }
@@ -325,20 +325,20 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
             }
             Object data = customResponsedMessage.getData();
             if ((data instanceof Integer) && Integer.parseInt(data.toString()) == 90) {
-                if (this.a.R1() != null) {
-                    this.a.R1().setSelection(0);
+                if (this.a.S1() != null) {
+                    this.a.S1().setSelection(0);
                 }
                 if (this.a.l == null || !this.a.l.isViewAttached()) {
-                    l77 l77Var = this.a.a;
-                    if (l77Var != null) {
-                        l77Var.p();
+                    b97 b97Var = this.a.a;
+                    if (b97Var != null) {
+                        b97Var.p();
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2003020, Boolean.TRUE));
                         return;
                     }
                     return;
                 }
-                this.a.U1(0);
-                this.a.Y1();
+                this.a.V1(0);
+                this.a.Z1();
             }
         }
     }
@@ -369,14 +369,14 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
 
         @Override // com.baidu.tieba.sn
         public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
-            j77 j77Var;
+            z87 z87Var;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && inVar != null && (inVar instanceof j77) && (j77Var = (j77) inVar) != null && j77Var.f() != null) {
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && inVar != null && (inVar instanceof z87) && (z87Var = (z87) inVar) != null && z87Var.f() != null) {
                 ArrayList arrayList = new ArrayList();
                 arrayList.add(new Pair(BaseWebViewActivity.KEY_SHOW_FRS_TAB_AD, "1"));
-                UrlManager.getInstance().dealOneLink(this.a.d, new String[]{jt4.e(j77Var.f(), arrayList)});
-                if (!hi.isEmpty(j77Var.d())) {
-                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FRS_AD_LIST_ITEM_CLICK).param("obj_type", j77Var.d()).param("fid", this.a.e));
+                UrlManager.getInstance().dealOneLink(this.a.d, new String[]{pt4.e(z87Var.f(), arrayList)});
+                if (!hi.isEmpty(z87Var.d())) {
+                    TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_FRS_AD_LIST_ITEM_CLICK).param("obj_type", z87Var.d()).param("fid", this.a.e));
                 }
             }
         }
@@ -411,63 +411,109 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onChangeSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048592, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             super.onChangeSkinType(i);
-            l77 l77Var = this.a;
-            if (l77Var != null) {
-                l77Var.g(i);
+            b97 b97Var = this.a;
+            if (b97Var != null) {
+                b97Var.g(i);
             }
-            lg5 lg5Var = this.l;
-            if (lg5Var != null && lg5Var.isViewAttached()) {
+            eh5 eh5Var = this.l;
+            if (eh5Var != null && eh5Var.isViewAttached()) {
                 this.l.onChangeSkinType();
             }
         }
     }
 
-    @Override // com.baidu.tieba.h67
-    public void A1() {
-        l77 l77Var;
+    public final void B() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (l77Var = this.a) != null && l77Var.a() != null) {
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a == null) {
+            return;
+        }
+        c();
+        this.a.i();
+        int i = this.g;
+        if (i == 0) {
+            if (!ListUtils.isEmpty(this.j)) {
+                X1(true, false);
+                this.a.o();
+                return;
+            }
+            W1();
+        } else if (i == 2) {
+            this.a.j(false);
+            if (!ListUtils.isEmpty(this.j)) {
+                X1(true, false);
+                this.a.o();
+                return;
+            }
+            W1();
+        } else if (i == 1) {
+            if (!ListUtils.isEmpty(this.j)) {
+                X1(false, true);
+            } else {
+                this.a.o();
+            }
+        }
+    }
+
+    public final void a2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.a.k(false);
+            this.a.m(false);
+            this.a.d();
+            this.a.a().getData().clear();
+            this.a.f();
+            if (this.l == null) {
+                eh5 eh5Var = new eh5(getPageContext().getContext(), getNetRefreshListener());
+                this.l = eh5Var;
+                eh5Var.e(null);
+                this.l.d(null);
+                this.l.c(null);
+                this.l.f();
+                this.l.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            }
+            this.l.onChangeSkinType();
+            this.l.attachView(this.a.b(), true);
+            this.l.a(0);
+        }
+    }
+
+    @Override // com.baidu.tieba.x77
+    public void B1() {
+        b97 b97Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (b97Var = this.a) != null && b97Var.a() != null) {
             this.a.a().scrollToPosition(0);
         }
     }
 
-    @Override // com.baidu.tieba.h67
-    public void D() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a != null) {
-            A1();
-            this.a.p();
-        }
-    }
-
-    public BdTypeRecyclerView R1() {
+    public BdTypeRecyclerView S1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            l77 l77Var = this.a;
-            if (l77Var == null) {
+            b97 b97Var = this.a;
+            if (b97Var == null) {
                 return null;
             }
-            return l77Var.a();
+            return b97Var.a();
         }
         return (BdTypeRecyclerView) invokeV.objValue;
     }
 
-    public final void S1() {
+    public final void T1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             this.a.k(true);
             this.a.m(true);
-            lg5 lg5Var = this.l;
-            if (lg5Var != null && lg5Var.isViewAttached()) {
+            eh5 eh5Var = this.l;
+            if (eh5Var != null && eh5Var.isViewAttached()) {
                 this.l.dettachView(this.a.b());
             }
         }
     }
 
-    public final void X1() {
+    public final void Y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!this.i) {
@@ -483,7 +529,7 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
         }
     }
 
-    public final void Y1() {
+    public final void Z1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             this.a.k(false);
@@ -491,11 +537,19 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
         }
     }
 
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            this.a.k(true);
+            hideLoadingView(this.a.b());
+        }
+    }
+
     @Override // com.baidu.tbadk.core.BaseFragment
     public TbPageTag getTbPageTag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             TbPageTag tbPageTag = super.getTbPageTag();
             tbPageTag.locatePage = "a006";
             tbPageTag.tabId = 90;
@@ -504,16 +558,25 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
         return (TbPageTag) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.j67
+    @Override // com.baidu.tieba.x77
+    public void h() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && this.a != null) {
+            B1();
+            this.a.p();
+        }
+    }
+
+    @Override // com.baidu.tieba.z77
     public void i1() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048588, this) != null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeV(1048590, this) != null) || this.a == null) {
             return;
         }
         if (BdNetTypeUtil.isNetWorkAvailable()) {
-            U1(2);
+            V1(2);
             if (ListUtils.isEmpty(this.k)) {
-                Y1();
+                Z1();
                 return;
             }
             return;
@@ -521,22 +584,14 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
         this.a.j(false);
     }
 
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.a.k(true);
-            hideLoadingView(this.a.b());
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048595, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.o);
-            l77 l77Var = this.a;
-            if (l77Var != null) {
-                l77Var.h();
+            b97 b97Var = this.a;
+            if (b97Var != null) {
+                b97Var.h();
             }
             ADRequestModel aDRequestModel = this.c;
             if (aDRequestModel != null) {
@@ -549,35 +604,35 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLazyLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
             super.onLazyLoad();
             if (BdNetTypeUtil.isNetWorkAvailable()) {
-                U1(0);
-                Y1();
+                V1(0);
+                Z1();
                 return;
             }
-            Z1();
+            a2();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onNetRefreshButtonClicked() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048598, this) == null) && BdNetTypeUtil.isNetWorkAvailable()) {
-            U1(0);
-            Y1();
+        if ((interceptable == null || interceptable.invokeV(1048599, this) == null) && BdNetTypeUtil.isNetWorkAvailable()) {
+            V1(0);
+            Z1();
         }
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onPrimary() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
             super.onPrimary();
         }
     }
 
-    public final void T1(Bundle bundle) {
+    public final void U1(Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             if (bundle != null) {
@@ -595,30 +650,30 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
         }
     }
 
-    public final void U1(int i) {
+    public final void V1(int i) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeI(1048581, this, i) != null) || this.c == null) {
             return;
         }
-        S1();
+        T1();
         this.g = i;
         if (i != 0 && i != 2) {
             if (i == 1) {
-                this.c.R(this.e, this.f, 20);
+                this.c.W(this.e, this.f, 20);
                 return;
             }
             return;
         }
-        this.c.R(this.e, 0, 20);
+        this.c.W(this.e, 0, 20);
     }
 
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048593, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             super.onCreate(bundle);
             this.d = getPageContext();
-            T1(bundle);
+            U1(bundle);
             registerListener(this.q);
             registerListener(this.r);
             registerListener(this.o);
@@ -629,10 +684,10 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
         }
     }
 
-    public final void V1() {
+    public final void W1() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.k != null && this.a != null) {
-            this.k.add(new h57());
+            this.k.add(new x67());
             this.a.c().d(this.k);
             this.a.c().b();
         }
@@ -641,28 +696,28 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
     @Override // com.baidu.tbadk.core.BaseFragment
     public void onLoad() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
             TiebaStatic.log(new StatisticItem("c13008").param("fid", this.e).param("obj_type", 9).param("obj_locate", 2).param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 
     @Override // com.baidu.adp.widget.ListView.BdListView.p
     public void onScrollToBottom() {
-        l77 l77Var;
+        b97 b97Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || (l77Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048601, this) != null) || (b97Var = this.a) == null) {
             return;
         }
-        if (l77Var != null && l77Var.a() != null) {
+        if (b97Var != null && b97Var.a() != null) {
             this.a.a().stopScroll();
         }
-        X1();
+        Y1();
         if (ii.F() && this.i) {
-            U1(1);
+            V1(1);
         }
     }
 
-    public final void W1(boolean z, boolean z2) {
+    public final void X1(boolean z, boolean z2) {
         ArrayList<in> arrayList;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeCommon(1048583, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) != null) || (arrayList = this.k) == null) {
@@ -674,8 +729,8 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
         if (z2) {
             for (int i = 0; i < this.k.size(); i++) {
                 in inVar = (in) ListUtils.getItem(this.k, i);
-                if (inVar instanceof j77) {
-                    ((j77) inVar).m(false);
+                if (inVar instanceof z87) {
+                    ((z87) inVar).m(false);
                 }
             }
         }
@@ -685,82 +740,27 @@ public class FrsADFragment extends BaseFragment implements h67, BdListView.p, j6
         this.a.c().b();
     }
 
-    public final void Z1() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.a.k(false);
-            this.a.m(false);
-            this.a.d();
-            this.a.a().getData().clear();
-            this.a.f();
-            if (this.l == null) {
-                lg5 lg5Var = new lg5(getPageContext().getContext(), getNetRefreshListener());
-                this.l = lg5Var;
-                lg5Var.e(null);
-                this.l.d(null);
-                this.l.c(null);
-                this.l.f();
-                this.l.b().setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
-            }
-            this.l.onChangeSkinType();
-            this.l.attachView(this.a.b(), true);
-            this.l.a(0);
-        }
-    }
-
-    public final void u() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048601, this) != null) || this.a == null) {
-            return;
-        }
-        n();
-        this.a.i();
-        int i = this.g;
-        if (i == 0) {
-            if (!ListUtils.isEmpty(this.j)) {
-                W1(true, false);
-                this.a.o();
-                return;
-            }
-            V1();
-        } else if (i == 2) {
-            this.a.j(false);
-            if (!ListUtils.isEmpty(this.j)) {
-                W1(true, false);
-                this.a.o();
-                return;
-            }
-            V1();
-        } else if (i == 1) {
-            if (!ListUtils.isEmpty(this.j)) {
-                W1(false, true);
-            } else {
-                this.a.o();
-            }
-        }
-    }
-
     @Override // com.baidu.tbadk.core.BaseFragment, androidx.fragment.app.Fragment
     public View onCreateView(LayoutInflater layoutInflater, ViewGroup viewGroup, Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048594, this, layoutInflater, viewGroup, bundle)) == null) {
-            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0311, (ViewGroup) null);
-            l77 l77Var = new l77(this, inflate);
-            this.a = l77Var;
-            l77Var.l(this.p);
-            h77 h77Var = new h77(this, this.a.a());
-            this.h = h77Var;
-            h77Var.f(this.s);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048595, this, layoutInflater, viewGroup, bundle)) == null) {
+            View inflate = layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0314, (ViewGroup) null);
+            b97 b97Var = new b97(this, inflate);
+            this.a = b97Var;
+            b97Var.l(this.p);
+            x87 x87Var = new x87(this, this.a.a());
+            this.h = x87Var;
+            x87Var.f(this.s);
             if (this.b == null) {
                 this.b = new b(this);
             }
             if (this.c == null) {
                 this.c = new ADRequestModel(this.d);
             }
-            this.c.S(this.b);
+            this.c.X(this.b);
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                Z1();
+                a2();
             }
             return inflate;
         }

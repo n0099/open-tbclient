@@ -1,146 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.NewHottopic.DataRes;
-import tbclient.NewHottopic.RelateThread;
-import tbclient.NewHottopic.SpecialTopic;
-import tbclient.NewHottopic.TopicDetail;
-import tbclient.NewHottopic.TopicThread;
-import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class nu7 {
+public class nu7 extends xw {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public String d;
-    public ou7 e;
-    public List<in> f;
-    public boolean g;
-    public boolean h;
-    public boolean i;
+    public ab9 B;
 
-    public nu7() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nu7(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = false;
     }
 
-    public boolean a() {
+    @Override // com.baidu.tieba.xw, com.baidu.tieba.oy
+    public ab9 u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.i;
+            if (!TextUtils.isEmpty(this.m) && this.m.equals("index")) {
+                this.B = new pu7(this.b, this.i);
+            } else {
+                this.B = new ou7(this.b, this.i);
+            }
+            this.B.setStageType("2001");
+            return this.B;
         }
-        return invokeV.booleanValue;
+        return (ab9) invokeV.objValue;
     }
 
-    public void b(DataRes dataRes) {
+    @Override // com.baidu.tieba.oy
+    public void z() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        boolean z = false;
-        this.h = false;
-        TopicDetail topicDetail = dataRes.topic_info;
-        if (topicDetail != null) {
-            this.a = topicDetail.topic_id.longValue();
-            TopicDetail topicDetail2 = dataRes.topic_info;
-            this.b = topicDetail2.topic_name;
-            this.c = topicDetail2.share_title;
-            this.d = topicDetail2.share_pic;
-            ou7 ou7Var = new ou7();
-            this.e = ou7Var;
-            ou7Var.a(dataRes.topic_info);
-            if (!StringUtils.isNull(dataRes.topic_info.topic_image)) {
-                this.h = true;
-            }
-        }
-        if (dataRes.pk_module != null) {
-            this.i = true;
-            this.h = true;
-            if (this.e == null) {
-                this.e = new ou7();
-            }
-            this.e.b(dataRes.pk_module);
-        } else {
-            this.i = false;
-        }
-        if (dataRes.time_line != null) {
-            this.h = true;
-            if (this.e == null) {
-                this.e = new ou7();
-            }
-            this.e.c(dataRes.time_line);
-        }
-        this.f = new ArrayList();
-        if (!ListUtils.isEmpty(dataRes.special_topic)) {
-            this.h = true;
-            int i = 1;
-            for (SpecialTopic specialTopic : dataRes.special_topic) {
-                if (specialTopic != null && !ListUtils.isEmpty(specialTopic.thread_list)) {
-                    boolean z2 = false;
-                    for (ThreadInfo threadInfo : specialTopic.thread_list) {
-                        if (threadInfo != null) {
-                            qu7 qu7Var = new qu7();
-                            if (!z2) {
-                                qu7Var.a = true;
-                                qu7Var.d = specialTopic.title;
-                                z2 = true;
-                            }
-                            qu7Var.b = i;
-                            qu7Var.c = this.a;
-                            qu7Var.c(threadInfo);
-                            this.f.add(qu7Var);
-                            i++;
-                        }
-                    }
-                }
-            }
-        }
-        if (this.h) {
-            ev7 ev7Var = new ev7();
-            ev7Var.a = R.dimen.tbds78;
-            ev7Var.b = R.color.CAM_X0201;
-            this.f.add(ev7Var);
-        }
-        RelateThread relateThread = dataRes.relate_thread;
-        if (relateThread != null && !ListUtils.isEmpty(relateThread.thread_list)) {
-            ev7 ev7Var2 = new ev7();
-            ev7Var2.a = R.dimen.tbds16;
-            this.f.add(ev7Var2);
-            if (dataRes.relate_thread.has_more.intValue() == 1) {
-                z = true;
-            }
-            this.g = z;
-            for (TopicThread topicThread : dataRes.relate_thread.thread_list) {
-                if (topicThread != null) {
-                    pu7 pu7Var = new pu7();
-                    pu7Var.c(topicThread);
-                    pu7Var.c = this.a;
-                    pu7Var.f = this.i;
-                    this.f.add(pu7Var);
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.z();
+            ab9 ab9Var = this.l;
+            if (ab9Var instanceof pu7) {
+                ((pu7) ab9Var).c();
             }
         }
     }

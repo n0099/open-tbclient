@@ -1,30 +1,26 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.tieba.frs.AbsDelegateAdapterList;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes4.dex */
 public class ep9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public long b;
+    public AbsDelegateAdapterList a;
+    public Context b;
 
-    public ep9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+    public ep9(Context context, AbsDelegateAdapterList absDelegateAdapterList) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ro9Var};
+            Object[] objArr = {context, absDelegateAdapterList};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,35 +30,25 @@ public class ep9 {
                 return;
             }
         }
-        this.b = 0L;
-        this.a = mainTabActivity;
+        this.b = context;
+        this.a = absDelegateAdapterList;
     }
 
-    public final void a() {
+    public AbsDelegateAdapterList a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || System.currentTimeMillis() - this.b < 7200000) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        HashMap hashMap = new HashMap();
-        hashMap.put("type", "start");
-        hashMap.put("uname", TbadkCoreApplication.getCurrentAccountName());
-        hashMap.put("uid", TbadkCoreApplication.getCurrentAccount());
-        MessageManager.getInstance().sendMessage(new CustomMessage(2006002, hashMap));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005013, null));
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2005009, null));
-        this.b = System.currentTimeMillis();
+        return (AbsDelegateAdapterList) invokeV.objValue;
     }
 
-    public void b() {
+    public Context getContext() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cg.h().b(this.a.getUniqueId());
-            a();
-            try {
-                this.a.moveTaskToBack(true);
-            } catch (Exception e) {
-                BdLog.e(e);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
         }
+        return (Context) invokeV.objValue;
     }
 }

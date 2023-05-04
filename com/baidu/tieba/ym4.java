@@ -1,300 +1,128 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.util.Base64;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.platform.comapi.map.MapBundleKey;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.searchbox.logsystem.basic.upload.Constant;
+import com.baidu.android.ddmlib.tools.perflib.vmtrace.utils.Strings;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedReader;
+import com.bumptech.glide.load.engine.GlideException;
 import java.io.File;
-import java.io.FileOutputStream;
-import java.io.FileReader;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 /* loaded from: classes7.dex */
 public class ym4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
 
-    public ym4(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = context;
-    }
-
-    public final boolean a(rn4 rn4Var) {
+    public static Map<String, Integer> a(Set<String> set) {
         InterceptResult invokeL;
-        File[] listFiles;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, rn4Var)) == null) {
-            File file = new File(this.a.getFilesDir() + File.separator + "ubcdir", "proc");
-            if (file.exists() && (listFiles = file.listFiles()) != null && listFiles.length != 0) {
-                for (File file2 : listFiles) {
-                    BufferedReader bufferedReader = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, set)) == null) {
+            HashMap hashMap = new HashMap();
+            int i = 0;
+            for (String str : set) {
+                hashMap.put(str, Integer.valueOf(i));
+                i++;
+            }
+            return hashMap;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static StringBuilder b(StringBuilder... sbArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, sbArr)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (StringBuilder sb2 : sbArr) {
+                sb.append((CharSequence) sb2);
+            }
+            return sb;
+        }
+        return (StringBuilder) invokeL.objValue;
+    }
+
+    public static String c(List<vm4> list, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, list, str)) == null) {
+            Set<String> d = wm4.b().d();
+            int size = d.size();
+            Map<String, Integer> a = a(d);
+            StringBuilder[] sbArr = new StringBuilder[size];
+            for (int i = 0; i < size; i++) {
+                sbArr[i] = new StringBuilder();
+            }
+            for (vm4 vm4Var : list) {
+                Integer num = a.get(vm4Var.f());
+                if (num != null) {
+                    sbArr[num.intValue()].append(Strings.repeat(GlideException.IndentedAppendable.INDENT, vm4Var.d()));
+                    sbArr[num.intValue()].append("- ");
+                    StringBuilder sb = sbArr[num.intValue()];
+                    sb.append(vm4Var.b() / 1000);
+                    sb.append("ms");
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(vm4Var.f());
+                    sbArr[num.intValue()].append("   ");
+                    sbArr[num.intValue()].append(vm4Var.c().getFullName());
+                    sbArr[num.intValue()].append("\n");
+                }
+            }
+            String sb2 = b(sbArr).toString();
+            d(sb2, str);
+            return sb2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static void d(String str, String str2) {
+        FileWriter fileWriter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) && !TextUtils.isEmpty(str2) && !TextUtils.isEmpty(str)) {
+            FileWriter fileWriter2 = null;
+            try {
+                try {
                     try {
-                        try {
-                            BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                            long j = Long.MAX_VALUE;
-                            long j2 = 0;
-                            int i = 0;
-                            while (true) {
-                                try {
-                                    String readLine = bufferedReader2.readLine();
-                                    if (readLine == null) {
-                                        break;
-                                    }
-                                    JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                                    if (jSONObject.has("abtest")) {
-                                        rn4Var.f = "1";
-                                    }
-                                    long j3 = jSONObject.getLong("timestamp");
-                                    if (j3 > 0) {
-                                        if (j3 < j) {
-                                            j = j3;
-                                        }
-                                        if (j3 > j2) {
-                                            j2 = j3;
-                                        }
-                                    }
-                                    rn4Var.a(jSONObject);
-                                    i++;
-                                    if (i >= 10) {
-                                        break;
-                                    }
-                                } catch (Exception e) {
-                                    e = e;
-                                    bufferedReader = bufferedReader2;
-                                    e.printStackTrace();
-                                    zn4.d(bufferedReader);
-                                } catch (Throwable th) {
-                                    th = th;
-                                    bufferedReader = bufferedReader2;
-                                    zn4.d(bufferedReader);
-                                    throw th;
-                                }
-                            }
-                            rn4Var.g(j, j2);
-                            zn4.d(bufferedReader2);
-                        } catch (Exception e2) {
-                            e = e2;
+                        File parentFile = new File(str2).getParentFile();
+                        if (parentFile != null && !parentFile.exists()) {
+                            parentFile.mkdirs();
                         }
-                    } catch (Throwable th2) {
-                        th = th2;
+                        fileWriter = new FileWriter(str2);
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                        return;
                     }
-                }
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void b(boolean z) {
-        String str;
-        File[] listFiles;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                return;
-            }
-            if (z) {
-                str = "filereal";
-            } else {
-                str = "filedata";
-            }
-            File file2 = new File(file, str);
-            if (file2.exists()) {
-                file2.delete();
-            }
-            File file3 = new File(file, "proc");
-            if (file3.exists() && file3.isDirectory() && (listFiles = file3.listFiles()) != null && listFiles.length != 0) {
-                for (File file4 : listFiles) {
-                    if (file4.isFile()) {
-                        file4.delete();
-                    }
-                }
-            }
-        }
-    }
-
-    public boolean c(rn4 rn4Var, boolean z) {
-        InterceptResult invokeLZ;
-        boolean z2;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, rn4Var, z)) == null) {
-            File file = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file.exists()) {
-                file.mkdir();
-            }
-            if (!z) {
-                z2 = a(rn4Var);
-            } else {
-                z2 = false;
-            }
-            if (z) {
-                str = "filereal";
-            } else {
-                str = "filedata";
-            }
-            File file2 = new File(file, str);
-            if (file2.exists()) {
-                BufferedReader bufferedReader = null;
-                try {
-                    BufferedReader bufferedReader2 = new BufferedReader(new FileReader(file2));
-                    long j = Long.MAX_VALUE;
-                    long j2 = 0;
-                    while (true) {
-                        try {
-                            String readLine = bufferedReader2.readLine();
-                            if (readLine == null) {
-                                break;
-                            }
-                            JSONObject jSONObject = new JSONObject(new String(Base64.decode(readLine.getBytes(), 2)));
-                            if (jSONObject.has("abtest")) {
-                                rn4Var.f = "1";
-                            }
-                            long j3 = jSONObject.getLong("timestamp");
-                            if (j3 > 0) {
-                                if (j3 < j) {
-                                    j = j3;
-                                }
-                                if (j3 > j2) {
-                                    j2 = j3;
-                                }
-                            }
-                            rn4Var.a(jSONObject);
-                            z2 = true;
-                        } catch (Exception unused) {
-                            bufferedReader = bufferedReader2;
-                            zn4.d(bufferedReader);
-                            return z2;
-                        } catch (Throwable th) {
-                            th = th;
-                            bufferedReader = bufferedReader2;
-                            zn4.d(bufferedReader);
-                            throw th;
-                        }
-                    }
-                    rn4Var.g(j, j2);
-                    zn4.d(bufferedReader2);
-                } catch (Exception unused2) {
-                } catch (Throwable th2) {
-                    th = th2;
-                }
-            }
-            return z2;
-        }
-        return invokeLZ.booleanValue;
-    }
-
-    public void d(fn4 fn4Var, boolean z) {
-        String str;
-        File file;
-        FileOutputStream fileOutputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(1048579, this, fn4Var, z) == null) {
-            File file2 = new File(this.a.getFilesDir(), "ubcdir");
-            if (!file2.exists()) {
-                file2.mkdirs();
-            }
-            if (!TextUtils.isEmpty(fn4Var.k)) {
-                File file3 = new File(file2, "proc");
-                if (!file3.exists()) {
-                    file3.mkdirs();
-                }
-                file = new File(file3, fn4Var.k);
-            } else {
-                if (z) {
-                    str = "filereal";
-                } else {
-                    str = "filedata";
-                }
-                file = new File(file2, str);
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                if (fn4Var.e != null) {
-                    JSONObject jSONObject2 = fn4Var.e;
-                    if (jSONObject2.has("bizId")) {
-                        try {
-                            JSONObject jSONObject3 = jSONObject2.getJSONObject("content");
-                            JSONObject jSONObject4 = jSONObject2.getJSONObject(DI.APP_INFO_NAME);
-                            if (jSONObject3 != null && jSONObject4 != null) {
-                                jSONObject3.put(DI.APP_INFO_NAME, jSONObject4);
-                                jSONObject2.remove(DI.APP_INFO_NAME);
-                            }
-                            jSONObject = jSONObject2;
-                        } catch (JSONException unused) {
-                            jSONObject = jSONObject2;
-                        }
-                    } else {
-                        jSONObject.put("content", jSONObject2);
-                    }
-                } else if (!TextUtils.isEmpty(fn4Var.d)) {
-                    jSONObject.put("content", fn4Var.d);
-                }
-                jSONObject.put("bizId", fn4Var.a);
-                jSONObject.put("timestamp", fn4Var.f);
-                jSONObject.put("eventType", "0");
-                if (!TextUtils.isEmpty(fn4Var.h)) {
-                    jSONObject.put("abtest", fn4Var.h);
-                }
-                if (!TextUtils.isEmpty(fn4Var.i)) {
-                    jSONObject.put("c", fn4Var.i);
-                }
-                if (fn4Var.j) {
-                    jSONObject.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
-                }
-                jSONObject.put(Constant.ID_TYPE, an4.g().j(fn4Var.a));
-            } catch (JSONException unused2) {
-            }
-            byte[] encode = Base64.encode(jSONObject.toString().getBytes(), 2);
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file, true);
-                } catch (Exception e) {
-                    e = e;
+                } catch (IOException e2) {
+                    e = e2;
                 }
             } catch (Throwable th) {
                 th = th;
             }
             try {
-                fileOutputStream.write(encode);
-                fileOutputStream.write("\n".getBytes());
-                fileOutputStream.flush();
-                zn4.d(fileOutputStream);
-            } catch (Exception e2) {
-                e = e2;
-                fileOutputStream2 = fileOutputStream;
+                fileWriter.write(str);
+                fileWriter.flush();
+                fileWriter.close();
+            } catch (IOException e3) {
+                e = e3;
+                fileWriter2 = fileWriter;
                 e.printStackTrace();
-                zn4.d(fileOutputStream2);
+                if (fileWriter2 != null) {
+                    fileWriter2.close();
+                }
             } catch (Throwable th2) {
                 th = th2;
-                fileOutputStream2 = fileOutputStream;
-                zn4.d(fileOutputStream2);
+                fileWriter2 = fileWriter;
+                if (fileWriter2 != null) {
+                    try {
+                        fileWriter2.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
                 throw th;
             }
         }

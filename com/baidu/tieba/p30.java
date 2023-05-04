@@ -1,79 +1,53 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
 /* loaded from: classes5.dex */
 public class p30 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static int b = 5;
-    public static int c = 40;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.helios.common.cc.a a;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948010972, "Lcom/baidu/tieba/p30;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948010972, "Lcom/baidu/tieba/p30;");
-        }
-    }
+    public s30[] a;
 
     public p30() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        com.baidu.helios.common.cc.a aVar = new com.baidu.helios.common.cc.a(c);
-        this.a = aVar;
-        aVar.a(0, c, true);
+        this.a = new s30[]{new t30(8, 0), new u30(0, 1), new u30(1, 1), new t30(7, 1)};
     }
 
-    public void a(com.baidu.helios.common.cc.a aVar, int i, int i2, int i3) {
+    public byte[] a(byte[] bArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIII(1048576, this, aVar, i, i2, i3) == null) {
-            com.baidu.helios.common.cc.a d = this.a.d(i, i + i2);
-            if (i3 != 0) {
-                if (i3 != 1) {
-                    if (i3 == 2) {
-                        d.e(aVar);
-                    } else if (i3 == 3) {
-                        d.c(aVar);
-                    }
-                }
-                d.d(aVar);
-            } else {
-                d.b(aVar);
-            }
-            for (int i4 = 0; i4 < i2; i4++) {
-                this.a.a(i + i4, d.d(i4));
-            }
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-    }
-
-    public byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
+        r30 r30Var = new r30();
+        byte[] b = q30.b(bArr, bArr.length + ((this.a.length + 1) * r30.b));
+        q30.a(b, r30Var.b(), bArr.length);
+        int i = 0;
+        while (true) {
+            s30[] s30VarArr = this.a;
+            if (i >= s30VarArr.length) {
+                return Arrays.copyOf(r30Var.b(), r30.b);
+            }
+            s30 s30Var = s30VarArr[i];
+            i++;
+            int length = bArr.length + (r30.b * i);
+            r30Var.a(s30Var.b(b, 0, length), s30Var.a(), s30Var.c(), s30Var.d());
+            q30.a(b, r30Var.b(), length);
+        }
     }
 }

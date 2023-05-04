@@ -1,60 +1,76 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.feed.component.CardMountView;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.TextUtils;
+import android.text.style.ClickableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class q07 extends mz6<CardMountView, aw6> {
+public final class q07 implements i07 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q07(String str) {
-        super(str);
+    public q07() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.mz6, com.baidu.tieba.b07
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.i07
+    public SpannableString b(Context context, jz6 richTextData, ClickableSpan clickableSpan) {
+        InterceptResult invokeLLL;
+        int i;
+        int i2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            j17.j(a);
-            return a;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, richTextData, clickableSpan)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
+            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
+            String c = richTextData.f().c();
+            SpannableString spannableString = new SpannableString(c);
+            int g = ii.g(pw6.a, R.dimen.L_X01);
+            int g2 = ii.g(pw6.a, R.dimen.tbds10);
+            int g3 = ii.g(pw6.a, R.dimen.T_X10);
+            int g4 = ii.g(pw6.a, R.dimen.M_W_X002);
+            int g5 = ii.g(pw6.a, R.dimen.M_W_X002);
+            int g6 = ii.g(pw6.a, R.dimen.tbds42);
+            oy6 a = richTextData.f().a();
+            if (a != null) {
+                i = y27.a.b(a);
+            } else {
+                i = R.color.CAM_X0302;
+            }
+            oy6 b = richTextData.f().b();
+            if (b != null) {
+                i2 = y27.a.b(b);
+            } else {
+                i2 = R.color.CAM_X0101;
+            }
+            k55 k55Var = new k55(g, -1, i, g3, i2, g4, g6);
+            k55Var.b(g2);
+            k55Var.i(g5);
+            k55Var.f(true);
+            k55Var.g(true);
+            k55Var.d(ii.g(pw6.a, R.dimen.tbds7));
+            spannableString.setSpan(k55Var, 0, c.length(), 17);
+            if (!TextUtils.isEmpty(richTextData.d())) {
+                spannableString.setSpan(clickableSpan, 0, c.length(), 33);
+            }
+            return spannableString;
         }
-        return (View) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b07
-    /* renamed from: e */
-    public void b(@NonNull CardMountView cardMountView, @NonNull aw6 aw6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cardMountView, aw6Var) == null) {
-            cardMountView.a(aw6Var);
-        }
+        return (SpannableString) invokeLLL.objValue;
     }
 }

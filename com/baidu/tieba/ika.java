@@ -1,12 +1,156 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import org.json.JSONObject;
+import android.os.Process;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes4.dex */
-public interface ika {
-    public static final ServiceReference a = new ServiceReference("yaLog", "yaLogConfig");
+public class ika {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public volatile boolean a;
+    public uka b;
+    public b c;
+    public zka d;
+    public boolean e;
 
-    void a(JSONObject jSONObject);
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
 
-    void b(JSONObject jSONObject, boolean z);
+    /* loaded from: classes4.dex */
+    public class b extends Thread {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ika a;
+
+        public b(ika ikaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ikaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ikaVar;
+        }
+
+        public /* synthetic */ b(ika ikaVar, a aVar) {
+            this(ikaVar);
+        }
+
+        @Override // java.lang.Thread, java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                Process.setThreadPriority(-19);
+                try {
+                    try {
+                        this.a.b = new uka(-100);
+                        if (this.a.b.d() != null) {
+                            ByteBuffer allocateDirect = ByteBuffer.allocateDirect(uka.d);
+                            this.a.b.c();
+                            if (this.a.b.e() != 3) {
+                                return;
+                            }
+                            while (!this.a.a) {
+                                allocateDirect.clear();
+                                int a = this.a.b.a(allocateDirect, uka.d);
+                                if (a > 0) {
+                                    double a2 = bla.a(allocateDirect, a);
+                                    if (this.a.d != null && a2 > 0.0d) {
+                                        this.a.d.a(a2);
+                                    }
+                                }
+                            }
+                        } else if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    } catch (Exception unused) {
+                        if (this.a.d != null) {
+                            this.a.d.a("failed to initialize AudioRecord", true);
+                        }
+                    }
+                } finally {
+                    this.a.i();
+                }
+            }
+        }
+    }
+
+    public ika() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.e = true;
+            this.a = false;
+            b bVar = new b(this, null);
+            this.c = bVar;
+            bVar.start();
+        }
+    }
+
+    public void d(zka zkaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zkaVar) == null) {
+            this.d = zkaVar;
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a = true;
+            this.e = false;
+        }
+    }
+
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.e : invokeV.booleanValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.a = false;
+            this.e = false;
+            uka ukaVar = this.b;
+            if (ukaVar != null) {
+                ukaVar.b();
+            }
+            if (this.c != null) {
+                this.c = null;
+            }
+        }
+    }
 }

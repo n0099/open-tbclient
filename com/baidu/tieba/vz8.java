@@ -1,95 +1,53 @@
 package com.baidu.tieba;
 
-import android.graphics.Rect;
-import android.text.SpannableString;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.tbadk.imageManager.TbFaceManager;
-import com.baidu.tieba.qf5;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcContent;
 /* loaded from: classes6.dex */
-public class vz8 implements xz8 {
-    public static /* synthetic */ Interceptable $ic;
+public class vz8 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 1;
+    public static int b = 1;
+    public static int c = 2;
+    public static int d = 1;
+    public static int e = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public ExcContent a;
-    public SpannableString b;
 
-    @Override // com.baidu.tieba.xz8
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948258197, "Lcom/baidu/tieba/vz8;")) == null) {
+            return;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.yz8
-    public int getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    public vz8(ExcContent excContent) {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {excContent};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = excContent;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948258197, "Lcom/baidu/tieba/vz8;");
+        }
     }
 
-    @Override // com.baidu.tieba.xz8
-    public CharSequence b() {
-        InterceptResult invokeV;
+    public static void a(int i, String str, int i2, int i3, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return c(this.a);
-        }
-        return (CharSequence) invokeV.objValue;
-    }
-
-    public final SpannableString c(ExcContent excContent) {
-        InterceptResult invokeL;
-        qf5.a f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, excContent)) == null) {
-            if (this.b == null) {
-                String str = excContent.text;
-                if (TbFaceManager.i().o(str)) {
-                    String str2 = SmallTailInfo.EMOTION_PREFIX + TbFaceManager.i().j(str) + SmallTailInfo.EMOTION_SUFFIX;
-                    this.b = new SpannableString(str2 + " ");
-                    av5 c = TbFaceManager.i().c(str);
-                    if (TbFaceManager.i().f(str) != null) {
-                        int a = (int) (f.a() * 0.6d);
-                        c.setBounds(new Rect(0, 0, a, a));
-                    } else {
-                        c.setBounds(new Rect(0, 0, 0, 0));
-                    }
-                    this.b.setSpan(new ImageSpan(c, 0), 0, str2.length(), 33);
-                }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), Integer.valueOf(i3), str2, str3}) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_VIRTUAL_IMAGE_SHOW);
+            statisticItem.param("obj_type", i);
+            statisticItem.param("tid", str);
+            statisticItem.param("obj_locate", i2);
+            statisticItem.param("obj_source", i3);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param(TiebaStatic.Params.FRIEND_UID, str3);
+            if (i3 == d) {
+                statisticItem.param("obj_name", str2);
             }
-            return this.b;
+            TiebaStatic.log(statisticItem);
         }
-        return (SpannableString) invokeL.objValue;
     }
 }

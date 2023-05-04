@@ -1,110 +1,119 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class z05 {
+public class z05 extends y05 {
     public static /* synthetic */ Interceptable $ic;
-    public static final z05 c;
-    public static final z05 d;
-    public static final z05 e;
-    public static final z05 f;
-    public static final z05 g;
-    public static final z05 h;
-    public static final z05 i;
-    public static final z05 j;
-    public static final z05 k;
-    public static final z05 l;
-    public static final z05 m;
-    public static final z05 n;
-    public static final z05 o;
-    public static final z05 p;
-    public static final z05 q;
-    public static final z05 r;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final boolean b;
+    public TextView l;
+    public TextView m;
+    public View.OnClickListener n;
+    public int o;
+    public int p;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306154, "Lcom/baidu/tieba/z05;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948306154, "Lcom/baidu/tieba/z05;");
-                return;
-            }
+    @Override // com.baidu.tieba.y05
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
         }
-        c = new z05("sync_finish", false);
-        d = new z05("main_page_load_finish", false);
-        e = new z05("pb_load_finish", false);
-        f = new z05("frs_load_finish", false);
-        g = new z05("main_page_recommend", true);
-        h = new z05("main_page_common_tab", true);
-        i = new z05("main_page_hot_topic", true);
-        j = new z05("main_page_concern", true);
-        k = new z05("main_page_enter_forum", true);
-        l = new z05("main_page_message", true);
-        m = new z05("main_page_person_info", true);
-        n = new z05("write_page", true);
-        o = new z05("pb_page", true);
-        p = new z05("frs_page", true);
-        q = new z05("main_page_idle", false);
-        r = new z05("splash_close", false);
     }
 
-    public z05(String str, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public z05(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = str;
-        this.b = z;
+        this.o = R.color.CAM_X0304;
+        this.p = R.color.CAM_X0107;
+        this.l = (TextView) e().findViewById(R.id.title_ok);
+        this.m = (TextView) e().findViewById(R.id.title_cancel);
+        i(true);
     }
 
-    public static z05 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.y05
+    public void b(a9<?> a9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return new z05("main_page_common_tab_" + str, true);
+        if (interceptable == null || interceptable.invokeL(1048576, this, a9Var) == null) {
+            super.b(a9Var);
+            o();
         }
-        return (z05) invokeL.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.y05
+    public void h(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            j(i);
         }
-        return (String) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public final void o() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            g35.d(this.l).z(this.o);
+            g35.d(this.m).z(this.p);
         }
-        return invokeV.booleanValue;
+    }
+
+    public z05 p(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048580, this, i, onClickListener)) == null) {
+            this.m.setText(i);
+            this.m.setOnClickListener(onClickListener);
+            this.m.setVisibility(0);
+            return this;
+        }
+        return (z05) invokeIL.objValue;
+    }
+
+    public z05 q(int i, View.OnClickListener onClickListener) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, onClickListener)) == null) {
+            this.l.setText(i);
+            this.l.setOnClickListener(onClickListener);
+            this.l.setVisibility(0);
+            this.n = onClickListener;
+            return this;
+        }
+        return (z05) invokeIL.objValue;
+    }
+
+    public void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            if (z) {
+                this.o = R.color.CAM_X0304;
+                this.l.setEnabled(true);
+                this.l.setOnClickListener(this.n);
+            } else {
+                this.o = R.color.CAM_X0110;
+                this.l.setEnabled(false);
+                this.l.setOnClickListener(null);
+            }
+            o();
+        }
     }
 }

@@ -1,108 +1,65 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.AsyncTask;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class rxa extends AsyncTask<Context, Integer, Boolean> {
+public class rxa {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948138382, "Lcom/baidu/tieba/rxa;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948138382, "Lcom/baidu/tieba/rxa;");
-                return;
-            }
-        }
-        a = rxa.class.getSimpleName();
-    }
 
     public rxa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    @Override // android.os.AsyncTask
-    public void onPreExecute() {
+    public static void b(String str, String str2, Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            txa.b(a, "onPreExecute");
+        if (!(interceptable == null || interceptable.invokeLLL(65538, null, str, str2, th) == null) || str2.length() <= 4000) {
+            return;
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: a */
-    public Boolean doInBackground(Context... contextArr) {
-        InterceptResult invokeL;
-        InputStream inputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, contextArr)) == null) {
-            long currentTimeMillis = System.currentTimeMillis();
-            try {
-                inputStream = oxa.m(contextArr[0]);
-            } catch (Exception e) {
-                String str = a;
-                txa.d(str, "doInBackground: exception : " + e.getMessage());
-                inputStream = null;
-            }
-            String str2 = a;
-            txa.b(str2, "doInBackground: get bks from hms tss cost : " + (System.currentTimeMillis() - currentTimeMillis) + " ms");
-            if (inputStream != null) {
-                sxa.b(inputStream);
-                return Boolean.TRUE;
-            }
-            return Boolean.FALSE;
-        }
-        return (Boolean) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: b */
-    public void onPostExecute(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
-            if (bool.booleanValue()) {
-                txa.e(a, "onPostExecute: upate done");
+        int i = 0;
+        while (i < str2.length()) {
+            int i2 = i + 4000;
+            if (i2 < str2.length()) {
+                str2.substring(i, i2);
             } else {
-                txa.d(a, "onPostExecute: upate failed");
+                str2.substring(i);
             }
+            i = i2;
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // android.os.AsyncTask
-    /* renamed from: c */
-    public void onProgressUpdate(Integer... numArr) {
+    public static void a(String str) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, numArr) == null) {
-            txa.e(a, "onProgressUpdate");
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            StackTraceElement[] stackTrace = new Throwable().fillInStackTrace().getStackTrace();
+            int i = 2;
+            while (true) {
+                if (i < stackTrace.length) {
+                    if (!stackTrace[i].getClass().equals(rxa.class)) {
+                        String className = stackTrace[i].getClassName();
+                        str2 = className.substring(className.lastIndexOf(46) + 1);
+                        break;
+                    }
+                    i++;
+                } else {
+                    str2 = "";
+                    break;
+                }
+            }
+            b("HonorPush_" + str2, str, null);
         }
     }
 }

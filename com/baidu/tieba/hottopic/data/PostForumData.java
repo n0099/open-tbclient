@@ -6,8 +6,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eh6;
 import com.baidu.tieba.in;
+import com.baidu.tieba.pi6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.Hottopic.RelateForum;
 /* loaded from: classes4.dex */
-public class PostForumData extends eh6 implements Serializable {
+public class PostForumData extends pi6 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final BdUniqueId TYPE_POST_FORUM;
     public static final long serialVersionUID = -2078662294751243784L;

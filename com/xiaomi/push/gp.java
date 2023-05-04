@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import com.baidu.tbadk.core.data.SmallTailInfo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class gp {
     public String a;
 

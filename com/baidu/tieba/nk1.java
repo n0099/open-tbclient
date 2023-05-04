@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
 public interface nk1 {
-    void d();
+    void a();
 
-    void g();
+    void b();
 
-    void h(String str);
+    void c();
 
-    void onAdError(String str);
+    void e();
+
+    void f();
 }

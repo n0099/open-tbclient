@@ -18,10 +18,10 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.editortools.EditorTools;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.bf5;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.dy7;
+import com.baidu.tieba.a08;
+import com.baidu.tieba.fe5;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.ge5;
 import com.baidu.tieba.im.chat.AbsMsglistView;
 import com.baidu.tieba.im.chat.CommonPersonalMsglistView;
 import com.baidu.tieba.im.chat.ISendVoiceView;
@@ -29,12 +29,12 @@ import com.baidu.tieba.im.chat.MsglistActivity;
 import com.baidu.tieba.im.chat.TalkableActivity;
 import com.baidu.tieba.im.message.chat.ReportPrivateMsgData;
 import com.baidu.tieba.im.view.OfficialSecondMenuPopupWindow;
-import com.baidu.tieba.md5;
-import com.baidu.tieba.nd5;
-import com.baidu.tieba.qc5;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.rc5;
-import com.baidu.tieba.uy7;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.kd5;
+import com.baidu.tieba.r08;
+import com.baidu.tieba.ud5;
+import com.baidu.tieba.uf5;
+import com.baidu.tieba.vd5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -119,7 +119,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements rc5 {
+    public class b implements kd5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ OfficialBarMsglistView a;
@@ -142,10 +142,10 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             this.a = officialBarMsglistView;
         }
 
-        @Override // com.baidu.tieba.rc5
-        public void C(qc5 qc5Var) {
+        @Override // com.baidu.tieba.kd5
+        public void C(jd5 jd5Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, qc5Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, jd5Var) == null) {
                 this.a.M(true);
             }
         }
@@ -272,7 +272,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         if (interceptable == null || interceptable.invokeCommon(1048585, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
             d dVar = this.g[i];
             if (z) {
-                dVar.d.setImageResource(R.drawable.obfuscated_res_0x7f0806e1);
+                dVar.d.setImageResource(R.drawable.obfuscated_res_0x7f0806e9);
                 dVar.c.setTextColor(((AbsMsglistView) this).mContext.getResources().getColor(R.color.CAM_X0302));
                 return;
             }
@@ -402,13 +402,13 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         }
     }
 
-    public void J(List<uy7> list) {
+    public void J(List<r08> list) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048582, this, list) == null) && list != null && list.size() == 3) {
             for (int i = 0; i < 3; i++) {
-                uy7 uy7Var = list.get(i);
-                this.g[i].c.setText(uy7Var.d());
-                if (uy7Var.a() != 0) {
+                r08 r08Var = list.get(i);
+                this.g[i].c.setText(r08Var.d());
+                if (r08Var.a() != 0) {
                     this.g[i].d.setVisibility(8);
                 }
             }
@@ -447,11 +447,11 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(1048586, this, talkableActivity, z) == null) {
             super.initHeader(talkableActivity, z);
-            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f06c9);
+            String string = talkableActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f06d6);
             if (string != null) {
-                this.mBtnForumInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d02cd, talkableActivity);
+                this.mBtnForumInfo = this.mNavigationBar.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.obfuscated_res_0x7f0d02d0, talkableActivity);
                 this.mNavigationBar.showBottomLine();
-                TextView textView = (TextView) this.mBtnForumInfo.findViewById(R.id.obfuscated_res_0x7f090e46);
+                TextView textView = (TextView) this.mBtnForumInfo.findViewById(R.id.obfuscated_res_0x7f090e51);
                 this.a = textView;
                 textView.setText(string);
             }
@@ -510,50 +510,50 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             this.mTool.setDeskBackgroundColorId(R.color.CAM_X0206);
             this.mTool.setMoreDeskBgColorId(R.color.CAM_X0206);
             this.mTool.E(true);
-            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, bd5.class, talkableActivity.getActivity());
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2001301, ud5.class, talkableActivity.getActivity());
             if (runTask != null && runTask.getData() != null) {
-                bd5 bd5Var = (bd5) runTask.getData();
-                this.mSendTool = bd5Var;
-                cd5 cd5Var = bd5Var.m;
-                if (cd5Var != null && (cd5Var instanceof ISendVoiceView)) {
-                    ISendVoiceView iSendVoiceView = (ISendVoiceView) cd5Var;
+                ud5 ud5Var = (ud5) runTask.getData();
+                this.mSendTool = ud5Var;
+                vd5 vd5Var = ud5Var.m;
+                if (vd5Var != null && (vd5Var instanceof ISendVoiceView)) {
+                    ISendVoiceView iSendVoiceView = (ISendVoiceView) vd5Var;
                     this.mSendVoiceView = iSendVoiceView;
                     if (iSendVoiceView instanceof View) {
                         ((View) iSendVoiceView).setOnTouchListener(((AbsMsglistView) this).mContext);
                     }
-                    talkableActivity.E1();
+                    talkableActivity.G1();
                 }
-                bd5 bd5Var2 = this.mSendTool;
-                bd5Var2.l = 1;
-                this.mTool.d(bd5Var2);
+                ud5 ud5Var2 = this.mSendTool;
+                ud5Var2.l = 1;
+                this.mTool.d(ud5Var2);
             }
-            this.mTool.d(new md5(talkableActivity.getActivity(), 2));
+            this.mTool.d(new fe5(talkableActivity.getActivity(), 2));
             ArrayList arrayList = new ArrayList();
             arrayList.add(6);
             arrayList.add(10);
             arrayList.add(5);
             this.mTool.h(arrayList);
-            bd5 p = this.mTool.p(5);
+            ud5 p = this.mTool.p(5);
             if (p != null) {
                 p.l = 3;
             }
-            nd5 nd5Var = new nd5(talkableActivity.getActivity(), false);
-            nd5Var.j(true);
-            cd5 cd5Var2 = nd5Var.m;
-            if (cd5Var2 != null && (cd5Var2 instanceof EditText)) {
-                r25 d2 = r25.d((View) cd5Var2);
+            ge5 ge5Var = new ge5(talkableActivity.getActivity(), false);
+            ge5Var.j(true);
+            vd5 vd5Var2 = ge5Var.m;
+            if (vd5Var2 != null && (vd5Var2 instanceof EditText)) {
+                g35 d2 = g35.d((View) vd5Var2);
                 d2.B(R.dimen.T_X06);
                 d2.o(R.string.J_X07);
                 d2.m(R.dimen.L_X01);
                 d2.l(R.color.CAM_X0209);
                 d2.f(R.color.CAM_X0212);
             }
-            this.mTool.d(nd5Var);
-            bf5 bf5Var = new bf5(talkableActivity.getActivity(), true);
-            bf5Var.g(R.string.send_msg);
-            this.mTool.d(bf5Var);
+            this.mTool.d(ge5Var);
+            uf5 uf5Var = new uf5(talkableActivity.getActivity(), true);
+            uf5Var.g(R.string.send_msg);
+            this.mTool.d(uf5Var);
             if (this.h) {
-                this.mTool.d(new dy7(talkableActivity.getActivity()));
+                this.mTool.d(new a08(talkableActivity.getActivity()));
             }
             this.mTool.setBarLauncherType(7);
             this.mTool.f();
@@ -563,7 +563,7 @@ public class OfficialBarMsglistView extends CommonPersonalMsglistView {
             this.mTool.setActionListener(4, this.mActionListener);
             this.mTool.setActionListener(14, this.mActionListener);
             if (TbadkCoreApplication.getInst().isFaceShopNew()) {
-                this.mTool.C(new qc5(2, 5, "N"));
+                this.mTool.C(new jd5(2, 5, "N"));
             }
             if (this.h) {
                 this.mTool.setActionListener(30, new b(this));

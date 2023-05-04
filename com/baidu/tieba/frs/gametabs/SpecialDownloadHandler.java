@@ -13,9 +13,9 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.sb9;
-import com.baidu.tieba.u35;
-import com.baidu.tieba.w35;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.l45;
+import com.baidu.tieba.pe9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -28,7 +28,7 @@ import org.json.JSONObject;
 public class SpecialDownloadHandler extends NamedBridgeHandler {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u35 mBridge;
+    public j45 mBridge;
     public String mFid;
 
     @Override // com.baidu.tbadk.core.hybrid.NamedBridgeHandler
@@ -39,28 +39,28 @@ public class SpecialDownloadHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public SpecialDownloadHandler(u35 u35Var, String str) {
-        super(u35Var);
+    public SpecialDownloadHandler(j45 j45Var, String str) {
+        super(j45Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u35Var, str};
+            Object[] objArr = {j45Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((u35) newInitContext.callArgs[0]);
+                super((j45) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.mBridge = u35Var;
+        this.mBridge = j45Var;
         this.mFid = str;
     }
 
-    @w35(isAsync = false, value = "downloadGame")
+    @l45(isAsync = false, value = "downloadGame")
     private void downloadGame(JSONObject jSONObject) {
         String str;
         Interceptable interceptable = $ic;
@@ -74,13 +74,13 @@ public class SpecialDownloadHandler extends NamedBridgeHandler {
             return;
         }
         if (!BdNetTypeUtil.isNetWorkAvailable()) {
-            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0d1b);
+            UtilHelper.showToast(getContext(), (int) R.string.obfuscated_res_0x7f0f0d30);
             return;
         }
         if (StringUtils.isNull(optString2)) {
             jumpAppMarket(optString);
         } else {
-            sb9.n().E(optString, optString2, optString, 0, sb9.o(optString).intValue(), null, true, false, true, optString3, null, null);
+            pe9.n().E(optString, optString2, optString, 0, pe9.o(optString).intValue(), null, true, false, true, optString3, null, null);
         }
         StatisticItem statisticItem = new StatisticItem("c12775");
         if (StringUtils.isNull(this.mFid)) {

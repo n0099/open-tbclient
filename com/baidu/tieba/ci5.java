@@ -1,74 +1,42 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public interface ci5 {
-    public static final a a = a.a;
+public class ci5 {
+    public static /* synthetic */ Interceptable $ic;
+    @NonNull
+    public static ServiceReference a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    qk6 a();
-
-    String b();
-
-    String c();
-
-    String d();
-
-    /* loaded from: classes3.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ a a;
-        public static final ServiceReference b;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-889375875, "Lcom/baidu/tieba/ci5$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-889375875, "Lcom/baidu/tieba/ci5$a;");
-                    return;
-                }
-            }
-            a = new a();
-            b = new ServiceReference("module_home", "SpriteResourceService");
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947675738, "Lcom/baidu/tieba/ci5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947675738, "Lcom/baidu/tieba/ci5;");
+                return;
             }
         }
+        a = new ServiceReference("AlaLiveSdk", "IMSdkServicePerson");
+    }
 
-        public final ci5 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                Object service = ServiceManager.getService(b);
-                Intrinsics.checkNotNullExpressionValue(service, "getService(SERVICE_REFERENCE)");
-                return (ci5) service;
-            }
-            return (ci5) invokeV.objValue;
+    public static di5 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return (di5) ServiceManager.getService(a);
         }
+        return (di5) invokeV.objValue;
     }
 }

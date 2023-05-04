@@ -1,159 +1,88 @@
 package com.baidu.tieba;
 
-import android.os.Debug;
-import android.os.SystemClock;
-import android.util.Printer;
+import android.app.Activity;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.bytedance.sdk.openadsdk.TTNativeExpressAd;
+import com.fun.ad.sdk.CustomInflater;
+import com.fun.ad.sdk.ExpressInflater;
+import com.fun.ad.sdk.FunAdInteractionListener;
+import com.fun.ad.sdk.internal.api.BaseNativeAd2;
+import com.fun.ad.sdk.internal.api.ExpressAdListenerWrapper;
+import com.fun.ad.sdk.internal.api.FunNativeAd2Bridger;
+import com.fun.ad.sdk.internal.api.ReporterPidLoader;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes4.dex */
-public class gsa implements Printer {
+public class gsa extends FunNativeAd2Bridger<wra, View> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public b d;
-    public final boolean e;
+    public boolean b;
+    public final /* synthetic */ csa c;
 
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(long j, long j2, long j3, long j4);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ long c;
-        public final /* synthetic */ long d;
-        public final /* synthetic */ gsa e;
-
-        public a(gsa gsaVar, long j, long j2, long j3, long j4) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {gsaVar, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = gsaVar;
-            this.a = j;
-            this.b = j2;
-            this.c = j3;
-            this.d = j4;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.e.d.a(this.a, this.b, this.c, this.d);
-            }
-        }
-    }
-
-    public gsa(b bVar, long j, boolean z) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gsa(csa csaVar, ReporterPidLoader reporterPidLoader) {
+        super(reporterPidLoader);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bVar, Long.valueOf(j), Boolean.valueOf(z)};
+            Object[] objArr = {csaVar, reporterPidLoader};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((ReporterPidLoader) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = 3000L;
-        this.b = 0L;
-        this.c = 0L;
-        this.d = null;
-        if (bVar != null) {
-            this.d = bVar;
-            this.a = j;
-            this.e = z;
-            return;
-        }
-        throw new IllegalArgumentException("blockListener should not be null.");
+        this.c = csaVar;
     }
 
-    public final boolean b(long j) {
-        InterceptResult invokeJ;
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.CustomInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showCustom(Activity activity, CustomInflater customInflater, String str, wra wraVar, BaseNativeAd2<wra, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j - this.b > this.a) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    public final void c(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            esa.b().post(new a(this, this.b, j, this.c, SystemClock.currentThreadTimeMillis()));
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{activity, customInflater, str, wraVar, baseNativeAd2, funAdInteractionListener}) == null) {
         }
     }
 
-    public final void d() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [java.lang.Object] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public View createExpressView(wra wraVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (csa.e().b != null) {
-                csa.e().b.c();
-            }
-            if (csa.e().c != null) {
-                csa.e().c.c();
-            }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, wraVar)) == null) {
+            return ((TTNativeExpressAd) wraVar.a).getExpressAdView();
         }
+        return (View) invokeL.objValue;
     }
 
-    public final void e() {
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [android.app.Activity, com.fun.ad.sdk.ExpressInflater, java.lang.String, java.lang.Object, com.fun.ad.sdk.internal.api.BaseNativeAd2, com.fun.ad.sdk.FunAdInteractionListener] */
+    @Override // com.fun.ad.sdk.internal.api.FunNativeAd2Bridger
+    public void showExpress(Activity activity, ExpressInflater expressInflater, String str, wra wraVar, BaseNativeAd2<wra, View> baseNativeAd2, FunAdInteractionListener funAdInteractionListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (csa.e().b != null) {
-                csa.e().b.d();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, expressInflater, str, wraVar, baseNativeAd2, funAdInteractionListener}) == null) {
+            wra wraVar2 = wraVar;
+            ExpressAdListenerWrapper<TTNativeExpressAd.ExpressAdInteractionListener> expressAdListenerWrapper = this.c.f.get(wraVar2);
+            if (expressAdListenerWrapper != null) {
+                expressAdListenerWrapper.funListener = funAdInteractionListener;
+            } else {
+                LogPrinter.e("Can not get correspond listener by csjNativeExpressAd.", new Object[0]);
             }
-            if (csa.e().c != null) {
-                csa.e().c.d();
-            }
-        }
-    }
-
-    @Override // android.util.Printer
-    public void println(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            if (this.e && Debug.isDebuggerConnected()) {
-                return;
-            }
-            if (str.charAt(0) == '>') {
-                this.b = System.currentTimeMillis();
-                this.c = SystemClock.currentThreadTimeMillis();
-                d();
-                return;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (b(currentTimeMillis)) {
-                c(currentTimeMillis);
-            }
-            e();
+            this.c.onShowStart(wraVar2, this.b);
+            expressInflater.inflate();
+            View expressView = expressInflater.getExpressView();
+            csa csaVar = this.c;
+            csaVar.getClass();
+            ((TTNativeExpressAd) wraVar2.a).setDislikeCallback(activity, new fsa(csaVar, expressView, wraVar2, funAdInteractionListener, str));
+            this.b = true;
         }
     }
 }

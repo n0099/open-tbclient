@@ -1,79 +1,122 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.tabHost.FragmentTabWidget;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetThemeList.ThemeList;
-/* loaded from: classes6.dex */
+/* loaded from: classes5.dex */
 public class ps9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public long c;
-    public String d;
+    public final MainTabActivity a;
+    public final gs9 b;
+    public ol6 c;
+    public ol6 d;
+    public ol6 e;
 
-    public ps9() {
+    public ps9(MainTabActivity mainTabActivity, gs9 gs9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, gs9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity;
+        this.b = gs9Var;
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public void a() {
+        ol6 ol6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (ol6Var = this.e) != null && ol6Var.i()) {
+            this.e.h();
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    public void b() {
+        ol6 ol6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (ol6Var = this.d) != null && ol6Var.i()) {
+            this.d.h();
+            this.d = null;
         }
-        return (String) invokeV.objValue;
     }
 
-    public long c() {
-        InterceptResult invokeV;
+    public void c() {
+        ol6 ol6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (ol6Var = this.c) != null && ol6Var.i()) {
+            this.c.h();
+            this.c = null;
         }
-        return invokeV.longValue;
     }
 
-    public String getType() {
-        InterceptResult invokeV;
+    public void d() {
+        gs9 gs9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.d;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (gs9Var = this.b) != null && gs9Var.y() != null) {
+            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
+            }
+            ol6 ol6Var = new ol6(this.a.getPageContext(), fragmentTabWidget.getChildAt(1));
+            this.e = ol6Var;
+            ol6Var.L(R.drawable.bg_tip_blue_down);
+            this.e.l(2);
+            this.e.o(32);
+            this.e.N(true);
+            this.e.R(-ii.g(this.a, R.dimen.tbds10));
+            this.e.C(R.color.CAM_X0101);
+            this.e.p(R.dimen.tbds54);
+            this.e.w(1);
+            this.e.n(4000);
+            this.e.F(ii.g(this.a, R.dimen.tbds44));
         }
-        return (String) invokeV.objValue;
     }
 
-    public void d(ThemeList themeList) {
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, themeList) != null) || themeList == null) {
-            return;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str)) {
+            FragmentTabWidget fragmentTabWidget = this.b.y().getFragmentTabWidget();
+            if (fragmentTabWidget.getChildCount() < 2) {
+                return;
+            }
+            ol6 ol6Var = new ol6(this.a.getPageContext(), fragmentTabWidget.getChildAt(2));
+            this.c = ol6Var;
+            ol6Var.L(R.drawable.bg_tip_blue_down);
+            this.c.l(2);
+            this.c.o(32);
+            this.c.N(true);
+            this.c.R(-ii.g(this.a, R.dimen.tbds10));
+            this.c.C(R.color.CAM_X0101);
+            this.c.p(R.dimen.tbds54);
+            this.c.w(999);
+            this.c.n(5000);
+            this.c.F(ii.g(this.a, R.dimen.tbds44));
+            this.c.V(str, "categoryUpdate", false, true);
         }
-        this.a = themeList.name;
-        this.b = themeList.icon;
-        this.c = themeList.last_update_time.longValue();
-        this.d = themeList.type;
+    }
+
+    public void f() {
+        ol6 ol6Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (ol6Var = this.e) != null && !ol6Var.i()) {
+            ol6 ol6Var2 = this.e;
+            String string = this.a.getString(R.string.obfuscated_res_0x7f0f05ca);
+            ol6Var2.T(string, "first_like_forum_enterforumtab_tips" + TbadkCoreApplication.getCurrentAccount());
+        }
     }
 }

@@ -1,25 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.nm0;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes5.dex */
-public class ow0 implements nm0 {
+public class ow0 implements qm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.nm0
-    public void a(@Nullable String str, @Nullable String str2, nm0.a aVar) {
+    @Override // com.baidu.tieba.qm0
+    public float getLaunchSpeedScore() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, aVar) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return -1.0f;
         }
+        return invokeV.floatValue;
+    }
+
+    @Override // com.baidu.tieba.qm0
+    public float getStaticDeviceScore() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return -1.0f;
+        }
+        return invokeV.floatValue;
     }
 
     public ow0() {

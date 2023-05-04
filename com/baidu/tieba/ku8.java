@@ -1,165 +1,98 @@
 package com.baidu.tieba;
 
-import android.view.GestureDetector;
-import android.view.MotionEvent;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sapi2.SapiAccount;
+import com.baidu.sapi2.SapiAccountManager;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.AccountData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes5.dex */
-public class ku8 implements View.OnTouchListener, GestureDetector.OnDoubleTapListener, GestureDetector.OnGestureListener {
+public class ku8 implements x75 {
     public static /* synthetic */ Interceptable $ic;
+    public static ku8 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public GestureDetector a;
-    public a b;
-    public View c;
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        boolean a(View view2, MotionEvent motionEvent);
-
-        boolean b(View view2, MotionEvent motionEvent);
-
-        boolean c(View view2, MotionEvent motionEvent);
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onDown(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean onFling(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onLongPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, motionEvent) == null) {
-        }
-    }
-
-    public boolean onScroll(MotionEvent motionEvent, MotionEvent motionEvent2, float f, float f2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{motionEvent, motionEvent2, Float.valueOf(f), Float.valueOf(f2)})) == null) {
-            return false;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public void onShowPress(MotionEvent motionEvent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, motionEvent) == null) {
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnGestureListener
-    public boolean onSingleTapUp(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public ku8(a aVar) {
+    public ku8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static synchronized ku8 d() {
+        InterceptResult invokeV;
+        ku8 ku8Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            synchronized (ku8.class) {
+                if (a == null) {
+                    a = new ku8();
+                }
+                ku8Var = a;
+            }
+            return ku8Var;
+        }
+        return (ku8) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.x75
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            try {
+                SapiAccountManager.getInstance().logout();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.x75
+    public void b(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (!TextUtils.isEmpty(accountData.getID()) && loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().validate(sapiAccount);
+                        return;
+                    }
+                }
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.x75
+    public void c(AccountData accountData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
+            if (accountData.getID().equals(TbadkCoreApplication.getCurrentAccount())) {
+                SapiAccountManager.getInstance().logout();
                 return;
             }
-        }
-        this.b = aVar;
-        this.a = new GestureDetector(TbadkCoreApplication.getInst(), this);
-    }
-
-    public void a(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            this.c = view2;
-        }
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTap(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.c(this.c, motionEvent);
+            List<SapiAccount> loginAccounts = SapiAccountManager.getInstance().getLoginAccounts();
+            if (loginAccounts != null && loginAccounts.size() > 0) {
+                for (SapiAccount sapiAccount : loginAccounts) {
+                    if (accountData.getID().equals(sapiAccount.uid)) {
+                        SapiAccountManager.getInstance().removeLoginAccount(sapiAccount);
+                        return;
+                    }
+                }
             }
-            return false;
         }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onDoubleTapEvent(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.a(this.c, motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.GestureDetector.OnDoubleTapListener
-    public boolean onSingleTapConfirmed(MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, motionEvent)) == null) {
-            a aVar = this.b;
-            if (aVar != null) {
-                return aVar.b(this.c, motionEvent);
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // android.view.View.OnTouchListener
-    public boolean onTouch(View view2, MotionEvent motionEvent) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048586, this, view2, motionEvent)) == null) {
-            this.c = view2;
-            GestureDetector gestureDetector = this.a;
-            if (gestureDetector != null) {
-                return gestureDetector.onTouchEvent(motionEvent);
-            }
-            return true;
-        }
-        return invokeLL.booleanValue;
     }
 }

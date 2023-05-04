@@ -1,192 +1,143 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.LruCache;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public abstract class xx2 {
+public final class xx2 implements Cloneable {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, JSONObject> a;
-    public final LruCache<String, JSONObject> b;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948315671, "Lcom/baidu/tieba/xx2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948315671, "Lcom/baidu/tieba/xx2;");
-                return;
-            }
-        }
-        c = fo1.a;
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
 
     public xx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = new LruCache<>(5);
-        this.b = new LruCache<>(5);
     }
 
-    public void f() {
+    @Nullable
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            if (c) {
-                Log.d("SwanAppExtInfo", "release cache");
-            }
-            this.a.evictAll();
-            this.b.evictAll();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b(this);
         }
+        return (String) invokeV.objValue;
     }
 
-    public final JSONObject a(PMSAppInfo pMSAppInfo) {
+    @NonNull
+    public Object clone() throws CloneNotSupportedException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return super.clone();
+        }
+        return invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String b(xx2 xx2Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "appInfo is null");
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, xx2Var)) == null) {
+            if (xx2Var == null || TextUtils.isEmpty(xx2Var.a)) {
                 return null;
             }
-            String str = pMSAppInfo.appId;
-            String valueOf = String.valueOf(pMSAppInfo.appSign);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                String e = e(str, valueOf);
-                JSONObject jSONObject = this.a.get(e);
-                if (jSONObject == null) {
-                    jSONObject = cl4.p(yx2.a(pMSAppInfo));
-                    this.a.put(e, jSONObject);
-                }
-                if (c) {
-                    Log.d("SwanAppExtInfo", "appId - " + str + " app info' ext - " + jSONObject.toString());
-                }
-                return jSONObject;
+            if (TextUtils.isEmpty(xx2Var.b)) {
+                return xx2Var.a;
             }
-            if (c) {
-                Log.e("SwanAppExtInfo", "appId or app sign is empty");
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final JSONObject d(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, pMSAppInfo)) == null) {
-            if (pMSAppInfo == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "appInfo is null");
-                }
-                return null;
-            }
-            String str = pMSAppInfo.appId;
-            String valueOf = String.valueOf(pMSAppInfo.versionCode);
-            if (!TextUtils.isEmpty(str) && !TextUtils.isEmpty(valueOf)) {
-                String e = e(str, valueOf);
-                JSONObject jSONObject = this.b.get(e);
-                if (jSONObject == null) {
-                    jSONObject = cl4.p(zx2.f(pMSAppInfo));
-                    this.a.put(e, jSONObject);
-                }
-                if (c) {
-                    Log.d("SwanAppExtInfo", "appId - " + str + " pkg info' ext - " + jSONObject.toString());
-                }
-                return jSONObject;
-            }
-            if (c) {
-                Log.e("SwanAppExtInfo", "appId or version code is empty");
-            }
-            return null;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final JSONObject b(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pMSAppInfo)) == null) {
-            JSONObject a = a(pMSAppInfo);
-            if (a == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "appInfoExt is null");
-                }
-                return null;
-            }
-            JSONObject optJSONObject = a.optJSONObject("client");
-            if (optJSONObject == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "clientInfo is null");
-                }
-                return null;
-            }
-            if (c) {
-                Log.d("SwanAppExtInfo", "clientInfo - " + optJSONObject);
-            }
-            return optJSONObject;
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public final String c(PMSAppInfo pMSAppInfo) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pMSAppInfo)) == null) {
-            JSONObject a = a(pMSAppInfo);
-            if (a == null) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "appInfoExt is null");
-                }
-                return null;
-            }
-            String optString = a.optString("webview_whitelist_switch");
-            if (TextUtils.isEmpty(optString)) {
-                if (c) {
-                    Log.e("SwanAppExtInfo", "webview whitelist switch is empty");
-                }
-                return null;
-            }
-            if (c) {
-                Log.d("SwanAppExtInfo", "webview whitelist switch - " + optString);
-            }
-            return optString;
+            return xx2Var.a + "?" + xx2Var.b;
         }
         return (String) invokeL.objValue;
     }
 
-    public final String e(String str, String str2) {
+    public static String c(xx2 xx2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, xx2Var)) == null) {
+            if (xx2Var == null || TextUtils.isEmpty(xx2Var.d)) {
+                return null;
+            }
+            if (TextUtils.isEmpty(xx2Var.b)) {
+                return xx2Var.d;
+            }
+            return xx2Var.d + "?" + xx2Var.b;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static xx2 d(String str, String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, str2)) == null) {
-            return str + "_" + str2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            xx2 xx2Var = new xx2();
+            xx2Var.a = pl3.f(str);
+            xx2Var.b = pl3.o(str);
+            xx2Var.c = str2;
+            xx2Var.d = pb3.b(xx2Var.a);
+            return xx2Var;
         }
-        return (String) invokeLL.objValue;
+        return (xx2) invokeLL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.b = str;
+        }
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "SwanAppPageParam{mPage='" + this.a + "', mParams='" + this.b + "', mBaseUrl='" + this.c + "', mRoutePage='" + this.d + "', mRoutType='" + this.e + "', mRouteId='" + this.f + "'}";
+        }
+        return (String) invokeV.objValue;
     }
 }

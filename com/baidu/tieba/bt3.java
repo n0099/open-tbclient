@@ -7,27 +7,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 @Autowired
 /* loaded from: classes3.dex */
-public final class bt3 {
+public class bt3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     @Inject(force = false)
-    public static zu3 a() {
+    public static at3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new yu3();
+            return zs3.a();
         }
-        return (zu3) invokeV.objValue;
-    }
-
-    @Inject(force = false)
-    public static vt3 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new tt3();
-        }
-        return (vt3) invokeV.objValue;
+        return (at3) invokeV.objValue;
     }
 }

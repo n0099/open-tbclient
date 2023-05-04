@@ -1,13 +1,13 @@
 package com.baidu.tieba;
 
+import cn.com.chinatelecom.gateway.lib.PreCodeListener;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.sdk.base.api.CallBack;
 /* loaded from: classes5.dex */
-public abstract class jm1<T> implements CallBack<T> {
+public abstract class jm1 implements PreCodeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final long a;

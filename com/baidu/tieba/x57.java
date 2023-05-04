@@ -1,67 +1,117 @@
 package com.baidu.tieba;
 
-import androidx.collection.LongSparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-/* loaded from: classes6.dex */
+import java.util.ArrayList;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+/* loaded from: classes7.dex */
 public class x57 {
     public static /* synthetic */ Interceptable $ic;
-    public static final x57 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public LongSparseArray<LinkedList<String>> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948251439, "Lcom/baidu/tieba/x57;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948251439, "Lcom/baidu/tieba/x57;");
-                return;
-            }
-        }
-        b = new x57();
-    }
-
-    public x57() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            f55.m().B(f55.q("search_forum_history"), "");
         }
-        this.a = new LongSparseArray<>();
     }
 
-    public static x57 a() {
+    public static void b(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65537, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String s = f55.m().s(f55.q("search_forum_history"), "");
+        if (!StringUtils.isNull(s)) {
+            try {
+                JSONArray jSONArray = new JSONArray(s);
+                if (jSONArray.length() <= 0) {
+                    return;
+                }
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    Object obj = jSONArray.get(i);
+                    if (!str.equals(obj)) {
+                        arrayList.add((String) obj);
+                    }
+                }
+                f55.m().B(f55.q("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public static void d(String str) {
+        JSONArray jSONArray;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || StringUtils.isNull(str)) {
+            return;
+        }
+        String s = f55.m().s(f55.q("search_forum_history"), "");
+        try {
+            if (StringUtils.isNull(s)) {
+                jSONArray = new JSONArray();
+            } else {
+                jSONArray = new JSONArray(s);
+            }
+            ArrayList arrayList = new ArrayList();
+            arrayList.add(str);
+            int i = 1;
+            for (int i2 = 0; i2 < jSONArray.length(); i2++) {
+                Object obj = jSONArray.get(i2);
+                if ((obj instanceof String) && !str.equals(obj)) {
+                    arrayList.add((String) obj);
+                    i++;
+                }
+                if (i == 6) {
+                    break;
+                }
+            }
+            f55.m().B(f55.q("search_forum_history"), new JSONArray((Collection) arrayList).toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static ArrayList<String> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (x57) invokeV.objValue;
-    }
-
-    public void b(long j) {
-        LinkedList<String> linkedList;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeJ(1048576, this, j) == null) && (linkedList = this.a.get(j)) != null) {
-            linkedList.clear();
+            String s = f55.m().s(f55.q("search_forum_history"), "");
+            ArrayList<String> arrayList = null;
+            if (StringUtils.isNull(s)) {
+                return null;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(s);
+                if (jSONArray.length() <= 0) {
+                    return null;
+                }
+                ArrayList<String> arrayList2 = new ArrayList<>();
+                for (int i = 0; i < jSONArray.length(); i++) {
+                    try {
+                        Object obj = jSONArray.get(i);
+                        if (obj instanceof String) {
+                            arrayList2.add((String) obj);
+                        }
+                    } catch (JSONException e) {
+                        e = e;
+                        arrayList = arrayList2;
+                        e.printStackTrace();
+                        return arrayList;
+                    }
+                }
+                return arrayList2;
+            } catch (JSONException e2) {
+                e = e2;
+            }
+        } else {
+            return (ArrayList) invokeV.objValue;
         }
     }
 }

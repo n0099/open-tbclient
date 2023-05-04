@@ -15,7 +15,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.io9;
+import com.baidu.tieba.xr9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -160,7 +160,7 @@ public class SettingTextSwitchView extends FrameLayout {
     public final void b(AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, io9.TbSettingView);
+            TypedArray obtainStyledAttributes = this.a.obtainStyledAttributes(attributeSet, xr9.TbSettingView);
             String string = obtainStyledAttributes.getString(1);
             int color = obtainStyledAttributes.getColor(2, -1);
             float dimension = obtainStyledAttributes.getDimension(3, -1.0f);
@@ -193,12 +193,12 @@ public class SettingTextSwitchView extends FrameLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             LayoutInflater.from(this.a).inflate(R.layout.setting_text_switch_view, (ViewGroup) this, true);
-            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090772);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0922ef);
-            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0904f4);
+            this.b = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f090775);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f092307);
+            BdSwitchView bdSwitchView = (BdSwitchView) findViewById(R.id.obfuscated_res_0x7f0904f7);
             this.e = bdSwitchView;
             bdSwitchView.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923c7);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0923df);
             this.d = textView;
             if (textView != null) {
                 textView.setVisibility(8);

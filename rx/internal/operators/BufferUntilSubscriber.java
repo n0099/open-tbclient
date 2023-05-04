@@ -1,44 +1,44 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.a2b;
-import com.baidu.tieba.f6b;
-import com.baidu.tieba.k6b;
-import com.baidu.tieba.n1b;
-import com.baidu.tieba.o1b;
-import com.baidu.tieba.t1b;
+import com.baidu.tieba.dab;
+import com.baidu.tieba.iab;
+import com.baidu.tieba.j5b;
+import com.baidu.tieba.k5b;
+import com.baidu.tieba.p5b;
+import com.baidu.tieba.w5b;
 import java.util.concurrent.ConcurrentLinkedQueue;
 import java.util.concurrent.atomic.AtomicReference;
 /* loaded from: classes9.dex */
-public final class BufferUntilSubscriber<T> extends f6b<T, T> {
-    public static final o1b d = new a();
+public final class BufferUntilSubscriber<T> extends dab<T, T> {
+    public static final k5b d = new a();
     public final State<T> b;
     public boolean c;
 
     /* loaded from: classes9.dex */
-    public static class a implements o1b {
-        @Override // com.baidu.tieba.o1b
+    public static class a implements k5b {
+        @Override // com.baidu.tieba.k5b
         public void onCompleted() {
         }
 
-        @Override // com.baidu.tieba.o1b
+        @Override // com.baidu.tieba.k5b
         public void onError(Throwable th) {
         }
 
-        @Override // com.baidu.tieba.o1b
+        @Override // com.baidu.tieba.k5b
         public void onNext(Object obj) {
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class b<T> implements n1b.a<T> {
+    public static final class b<T> implements j5b.a<T> {
         public final State<T> a;
 
         /* loaded from: classes9.dex */
-        public class a implements a2b {
+        public class a implements w5b {
             public a() {
             }
 
-            @Override // com.baidu.tieba.a2b
+            @Override // com.baidu.tieba.w5b
             public void call() {
                 b.this.a.set(BufferUntilSubscriber.d);
             }
@@ -48,15 +48,15 @@ public final class BufferUntilSubscriber<T> extends f6b<T, T> {
             this.a = state;
         }
 
-        @Override // com.baidu.tieba.n1b.a, com.baidu.tieba.b2b
+        @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((t1b) ((t1b) obj));
+            call((p5b) ((p5b) obj));
         }
 
-        public void call(t1b<? super T> t1bVar) {
+        public void call(p5b<? super T> p5bVar) {
             boolean z;
-            if (this.a.casObserverRef(null, t1bVar)) {
-                t1bVar.b(k6b.a(new a()));
+            if (this.a.casObserverRef(null, p5bVar)) {
+                p5bVar.b(iab.a(new a()));
                 synchronized (this.a.guard) {
                     z = true;
                     if (!this.a.emitting) {
@@ -82,33 +82,33 @@ public final class BufferUntilSubscriber<T> extends f6b<T, T> {
                     }
                 }
             } else {
-                t1bVar.onError(new IllegalStateException("Only one subscriber allowed!"));
+                p5bVar.onError(new IllegalStateException("Only one subscriber allowed!"));
             }
         }
     }
 
-    public static <T> BufferUntilSubscriber<T> D() {
+    public static <T> BufferUntilSubscriber<T> F() {
         return new BufferUntilSubscriber<>(new State());
     }
 
-    @Override // com.baidu.tieba.o1b
+    @Override // com.baidu.tieba.k5b
     public void onCompleted() {
         if (this.c) {
             this.b.get().onCompleted();
         } else {
-            E(NotificationLite.b());
+            G(NotificationLite.b());
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class State<T> extends AtomicReference<o1b<? super T>> {
+    public static final class State<T> extends AtomicReference<k5b<? super T>> {
         public static final long serialVersionUID = 8026705089538090368L;
         public boolean emitting;
         public final Object guard = new Object();
         public final ConcurrentLinkedQueue<Object> buffer = new ConcurrentLinkedQueue<>();
 
-        public boolean casObserverRef(o1b<? super T> o1bVar, o1b<? super T> o1bVar2) {
-            return compareAndSet(o1bVar, o1bVar2);
+        public boolean casObserverRef(k5b<? super T> k5bVar, k5b<? super T> k5bVar2) {
+            return compareAndSet(k5bVar, k5bVar2);
         }
     }
 
@@ -117,25 +117,25 @@ public final class BufferUntilSubscriber<T> extends f6b<T, T> {
         this.b = state;
     }
 
-    @Override // com.baidu.tieba.o1b
+    @Override // com.baidu.tieba.k5b
     public void onError(Throwable th) {
         if (this.c) {
             this.b.get().onError(th);
         } else {
-            E(NotificationLite.c(th));
+            G(NotificationLite.c(th));
         }
     }
 
-    @Override // com.baidu.tieba.o1b
+    @Override // com.baidu.tieba.k5b
     public void onNext(T t) {
         if (this.c) {
             this.b.get().onNext(t);
         } else {
-            E(NotificationLite.h(t));
+            G(NotificationLite.h(t));
         }
     }
 
-    public final void E(Object obj) {
+    public final void G(Object obj) {
         synchronized (this.b.guard) {
             this.b.buffer.add(obj);
             if (this.b.get() != null && !this.b.emitting) {

@@ -17,12 +17,12 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.log.ActivityLog;
 import com.baidu.tbadk.core.util.schemeaction.SchemeActionManager;
-import com.baidu.tieba.cv5;
+import com.baidu.tieba.aw4;
+import com.baidu.tieba.cw5;
+import com.baidu.tieba.dj8;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.kv4;
 import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
-import com.baidu.tieba.vg8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -290,7 +290,7 @@ public class UrlManager {
                     group2 = group2 + " ";
                 }
                 int length = group2.length();
-                spannableString.setSpan(new cv5(2, group), matcher.start(), (length + start) - 1, 33);
+                spannableString.setSpan(new cw5(2, group), matcher.start(), (length + start) - 1, 33);
             }
             return spannableString;
         }
@@ -547,7 +547,7 @@ public class UrlManager {
                 return false;
             }
             String str2 = strArr[0];
-            vg8 activityLog = ActivityLog.getInstance();
+            dj8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithDialog:" + str2);
             if (str2.startsWith(UrlSchemaHelper.SCHEMA_TB_FLUTTER)) {
                 try {
@@ -562,7 +562,7 @@ public class UrlManager {
                         }
                     }
                     FlutterOpenData flutterOpenData = new FlutterOpenData(tbPageContext.getPageActivity(), host, hashMap);
-                    if (kv4.c().contains("-Flutter") && findTask == null) {
+                    if (aw4.c().contains("-Flutter") && findTask == null) {
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, flutterOpenData));
                         return false;
                     }
@@ -639,7 +639,7 @@ public class UrlManager {
                 return 3;
             }
             String str = strArr[0];
-            vg8 activityLog = ActivityLog.getInstance();
+            dj8 activityLog = ActivityLog.getInstance();
             activityLog.c("scheme", "dealOneLinkWithOutJumpWebView:" + str);
             UrlSchemaHandler urlSchemaHandler = this.mHandlers.get(getSchemaKey(str));
             if (urlSchemaHandler != null) {

@@ -1,20 +1,46 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class qb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static qb5 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-495032377, "Lcom/baidu/tieba/qb5$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-495032377, "Lcom/baidu/tieba/qb5$b;");
+                    return;
+                }
+            }
+            a = new qb5(null);
+        }
+    }
 
     public qb5() {
         Interceptable interceptable = $ic;
@@ -30,57 +56,44 @@ public class qb5 {
         }
     }
 
-    public String a() {
+    public static qb5 e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
         }
-        return (String) invokeV.objValue;
+        return (qb5) invokeV.objValue;
     }
 
-    public boolean c() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            c("kLCSError=1");
         }
-        return invokeV.booleanValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (TextUtils.isEmpty(this.b)) {
-                return "";
-            }
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                str = "skin=dark";
-            } else {
-                str = "skin=default";
-            }
-            if (this.b.contains("?")) {
-                this.b += "&customfullscreen=1&nonavigationbar=1&" + str;
-            } else {
-                this.b += "?customfullscreen=1&nonavigationbar=1&" + str;
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+    public /* synthetic */ qb5(a aVar) {
+        this();
     }
 
-    public void d(JSONObject jSONObject) {
-        JSONObject optJSONObject;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("homepage_guide")) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            c("kNetStatus=" + i);
         }
-        this.a = optJSONObject.optString("guide_picture");
-        this.b = optJSONObject.optString("guide_url");
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            ea.a("IpReconnLogHelper", 0, 0, null, ew4.b, str);
+        }
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            c("kNewIpResult=" + str);
+        }
     }
 }

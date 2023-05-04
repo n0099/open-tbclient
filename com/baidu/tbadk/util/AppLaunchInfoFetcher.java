@@ -11,7 +11,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeConstants;
 import com.baidu.tieba.bc;
-import com.baidu.tieba.oq5;
+import com.baidu.tieba.gr5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class AppLaunchInfoFetcher {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void onFinish(oq5 oq5Var);
+        void onFinish(gr5 gr5Var);
     }
 
     /* JADX WARN: Failed to restore enum class, 'enum' modifier and super class removed */
@@ -119,7 +119,7 @@ public class AppLaunchInfoFetcher {
     }
 
     @TargetApi(23)
-    public static oq5 b(Context context) {
+    public static gr5 b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
@@ -127,14 +127,14 @@ public class AppLaunchInfoFetcher {
             if (appTasks != null) {
                 for (ActivityManager.AppTask appTask : appTasks) {
                     if (appTask != null && appTask.getTaskInfo() != null && appTask.getTaskInfo().baseIntent != null && appTask.getTaskInfo().baseIntent.getComponent() != null) {
-                        return new oq5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
+                        return new gr5(Type.ACTIVITY, appTask.getTaskInfo().baseIntent);
                     }
                 }
                 return null;
             }
             return null;
         }
-        return (oq5) invokeL.objValue;
+        return (gr5) invokeL.objValue;
     }
 
     public static Type d(Message message) {
@@ -160,7 +160,7 @@ public class AppLaunchInfoFetcher {
         return (Type) invokeL.objValue;
     }
 
-    public static oq5 c() {
+    public static gr5 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -173,10 +173,10 @@ public class AppLaunchInfoFetcher {
                     Intent a2 = a(message);
                     Type d2 = d(message);
                     if (a2 != null && a2.getComponent() != null) {
-                        return new oq5(Type.ACTIVITY, a2);
+                        return new gr5(Type.ACTIVITY, a2);
                     }
                     if (d2 != Type.UNKNOWN) {
-                        return new oq5(d2, null);
+                        return new gr5(d2, null);
                     }
                     Object d3 = bc.d(message, UnitedSchemeConstants.UNITED_SCHEME_NEXT);
                     if (d3 instanceof Message) {
@@ -188,27 +188,27 @@ public class AppLaunchInfoFetcher {
             }
             return null;
         }
-        return (oq5) invokeV.objValue;
+        return (gr5) invokeV.objValue;
     }
 
     public static void e(Context context, List<a> list) {
-        oq5 oq5Var;
+        gr5 gr5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, list) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 23) {
-                    oq5Var = b(context);
+                    gr5Var = b(context);
                 } else {
-                    oq5Var = null;
+                    gr5Var = null;
                 }
-                if (oq5Var == null) {
-                    oq5Var = c();
+                if (gr5Var == null) {
+                    gr5Var = c();
                 }
-                if (oq5Var == null) {
-                    oq5Var = new oq5(Type.UNKNOWN, null);
+                if (gr5Var == null) {
+                    gr5Var = new gr5(Type.UNKNOWN, null);
                 }
                 for (a aVar : list) {
-                    aVar.onFinish(oq5Var);
+                    aVar.onFinish(gr5Var);
                 }
             } catch (Throwable th) {
                 BdLog.e(th);

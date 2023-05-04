@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Handler;
-import android.os.Message;
+import android.net.Uri;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkItem;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,79 +13,21 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class r52 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public int b;
-    public Map<String, Object> c;
-    public b d;
-    public BufferedWriter e;
-
-    /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    @SuppressLint({"HandlerLeak"})
-    /* loaded from: classes6.dex */
-    public class b extends Handler {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ r52 a;
-
-        public b(r52 r52Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {r52Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = r52Var;
-        }
-
-        public /* synthetic */ b(r52 r52Var, a aVar) {
-            this(r52Var);
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.c != null) {
-                this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
-                JSONObject jSONObject = new JSONObject();
-                for (Map.Entry entry : this.a.c.entrySet()) {
-                    try {
-                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                this.a.e(jSONObject.toString());
-                v42.i("PropertyLogcat", jSONObject.toString());
-                if (this.a.d != null) {
-                    this.a.d.sendEmptyMessageDelayed(100, this.a.b);
-                }
-            }
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public String d;
+    public String e;
+    public String f;
+    public JSONArray g;
 
     static {
         InterceptResult invokeClinit;
@@ -98,16 +42,7 @@ public class r52 {
                 return;
             }
         }
-        boolean z = fo1.a;
-    }
-
-    public final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return df3.n(v73.g0(), this.a, "log");
-        }
-        return (String) invokeV.objValue;
+        h = ho1.a;
     }
 
     public r52() {
@@ -120,73 +55,78 @@ public class r52 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = "performance_" + System.currentTimeMillis();
-        this.b = 3000;
     }
 
-    public String i() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.c != null) {
-                s52.g().i();
-                this.c = null;
-                v42.i("PropertyLogcat", "Stop monitor logcat");
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c)) {
+                return false;
             }
-            zn4.d(this.e);
-            this.e = null;
-            return df3.I(f(), v73.g0());
+            return true;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void e(String str) {
-        BufferedWriter bufferedWriter;
+    public static r52 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bufferedWriter = this.e) != null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            r52 r52Var = new r52();
             try {
-                bufferedWriter.write(str);
-                this.e.write(10);
-                v42.i("PropertyLogcat", "Export logcat success");
-            } catch (IOException e) {
-                v42.d("PropertyLogcat", "Logcat write fail", e);
+                r52Var.a = jSONObject.getString("appKey");
+                r52Var.b = jSONObject.getString(DeepLinkItem.DEEPLINK_APPURL_KEY) + "?swanJsVersion=" + ch3.h(0) + "&appVersion=" + rl3.D();
+                r52Var.c = jSONObject.getString("wsUrl");
+                r52Var.d = jSONObject.optString("notInHistory", "1");
+                r52Var.e = jSONObject.optString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD);
+                r52Var.f = jSONObject.optString("slavePreload");
+                r52Var.g = jSONObject.optJSONArray("hosts");
+                return r52Var;
+            } catch (JSONException unused) {
+                if (h) {
+                    Log.e("WirelessDebugModel", "DebuggerLaunchAction params is invalid");
+                    return null;
+                }
+                return null;
             }
         }
+        return (r52) invokeL.objValue;
     }
 
-    public void g(int i) {
+    public String a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 1000) {
-            this.b = i;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            return b(i, this.b);
         }
+        return (String) invokeI.objValue;
     }
 
-    public void h() {
+    public String c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.c == null) {
-                this.c = s52.g().h();
-                v42.i("PropertyLogcat", "Start monitor logcat");
-            }
-            if (this.d == null) {
-                this.d = new b(this, null);
-            }
-            if (this.e == null) {
-                File file = new File(f());
-                try {
-                    if (!file.exists()) {
-                        file.createNewFile();
-                    }
-                    this.e = new BufferedWriter(new FileWriter(file, true));
-                } catch (IOException e) {
-                    v42.d("PropertyLogcat", "Create log file fail", e);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return b(i, this.c);
+        }
+        return (String) invokeI.objValue;
+    }
+
+    public final String b(int i, String str) {
+        InterceptResult invokeIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str)) == null) {
+            if (this.g != null && !TextUtils.isEmpty(str) && i >= 0 && i < this.g.length()) {
+                Uri parse = Uri.parse(str);
+                String optString = this.g.optString(i);
+                if (!TextUtils.isEmpty(optString) && parse.getHost() != null) {
+                    return str.replace(parse.getHost(), optString);
                 }
             }
-            this.d.removeMessages(100);
-            this.d.sendEmptyMessage(100);
+            return str;
         }
+        return (String) invokeIL.objValue;
     }
 }

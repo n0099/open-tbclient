@@ -1,34 +1,34 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.person.holder.PersonInfoUserPicsHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class e49 extends vm<p59, CardViewHolder<t69>> {
+public class e49 extends c16<g49, PersonInfoUserPicsHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public LikeModel b;
+    public View.OnClickListener a;
+    public TbPageContext b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public e49(TbPageContext<?> tbPageContext) {
-        super(tbPageContext.getPageActivity(), p59.l);
+    public e49(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,34 +40,38 @@ public class e49 extends vm<p59, CardViewHolder<t69>> {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.b = new LikeModel(tbPageContext);
+        this.b = tbPageContext;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vm
     /* renamed from: s */
-    public CardViewHolder<t69> onCreateViewHolder(ViewGroup viewGroup) {
+    public PersonInfoUserPicsHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            t69 t69Var = new t69(this.a);
-            t69Var.z(this.b);
-            return new CardViewHolder<>(t69Var);
+            PersonInfoUserPicsHolder personInfoUserPicsHolder = new PersonInfoUserPicsHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0775, viewGroup, false), this.b);
+            personInfoUserPicsHolder.e.d(this.a);
+            return personInfoUserPicsHolder;
         }
-        return (CardViewHolder) invokeL.objValue;
+        return (PersonInfoUserPicsHolder) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, p59 p59Var, CardViewHolder<t69> cardViewHolder) {
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        t(i, view2, viewGroup, (g49) obj, (PersonInfoUserPicsHolder) viewHolder);
+        return view2;
+    }
+
+    public View t(int i, View view2, ViewGroup viewGroup, g49 g49Var, PersonInfoUserPicsHolder personInfoUserPicsHolder) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, p59Var, cardViewHolder})) == null) {
-            cardViewHolder.a().l(p59Var);
-            cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, g49Var, personInfoUserPicsHolder})) == null) {
+            if (g49Var != null && personInfoUserPicsHolder != null) {
+                personInfoUserPicsHolder.b();
+                personInfoUserPicsHolder.a(g49Var);
+            }
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

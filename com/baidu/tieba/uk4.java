@@ -1,11 +1,11 @@
 package com.baidu.tieba;
+
+import org.json.JSONArray;
 /* loaded from: classes6.dex */
 public interface uk4 {
+    hj4<JSONArray> g();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(boolean z);
-    }
+    sf4 getCallback();
 
-    void a(String str, a aVar);
+    dj4 getRequest();
 }

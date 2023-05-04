@@ -1,27 +1,16 @@
 package com.baidu.tieba;
 
+import android.content.BroadcastReceiver;
+import android.content.Context;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.data.ThreadData;
-import java.util.List;
-import java.util.Map;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
 /* loaded from: classes4.dex */
 public interface di5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("HotTopic", "HotTopicRequest");
+    BroadcastReceiver a(@NonNull Context context, @NonNull fi5 fi5Var);
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a();
+    void b(@NonNull Context context, long j, long j2, int i, long j3, ei5 ei5Var);
 
-        void b(@NonNull List<ThreadData> list, @Nullable Map<String, Object> map);
-    }
+    void c(@NonNull Context context, @NonNull BroadcastReceiver broadcastReceiver);
 
-    di5 a(@NonNull TbPageContext tbPageContext, long j, @NonNull String str);
-
-    void b(int i, my4 my4Var, long j);
-
-    void c(@Nullable a aVar);
+    void d(@NonNull Context context, @NonNull ChatMsg chatMsg, long j, @NonNull gi5 gi5Var);
 }

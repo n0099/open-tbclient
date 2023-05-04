@@ -46,14 +46,14 @@ public final class xu extends vs<up> {
 
         /* renamed from: com.baidu.tieba.xu$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public static final class C0476a implements yu.a {
+        public static final class C0492a implements yu.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ TaskToastViewData b;
             public final /* synthetic */ a c;
 
-            public C0476a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
+            public C0492a(String str, TaskToastViewData taskToastViewData, a aVar, TaskToastViewData taskToastViewData2) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,7 +158,7 @@ public final class xu extends vs<up> {
                 }
                 String backBtnSchema = taskToastViewData.getBackBtnSchema();
                 if (backBtnSchema != null) {
-                    this.a.a.c(new C0476a(backBtnSchema, taskToastViewData, this, taskToastViewData));
+                    this.a.a.c(new C0492a(backBtnSchema, taskToastViewData, this, taskToastViewData));
                 }
                 String backBtnTxt = taskToastViewData.getBackBtnTxt();
                 if (backBtnTxt != null) {

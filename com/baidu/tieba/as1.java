@@ -1,8 +1,22 @@
 package com.baidu.tieba;
 
-import java.io.IOException;
-import java.io.InputStream;
+import com.baidu.tieba.y62;
+import com.baidu.webkit.sdk.VideoPlayerFactory;
 /* loaded from: classes3.dex */
 public interface as1 {
-    InputStream a(InputStream inputStream) throws IOException;
+    int a();
+
+    VideoPlayerFactory b();
+
+    int c();
+
+    void d(boolean z);
+
+    boolean e();
+
+    boolean f();
+
+    void g(int i);
+
+    void h(y62.c cVar);
 }

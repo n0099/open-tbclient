@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class da {
     public static int a(Context context, int i) {
         int a = ha.a(context);

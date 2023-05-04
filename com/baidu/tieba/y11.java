@@ -1,60 +1,81 @@
 package com.baidu.tieba;
 
-import android.database.Cursor;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nadcore.sweetsqlite.BooleanColumn;
+import com.baidu.nadcore.sweetsqlite.Column;
+import com.baidu.nadcore.sweetsqlite.IntegerColumn;
+import com.baidu.nadcore.sweetsqlite.LongColumn;
+import com.baidu.nadcore.sweetsqlite.StringColumn;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public interface y11 {
-    a a(f21 f21Var, w11... w11VarArr);
+public class y11 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
+    public final int c;
+    public final int d;
+    public final String e;
 
-    void beginTransaction();
-
-    int delete(f21 f21Var, w11... w11VarArr);
-
-    void endTransaction();
-
-    Cursor query(k21 k21Var);
-
-    void setTransactionSuccessful();
-
-    int update(f21 f21Var, w11... w11VarArr);
-
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final int b;
-
-        public a(long j, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public y11(int i, String str, String str2, int i2, int i3) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2, Integer.valueOf(i2), Integer.valueOf(i3)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            this.a = j;
-            this.b = i;
         }
+        this.a = i;
+        this.b = str;
+        this.e = str2;
+        this.c = i2;
+        this.d = i3;
+    }
 
-        public String toString() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return "Res{rowId=" + this.a + ", updateCount=" + this.b + '}';
-            }
-            return (String) invokeV.objValue;
+    public static boolean a(Column column) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, column)) == null) {
+            return ((BooleanColumn) column).getValue();
         }
+        return invokeL.booleanValue;
+    }
+
+    public static int b(Column column) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, column)) == null) {
+            return ((IntegerColumn) column).getValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public static long c(Column column) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, column)) == null) {
+            return ((LongColumn) column).getValue();
+        }
+        return invokeL.longValue;
+    }
+
+    public static String d(Column column) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, column)) == null) {
+            return ((StringColumn) column).getValue();
+        }
+        return (String) invokeL.objValue;
     }
 }

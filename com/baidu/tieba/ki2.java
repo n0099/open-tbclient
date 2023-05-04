@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Pair;
-import androidx.annotation.NonNull;
+import android.util.Log;
 import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.rq2;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,44 +11,193 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ki2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final byte[] a;
+    public static final boolean a;
+    public static volatile ki2 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements rq2.c {
+    public class a implements qm3<Exception> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ qm3 a;
+        public final /* synthetic */ int b;
 
-        @Override // com.baidu.tieba.rq2.c
-        public void a(int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+        /* renamed from: com.baidu.tieba.ki2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0339a implements qm3<Exception> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0339a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.qm3
+            /* renamed from: b */
+            public void a(Exception exc) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                    x42.l("SwanAppCoresManager", "ensureSwanCore: update swan-js finish. ", exc);
+                    qm3 qm3Var = this.a.a;
+                    if (qm3Var != null) {
+                        qm3Var.a(exc);
+                    }
+                }
             }
         }
 
-        public a(CallbackHandler callbackHandler, String str, String str2) {
+        public a(ki2 ki2Var, qm3 qm3Var, int i) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {callbackHandler, str, str2};
+                Object[] objArr = {ki2Var, qm3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qm3Var;
+            this.b = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qm3
+        /* renamed from: b */
+        public void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                if (exc == null) {
+                    x42.k("SwanAppCoresManager", "ensureSwanCore: done by update preset ");
+                    qm3 qm3Var = this.a;
+                    if (qm3Var != null) {
+                        qm3Var.a(null);
+                        return;
+                    }
+                    return;
+                }
+                x42.k("SwanAppCoresManager", "ensureSwanCore: update preset failed ");
+                ch3.o(this.b, new C0339a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements qm3<Exception> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ qm3 a;
+        public final /* synthetic */ int b;
+
+        /* loaded from: classes5.dex */
+        public class a implements qm3<Exception> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.tieba.qm3
+            /* renamed from: b */
+            public void a(Exception exc) {
+                qm3 qm3Var;
+                Interceptable interceptable = $ic;
+                if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && (qm3Var = this.a.a) != null) {
+                    qm3Var.a(exc);
+                }
+            }
+        }
+
+        public b(ki2 ki2Var, qm3 qm3Var, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ki2Var, qm3Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = qm3Var;
+            this.b = i;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qm3
+        /* renamed from: b */
+        public void a(Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                if (exc != null) {
+                    qm3 qm3Var = this.a;
+                    if (qm3Var != null) {
+                        qm3Var.a(exc);
+                        return;
+                    }
+                    return;
+                }
+                gi2.h(this.b, new a(this));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ki2 a;
+
+        public c(ki2 ki2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ki2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -63,45 +207,14 @@ public class ki2 {
                     return;
                 }
             }
-            this.a = callbackHandler;
-            this.b = str;
-            this.c = str2;
+            this.a = ki2Var;
         }
 
-        @Override // com.baidu.tieba.rq2.c
-        public void onFailed() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                v42.k("DebugDependencyControl", "debug扩展库下载失败 url=" + this.c);
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(501, "网络异常").toString());
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.rq2.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                if (this.a != null && !TextUtils.isEmpty(this.b)) {
-                    File j = ki2.j();
-                    v42.k("DebugDependencyControl", "debug扩展库下载成功 file=" + j.getAbsolutePath());
-                    Pair d = ki2.d(j);
-                    if (!((Boolean) d.first).booleanValue()) {
-                        v42.k("DebugDependencyControl", "debug扩展库解密失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解密失败").toString());
-                        return;
-                    } else if (!ki2.o((File) d.second)) {
-                        v42.k("DebugDependencyControl", "debug扩展库解压失败 file=" + j.getAbsolutePath());
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(1001, "debug扩展库解压失败").toString());
-                        return;
-                    } else {
-                        ki2.n(true);
-                        this.a.handleSchemeDispatchCallback(this.b, UnitedSchemeUtility.wrapCallbackParams(0).toString());
-                        return;
-                    }
-                }
-                v42.k("DebugDependencyControl", "debug扩展库下载成功 handler=" + this.a + " cb=" + this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
             }
         }
     }
@@ -119,210 +232,79 @@ public class ki2 {
                 return;
             }
         }
-        a = "190d49fefe87b97c6b8adeebd11fc227".getBytes(StandardCharsets.UTF_8);
+        a = ho1.a;
     }
 
-    public static void c() {
+    public ki2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            for (File file : l()) {
-                zn4.j(file);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static String f() {
+    public static ki2 d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return rq2.r();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new File(f(), "dependency_decrypt.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return f() + File.separator + "temp_unzip";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static File j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return new File(f(), "dependency.zip");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
-            return jg3.a().getBoolean("debugDependency", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static void n(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65550, null, z) == null) {
-            jg3.a().putBoolean("debugDependency", z);
-        }
-    }
-
-    public static Pair<Boolean, File> d(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, file)) == null) {
-            if (file != null && file.exists()) {
-                File g = g();
-                try {
-                    FileInputStream fileInputStream = new FileInputStream(file);
-                    FileOutputStream fileOutputStream = new FileOutputStream(g);
-                    byte[] bArr = new byte[16];
-                    fileInputStream.skip(10L);
-                    fileInputStream.read(bArr, 0, 10);
-                    fileInputStream.skip(5L);
-                    fileInputStream.read(bArr, 10, 6);
-                    fileInputStream.skip(3L);
-                    byte[] bArr2 = new byte[fileInputStream.available()];
-                    fileInputStream.read(bArr2);
-                    g.deleteOnExit();
-                    g.createNewFile();
-                    IvParameterSpec ivParameterSpec = new IvParameterSpec(bArr);
-                    SecretKeySpec secretKeySpec = new SecretKeySpec(a, "AES");
-                    Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                    cipher.init(2, secretKeySpec, ivParameterSpec);
-                    fileOutputStream.write(cipher.doFinal(bArr2));
-                    fileOutputStream.flush();
-                    zn4.L(file);
-                    Pair<Boolean, File> pair = new Pair<>(Boolean.TRUE, g);
-                    fileOutputStream.close();
-                    fileInputStream.close();
-                    return pair;
-                } catch (Exception e) {
-                    v42.l("DebugDependencyControl", "debug扩展库解密失败: ", e);
-                    return new Pair<>(Boolean.FALSE, null);
-                }
-            }
-            return new Pair<>(Boolean.FALSE, null);
-        }
-        return (Pair) invokeL.objValue;
-    }
-
-    public static synchronized void e(@NonNull String str, @Nullable CallbackHandler callbackHandler, @Nullable String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65541, null, str, callbackHandler, str2) == null) {
-            synchronized (ki2.class) {
-                if (TextUtils.isEmpty(str)) {
-                    v42.k("DebugDependencyControl", "download url is empty");
-                } else {
-                    rq2.G(str, new a(callbackHandler, str2, str));
-                }
-            }
-        }
-    }
-
-    public static String h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return f() + File.separator + str + File.separator + "debug_dependency";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @NonNull
-    public static List<File> l() {
-        InterceptResult invokeV;
-        File[] C;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (File file : zn4.C(new File(f()))) {
-                if (file.isDirectory()) {
-                    File[] C2 = zn4.C(file);
-                    int length = C2.length;
-                    int i = 0;
-                    while (true) {
-                        if (i < length) {
-                            File file2 = C2[i];
-                            if (file2.isDirectory() && "debug_dependency".equals(file2.getName())) {
-                                arrayList.add(file2);
-                                break;
-                            }
-                            i++;
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (ki2.class) {
+                    if (b == null) {
+                        b = new ki2();
                     }
                 }
             }
-            return arrayList;
+            return b;
         }
-        return (List) invokeV.objValue;
+        return (ki2) invokeV.objValue;
     }
 
-    public static String m(@NonNull File file) {
-        InterceptResult invokeL;
-        String str;
-        File[] listFiles;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, file)) == null) {
-            if (file.isDirectory() && (listFiles = file.listFiles()) != null && listFiles.length == 1 && listFiles[0].isDirectory()) {
-                zn4.e(listFiles[0], file);
-                zn4.L(listFiles[0]);
-            }
-            try {
-                str = new JSONObject(zn4.E(new File(file, "swan-package.json"))).getString("name");
-            } catch (JSONException e) {
-                e.printStackTrace();
-                str = "";
-            }
-            if (TextUtils.isEmpty(str)) {
-                return "unknown";
-            }
-            return str;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            gh3.b().e(null, 0);
+            gh3.b().e(null, 1);
+            gi2.h(0, null);
+            gi2.h(1, null);
         }
-        return (String) invokeL.objValue;
     }
 
-    public static boolean o(File file) {
-        InterceptResult invokeL;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, file)) == null) {
-            boolean z = false;
-            if (file != null && file.exists()) {
-                File file2 = new File(i());
-                zn4.l(file2);
-                if (zn4.U(file.getAbsolutePath(), file2.getAbsolutePath())) {
-                    File file3 = new File(h(m(file2)));
-                    if (file3.exists()) {
-                        zn4.L(file3);
-                    }
-                    file3.mkdirs();
-                    zn4.e(file2, file3);
-                    zn4.L(file2);
-                    zn4.L(file);
-                    z = true;
-                }
-                v42.k("DebugDependencyControl", "debug扩展库解压结果: unzipSuccess=" + z);
-                return z;
-            }
-            v42.k("DebugDependencyControl", "debug扩展库压缩包不存在");
-            return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            ExecutorUtilsExt.postOnElastic(new c(this), "tryUpdateAllPresetCoresAsync", 2);
         }
-        return invokeL.booleanValue;
+    }
+
+    public void c(@Nullable qm3<Exception> qm3Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qm3Var, i) == null) {
+            x42.k("SwanAppCoresManager", "ensureSwanCore: invoke frameType = " + i);
+            g(new a(this, qm3Var, i), i);
+        }
+    }
+
+    public final void g(@Nullable qm3<Exception> qm3Var, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048580, this, qm3Var, i) == null) {
+            gh3.b().e(new b(this, qm3Var, i), i);
+        }
+    }
+
+    public void e(int i, int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
+            if (a) {
+                Log.d("SwanAppCoresManager", "onAppUpgrade oldVersion: " + i + " ,newVersion: " + i2);
+            }
+            ch3.l(i, i2);
+            gi2.g(i, i2);
+        }
     }
 }

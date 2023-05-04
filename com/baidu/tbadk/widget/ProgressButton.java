@@ -15,7 +15,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.io9;
+import com.baidu.tieba.xr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -398,7 +398,7 @@ public class ProgressButton extends View {
     public void g(Context context, AttributeSet attributeSet) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, context, attributeSet) == null) {
-            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, io9.TBProgressButton);
+            TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.TBProgressButton);
             this.k = obtainStyledAttributes.getDimensionPixelSize(4, R.dimen.T_X08);
             this.l = obtainStyledAttributes.getString(3);
             int i = obtainStyledAttributes.getInt(2, 0);

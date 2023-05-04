@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.push.ci;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cc extends ce {
     public cc(String str, String str2, String[] strArr, String str3) {
         super(str, str2, strArr, str3);

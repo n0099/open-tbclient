@@ -1,170 +1,80 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class s32 extends u83 {
+public final class s32 extends l32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.u83
-    @NonNull
-    public String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "/swanAPI/button" : (String) invokeV.objValue;
-    }
+    public String t;
+    public boolean u;
+    public boolean v;
+    public String w;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public s32(s83 s83Var) {
-        super(s83Var, "/swanAPI/button");
+    public s32() {
+        super("animateview", "sanId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((s83) objArr2[0], (String) objArr2[1]);
+                Object[] objArr = newInitContext.callArgs;
+                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.u = false;
+        this.v = true;
+        this.w = null;
     }
 
-    @Nullable
-    public final t32 q(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.l32, com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public void a(JSONObject jSONObject) throws JSONException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, unitedSchemeEntity)) == null) {
-            if (unitedSchemeEntity == null) {
-                return null;
-            }
-            JSONObject k = k(unitedSchemeEntity);
-            if (k == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v42.c("Component-Action-Button", "params is null");
-                return null;
-            }
-            t32 t32Var = new t32();
-            try {
-                t32Var.a(k);
-            } catch (JSONException e) {
-                e.printStackTrace();
-                v42.d("Component-Action-Button", "model parse exception:", e);
-            }
-            return t32Var;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return (t32) invokeL.objValue;
+        super.a(jSONObject);
+        this.t = jSONObject.optString("path");
+        this.u = jSONObject.optBoolean("loop");
+        this.v = jSONObject.optBoolean("autoPlay");
+        this.w = jSONObject.optString("action");
     }
 
-    @Override // com.baidu.tieba.u83
-    public boolean m(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, v73 v73Var) {
-        InterceptResult invokeLLLLL;
+    @Override // com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public boolean isValid() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("Component-Action-Button", "insert");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b)) {
+                return true;
             }
-            t32 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v42.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            m32 insert = new r32(context, q).insert();
-            boolean a = insert.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, insert.b);
-            }
-            return a;
+            return false;
         }
-        return invokeLLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.u83
-    public boolean o(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, v73 v73Var) {
-        InterceptResult invokeLLLLL;
+    public boolean j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, str, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("Component-Action-Button", "remove");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (isValid() && !TextUtils.isEmpty(this.t)) {
+                return true;
             }
-            t32 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v42.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            r32 r32Var = (r32) i42.a(q);
-            if (r32Var == null) {
-                String str2 = "can't find button component:#" + q.b;
-                v42.c("Component-Action-Button", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            m32 B = r32Var.B();
-            boolean a = B.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, B.b);
-            }
-            return a;
+            return false;
         }
-        return invokeLLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.u83
-    public boolean p(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, v73 v73Var) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, context, unitedSchemeEntity, callbackHandler, str, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("Component-Action-Button", StickerDataChangeType.UPDATE);
-            }
-            t32 q = q(unitedSchemeEntity);
-            if (q == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                v42.c("Component-Action-Button", "model is null");
-                return false;
-            }
-            r32 r32Var = (r32) i42.a(q);
-            if (r32Var == null) {
-                String str2 = "can't find button component:#" + q.b;
-                v42.c("Component-Action-Button", str2);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, str2);
-                return false;
-            }
-            m32 update = r32Var.update((r32) q);
-            boolean a = update.a();
-            if (a) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            } else {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, update.b);
-            }
-            return a;
-        }
-        return invokeLLLLL.booleanValue;
+        return invokeV.booleanValue;
     }
 }

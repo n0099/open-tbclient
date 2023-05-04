@@ -1,108 +1,219 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.nadcore.exp.ADConfigError;
-import com.baidu.nadcore.net.request.Headers;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.Map;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class zl0 {
+public class zl0 implements jm0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object d;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final yl0 b;
+    public boolean c;
 
     /* loaded from: classes7.dex */
-    public static class a extends kr0<String> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        @Override // com.baidu.tieba.ir0
-        public void a(Exception exc, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, exc, i) == null) {
+    /* loaded from: classes7.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final zl0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-228283763, "Lcom/baidu/tieba/zl0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-228283763, "Lcom/baidu/tieba/zl0$b;");
+                    return;
+                }
             }
+            a = new zl0(null);
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.jr0
-        /* renamed from: e */
-        public void b(Headers headers, String str, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048579, this, headers, str, i) == null) {
-            }
-        }
-
-        public String f(Headers headers, String str, int i) {
-            InterceptResult invokeLLI;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048580, this, headers, str, i)) == null) ? str : (String) invokeLLI.objValue;
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948363659, "Lcom/baidu/tieba/zl0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948363659, "Lcom/baidu/tieba/zl0;");
+                return;
             }
         }
+        d = new Object();
+    }
 
-        @Override // com.baidu.tieba.jr0
-        public /* bridge */ /* synthetic */ Object d(Headers headers, String str, int i) throws Exception {
-            f(headers, str, i);
-            return str;
+    public zl0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = new yl0();
+        this.c = false;
+    }
+
+    public static zl0 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (zl0) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.d = true;
         }
     }
 
-    public static t11 a(ADConfigError aDConfigError, int i, boolean z) {
-        InterceptResult invokeCommon;
-        String str;
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            t11 t11Var = new t11();
-            s11 b = t11Var.g("1042").b("f1", b(aDConfigError.code)).b("f2", b(String.valueOf(i)));
-            if (z) {
-                str = "0";
-            } else {
-                str = "1";
-            }
-            b.b("f3", b(str));
-            return t11Var;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.d = false;
         }
-        return (t11) invokeCommon.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public /* synthetic */ zl0(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.jm0
+    public int a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (!TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return i;
+            }
+            g("global");
+            if (!a11.a(this.b.a(), str)) {
+                return i;
+            }
+            String str2 = (String) a11.b(this.b.a(), str);
+            if (str2 != null) {
                 try {
-                    return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-                } catch (UnsupportedEncodingException e) {
-                    e.printStackTrace();
+                    return Integer.parseInt(str2);
+                } catch (NumberFormatException unused) {
                 }
             }
-            return "";
+            return i;
         }
-        return (String) invokeL.objValue;
+        return invokeLI.intValue;
     }
 
-    public static void c(ADConfigError aDConfigError, int i, boolean z) {
+    @Override // com.baidu.tieba.jm0
+    public double b(String str, double d2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{aDConfigError, Integer.valueOf(i), Boolean.valueOf(z)}) != null) || aDConfigError == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, Double.valueOf(d2)})) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return d2;
+            }
+            g("global");
+            if (!a11.a(this.b.a(), str)) {
+                return d2;
+            }
+            String str2 = (String) a11.b(this.b.a(), str);
+            if (str2 != null) {
+                try {
+                    return Double.parseDouble(str2);
+                } catch (NumberFormatException unused) {
+                }
+            }
+            return d2;
         }
-        m11.c(a(aDConfigError, i, z), new a());
+        return invokeCommon.doubleValue;
+    }
+
+    public void e(@Nullable String str) throws ADConfigError {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            if (str != null && !TextUtils.isEmpty(str)) {
+                JSONObject c = z01.c(str);
+                if (c.has("error_code")) {
+                    if (TextUtils.equals(c.optString("error_code"), "0")) {
+                        if (c.has("error_message")) {
+                            if (TextUtils.equals(c.optString("error_message"), "success")) {
+                                String optString = c.optString("data");
+                                if (!TextUtils.isEmpty(optString)) {
+                                    JSONObject c2 = z01.c(optString);
+                                    String optString2 = c2.optString("sign");
+                                    if (!TextUtils.isEmpty(optString2)) {
+                                        if (TextUtils.equals(optString2, l11.a().b("nad_app_quick_config").getString("_ad_adc_conf_sign", ""))) {
+                                            return;
+                                        }
+                                        l11.a().b("nad_app_quick_config").i("_ad_adc_conf_sign", optString2);
+                                        synchronized (d) {
+                                            this.b.update(c2);
+                                        }
+                                        return;
+                                    }
+                                    throw ADConfigError.error("2", ADConfigError.REASON_NULL_SIGN);
+                                }
+                                throw ADConfigError.error("7", ADConfigError.REASON_NULL_DATA);
+                            }
+                            throw ADConfigError.error("5", ADConfigError.REASON_WRONG_MSG);
+                        }
+                        throw ADConfigError.error("6", ADConfigError.REASON_NULL_MSG);
+                    }
+                    throw ADConfigError.error("3", ADConfigError.REASON_WRONG_CODE);
+                }
+                throw ADConfigError.error("4", ADConfigError.REASON_NULL_CODE);
+            }
+            throw ADConfigError.error("1", ADConfigError.REASON_NULL_RESPONSE_BODY);
+        }
+    }
+
+    public final void g(String str) {
+        Map<String, ?> all;
+        Map<String, ?> all2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            l11 a2 = l11.a();
+            i11 b2 = a2.b("nad.launch.config." + str);
+            if ("global".equals(str)) {
+                if (!this.c && (all2 = b2.getAll()) != null) {
+                    a11.f(this.b.a(), all2);
+                    this.c = true;
+                }
+            } else if (((Map) a11.b(this.b.b(), str)) == null && (all = b2.getAll()) != null) {
+                a11.e(this.b.b(), str, all);
+            }
+        }
     }
 }

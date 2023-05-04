@@ -1,15 +1,5 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.content.Context;
-import android.graphics.Canvas;
-import android.graphics.ColorFilter;
-import android.graphics.Paint;
-import android.graphics.RectF;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.b41;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,70 +8,11 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class p51 extends o51 {
+public class p51 {
     public static /* synthetic */ Interceptable $ic;
-    public static final n51 u;
+    public static final float[] b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Paint h;
-    public final RectF i;
-    public int j;
-    public float k;
-    public float l;
-    public float m;
-    public float n;
-    public float o;
-    public float p;
-    public float q;
-    public float r;
-    public float s;
-    public float t;
-
-    /* loaded from: classes5.dex */
-    public class a extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ p51 a;
-
-        public a(p51 p51Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p51Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = p51Var;
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationRepeat(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, animator) == null) {
-                super.onAnimationRepeat(animator);
-                this.a.y();
-                p51 p51Var = this.a;
-                p51Var.o = p51Var.n;
-                p51 p51Var2 = this.a;
-                p51Var2.l = (p51Var2.l + 1.0f) % 5.0f;
-            }
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationStart(Animator animator) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, animator) == null) {
-                super.onAnimationStart(animator);
-                this.a.l = 0.0f;
-            }
-        }
-    }
+    public final float a;
 
     static {
         InterceptResult invokeClinit;
@@ -96,137 +27,42 @@ public class p51 extends o51 {
                 return;
             }
         }
-        u = new n51();
+        b = new float[]{0.0f, 1.0E-4f, 2.0E-4f, 5.0E-4f, 9.0E-4f, 0.0014f, 0.002f, 0.0027f, 0.0036f, 0.0046f, 0.0058f, 0.0071f, 0.0085f, 0.0101f, 0.0118f, 0.0137f, 0.0158f, 0.018f, 0.0205f, 0.0231f, 0.0259f, 0.0289f, 0.0321f, 0.0355f, 0.0391f, 0.043f, 0.0471f, 0.0514f, 0.056f, 0.0608f, 0.066f, 0.0714f, 0.0771f, 0.083f, 0.0893f, 0.0959f, 0.1029f, 0.1101f, 0.1177f, 0.1257f, 0.1339f, 0.1426f, 0.1516f, 0.161f, 0.1707f, 0.1808f, 0.1913f, 0.2021f, 0.2133f, 0.2248f, 0.2366f, 0.2487f, 0.2611f, 0.2738f, 0.2867f, 0.2998f, 0.3131f, 0.3265f, 0.34f, 0.3536f, 0.3673f, 0.381f, 0.3946f, 0.4082f, 0.4217f, 0.4352f, 0.4485f, 0.4616f, 0.4746f, 0.4874f, 0.5f, 0.5124f, 0.5246f, 0.5365f, 0.5482f, 0.5597f, 0.571f, 0.582f, 0.5928f, 0.6033f, 0.6136f, 0.6237f, 0.6335f, 0.6431f, 0.6525f, 0.6616f, 0.6706f, 0.6793f, 0.6878f, 0.6961f, 0.7043f, 0.7122f, 0.7199f, 0.7275f, 0.7349f, 0.7421f, 0.7491f, 0.7559f, 0.7626f, 0.7692f, 0.7756f, 0.7818f, 0.7879f, 0.7938f, 0.7996f, 0.8053f, 0.8108f, 0.8162f, 0.8215f, 0.8266f, 0.8317f, 0.8366f, 0.8414f, 0.8461f, 0.8507f, 0.8551f, 0.8595f, 0.8638f, 0.8679f, 0.872f, 0.876f, 0.8798f, 0.8836f, 0.8873f, 0.8909f, 0.8945f, 0.8979f, 0.9013f, 0.9046f, 0.9078f, 0.9109f, 0.9139f, 0.9169f, 0.9198f, 0.9227f, 0.9254f, 0.9281f, 0.9307f, 0.9333f, 0.9358f, 0.9382f, 0.9406f, 0.9429f, 0.9452f, 0.9474f, 0.9495f, 0.9516f, 0.9536f, 0.9556f, 0.9575f, 0.9594f, 0.9612f, 0.9629f, 0.9646f, 0.9663f, 0.9679f, 0.9695f, 0.971f, 0.9725f, 0.9739f, 0.9753f, 0.9766f, 0.9779f, 0.9791f, 0.9803f, 0.9815f, 0.9826f, 0.9837f, 0.9848f, 0.9858f, 0.9867f, 0.9877f, 0.9885f, 0.9894f, 0.9902f, 0.991f, 0.9917f, 0.9924f, 0.9931f, 0.9937f, 0.9944f, 0.9949f, 0.9955f, 0.996f, 0.9964f, 0.9969f, 0.9973f, 0.9977f, 0.998f, 0.9984f, 0.9986f, 0.9989f, 0.9991f, 0.9993f, 0.9995f, 0.9997f, 0.9998f, 0.9999f, 0.9999f, 1.0f, 1.0f};
     }
 
-    @Override // com.baidu.tieba.o51
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            w();
-        }
-    }
-
-    public final void w() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.q = 0.0f;
-            this.r = 0.0f;
-            this.n = 0.0f;
-            this.o = 0.0f;
-            this.p = 0.0f;
-        }
-    }
-
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.h.setAntiAlias(true);
-            this.h.setStrokeWidth(this.s);
-            this.h.setStyle(Paint.Style.STROKE);
-            this.h.setStrokeCap(Paint.Cap.SQUARE);
-        }
-    }
-
-    public final void y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            float f = this.n;
-            this.q = f;
-            this.r = f;
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p51(Context context) {
-        super(context);
+    public p51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = new Paint();
-        this.i = new RectF();
-        u(context);
-        x();
-        b(new a(this));
+        this.a = 1.0f / (b.length - 1);
     }
 
-    @Override // com.baidu.tieba.o51
-    public void c(float f) {
+    public float a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(1048576, this, f) == null) {
-            if (f <= 0.5f) {
-                this.o = this.r + (u.a(f / 0.5f) * 288.0f);
+        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
+            if (f >= 1.0f) {
+                return 1.0f;
             }
-            if (f > 0.5f) {
-                this.n = this.q + (u.a((f - 0.5f) / 0.5f) * 288.0f);
+            if (f <= 0.0f) {
+                return 0.0f;
             }
-            if (Math.abs(this.n - this.o) > 0.0f) {
-                this.p = this.n - this.o;
-            }
-            this.m = (f * 216.0f) + ((this.l / 5.0f) * 1080.0f);
+            float[] fArr = b;
+            int min = Math.min((int) ((fArr.length - 1) * f), fArr.length - 2);
+            float f2 = this.a;
+            float f3 = (f - (min * f2)) / f2;
+            float[] fArr2 = b;
+            return fArr2[min] + (f3 * (fArr2[min + 1] - fArr2[min]));
         }
-    }
-
-    @Override // com.baidu.tieba.o51
-    public void d(Canvas canvas) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) {
-            int save = canvas.save();
-            this.i.set(this.b);
-            RectF rectF = this.i;
-            float f = this.k;
-            rectF.inset(f, f);
-            canvas.rotate(this.m, this.i.centerX(), this.i.centerY());
-            if (this.p != 0.0f) {
-                this.h.setColor(this.j);
-                canvas.drawArc(this.i, this.o, this.p, false, this.h);
-            }
-            canvas.restoreToCount(save);
-        }
-    }
-
-    @Override // com.baidu.tieba.o51
-    public void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.h.setAlpha(i);
-        }
-    }
-
-    @Override // com.baidu.tieba.o51
-    public void l(ColorFilter colorFilter) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, colorFilter) == null) {
-            this.h.setColorFilter(colorFilter);
-        }
-    }
-
-    public final void u(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, context) == null) {
-            this.s = b41.c.a(context, 2.0f);
-            this.t = b41.c.a(context, 11.5f);
-            this.j = -1;
-            v(this.f, this.g);
-        }
-    }
-
-    public final void v(float f, float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Float.valueOf(f), Float.valueOf(f2)}) == null) {
-            this.k = Math.max((Math.min(f, f2) / 2.0f) - this.t, (float) Math.ceil(this.s / 2.0f));
-        }
+        return invokeF.floatValue;
     }
 }

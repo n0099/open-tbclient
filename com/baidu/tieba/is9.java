@@ -1,21 +1,21 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetCardByCategory.ThemeCardInMain;
-import tbclient.ThemeCardPropMain;
 /* loaded from: classes5.dex */
-public class is9 {
+public abstract class is9 implements Comparable<is9> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public ArrayList<lr9> b;
+    public int a;
+
+    public abstract void b();
+
+    public abstract void c();
+
+    public abstract void d();
 
     public is9() {
         Interceptable interceptable = $ic;
@@ -31,40 +31,15 @@ public class is9 {
         }
     }
 
-    public ArrayList<lr9> a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(is9 is9Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, is9Var)) == null) {
+            return this.a - is9Var.a;
         }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void c(ThemeCardInMain themeCardInMain) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themeCardInMain) != null) || themeCardInMain == null) {
-            return;
-        }
-        this.a = themeCardInMain.card_category;
-        List<ThemeCardPropMain> list = themeCardInMain.props;
-        if (list != null && list.size() > 0) {
-            this.b = new ArrayList<>();
-            for (ThemeCardPropMain themeCardPropMain : list) {
-                if (themeCardPropMain != null) {
-                    lr9 lr9Var = new lr9();
-                    lr9Var.k(themeCardPropMain);
-                    this.b.add(lr9Var);
-                }
-            }
-        }
+        return invokeL.intValue;
     }
 }

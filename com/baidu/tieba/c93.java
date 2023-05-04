@@ -1,12 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.util.Log;
+import com.baidu.searchbox.live.interfaces.DI;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.storage.PathType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,19 +14,20 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes3.dex */
-public class c93 extends s93 {
+public class c93 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c93(s83 s83Var) {
-        super(s83Var, "/swanAPI/getLocalImgData");
+    public c93(u83 u83Var) {
+        super(u83Var, "/swanAPI/getAppInfoSync");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -40,52 +41,33 @@ public class c93 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (v73Var == null) {
-                v42.c("GetLocalImgDataAction", "illegal swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "illegal swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("GetAppInfoSyncAction", "handle entity: " + unitedSchemeEntity.toString());
+            }
+            if (x73Var == null) {
+                x42.c(DI.APP_INFO_NAME, "swanApp is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                v42.c("SwanAppAction", "illegal params");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            String optString = optParamsAsJo.optString("filePath");
-            if (TextUtils.isEmpty(optString)) {
-                v42.c("GetLocalImgDataAction", "GetLocalImgDataAction bdfile path null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            } else if (df3.s(optString) != PathType.BD_FILE) {
-                v42.c("GetLocalImgDataAction", "invalid path : " + optString);
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(null, 2006, p83.a(2006));
-                return false;
-            } else {
-                String M = df3.M(optString, v73Var.b);
-                if (TextUtils.isEmpty(M)) {
-                    v42.c("GetLocalImgDataAction", "GetLocalImgDataAction realPath null");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
+            try {
+                JSONObject D = wx1.D(x73Var, context);
+                if (u93.b && D != null) {
+                    Log.d("GetAppInfoSyncAction", "data: " + D.toString());
                 }
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("filePath", M);
-                    v42.i("GetLocalImgDataAction", "getLocalImgData success");
-                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    return true;
-                } catch (JSONException e) {
-                    v42.c("GetLocalImgDataAction", "getLocalImgData failed");
-                    if (s93.b) {
-                        e.printStackTrace();
-                    }
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                    return false;
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(D, 0);
+                return true;
+            } catch (JSONException e) {
+                if (u93.b) {
+                    Log.d("GetAppInfoSyncAction", Log.getStackTraceString(e));
                 }
+                x42.c(DI.APP_INFO_NAME, Log.getStackTraceString(e));
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
             }
         }
         return invokeLLLL.booleanValue;

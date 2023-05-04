@@ -1,120 +1,26 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class gp0 {
+public final class gp0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<a> b;
-    public final String c;
+    public q81 a;
+    public aa1 b;
 
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public String b;
-        public boolean c;
-        public String d;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = false;
-        }
-
-        public String a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return this.a;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public String b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.d;
-            }
-            return (String) invokeV.objValue;
-        }
-
-        public boolean c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.c;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-
-        public static a e(JSONObject jSONObject) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
-                a aVar = new a();
-                aVar.a = jSONObject.optString("name");
-                aVar.b = jSONObject.optString("type");
-                aVar.d = "\"" + aVar.b + "\"：\"" + aVar.a + "\"";
-                return aVar;
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public void f(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-                this.c = z;
-            }
-        }
-    }
-
-    public gp0(@NonNull JSONObject jSONObject) {
-        int length;
+    public gp0(fp0 fp0Var, Context context) {
+        Integer num;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
+            Object[] objArr = {fp0Var, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -124,30 +30,58 @@ public class gp0 {
                 return;
             }
         }
-        jSONObject.optInt("support_close");
-        this.a = jSONObject.optString("title");
-        this.b = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("reasons");
-        if (optJSONArray == null) {
-            length = 0;
+        Intrinsics.checkNotNullParameter(context, "context");
+        if (fp0Var != null) {
+            num = Integer.valueOf(fp0Var.b());
         } else {
-            length = optJSONArray.length();
+            num = null;
         }
-        for (int i3 = 0; i3 < length; i3++) {
-            a e = a.e(optJSONArray.optJSONObject(i3));
-            if (e != null && e.d()) {
-                w01.b(this.b, e);
-            }
+        if (num != null && num.intValue() == 1) {
+            this.a = new q81(context);
+        } else if (num != null && num.intValue() == 0) {
+            this.b = new aa1(context);
         }
-        this.c = jSONObject.optString("scheme");
     }
 
-    public static gp0 a(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new gp0(jSONObject);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            aa1 aa1Var = this.b;
+            if (aa1Var != null) {
+                aa1Var.i();
+            }
+            q81 q81Var = this.a;
+            if (q81Var != null) {
+                q81Var.h();
+            }
         }
-        return (gp0) invokeL.objValue;
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            aa1 aa1Var = this.b;
+            if (aa1Var != null) {
+                aa1Var.l();
+            }
+            q81 q81Var = this.a;
+            if (q81Var != null) {
+                q81Var.k();
+            }
+        }
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            aa1 aa1Var = this.b;
+            if (aa1Var != null) {
+                aa1Var.o(z);
+            }
+            q81 q81Var = this.a;
+            if (q81Var != null) {
+                q81Var.n(z);
+            }
+        }
     }
 }

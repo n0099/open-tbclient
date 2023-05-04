@@ -1,147 +1,87 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.lang.ref.WeakReference;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.BaseAdRipper;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.components.core.response.model.AdResultData;
+import com.kwad.sdk.core.response.model.AdInfo;
+import com.kwad.sdk.core.response.model.AdTemplate;
+import java.lang.reflect.Field;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class aua {
+public class aua extends BaseAdRipper {
     public static /* synthetic */ Interceptable $ic;
-    public static final aua e;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Context> a;
-    public volatile boolean b;
-    public volatile boolean c;
-    public cua d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947629052, "Lcom/baidu/tieba/aua;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947629052, "Lcom/baidu/tieba/aua;");
-                return;
-            }
-        }
-        e = new aua();
-    }
-
-    public aua() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aua(Ssp.Pid pid) {
+        super(pid);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pid};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Ssp.Pid) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = false;
-        this.c = false;
     }
 
-    public Context a() {
-        InterceptResult invokeV;
+    @Override // com.fun.ad.sdk.internal.api.ripper.BaseAdRipper
+    public RippedAd getRippedAdInternal(Object obj) {
+        InterceptResult invokeL;
+        AdResultData adResultData;
+        List<AdTemplate> adTemplateList;
+        List<AdInfo> list;
+        AdInfo adInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void e(pta ptaVar, boolean z) {
-        this.d.d(ptaVar, z);
-    }
-
-    /* JADX INFO: Access modifiers changed from: private */
-    public /* synthetic */ void g(Runnable runnable, pta ptaVar) {
-        if (this.b) {
-            runnable.run();
-        } else if (ptaVar != null) {
-            HonorPushErrorEnum honorPushErrorEnum = HonorPushErrorEnum.ERROR_NOT_INITIALIZED;
-            ptaVar.onFailure(honorPushErrorEnum.getErrorCode(), honorPushErrorEnum.getMessage());
-        }
-    }
-
-    public void b(final pta<String> ptaVar, final boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ptaVar, z) == null) {
-            d(new Runnable() { // from class: com.baidu.tieba.lta
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        aua.this.e(ptaVar, z);
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
+            try {
+                Field declaredField = obj.getClass().getDeclaredField("a");
+                boolean z = true;
+                declaredField.setAccessible(true);
+                Object obj2 = declaredField.get(obj);
+                if (obj2 == null) {
+                    return null;
                 }
-            }, ptaVar);
-        }
-    }
-
-    public final void d(final Runnable runnable, final pta<?> ptaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, runnable, ptaVar) == null) {
-            nua.b(new Runnable() { // from class: com.baidu.tieba.kta
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        aua.this.g(runnable, ptaVar);
-                    }
+                if (obj2 instanceof AdResultData) {
+                    adResultData = (AdResultData) obj2;
+                } else {
+                    adResultData = null;
                 }
-            });
-        }
-    }
-
-    public void c(final eua euaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, euaVar) == null) {
-            nua.b(new Runnable() { // from class: com.baidu.tieba.jta
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // java.lang.Runnable
-                public final void run() {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                        aua.this.f(euaVar);
-                    }
+                if (adResultData == null) {
+                    z = false;
                 }
-            });
-        }
-    }
-
-    public final void f(eua euaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, euaVar) == null) && !this.b) {
-            this.b = true;
-            this.a = new WeakReference<>(euaVar.a);
-            this.c = euaVar.b;
-            this.d = new cua(euaVar.a);
-            if (this.c) {
-                b(null, true);
+                if (z && (adTemplateList = adResultData.getAdTemplateList()) != null && !adTemplateList.isEmpty()) {
+                    AdTemplate adTemplate = adTemplateList.get(0);
+                    if (adTemplate == null) {
+                        list = null;
+                    } else {
+                        list = adTemplate.adInfoList;
+                    }
+                    if (list == null || list.isEmpty() || (adInfo = list.get(0)) == null) {
+                        return null;
+                    }
+                    return dua.a(adInfo);
+                }
+                return null;
+            } catch (Exception e) {
+                LogPrinter.e(e);
+                return null;
             }
         }
+        return (RippedAd) invokeL.objValue;
     }
 }

@@ -8,13 +8,13 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.kb4;
+import com.baidu.tieba.mb4;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendViewHolder> implements View.OnClickListener {
     public LayoutInflater a;
     public a b;
-    public kb4 c;
+    public mb4 c;
 
     /* loaded from: classes3.dex */
     public interface a {
@@ -29,8 +29,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
         this.b = aVar;
     }
 
-    public void n(kb4 kb4Var) {
-        this.c = kb4Var;
+    public void n(mb4 mb4Var) {
+        this.c = mb4Var;
         notifyDataSetChanged();
     }
 
@@ -44,8 +44,8 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     public int getItemCount() {
         List<RecommendItemModel> list;
-        kb4 kb4Var = this.c;
-        if (kb4Var != null && (list = kb4Var.b) != null) {
+        mb4 mb4Var = this.c;
+        if (mb4Var != null && (list = mb4Var.b) != null) {
             return list.size();
         }
         return 0;
@@ -72,6 +72,6 @@ public class ListRecommendAdapter extends RecyclerView.Adapter<ListRecommendView
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: l */
     public ListRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d08ad, viewGroup, false));
+        return new ListRecommendViewHolder(this.a.inflate(R.layout.obfuscated_res_0x7f0d08b9, viewGroup, false));
     }
 }

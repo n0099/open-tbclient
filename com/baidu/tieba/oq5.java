@@ -1,34 +1,97 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.tbadk.util.AppLaunchInfoFetcher;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.widget.ListView.BdRecyclerView;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.util.RemoveViewNPE;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class oq5 {
+public final class oq5 {
     public static /* synthetic */ Interceptable $ic;
+    public static final oq5 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppLaunchInfoFetcher.Type a;
-    public Intent b;
 
-    public oq5(AppLaunchInfoFetcher.Type type, Intent intent) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948040918, "Lcom/baidu/tieba/oq5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948040918, "Lcom/baidu/tieba/oq5;");
+                return;
+            }
+        }
+        a = new oq5();
+    }
+
+    public oq5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {type, intent};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = type;
-        this.b = intent;
+    }
+
+    @JvmStatic
+    public static final void a(BdRecyclerView viewGroup, int i, NullPointerException e) {
+        tq5 tq5Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65538, null, viewGroup, i, e) == null) {
+            Intrinsics.checkNotNullParameter(viewGroup, "viewGroup");
+            Intrinsics.checkNotNullParameter(e, "e");
+            View childAt = viewGroup.getChildAt(i);
+            Intrinsics.checkNotNullExpressionValue(childAt, "viewGroup.getChildAt(index)");
+            if (childAt instanceof ViewGroup) {
+                tq5Var = a.b((ViewGroup) childAt);
+            } else {
+                tq5Var = null;
+            }
+            if (tq5Var != null) {
+                String str = "BdRecyclerView removeViewAt() NPE at index: " + i + ", the out parent is: [class: " + childAt.getClass().getSimpleName() + ", id: " + childAt.getId() + "], internal parent is: [class: " + tq5Var.b().getClass().getSimpleName() + ", id: " + tq5Var.b().getId() + "], child index is: " + tq5Var.a();
+                Throwable initCause = new RemoveViewNPE().initCause(new Throwable(str, e));
+                BdLog.detailException(initCause);
+                TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_RD_USE).param("obj_param1", 6).param("obj_source", str));
+                initCause.printStackTrace();
+            }
+        }
+    }
+
+    public final tq5 b(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
+            int childCount = viewGroup.getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View childAt = viewGroup.getChildAt(i);
+                if (childAt instanceof ViewGroup) {
+                    b((ViewGroup) childAt);
+                } else if (childAt == null) {
+                    return new tq5(viewGroup, i);
+                }
+            }
+            return null;
+        }
+        return (tq5) invokeL.objValue;
     }
 }

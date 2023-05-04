@@ -23,7 +23,7 @@ import java.util.List;
 public abstract class CustomViewTarget<T extends View, Z> implements Target<Z> {
     public static final String TAG = "CustomViewTarget";
     @IdRes
-    public static final int VIEW_TAG_ID = 2131299805;
+    public static final int VIEW_TAG_ID = 2131299813;
     @Nullable
     public View.OnAttachStateChangeListener attachStateListener;
     public boolean isAttachStateListenerAdded;

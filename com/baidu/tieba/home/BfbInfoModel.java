@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.il9;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -113,18 +113,18 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_GET_BFB_INFO, 309366);
-        T();
-        S();
+        Y();
+        X();
     }
 
-    public void U(b bVar) {
+    public void Z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void Q() {
+    public void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             MessageManager.getInstance().unRegisterListener(this.b);
@@ -133,18 +133,18 @@ public class BfbInfoModel extends BdBaseModel<CreateBarGuideActivity> {
         }
     }
 
-    public final void S() {
+    public final void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             registerListener(this.b);
         }
     }
 
-    public final void T() {
+    public final void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            il9.h(309366, BfbInfoSocketResponseMessage.class, false, false);
-            il9.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
+            xo9.h(309366, BfbInfoSocketResponseMessage.class, false, false);
+            xo9.c(309366, CmdConfigHttp.CMD_GET_BFB_INFO, TbConfig.GET_BFB_INFO, BfbInfoHttpResponseMessage.class, false, false, false, false);
         }
     }
 

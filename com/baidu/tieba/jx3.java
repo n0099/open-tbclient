@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import android.util.Pair;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.text.TextUtils;
+import androidx.exifinterface.media.ExifInterface;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -11,129 +10,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
-import rx.schedulers.Schedulers;
-import rx.subjects.PublishSubject;
+import com.google.android.exoplayer2.text.cea.Cea608Decoder;
+import org.apache.commons.codec.net.QCodec;
 /* loaded from: classes5.dex */
-public final class jx3 {
+public class jx3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile d a;
-    public static final b2b b;
+    public static final byte[] a;
+    public static final byte[] b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes5.dex */
-    public interface c extends Executor {
-        void execute(@NonNull Runnable runnable, @NonNull String str);
-    }
-
-    /* loaded from: classes5.dex */
-    public static class a implements b2b<Pair<Runnable, String>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.b2b
-        public void call(Pair<Runnable, String> pair) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, pair) == null) {
-                String name = Thread.currentThread().getName();
-                Thread currentThread = Thread.currentThread();
-                currentThread.setName(name + "-" + ((String) pair.second));
-                try {
-                    ((Runnable) pair.first).run();
-                } catch (Throwable unused) {
-                }
-                Thread.currentThread().setName(name);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b implements f2b<Pair<Runnable, String>, n1b<?>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f2b
-        public n1b<?> call(Pair<Runnable, String> pair) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pair)) == null) {
-                return r1b.g(pair).h(Schedulers.io()).f(jx3.b).l();
-            }
-            return (n1b) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d extends e6b<Pair<Runnable, String>, Pair<Runnable, String>> implements c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public d(f6b f6bVar) {
-            super(f6bVar);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {f6bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((f6b) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-        }
-
-        @Override // java.util.concurrent.Executor
-        public void execute(@NonNull Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, runnable) == null) {
-                execute(runnable, "");
-            }
-        }
-
-        @Override // com.baidu.tieba.jx3.c
-        public void execute(@NonNull Runnable runnable, @NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable, str) == null) {
-                onNext(Pair.create(runnable, jx3.c(str)));
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -148,7 +32,18 @@ public final class jx3 {
                 return;
             }
         }
-        b = new a();
+        a = new byte[]{48, 75, 97, 106, 68, 55, 65, 90, 99, 70, 50, 81, 110, 80, 114, 53, 102, 119, 105, 72, 82, 78, 121, 103, 109, 117, 112, 85, 84, 73, 88, 120, 54, 57, 66, 87, 98, 45, 104, 77, 67, 71, 74, 111, QCodec.UNDERSCORE, 86, 56, 69, 115, 107, 122, 49, 89, 100, 118, 76, 51, 52, 108, Constants.SHORT_PING_CMD_TYPE, 116, 113, 83, 79};
+        b = new byte[128];
+        int i = 0;
+        while (true) {
+            byte[] bArr = a;
+            if (i < bArr.length) {
+                b[bArr[i]] = (byte) i;
+                i++;
+            } else {
+                return;
+            }
+        }
     }
 
     public jx3() {
@@ -165,49 +60,33 @@ public final class jx3 {
         }
     }
 
-    public static c b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (a == null) {
-                synchronized (jx3.class) {
-                    if (a == null) {
-                        a = new d(PublishSubject.D());
-                        a.n().d(new b()).s().t();
-                    }
-                }
-            }
-            return a;
-        }
-        return (c) invokeV.objValue;
-    }
-
-    public static String c(String str) {
+    public String a(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null) {
-                if (!str.startsWith("SwanAppExecutorUtils_")) {
-                    str = "SwanAppExecutorUtils_" + str;
-                }
-            } else {
-                str = null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return "";
             }
-            if (str == null) {
-                str = "SwanAppExecutorUtils";
+            for (int length = str.getBytes().length % 3; length > 0 && length < 3; length++) {
+                str = str + "$";
             }
-            if (str.length() > 256) {
-                return str.substring(0, 255);
+            byte[] bytes = str.getBytes();
+            byte[] bArr = new byte[(bytes.length / 3) * 4];
+            int i = 0;
+            int i2 = 0;
+            while (i < bytes.length) {
+                byte[] bArr2 = a;
+                bArr[i2] = bArr2[(bytes[i] & Cea608Decoder.CC_IMPLICIT_DATA_HEADER) >> 2];
+                int i3 = i + 1;
+                bArr[i2 + 1] = bArr2[((bytes[i] & 3) << 4) + ((bytes[i3] & 240) >> 4)];
+                int i4 = i + 2;
+                bArr[i2 + 2] = bArr2[((bytes[i3] & 15) << 2) + ((bytes[i4] & ExifInterface.MARKER_SOF0) >> 6)];
+                bArr[i2 + 3] = bArr2[bytes[i4] & 63];
+                i += 3;
+                i2 += 4;
             }
-            return str;
+            return new String(bArr);
         }
         return (String) invokeL.objValue;
-    }
-
-    public static void d(@NonNull Runnable runnable, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, runnable, str) == null) {
-            b().execute(runnable, str);
-        }
     }
 }

@@ -1,19 +1,54 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.os.Bundle;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.ref.WeakReference;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class lt2 {
+public class lt2 implements Application.ActivityLifecycleCallbacks {
     public static /* synthetic */ Interceptable $ic;
-    public static List<WeakReference<kt2>> a;
+    public static final boolean c;
+    public static volatile lt2 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityCreated(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityDestroyed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityPaused(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -28,96 +63,122 @@ public class lt2 {
                 return;
             }
         }
-        a = new ArrayList();
+        c = ho1.a;
     }
 
-    public static void a(du1 du1Var) {
+    public lt2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, du1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                kt2 kt2Var = a.get(size).get();
-                if (kt2Var == null) {
-                    a.remove(size);
-                } else {
-                    kt2Var.d(du1Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = false;
+    }
+
+    public static lt2 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d == null) {
+                synchronized (lt2.class) {
+                    if (d == null) {
+                        d = new lt2();
+                    }
                 }
             }
+            return d;
+        }
+        return (lt2) invokeV.objValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
+            }
+            er2.c().registerActivityLifecycleCallbacks(this);
         }
     }
 
-    public static void b(du1 du1Var) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, du1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                kt2 kt2Var = a.get(size).get();
-                if (kt2Var == null) {
-                    a.remove(size);
-                } else {
-                    kt2Var.b(du1Var);
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (c) {
+                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
+            }
+            er2.c().unregisterActivityLifecycleCallbacks(this);
+        }
+    }
+
+    public void d(boolean z) {
+        boolean z2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (z2 = this.a) != z) {
+            if (z2) {
+                this.a = false;
+                zt2.a().e(null);
+                return;
+            }
+            this.a = true;
+            zt2.a().d(null);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityResumed(Activity activity) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && !this.a) {
+            this.a = true;
+            zt2.a().d(activity);
+        }
+    }
+
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStarted(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
+            int i = this.b + 1;
+            this.b = i;
+            if (i == 1 && !this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onBackgroundToForeground");
                 }
+                this.a = true;
+                zt2.a().d(activity);
             }
         }
     }
 
-    public static void c(du1 du1Var) {
+    @Override // android.app.Application.ActivityLifecycleCallbacks
+    public void onActivityStopped(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, du1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                kt2 kt2Var = a.get(size).get();
-                if (kt2Var == null) {
-                    a.remove(size);
-                } else {
-                    kt2Var.c(du1Var);
+        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
+            int i = this.b - 1;
+            this.b = i;
+            if (i == 0 && this.a) {
+                if (c) {
+                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
                 }
+                this.a = false;
+                zt2.a().e(activity);
             }
-        }
-    }
-
-    public static void d(du1 du1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, du1Var) == null) {
-            for (int size = a.size() - 1; size >= 0; size--) {
-                kt2 kt2Var = a.get(size).get();
-                if (kt2Var == null) {
-                    a.remove(size);
-                } else {
-                    kt2Var.a(du1Var);
-                }
-            }
-        }
-    }
-
-    public static void f(kt2 kt2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, kt2Var) != null) || kt2Var == null) {
-            return;
-        }
-        for (int size = a.size() - 1; size >= 0; size--) {
-            kt2 kt2Var2 = a.get(size).get();
-            if (kt2Var2 == null || kt2Var == kt2Var2) {
-                a.remove(size);
-            }
-        }
-    }
-
-    public static void e(kt2 kt2Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65541, null, kt2Var) != null) || kt2Var == null) {
-            return;
-        }
-        boolean z = false;
-        for (int size = a.size() - 1; size >= 0; size--) {
-            kt2 kt2Var2 = a.get(size).get();
-            if (kt2Var2 == null) {
-                a.remove(size);
-            } else if (kt2Var2 == kt2Var) {
-                z = true;
-            } else {
-                z = false;
-            }
-        }
-        if (!z) {
-            a.add(new WeakReference<>(kt2Var));
         }
     }
 }

@@ -12,11 +12,11 @@ import com.baidu.tbadk.core.atomData.NearbyFriendsActivityConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.in;
-import com.baidu.tieba.nc9;
+import com.baidu.tieba.kf9;
 import com.baidu.tieba.nearby.message.NearbyFriendsHttpResponseMessage;
-import com.baidu.tieba.no8;
-import com.baidu.tieba.oo8;
-import com.baidu.tieba.po8;
+import com.baidu.tieba.wq8;
+import com.baidu.tieba.xq8;
+import com.baidu.tieba.yq8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,10 +25,10 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements oo8 {
+public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implements xq8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public po8 a;
+    public yq8 a;
     public int b;
     public List<in> c;
     public boolean d;
@@ -39,7 +39,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -79,7 +79,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003520 || !(httpResponsedMessage instanceof NearbyFriendsHttpResponseMessage) || this.a.a == null) {
                 return;
             }
-            this.a.a.n();
+            this.a.a.c();
             if (httpResponsedMessage.getError() != 0) {
                 if (this.a.b == 1) {
                     if (this.a.a != null) {
@@ -88,7 +88,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
                     }
                     return;
                 } else if (this.a.a != null) {
-                    this.a.a.h(httpResponsedMessage.getErrorString());
+                    this.a.a.i(httpResponsedMessage.getErrorString());
                     return;
                 } else {
                     return;
@@ -100,28 +100,28 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             if (this.a.b == 1) {
                 this.a.c.clear();
             }
-            no8 nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
+            wq8 nearbyFriendData = ((NearbyFriendsHttpResponseMessage) httpResponsedMessage).getNearbyFriendData();
             if (!ListUtils.isEmpty(nearbyFriendData.a)) {
                 this.a.c.addAll(nearbyFriendData.a);
             }
             this.a.d = nearbyFriendData.b;
-            this.a.a.n();
-            this.a.a.c(false);
-            this.a.a.l(0);
-            this.a.a.e(this.a.e, this.a.c);
-            this.a.a.m(this.a.d);
+            this.a.a.c();
+            this.a.a.d(false);
+            this.a.a.m(0);
+            this.a.a.h(this.a.e, this.a.c);
+            this.a.a.n(this.a.d);
             if (this.a.d) {
-                NearbyFriendsModel.S(this.a);
+                NearbyFriendsModel.X(this.a);
             }
         }
     }
 
-    public NearbyFriendsModel(po8 po8Var, BdUniqueId bdUniqueId) {
+    public NearbyFriendsModel(yq8 yq8Var, BdUniqueId bdUniqueId) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {po8Var, bdUniqueId};
+            Object[] objArr = {yq8Var, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -134,33 +134,33 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         this.b = 1;
         a aVar = new a(this, CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
         this.f = aVar;
-        this.a = po8Var;
+        this.a = yq8Var;
         aVar.setTag(bdUniqueId);
         registerListener(this.f);
     }
 
-    public static /* synthetic */ int S(NearbyFriendsModel nearbyFriendsModel) {
+    public static /* synthetic */ int X(NearbyFriendsModel nearbyFriendsModel) {
         int i = nearbyFriendsModel.b;
         nearbyFriendsModel.b = i + 1;
         return i;
     }
 
-    public void Y(Intent intent) {
+    public void d0(Intent intent) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, intent) == null) && intent != null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
             this.e = intent.getBooleanExtra(NearbyFriendsActivityConfig.KEY_NEED_COMPLETE_PROFILE, false);
         }
     }
 
-    @Override // com.baidu.tieba.oo8
+    @Override // com.baidu.tieba.xq8
     public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             loadData();
         }
     }
 
-    @Override // com.baidu.tieba.oo8
+    @Override // com.baidu.tieba.xq8
     public boolean hasMore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -177,27 +177,27 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
         }
     }
 
-    @Override // com.baidu.tieba.oo8
+    @Override // com.baidu.tieba.xq8
     public void refresh() {
-        po8 po8Var;
+        yq8 yq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (po8Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048582, this) != null) || (yq8Var = this.a) == null) {
             return;
         }
-        po8Var.p();
-        this.a.n();
+        yq8Var.p();
+        this.a.c();
         this.b = 1;
         loadData();
     }
 
-    @Override // com.baidu.tieba.oo8
+    @Override // com.baidu.tieba.xq8
     public void reload() {
-        po8 po8Var;
+        yq8 yq8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (po8Var = this.a) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || (yq8Var = this.a) == null) {
             return;
         }
-        po8Var.p();
+        yq8Var.p();
         this.a.a();
         this.b = 1;
         loadData();
@@ -211,7 +211,7 @@ public class NearbyFriendsModel extends BdBaseModel<NearbyFriendsModel> implemen
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_NEARBY_FRIENDS);
             httpMessage.addParam("pn", this.b);
             httpMessage.addParam("rn", 20);
-            httpMessage.addParam("app_pos", nc9.e().b());
+            httpMessage.addParam("app_pos", kf9.e().b());
             MessageManager.getInstance().sendMessage(httpMessage);
             return false;
         }

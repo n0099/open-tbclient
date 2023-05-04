@@ -1,58 +1,41 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Bundle;
+import android.text.TextUtils;
+import android.view.View;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.PersonBarActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
+import com.baidu.tbadk.core.atomData.PersonPostActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.redtip.PersonRedTipManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.UUID;
 /* loaded from: classes7.dex */
-public class y89 implements nn8 {
+public class y89 implements l2a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public HashMap<String, ln8> c;
+    public TbPageContext a;
+    public int b;
+    public int c;
+    public boolean d;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final nn8 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-304667887, "Lcom/baidu/tieba/y89$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-304667887, "Lcom/baidu/tieba/y89$b;");
-                    return;
-                }
-            }
-            a = new y89(null);
-        }
-    }
-
-    public y89() {
+    public y89(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -62,175 +45,91 @@ public class y89 implements nn8 {
                 return;
             }
         }
-        this.c = new HashMap<>();
+        this.b = 1;
+        this.c = 2;
+        this.d = false;
+        this.a = tbPageContext;
     }
 
-    public static nn8 m() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.l2a
+    public void a(View view2, yt6 yt6Var) {
+        int i;
+        int i2;
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (nn8) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            n().k(this.a);
-            q(this.a);
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b = this.a;
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            this.a = UUID.randomUUID().toString();
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            n().j(this.a);
-        }
-    }
-
-    public final ln8 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            x89 x89Var = new x89(this.a);
-            this.c.put(this.a, x89Var);
-            return x89Var;
-        }
-        return (ln8) invokeV.objValue;
-    }
-
-    public final ln8 n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            ln8 ln8Var = this.c.get(this.a);
-            if (ln8Var == null) {
-                return l();
-            }
-            return ln8Var;
-        }
-        return (ln8) invokeV.objValue;
-    }
-
-    public /* synthetic */ y89(a aVar) {
-        this();
-    }
-
-    public boolean o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            return n().d(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public boolean p(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
-            return n().e(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void q(String str) {
-        ln8 ln8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048591, this, str) != null) || (ln8Var = this.c.get(str)) == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, view2, yt6Var) != null) || yt6Var == null) {
             return;
         }
-        ln8Var.a(str);
-        this.c.remove(str);
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void a(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-            n().c(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void b(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            n().f(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void h(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, str) == null) {
-            n().g(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void i(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, str) == null) {
-            n().l(this.a, i, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !StringUtils.isNull(this.b)) {
-            if (!o(this.b) && !p(this.b)) {
-                kn8.b(this.b);
-                this.c.remove(this.a);
+        UserData userData = null;
+        Bundle bundle = yt6Var.b;
+        if (bundle != null && (userData = (UserData) bundle.getSerializable(UserData.TYPE_USER)) != null) {
+            if (TextUtils.equals(TbadkCoreApplication.getCurrentAccount(), userData.getUserId())) {
+                i = 1;
             } else {
-                q(this.b);
+                i = 2;
             }
-            g();
-            n().h(this.b, str);
-            this.b = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void f(int i, int i2, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048581, this, i, i2, str) == null) {
-            n().b(this.a, i, i2, str);
-        }
-    }
-
-    @Override // com.baidu.tieba.nn8
-    public void k(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            n().i(this.a, str);
-            if (!o(this.a) && !p(this.a)) {
-                kn8.b(this.a);
-                this.c.remove(this.a);
+            this.b = i;
+            if (userData.isGod()) {
+                i2 = 1;
             } else {
-                q(this.a);
+                i2 = 2;
             }
-            this.a = null;
+            this.c = i2;
+            if (this.b == 1) {
+                z = true;
+            } else {
+                z = false;
+            }
+            this.d = z;
+        }
+        switch (yt6Var.a) {
+            case 2:
+                if (!ViewHelper.checkUpIsLogin(this.a.getPageActivity())) {
+                    return;
+                }
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{TbConfig.URL_MEMBER_BUY});
+                return;
+            case 3:
+                if (userData == null) {
+                    return;
+                }
+                pt4.x(this.a.getPageActivity(), this.a.getString(R.string.user_icon_web_view_title), TbConfig.SERVER_ADDRESS_WEB_VIEW + "mo/q/icon/panelIcon?user_id=" + userData.getUserId() + "&opacity=0", true, true, true);
+                return;
+            case 4:
+                if (userData == null) {
+                    return;
+                }
+                if (yt6Var instanceof x59) {
+                    TiebaStatic.log(new StatisticItem("c11586"));
+                } else {
+                    TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 2).param("obj_type", this.b).param("obj_source", this.c));
+                }
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), true, userData.getUserId(), userData.getSex()).updateFollowNum(userData.getConcernNum(), userData.getPortrait())));
+                return;
+            case 5:
+                PersonRedTipManager.getInstance().updateRedTipState(2, false, this.d);
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 3).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonListActivityConfig(this.a.getPageActivity(), false, userData.getUserId(), userData.getSex())));
+                return;
+            case 6:
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 1).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonPostActivityConfig(this.a.getPageActivity(), userData.getUserId(), userData.getSex(), userData.getPortrait())));
+                return;
+            case 7:
+                if (userData == null) {
+                    return;
+                }
+                TiebaStatic.log(new StatisticItem("c11597").param("obj_locate", 4).param("obj_type", this.b).param("obj_source", this.c));
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PersonBarActivityConfig(this.a.getPageActivity(), userData.getLike_bars(), userData.getUserId(), userData.getSex())));
+                return;
+            default:
+                return;
         }
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes5.dex */
 public interface mr1 {
-    boolean a(@NonNull JSONObject jSONObject);
+    void a(Context context, int i);
+
+    int b(Context context);
 }

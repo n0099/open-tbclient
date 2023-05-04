@@ -11,9 +11,9 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.SelectForumData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.lx;
 import com.baidu.tieba.view.SymbolEMTextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class InterestForumTagView extends LinearLayout implements jx {
+public class InterestForumTagView extends LinearLayout implements lx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -97,7 +97,7 @@ public class InterestForumTagView extends LinearLayout implements jx {
             this.d = selectForumData;
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09cb, selectForumData.forumName));
+                symbolEMTextView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f09e2, selectForumData.forumName));
             }
         }
     }
@@ -123,13 +123,13 @@ public class InterestForumTagView extends LinearLayout implements jx {
         }
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.lx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(1048580, this, tbPageContext, i) == null) {
             SymbolEMTextView symbolEMTextView = this.b;
             if (symbolEMTextView != null) {
-                r25 d = r25.d(symbolEMTextView);
+                g35 d = g35.d(symbolEMTextView);
                 d.B(R.dimen.T_X09);
                 d.w(R.color.CAM_X0107);
                 d.y(R.dimen.tbds0);
@@ -139,7 +139,7 @@ public class InterestForumTagView extends LinearLayout implements jx {
             if (imageView != null) {
                 WebPManager.setPureDrawable(imageView, R.drawable.icon_pure_card_close22, R.color.CAM_X0108, WebPManager.ResourceStateType.NORMAL);
             }
-            r25 d2 = r25.d(this);
+            g35 d2 = g35.d(this);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0202);
         }

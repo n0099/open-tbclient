@@ -1,11 +1,9 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.android.imsdk.upload.action.IMPushUploadManager;
-import com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener;
-import com.baidu.android.imsdk.upload.utils.RequsetNetworkUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,94 +11,34 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ScheduledExecutorService;
 /* loaded from: classes5.dex */
 public class m70 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile m70 c;
-    public static HashMap<String, AtomicBoolean> d;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile m70 f;
+    public static int g;
     public transient /* synthetic */ FieldHolder $fh;
-    public k70 a;
-    public o70 b;
+    public Context a;
+    public int b;
+    public g80 c;
+    public ScheduledExecutorService d;
+    public ConcurrentHashMap<Integer, n70> e;
 
-    /* loaded from: classes5.dex */
-    public class b implements IMPushUploadResponseListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ List c;
-        public final /* synthetic */ int d;
-        public final /* synthetic */ m70 e;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    b bVar = this.a;
-                    bVar.e.g(bVar.b, bVar.a, bVar.c, bVar.d);
-                }
-            }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947925443, "Lcom/baidu/tieba/m70;")) == null) {
+            return;
         }
-
-        public b(m70 m70Var, String str, Context context, List list, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {m70Var, str, context, list, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = m70Var;
-            this.a = str;
-            this.b = context;
-            this.c = list;
-            this.d = i;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.android.imsdk.upload.action.IMPushUploadResponseListener
-        public void uploadResponse(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                ((AtomicBoolean) m70.d.get(this.a)).set(false);
-                if (i == 0) {
-                    this.e.a.f().execute(new a(this));
-                }
-            }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947925443, "Lcom/baidu/tieba/m70;");
         }
     }
 
@@ -108,63 +46,102 @@ public class m70 {
     public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ m70 d;
+        public final /* synthetic */ m70 a;
 
-        public a(m70 m70Var, Context context, String str, int i) {
+        public a(m70 m70Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {m70Var, context, str, Integer.valueOf(i)};
+                Object[] objArr = {m70Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.d = m70Var;
-            this.a = context;
-            this.b = str;
-            this.c = i;
+            this.a = m70Var;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.c.c();
             }
-            this.d.j(this.a, this.b, this.c);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947925443, "Lcom/baidu/tieba/m70;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public n70 a;
+        public final /* synthetic */ m70 b;
+
+        public b(m70 m70Var, n70 n70Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m70Var, n70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947925443, "Lcom/baidu/tieba/m70;");
-                return;
+            this.b = m70Var;
+            this.a = n70Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c.k(this.a);
             }
         }
-        d = new HashMap<>(2);
     }
 
-    public void f() {
-        k70 k70Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (k70Var = this.a) != null) {
-            k70Var.c();
+    /* loaded from: classes5.dex */
+    public class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public n70 a;
+        public final /* synthetic */ m70 b;
+
+        public c(m70 m70Var, n70 n70Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m70Var, n70Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = m70Var;
+            this.a = n70Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.b.c.f(this.a);
+            }
         }
     }
 
@@ -183,100 +160,101 @@ public class m70 {
                 return;
             }
         }
-        this.a = k70.h(context);
-        this.b = new o70();
+        this.e = new ConcurrentHashMap<>();
+        this.a = context;
+        this.b = r70.g(context, "flow_handle", g);
+        this.c = g80.j(this.a);
+        this.d = Executors.newSingleThreadScheduledExecutor();
     }
 
-    public static Boolean i(String str) {
-        InterceptResult invokeL;
+    public synchronized void e(n70 n70Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (d.get(str) == null) {
-                d.put(str, new AtomicBoolean(false));
-                return Boolean.FALSE;
+        if (interceptable == null || interceptable.invokeL(1048579, this, n70Var) == null) {
+            synchronized (this) {
+                if (!this.e.containsKey(Integer.valueOf(n70Var.a))) {
+                    return;
+                }
+                u80.b("EndFlow", n70Var.f());
+                this.e.remove(Integer.valueOf(n70Var.a));
+                u80.a("BehaviorProcess", "flow endFlow");
+                this.d.execute(new c(this, n70Var));
             }
-            return Boolean.valueOf(d.get(str).get());
         }
-        return (Boolean) invokeL.objValue;
     }
 
-    public static m70 h(Context context) {
+    public synchronized n70 b(int i) {
+        InterceptResult invokeI;
+        n70 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            synchronized (this) {
+                d = d(i);
+            }
+            return d;
+        }
+        return (n70) invokeI.objValue;
+    }
+
+    public synchronized n70 g(int i) {
+        InterceptResult invokeI;
+        n70 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+            synchronized (this) {
+                d = d(i);
+            }
+            return d;
+        }
+        return (n70) invokeI.objValue;
+    }
+
+    public static m70 h(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
-            if (c == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
+            if (f == null) {
                 synchronized (m70.class) {
-                    if (c == null) {
-                        c = new m70(context);
+                    if (f == null) {
+                        f = new m70(context.getApplicationContext());
                     }
                 }
             }
-            return c;
+            return f;
         }
         return (m70) invokeL.objValue;
     }
 
-    public synchronized void e(Context context, String str, int i) {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, context, str, i) == null) {
-            synchronized (this) {
-                try {
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (!TextUtils.isEmpty(str) && context != null && RequsetNetworkUtils.isConnected(context) && p70.f(context) && p70.e(context, Integer.parseInt(str))) {
-                    if (this.a != null) {
-                        this.a.f().execute(new a(this, context, str, i));
-                    }
-                    return;
-                }
-                s80.a("FlowTrackManager", "flow 无网、参数不对、未命中小流量不上报");
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.d.execute(new a(this));
         }
     }
 
-    public final void g(Context context, String str, List<q70> list, int i) {
+    public ScheduledExecutorService f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_SEND_USER_MSG, this, context, str, list, i) == null) && list != null && list.size() > 0) {
-            ArrayList arrayList = new ArrayList();
-            for (q70 q70Var : list) {
-                if (q70Var != null) {
-                    arrayList.add(q70Var.b());
-                }
-            }
-            s80.a("FlowTrackManager", "flow clear上报成功的数据");
-            e80.j(context).e(str, arrayList);
-            if (e80.j(context).i(str) > 0) {
-                j(context, str, i);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.d;
         }
+        return (ScheduledExecutorService) invokeV.objValue;
     }
 
-    public final void j(Context context, String str, int i) {
+    public final n70 d(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048579, this, context, str, i) == null) {
-            s80.a("FlowTrackManager", "flow begin uplodFlow~~~");
-            if (d.get(str) == null) {
-                d.put(str, new AtomicBoolean(true));
-            } else {
-                d.get(str).set(true);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            if (!this.e.containsKey(Integer.valueOf(i))) {
+                this.b++;
+                u80.a("BehaviorProcess", "FlowHandle:" + this.b);
+                n70 n70Var = new n70(this.a, i, this.b);
+                this.e.put(Integer.valueOf(i), n70Var);
+                this.d.execute(new b(this, n70Var));
+                r70.l(this.a, "flow_handle", this.b);
+                return n70Var;
             }
-            ArrayList arrayList = new ArrayList();
-            o70 o70Var = this.b;
-            if (o70Var != null) {
-                byte[] c2 = o70Var.c(context, str, arrayList, i);
-                if (c2 != null && arrayList.size() > 0) {
-                    if (c2.length >= 307200) {
-                        s80.a("FlowTrackManager", "flow 上报数据长度超过300k");
-                        d.get(str).set(false);
-                        return;
-                    }
-                    IMPushUploadManager.getInstance(context).requestUpload(null, c2, "", new b(this, str, context, arrayList, i));
-                    return;
-                }
-                s80.a("FlowTrackManager", "flow 上报数据为空");
-                d.get(str).set(false);
-            }
+            return this.e.get(Integer.valueOf(i));
         }
+        return (n70) invokeI.objValue;
     }
 }

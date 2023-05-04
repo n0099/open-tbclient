@@ -1,71 +1,178 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.content.IntentFilter;
 import androidx.core.view.InputDeviceCompat;
-import androidx.localbroadcastmanager.content.LocalBroadcastManager;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j5b;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.mipush.sdk.MiPushClient;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payservice.impl.H5PayConstant;
-import tv.athena.revenue.payui.view.AbsPayMessageReceiver;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import rx.internal.operators.NotificationLite;
+import rx.subjects.SubjectSubscriptionManager;
 /* loaded from: classes3.dex */
-public class aab {
+public final class aab<T> extends dab<T, T> {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object[] c;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SubjectSubscriptionManager<T> b;
 
-    public static void a(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65536, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseAllPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+    /* loaded from: classes3.dex */
+    public static class a implements x5b<SubjectSubscriptionManager.c<T>> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ SubjectSubscriptionManager a;
+
+        public a(SubjectSubscriptionManager subjectSubscriptionManager) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {subjectSubscriptionManager};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = subjectSubscriptionManager;
+        }
+
+        @Override // com.baidu.tieba.x5b
+        public /* bridge */ /* synthetic */ void call(Object obj) {
+            call((SubjectSubscriptionManager.c) ((SubjectSubscriptionManager.c) obj));
+        }
+
+        public void call(SubjectSubscriptionManager.c<T> cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
+                cVar.b(this.a.getLatest());
+            }
         }
     }
 
-    public static void b(Context context) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947609863, "Lcom/baidu/tieba/aab;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947609863, "Lcom/baidu/tieba/aab;");
+                return;
+            }
+        }
+        c = new Object[0];
+    }
+
+    public static <T> aab<T> F() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseDialogPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return H(null, false);
+        }
+        return (aab) invokeV.objValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public aab(j5b.a<T> aVar, SubjectSubscriptionManager<T> subjectSubscriptionManager) {
+        super(aVar);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar, subjectSubscriptionManager};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((j5b.a) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.b = subjectSubscriptionManager;
+    }
+
+    public static <T> aab<T> G(T t) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, t)) == null) {
+            return H(t, true);
+        }
+        return (aab) invokeL.objValue;
+    }
+
+    public static <T> aab<T> H(T t, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, t, z)) == null) {
+            SubjectSubscriptionManager subjectSubscriptionManager = new SubjectSubscriptionManager();
+            if (z) {
+                subjectSubscriptionManager.setLatest(NotificationLite.h(t));
+            }
+            a aVar = new a(subjectSubscriptionManager);
+            subjectSubscriptionManager.onAdded = aVar;
+            subjectSubscriptionManager.onTerminated = aVar;
+            return new aab<>(subjectSubscriptionManager, subjectSubscriptionManager);
+        }
+        return (aab) invokeLZ.objValue;
+    }
+
+    @Override // com.baidu.tieba.k5b
+    public void onCompleted() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.b.getLatest() == null || this.b.active) {
+                Object b = NotificationLite.b();
+                for (SubjectSubscriptionManager.c<T> cVar : this.b.terminate(b)) {
+                    cVar.d(b);
+                }
+            }
         }
     }
 
-    public static void c(Context context) {
+    @Override // com.baidu.tieba.k5b
+    public void onError(Throwable th) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
-            long nanoTime = System.nanoTime();
-            Intent intent = new Intent("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
-            intent.putExtra(H5PayConstant.EXTRA_PAY_FLOW_VIEW_RELEASE_NANO_TIME, nanoTime);
-            RLog.info("PayMessageHelper", "notifyReleaseWalletPayFlowView releaseNanoTime:" + nanoTime);
-            LocalBroadcastManager.getInstance(context).sendBroadcast(intent);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
+            if (this.b.getLatest() == null || this.b.active) {
+                Object c2 = NotificationLite.c(th);
+                ArrayList arrayList = null;
+                for (SubjectSubscriptionManager.c<T> cVar : this.b.terminate(c2)) {
+                    try {
+                        cVar.d(c2);
+                    } catch (Throwable th2) {
+                        if (arrayList == null) {
+                            arrayList = new ArrayList();
+                        }
+                        arrayList.add(th2);
+                    }
+                }
+                v5b.d(arrayList);
+            }
         }
     }
 
-    public static void d(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
+    @Override // com.baidu.tieba.k5b
+    public void onNext(T t) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, context, absPayMessageReceiver) == null) {
-            RLog.info("PayMessageHelper", MiPushClient.COMMAND_REGISTER);
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_flow_ui_action");
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_dialog_flow_ui_action");
-            intentFilter.addAction("tv.athena.revenue.payui.release_all_pay_wallet_flow_ui_action");
-            LocalBroadcastManager.getInstance(context).registerReceiver(absPayMessageReceiver, intentFilter);
-        }
-    }
-
-    public static void e(Context context, AbsPayMessageReceiver absPayMessageReceiver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, absPayMessageReceiver) == null) {
-            RLog.info("PayMessageHelper", MiPushClient.COMMAND_UNREGISTER);
-            LocalBroadcastManager.getInstance(context).unregisterReceiver(absPayMessageReceiver);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) {
+            if (this.b.getLatest() == null || this.b.active) {
+                Object h = NotificationLite.h(t);
+                for (SubjectSubscriptionManager.c<T> cVar : this.b.next(h)) {
+                    cVar.d(h);
+                }
+            }
         }
     }
 }

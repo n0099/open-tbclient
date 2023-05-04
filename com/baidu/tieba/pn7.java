@@ -1,76 +1,85 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.adp.BdUniqueId;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.homepage.concern.view.RecommendBarLayout;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.switchs.SocketAddCommonParamSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.ActivityPage.ActivityPageReqIdl;
+import tbclient.ActivityPage.DataReq;
 /* loaded from: classes5.dex */
-public class pn7 extends qw<in7> {
+public class pn7 implements cp5<ActivityPageReqIdl> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendBarLayout f;
-    public int g;
-    public int h;
+    public String a;
+    public final wo5 b;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pn7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, byte b) {
-        super(tbPageContext.getPageActivity());
+    @Override // com.baidu.tieba.cp5
+    public void a(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, intent) == null) {
+        }
+    }
+
+    public pn7(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, Byte.valueOf(b)};
+            Object[] objArr = {str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = 3;
-        this.f = new RecommendBarLayout(tbPageContext, tbPageContext.getPageActivity(), bdUniqueId, b);
+        this.b = new wo5(false);
+        this.a = str2;
+    }
+
+    @Override // com.baidu.tieba.cp5
+    public wo5 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (wo5) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
-    /* renamed from: s */
-    public void a(in7 in7Var) {
+    @Override // com.baidu.tieba.cp5
+    /* renamed from: d */
+    public ActivityPageReqIdl b(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, in7Var) == null) && in7Var != null && this.h != in7Var.hashCode()) {
-            this.h = in7Var.hashCode();
-            this.f.setData(in7Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.qw
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            if (this.g != i) {
-                this.f.onChangeSkinType(tbPageContext, i);
-                q(this.f, 3);
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
+            try {
+                DataReq.Builder builder = new DataReq.Builder();
+                builder.activity_name = this.a;
+                builder.pn = Integer.valueOf(this.b.c);
+                builder.rn = 20;
+                builder.scr_h = Integer.valueOf(ii.j(TbadkCoreApplication.getInst()));
+                builder.scr_w = Integer.valueOf(ii.l(TbadkCoreApplication.getInst()));
+                builder.scr_dip = Integer.valueOf((int) ii.i(TbadkCoreApplication.getInst()));
+                builder.q_type = Integer.valueOf(iw4.c().e());
+                if (z || SocketAddCommonParamSwitch.getIsOn()) {
+                    jr5.a(builder, true);
+                }
+                ActivityPageReqIdl.Builder builder2 = new ActivityPageReqIdl.Builder();
+                builder2.data = builder.build(false);
+                return builder2.build(false);
+            } catch (Exception unused) {
+                return null;
             }
-            this.g = i;
         }
+        return (ActivityPageReqIdl) invokeZ.objValue;
     }
 }

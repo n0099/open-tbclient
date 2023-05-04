@@ -3,74 +3,32 @@ package com.baidu.tieba;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.ad3;
-import com.baidu.tieba.ax1;
-import com.baidu.tieba.zw1;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.e73;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Deprecated
 /* loaded from: classes6.dex */
-public final class ta3 extends s93 implements ax1.c {
+public class ta3 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CallbackHandler c;
-
-    /* loaded from: classes6.dex */
-    public class a implements om3<yc3<ad3.e>> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ zw1.c b;
-        public final /* synthetic */ v73 c;
-        public final /* synthetic */ ta3 d;
-
-        public a(ta3 ta3Var, CallbackHandler callbackHandler, zw1.c cVar, v73 v73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ta3Var, callbackHandler, cVar, v73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = ta3Var;
-            this.a = callbackHandler;
-            this.b = cVar;
-            this.c = v73Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                this.d.k(yc3Var, this.a, this.b, this.c.n0());
-            }
-        }
-    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ta3(s83 s83Var) {
-        super(s83Var, "/swanAPI/getLocation");
+    public ta3(u83 u83Var) {
+        super(u83Var, "/swanAPI/showLoading");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -84,83 +42,63 @@ public final class ta3 extends s93 implements ax1.c {
         }
     }
 
-    @Override // com.baidu.tieba.ax1.c
-    public void b(zw1.c cVar, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, cVar, i) != null) || this.c == null) {
-            return;
-        }
-        v42.c("GetLocationAction", "request location error code : " + i);
-        this.c.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(i).toString());
-    }
-
-    @Override // com.baidu.tieba.ax1.c
-    public void g(zw1.c cVar, ua3 ua3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, cVar, ua3Var) == null) {
-            if (s93.b) {
-                Log.d("GetLocationAction", "convert info : " + ua3Var.a());
-            }
-            CallbackHandler callbackHandler = this.c;
-            if (callbackHandler == null) {
-                return;
-            }
-            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(ua3Var.a(), 0).toString());
-        }
-    }
-
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("GetLocationAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (u93.b) {
+                Log.d("ShowLoadingAction", "handle entity: " + unitedSchemeEntity.toString());
             }
-            this.c = callbackHandler;
-            if (v73Var == null) {
-                v42.c("location", "swan app is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            if (x73Var != null && x73Var.n0()) {
+                if (u93.b) {
+                    Log.d("ShowLoadingAction", "ShowLoadingAction does not supported when app is invisible.");
+                }
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "ui operation does not supported when app is invisible.");
                 return false;
-            }
-            zw1.c b = zw1.c.b(unitedSchemeEntity.getParam("params"));
-            if (b != null && b.a()) {
-                if (TextUtils.isEmpty(b.c)) {
-                    v42.c("location", "empty cb");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty cb");
+            } else if (!(context instanceof SwanAppActivity)) {
+                x42.c("showLoading", "context not support");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "context not support");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    x42.c("showLoading", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                     return false;
                 }
-                v73Var.e0().g(context, "mapp_location", new a(this, callbackHandler, b, v73Var));
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                x42.i("showLoading", "handleShowLoading : joParams = \n" + optParamsAsJo);
+                String optString = optParamsAsJo.optString("title");
+                if (TextUtils.isEmpty(optString)) {
+                    x42.c("showLoading", "none title");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                boolean optBoolean = optParamsAsJo.optBoolean("mask", false);
+                g72 Z = ((SwanAppActivity) context).Z();
+                if (Z == null) {
+                    x42.c("showLoading", "none fragment");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "none fragment");
+                    return false;
+                }
+                d72 m = Z.m();
+                if (!(m instanceof e73.a)) {
+                    x42.c("showLoading", "fragment not support");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "fragment not support");
+                    return false;
+                }
+                e73 d = ((e73.a) m).d();
+                if (d == null) {
+                    x42.c("showLoading", "can't get floatLayer");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "can't create floatLayer");
+                    return false;
+                }
+                f73.f(d, context, optString, optBoolean);
+                x42.i("showLoading", "show loading success");
+                unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
                 return true;
             }
-            v42.c("location", "params is invalid");
-            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-            return false;
         }
         return invokeLLLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ax1.c
-    public void f(zw1.c cVar, String str) {
-        CallbackHandler callbackHandler;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, cVar, str) != null) || (callbackHandler = this.c) == null) {
-            return;
-        }
-        callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(10005, "system deny").toString());
-    }
-
-    public final void k(yc3<ad3.e> yc3Var, CallbackHandler callbackHandler, zw1.c cVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{yc3Var, callbackHandler, cVar, Boolean.valueOf(z)}) == null) {
-            v42.i("GetLocationAction", "authorized result is " + yc3Var);
-            if (tc3.h(yc3Var)) {
-                ax1.d().e(cVar, this, z);
-                return;
-            }
-            int b = yc3Var.b();
-            callbackHandler.handleSchemeDispatchCallback(cVar.c, UnitedSchemeUtility.wrapCallbackParams(b, tc3.f(b)).toString());
-        }
     }
 }

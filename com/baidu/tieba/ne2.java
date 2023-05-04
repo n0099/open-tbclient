@@ -1,86 +1,90 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.event.JSEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.TreeMap;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final class ne2 {
+public class ne2 extends yh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public final List<xh2> d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947999502, "Lcom/baidu/tieba/ne2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947999502, "Lcom/baidu/tieba/ne2;");
-                return;
-            }
-        }
-        b = fo1.a;
-        cr2.g0().getSwitch("swan_slave_ready", false);
-        c = false;
-    }
-
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ne2() {
+        super("combine");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = new ArrayList();
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "isSlaveReadyABSwitchOn:" + c);
-            }
-            return c;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SlaveReadyEvent{slaveId='" + this.a + "'}";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static wh2 a(ne2 ne2Var) {
+    @Override // com.baidu.tieba.xh2
+    public String c(v62 v62Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, ne2Var)) == null) {
-            if (b) {
-                Log.d("SlaveReadyEvent", "createSlaveReadyMessage:" + ne2Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, v62Var)) == null) {
+            if (v62Var != null && this.d.size() > 0) {
+                int i = 0;
+                StringBuilder sb = new StringBuilder();
+                for (xh2 xh2Var : this.d) {
+                    sb.append(xh2Var.d("event" + i, v62Var));
+                    i++;
+                }
+                if (xh2.b) {
+                    Log.d("JSEventDispatcher", "combine msg - " + sb.toString());
+                }
+                return sb.toString();
             }
-            TreeMap treeMap = new TreeMap();
-            treeMap.put("slaveId", ne2Var.a);
-            return new wh2("SlaveReady", treeMap);
+            return null;
         }
-        return (wh2) invokeL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.xh2
+    public void h(v62 v62Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v62Var) == null) && v62Var != null && !v62Var.isWebView() && this.d.size() > 0) {
+            if (xh2.b) {
+                Log.d("JSEventDispatcher", "dispatch event - " + this.a + " on v8");
+            }
+            for (xh2 xh2Var : this.d) {
+                JSEvent e = xh2Var.e(v62Var);
+                if (e != null) {
+                    j(v62Var, e);
+                    if (xh2.b) {
+                        Log.d("JSEventDispatcher", "dispatchJSEvent action - " + e.type + " on v8 : " + e.data);
+                    }
+                }
+            }
+        }
+    }
+
+    public ne2 t(xh2 xh2Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xh2Var)) == null) {
+            if (xh2Var != null && !this.d.contains(xh2Var)) {
+                this.d.add(xh2Var);
+            }
+            return this;
+        }
+        return (ne2) invokeL.objValue;
     }
 }

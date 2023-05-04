@@ -1,50 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.x1b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.fun.ad.sdk.FunAdSdk;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes6.dex */
-public class qma {
+public class qma extends pma {
     public static /* synthetic */ Interceptable $ic;
-    public static final SharedPreferences a;
-    public static final SharedPreferences.Editor b;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948098020, "Lcom/baidu/tieba/qma;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class a implements x1b.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ AtomicBoolean a;
+        public final /* synthetic */ Object b;
+        public final /* synthetic */ qma c;
+
+        public a(qma qmaVar, AtomicBoolean atomicBoolean, Object obj) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {qmaVar, atomicBoolean, obj};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948098020, "Lcom/baidu/tieba/qma;");
+            this.c = qmaVar;
+            this.a = atomicBoolean;
+            this.b = obj;
+        }
+
+        @Override // com.baidu.tieba.x1b.c
+        public void a(int i, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeIL(1048576, this, i, exc) == null) {
+                this.c.g = i;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.x1b.c
+        public void b(String str, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, z) == null) {
+                this.c.d = str;
+                this.c.b = z;
+                this.c.c = true;
+                this.c.g = 0;
+                this.a.set(true);
+                synchronized (this.b) {
+                    this.b.notifyAll();
+                }
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qma(Context context) {
+        super(context);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        SharedPreferences sharedPreferences = FunAdSdk.getAppContext().getSharedPreferences("fun_ad_sdk_price", 0);
-        a = sharedPreferences;
-        b = sharedPreferences.edit();
+        this.d = "";
+        this.b = false;
+        this.c = false;
+        this.g = -200;
     }
 
-    public static double a() {
+    @Override // com.baidu.tieba.oma
+    public oma d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? Double.longBitsToDouble(a.getLong("key_price_by_baseprice", 0L)) : invokeV.doubleValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            n();
+            return this;
+        }
+        return (oma) invokeV.objValue;
     }
 
-    public static double b(String str) {
-        InterceptResult invokeL;
+    public oma n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            SharedPreferences sharedPreferences = a;
-            return Double.longBitsToDouble(sharedPreferences.getLong(str + "_", 0L));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Object obj = new Object();
+            AtomicBoolean atomicBoolean = new AtomicBoolean(false);
+            x1b.d(this.a, new a(this, atomicBoolean, obj));
+            synchronized (obj) {
+                if (!atomicBoolean.get()) {
+                    try {
+                        obj.wait(4000L);
+                    } catch (InterruptedException unused) {
+                    }
+                }
+            }
+            return this;
         }
-        return invokeL.doubleValue;
+        return (oma) invokeV.objValue;
     }
 }

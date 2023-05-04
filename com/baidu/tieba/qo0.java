@@ -1,13 +1,16 @@
 package com.baidu.tieba;
 
-import android.widget.FrameLayout;
+import android.view.MotionEvent;
+import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
 /* loaded from: classes6.dex */
-public interface qo0 extends ii0 {
-    int getVideoHeight();
+public interface qo0 extends ki0 {
+    WebViewContainer b();
 
-    FrameLayout h();
+    void f(boolean z, boolean z2, boolean z3, int i);
 
-    boolean k();
+    boolean g();
 
-    int l();
+    void i(MotionEvent motionEvent);
+
+    void j(boolean z, boolean z2, boolean z3);
 }

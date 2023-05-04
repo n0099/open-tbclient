@@ -229,8 +229,8 @@ public class CardFrsGameSpecialTopicLayout extends LinearLayout {
         }
         cardFrsGameSpecialTopicItemView.getSpecialTopicPicView().N(featureCardTopicSubNode.image, 10, false);
         cardFrsGameSpecialTopicItemView.getSpecialTopicNameView().setText(featureCardTopicSubNode.title);
-        cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0759, String.valueOf(featureCardTopicSubNode.article_num)));
-        cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.obfuscated_res_0x7f0f075a, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
+        cardFrsGameSpecialTopicItemView.getSpecialTopicDscView().setText(getContext().getResources().getString(R.string.obfuscated_res_0x7f0f0766, String.valueOf(featureCardTopicSubNode.article_num)));
+        cardFrsGameSpecialTopicItemView.getSpecialTopicUpdateTimeView().setText(getContext().getString(R.string.obfuscated_res_0x7f0f0767, StringHelper.getTimeInterval(featureCardTopicSubNode.update_time)));
         cardFrsGameSpecialTopicItemView.setTag(featureCardTopicSubNode.url);
         cardFrsGameSpecialTopicItemView.c(TbadkCoreApplication.getInst().getSkinType());
     }

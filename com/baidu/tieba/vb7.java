@@ -1,73 +1,36 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tbadk.core.atomData.ForumRulesShowActivityConfig;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
+import com.baidu.tieba.frs.forumRule.adapter.ForumRuleDetailBottomVH;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vb7 extends vm<vn6, CardViewHolder<fg6>> {
+public class vb7 extends vm<ac7, ForumRuleDetailBottomVH> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public fg6 b;
-    public String c;
-
-    /* loaded from: classes6.dex */
-    public class a extends yg6<vn6> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ vb7 b;
-
-        public a(vb7 vb7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {vb7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = vb7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg6
-        /* renamed from: d */
-        public void a(View view2, vn6 vn6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, vn6Var) == null) {
-                TiebaStatic.log(new StatisticItem("c13047").param("obj_locate", 1).param("fid", this.b.c));
-                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(view2.getContext()), new String[]{vn6Var.c().score_url}, true);
-            }
-        }
-    }
+    public Context a;
+    public String b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vb7(TbPageContext tbPageContext, String str) {
-        super(tbPageContext.getPageActivity(), vn6.b);
+    public vb7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, str};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -79,37 +42,76 @@ public class vb7 extends vm<vn6, CardViewHolder<fg6>> {
                 return;
             }
         }
-        this.a = tbPageContext;
-        this.c = str;
+        this.a = context;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public CardViewHolder<fg6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public void setFrom(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            this.b = new fg6(this.a);
-            return new CardViewHolder<>(this.b);
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.b = str;
         }
-        return (CardViewHolder) invokeL.objValue;
+    }
+
+    public void t(ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048580, this, forumRuleDetailBottomVH) != null) || forumRuleDetailBottomVH == null) {
+            return;
+        }
+        forumRuleDetailBottomVH.b(TbadkCoreApplication.getInst().getSkinType());
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vm
     /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, vn6 vn6Var, CardViewHolder<fg6> cardViewHolder) {
+    public ForumRuleDetailBottomVH onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            ForumRuleDetailBottomVH forumRuleDetailBottomVH = new ForumRuleDetailBottomVH(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d02de, viewGroup, false));
+            t(forumRuleDetailBottomVH);
+            this.viewholder = forumRuleDetailBottomVH;
+            return forumRuleDetailBottomVH;
+        }
+        return (ForumRuleDetailBottomVH) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.vm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ac7 ac7Var, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
+        x(i, view2, viewGroup, ac7Var, forumRuleDetailBottomVH);
+        return view2;
+    }
+
+    public final void s(ForumRuleDetailBottomVH forumRuleDetailBottomVH, ac7 ac7Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, forumRuleDetailBottomVH, ac7Var) != null) || forumRuleDetailBottomVH == null) {
+            return;
+        }
+        forumRuleDetailBottomVH.b.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.b.N(ac7Var.a(), 10, false);
+        String string = TbadkApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0718);
+        EMTextView eMTextView = forumRuleDetailBottomVH.d;
+        eMTextView.setText(ac7Var.b() + string);
+        forumRuleDetailBottomVH.f.setDefaultBgResource(R.drawable.img_default_100);
+        forumRuleDetailBottomVH.f.N(ac7Var.d(), 12, false);
+        forumRuleDetailBottomVH.g.setText(ac7Var.c());
+        if (ForumRulesShowActivityConfig.FORUM_RULE_EDIT_FROM_SHOW.equals(this.b)) {
+            forumRuleDetailBottomVH.a(String.valueOf(System.currentTimeMillis() / 1000));
+        } else {
+            forumRuleDetailBottomVH.h.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f071f), ac7Var.e()));
+            forumRuleDetailBottomVH.e.setText(String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f071f), ac7Var.e()));
+        }
+        forumRuleDetailBottomVH.b(TbadkCoreApplication.getInst().getSkinType());
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, ac7 ac7Var, ForumRuleDetailBottomVH forumRuleDetailBottomVH) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, vn6Var, cardViewHolder})) == null) {
-            if (cardViewHolder.a() == null) {
-                return null;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ac7Var, forumRuleDetailBottomVH})) == null) {
+            if (ac7Var != null) {
+                s(forumRuleDetailBottomVH, ac7Var);
             }
-            cardViewHolder.a().l(vn6Var);
-            cardViewHolder.a().n(new a(this));
-            cardViewHolder.a().m(this.a, TbadkCoreApplication.getInst().getSkinType());
-            return cardViewHolder.a().h();
+            return view2;
         }
         return (View) invokeCommon.objValue;
     }

@@ -3,8 +3,8 @@ package com.baidu.tieba.lego.card.model;
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
-import com.baidu.tieba.ce8;
-import com.baidu.tieba.jf8;
+import com.baidu.tieba.kg8;
+import com.baidu.tieba.rh8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -72,9 +72,9 @@ public class BaseCardInfo extends BaseLegoCardInfo {
                 if (obj instanceof UpdateAttentionMessage.a) {
                     UpdateAttentionMessage.a aVar = (UpdateAttentionMessage.a) obj;
                     return responseAttentionUser(aVar.c, aVar.d);
-                } else if (obj instanceof jf8) {
-                    jf8 jf8Var = (jf8) obj;
-                    return responseAttentionForum(jf8Var.a, jf8Var.b);
+                } else if (obj instanceof rh8) {
+                    rh8 rh8Var = (rh8) obj;
+                    return responseAttentionForum(rh8Var.a, rh8Var.b);
                 } else {
                     return false;
                 }
@@ -89,7 +89,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return ce8.b.a(str).d("fid");
+                return kg8.b.a(str).d("fid");
             }
             return "";
         }
@@ -101,7 +101,7 @@ public class BaseCardInfo extends BaseLegoCardInfo {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
             if (!TextUtils.isEmpty(str)) {
-                return ce8.b.a(str).d("touid");
+                return kg8.b.a(str).d("touid");
             }
             return "";
         }

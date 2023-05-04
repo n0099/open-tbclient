@@ -1,10 +1,9 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.util.Log;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,25 +11,29 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class h02 extends f02 {
+public abstract class h02 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public h02(s83 s83Var) {
-        super(s83Var, "/swanAPI/camera/remove");
+    public h02(u83 u83Var, String str) {
+        super(u83Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((s83) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -38,40 +41,47 @@ public class h02 extends f02 {
         }
     }
 
-    public l32 m(UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeL;
+    public void j(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, HashMap<String, String> hashMap, String str) {
+        HashMap<String, String> params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity)) == null) {
-            String l = l(unitedSchemeEntity);
-            if (fo1.a) {
-                Log.d("CameraRemoveAction", "parseData:" + l);
+        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, unitedSchemeEntity, callbackHandler, hashMap, str) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty() && hashMap != null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                for (Map.Entry<String, String> entry : hashMap.entrySet()) {
+                    jSONObject.putOpt(entry.getKey(), entry.getValue());
+                }
+            } catch (JSONException e) {
+                if (u93.b) {
+                    e.printStackTrace();
+                }
             }
-            return new p02(l);
+            if (TextUtils.isEmpty(str)) {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
+            } else {
+                callbackHandler.handleSchemeDispatchCallback(str, UnitedSchemeUtility.wrapCallbackParamsWithEncode(jSONObject, 0).toString());
+            }
         }
-        return (l32) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    public void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, boolean z) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (!(context instanceof Activity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
+        if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, z) == null) {
+            if (z) {
+                i = 0;
+            } else {
+                i = -1;
             }
-            u32 u32Var = (u32) i42.a(m(unitedSchemeEntity));
-            if (u32Var != null) {
-                m32 B = u32Var.B();
-                if (!B.a()) {
-                    v42.c("CameraRemoveAction", "remove camera fail: " + B.b);
-                }
-                k(unitedSchemeEntity, callbackHandler, true);
-                return true;
-            }
-            k(unitedSchemeEntity, callbackHandler, false);
-            return false;
+            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, i);
         }
-        return invokeLLLL.booleanValue;
+    }
+
+    public String l(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, unitedSchemeEntity)) == null) {
+            return unitedSchemeEntity.getParams().get("params");
+        }
+        return (String) invokeL.objValue;
     }
 }

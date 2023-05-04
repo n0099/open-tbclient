@@ -1,7 +1,24 @@
 package com.baidu.tieba;
-/* loaded from: classes3.dex */
-public interface bn0 extends an0 {
-    void b(zm0 zm0Var);
 
-    void d(zm0 zm0Var);
+import android.app.Activity;
+import android.os.Bundle;
+/* loaded from: classes3.dex */
+public interface bn0 extends cn0 {
+    void onActivityCreated(Activity activity, Bundle bundle);
+
+    void onActivityDestroyed(Activity activity);
+
+    void onActivityPaused(Activity activity);
+
+    void onActivityResumed(Activity activity);
+
+    void onActivitySaveInstanceState(Activity activity, Bundle bundle);
+
+    void onActivityStarted(Activity activity);
+
+    void onActivityStopped(Activity activity);
+
+    void onBackgroundToForeground(Activity activity);
+
+    void onForegroundToBackground(Activity activity);
 }

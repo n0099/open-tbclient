@@ -49,7 +49,7 @@ import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AppBarLayout extends LinearLayout implements CoordinatorLayout.AttachedBehavior {
     public static final int DEF_STYLE_RES = 2131755831;
     public static final int INVALID_SCROLL_RANGE = -1;
@@ -81,12 +81,12 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
     public int[] tmpStatesArray;
     public int totalScrollRange;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface BaseOnOffsetChangedListener<T extends AppBarLayout> {
         void onOffsetChanged(T t, int i);
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface OnOffsetChangedListener extends BaseOnOffsetChangedListener<AppBarLayout> {
         @Override // com.google.android.material.appbar.AppBarLayout.BaseOnOffsetChangedListener
         void onOffsetChanged(AppBarLayout appBarLayout, int i);
@@ -97,7 +97,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         return 0.0f;
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class BaseBehavior<T extends AppBarLayout> extends HeaderBehavior<T> {
         public static final int INVALID_POSITION = -1;
         public static final int MAX_OFFSET_ANIMATION_DURATION = 600;
@@ -111,7 +111,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         public float offsetToChildIndexOnLayoutPerc;
         public BaseDragCallback onDragCallback;
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static abstract class BaseDragCallback<T extends AppBarLayout> {
             public abstract boolean canDrag(@NonNull T t);
         }
@@ -138,7 +138,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
             return false;
         }
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static class SavedState extends AbsSavedState {
             public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.ClassLoaderCreator<SavedState>() { // from class: com.google.android.material.appbar.AppBarLayout.BaseBehavior.SavedState.1
                 /* JADX DEBUG: Method merged with bridge method */
@@ -747,10 +747,10 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class Behavior extends BaseBehavior<AppBarLayout> {
 
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public static abstract class DragCallback extends BaseBehavior.BaseDragCallback<AppBarLayout> {
         }
 
@@ -847,7 +847,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class LayoutParams extends LinearLayout.LayoutParams {
         public static final int COLLAPSIBLE_FLAGS = 10;
         public static final int FLAG_QUICK_RETURN = 5;
@@ -864,7 +864,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
 
         @Retention(RetentionPolicy.SOURCE)
         @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-        /* loaded from: classes7.dex */
+        /* loaded from: classes8.dex */
         public @interface ScrollFlags {
         }
 
@@ -938,7 +938,7 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         }
     }
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static class ScrollingViewBehavior extends HeaderScrollingViewBehavior {
         public ScrollingViewBehavior() {
         }
@@ -1693,27 +1693,27 @@ public class AppBarLayout extends LinearLayout implements CoordinatorLayout.Atta
         int[] iArr = this.tmpStatesArray;
         int[] onCreateDrawableState = super.onCreateDrawableState(i + iArr.length);
         if (this.liftable) {
-            i2 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04066b;
+            i2 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040674;
         } else {
-            i2 = -2130970219;
+            i2 = -2130970228;
         }
         iArr[0] = i2;
         if (this.liftable && this.lifted) {
-            i3 = com.baidu.tieba.R.attr.obfuscated_res_0x7f04066c;
+            i3 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040675;
         } else {
-            i3 = -2130970220;
+            i3 = -2130970229;
         }
         iArr[1] = i3;
         if (this.liftable) {
-            i4 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040669;
+            i4 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040672;
         } else {
-            i4 = -2130970217;
+            i4 = -2130970226;
         }
         iArr[2] = i4;
         if (this.liftable && this.lifted) {
-            i5 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040668;
+            i5 = com.baidu.tieba.R.attr.obfuscated_res_0x7f040671;
         } else {
-            i5 = -2130970216;
+            i5 = -2130970225;
         }
         iArr[3] = i5;
         return LinearLayout.mergeDrawableStates(onCreateDrawableState, iArr);

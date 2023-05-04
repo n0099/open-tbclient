@@ -174,7 +174,7 @@ public class UtcDates {
 
     public static String getTextInputHint(Resources resources, SimpleDateFormat simpleDateFormat) {
         String localizedPattern = simpleDateFormat.toLocalizedPattern();
-        return localizedPattern.replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0be4)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0be5)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0be6));
+        return localizedPattern.replaceAll("d", resources.getString(R.string.obfuscated_res_0x7f0f0bf9)).replaceAll("M", resources.getString(R.string.obfuscated_res_0x7f0f0bfa)).replaceAll("y", resources.getString(R.string.obfuscated_res_0x7f0f0bfb));
     }
 
     @NonNull

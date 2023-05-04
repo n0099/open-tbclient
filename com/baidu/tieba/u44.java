@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
-import android.content.Context;
+import android.app.Activity;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,13 +10,6 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class u44 implements l54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.l54
-    public void a(wx2 wx2Var, Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, wx2Var, context) == null) {
-        }
-    }
 
     public u44() {
         Interceptable interceptable = $ic;
@@ -28,6 +22,14 @@ public class u44 implements l54 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.l54
+    public void a(@NonNull Activity activity, k44 k44Var, o54 o54Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, activity, k44Var, o54Var) == null) {
+            o54Var.a();
         }
     }
 }

@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,30 +10,60 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tx1 extends sx1 {
+public class tx1 extends ox1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yv1
+    @Override // com.baidu.tieba.aw1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ActionConfigApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "RestartApi" : (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a(tx1 tx1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tx1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                fl3.a(kt2.U().getActivity());
+            }
+        }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tx1(@NonNull wv1 wv1Var) {
-        super(wv1Var);
+    public tx1(@NonNull yv1 yv1Var) {
+        super(yv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wv1Var};
+            Object[] objArr = {yv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wv1) newInitContext.callArgs[0]);
+                super((yv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -40,23 +71,22 @@ public class tx1 extends sx1 {
         }
     }
 
-    public vz1 x() {
-        InterceptResult invokeV;
+    public xz1 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            q("#isAllowedAdOpenAppSync", false);
-            if (v73.b0() == null) {
-                return new vz1(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#restart params=" + str, false);
+            Pair<xz1, JSONObject> s = s(str);
+            JSONObject jSONObject = (JSONObject) s.second;
+            if (((xz1) s.first).isSuccess() && jSONObject != null) {
+                if (!jSONObject.optString("invokeFrom").equals("swanWeb")) {
+                    return new xz1(201, "error invoke from value.");
+                }
+                rl3.a0(new a(this));
+                return xz1.f();
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("isAllowed", cr2.a().d());
-                return new vz1(0, "success", jSONObject);
-            } catch (Exception e) {
-                v42.d("ActionConfigApi", e.getMessage(), e);
-                return new vz1(1001, e.getMessage() + "");
-            }
+            return new xz1(202);
         }
-        return (vz1) invokeV.objValue;
+        return (xz1) invokeL.objValue;
     }
 }

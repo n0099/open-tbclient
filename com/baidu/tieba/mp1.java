@@ -1,29 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
+import java.io.File;
 /* loaded from: classes5.dex */
 public interface mp1 {
-    boolean a(View view2, by2 by2Var);
+    String a(String str);
 
-    boolean b();
+    gg2 b();
 
-    boolean c(View view2, by2 by2Var);
+    void c();
 
-    boolean d(View view2);
+    File[] d();
 
-    void e(um3 um3Var);
+    String e();
 
-    void f(um3 um3Var);
+    void f();
 
-    void g(boolean z);
+    void g();
 
-    Context getContext();
+    String h(String str);
 
-    FrameLayout getRootView();
-
-    boolean h();
-
-    boolean removeView(View view2);
+    void i();
 }

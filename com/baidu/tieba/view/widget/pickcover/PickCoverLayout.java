@@ -17,9 +17,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.r25;
 import com.baidu.tieba.view.widget.mediaedit.adapter.rangerslider.VideoClipAdapter;
 import com.baidu.tieba.view.widget.mediaedit.manager.CustomLinearLayoutManager;
 import com.baidu.tieba.view.widget.pickcover.SlideBarView;
@@ -502,9 +502,9 @@ public class PickCoverLayout extends FrameLayout {
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
             SlideBarView slideBarView = this.e;
             if (z) {
-                i2 = R.drawable.obfuscated_res_0x7f081036;
+                i2 = R.drawable.obfuscated_res_0x7f081067;
             } else {
-                i2 = R.drawable.obfuscated_res_0x7f081035;
+                i2 = R.drawable.obfuscated_res_0x7f081066;
             }
             slideBarView.setPickDrawable(i2);
         }
@@ -632,13 +632,13 @@ public class PickCoverLayout extends FrameLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0922, (ViewGroup) null);
-            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f092656);
-            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f092654);
-            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f092653);
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f09066e);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d092e, (ViewGroup) null);
+            this.a = (RecyclerView) inflate.findViewById(R.id.obfuscated_res_0x7f09266f);
+            this.e = (SlideBarView) inflate.findViewById(R.id.obfuscated_res_0x7f09266d);
+            this.g = inflate.findViewById(R.id.obfuscated_res_0x7f09266c);
+            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.obfuscated_res_0x7f090671);
             this.h = eMTextView;
-            r25.d(eMTextView).A(R.array.S_O_X001);
+            g35.d(eMTextView).A(R.array.S_O_X001);
             addView(inflate);
             CustomLinearLayoutManager customLinearLayoutManager = new CustomLinearLayoutManager(getContext(), 0, false);
             this.c = customLinearLayoutManager;

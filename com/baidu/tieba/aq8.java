@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface aq8 {
-    void H();
+    xp8 a(String str, String str2, String str3);
 
-    void p();
-
-    boolean s();
+    wp8 get();
 }

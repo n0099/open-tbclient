@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.downloader.exception.DownloadException;
+import com.baidu.swan.game.ad.downloader.model.DownloadState;
 /* loaded from: classes7.dex */
 public interface yv3 {
-    void a();
+    void a(int i);
 
-    void b(DownloadException downloadException);
+    void b();
 
-    void c();
+    void c(DownloadState downloadState, int i);
 
-    void d();
+    void d(String str);
 
-    void e(long j, long j2);
+    String e();
 
-    void f(long j, long j2);
-
-    void onStart();
+    void f(boolean z);
 }

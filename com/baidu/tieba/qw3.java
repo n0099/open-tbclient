@@ -1,33 +1,29 @@
 package com.baidu.tieba;
-
-import android.content.Context;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface qw3 {
-    void a(FrameLayout frameLayout);
+    long a();
 
-    void d(boolean z);
+    void b(boolean z);
 
-    qw3 e(Context context, @NonNull mv3 mv3Var);
+    boolean c();
 
-    void g(kw3 kw3Var);
+    boolean d();
 
-    int getCurrentPosition();
+    String e();
 
-    int getDuration();
+    long f();
 
-    void h(mv3 mv3Var);
+    String g();
 
-    boolean isEnd();
+    long h();
 
-    boolean isPlaying();
+    Long i();
 
-    void mute(boolean z);
+    boolean j();
 
-    void pause();
+    boolean k();
 
-    void resume();
+    String l();
 
-    void stop();
+    String m();
 }

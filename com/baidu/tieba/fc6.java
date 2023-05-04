@@ -1,96 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pf6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
-import java.util.Objects;
 /* loaded from: classes4.dex */
-public abstract class fc6<T extends pf6> {
-    public static /* synthetic */ Interceptable $ic;
+public class fc6 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = 0;
+    public static int b = 1;
+    public static int c = 2;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public final T[] b;
 
-    public fc6(int i) {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947759376, "Lcom/baidu/tieba/fc6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.a = 0;
-        if (i > 0) {
-            this.b = (T[]) new pf6[i];
-        } else {
-            this.b = (T[]) new pf6[5];
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947759376, "Lcom/baidu/tieba/fc6;");
         }
-        Arrays.fill(this.b, (Object) null);
-    }
-
-    public synchronized boolean c(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            synchronized (this) {
-                if (b(t)) {
-                    return true;
-                }
-                if (this.a < this.b.length) {
-                    T[] tArr = this.b;
-                    int i = this.a;
-                    this.a = i + 1;
-                    tArr[i] = t;
-                    return true;
-                }
-                return false;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    public synchronized T a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a <= 0) {
-                    return null;
-                }
-                T[] tArr = this.b;
-                int i = this.a - 1;
-                this.a = i;
-                T t = tArr[i];
-                this.b[i] = null;
-                return t;
-            }
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public boolean b(T t) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t)) == null) {
-            for (int i = 0; i < this.a; i++) {
-                if (Objects.equals(this.b[i], t)) {
-                    return true;
-                }
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
     }
 }

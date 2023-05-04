@@ -1,131 +1,154 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.content.pm.PackageManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.constants.HttpConstants;
-import com.baidu.down.retry.HttpRetryStrategyDataParse;
-import com.baidu.lcp.sdk.pb.LcmPb$Common;
-import com.baidu.tieba.n70;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.dns.transmit.DnsTransmitter;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.tieba.a80;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
+import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class q80 {
+public class q80 extends n80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a80.d b;
 
-    public static void a(Context context, long j, String str, String str2) {
+    @Override // com.baidu.tieba.p80.b
+    public String getHost() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "https://httpsdns.baidu.com/v6/0025" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p80.b
+    public String getMediaType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? "application/x-www-form-urlencoded" : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.n80, com.baidu.tieba.p80.b
+    public String getMethod() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "GET" : (String) invokeV.objValue;
+    }
+
+    public q80(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.b = null;
+        this.a = context;
+    }
+
+    public void a(a80.d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
+            this.b = dVar;
+        }
+    }
+
+    @Override // com.baidu.tieba.p80.b
+    public Map<String, String> getHeaders() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            HashMap hashMap = new HashMap();
+            hashMap.put("Host", DnsTransmitter.IDC_HOST);
+            return hashMap;
+        }
+        return (Map) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p80.b
+    public byte[] getRequestParameter() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return ("type=ipv4,ipv6&dn=" + e80.V(this.a).C).getBytes();
+        }
+        return (byte[]) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.p80.d
+    public void onFailure(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048582, this, i, str) == null) {
+            u80.b("LCPHttpDnsUrlRequest", "HttpDns failure errorcode:" + i + ",errormsg:" + str);
+            a80.f(true);
+            a80.c(this.a).b(e80.V(this.a).C, this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.p80.d
+    public void onSuccess(byte[] bArr) {
+        int length;
+        int length2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, bArr) == null) {
+            String str = new String(bArr);
+            u80.a("LCPHttpDnsUrlRequest", "onSuccess----ip of " + e80.V(this.a).C + " is " + str);
             try {
-                n70.c cVar = new n70.c(context);
-                cVar.e(str);
-                cVar.f("1");
-                cVar.c(j);
-                cVar.d(str2);
-                cVar.a(501112L);
-                cVar.b();
+                JSONObject jSONObject = new JSONObject(str).getJSONObject("data").getJSONObject(e80.V(this.a).C);
+                JSONArray optJSONArray = jSONObject.optJSONArray("ip");
+                JSONArray optJSONArray2 = jSONObject.optJSONArray("ipv6");
+                if (optJSONArray2 == null) {
+                    length = 0;
+                } else {
+                    length = optJSONArray2.length();
+                }
+                if (optJSONArray == null) {
+                    length2 = 0;
+                } else {
+                    length2 = optJSONArray.length();
+                }
+                if (length2 + length > 0) {
+                    ArrayList arrayList = new ArrayList();
+                    if (optJSONArray != null && length2 > 0) {
+                        arrayList.add(optJSONArray.getString(0));
+                    }
+                    if (optJSONArray2 != null && length > 0) {
+                        arrayList.add(optJSONArray2.getString(0));
+                    }
+                    a80.j(arrayList);
+                    if (this.b != null && a80.c.size() > 0) {
+                        this.b.a(0, DnsModel.MSG_OK, a80.c.get(0));
+                        if (a80.c.size() > 1) {
+                            a80.d++;
+                            return;
+                        }
+                        return;
+                    }
+                    return;
+                }
+                u80.b("LCPHttpDnsUrlRequest", "HttpDnsResponse ips is null ");
+                a80.f(true);
+                a80.c(this.a).b(e80.V(this.a).C, this.b);
             } catch (Exception e) {
-                s80.c("LCPCommon", "businessEvent exception ", e);
+                u80.b("LCPHttpDnsUrlRequest", "HttpDnsRequester ip parse exception " + e.getMessage());
+                a80.f(true);
+                a80.c(this.a).b(e80.V(this.a).C, this.b);
             }
         }
-    }
-
-    @SuppressLint({"DefaultLocale"})
-    public static String e(String str, String str2, String str3, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
-            return d(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j)));
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static String b(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
-            try {
-                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
-            } catch (PackageManager.NameNotFoundException e) {
-                s80.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
-                return null;
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static Object c(Context context, boolean z) {
-        InterceptResult invokeLZ;
-        String b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
-            String valueOf = String.valueOf(System.currentTimeMillis());
-            if (TextUtils.isEmpty(b(context))) {
-                b = "";
-            } else {
-                b = b(context);
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            String b2 = t80.b(context);
-            String e = t80.e(context);
-            try {
-                if (z) {
-                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
-                        JSONObject jSONObject = new JSONObject();
-                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
-                        jSONObject.put("cuid", e);
-                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
-                        jSONObject.put("app_id", b2);
-                        jSONObject.put("app_version", b);
-                        jSONObject.put("sdk_version", "2310016");
-                        jSONObject.put("ts", currentTimeMillis);
-                        jSONObject.put("sign", e(b2, e, "android", currentTimeMillis));
-                        return jSONObject;
-                    }
-                    s80.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
-                    return null;
-                }
-                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
-                newBuilder.v(e);
-                newBuilder.w("android");
-                newBuilder.t(b2);
-                newBuilder.u(b);
-                newBuilder.x("2310016");
-                return newBuilder.build();
-            } catch (Exception e2) {
-                s80.c("LCPCommon", "getData :", e2);
-                return null;
-            }
-        }
-        return invokeLZ.objValue;
-    }
-
-    public static String d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            try {
-                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
-                StringBuilder sb = new StringBuilder();
-                for (byte b : digest) {
-                    int i = b & 255;
-                    if (i < 16) {
-                        sb.append(0);
-                    }
-                    sb.append(Integer.toHexString(i));
-                }
-                return sb.toString();
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
     }
 }

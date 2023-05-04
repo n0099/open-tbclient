@@ -1,80 +1,111 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.os.Build;
-import android.os.Environment;
+import android.provider.Settings;
+import android.view.Window;
+import android.view.WindowManager;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
 /* loaded from: classes6.dex */
 public class r41 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            return str + "/bddownload/";
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948071546, "Lcom/baidu/tieba/r41;")) == null) {
+            return;
         }
-        return (String) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948071546, "Lcom/baidu/tieba/r41;");
+        }
     }
 
-    public static String d(Context context) {
-        InterceptResult invokeL;
+    public static int c(int i, int i2, int i3) {
+        InterceptResult invokeIII;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            return e(context, "/mnt/sdcard");
+        if (interceptable == null || (invokeIII = interceptable.invokeIII(65539, null, i, i2, i3)) == null) {
+            if (i < i2) {
+                i = i2;
+            }
+            return i > i3 ? i3 : i;
         }
-        return (String) invokeL.objValue;
+        return invokeIII.intValue;
     }
 
-    public static File b(Context context) {
+    public static int a(Activity activity) {
+        InterceptResult invokeL;
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null) {
+                float f = activity.getWindow().getAttributes().screenBrightness;
+                if (f < 0.0f) {
+                    i = b(activity);
+                } else {
+                    i = (int) (f * 255.0f);
+                }
+                int i2 = a;
+                if (i2 >= 0 && i <= 50) {
+                    return i2;
+                }
+                return i;
+            }
+            return -1;
+        }
+        return invokeL.intValue;
+    }
+
+    public static int b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, context)) == null) {
             try {
-                if (Build.VERSION.SDK_INT > 28) {
-                    return context.getExternalFilesDir(null);
-                }
-                if ("mounted".equals(Environment.getExternalStorageState())) {
-                    if (k41.a(context, "android.permission.WRITE_EXTERNAL_STORAGE") && k41.b("permission_storage")) {
-                        return c();
-                    }
-                    if (Build.VERSION.SDK_INT >= 19) {
-                        return context.getExternalFilesDir(null);
-                    }
-                    return context.getFilesDir();
-                }
-                return context.getFilesDir();
-            } catch (Exception unused) {
-                return null;
+                return Settings.System.getInt(context.getContentResolver(), "screen_brightness");
+            } catch (Exception e) {
+                e.printStackTrace();
+                return 0;
             }
         }
-        return (File) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static File c() {
-        InterceptResult invokeV;
+    public static void f(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return Environment.getExternalStorageDirectory();
+        if (interceptable == null || interceptable.invokeL(65542, null, activity) == null) {
+            e(activity, -1);
         }
-        return (File) invokeV.objValue;
     }
 
-    public static String e(Context context, String str) {
-        InterceptResult invokeLL;
+    public static void d(Activity activity, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str)) == null) {
-            try {
-                return a(b(context).getPath());
-            } catch (Throwable unused) {
-                return a(str);
-            }
+        if ((interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, activity, i) == null) && activity != null) {
+            a = c(i, 0, 255);
+            int c = c(i, 50, 255);
+            WindowManager.LayoutParams attributes = activity.getWindow().getAttributes();
+            attributes.screenBrightness = Float.valueOf(c).floatValue() * 0.003921569f;
+            activity.getWindow().setAttributes(attributes);
         }
-        return (String) invokeLL.objValue;
+    }
+
+    public static void e(Activity activity, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(65541, null, activity, i) == null) && activity != null) {
+            Window window = activity.getWindow();
+            WindowManager.LayoutParams attributes = window.getAttributes();
+            attributes.screenBrightness = i;
+            window.setAttributes(attributes);
+        }
     }
 }

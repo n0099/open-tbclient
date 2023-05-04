@@ -1,124 +1,73 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class co1 {
+public class co1 implements rn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SwanKV.b a;
-    public boolean b;
-    public boolean c;
-    public final Context d;
+    public Context a;
+    public bo1 b;
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (this != obj) {
-                return (obj instanceof co1) && Intrinsics.areEqual(this.d, ((co1) obj).d);
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            Context context = this.d;
-            if (context != null) {
-                return context.hashCode();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "SwanKVConfig(context=" + this.d + SmallTailInfo.EMOTION_SUFFIX;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public co1(Context context) {
+    public co1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = context;
     }
 
-    public final void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    public final void e(SwanKV.b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, bVar) == null) {
-            this.a = bVar;
-        }
-    }
-
-    public final boolean a() {
+    @Override // com.baidu.tieba.rn1
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            bo1 bo1Var = this.b;
+            return bo1Var.a(this.a, bo1Var.c);
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.rn1
+    public void a(Context context, sn1 sn1Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, sn1Var) == null) {
+            this.a = context;
+            bo1 bo1Var = new bo1();
+            this.b = bo1Var;
+            bo1Var.c = null;
+            try {
+                Class<?> cls = Class.forName("com.android.id.impl.IdProviderImpl");
+                bo1Var.b = cls;
+                bo1Var.a = cls.newInstance();
+            } catch (Throwable unused) {
+            }
+            try {
+                bo1Var.c = bo1Var.b.getMethod("getOAID", Context.class);
+            } catch (Throwable unused2) {
+            }
+            try {
+                bo1Var.b.getMethod("getVAID", Context.class);
+            } catch (Throwable unused3) {
+            }
+            try {
+                bo1Var.b.getMethod("getAAID", Context.class);
+            } catch (Throwable unused4) {
+            }
+            if (sn1Var != null) {
+                sn1Var.a();
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    public final SwanKV.b c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (SwanKV.b) invokeV.objValue;
-    }
-
-    public final Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.d;
-        }
-        return (Context) invokeV.objValue;
     }
 }

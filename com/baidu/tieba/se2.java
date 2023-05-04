@@ -1,6 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -9,62 +14,171 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class se2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static final boolean b;
+    public static Runnable c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A;
-    public long B;
-    public long C;
-    public boolean D;
-    public int E;
-    public String F;
-    public String a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public String t;
-    public String u;
-    public String v;
-    public long w;
-    public int x;
-    public int y;
-    public int z;
 
-    public se2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hs3.e(AppRuntime.getAppContext());
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                hs3.d(AppRuntime.getAppContext()).g();
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948148457, "Lcom/baidu/tieba/se2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948148457, "Lcom/baidu/tieba/se2;");
                 return;
             }
         }
-        this.B = PMSAppInfo.DEFAULT_SWAN_APP_PKG_MAX_AGE;
+        a = ho1.a;
+        er2.g0().getSwitch("swan_cpu_booster", 0);
+        b = b(0);
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "swan_cpu_booster - 0");
+            Log.d("SwanCpuBoosterWrapper", "SWAN_CPU_BOOSTER - " + b);
+        }
+        a();
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void a() {
+        long j;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return "SwanAppDbInfo{appId='" + this.a + "', appKey='" + this.b + "', errorCode=" + this.d + ", errorDetail='" + this.e + "', errorMsg='" + this.f + "', resumeDate='" + this.g + "', maxSwanVersion='" + this.j + "', minSwanVersion='" + this.k + "', name='" + this.l + "', version='" + this.q + "', type=" + this.r + ", isHaveZip=" + this.s + ", targetSwanVersion='" + this.v + "', mAppZipSize=" + this.w + ", mPendingApsErrcode=" + this.x + ", category=" + this.y + ", versionCode='" + this.A + "', maxAge=" + this.B + ", createTime=" + this.C + ", forceFetchMetaInfoFlag=" + this.D + ", payProtected=" + this.E + '}';
+        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || !b) {
+            return;
         }
-        return (String) invokeV.objValue;
+        if (a) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
+        }
+        hs3.b(a);
+        if (c == null) {
+            c = new b();
+        }
+        if (a) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("SwanCpuBoosterWrapper", "init cpu booster cost - " + (currentTimeMillis - j) + "ms");
+        }
+    }
+
+    public static void e() {
+        long j;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65541, null) != null) || !b) {
+            return;
+        }
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "startBooster");
+        }
+        if (a) {
+            j = System.currentTimeMillis();
+        } else {
+            j = 0;
+        }
+        d(c);
+        if (a) {
+            long currentTimeMillis = System.currentTimeMillis();
+            Log.d("SwanCpuBoosterWrapper", "startBooster cost - " + (currentTimeMillis - j) + "ms");
+        }
+    }
+
+    public static boolean b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            if (i <= 0) {
+                return false;
+            }
+            if (i == 1) {
+                return true;
+            }
+            if (i != 2) {
+                return false;
+            }
+            return er2.u0().a();
+        }
+        return invokeI.booleanValue;
+    }
+
+    public static void d(Runnable runnable) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, runnable) != null) || runnable == null) {
+            return;
+        }
+        ExecutorUtilsExt.postOnElastic(runnable, "SwanCpuBoosterWrapper", 0);
+    }
+
+    public static void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65539, null, z) != null) || !b) {
+            return;
+        }
+        if (a) {
+            Log.d("SwanCpuBoosterWrapper", "cpu-booster preInit async ? - " + z);
+        }
+        a aVar = new a();
+        if (z) {
+            ExecutorUtilsExt.postOnElastic(aVar, "booster-preInit", 3);
+        } else {
+            aVar.run();
+        }
     }
 }

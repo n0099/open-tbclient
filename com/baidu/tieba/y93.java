@@ -2,126 +2,38 @@ package com.baidu.tieba;
 
 import android.content.Context;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.favordata.SwanFavorDataManager;
-import com.baidu.swan.pms.model.PMSAppInfo;
+import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
+import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class y93 extends z93 {
+public class y93 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public class a implements oj2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v73 a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ String d;
-        public final /* synthetic */ y93 e;
-
-        public a(y93 y93Var, v73 v73Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y93Var, v73Var, callbackHandler, unitedSchemeEntity, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.e = y93Var;
-            this.a = v73Var;
-            this.b = callbackHandler;
-            this.c = unitedSchemeEntity;
-            this.d = str;
-        }
-
-        @Override // com.baidu.tieba.oj2
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (this.e.d) {
-                    n73 f = n73.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f13fa);
-                    f.l(2);
-                    f.G();
-                }
-                this.e.n(this.c, this.b, this.d);
-            }
-        }
-
-        @Override // com.baidu.tieba.oj2
-        public void b(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-                if (this.e.d && !z) {
-                    n73 f = n73.f(this.a.getApplicationContext(), R.string.obfuscated_res_0x7f0f015e);
-                    f.l(2);
-                    f.G();
-                }
-                this.e.n(this.c, this.b, this.d);
-            }
-        }
-
-        @Override // com.baidu.tieba.oj2
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("success", "1");
-                } catch (JSONException e) {
-                    if (fo1.a) {
-                        e.printStackTrace();
-                    }
-                }
-                if (this.e.d) {
-                    z93.m("1", "btn", "success");
-                    te2.t();
-                    if (lx2.k(this.a.w())) {
-                        lx2.p("addmyswan", pl3.n().e());
-                    } else {
-                        Context applicationContext = this.a.getApplicationContext();
-                        n73 g = n73.g(applicationContext, cr2.l0().f(applicationContext));
-                        g.l(2);
-                        g.q(2);
-                        g.G();
-                    }
-                }
-                UnitedSchemeUtility.safeCallback(this.b, this.c, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0).toString(), this.d);
-            }
-        }
-    }
-
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public y93(s83 s83Var) {
-        super(s83Var, "/swanAPI/addFavor");
+    public y93(u83 u83Var) {
+        super(u83Var, "/swanAPI/setBackgroundColor");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
-                super((s83) objArr2[0], (String) objArr2[1]);
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -129,57 +41,49 @@ public class y93 extends z93 {
         }
     }
 
-    @Override // com.baidu.tieba.z93
-    public boolean j(v73 v73Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLL;
-        String optString;
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, v73Var, unitedSchemeEntity)) == null) {
-            String param = unitedSchemeEntity.getParam("params");
-            if (TextUtils.isEmpty(param)) {
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                x42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "paramsJson is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
                 return false;
             }
-            try {
-                JSONObject jSONObject = new JSONObject(param);
-                if (this.d) {
-                    optString = v73Var.O();
-                } else {
-                    optString = jSONObject.optString("appid");
-                }
-                this.c = optString;
-                return !TextUtils.isEmpty(optString);
-            } catch (JSONException e) {
-                e.printStackTrace();
+            if (u93.b) {
+                Log.d(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, optParamsAsJo.toString());
+            }
+            g72 V = kt2.U().V();
+            if (V == null) {
+                x42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "manager is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
                 return false;
             }
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.z93
-    public void k(v73 v73Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, v73Var, unitedSchemeEntity, callbackHandler, str) == null) {
-            PMSAppInfo u = sf4.i().u(this.c);
-            if (u != null && !TextUtils.isEmpty(u.appId)) {
-                if (this.d) {
-                    z93.m("1", "btn", "invoke");
-                } else {
-                    z93.m("1", "api", "invoke");
-                }
-                SwanFavorDataManager.h().b(this.c, new a(this, v73Var, callbackHandler, unitedSchemeEntity, str));
-                return;
+            String optString = optParamsAsJo.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR);
+            if (TextUtils.isEmpty(optString) && (!TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorTop")) || !TextUtils.isEmpty(optParamsAsJo.optString("backgroundColorBottom")))) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(101);
+                return false;
             }
-            n(unitedSchemeEntity, callbackHandler, str);
+            f72 o = V.o();
+            if (o == null) {
+                x42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "slave container is null");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else if (TextUtils.equals("7", o.Q1().l())) {
+                x42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "this page is from showModalPage api");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(402);
+                return false;
+            } else if (!o.O2(o.A3(), SwanAppConfigData.t(optString), true)) {
+                x42.c(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "set window background fail");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+                return false;
+            } else {
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                return true;
+            }
         }
-    }
-
-    @Override // com.baidu.tieba.z93
-    public void l(v73 v73Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str) {
-        ks1 l0;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, v73Var, unitedSchemeEntity, callbackHandler, str) == null) && this.d && (l0 = cr2.l0()) != null) {
-            l0.g(v73Var);
-        }
+        return invokeLLLL.booleanValue;
     }
 }

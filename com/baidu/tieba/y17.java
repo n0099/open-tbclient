@@ -1,37 +1,27 @@
 package com.baidu.tieba;
 
+import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.feed.widget.uistate.PersonAttentionUiStateKt;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tieba.g17;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.JvmOverloads;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.functions.Function3;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public final class y17 extends a07 {
+public final class y17 implements g17.c {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final rx6 c;
-    public final String d;
-    public Function1<? super vx6, Unit> e;
-    public final Function2<y17, TbPageContext<?>, Unit> f;
-    public final Function3<y17, TbPageContext<?>, Object, Unit> g;
+    public final v17 a;
 
-    @JvmOverloads
-    public y17(rx6 personAttentionData, String str, Function1<? super vx6, Unit> onStat, Function2<? super y17, ? super TbPageContext<?>, Unit> onAttentionClick, Function3<? super y17, ? super TbPageContext<?>, Object, Unit> registerAttentionListener) {
+    public y17(v17 statStrategy) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {personAttentionData, str, onStat, onAttentionClick, registerAttentionListener};
+            Object[] objArr = {statStrategy};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -41,64 +31,43 @@ public final class y17 extends a07 {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(personAttentionData, "personAttentionData");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        Intrinsics.checkNotNullParameter(onAttentionClick, "onAttentionClick");
-        Intrinsics.checkNotNullParameter(registerAttentionListener, "registerAttentionListener");
-        this.c = personAttentionData;
-        this.d = str;
-        this.e = onStat;
-        this.f = onAttentionClick;
-        this.g = registerAttentionListener;
+        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
+        this.a = statStrategy;
     }
 
-    public /* synthetic */ y17(rx6 rx6Var, String str, Function1 function1, Function2 function2, Function3 function3, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this(rx6Var, str, (i & 4) != 0 ? PersonAttentionUiStateKt.c : function1, (i & 8) != 0 ? PersonAttentionUiStateKt.c() : function2, (i & 16) != 0 ? PersonAttentionUiStateKt.b : function3);
-    }
-
-    public final String d() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g17.c
+    public void a(s17<?> data, r17<?, ?> template, int i) {
+        Map<String, String> a;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.d;
+        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
+            Intrinsics.checkNotNullParameter(data, "data");
+            Intrinsics.checkNotNullParameter(template, "template");
+            d17 d17Var = (d17) data;
+            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
+            hy6 hy6Var = new hy6();
+            hy6 hy6Var2 = d17Var.b;
+            if (hy6Var2 != null) {
+                hy6Var = hy6Var2;
+            }
+            for (Map.Entry<String, String> entry : this.a.a(hy6Var).entrySet()) {
+                statisticItem.param(entry.getKey(), entry.getValue());
+            }
+            dz6 dz6Var = d17Var.a;
+            if (dz6Var != null && (a = dz6Var.a()) != null) {
+                for (Map.Entry<String, String> entry2 : a.entrySet()) {
+                    statisticItem.param(entry2.getKey(), entry2.getValue());
+                }
+            }
+            ci6.b().a(statisticItem);
         }
-        return (String) invokeV.objValue;
     }
 
-    public final Function2<y17, TbPageContext<?>, Unit> e() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.g17.c
+    public void b(RecyclerView rv) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
+            Intrinsics.checkNotNullParameter(rv, "rv");
+            ci6.b().c();
         }
-        return (Function2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function1<? super com.baidu.tieba.vx6, kotlin.Unit>, kotlin.jvm.functions.Function1<com.baidu.tieba.vx6, kotlin.Unit> */
-    public final Function1<vx6, Unit> f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (Function1) invokeV.objValue;
-    }
-
-    public final rx6 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (rx6) invokeV.objValue;
-    }
-
-    public final Function3<y17, TbPageContext<?>, Object, Unit> h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.g;
-        }
-        return (Function3) invokeV.objValue;
     }
 }

@@ -5,17 +5,16 @@ import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class ps3 implements gs3 {
+import com.huawei.hms.framework.common.ExceptionCode;
+/* loaded from: classes5.dex */
+public class ps3 implements is3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public qs3 a;
-    public boolean b;
+    public int b;
     public boolean c;
-    public boolean d;
 
     public ps3(@NonNull Context context) {
         Interceptable interceptable = $ic;
@@ -32,7 +31,76 @@ public class ps3 implements gs3 {
                 return;
             }
         }
+        this.b = -1;
         c(context);
+    }
+
+    public final void e(int i) {
+        int a;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            os3 f = vs3.f();
+            int i2 = f.a;
+            if (i2 < 1) {
+                i2 = 10;
+            }
+            if (f.a() <= 0) {
+                a = ExceptionCode.CRASH_EXCEPTION;
+            } else {
+                a = f.a();
+            }
+            int f2 = this.a.f(i2, a, i2, a);
+            this.b = f2;
+            if (f2 != -1) {
+                this.a.e(f2, i);
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.is3
+    public void a() {
+        qs3 qs3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (qs3Var = this.a) != null && qs3Var.c()) {
+            this.c = false;
+            if (this.a.b()) {
+                g();
+            } else {
+                f();
+            }
+        }
+    }
+
+    public final void f() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
+            this.a.d(i);
+            this.a.j(this.b);
+        }
+    }
+
+    public final void g() {
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
+            this.a.d(i);
+            this.a.i(this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.is3
+    public void b(int i) {
+        qs3 qs3Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (qs3Var = this.a) != null && qs3Var.c()) {
+            this.c = true;
+            if (this.a.b()) {
+                e(i);
+            } else {
+                d(i);
+            }
+        }
     }
 
     public final void c(Context context) {
@@ -42,46 +110,33 @@ public class ps3 implements gs3 {
         }
     }
 
-    @Override // com.baidu.tieba.gs3
-    public void a() {
+    public final void d(int i) {
+        int a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.b && d()) {
-            this.b = false;
-            if (this.a.c()) {
-                this.a.e(12, 0);
-                this.a.e(13, 0);
-                return;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            int g = this.a.g();
+            this.b = g;
+            if (g != -1) {
+                os3 f = vs3.f();
+                int i2 = f.a;
+                if (i2 < 1) {
+                    i2 = 10;
+                }
+                if (f.a() <= 0) {
+                    a = ExceptionCode.CRASH_EXCEPTION;
+                } else {
+                    a = f.a();
+                }
+                int i3 = i2;
+                this.a.h(this.b, 0, i3, -1, -1, -1);
+                this.a.h(this.b, 2, i3, i2, -1, -1);
+                int i4 = a;
+                this.a.h(this.b, 4, i4, -1, -1, -1);
+                this.a.h(this.b, 6, i4, a, -1, -1);
+                this.a.h(this.b, 15, i2, i2, i2, i2);
+                this.a.h(this.b, 17, a, a, a, a);
+                this.a.e(this.b, i);
             }
-            this.a.d(12, 0);
-            this.a.d(13, 0);
         }
-    }
-
-    @Override // com.baidu.tieba.gs3
-    public void b(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != null && !this.b && d()) {
-            this.b = true;
-            if (this.a.c()) {
-                this.a.e(12, i);
-                this.a.e(13, i);
-                return;
-            }
-            this.a.d(12, i);
-            this.a.d(13, i);
-        }
-    }
-
-    public final boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (!this.d) {
-                this.d = true;
-                this.c = this.a.g();
-            }
-            return this.c;
-        }
-        return invokeV.booleanValue;
     }
 }

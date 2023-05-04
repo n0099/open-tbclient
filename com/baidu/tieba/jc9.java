@@ -1,10 +1,11 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.media.Ringtone;
+import android.media.RingtoneManager;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
-import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
-import com.baidu.tieba.ad.AbsDataRecorder;
-import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,130 +14,49 @@ public class jc9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(String str, int i, int i2) {
-        InterceptResult invokeLII;
+    public static void a(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i, i2)) == null) {
-            if (i == 2) {
-                if ("frs_new_tab".equals(str) && zy5.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
-                    return true;
-                }
-                if ("frs_hot_tab".equals(str) && zy5.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
-                    return true;
-                }
-                return false;
-            } else if (i == 3) {
-                if (zy5.k().r(i2, AbsDataRecorder.Scene.PB)) {
-                    return true;
-                }
-                return false;
-            } else if (i == 1 && "INDEX".equals(str) && zy5.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
-                return true;
-            } else {
-                return false;
-            }
-        }
-        return invokeLII.booleanValue;
-    }
-
-    public static void b(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            if (i != 2 && i != 1) {
-                if (i == 3) {
-                    if (zy5.k().m() && i2 == 1) {
-                        vipAdFreeGuideLayout.setBottomCornerRound(false);
-                        vipAdFreeGuideLayout.setAllCornerRound(false);
-                        if (adCardBaseView.getPbBottomView() != null) {
-                            adCardBaseView.getPbBottomView().setVisibility(8);
-                            return;
-                        }
-                        return;
-                    }
-                    if (vipAdFreeGuideLayout != null) {
-                        vipAdFreeGuideLayout.setBottomCornerRound(false);
-                        vipAdFreeGuideLayout.setAllCornerRound(true);
-                    }
-                    if (adCardBaseView.getPbBottomView() != null) {
-                        adCardBaseView.getPbBottomView().setVisibility(0);
-                    }
-                }
-            } else if (vipAdFreeGuideLayout != null) {
-                vipAdFreeGuideLayout.setBottomCornerRound(true);
-            }
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameAlbum(context, str);
         }
     }
 
-    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
+    public static void b(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLI(65538, null, vipAdFreeGuideLayout, str, str2, i) == null) {
-            if (i == 2) {
-                if ("frs_new_tab".equals(str2)) {
-                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
-                } else if ("frs_hot_tab".equals(str2)) {
-                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
-                }
-            } else if (i == 3) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
-            } else if (i == 1) {
-                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
-            }
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
         }
     }
 
-    public static void d(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i, int i2) {
+    public static void c(Context context, String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || vipAdFreeGuideLayout == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameOrderPage(context, str);
         }
-        vipAdFreeGuideLayout.setVisibility(0);
-        b(adCardBaseView, vipAdFreeGuideLayout, str2, i, i2);
-        vipAdFreeGuideLayout.f();
-        c(vipAdFreeGuideLayout, str, str2, i);
     }
 
-    public static void e(AdvertAppInfo advertAppInfo, df8<?> df8Var, String str, String str2, int i, int i2) {
-        AdCardBaseView adCardBaseView;
-        int i3;
+    public static void d(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{advertAppInfo, df8Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
-            VipAdFreeGuideLayout vipAdFreeGuideLayout = null;
-            if (df8Var instanceof AdCardBaseView) {
-                adCardBaseView = (AdCardBaseView) df8Var;
-            } else {
-                adCardBaseView = null;
-            }
-            if (adCardBaseView != null) {
-                vipAdFreeGuideLayout = adCardBaseView.getVipAdFreeGuideLayout();
-            }
-            VipAdFreeGuideLayout vipAdFreeGuideLayout2 = vipAdFreeGuideLayout;
-            if (vipAdFreeGuideLayout2 != null) {
-                if (i == 1) {
-                    i3 = zy5.k().j(advertAppInfo.a);
-                } else {
-                    i3 = advertAppInfo.s;
-                }
-                if (i3 == 1) {
-                    vipAdFreeGuideLayout2.setVisibility(8);
-                } else if (i3 == 2) {
-                    d(adCardBaseView, vipAdFreeGuideLayout2, str, str2, i, i2);
-                } else if (a(str2, i, i2)) {
-                    d(adCardBaseView, vipAdFreeGuideLayout2, str, str2, i, i2);
-                    zy5.k().c();
-                    if (i == 1) {
-                        zy5.k().p(advertAppInfo.a, 2);
-                    } else {
-                        advertAppInfo.s = 2;
-                    }
-                } else {
-                    vipAdFreeGuideLayout2.setVisibility(8);
-                    if (i == 1) {
-                        zy5.k().p(advertAppInfo.a, 1);
-                    } else {
-                        advertAppInfo.s = 1;
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLL(65539, null, context, str) == null) {
+            UrlSchemaJumpHelper.jumpGameSkillDetail(context, str);
         }
+    }
+
+    public static void e(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, z) == null) {
+            UrlSchemaJumpHelper.jumpPersonChat(context, str, z);
+        }
+    }
+
+    public static Ringtone f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            Ringtone ringtone = RingtoneManager.getRingtone(TbadkCoreApplication.getInst(), RingtoneManager.getDefaultUri(2));
+            ringtone.play();
+            return ringtone;
+        }
+        return (Ringtone) invokeV.objValue;
     }
 }

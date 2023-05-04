@@ -49,7 +49,7 @@ public class QuestionTagCreateResponseMessage extends JsonHttpResponsedMessage {
             if (getError() == 230049) {
                 setErrorString(jSONObject.optString("errmsg"));
             } else if (getError() != 0) {
-                setErrorString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04a7));
+                setErrorString(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f04b1));
             }
             if (getError() != 0) {
                 return;

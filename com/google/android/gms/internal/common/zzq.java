@@ -1,7 +1,7 @@
 package com.google.android.gms.internal.common;
 
 import javax.annotation.CheckForNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzq {
     public static final CharSequence zza(@CheckForNull Object obj, String str) {
         obj.getClass();

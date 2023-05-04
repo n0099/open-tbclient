@@ -4,11 +4,12 @@ import android.text.TextUtils;
 import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tieba.fu4;
-import com.baidu.tieba.qm9;
-import com.baidu.tieba.rm9;
-import com.baidu.tieba.sm9;
-import com.baidu.tieba.um9;
+import com.baidu.tieba.fq9;
+import com.baidu.tieba.gq9;
+import com.baidu.tieba.hq9;
+import com.baidu.tieba.jq9;
+import com.baidu.tieba.ru4;
+import com.baidu.tieba.xf6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,17 +23,17 @@ import java.util.LinkedHashMap;
 import java.util.List;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ShareJsBridgePlugin_Proxy extends qm9 {
+public class ShareJsBridgePlugin_Proxy extends fq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public fu4 mJsBridge;
+    public ru4 mJsBridge;
 
-    public ShareJsBridgePlugin_Proxy(fu4 fu4Var) {
+    public ShareJsBridgePlugin_Proxy(ru4 ru4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {fu4Var};
+            Object[] objArr = {ru4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,82 +43,97 @@ public class ShareJsBridgePlugin_Proxy extends qm9 {
                 return;
             }
         }
-        this.mJsBridge = fu4Var;
+        this.mJsBridge = ru4Var;
         this.mAsyncCallBackMethodList = new LinkedHashMap();
         HashSet<String> hashSet = new HashSet<>();
         this.mNotificationNameList = hashSet;
         hashSet.add(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION);
     }
 
-    @Override // com.baidu.tieba.qm9
-    public sm9 dispatch(WebView webView, um9 um9Var, sm9 sm9Var) {
+    @Override // com.baidu.tieba.fq9
+    public hq9 dispatch(WebView webView, jq9 jq9Var, hq9 hq9Var) {
         InterceptResult invokeLLL;
-        sm9 sm9Var2;
+        hq9 hq9Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, um9Var, sm9Var)) == null) {
-            if (sm9Var == null) {
-                sm9Var2 = new sm9();
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, webView, jq9Var, hq9Var)) == null) {
+            if (hq9Var == null) {
+                hq9Var2 = new hq9();
             } else {
-                sm9Var2 = sm9Var;
+                hq9Var2 = hq9Var;
             }
-            String b = um9Var.b();
-            JSONObject e = um9Var.e();
+            String b = jq9Var.b();
+            JSONObject e = jq9Var.e();
             if (b.equals("share/registerShareDataNew")) {
-                sm9Var2.r(true);
-                sm9 d = this.mJsBridge.d(webView, e.optString("title"), e.optString("desc"), e.optString("img"), e.optString("url"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optString("isShowMoreForum"), e.optInt("shareimg"), e.optString("extdata"));
+                hq9Var2.s(true);
+                hq9 d = this.mJsBridge.d(webView, e.optString("title"), e.optString("desc"), e.optString("img"), e.optString("url"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optString("isShowMoreForum"), e.optInt("shareimg"), e.optString("extdata"));
                 if (d != null) {
-                    sm9Var2.x(d.f());
-                    sm9Var2.t(d.b());
-                    sm9Var2.o(d.a());
-                    sm9Var2.w(d.e());
+                    hq9Var2.y(d.f());
+                    hq9Var2.u(d.b());
+                    hq9Var2.o(d.a());
+                    hq9Var2.x(d.e());
                 }
-                sm9Var2.y(0);
+                hq9Var2.z(0);
             } else if (b.equals("share/share")) {
-                sm9Var2.r(true);
-                sm9 f = this.mJsBridge.f(webView, e.optInt("channel"), e.optInt("shareImg"), e.optString("img"), e.optString("isShowMoreForum"), e.optString("url"), e.optString("title"), e.optString("desc"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optInt("weixinDisable"), e.optString("extData"), e.optInt("source"), e.optString("topicId"), e.optLong("roomId"), e.optInt("filterRooms"), e.optInt("roomMemberCount"), e.optLong("fid"), e.optString("forumName"));
+                hq9Var2.s(true);
+                hq9 f = this.mJsBridge.f(webView, e.optInt("channel"), e.optInt("shareImg"), e.optString("img"), e.optString("isShowMoreForum"), e.optString("url"), e.optString("title"), e.optString("desc"), e.optString("topic"), e.optString("wbtitle"), e.optString("wbcontent"), e.optInt("weixinDisable"), e.optString("extData"), e.optInt("source"), e.optString("topicId"), e.optString("disableSafari"), e.optLong("roomId"), e.optInt("filterRooms"), e.optInt("roomMemberCount"), e.optLong("fid"), e.optString("forumName"), e.optString("onlyThirdShare"), e.optString("addObserverNotify"));
+                this.mNotificationNameList.add(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION);
                 if (f != null) {
-                    sm9Var2.x(f.f());
-                    sm9Var2.t(f.b());
-                    sm9Var2.o(f.a());
-                    sm9Var2.w(f.e());
+                    hq9Var2.y(f.f());
+                    hq9Var2.u(f.b());
+                    hq9Var2.o(f.a());
+                    hq9Var2.x(f.e());
+                    if (!hq9Var2.h()) {
+                        hq9Var2.n(false);
+                        addObserver(webView, CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION, hq9Var2, false);
+                    }
                 }
-                sm9Var2.y(0);
+                hq9Var2.z(0);
             }
-            return sm9Var2;
+            return hq9Var2;
         }
-        return (sm9) invokeLLL.objValue;
+        return (hq9) invokeLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.qm9
-    public List<sm9> processNotification(WebView webView, String str, HashMap hashMap) {
+    @Override // com.baidu.tieba.fq9
+    public xf6 getJsBridge() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.mJsBridge;
+        }
+        return (xf6) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fq9
+    public List<hq9> processNotification(WebView webView, String str, HashMap hashMap) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, hashMap)) == null) {
-            sm9 sm9Var = null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, webView, str, hashMap)) == null) {
+            hq9 hq9Var = null;
             if (TextUtils.isEmpty(str) || !this.mNotificationNameList.contains(str)) {
                 return null;
             }
             ArrayList arrayList = new ArrayList();
             if (str.equals(CommonTbJsBridge.SHARE_SUCCCESS_NOTIFICATION)) {
-                sm9Var = this.mJsBridge.h(webView, hashMap);
+                hq9Var = this.mJsBridge.h(webView, hashMap);
             }
-            if (sm9Var != null) {
-                sm9Var.y(0);
+            if (hq9Var != null) {
+                hq9Var.z(0);
             }
-            List<rm9> list = this.mAsyncCallBackMethodList.get(str);
-            if (sm9Var != null && list != null) {
-                Iterator<rm9> it = list.iterator();
-                if (!TextUtils.isEmpty(sm9Var.e())) {
+            List<gq9> list = this.mAsyncCallBackMethodList.get(str);
+            if (hq9Var != null && list != null) {
+                Iterator<gq9> it = list.iterator();
+                if (!TextUtils.isEmpty(hq9Var.e())) {
                     while (it.hasNext()) {
-                        rm9 next = it.next();
-                        if (next.b().equals(sm9Var.e())) {
-                            sm9 sm9Var2 = new sm9();
-                            sm9Var2.v(next.a());
-                            sm9Var2.x(sm9Var.f());
-                            sm9Var2.t(sm9Var.b());
-                            sm9Var2.o(sm9Var.a());
-                            sm9Var2.z(sm9Var.l());
-                            arrayList.add(sm9Var2);
+                        gq9 next = it.next();
+                        if (next.b().equals(hq9Var.e())) {
+                            hq9 hq9Var2 = new hq9();
+                            hq9Var2.w(next.a());
+                            hq9Var2.y(hq9Var.f());
+                            hq9Var2.u(hq9Var.b());
+                            hq9Var2.o(hq9Var.a());
+                            hq9Var2.A(hq9Var.l());
+                            arrayList.add(hq9Var2);
                             if (!next.c()) {
                                 it.remove();
                             }
@@ -125,14 +141,14 @@ public class ShareJsBridgePlugin_Proxy extends qm9 {
                     }
                 } else {
                     while (it.hasNext()) {
-                        rm9 next2 = it.next();
-                        sm9 sm9Var3 = new sm9();
-                        sm9Var3.v(next2.a());
-                        sm9Var3.x(sm9Var.f());
-                        sm9Var3.t(sm9Var.b());
-                        sm9Var3.o(sm9Var.a());
-                        sm9Var3.z(sm9Var.l());
-                        arrayList.add(sm9Var3);
+                        gq9 next2 = it.next();
+                        hq9 hq9Var3 = new hq9();
+                        hq9Var3.w(next2.a());
+                        hq9Var3.y(hq9Var.f());
+                        hq9Var3.u(hq9Var.b());
+                        hq9Var3.o(hq9Var.a());
+                        hq9Var3.A(hq9Var.l());
+                        arrayList.add(hq9Var3);
                         if (!next2.c()) {
                             it.remove();
                         }

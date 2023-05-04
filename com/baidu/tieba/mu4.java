@@ -1,43 +1,186 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.android.imsdk.chatmessage.messages.AdvisoryMsgBusinessExtra;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.newshare.ThreadAchievementShareInfo;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.browser.proxy.OfflineBridgeData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.tbadkCore.util.MercatorModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.util.Base64Encoder;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mu4 {
+public class mu4 implements xf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Context a;
-    public final View b;
-    public final ThreadAchievementShareInfo.ParamBean c;
-    public TbImageView d;
-    public ImageView e;
-    public TextView f;
-    public TextView g;
-    public TextView h;
-    public TextView i;
+    public final cv4 a;
 
-    public mu4(Context context, ThreadAchievementShareInfo threadAchievementShareInfo) {
+    @Override // com.baidu.tieba.xf6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        wf6.a(this, webView, str, jSONObject);
+    }
+
+    @Override // com.baidu.tieba.xf6
+    public /* synthetic */ void onDestroy() {
+        wf6.b(this);
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends vr5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public a(mu4 mu4Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mu4Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.vr5
+        public String doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                oq9.h(this.a);
+                return this.a;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements zq5<String> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(mu4 mu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mu4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.zq5
+        /* renamed from: a */
+        public void onReturnDataInUI(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921557, str));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends vr5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(mu4 mu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mu4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.vr5
+        public Object doInBackground() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                oq9.b();
+                return null;
+            }
+            return invokeV.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class d implements zq5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d(mu4 mu4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mu4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zq5
+        public void onReturnDataInUI(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921558));
+                gv4.c().a();
+            }
+        }
+    }
+
+    public mu4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, threadAchievementShareInfo};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -47,52 +190,244 @@ public class mu4 {
                 return;
             }
         }
-        this.a = context;
-        this.b = LayoutInflater.from(context).inflate(R.layout.video_interaction_achievement, (ViewGroup) null);
-        this.c = threadAchievementShareInfo.getParams();
-        c();
-        b();
+        this.a = new cv4();
     }
 
-    public View a() {
+    @Override // com.baidu.tieba.xf6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!"CommonJSBridge".equals(str)) {
+                return false;
+            }
+            if (SearchJsBridge.METHOD_GET_SEARCH_HISTORY.equals(str2)) {
+                jsPromptResult.confirm(g(webView).a());
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
+                return true;
+            } else if (SearchJsBridge.METHOD_DELETE_SEARCH_HISTORY.equals(str2)) {
+                try {
+                    jsPromptResult.confirm(e(webView, new JSONObject(str3).optString("query")).a());
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                return true;
+            } else if (SearchJsBridge.METHOD_DELETE_ALL_SEARCH_HISTORY.equals(str2)) {
+                jsPromptResult.confirm(d(webView).a());
+                return true;
+            } else if (SearchJsBridge.METHOD_OPEN_SEACH_PAGE.equals(str2)) {
+                try {
+                    JSONObject jSONObject = new JSONObject(str3);
+                    jsPromptResult.confirm(j(webView, jSONObject.optString("query"), jSONObject.optInt("sub_type")).a());
+                } catch (JSONException e2) {
+                    e2.printStackTrace();
+                }
+                return true;
+            } else if (SearchJsBridge.GET_SEARCH_AD_COOKIE.equals(str2)) {
+                jsPromptResult.confirm(f(webView).a());
+                return true;
+            } else {
+                if (TextUtils.equals("requestByNative", str2)) {
+                    try {
+                        OfflineBridgeData offlineBridgeData = (OfflineBridgeData) OrmObject.objectWithJsonStr(str3, OfflineBridgeData.class);
+                        offlineBridgeData.begin = System.currentTimeMillis();
+                        this.a.j(webView, offlineBridgeData, offlineBridgeData.callBack);
+                        jsPromptResult.confirm();
+                        return true;
+                    } catch (Exception e3) {
+                        e3.printStackTrace();
+                    }
+                }
+                return false;
+            }
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    public final void c(JSONObject jSONObject, String str, String str2) throws JSONException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str, str2) == null) {
+            jSONObject.put(str, str2);
+        }
+    }
+
+    public hq9 d(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, webView)) == null) {
+            hq9 hq9Var = new hq9();
+            zr5.b(new c(this), new d(this));
+            return hq9Var;
+        }
+        return (hq9) invokeL.objValue;
+    }
+
+    public hq9 f(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, webView)) == null) {
+            hq9 hq9Var = new hq9();
+            hq9Var.o(h());
+            return hq9Var;
+        }
+        return (hq9) invokeL.objValue;
+    }
+
+    public hq9 e(WebView webView, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
+            hq9 hq9Var = new hq9();
+            zr5.b(new a(this, str), new b(this));
+            return hq9Var;
+        }
+        return (hq9) invokeLL.objValue;
+    }
+
+    public /* synthetic */ void i(WebView webView, OfflineBridgeData offlineBridgeData) {
+        this.a.k(webView, offlineBridgeData, offlineBridgeData.callBack, true);
+    }
+
+    public hq9 g(WebView webView) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, webView)) == null) {
+            hq9 hq9Var = new hq9();
+            List<String> b2 = gv4.c().b();
+            int count = ListUtils.getCount(b2);
+            if (count == 0) {
+                hq9Var.o("");
+            }
+            JSONArray jSONArray = new JSONArray();
+            for (int i = 0; i < count; i++) {
+                jSONArray.put(b2.get(i));
+            }
+            hq9Var.o(jSONArray.toString());
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921556, Boolean.TRUE));
+            return hq9Var;
+        }
+        return (hq9) invokeL.objValue;
+    }
+
+    public final String h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                MercatorModel.MercatorData e = MercatorModel.d().e();
+                if (e != null) {
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LAT, e.Y());
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_LON, e.Z());
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_CITY, String.valueOf(e.V()));
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_RADIUS, e.b0());
+                    c(jSONObject, SearchJsBridge.COOKIE_MERCATOR_TIME, String.valueOf(e.c0()));
+                }
+                c(jSONObject, SearchJsBridge.COOKIE_MOD, ki.g());
+                c(jSONObject, "ov", ki.k());
+                c(jSONObject, "os_type", String.valueOf(2));
+                c(jSONObject, "net_type", String.valueOf(BdNetTypeUtil.netType()));
+                c(jSONObject, "imei", TbadkCoreApplication.getInst().getImei());
+                c(jSONObject, "from", TbConfig.getFrom());
+                c(jSONObject, "cfrom", TbConfig.getCurrentFrom());
+                c(jSONObject, "_client_version", TbConfig.getVersion());
+                c(jSONObject, "CUID", TbadkCoreApplication.getInst().getCuid());
+                String cuidGalaxy2 = TbadkCoreApplication.getInst().getCuidGalaxy2();
+                c(jSONObject, "shoubai_cuid", cuidGalaxy2);
+                c(jSONObject, "cuid_galaxy2", cuidGalaxy2);
+                if (!TextUtils.isEmpty(cuidGalaxy2)) {
+                    c(jSONObject, "baiduid", new String(Base64Encoder.B64Encode(cuidGalaxy2.getBytes())));
+                }
+            } catch (JSONException e2) {
+                BdLog.e(e2);
+            }
+            return jSONObject.toString();
         }
-        return (View) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void b() {
-        ThreadAchievementShareInfo.ParamBean paramBean;
+    public hq9 j(WebView webView, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (paramBean = this.c) != null && paramBean.getVideo_info() != null && !TextUtils.isEmpty(this.c.getVideo_info().getThumbnail_url())) {
-            this.d.N(this.c.getVideo_info().getThumbnail_url(), 10, false);
-            this.i.setText(StringHelper.numFormatOverWanWithNegative(this.c.getAgree_num()));
-            this.f.setText(StringHelper.numFormatOverWanWithNegative(this.c.getPost_num()));
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048585, this, webView, str, i)) == null) {
+            hq9 hq9Var = new hq9();
+            try {
+                JSONObject jSONObject = new JSONObject();
+                jSONObject.put("query", str);
+                jSONObject.put(AdvisoryMsgBusinessExtra.SUBTYPE_KEY, i);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921559, jSONObject.toString()));
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return hq9Var;
         }
+        return (hq9) invokeLLI.objValue;
     }
 
-    public final void c() {
+    public hq9 k(final WebView webView, String str, String str2, String str3, JSONObject jSONObject) {
+        InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.f = (TextView) this.b.findViewById(R.id.comment_num);
-            this.g = (TextView) this.b.findViewById(R.id.comment_desc);
-            this.h = (TextView) this.b.findViewById(R.id.praise_desc);
-            TextView textView = (TextView) this.b.findViewById(R.id.praise_num);
-            this.i = textView;
-            textView.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.f.setTextColor(SkinManager.getColor(R.color.CAM_X0310));
-            this.h.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            this.g.setTextColor(SkinManager.getColor(R.color.CAM_X0105));
-            TbImageView tbImageView = (TbImageView) this.b.findViewById(R.id.video_img);
-            this.d = tbImageView;
-            tbImageView.setDefaultBgResource(R.color.transparent);
-            this.d.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            this.d.setPlaceHolder(2);
-            ImageView imageView = (ImageView) this.b.findViewById(R.id.play_icon);
-            this.e = imageView;
-            imageView.setImageDrawable(SvgManager.getInstance().getPureDrawable(R.drawable.ic_icon_pure_video_play44_svg, R.color.CAM_X0101, null));
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048586, this, webView, str, str2, str3, jSONObject)) == null) {
+            hq9 hq9Var = new hq9();
+            final OfflineBridgeData offlineBridgeData = new OfflineBridgeData();
+            offlineBridgeData.url = str;
+            offlineBridgeData.type = str2;
+            offlineBridgeData.module = str3;
+            if (jSONObject != null) {
+                HashMap hashMap = new HashMap();
+                Iterator<String> keys = jSONObject.keys();
+                while (keys.hasNext()) {
+                    String next = keys.next();
+                    hashMap.put(next, jSONObject.optString(next));
+                }
+                offlineBridgeData.data = hashMap;
+            }
+            offlineBridgeData.begin = System.currentTimeMillis();
+            jg.a().post(new Runnable() { // from class: com.baidu.tieba.du4
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+
+                @Override // java.lang.Runnable
+                public final void run() {
+                    Interceptable interceptable2 = $ic;
+                    if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
+                        mu4.this.i(webView, offlineBridgeData);
+                    }
+                }
+            });
+            hq9Var.x(str);
+            return hq9Var;
         }
+        return (hq9) invokeLLLLL.objValue;
+    }
+
+    public hq9 l(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, hashMap)) == null) {
+            hq9 hq9Var = new hq9();
+            if (hashMap != null && hashMap.get("result") != null) {
+                hq9Var.o(hashMap.get("result"));
+                hq9Var.x(hashMap.get("NotificationKey"));
+            }
+            hq9Var.A(true);
+            return hq9Var;
+        }
+        return (hq9) invokeLL.objValue;
+    }
+
+    public hq9 m(WebView webView, HashMap hashMap) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048588, this, webView, hashMap)) == null) {
+            hq9 hq9Var = new hq9();
+            try {
+                hq9Var.o(new JSONArray(hashMap.get("data").toString()).toString());
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            return hq9Var;
+        }
+        return (hq9) invokeLL.objValue;
     }
 }

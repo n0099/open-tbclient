@@ -98,7 +98,7 @@ public class gm {
             try {
                 return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
             } catch (PackageManager.NameNotFoundException e) {
-                vg8 defaultLog = DefaultLog.getInstance();
+                dj8 defaultLog = DefaultLog.getInstance();
                 defaultLog.b(TitanDownloadService.TAG, "getVersionName Exception:" + e);
                 return "0.8";
             }

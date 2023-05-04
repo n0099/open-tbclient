@@ -686,7 +686,7 @@ public class FloatingActionButton extends VisibilityAwareImageButton implements 
     }
 
     public FloatingActionButton(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402be);
+        this(context, attributeSet, com.baidu.tieba.R.attr.obfuscated_res_0x7f0402c9);
     }
 
     public static int resolveAdjustedSize(int i, int i2) {

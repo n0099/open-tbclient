@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IThreadManager;
-import com.baidu.nps.interfa.IThreadManager_ThreadManager_Provider;
+import com.baidu.nps.interfa.ISignatureVerifier;
+import com.baidu.nps.interfa.ISignatureVerifier_SignatureVerifier_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,14 +17,14 @@ public class hd1 {
     public static hd1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ej1<IThreadManager> a;
+    public gj1<ISignatureVerifier> a;
 
     public void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cj1 b2 = cj1.b();
+            ej1 b2 = ej1.b();
             this.a = b2;
-            b2.a(new IThreadManager_ThreadManager_Provider());
+            b2.a(new ISignatureVerifier_SignatureVerifier_Provider());
         }
     }
 
@@ -69,12 +69,12 @@ public class hd1 {
         return (hd1) invokeV.objValue;
     }
 
-    public IThreadManager b() {
+    public ISignatureVerifier b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.a.get();
         }
-        return (IThreadManager) invokeV.objValue;
+        return (ISignatureVerifier) invokeV.objValue;
     }
 }

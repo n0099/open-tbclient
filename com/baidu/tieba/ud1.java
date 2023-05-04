@@ -1,146 +1,166 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.nps.pm.BundleInfo;
+import com.baidu.nps.utils.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import dalvik.system.BaseDexClassLoader;
-import dalvik.system.PathClassLoader;
-import java.io.File;
-import java.io.IOException;
-import java.net.URL;
-import java.util.Enumeration;
+import java.lang.reflect.Array;
+import java.lang.reflect.Field;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class ud1 extends BaseDexClassLoader {
+public class ud1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile ud1 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClassLoader a;
-    public ClassLoader b;
-    public Context c;
+    public Map<String, wd1> a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ud1(String str, String str2, String str3, Context context) {
-        super(str, new File(str2), str3, ClassLoader.getSystemClassLoader());
+    public ud1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], (File) objArr2[1], (String) objArr2[2], (ClassLoader) objArr2[3]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = context;
-        this.a = context.getClass().getClassLoader();
-        this.b = ClassLoader.getSystemClassLoader();
+        this.a = new HashMap();
     }
 
-    public final Class<?> a(String str) throws ClassNotFoundException {
-        Class<?> cls;
-        InterceptResult invokeL;
+    public static ud1 d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            try {
-                cls = this.b.loadClass(str);
-            } catch (ClassNotFoundException unused) {
-                cls = null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (b == null) {
+                synchronized (ud1.class) {
+                    if (b == null) {
+                        b = new ud1();
+                    }
+                }
             }
-            if (cls != null) {
-                return cls;
-            }
-            try {
-                cls = super.findClass(str);
-            } catch (ClassNotFoundException unused2) {
-            }
-            if (cls != null) {
-                return cls;
-            }
-            throw new ClassNotFoundException("Didn't find class: " + str + " in own classloader.");
+            return b;
         }
-        return (Class) invokeL.objValue;
+        return (ud1) invokeV.objValue;
     }
 
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public String findLibrary(String str) {
-        InterceptResult invokeL;
+    public static <T> T[] a(Class<T> cls, Object[] objArr, Object[] objArr2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            String findLibrary = super.findLibrary(str);
-            if (findLibrary != null) {
-                return findLibrary;
-            }
-            return ((PathClassLoader) this.a).findLibrary(str);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, cls, objArr, objArr2)) == null) {
+            T[] tArr = (T[]) ((Object[]) Array.newInstance((Class<?>) cls, objArr.length + objArr2.length));
+            System.arraycopy(objArr, 0, tArr, 0, objArr.length);
+            System.arraycopy(objArr2, 0, tArr, objArr.length, objArr2.length);
+            return tArr;
         }
-        return (String) invokeL.objValue;
+        return (T[]) ((Object[]) invokeLLL.objValue);
     }
 
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public URL findResource(String str) {
-        InterceptResult invokeL;
+    public static void e(Field field, Object obj, Object obj2) throws IllegalAccessException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            URL findResource = super.findResource(str);
-            if (findResource != null) {
-                return findResource;
-            }
-            return this.a.getResource(str);
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, field, obj, obj2) == null) {
+            field.set(obj, c((Object[]) field.get(obj), (Object[]) field.get(obj2)));
         }
-        return (URL) invokeL.objValue;
     }
 
-    @Override // dalvik.system.BaseDexClassLoader, java.lang.ClassLoader
-    public Enumeration<URL> findResources(String str) {
-        InterceptResult invokeL;
+    public static Object[] c(Object[] objArr, Object[] objArr2) throws IllegalArgumentException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            Enumeration<URL> findResources = super.findResources(str);
-            if (findResources != null) {
-                return findResources;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, objArr, objArr2)) == null) {
+            ArrayList arrayList = new ArrayList(Arrays.asList(objArr));
+            for (Object obj : objArr2) {
+                if (!arrayList.contains(obj)) {
+                    arrayList.add(obj);
+                }
             }
-            try {
-                return this.a.getResources(str);
-            } catch (IOException unused) {
-                return findResources;
+            Object[] objArr3 = (Object[]) Array.newInstance(objArr.getClass().getComponentType(), arrayList.size());
+            for (int i = 0; i < objArr3.length; i++) {
+                objArr3[i] = arrayList.get(i);
             }
+            return objArr3;
         }
-        return (Enumeration) invokeL.objValue;
+        return (Object[]) invokeLL.objValue;
     }
 
-    @Override // java.lang.ClassLoader
-    public Class<?> loadClass(String str, boolean z) throws ClassNotFoundException {
-        InterceptResult invokeLZ;
+    public static void f(Field field, Object obj, Object obj2) throws IllegalAccessException {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048580, this, str, z)) == null) {
-            Class<?> findLoadedClass = findLoadedClass(str);
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
-            try {
-                findLoadedClass = a(str);
-            } catch (ClassNotFoundException unused) {
-            }
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
-            try {
-                findLoadedClass = this.a.loadClass(str);
-            } catch (ClassNotFoundException unused2) {
-            }
-            if (findLoadedClass != null) {
-                return findLoadedClass;
-            }
-            throw new ClassNotFoundException("Didn't find class \"" + str + "\"");
+        if (interceptable == null || interceptable.invokeLLL(65541, null, field, obj, obj2) == null) {
+            List list = (List) field.get(obj);
+            list.addAll((List) field.get(obj2));
+            field.set(obj, list);
+            Field b2 = je1.b(obj.getClass(), "nativeLibraryPathElements");
+            b2.set(obj, c((Object[]) b2.get(obj), (Object[]) b2.get(obj2)));
         }
-        return (Class) invokeLZ.objValue;
+    }
+
+    public static ClassLoader g(wd1 wd1Var, wd1 wd1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, wd1Var, wd1Var2)) == null) {
+            if (Build.VERSION.SDK_INT >= 21) {
+                h(wd1Var, wd1Var2);
+                return wd1Var;
+            }
+            return null;
+        }
+        return (ClassLoader) invokeLL.objValue;
+    }
+
+    public static ClassLoader h(wd1 wd1Var, wd1 wd1Var2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, wd1Var, wd1Var2)) == null) {
+            Field b2 = je1.b(wd1.class, "pathList");
+            try {
+                Object obj = b2.get(wd1Var);
+                Field b3 = je1.b(obj.getClass(), "dexElements");
+                Field b4 = je1.b(obj.getClass(), "nativeLibraryDirectories");
+                Object[] objArr = (Object[]) b3.get(obj);
+                Object obj2 = b2.get(wd1Var2);
+                b3.set(obj, a(objArr.getClass().getComponentType(), objArr, (Object[]) b3.get(obj2)));
+                if (Build.VERSION.SDK_INT >= 23) {
+                    f(b4, obj, obj2);
+                } else {
+                    e(b4, obj, obj2);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            return wd1Var;
+        }
+        return (ClassLoader) invokeLL.objValue;
+    }
+
+    public wd1 b(BundleInfo bundleInfo, Context context) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, bundleInfo, context)) == null) {
+            boolean z = !TextUtils.isEmpty(bundleInfo.getGroupName());
+            wd1 wd1Var = new wd1(ee1.d(context, bundleInfo.getPackageName() + Constant.FILE.SUFFIX.BUNDLE_SUFFIX).getAbsolutePath(), ee1.f(context, bundleInfo.getPackageName()).getAbsolutePath(), ee1.e(context, bundleInfo.getPackageName()).getAbsolutePath(), context);
+            if (z && Build.VERSION.SDK_INT >= 21) {
+                wd1 wd1Var2 = this.a.get(bundleInfo.getGroupName());
+                if (wd1Var2 == null) {
+                    this.a.put(bundleInfo.getGroupName(), wd1Var);
+                    return wd1Var;
+                }
+                g(wd1Var2, wd1Var);
+                return wd1Var2;
+            }
+            return wd1Var;
+        }
+        return (wd1) invokeLL.objValue;
     }
 }

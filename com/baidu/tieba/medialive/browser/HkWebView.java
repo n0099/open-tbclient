@@ -1,6 +1,5 @@
 package com.baidu.tieba.medialive.browser;
 
-import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Build;
@@ -20,35 +19,34 @@ import java.lang.reflect.Method;
 public class HkWebView extends HkMWebView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public HkWebView d;
-    public Context e;
+    public HkWebView a;
+    public Context b;
 
     /* loaded from: classes5.dex */
     public class a extends HkMWebView.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ HkWebView c;
+        public final /* synthetic */ HkWebView b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(HkWebView hkWebView, HkMWebView hkMWebView, Activity activity) {
-            super(hkMWebView, activity);
+        public a(HkWebView hkWebView, Context context) {
+            super(context);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {hkWebView, hkMWebView, activity};
+                Object[] objArr = {hkWebView, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((HkMWebView) objArr2[0], (Activity) objArr2[1]);
+                    super((Context) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = hkWebView;
+            this.b = hkWebView;
         }
 
         @Override // com.baidu.tieba.medialive.browser.HkMWebView.c, android.webkit.WebViewClient
@@ -109,8 +107,8 @@ public class HkWebView extends HkMWebView {
                 return;
             }
         }
-        this.d = this;
-        this.e = context;
+        this.a = this;
+        this.b = context;
         init();
     }
 
@@ -133,8 +131,8 @@ public class HkWebView extends HkMWebView {
                 return;
             }
         }
-        this.d = this;
-        this.e = context;
+        this.a = this;
+        this.b = context;
         init();
     }
 
@@ -171,18 +169,18 @@ public class HkWebView extends HkMWebView {
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             try {
                 if (Build.VERSION.SDK_INT >= 11) {
-                    this.d.removeJavascriptInterface("searchBoxJavaBridge_");
-                    this.d.removeJavascriptInterface("accessibility");
-                    this.d.removeJavascriptInterface("accessibilityTraversal");
+                    this.a.removeJavascriptInterface("searchBoxJavaBridge_");
+                    this.a.removeJavascriptInterface("accessibility");
+                    this.a.removeJavascriptInterface("accessibilityTraversal");
                 }
             } catch (Exception e) {
                 e.printStackTrace();
             }
-            b(this.e);
+            b(this.b);
             getSettings().setCacheMode(-1);
             getSettings().setUserAgentString(getUserAgent());
-            setDownloadListener(new HkMWebView.b(this.d, (Activity) this.e));
-            setWebViewClient(new a(this, this.d, (Activity) this.e));
+            setDownloadListener(new HkMWebView.b(this.b));
+            setWebViewClient(new a(this, this.b));
         }
     }
 }

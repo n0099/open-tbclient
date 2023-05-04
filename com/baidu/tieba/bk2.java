@@ -1,76 +1,130 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.webkit.JavascriptInterface;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public class bk2 {
+public class bk2 implements Runnable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    @V8JavascriptField
-    public long lastAccessedTime;
-    @V8JavascriptField
-    public long lastModifiedTime;
-    @V8JavascriptField
-    public long mode;
-    @V8JavascriptField
-    public long size;
+    public final ck2 a;
+    public final Runnable b;
+    public String c;
+    public String[] d;
+    public AtomicBoolean e;
+    public List<bk2> f;
 
-    public bk2() {
+    public bk2(ck2 ck2Var, Runnable runnable, String str, String[] strArr) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ck2Var, runnable, str, strArr};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.e = new AtomicBoolean(false);
+        this.f = Collections.synchronizedList(new ArrayList());
+        this.a = ck2Var;
+        this.b = runnable;
+        this.c = str;
+        this.d = strArr;
+    }
+
+    public void a(bk2 bk2Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, bk2Var) == null) && !this.f.contains(bk2Var)) {
+            this.f.add(bk2Var);
         }
     }
 
-    @JavascriptInterface
-    public boolean isDirectory() {
+    public void g(bk2 bk2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bk2Var) == null) {
+            this.f.remove(bk2Var);
+        }
+    }
+
+    public String[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return (String[]) invokeV.objValue;
+    }
+
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @JavascriptInterface
-    public boolean isFile() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
+            return this.f.isEmpty();
         }
         return invokeV.booleanValue;
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public void a(boolean z) {
+    public boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.a = z;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e.get();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            rk3.k(this, this.c);
         }
     }
 
-    @SuppressLint({"KotlinPropertyAccess"})
-    public void b(boolean z) {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            this.b = z;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            this.b.run();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.e.set(true);
+        }
+    }
+
+    @Override // java.lang.Runnable
+    public void run() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            try {
+                h();
+            } finally {
+                this.a.g(this);
+            }
         }
     }
 }

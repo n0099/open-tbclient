@@ -170,16 +170,16 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
                 return null;
             }
             long currentTimeMillis = System.currentTimeMillis();
-            tm t = TbImageMemoryCache.s().t(str);
+            tm w = TbImageMemoryCache.v().w(str);
             if (z) {
-                if (t != null) {
+                if (w != null) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
                 zf.i(z2, System.currentTimeMillis() - currentTimeMillis);
             }
-            return t;
+            return w;
         }
         return (tm) invokeCommon.objValue;
     }
@@ -205,7 +205,7 @@ public class PortraitLoaderProc extends AbstractImageLoaderProc {
             if (tmVar.u()) {
                 tmVar.A(i);
                 tmVar.z(i2);
-                TbImageMemoryCache.s().g(str, tmVar);
+                TbImageMemoryCache.v().i(str, tmVar);
             }
         }
     }

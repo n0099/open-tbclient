@@ -1,6 +1,7 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
@@ -12,9 +13,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
+import java.util.HashMap;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tw2 extends xw2 {
+public class tw2 extends zw2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -30,7 +36,7 @@ public class tw2 extends xw2 {
                 return;
             }
         }
-        boolean z = fo1.a;
+        b = ho1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -53,22 +59,44 @@ public class tw2 extends xw2 {
         }
     }
 
-    @Override // com.baidu.tieba.xw2
-    public boolean a(nw2 nw2Var, pw2 pw2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    public final int d(HashMap<String, String> hashMap) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap)) == null) {
+            String str = hashMap.get("params");
+            if (TextUtils.isEmpty(str)) {
+                return -1;
+            }
+            try {
+                return new JSONObject(str).optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, -1);
+            } catch (JSONException e) {
+                if (!b) {
+                    return -1;
+                }
+                e.printStackTrace();
+                return -1;
+            }
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // com.baidu.tieba.zw2
+    public boolean a(pw2 pw2Var, rw2 rw2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{nw2Var, pw2Var, context, unitedSchemeEntity, callbackHandler, v73Var})) == null) {
-            v42.i("video", "pause, video id:" + pw2Var.j + " slave id: " + pw2Var.c);
-            d(nw2Var, unitedSchemeEntity, callbackHandler);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{pw2Var, rw2Var, context, unitedSchemeEntity, callbackHandler, x73Var})) == null) {
+            x42.i("video", "fullscreen, video id:" + rw2Var.j + " slave id: " + rw2Var.c);
+            e(pw2Var, rw2Var.s, unitedSchemeEntity, callbackHandler);
             return true;
         }
         return invokeCommon.booleanValue;
     }
 
-    public final void d(nw2 nw2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+    public final void e(pw2 pw2Var, boolean z, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        HashMap<String, String> params;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, nw2Var, unitedSchemeEntity, callbackHandler) == null) {
-            nw2Var.p();
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{pw2Var, Boolean.valueOf(z), unitedSchemeEntity, callbackHandler}) == null) && (params = unitedSchemeEntity.getParams()) != null && !params.isEmpty()) {
+            pw2Var.u(z, d(params));
             UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
         }
     }

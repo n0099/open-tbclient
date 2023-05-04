@@ -1,43 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LegoListActivityConfig;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.oe8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o75 implements oe8 {
+public class o75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
     public String b;
-    public String c;
+    public int c;
     public String d;
-    public String e;
-    public String f;
-    public String g;
-    public String h;
-    public String i;
-    public String j;
-    public String k;
-    public String l;
-    public String m;
-    public int n;
-    public String o;
-    public oe8.a p;
-    public int q;
-    public String r;
 
     public o75() {
         Interceptable interceptable = $ic;
@@ -49,142 +25,102 @@ public class o75 implements oe8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = 0;
+        this.d = null;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !"0".equals(this.r);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return "dynamic".equals(this.e);
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.oe8
-    public oe8.a getParallelCharge() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.p;
-        }
-        return (oe8.a) invokeV.objValue;
-    }
-
-    public boolean a() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (StringUtils.isNull(this.a) && StringUtils.isNull(this.j) && StringUtils.isNull(this.l)) {
-                return true;
-            }
-            if (c()) {
-                if (StringUtils.isNull(this.c) || StringUtils.isNull(this.d)) {
-                    return true;
-                }
-                return false;
-            }
-            return StringUtils.isNull(this.b);
+            return this.c;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final JSONArray d(JSONObject jSONObject, String str) {
-        InterceptResult invokeLL;
+    public String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, jSONObject, str)) == null) {
-            try {
-                return jSONObject.optJSONArray(str);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
         }
-        return (JSONArray) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void e(JSONObject jSONObject) {
-        String lowerCase;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, jSONObject) != null) || jSONObject == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
         }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("icon_url");
-        this.c = jSONObject.optString("fold_lottie");
-        this.d = jSONObject.optString("unfold_lottie");
-        this.e = jSONObject.optString("float_type");
-        jSONObject.optString("fold_name");
-        jSONObject.optString("unfold_name");
-        this.h = jSONObject.optString("view_statistics_url");
-        this.i = jSONObject.optString("click_statistics_url");
-        this.j = jSONObject.optString("scheme");
-        this.k = jSONObject.optString("package_name");
-        this.l = jSONObject.optString("deeplink");
-        this.n = jSONObject.optInt("source", 1);
-        this.m = jSONObject.optString("ext_info");
-        this.o = jSONObject.optString(LegoListActivityConfig.AD_ID);
-        this.r = jSONObject.optString("display_ad_icon");
-        oe8.a aVar = new oe8.a();
-        this.p = aVar;
-        aVar.a = jSONObject.optString("parallel_charge_url");
-        this.p.c = f(d(jSONObject, "show_urls"));
-        this.p.d = f(d(jSONObject, "click_urls"));
-        String c = pi.c(TbadkApplication.getInst().getAndroidId());
-        String lastCachedOid = PermissionUtil.getLastCachedOid(TbadkCoreApplication.getInst());
-        StringBuilder sb = new StringBuilder();
-        sb.append("&ANDROIDID=");
-        String str = "";
-        if (c == null) {
-            lowerCase = "";
-        } else {
-            lowerCase = c.toLowerCase();
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
         }
-        sb.append(lowerCase);
-        sb.append("&OAID=");
-        if (lastCachedOid != null) {
-            str = lastCachedOid.toUpperCase();
+        return (String) invokeV.objValue;
+    }
+
+    public static String a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case 1:
+                    return aj.a(R.string.voice_cache_error_internal);
+                case 2:
+                    return aj.a(R.string.voice_cache_error_no_space);
+                case 3:
+                    return aj.a(R.string.obfuscated_res_0x7f0f0d30);
+                case 4:
+                    return aj.a(R.string.voice_cache_error_no_file);
+                case 5:
+                    return aj.a(R.string.voice_cache_error_md5);
+                case 6:
+                    return aj.a(R.string.voice_cache_error_no_input);
+                case 7:
+                    return aj.a(R.string.voice_cache_error_no_dir);
+                default:
+                    return "";
+            }
         }
-        sb.append(str);
-        String sb2 = sb.toString();
-        if (!StringUtils.isNull(this.h)) {
-            this.h += sb2;
-        }
-        if (!StringUtils.isNull(this.i)) {
-            this.i += sb2;
+        return (String) invokeI.objValue;
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
     }
 
-    public final ArrayList<String> f(JSONArray jSONArray) {
-        InterceptResult invokeL;
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, jSONArray)) == null) {
-            if (jSONArray != null && jSONArray.length() != 0) {
-                int length = jSONArray.length();
-                ArrayList<String> arrayList = new ArrayList<>(length);
-                for (int i = 0; i < length; i++) {
-                    JSONObject optJSONObject = jSONArray.optJSONObject(i);
-                    if (optJSONObject != null) {
-                        String optString = optJSONObject.optString("url");
-                        if (!StringUtils.isNull(optString)) {
-                            arrayList.add(optString);
-                        }
-                    }
-                }
-                return arrayList;
-            }
-            return new ArrayList<>();
+        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
+            this.d = str;
         }
-        return (ArrayList) invokeL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
+            this.a = str;
+        }
+    }
+
+    public void i(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            this.b = str;
+        }
     }
 }

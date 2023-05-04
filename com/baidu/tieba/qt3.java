@@ -1,124 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.facebook.imagepipeline.listener.RequestListener;
-import com.facebook.imagepipeline.request.ImageRequest;
+import java.util.HashMap;
 import java.util.Map;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public final class qt3 implements RequestListener {
+public class qt3 implements vr2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ic2 a;
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerEvent(String str, String str2, String str3) {
+    @Override // com.baidu.tieba.vr2
+    public Map<Class, Object> d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, str3) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (Map) invokeV.objValue;
     }
 
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithCancellation(String str, String str2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithFailure(String str, String str2, Throwable th, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, str, str2, th, map) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerFinishWithSuccess(String str, String str2, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048579, this, str, str2, map) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onProducerStart(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, str2) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public void onUltimateProducerReached(String str, String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, str2, z) == null) {
-        }
-    }
-
-    @Override // com.facebook.imagepipeline.producers.ProducerListener
-    public boolean requiresExtraMap(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public qt3(ic2 ic2Var) {
+    public qt3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ic2Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = ic2Var;
     }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestCancellation(String str) {
-        ic2 ic2Var;
+    @Override // com.baidu.tieba.vr2
+    public void a(u83 u83Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048581, this, str) == null) && (ic2Var = this.a) != null) {
-            ic2Var.onCancel(str);
+        if (interceptable == null || interceptable.invokeL(1048576, this, u83Var) == null) {
+            mt3.b().a(u83Var);
+            mt3.a().a(u83Var);
         }
     }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestFailure(ImageRequest imageRequest, String str, Throwable th, boolean z) {
-        ic2 ic2Var;
+    @Override // com.baidu.tieba.vr2
+    public Map<String, Object> b(@NonNull yv1 yv1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{imageRequest, str, th, Boolean.valueOf(z)}) == null) && (ic2Var = this.a) != null) {
-            ic2Var.c(imageRequest, th);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yv1Var)) == null) {
+            Map<String, Object> b = mt3.b().b(yv1Var);
+            Map<String, Object> b2 = mt3.a().b(yv1Var);
+            HashMap hashMap = new HashMap();
+            if (b != null) {
+                hashMap.putAll(b);
+            }
+            if (b2 != null) {
+                hashMap.putAll(b2);
+            }
+            return hashMap;
         }
+        return (Map) invokeL.objValue;
     }
 
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestStart(ImageRequest imageRequest, Object obj, String str, boolean z) {
-        ic2 ic2Var;
+    @Override // com.baidu.tieba.vr2
+    public Map<String, Object> c(@NonNull yv1 yv1Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048583, this, new Object[]{imageRequest, obj, str, Boolean.valueOf(z)}) == null) && (ic2Var = this.a) != null) {
-            ic2Var.a(imageRequest);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, yv1Var)) == null) {
+            Map<String, Object> c = mt3.b().c(yv1Var);
+            Map<String, Object> c2 = mt3.a().c(yv1Var);
+            HashMap hashMap = new HashMap();
+            if (c != null) {
+                hashMap.putAll(c);
+            }
+            if (c2 != null) {
+                hashMap.putAll(c2);
+            }
+            return hashMap;
         }
-    }
-
-    @Override // com.facebook.imagepipeline.listener.RequestListener
-    public void onRequestSuccess(ImageRequest imageRequest, String str, boolean z) {
-        ic2 ic2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, imageRequest, str, z) == null) && (ic2Var = this.a) != null) {
-            ic2Var.b(imageRequest);
-        }
+        return (Map) invokeL.objValue;
     }
 }

@@ -10,9 +10,9 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.CommonStatisticKey;
 import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.iv4;
-import com.baidu.tieba.k88;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.oa8;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -21,7 +21,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSettingActivity> implements BdSwitchView.b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k88 a;
+    public oa8 a;
 
     public InvatateAnswerSettingActivity() {
         Interceptable interceptable = $ic;
@@ -37,25 +37,25 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
         }
     }
 
-    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.q45 */
-    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: com.baidu.tieba.k88 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v1, resolved type: com.baidu.tieba.f55 */
+    /* JADX DEBUG: Multi-variable search result rejected for r6v2, resolved type: com.baidu.tieba.oa8 */
     /* JADX WARN: Multi-variable type inference failed */
     /* JADX WARN: Type inference failed for: r5v2 */
     /* JADX WARN: Type inference failed for: r5v3, types: [boolean, int] */
     /* JADX WARN: Type inference failed for: r5v6 */
     @Override // com.baidu.adp.widget.BdSwitchView.BdSwitchView.b
     public void c0(View view2, BdSwitchView.SwitchState switchState) {
-        k88 k88Var;
+        oa8 oa8Var;
         PersonalTalkSettingViewSettingView personalTalkSettingViewSettingView;
         ?? r5;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 != null && (k88Var = this.a) != null && (personalTalkSettingViewSettingView = k88Var.n) != null && view2 == personalTalkSettingViewSettingView.getChatNeglectSwitch()) {
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, view2, switchState) == null) && view2 != null && (oa8Var = this.a) != null && (personalTalkSettingViewSettingView = oa8Var.n) != null && view2 == personalTalkSettingViewSettingView.getChatNeglectSwitch()) {
             if (BdSwitchView.SwitchState.ON == switchState) {
                 r5 = 1;
             } else {
                 r5 = 0;
             }
-            q45.m().w("key_question_msg_no_remind", r5);
+            f55.m().w("key_question_msg_no_remind", r5);
             this.a.c(r5);
             new StatisticItem(CommonStatisticKey.KEY_QUESTION_MSG_NO_SHIELD).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", (int) r5).eventStat();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921727, Boolean.valueOf((boolean) r5)));
@@ -68,7 +68,7 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
             super.onChangeSkinType(i);
-            iv4 layoutMode = getLayoutMode();
+            yv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -84,9 +84,9 @@ public class InvatateAnswerSettingActivity extends BaseActivity<InvatateAnswerSe
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bundle) == null) {
             super.onCreate(bundle);
-            k88 k88Var = new k88(this);
-            this.a = k88Var;
-            k88Var.b(this);
+            oa8 oa8Var = new oa8(this);
+            this.a = oa8Var;
+            oa8Var.b(this);
         }
     }
 }

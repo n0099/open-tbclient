@@ -12,7 +12,6 @@ import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class m {
@@ -129,7 +128,7 @@ public class m {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
             String str = e;
-            c.a(Constants.PHONE_BRAND, str);
+            c.a("brand", str);
             return "HUAWEI".equalsIgnoreCase(str);
         }
         return invokeV.booleanValue;

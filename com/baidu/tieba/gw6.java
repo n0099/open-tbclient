@@ -1,70 +1,82 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.tieba.feed.component.uistate.CardUiStateKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.faceshop.forumpackage.adapter.ForumEmotionViewHolder;
+import com.baidu.tieba.faceshop.forumpackage.view.ForumEmotionItemView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class gw6 {
+public class gw6 extends vm<lw6, ForumEmotionViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function1<vx6, Unit> a;
+    public TbPageContext a;
+    public kw6 b;
+    public fw6 c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947808387, "Lcom/baidu/tieba/gw6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947808387, "Lcom/baidu/tieba/gw6;");
-        }
-    }
-
-    public gw6(Function2<? super Context, ? super String, Unit> onClick, Function1<? super vx6, Unit> onStat) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public gw6(TbPageContext<?> tbPageContext, kw6 kw6Var, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {onClick, onStat};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {tbPageContext, kw6Var, bdUniqueId};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(onClick, "onClick");
-        Intrinsics.checkNotNullParameter(onStat, "onStat");
-        this.a = onStat;
+        this.a = tbPageContext;
+        this.b = kw6Var;
     }
 
-    public /* synthetic */ gw6(Function2 function2, Function1 function1, int i, DefaultConstructorMarker defaultConstructorMarker) {
-        this((i & 1) != 0 ? CardUiStateKt.a() : function2, (i & 2) != 0 ? CardUiStateKt.b() : function1);
-    }
-
-    public final Function1<vx6, Unit> c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public ForumEmotionViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            ForumEmotionItemView forumEmotionItemView = new ForumEmotionItemView(this.a);
+            ForumEmotionViewHolder forumEmotionViewHolder = new ForumEmotionViewHolder(this.a, forumEmotionItemView);
+            forumEmotionItemView.b(TbadkCoreApplication.getInst().getSkinType());
+            return forumEmotionViewHolder;
         }
-        return (Function1) invokeV.objValue;
+        return (ForumEmotionViewHolder) invokeL.objValue;
+    }
+
+    public void u(fw6 fw6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, fw6Var) == null) {
+            this.c = fw6Var;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lw6 lw6Var, ForumEmotionViewHolder forumEmotionViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lw6Var, forumEmotionViewHolder})) == null) {
+            forumEmotionViewHolder.l(lw6Var, this.b, this.c, i);
+            return forumEmotionViewHolder.getView();
+        }
+        return (View) invokeCommon.objValue;
     }
 }

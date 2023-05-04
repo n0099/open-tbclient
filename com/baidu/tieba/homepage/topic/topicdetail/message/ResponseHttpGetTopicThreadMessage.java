@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
 import com.baidu.tieba.in;
-import com.baidu.tieba.pu7;
+import com.baidu.tieba.kw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -61,9 +61,9 @@ public class ResponseHttpGetTopicThreadMessage extends TbHttpResponsedMessage {
             this.mDataList = new ArrayList();
             for (TopicThread topicThread : newTopicThreadResIdl.data.thread_list) {
                 if (topicThread != null) {
-                    pu7 pu7Var = new pu7();
-                    pu7Var.d(topicThread);
-                    this.mDataList.add(pu7Var);
+                    kw7 kw7Var = new kw7();
+                    kw7Var.d(topicThread);
+                    this.mDataList.add(kw7Var);
                 }
             }
         }

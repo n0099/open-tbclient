@@ -1,123 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.sapi2.utils.enums.Domain;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class w75 {
     public static /* synthetic */ Interceptable $ic;
+    public static Domain a;
+    public static boolean b;
+    public static x75 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public String g;
 
-    public w75() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948223508, "Lcom/baidu/tieba/w75;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948223508, "Lcom/baidu/tieba/w75;");
+                return;
+            }
+        }
+        a = Domain.DOMAIN_ONLINE;
+        b = true;
+        c = null;
+    }
+
+    public static x75 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (x75) invokeV.objValue;
+    }
+
+    public static void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            if (TbConfig.USE_OLD_LOGIN) {
+                b = true;
+                return;
+            }
+            if (Build.VERSION.SDK_INT < 9) {
+                if (TbadkCoreApplication.getInst().isLowVersionPassV6ShouldOpen()) {
+                    b = false;
+                } else {
+                    b = true;
+                }
+            } else if (TbadkCoreApplication.getInst().isPassportV6ShouldOpen()) {
+                b = false;
+            } else {
+                b = true;
+            }
+            if (Build.VERSION.SDK_INT <= 10 && !b && UtilHelper.webViewIsProbablyCorrupt(TbadkCoreApplication.getInst().getContext())) {
+                TbadkCoreApplication.getInst().incPassportV6CrashCount();
+                b = true;
             }
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void c() {
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void h(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048583, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optString("splash_bear_sid_ios", "");
-            jSONObject.optString("homepage_bear_sid_ios", "");
-            jSONObject.optString("frs_bear_sid_ios", "");
-            jSONObject.optString("pb_banner_bear_sid_ios", "");
-            jSONObject.optString("pb_comment_bear_sid_ios", "");
-            jSONObject.optString("picpage_bear_sid_ios", "");
-            jSONObject.optString("videoflow_bear_sid_ios", "");
-            this.a = jSONObject.optString("splash_bear_sid_android", "");
-            this.b = jSONObject.optString("homepage_bear_sid_android", "");
-            this.c = jSONObject.optString("frs_bear_sid_android", "");
-            this.d = jSONObject.optString("pb_banner_bear_sid_android", "");
-            this.e = jSONObject.optString("pb_comment_bear_sid_android", "");
-            this.f = jSONObject.optString("picpage_bear_sid_android", "");
-            this.g = jSONObject.optString("videoflow_bear_sid_android", "");
-        } catch (Exception e) {
-            e.printStackTrace();
+        if ((interceptable == null || interceptable.invokeV(65539, null) == null) && c == null && (runTask = MessageManager.getInstance().runTask(2001268, x75.class)) != null && runTask.getData() != null) {
+            c = (x75) runTask.getData();
         }
     }
 }

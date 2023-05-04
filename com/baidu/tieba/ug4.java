@@ -5,11 +5,9 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class ug4 extends tg4 {
+public class ug4 extends vg4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int o;
-    public String p;
 
     public ug4() {
         Interceptable interceptable = $ic;

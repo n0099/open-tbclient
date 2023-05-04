@@ -1,44 +1,35 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.ValueAnimator;
-import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.ColorFilter;
 import android.graphics.Rect;
+import android.graphics.drawable.Animatable;
 import android.graphics.drawable.Drawable;
-import android.view.animation.LinearInterpolator;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.tieba.b41;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class o51 {
+public class o51 extends Drawable implements Animatable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ValueAnimator.AnimatorUpdateListener a;
-    public final Rect b;
-    public Drawable.Callback c;
-    public ValueAnimator d;
-    public long e;
-    public float f;
-    public float g;
+    public final q51 a;
 
-    public abstract void c(float f);
-
-    public abstract void d(Canvas canvas);
-
-    public abstract void h();
-
-    public abstract void i(int i);
-
-    public abstract void l(ColorFilter colorFilter);
+    @Override // android.graphics.drawable.Drawable
+    public int getOpacity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return -3;
+        }
+        return invokeV.intValue;
+    }
 
     /* loaded from: classes5.dex */
-    public class a implements ValueAnimator.AnimatorUpdateListener {
+    public class a implements Drawable.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ o51 a;
@@ -61,22 +52,37 @@ public abstract class o51 {
             this.a = o51Var;
         }
 
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void invalidateDrawable(Drawable drawable) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
-                this.a.c(((Float) valueAnimator.getAnimatedValue()).floatValue());
-                this.a.f();
+            if (interceptable == null || interceptable.invokeL(1048576, this, drawable) == null) {
+                this.a.invalidateSelf();
+            }
+        }
+
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void scheduleDrawable(Drawable drawable, Runnable runnable, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{drawable, runnable, Long.valueOf(j)}) == null) {
+                this.a.scheduleSelf(runnable, j);
+            }
+        }
+
+        @Override // android.graphics.drawable.Drawable.Callback
+        public void unscheduleDrawable(Drawable drawable, Runnable runnable) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, drawable, runnable) == null) {
+                this.a.unscheduleSelf(runnable);
             }
         }
     }
 
-    public o51(Context context) {
+    public o51(q51 q51Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {q51Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -86,89 +92,86 @@ public abstract class o51 {
                 return;
             }
         }
-        this.a = new a(this);
-        this.b = new Rect();
-        e(context);
-        m();
+        this.a = q51Var;
+        this.a.k(new a(this));
     }
 
-    public void b(Animator.AnimatorListener animatorListener) {
+    @Override // android.graphics.drawable.Drawable
+    public void draw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, animatorListener) == null) {
-            this.d.addListener(animatorListener);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && !getBounds().isEmpty()) {
+            this.a.d(canvas);
         }
     }
 
-    public final void e(Context context) {
+    @Override // android.graphics.drawable.Drawable
+    public void onBoundsChange(Rect rect) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            this.f = b41.c.a(context, 31.0f);
-            this.g = b41.c.a(context, 31.0f);
-            this.e = 1333L;
+        if (interceptable == null || interceptable.invokeL(1048581, this, rect) == null) {
+            super.onBoundsChange(rect);
+            this.a.j(rect);
         }
     }
 
-    public void j(Rect rect) {
+    @Override // android.graphics.drawable.Drawable
+    public void setAlpha(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, rect) == null) {
-            this.b.set(rect);
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.a.i(i);
         }
     }
 
-    public void k(Drawable.Callback callback) {
+    @Override // android.graphics.drawable.Drawable
+    public void setColorFilter(ColorFilter colorFilter) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, callback) == null) {
-            this.c = callback;
+        if (interceptable == null || interceptable.invokeL(1048583, this, colorFilter) == null) {
+            this.a.l(colorFilter);
         }
     }
 
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.c.invalidateDrawable(null);
-        }
-    }
-
-    public boolean g() {
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicHeight() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d.isRunning();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return (int) this.a.g;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Drawable
+    public int getIntrinsicWidth() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return (int) this.a.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // android.graphics.drawable.Animatable
+    public boolean isRunning() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.g();
         }
         return invokeV.booleanValue;
     }
 
-    public void o() {
+    @Override // android.graphics.drawable.Animatable
+    public void start() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.d.removeUpdateListener(this.a);
-            this.d.setRepeatCount(0);
-            this.d.setDuration(0L);
-            this.d.end();
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.a.n();
         }
     }
 
-    public final void m() {
+    @Override // android.graphics.drawable.Animatable
+    public void stop() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
-            this.d = ofFloat;
-            ofFloat.setRepeatCount(-1);
-            this.d.setRepeatMode(1);
-            this.d.setDuration(this.e);
-            this.d.setInterpolator(new LinearInterpolator());
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            h();
-            this.d.addUpdateListener(this.a);
-            this.d.setRepeatCount(-1);
-            this.d.setDuration(this.e);
-            this.d.setStartDelay(200L);
-            this.d.start();
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            this.a.o();
         }
     }
 }

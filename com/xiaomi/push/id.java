@@ -6,7 +6,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.Serializable;
 import java.nio.ByteBuffer;
 import java.util.BitSet;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class id implements is<id, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */

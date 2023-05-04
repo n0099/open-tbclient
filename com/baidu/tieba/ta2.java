@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
 import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.pms.PMSDownloadType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,69 +10,50 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes6.dex */
-public abstract class ta2 extends za2 {
+public class ta2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
+    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger c;
-    public dl4 d;
-    public oj3 e;
-    public final mf4<wg4> f;
-
-    public abstract void Q(@NonNull oj3 oj3Var);
-
-    public abstract void R();
+    public HashMap<vg4, Set<c>> a;
 
     /* loaded from: classes6.dex */
-    public class a extends ab2<ta2> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ta2 b;
+    }
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ta2 ta2Var, ta2 ta2Var2) {
-            super(ta2Var2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ta2Var, ta2Var2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((za2) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(PMSDownloadType pMSDownloadType);
+
+        void b(PMSDownloadType pMSDownloadType, qj3 qj3Var);
+    }
+
+    /* loaded from: classes6.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static ta2 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-410157818, "Lcom/baidu/tieba/ta2$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-410157818, "Lcom/baidu/tieba/ta2$b;");
                     return;
                 }
             }
-            this.b = ta2Var;
-        }
-
-        @Override // com.baidu.tieba.ab2
-        public void u(wg4 wg4Var, oj3 oj3Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wg4Var, oj3Var) == null) {
-                v42.k("SwanAppDependentPkgDownloadCallback", "onDownloadOrUnzipFail:" + wg4Var + StringUtil.ARRAY_ELEMENT_SEPARATOR + oj3Var);
-                if (this.b.e != null) {
-                    return;
-                }
-                this.b.e = oj3Var;
-            }
-        }
-
-        @Override // com.baidu.tieba.ab2
-        public void r(@NonNull wg4 wg4Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, wg4Var) == null) {
-                if (ta2.g) {
-                    Log.v("SwanAppDependentPkgDownloadCallback", "onDownloadAndUnzipSuccess:" + wg4Var);
-                }
-                this.b.c.incrementAndGet();
-            }
+            a = new ta2(null);
         }
     }
 
@@ -90,7 +70,7 @@ public abstract class ta2 extends za2 {
                 return;
             }
         }
-        g = fo1.a;
+        b = ho1.a;
     }
 
     public ta2() {
@@ -106,98 +86,80 @@ public abstract class ta2 extends za2 {
                 return;
             }
         }
-        this.c = new AtomicInteger(0);
-        this.f = new a(this, this);
+        this.a = new HashMap<>();
     }
 
-    @Override // com.baidu.tieba.qf4
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.F();
-            v42.k("SwanAppDependentPkgDownloadCallback", "onNoPackage");
-            oj3 oj3Var = new oj3();
-            oj3Var.k(17L);
-            oj3Var.i(2901L);
-            oj3Var.d("Server无包");
-            Q(oj3Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.qf4
-    public mf4<wg4> q() {
+    public static ta2 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
         }
-        return (mf4) invokeV.objValue;
+        return (ta2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.qf4
-    public void C(pg4 pg4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pg4Var) == null) {
-            super.C(pg4Var);
-            v42.k("SwanAppDependentPkgDownloadCallback", "onFetchError: " + pg4Var.toString());
-            oj3 oj3Var = new oj3();
-            oj3Var.k(17L);
-            oj3Var.c(pg4Var);
-            Q(oj3Var);
-        }
+    public /* synthetic */ ta2(a aVar) {
+        this();
     }
 
-    @Override // com.baidu.tieba.qf4
-    public void G(dl4 dl4Var) {
-        int n;
+    public synchronized void a(vg4 vg4Var, PMSDownloadType pMSDownloadType, qj3 qj3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dl4Var) == null) {
-            super.G(dl4Var);
-            this.d = dl4Var;
-            if (g) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("mStartDownload=");
-                if (dl4Var == null) {
-                    n = 0;
-                } else {
-                    n = dl4Var.n();
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, vg4Var, pMSDownloadType, qj3Var) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "downloadError:" + vg4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
                 }
-                sb.append(n);
-                Log.e("SwanAppDependentPkgDownloadCallback", sb.toString());
+                Set<c> set = this.a.get(vg4Var);
+                if (set != null) {
+                    for (c cVar : set) {
+                        if (cVar != null) {
+                            cVar.b(pMSDownloadType, qj3Var);
+                        }
+                    }
+                    this.a.remove(vg4Var);
+                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.qf4, com.baidu.tieba.nf4
-    public void b() {
+    public synchronized void b(vg4 vg4Var, PMSDownloadType pMSDownloadType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.b();
-            v42.k("SwanAppDependentPkgDownloadCallback", "onTotalPkgDownloadFinish");
-            dl4 dl4Var = this.d;
-            if (dl4Var == null) {
-                oj3 oj3Var = new oj3();
-                oj3Var.k(17L);
-                oj3Var.i(2900L);
-                oj3Var.d("unknown error.");
-                Q(oj3Var);
-                return;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vg4Var, pMSDownloadType) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "downloadSuccess:" + vg4Var + ZeusCrashHandler.NAME_SEPERATOR + pMSDownloadType);
+                }
+                Set<c> set = this.a.get(vg4Var);
+                if (set != null) {
+                    for (c cVar : set) {
+                        if (cVar != null) {
+                            cVar.a(pMSDownloadType);
+                        }
+                    }
+                    this.a.remove(vg4Var);
+                }
             }
-            int n = dl4Var.n() - this.c.get();
-            if (n == 0) {
-                R();
-                return;
+        }
+    }
+
+    public synchronized void d(vg4 vg4Var, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, vg4Var, cVar) == null) {
+            synchronized (this) {
+                if (b) {
+                    Log.i("PMSDownloadRepeatSync", "registerResultListener:" + vg4Var);
+                }
+                if (vg4Var != null && cVar != null) {
+                    Set<c> set = this.a.get(vg4Var);
+                    if (set != null) {
+                        set.add(cVar);
+                    } else {
+                        HashSet hashSet = new HashSet();
+                        hashSet.add(cVar);
+                        this.a.put(vg4Var, hashSet);
+                    }
+                }
             }
-            if (this.e == null) {
-                oj3 oj3Var2 = new oj3();
-                oj3Var2.k(17L);
-                oj3Var2.i(2900L);
-                oj3Var2.d("unknown error.");
-                this.e = oj3Var2;
-            }
-            oj3 oj3Var3 = this.e;
-            oj3Var3.f("failCount:" + n);
-            Q(this.e);
         }
     }
 }

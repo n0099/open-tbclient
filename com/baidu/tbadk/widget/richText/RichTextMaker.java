@@ -12,8 +12,8 @@ import com.baidu.tbadk.core.elementsMaven.span.EMRichTextAnyIconSpan;
 import com.baidu.tbadk.core.util.DeviceInfoUtil;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cv5;
-import com.baidu.tieba.wq5;
+import com.baidu.tieba.cw5;
+import com.baidu.tieba.or5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -30,6 +30,7 @@ public abstract class RichTextMaker<T> {
     public int b;
     public int c;
     public int d;
+    public int e;
 
     public abstract void c(@NonNull View view2, int i, @NonNull T t);
 
@@ -105,11 +106,11 @@ public abstract class RichTextMaker<T> {
                 } else {
                     z = false;
                 }
-                wq5.a(z);
+                or5.a(z);
                 if (this != START_OFFSET) {
                     z2 = false;
                 }
-                wq5.d(z2);
+                or5.d(z2);
                 this.offset = i;
                 return this;
             }
@@ -127,12 +128,12 @@ public abstract class RichTextMaker<T> {
     }
 
     /* loaded from: classes3.dex */
-    public class a extends cv5 {
+    public class a extends cw5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int i;
-        public final /* synthetic */ Object j;
-        public final /* synthetic */ RichTextMaker k;
+        public final /* synthetic */ int j;
+        public final /* synthetic */ Object k;
+        public final /* synthetic */ RichTextMaker l;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(RichTextMaker richTextMaker, int i, String str, int i2, Object obj) {
@@ -153,18 +154,22 @@ public abstract class RichTextMaker<T> {
                     return;
                 }
             }
-            this.k = richTextMaker;
-            this.i = i2;
-            this.j = obj;
+            this.l = richTextMaker;
+            this.j = i2;
+            this.k = obj;
         }
 
-        /* JADX DEBUG: Multi-variable search result rejected for r0v2, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
+        /* JADX DEBUG: Multi-variable search result rejected for r0v3, resolved type: com.baidu.tbadk.widget.richText.RichTextMaker */
         /* JADX WARN: Multi-variable type inference failed */
-        @Override // com.baidu.tieba.cv5, android.text.style.ClickableSpan
+        @Override // com.baidu.tieba.cw5, android.text.style.ClickableSpan
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.k.c(view2, this.i, this.j);
+                cw5.b bVar = this.i;
+                if (bVar != null) {
+                    bVar.a(this);
+                }
+                this.l.c(view2, this.j, this.k);
                 view2.setTag(R.id.tag_first, Boolean.TRUE);
             }
         }
@@ -406,7 +411,14 @@ public abstract class RichTextMaker<T> {
     public void i(@DimenRes int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.d = UtilHelper.getDimenPixelSize(i);
+            this.e = UtilHelper.getDimenPixelSize(i);
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
+            this.d = i;
         }
     }
 
@@ -433,7 +445,8 @@ public abstract class RichTextMaker<T> {
                 str = "";
             }
             a aVar = new a(this, i, str, i, t);
-            aVar.j(this.c);
+            aVar.l(this.c);
+            aVar.n(this.d);
             cVar.a.setSpan(aVar, cVar.d, cVar.e, cVar.f);
         }
     }
@@ -442,9 +455,9 @@ public abstract class RichTextMaker<T> {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) && this.a != IconPos.NONE) {
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(this.b, this.c, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.e(this.d);
+            eMRichTextAnyIconSpan.i(this.e);
             if (DeviceInfoUtil.isXiaoMi()) {
-                eMRichTextAnyIconSpan.c(R.dimen.tbds6);
+                eMRichTextAnyIconSpan.d(R.dimen.tbds6);
             }
             cVar.a.setSpan(eMRichTextAnyIconSpan, cVar.b, cVar.c, cVar.f);
         }

@@ -11,7 +11,7 @@ import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.TimeUnit;
 import java.util.concurrent.TimeoutException;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BlockingServiceConnection implements ServiceConnection {
     public boolean zza = false;
     public final BlockingQueue<IBinder> zzb = new LinkedBlockingQueue();

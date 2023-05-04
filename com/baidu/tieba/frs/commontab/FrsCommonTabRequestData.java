@@ -3,11 +3,11 @@ package com.baidu.tieba.frs.commontab;
 import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tieba.dl5;
+import com.baidu.tieba.eq5;
+import com.baidu.tieba.fm7;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.kk5;
-import com.baidu.tieba.kk7;
-import com.baidu.tieba.lp5;
-import com.baidu.tieba.rq5;
+import com.baidu.tieba.jr5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,7 +17,7 @@ import java.util.HashMap;
 import tbclient.GeneralTabList.DataReq;
 import tbclient.GeneralTabList.GeneralTabListReqIdl;
 /* loaded from: classes4.dex */
-public class FrsCommonTabRequestData extends OrmObject implements kk5 {
+public class FrsCommonTabRequestData extends OrmObject implements dl5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String adExtParams;
@@ -33,8 +33,8 @@ public class FrsCommonTabRequestData extends OrmObject implements kk5 {
     public String tabName;
     public int tabType;
 
-    @Override // com.baidu.tieba.jk5
-    public HashMap<String, Object> K() {
+    @Override // com.baidu.tieba.cl5
+    public HashMap<String, Object> P() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -43,8 +43,8 @@ public class FrsCommonTabRequestData extends OrmObject implements kk5 {
         return (HashMap) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jk5
-    public HashMap<String, String> O() {
+    @Override // com.baidu.tieba.cl5
+    public HashMap<String, String> T() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -73,8 +73,8 @@ public class FrsCommonTabRequestData extends OrmObject implements kk5 {
         this.sortType = 0;
     }
 
-    @Override // com.baidu.tieba.mk5
-    public Object n(boolean z) {
+    @Override // com.baidu.tieba.fl5
+    public Object q(boolean z) {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z)) == null) {
@@ -88,11 +88,11 @@ public class FrsCommonTabRequestData extends OrmObject implements kk5 {
             builder.request_times = Integer.valueOf(this.requestTimes);
             builder.is_general_tab = Integer.valueOf(this.isGeneralTab);
             builder.sort_type = Integer.valueOf(this.sortType);
-            String d = kk7.e().d("frs_feed");
+            String d = fm7.e().d("frs_feed");
             builder.ad_bear_sid = d;
-            builder.ad_bear_context = lp5.g(d, lp5.f());
-            builder.ad_bear_sid_price = Double.valueOf(lp5.i());
-            builder.has_ad_bear = Integer.valueOf(lp5.n(builder.ad_bear_sid) ? 1 : 0);
+            builder.ad_bear_context = eq5.g(d, eq5.f());
+            builder.ad_bear_sid_price = Double.valueOf(eq5.i());
+            builder.has_ad_bear = Integer.valueOf(eq5.n(builder.ad_bear_sid) ? 1 : 0);
             long j = this.lastThreadId;
             if (j >= 0) {
                 builder.last_thread_id = Long.valueOf(j);
@@ -102,7 +102,7 @@ public class FrsCommonTabRequestData extends OrmObject implements kk5 {
             builder.scr_dip = Integer.valueOf((int) ii.i(TbadkCoreApplication.getInst()));
             builder.is_default_navtab = Integer.valueOf(this.isDefaultNavTab);
             builder.ad_ext_params = this.adExtParams;
-            rq5.c(builder, true, false, true);
+            jr5.c(builder, true, false, true);
             GeneralTabListReqIdl.Builder builder2 = new GeneralTabListReqIdl.Builder();
             builder2.data = builder.build(false);
             return builder2.build(false);

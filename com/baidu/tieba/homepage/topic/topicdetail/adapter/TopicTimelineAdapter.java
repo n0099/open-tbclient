@@ -7,7 +7,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.homepage.topic.topicdetail.holder.TopicTimelineHolder;
 import com.baidu.tieba.homepage.topic.topicdetail.view.TopicTimelineCellCardView;
-import com.baidu.tieba.ru7;
+import com.baidu.tieba.mw7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,7 +19,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public Context a;
-    public List<ru7> b;
+    public List<mw7> b;
 
     public TopicTimelineAdapter(Context context) {
         Interceptable interceptable = $ic;
@@ -39,7 +39,7 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
         this.a = context;
     }
 
-    public void setData(List<ru7> list) {
+    public void setData(List<mw7> list) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.isEmpty(list)) {
             return;
@@ -61,13 +61,13 @@ public class TopicTimelineAdapter extends RecyclerView.Adapter<TopicTimelineHold
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: k */
     public void onBindViewHolder(TopicTimelineHolder topicTimelineHolder, int i) {
-        ru7 ru7Var;
+        mw7 mw7Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicTimelineHolder, i) != null) || (ru7Var = (ru7) ListUtils.getItem(this.b, i)) == null) {
+        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, topicTimelineHolder, i) != null) || (mw7Var = (mw7) ListUtils.getItem(this.b, i)) == null) {
             return;
         }
         TopicTimelineCellCardView topicTimelineCellCardView = (TopicTimelineCellCardView) topicTimelineHolder.a();
-        topicTimelineCellCardView.setData(ru7Var);
+        topicTimelineCellCardView.setData(mw7Var);
         topicTimelineCellCardView.b();
     }
 

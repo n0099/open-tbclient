@@ -28,7 +28,7 @@ public final class FloatingViewClickUtilKt {
 
     public static final <T extends View> long getLastClickTime(T lastClickTime) {
         Intrinsics.checkNotNullParameter(lastClickTime, "$this$lastClickTime");
-        Object tag = lastClickTime.getTag(R.id.obfuscated_res_0x7f090aff);
+        Object tag = lastClickTime.getTag(R.id.obfuscated_res_0x7f090b07);
         if (!(tag instanceof Long)) {
             tag = null;
         }
@@ -41,6 +41,6 @@ public final class FloatingViewClickUtilKt {
 
     public static final <T extends View> void setLastClickTime(T lastClickTime, long j) {
         Intrinsics.checkNotNullParameter(lastClickTime, "$this$lastClickTime");
-        lastClickTime.setTag(R.id.obfuscated_res_0x7f090aff, Long.valueOf(j));
+        lastClickTime.setTag(R.id.obfuscated_res_0x7f090b07, Long.valueOf(j));
     }
 }

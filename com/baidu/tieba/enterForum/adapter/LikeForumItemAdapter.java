@@ -11,7 +11,7 @@ import com.baidu.tbadk.mvc.core.ViewEventCenter;
 import com.baidu.tieba.R;
 import com.baidu.tieba.enterForum.viewholder.LikeForumCreateViewHolder;
 import com.baidu.tieba.enterForum.viewholder.LikeForumItemViewHolder;
-import com.baidu.tieba.up6;
+import com.baidu.tieba.mr6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -24,7 +24,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public List<up6> b;
+    public List<mr6> b;
     public ViewEventCenter c;
     public View.OnClickListener d;
     public b e;
@@ -67,7 +67,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    public LikeForumItemAdapter(TbPageContext tbPageContext, List<up6> list, ViewEventCenter viewEventCenter) {
+    public LikeForumItemAdapter(TbPageContext tbPageContext, List<mr6> list, ViewEventCenter viewEventCenter) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -114,7 +114,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         }
     }
 
-    public void update(List<up6> list) {
+    public void update(List<mr6> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048583, this, list) == null) {
             this.b = list;
@@ -127,7 +127,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            List<up6> list = this.b;
+            List<mr6> list = this.b;
             if (list == null) {
                 return 1;
             }
@@ -136,11 +136,11 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         return invokeV.intValue;
     }
 
-    public List<up6> l() {
+    public List<mr6> l() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            List<up6> list = this.b;
+            List<mr6> list = this.b;
             if (list == null) {
                 return new ArrayList();
             }
@@ -160,7 +160,7 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
                 }
                 return;
             }
-            List<up6> list = this.b;
+            List<mr6> list = this.b;
             if (list != null && list.size() >= i && (viewHolder instanceof LikeForumItemViewHolder)) {
                 ((LikeForumItemViewHolder) viewHolder).e(this.b.get(i));
             }
@@ -174,11 +174,11 @@ public class LikeForumItemAdapter extends RecyclerView.Adapter<RecyclerView.View
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
             if (i == 1) {
-                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05b4, viewGroup, false);
+                View inflate = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05bd, viewGroup, false);
                 inflate.setOnClickListener(new a(this));
                 return new LikeForumCreateViewHolder(inflate);
             }
-            LikeForumItemViewHolder likeForumItemViewHolder = new LikeForumItemViewHolder(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d0563, viewGroup, false), this.c);
+            LikeForumItemViewHolder likeForumItemViewHolder = new LikeForumItemViewHolder(this.a, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d056c, viewGroup, false), this.c);
             likeForumItemViewHolder.h(this.e);
             return likeForumItemViewHolder;
         }

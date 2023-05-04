@@ -1,68 +1,143 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Dialog;
-import com.baidu.tieba.oab;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import tv.athena.revenue.api.pay.params.AppCustomExpand;
-import tv.athena.revenue.payui.view.IYYPayWayView;
-import tv.athena.revenue.payui.view.dialog.PayDialogType;
 /* loaded from: classes5.dex */
-public class m8b implements oab.a {
+public final class m8b<E> extends q8b<E> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public Dialog b;
-    public o7b c;
-    public j9b d;
-    public g9b e;
-    public Dialog f;
-    public IYYPayWayView g;
-    public AppCustomExpand h;
-    public IYYPayWayView.b i;
-    public IPayCallback<CurrencyChargeMessage> j;
 
-    public m8b(Activity activity, Dialog dialog, o7b o7bVar, g9b g9bVar, j9b j9bVar, Dialog dialog2, IYYPayWayView iYYPayWayView, AppCustomExpand appCustomExpand, IYYPayWayView.b bVar, IPayCallback<CurrencyChargeMessage> iPayCallback) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public m8b(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {activity, dialog, o7bVar, g9bVar, j9bVar, dialog2, iYYPayWayView, appCustomExpand, bVar, iPayCallback};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RLog.info("PaySignViewCallback", "create PayResultViewCallback");
-        this.a = activity;
-        this.b = dialog;
-        this.c = o7bVar;
-        this.d = j9bVar;
-        this.e = g9bVar;
-        this.f = dialog2;
-        this.g = iYYPayWayView;
-        this.h = appCustomExpand;
-        this.i = bVar;
-        this.j = iPayCallback;
     }
 
-    @Override // com.baidu.tieba.oab.a
-    public void b() {
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public boolean isEmpty() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            RLog.info("PaySignViewCallback", "onBtnConfirm");
-            this.c.f(this.a, this.d, this.e, this.f, this.g, this.h, this.i, this.j);
-            w9b.a(this.b, PayDialogType.PAY_SIGN_DIALOG);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (k() == h()) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.util.AbstractCollection, java.util.Collection
+    public int size() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            long k = k();
+            while (true) {
+                long h = h();
+                long k2 = k();
+                if (k == k2) {
+                    return (int) (h - k2);
+                }
+                k = k2;
+            }
+        } else {
+            return invokeV.intValue;
+        }
+    }
+
+    @Override // java.util.Queue
+    public boolean offer(E e) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, e)) == null) {
+            if (e != null) {
+                E[] eArr = this.b;
+                long j = this.a;
+                long h = h();
+                long a = a(h);
+                if (e(eArr, a) != null) {
+                    if (h - k() > j) {
+                        return false;
+                    }
+                    do {
+                    } while (e(eArr, a) != null);
+                    g(eArr, a, e);
+                    i(h + 1);
+                    return true;
+                }
+                g(eArr, a, e);
+                i(h + 1);
+                return true;
+            }
+            throw new NullPointerException("Null is not a valid element");
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // java.util.Queue
+    public E peek() {
+        InterceptResult invokeV;
+        E d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            long l = l();
+            do {
+                long k = k();
+                if (k >= l) {
+                    long h = h();
+                    if (k >= h) {
+                        return null;
+                    }
+                    m(h);
+                }
+                d = d(a(k));
+            } while (d == null);
+            return d;
+        }
+        return (E) invokeV.objValue;
+    }
+
+    @Override // java.util.Queue, com.baidu.tieba.k8b
+    public E poll() {
+        InterceptResult invokeV;
+        long k;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long l = l();
+            do {
+                k = k();
+                if (k >= l) {
+                    long h = h();
+                    if (k >= h) {
+                        return null;
+                    }
+                    m(h);
+                }
+            } while (!j(k, 1 + k));
+            long a = a(k);
+            E[] eArr = this.b;
+            E c = c(eArr, a);
+            f(eArr, a, null);
+            return c;
+        }
+        return (E) invokeV.objValue;
     }
 }

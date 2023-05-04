@@ -1,92 +1,130 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.coreExtra.view.ImageUrlData;
+import com.baidu.tbadk.widget.richText.TbRichTextData;
+import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
+import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes6.dex */
-public class rv8 extends gx8 {
+public class rv8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TextView c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rv8(BaseFragmentActivity baseFragmentActivity, View view2) {
-        super(baseFragmentActivity, view2);
+    public static String a(TbRichTextData tbRichTextData) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseFragmentActivity, view2};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((BaseFragmentActivity) objArr2[0], (View) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, tbRichTextData)) == null) {
+            if (tbRichTextData == null) {
+                return null;
             }
-        }
-        this.c = null;
-    }
-
-    @Override // com.baidu.tieba.gx8
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090f79);
-            this.c = textView;
-            textView.setVisibility(8);
-        }
-    }
-
-    public TextView d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (TextView) invokeV.objValue;
-    }
-
-    public void e(ThreadData threadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData) == null) && threadData != null && threadData.getPushStatusData() != null) {
-            int status = threadData.getPushStatusData().getStatus();
-            if (status == 1) {
-                f(true);
-            } else if (status == 2) {
-                f(false);
+            StringBuilder sb = new StringBuilder(150);
+            TbRichTextImageInfo d0 = tbRichTextData.d0();
+            if (d0 == null) {
+                return null;
             }
+            if (!StringUtils.isNull(d0.V())) {
+                return d0.V();
+            }
+            if (d0.getHeight() * d0.getWidth() > TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) {
+                double sqrt = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / (d0.getHeight() * d0.getWidth()));
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (d0.getWidth() * sqrt)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) (d0.getHeight() * sqrt)));
+            } else {
+                double width = d0.getWidth() / d0.getHeight();
+                double sqrt2 = Math.sqrt((TbConfig.getThreadImageMaxWidth() * TbConfig.getThreadImageMaxWidth()) / width);
+                sb.append(BigImageLoaderProc.NCDN_PER);
+                sb.append(String.valueOf((int) (width * sqrt2)));
+                sb.append("&height=");
+                sb.append(String.valueOf((int) sqrt2));
+            }
+            sb.append("&src=");
+            sb.append(hi.getUrlEncode(d0.getSrc()));
+            return sb.toString();
         }
+        return (String) invokeL.objValue;
     }
 
-    public void f(boolean z) {
-        TextView textView;
+    public static void b(pp9 pp9Var, AbsPbActivity.e eVar) {
+        ImageUrlData imageUrlData;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || (textView = this.c) == null) {
+        if ((interceptable != null && interceptable.invokeLL(65537, null, pp9Var, eVar) != null) || pp9Var == null || pp9Var.a0() == null || pp9Var.a0().X() == null || eVar == null || eVar.a == null || eVar.b == null || pp9Var.a0().X().size() == 0) {
             return;
         }
-        if (z) {
-            textView.setText(R.string.obfuscated_res_0x7f0f1021);
-            SkinManager.setViewTextColor(this.c, (int) R.drawable.obfuscated_res_0x7f08105d);
-            SkinManager.setBackgroundResource(this.c, R.drawable.push_bg_selector);
-            this.c.setClickable(true);
-        } else {
-            textView.setText(R.string.obfuscated_res_0x7f0f0285);
-            SkinManager.setBackgroundResource(this.c, R.drawable.label_bg_gray80);
-            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
-            this.c.setClickable(false);
+        String str = (String) ListUtils.getItem(eVar.a, eVar.j);
+        if (StringUtils.isNull(str)) {
+            return;
         }
-        this.c.setVisibility(0);
+        eVar.a = new ArrayList<>();
+        ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = eVar.b;
+        eVar.b = new ConcurrentHashMap<>();
+        Iterator<TbRichTextData> it = pp9Var.a0().X().iterator();
+        while (it.hasNext()) {
+            TbRichTextData next = it.next();
+            if (next != null && next.getType() == 8) {
+                String a = a(next);
+                if (!StringUtils.isNull(a) && concurrentHashMap.get(a) != null && (imageUrlData = concurrentHashMap.get(a)) != null) {
+                    eVar.a.add(a);
+                    eVar.b.put(a, imageUrlData);
+                }
+            }
+        }
+        eVar.j = ListUtils.getPosition(eVar.a, str);
+    }
+
+    public static pp9 c(qv8 qv8Var, boolean z, int i) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{qv8Var, Boolean.valueOf(z), Integer.valueOf(i)})) == null) {
+            if (z) {
+                if (qv8Var != null && qv8Var.F() != null && qv8Var.F().size() > 0) {
+                    pp9 pp9Var = qv8Var.F().get(0);
+                    if (pp9Var.D() != 1) {
+                        return d(qv8Var);
+                    }
+                    return pp9Var;
+                }
+                return null;
+            }
+            return d(qv8Var);
+        }
+        return (pp9) invokeCommon.objValue;
+    }
+
+    public static pp9 d(qv8 qv8Var) {
+        InterceptResult invokeL;
+        MetaData metaData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, qv8Var)) == null) {
+            if (qv8Var != null && qv8Var.M() != null && qv8Var.M().getAuthor() != null) {
+                pp9 pp9Var = new pp9();
+                MetaData author = qv8Var.M().getAuthor();
+                String userId = author.getUserId();
+                HashMap<String, MetaData> userMap = qv8Var.M().getUserMap();
+                if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
+                    author = metaData;
+                }
+                pp9Var.L0(1);
+                pp9Var.R0(qv8Var.M().getFirstPostId());
+                pp9Var.i1(qv8Var.M().getTitle());
+                pp9Var.h1(qv8Var.M().getCreateTime());
+                pp9Var.I0(author);
+                return pp9Var;
+            }
+            return null;
+        }
+        return (pp9) invokeL.objValue;
     }
 }

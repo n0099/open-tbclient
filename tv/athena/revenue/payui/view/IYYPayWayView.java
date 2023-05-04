@@ -1,16 +1,16 @@
 package tv.athena.revenue.payui.view;
 
-import com.baidu.tieba.g9b;
-import com.baidu.tieba.i9b;
-import com.baidu.tieba.j9b;
-import com.baidu.tieba.kab;
+import com.baidu.tieba.edb;
+import com.baidu.tieba.gdb;
+import com.baidu.tieba.hdb;
+import com.baidu.tieba.ieb;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
 import java.util.List;
 import java.util.Map;
 import tv.athena.revenue.api.pay.params.AppCustomExpand;
 import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes9.dex */
-public interface IYYPayWayView extends kab {
+public interface IYYPayWayView extends ieb {
 
     /* loaded from: classes9.dex */
     public enum PayViewState {
@@ -20,11 +20,11 @@ public interface IYYPayWayView extends kab {
 
     /* loaded from: classes9.dex */
     public interface a {
-        void a(j9b j9bVar, g9b g9bVar, AppCustomExpand appCustomExpand);
+        void a(hdb hdbVar, edb edbVar, AppCustomExpand appCustomExpand);
 
-        void b(j9b j9bVar, g9b g9bVar, AppCustomExpand appCustomExpand);
+        void b(hdb hdbVar, edb edbVar, AppCustomExpand appCustomExpand);
 
-        void c(i9b i9bVar);
+        void c(gdb gdbVar);
 
         void onRefreshViewFail(int i, String str);
 
@@ -43,7 +43,7 @@ public interface IYYPayWayView extends kab {
     public static class b {
         public List<PayWayInfo> a;
         public String b;
-        public g9b c;
+        public edb c;
         public AppCustomExpand d;
         public Map<String, String> e;
         public AbsViewEventHandler g;

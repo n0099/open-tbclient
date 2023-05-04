@@ -9,7 +9,7 @@ public class a {
 
     /* renamed from: com.ss.android.download.api.model.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0677a {
+    public static class C0680a {
         public String a;
         public String b;
         public String c;
@@ -20,33 +20,33 @@ public class a {
             return new a(this);
         }
 
-        public C0677a a(String str) {
+        public C0680a a(String str) {
             this.a = str;
             return this;
         }
 
-        public C0677a b(String str) {
+        public C0680a b(String str) {
             this.b = str;
             return this;
         }
 
-        public C0677a c(String str) {
+        public C0680a c(String str) {
             this.d = str;
             return this;
         }
 
-        public C0677a d(String str) {
+        public C0680a d(String str) {
             this.e = str;
             return this;
         }
     }
 
-    public a(C0677a c0677a) {
+    public a(C0680a c0680a) {
         this.b = "";
-        this.a = c0677a.a;
-        this.b = c0677a.b;
-        this.c = c0677a.c;
-        this.d = c0677a.d;
-        this.e = c0677a.e;
+        this.a = c0680a.a;
+        this.b = c0680a.b;
+        this.c = c0680a.c;
+        this.d = c0680a.d;
+        this.e = c0680a.e;
     }
 }

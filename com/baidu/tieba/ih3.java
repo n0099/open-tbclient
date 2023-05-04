@@ -1,42 +1,37 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.util.Log;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.cy1;
-import com.baidu.tieba.hh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ih3 extends s93 {
+public class ih3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public class a implements hh3.a {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ UnitedSchemeEntity a;
-        public final /* synthetic */ CallbackHandler b;
-        public final /* synthetic */ ny1 c;
-        public final /* synthetic */ ih3 d;
+    }
 
-        public a(ih3 ih3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ny1 ny1Var) {
+    /* loaded from: classes4.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        @Nullable
+        public vs2 c;
+        public String d;
+
+        public b() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ih3Var, unitedSchemeEntity, callbackHandler, ny1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,112 +41,66 @@ public class ih3 extends s93 {
                     return;
                 }
             }
-            this.d = ih3Var;
-            this.a = unitedSchemeEntity;
-            this.b = callbackHandler;
-            this.c = ny1Var;
+            this.a = false;
+            this.b = false;
+            this.c = null;
+            this.d = "";
         }
 
-        @Override // com.baidu.tieba.hh3.a
-        public void a(double[] dArr) {
+        public static b b() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dArr) == null) {
-                if (dArr != null && dArr.length == 3) {
-                    v42.i("accelerometer", "handle accelerometer change, x : " + dArr[0] + " y: " + dArr[1] + " z: " + dArr[2]);
-                    this.d.k(this.a, this.b, this.c, dArr);
-                    return;
-                }
-                v42.c("accelerometer", "illegal accelerometers");
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return new b();
             }
+            return (b) invokeV.objValue;
+        }
+
+        public ih3 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return new ih3(null);
+            }
+            return (ih3) invokeV.objValue;
+        }
+
+        public b c(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z)) == null) {
+                this.a = z;
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                this.d = str;
+                return this;
+            }
+            return (b) invokeL.objValue;
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ih3(s83 s83Var) {
-        super(s83Var, "/swanAPI/startAccelerometer");
+    public ih3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (v73Var == null) {
-                v42.c("accelerometer", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (s93.b) {
-                    Log.d("SwanAppAction", "startAccelerometer --- illegal swanApp");
-                }
-                return false;
-            } else if (context == null) {
-                v42.c("accelerometer", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (s93.b) {
-                    Log.d("SwanAppAction", "startAccelerometer --- illegal context");
-                }
-                return false;
-            } else {
-                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-                if (optParamsAsJo == null) {
-                    if (s93.b) {
-                        Log.d("SwanAppAction", "startAccelerometer --- params is empty");
-                    }
-                    v42.c("accelerometer", "none params");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                    return false;
-                }
-                String optString = optParamsAsJo.optString("cb");
-                if (TextUtils.isEmpty(optString)) {
-                    if (s93.b) {
-                        Log.d("SwanAppAction", "startAccelerometer --- cb is empty");
-                    }
-                    v42.c("accelerometer", "cb is empty");
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                    return false;
-                }
-                v42.i("accelerometer", " init ");
-                ny1 ny1Var = new ny1("accelerometerChange", optParamsAsJo, optString);
-                hh3 a2 = hh3.a();
-                a2.b(context, cy1.b.a(optParamsAsJo.optString("interval")));
-                a2.e(new a(this, unitedSchemeEntity, callbackHandler, ny1Var));
-                a2.f();
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                ny1Var.a(unitedSchemeEntity, callbackHandler);
-                return true;
-            }
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, ny1 ny1Var, double[] dArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, ny1Var, dArr) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("x", dArr[0]);
-                jSONObject.put("y", dArr[1]);
-                jSONObject.put("z", dArr[2]);
-                ny1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
-            } catch (JSONException e) {
-                v42.c("accelerometer", "handle compass,json error，" + e.toString());
-                ny1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
-            }
-        }
+    public /* synthetic */ ih3(a aVar) {
+        this();
     }
 }

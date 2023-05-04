@@ -1,17 +1,13 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Matrix;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.camera.view.CameraPreview;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.searchbox.v8engine.JsArrayBuffer;
+import com.baidu.searchbox.v8engine.JsFunction;
+import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.swan.apps.binding.model.JSTypeMismatchException;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,82 +15,152 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
-import java.io.BufferedOutputStream;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.util.HashMap;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Map;
+import java.util.Set;
+import java.util.TreeMap;
 /* loaded from: classes4.dex */
 public class e02 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public Timer a;
-    public n02 b;
+    public Map<String, Object> a;
+    public Map<String, Integer> b;
 
     /* loaded from: classes4.dex */
-    public class a extends TimerTask {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n02 a;
-        public final /* synthetic */ e02 b;
 
-        public a(e02 e02Var, n02 n02Var) {
+        public static Boolean a(Object obj) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e02Var, n02Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, obj)) == null) {
+                if (obj instanceof Boolean) {
+                    return (Boolean) obj;
                 }
+                return null;
             }
-            this.b = e02Var;
-            this.a = n02Var;
+            return (Boolean) invokeL.objValue;
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
+        public static Double b(Object obj) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                n02 n02Var = this.a;
-                if (n02Var != null) {
-                    n02Var.a();
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, obj)) == null) {
+                if (obj instanceof Double) {
+                    return (Double) obj;
                 }
-                this.b.j();
+                if (obj instanceof Number) {
+                    return Double.valueOf(((Number) obj).doubleValue());
+                }
+                return null;
             }
+            return (Double) invokeL.objValue;
         }
-    }
 
-    /* loaded from: classes4.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final e02 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-884847612, "Lcom/baidu/tieba/e02$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
+        public static Integer c(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, obj)) == null) {
+                if (obj instanceof Integer) {
+                    return (Integer) obj;
                 }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-884847612, "Lcom/baidu/tieba/e02$b;");
-                    return;
+                if (obj instanceof Number) {
+                    return Integer.valueOf(((Number) obj).intValue());
                 }
+                return null;
             }
-            a = new e02(null);
+            return (Integer) invokeL.objValue;
+        }
+
+        public static f02 d(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, obj)) == null) {
+                if (obj instanceof f02) {
+                    return (f02) obj;
+                }
+                return null;
+            }
+            return (f02) invokeL.objValue;
+        }
+
+        public static JsArrayBuffer e(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
+                if (obj instanceof JsArrayBuffer) {
+                    return (JsArrayBuffer) obj;
+                }
+                return null;
+            }
+            return (JsArrayBuffer) invokeL.objValue;
+        }
+
+        public static JsFunction f(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, obj)) == null) {
+                if (obj instanceof JsFunction) {
+                    return (JsFunction) obj;
+                }
+                return null;
+            }
+            return (JsFunction) invokeL.objValue;
+        }
+
+        public static e02 g(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, obj)) == null) {
+                if (obj instanceof e02) {
+                    return (e02) obj;
+                }
+                return null;
+            }
+            return (e02) invokeL.objValue;
+        }
+
+        public static Long h(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, obj)) == null) {
+                if (obj instanceof Long) {
+                    return (Long) obj;
+                }
+                if (obj instanceof Number) {
+                    return Long.valueOf(((Number) obj).longValue());
+                }
+                return null;
+            }
+            return (Long) invokeL.objValue;
+        }
+
+        public static String i(Object obj) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, obj)) == null) {
+                if (obj instanceof String) {
+                    return (String) obj;
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public static JSTypeMismatchException j(e02 e02Var, String str, int i) {
+            InterceptResult invokeLLI;
+            int i2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65545, null, e02Var, str, i)) == null) {
+                if (e02Var.i().containsKey(str)) {
+                    i2 = ((Integer) e02Var.i().get(str)).intValue();
+                } else {
+                    i2 = 12;
+                }
+                return new JSTypeMismatchException(str, i2, i, String.format("The \"%s\" argument must be %s. Received type %s", str, JsObject.typeToString(i), JsObject.typeToString(i2)));
+            }
+            return (JSTypeMismatchException) invokeLLI.objValue;
         }
     }
 
@@ -111,7 +177,7 @@ public class e02 {
                 return;
             }
         }
-        c = fo1.a;
+        c = ho1.a;
     }
 
     public e02() {
@@ -128,183 +194,437 @@ public class e02 {
         }
     }
 
-    public static e02 b() {
+    public final Map<String, Object> f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
-        }
-        return (e02) invokeV.objValue;
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            n02 n02Var = this.b;
-            if (n02Var != null) {
-                n02Var.cancel();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            if (this.a == null) {
+                this.a = new TreeMap();
             }
-            j();
+            return this.a;
         }
+        return (Map) invokeV.objValue;
     }
 
-    public void f() {
+    public final Map<String, Integer> i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            try {
-                CameraPreview.r();
-            } catch (Exception e) {
-                if (c) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.b == null) {
+                this.b = new TreeMap();
             }
+            return this.b;
         }
+        return (Map) invokeV.objValue;
     }
 
-    public void j() {
+    public Set<String> j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.b = null;
-            Timer timer = this.a;
-            if (timer != null) {
-                timer.cancel();
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return f().keySet();
         }
+        return (Set) invokeV.objValue;
     }
 
-    public /* synthetic */ e02(a aVar) {
-        this();
+    public int k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return f().size();
+        }
+        return invokeV.intValue;
     }
 
-    public boolean c(Context context) {
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048603, this)) == null) {
+            return f().toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static e02 F(JsObject jsObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
-            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jsObject)) == null) {
+            if (jsObject == null) {
+                if (c) {
+                    Log.e("JSObjectMap", "parseFromJSObject object is null.");
+                    return null;
+                }
+                return null;
             }
-            return false;
+            e02 e02Var = new e02();
+            boolean z = false;
+            for (int i = 0; i < jsObject.length(); i++) {
+                int propertyType = jsObject.getPropertyType(i);
+                String propertyName = jsObject.getPropertyName(i);
+                e02Var.i().put(propertyName, Integer.valueOf(propertyType));
+                switch (propertyType) {
+                    case 1:
+                        e02Var.f().put(propertyName, Boolean.valueOf(jsObject.toBoolean(i)));
+                        break;
+                    case 2:
+                        e02Var.f().put(propertyName, Integer.valueOf(jsObject.toInteger(i)));
+                        break;
+                    case 3:
+                        e02Var.f().put(propertyName, Long.valueOf(jsObject.toLong(i)));
+                        break;
+                    case 5:
+                        e02Var.f().put(propertyName, Double.valueOf(jsObject.toDouble(i)));
+                        break;
+                    case 6:
+                        e02Var.f().put(propertyName, new f02(i, jsObject));
+                        z = true;
+                        break;
+                    case 7:
+                        e02Var.f().put(propertyName, jsObject.toString(i));
+                        break;
+                    case 8:
+                        e02Var.f().put(propertyName, jsObject.toJsFunction(i));
+                        break;
+                    case 9:
+                        e02Var.f().put(propertyName, F(jsObject.toJsObject(i)));
+                        break;
+                    case 10:
+                        e02Var.f().put(propertyName, jsObject.toJsArrayBuffer(i));
+                        break;
+                }
+            }
+            if (!z) {
+                jsObject.release();
+            }
+            return e02Var;
+        }
+        return (e02) invokeL.objValue;
+    }
+
+    public String B(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            return C(str, "");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String[] D(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return E(str, null);
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public String H(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
+            return String.valueOf(f().get(str));
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
+            return i().containsKey(str);
         }
         return invokeL.booleanValue;
     }
 
-    public boolean d(Context context) {
+    public double c(String str) throws JSTypeMismatchException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            Double b = a.b(f().get(str));
+            if (b != null) {
+                return b.doubleValue();
             }
-            return false;
+            throw a.j(this, str, 5);
+        }
+        return invokeL.doubleValue;
+    }
+
+    public int d(String str) throws JSTypeMismatchException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
+            Integer c2 = a.c(f().get(str));
+            if (c2 != null) {
+                return c2.intValue();
+            }
+            throw a.j(this, str, 2);
+        }
+        return invokeL.intValue;
+    }
+
+    public JsObject[] e(String str) throws JSTypeMismatchException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            f02 d = a.d(f().get(str));
+            if (d != null) {
+                return d.b.toObjectArray(d.a);
+            }
+            throw a.j(this, str, 6);
+        }
+        return (JsObject[]) invokeL.objValue;
+    }
+
+    public String g(String str) throws JSTypeMismatchException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048588, this, str)) == null) {
+            String i = a.i(f().get(str));
+            if (i != null) {
+                return i;
+            }
+            throw a.j(this, str, 7);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public int getType(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
+            Integer num = i().get(str);
+            if (num == null) {
+                num = 12;
+            }
+            return num.intValue();
+        }
+        return invokeL.intValue;
+    }
+
+    public String[] h(String str) throws JSTypeMismatchException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, str)) == null) {
+            f02 d = a.d(f().get(str));
+            if (d != null) {
+                return d.b.toStringArray(d.a);
+            }
+            throw a.j(this, str, 6);
+        }
+        return (String[]) invokeL.objValue;
+    }
+
+    public boolean l(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            return m(str, false);
         }
         return invokeL.booleanValue;
     }
 
-    public void g(boolean z) {
+    public double[] o(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && z) {
-            a();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048597, this, str)) == null) {
+            return p(str, null);
+        }
+        return (double[]) invokeL.objValue;
+    }
+
+    public int q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, str)) == null) {
+            return r(str, 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public JsArrayBuffer s(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+            return t(str, null);
+        }
+        return (JsArrayBuffer) invokeL.objValue;
+    }
+
+    public JsFunction u(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
+            return v(str, null);
+        }
+        return (JsFunction) invokeL.objValue;
+    }
+
+    public e02 w(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048606, this, str)) == null) {
+            return x(str, null);
+        }
+        return (e02) invokeL.objValue;
+    }
+
+    public JsObject[] z(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048609, this, str)) == null) {
+            return A(str, null);
+        }
+        return (JsObject[]) invokeL.objValue;
+    }
+
+    public JsObject[] A(String str, JsObject[] jsObjectArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsObjectArr)) == null) {
+            f02 d = a.d(f().get(str));
+            if (d != null) {
+                return d.b.toObjectArray(d.a);
+            }
+            return jsObjectArr;
+        }
+        return (JsObject[]) invokeLL.objValue;
+    }
+
+    public String C(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            String i = a.i(f().get(str));
+            if (i != null) {
+                return i;
+            }
+            return str2;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String[] E(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, strArr)) == null) {
+            f02 d = a.d(f().get(str));
+            if (d != null) {
+                return d.b.toStringArray(d.a);
+            }
+            return strArr;
+        }
+        return (String[]) invokeLL.objValue;
+    }
+
+    public void G(String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048581, this, str, obj) == null) && !TextUtils.isEmpty(str) && obj != null) {
+            f().put(str, obj);
         }
     }
 
-    public void e(String str, String str2, boolean z) {
+    public boolean m(String str, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
-            String str3 = "error";
-            if (kl3.f("1.13.0")) {
-                HashMap hashMap = new HashMap();
-                hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
-                hashMap.put("cameraId", str2);
-                if (!z) {
-                    str3 = "stop";
-                }
-                hashMap.put("eType", str3);
-                it2.U().u(new wh2("camera", hashMap));
-                return;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048595, this, str, z)) == null) {
+            Boolean a2 = a.a(f().get(str));
+            if (a2 != null) {
+                return a2.booleanValue();
             }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
-                jSONObject.put("cameraId", str2);
-                if (!z) {
-                    str3 = "stop";
-                }
-                jSONObject.put("eType", str3);
-            } catch (JSONException e) {
-                if (c) {
-                    e.printStackTrace();
-                }
-            }
-            cn3.d(str, str2, "camera", jSONObject.optString("eType"), jSONObject);
+            return z;
         }
+        return invokeLZ.booleanValue;
     }
 
-    public boolean h(byte[] bArr, String str, int i, int i2, boolean z) {
+    public double[] p(String str, double[] dArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048598, this, str, dArr)) == null) {
+            f02 d = a.d(f().get(str));
+            if (d != null) {
+                return d.b.toDoubleArray(d.a);
+            }
+            return dArr;
+        }
+        return (double[]) invokeLL.objValue;
+    }
+
+    public int r(String str, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048600, this, str, i)) == null) {
+            Integer c2 = a.c(f().get(str));
+            if (c2 != null) {
+                return c2.intValue();
+            }
+            return i;
+        }
+        return invokeLI.intValue;
+    }
+
+    public JsArrayBuffer t(String str, JsArrayBuffer jsArrayBuffer) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048602, this, str, jsArrayBuffer)) == null) {
+            JsArrayBuffer e = a.e(f().get(str));
+            if (e != null) {
+                return e;
+            }
+            return jsArrayBuffer;
+        }
+        return (JsArrayBuffer) invokeLL.objValue;
+    }
+
+    public JsFunction v(String str, JsFunction jsFunction) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048605, this, str, jsFunction)) == null) {
+            JsFunction f = a.f(f().get(str));
+            if (f != null) {
+                return f;
+            }
+            return jsFunction;
+        }
+        return (JsFunction) invokeLL.objValue;
+    }
+
+    public e02 x(String str, e02 e02Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048607, this, str, e02Var)) == null) {
+            e02 g = a.g(f().get(str));
+            if (g != null) {
+                return g;
+            }
+            return e02Var;
+        }
+        return (e02) invokeLL.objValue;
+    }
+
+    public long y(String str, long j) {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048608, this, str, j)) == null) {
+            Long h = a.h(f().get(str));
+            if (h != null) {
+                return h.longValue();
+            }
+            return j;
+        }
+        return invokeLJ.longValue;
+    }
+
+    public double n(String str, double d) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bArr, str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
-            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048596, this, new Object[]{str, Double.valueOf(d)})) == null) {
+            Double b = a.b(f().get(str));
+            if (b != null) {
+                return b.doubleValue();
             }
-            try {
-                File file = new File(str);
-                if (file.exists()) {
-                    boolean delete = file.delete();
-                    if (c) {
-                        Log.d("SwanAppCameraManager", "delete = " + delete);
-                    }
-                }
-                if (file.getParentFile() != null) {
-                    boolean mkdirs = file.getParentFile().mkdirs();
-                    if (c) {
-                        Log.d("SwanAppCameraManager", "mkdirs = " + mkdirs);
-                    }
-                }
-                boolean createNewFile = file.createNewFile();
-                if (c) {
-                    Log.d("SwanAppCameraManager", "createNewFile = " + createNewFile);
-                }
-                Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
-                if (i2 != 0 || z) {
-                    Matrix matrix = new Matrix();
-                    matrix.reset();
-                    if (i2 != 0) {
-                        matrix.postRotate(i2);
-                    }
-                    if (z) {
-                        matrix.postScale(-1.0f, 1.0f);
-                    }
-                    decodeByteArray = Bitmap.createBitmap(decodeByteArray, 0, 0, decodeByteArray.getWidth(), decodeByteArray.getHeight(), matrix, true);
-                }
-                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
-                decodeByteArray.compress(Bitmap.CompressFormat.JPEG, i, bufferedOutputStream);
-                bufferedOutputStream.flush();
-                zn4.d(bufferedOutputStream);
-                return true;
-            } catch (Exception e) {
-                if (!c) {
-                    return false;
-                }
-                e.printStackTrace();
-                return false;
-            } catch (OutOfMemoryError e2) {
-                if (!c) {
-                    return false;
-                }
-                e2.printStackTrace();
-                return false;
-            }
+            return d;
         }
-        return invokeCommon.booleanValue;
-    }
-
-    public void i(int i, n02 n02Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, n02Var) == null) {
-            this.b = n02Var;
-            Timer timer = new Timer();
-            this.a = timer;
-            timer.schedule(new a(this, n02Var), i);
-        }
+        return invokeCommon.doubleValue;
     }
 }

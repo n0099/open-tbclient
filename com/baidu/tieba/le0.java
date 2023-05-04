@@ -1,226 +1,399 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
+import com.baidu.tieba.te0;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class le0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String m = "def";
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
+    public se0 a;
     public String b;
-    public String c;
-    public String d;
-    public String e;
-    public String f;
-    public File g;
-    public File h;
+    public List<te0> c;
+    public List<te0> d;
+    public ne0 e;
+    public ne0 f;
+    public te0 g;
+    public te0.c h;
+    public Context i;
+    public Boolean j;
+    public boolean k;
+    public te0.c l;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947939858, "Lcom/baidu/tieba/le0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947939858, "Lcom/baidu/tieba/le0;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends te0.c<te0> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ le0 a;
+
+        public a(le0 le0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {le0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = le0Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.te0.c
+        /* renamed from: f */
+        public void b(te0 te0Var, Exception exc) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, te0Var, exc) == null) {
+                super.b(te0Var, exc);
+                this.a.s();
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.te0.c
+        /* renamed from: e */
+        public void a(te0 te0Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048579, this, te0Var, str) == null) {
+                this.a.d.remove(te0Var);
+                this.a.c.add(te0Var);
+                if (te0Var == this.a.g) {
+                    this.a.a.i(le0.m, this.a.g.m());
+                }
+                if (this.a.q()) {
+                    this.a.r();
+                }
+                super.a(te0Var, str);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.te0.c
+        /* renamed from: g */
+        public void c(te0 te0Var, long j, long j2, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{te0Var, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) == null) {
+                super.c(te0Var, j, j2, i);
+                int k = this.a.k();
+                if (this.a.h != null) {
+                    this.a.h.c(this.a, 0L, 100L, k);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final le0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-635556524, "Lcom/baidu/tieba/le0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-635556524, "Lcom/baidu/tieba/le0$b;");
+                    return;
+                }
+            }
+            a = new le0(null);
+        }
+    }
 
     public le0() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = "5.1_v2";
-        this.g = null;
+        this.c = new ArrayList();
+        this.d = null;
+        this.l = new a(this);
+        se0 se0Var = new se0(oe0.d().g());
+        this.a = se0Var;
+        se0Var.h(m);
+        o();
     }
 
-    public File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return k();
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a + "-" + this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public File k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            if (this.g == null && !TextUtils.isEmpty(this.a)) {
-                this.g = new File(b(), e());
-            }
-            return this.g;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static le0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            le0 le0Var = new le0();
-            le0Var.d = "source";
-            le0Var.a = "5.1_v2";
-            le0Var.f = "resource_capture";
-            String a = le0Var.a("resource_capture");
-            le0Var.b = a;
-            le0Var.c = oe0.b(a);
-            le0Var.g = le0Var.k();
-            le0Var.h = le0Var.d();
-            return le0Var;
-        }
-        return (le0) invokeV.objValue;
-    }
-
-    public static le0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            le0 le0Var = new le0();
-            le0Var.d = "source";
-            le0Var.a = "5.1_v2";
-            le0Var.f = "resource_live";
-            String a = le0Var.a("resource_live");
-            le0Var.b = a;
-            le0Var.c = oe0.b(a);
-            le0Var.g = le0Var.k();
-            le0Var.h = le0Var.d();
-            return le0Var;
-        }
-        return (le0) invokeV.objValue;
-    }
-
-    public static le0 h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            le0 le0Var = new le0();
-            le0Var.d = "so";
-            le0Var.e = "so1";
-            le0Var.a = "5.1_v2";
-            String j = le0Var.j("so1");
-            le0Var.b = j;
-            le0Var.c = oe0.b(j);
-            le0Var.g = le0Var.k();
-            if (be0.m()) {
-                ef0.a("DuAr_", "so1 local file path = " + le0Var.g.getAbsolutePath());
-            }
-            le0Var.h = le0Var.d();
-            return le0Var;
-        }
-        return (le0) invokeV.objValue;
-    }
-
-    public static le0 i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            le0 le0Var = new le0();
-            le0Var.d = "so";
-            le0Var.e = "so2";
-            le0Var.a = "5.1_v2";
-            String j = le0Var.j("so2");
-            le0Var.b = j;
-            le0Var.c = oe0.b(j);
-            le0Var.g = le0Var.k();
-            if (be0.m()) {
-                ef0.a("DuAr_", "So2 local file path = " + le0Var.g.getAbsolutePath());
-            }
-            le0Var.h = le0Var.d();
-            return le0Var;
-        }
-        return (le0) invokeV.objValue;
-    }
-
-    public String b() {
+    public final int k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            boolean a = ff0.a(be0.getContext());
-            if (TextUtils.equals(this.d, "so")) {
-                if (TextUtils.equals(this.e, "so2")) {
-                    return me0.f().getAbsolutePath();
+            List<te0> list = this.d;
+            float f = 100.0f;
+            if (list != null && list.size() != 0) {
+                float size = 100.0f / (this.c.size() + this.d.size());
+                float f2 = 0.0f;
+                for (int i = 0; i < this.d.size(); i++) {
+                    f2 += (this.d.get(i).n() / 100.0f) * size;
                 }
-                return me0.b(a).getAbsolutePath();
+                f = (this.c.size() * size) + f2;
             }
-            return me0.d().g().getAbsolutePath();
+            return (int) f;
         }
-        return (String) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public File d() {
-        InterceptResult invokeV;
-        String str;
+    public /* synthetic */ le0(a aVar) {
+        this();
+    }
+
+    public static void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.h == null) {
-                File c = c();
-                if (c != null) {
-                    str = c.getAbsolutePath();
-                } else {
-                    str = null;
-                }
-                if (str == null) {
-                    return null;
-                }
-                if (!str.endsWith(".zip")) {
-                    str = str + ".zip";
-                }
-                if (!str.endsWith(".loading")) {
-                    str = str + ".loading";
-                }
-                this.h = new File(str);
-            }
-            return this.h;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            Log.d("DuAr_InitModel", str);
+        }
+    }
+
+    public static final le0 j(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
+            m = str;
+            return b.a;
+        }
+        return (le0) invokeL.objValue;
+    }
+
+    public File l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.f.g;
         }
         return (File) invokeV.objValue;
     }
 
-    public final String a(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public File m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.equals("resource_live", str)) {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-source-live-";
-            } else {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-source-";
-            }
-            return str2 + "5.1_v2.zip";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.e.g;
         }
-        return (String) invokeL.objValue;
+        return (File) invokeV.objValue;
     }
 
-    public final String j(String str) {
-        InterceptResult invokeL;
-        String str2;
+    public final boolean p() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            if (TextUtils.equals("so2", str)) {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-live-";
-            } else {
-                str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-";
-                if (ff0.a(be0.getContext())) {
-                    str2 = "https://pic.rmb.bdstatic.com/baidu-ar-so-64bit-";
-                }
-            }
-            return str2 + "5.1_v2.zip";
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return de0.m();
         }
-        return (String) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public boolean q() {
+        InterceptResult invokeV;
+        List<te0> list;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.c.size() > 0 && ((list = this.d) == null || list.size() == 0)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (p()) {
+                i("all onFailed .");
+            }
+            synchronized (this) {
+                this.k = false;
+            }
+        }
+    }
+
+    public final void h(te0 te0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, te0Var) == null) {
+            boolean q = te0Var.q();
+            if (p()) {
+                i("isLoaded " + q + StringUtil.ARRAY_ELEMENT_SEPARATOR + te0Var.o() + " to " + te0Var.m());
+            }
+            if (te0Var.q()) {
+                this.c.add(te0Var);
+                return;
+            }
+            if (this.d == null) {
+                this.d = new ArrayList();
+            }
+            this.d.add(te0Var);
+        }
+    }
+
+    public boolean n(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, context)) == null) {
+            Boolean bool = this.j;
+            if (bool != null && bool.booleanValue()) {
+                return this.j.booleanValue();
+            }
+            this.j = Boolean.FALSE;
+            long currentTimeMillis = System.currentTimeMillis();
+            boolean k0 = ce0.k0();
+            if (p()) {
+                i("ARControllerProxy.loadSoFile " + k0);
+            }
+            if (!k0) {
+                return this.j.booleanValue();
+            }
+            File file = this.f.g;
+            if (p()) {
+                i("setResConfig " + file);
+            }
+            if (file != null) {
+                de0.s(new ee0(file.getAbsolutePath()));
+            }
+            if (p()) {
+                i("initRecource costMS: " + (System.currentTimeMillis() - currentTimeMillis));
+            }
+            Boolean bool2 = Boolean.TRUE;
+            this.j = bool2;
+            return bool2.booleanValue();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.c.clear();
+            List<te0> list = this.d;
+            if (list != null) {
+                list.clear();
+            }
+            if ("live".equals(de0.e())) {
+                this.e = ne0.i();
+                this.f = ne0.g();
+            }
+            if (BdUploadHandler.MEDIA_SOURCE_KEY.equals(de0.e())) {
+                this.e = ne0.h();
+                this.f = ne0.f();
+            }
+            if ("tieba".equals(de0.e())) {
+                this.e = ne0.i();
+                this.f = ne0.f();
+            }
+            me0 me0Var = new me0(this.f);
+            this.g = me0Var;
+            h(me0Var);
+            h(new me0(this.e));
+        }
+    }
+
+    public void r() {
+        File file;
+        te0.c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            synchronized (this) {
+                this.k = false;
+            }
+            boolean n = n(this.i);
+            String str = null;
+            if (!n && (cVar = this.h) != null) {
+                cVar.b(null, null);
+                return;
+            }
+            this.a.n(this.b);
+            this.a.f();
+            if (p()) {
+                i("all onCompleted " + n);
+            }
+            if (this.h != null && n) {
+                ne0 ne0Var = this.f;
+                if (ne0Var != null && (file = ne0Var.g) != null) {
+                    str = file.getAbsolutePath();
+                }
+                this.h.a(this, str);
+            }
+        }
+    }
+
+    public final void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.b = this.a.e(m);
+            List<te0> list = this.d;
+            if (list != null && list.size() > 0) {
+                for (te0 te0Var : this.d) {
+                    te0Var.l(this.l);
+                }
+                return;
+            }
+            r();
+        }
+    }
+
+    public void u(Context context, te0.c<le0> cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048587, this, context, cVar) == null) {
+            this.i = context;
+            this.h = cVar;
+            synchronized (this) {
+                if (this.k) {
+                    if (p()) {
+                        i("start return, isLoading true");
+                    }
+                    return;
+                }
+                this.k = true;
+                o();
+                t();
+            }
+        }
     }
 }

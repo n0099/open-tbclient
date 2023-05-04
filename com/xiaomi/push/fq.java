@@ -1,7 +1,7 @@
 package com.xiaomi.push;
 
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class fq extends fk {
     public fq() {
         a("PING", (String) null);

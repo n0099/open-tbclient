@@ -1,118 +1,47 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.AccessController;
-import java.security.PrivilegedAction;
 /* loaded from: classes6.dex */
 public final class v3b {
     public static /* synthetic */ Interceptable $ic;
-    public static final int a;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
+    public byte[] a;
+    public int[] b;
 
-    /* loaded from: classes6.dex */
-    public static class a implements PrivilegedAction<ClassLoader> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.security.PrivilegedAction
-        /* renamed from: a */
-        public ClassLoader run() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return ClassLoader.getSystemClassLoader();
-            }
-            return (ClassLoader) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        boolean z;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948191268, "Lcom/baidu/tieba/v3b;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948191268, "Lcom/baidu/tieba/v3b;");
-                return;
-            }
-        }
-        int d = d();
-        a = d;
-        if (d != 0) {
-            z = true;
-        } else {
-            z = false;
-        }
-        b = z;
-    }
-
-    public static int a() {
-        InterceptResult invokeV;
+    public v3b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return invokeV.intValue;
-    }
-
-    public static ClassLoader b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (System.getSecurityManager() == null) {
-                return ClassLoader.getSystemClassLoader();
-            }
-            return (ClassLoader) AccessController.doPrivileged(new a());
-        }
-        return (ClassLoader) invokeV.objValue;
-    }
-
-    public static boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            try {
-                return ((Integer) Class.forName("android.os.Build$VERSION", true, b()).getField("SDK_INT").get(null)).intValue();
-            } catch (Exception unused) {
-                return 0;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        return invokeV.intValue;
+    }
+
+    public static void a(v3b v3bVar, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65537, null, v3bVar, i) == null) {
+            for (int i2 = 0; i2 < i; i2++) {
+                int[] iArr = v3bVar.b;
+                byte[] bArr = v3bVar.a;
+                int i3 = i2 * 4;
+                iArr[i2] = ((bArr[i3 + 3] & 255) << 24) | (bArr[i3] & 255) | ((bArr[i3 + 1] & 255) << 8) | ((bArr[i3 + 2] & 255) << 16);
+            }
+        }
+    }
+
+    public static void b(v3b v3bVar, byte[] bArr, int[] iArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, v3bVar, bArr, iArr) == null) {
+            v3bVar.a = bArr;
+            v3bVar.b = iArr;
+        }
     }
 }

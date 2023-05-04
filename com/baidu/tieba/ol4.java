@@ -1,21 +1,18 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Build;
+import android.util.AttributeSet;
 import android.view.View;
-import androidx.annotation.IdRes;
-import androidx.annotation.Nullable;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class ol4 {
+public abstract class ol4 extends nl4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Nullable
-    public abstract View a(@IdRes int i);
-
-    public abstract boolean b();
 
     public ol4() {
         Interceptable interceptable = $ic;
@@ -29,5 +26,19 @@ public abstract class ol4 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // android.app.Activity, android.view.LayoutInflater.Factory2
+    public View onCreateView(View view2, String str, Context context, AttributeSet attributeSet) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, view2, str, context, attributeSet)) == null) {
+            View h = h(view2, str, context, attributeSet);
+            if (h == null && Build.VERSION.SDK_INT >= 11) {
+                return super.onCreateView(view2, str, context, attributeSet);
+            }
+            return h;
+        }
+        return (View) invokeLLLL.objValue;
     }
 }

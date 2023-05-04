@@ -1,11 +1,12 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.text.TextUtils;
 import android.util.Pair;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ad3;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,31 +15,29 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gy1 extends by1 {
+public class gy1 extends dy1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.yv1
+    @Override // com.baidu.tieba.aw1
     public String j() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "DeviceInfoApi" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "ClipboardApi" : (String) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
-    public class a implements om3<yc3<ad3.e>> {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ Context a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ gy1 c;
 
-        public a(gy1 gy1Var, Context context, String str) {
+        public a(gy1 gy1Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {gy1Var, context, str};
+                Object[] objArr = {gy1Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,41 +47,31 @@ public class gy1 extends by1 {
                     return;
                 }
             }
-            this.c = gy1Var;
             this.a = context;
-            this.b = str;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (tc3.h(yc3Var)) {
-                    this.c.d(this.b, new vz1(0, this.c.z(this.a)));
-                    return;
-                }
-                int b = yc3Var.b();
-                tc3.f(b);
-                this.c.d(this.b, new vz1(b, tc3.f(b)));
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !p73.d()) {
+                p73.f(this.a, R.string.obfuscated_res_0x7f0f0428).G();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gy1(@NonNull wv1 wv1Var) {
-        super(wv1Var);
+    public gy1(@NonNull yv1 yv1Var) {
+        super(yv1Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {wv1Var};
+            Object[] objArr = {yv1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((wv1) newInitContext.callArgs[0]);
+                super((yv1) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -90,44 +79,50 @@ public class gy1 extends by1 {
         }
     }
 
-    public final JSONObject z(Context context) {
-        InterceptResult invokeL;
+    @SuppressLint({"KotlinPropertyAccess"})
+    public xz1 x() {
+        InterceptResult invokeV;
+        String charSequence;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            q("#getClipboardData", false);
             JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("oaid", at3.b.b(context));
-                jSONObject.put("androidId", at3.b.a(context));
+                CharSequence a2 = sl3.b(getContext()).a();
+                if (TextUtils.isEmpty(a2)) {
+                    charSequence = "";
+                } else {
+                    charSequence = a2.toString();
+                }
+                jSONObject.put("data", charSequence);
+                return new xz1(0, jSONObject);
             } catch (JSONException e) {
-                p("#getDeviceInfo json put data fail", e, false);
+                p("#getClipboardData json put data fail", e, false);
+                return new xz1(1001, "JSONException");
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeL.objValue;
+        return (xz1) invokeV.objValue;
     }
 
-    public vz1 y(String str) {
+    @SuppressLint({"KotlinPropertyAccess"})
+    public xz1 y(String str) {
         InterceptResult invokeL;
+        SwanAppActivity w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            q("#getDeviceInfo", false);
-            v73 b0 = v73.b0();
-            if (b0 == null) {
-                return new vz1(1001, "swan app is null");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            q("#setClipboardData", false);
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
             }
-            Pair<vz1, JSONObject> s = s(str);
-            vz1 vz1Var = (vz1) s.first;
-            if (!vz1Var.isSuccess()) {
-                return vz1Var;
+            sl3.b(getContext()).c(((JSONObject) s.second).optString("data"));
+            x73 q = w73.K().q();
+            if (q != null && (w = q.w()) != null) {
+                rl3.f0(new a(this, w), 200L);
             }
-            String optString = ((JSONObject) s.second).optString("cb");
-            if (TextUtils.isEmpty(optString)) {
-                return new vz1(202, "cb is empty");
-            }
-            Context context = getContext();
-            b0.e0().g(context, "scope_get_device_info", new a(this, context, optString));
-            return vz1.f();
+            return xz1.f();
         }
-        return (vz1) invokeL.objValue;
+        return (xz1) invokeL.objValue;
     }
 }

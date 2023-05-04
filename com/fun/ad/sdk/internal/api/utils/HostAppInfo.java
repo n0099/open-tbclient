@@ -12,9 +12,10 @@ import android.util.DisplayMetrics;
 import android.view.Display;
 import android.view.WindowManager;
 import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
 import com.baidu.mobstat.Config;
-import com.baidu.tieba.xla;
+import com.baidu.tieba.tpa;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +30,6 @@ import com.fun.n0;
 import com.fun.openid.sdk.FunOpenIDSdk;
 import com.fun.openid.sdk.OnGetOaidListener;
 import com.google.android.gms.ads.identifier.AdvertisingIdClient;
-import com.xiaomi.mipush.sdk.Constants;
 import java.util.HashSet;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -128,7 +128,7 @@ public class HostAppInfo {
                         if (!TextUtils.isEmpty(imeiNew)) {
                             b.v = FunOpenIDSdk.getMD5(imeiNew);
                         }
-                        FunOpenIDSdk.getOaid(appContext, new OnGetOaidListener() { // from class: com.baidu.tieba.ula
+                        FunOpenIDSdk.getOaid(appContext, new OnGetOaidListener() { // from class: com.baidu.tieba.qpa
                             public static /* synthetic */ Interceptable $ic;
                             public transient /* synthetic */ FieldHolder $fh;
 
@@ -282,7 +282,7 @@ public class HostAppInfo {
             jSONObject.put("iid", a2.u);
             jSONObject.put("iidn", a2.v);
             jSONObject.put("cfgv", a);
-            jSONObject.put(Constants.PHONE_BRAND, a2.w);
+            jSONObject.put("brand", a2.w);
             jSONObject.put(Config.GAID, a2.x);
             return a2;
         }
@@ -377,7 +377,7 @@ public class HostAppInfo {
             }
             this.l = String.valueOf(displayMetrics.heightPixels);
             this.m = String.valueOf(displayMetrics.widthPixels);
-            this.o = xla.c();
+            this.o = tpa.c();
         }
     }
 
@@ -385,7 +385,7 @@ public class HostAppInfo {
     public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return "HostAppInfo{packageName='" + this.d + "', versionName='" + this.e + "', versionCode='" + this.f + "', networkTypeName='" + this.h + "', manufacturer='" + this.i + "', model='" + this.j + "', osVersion='" + this.k + "', h='" + this.l + "', w='" + this.m + "', opcode='" + this.n + "', token='" + this.o + "', anid='" + this.p + "', oaid='" + this.q + "', locale='" + this.r + "', lic='" + this.s + "', userId='" + this.t + "', imei='" + this.u + "', imeiNew='" + this.v + "', cfgv='" + a + "', brand='" + this.w + "', gaid='" + this.x + "'}";
         }
         return (String) invokeV.objValue;
@@ -393,8 +393,8 @@ public class HostAppInfo {
 
     public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(com.baidu.android.imsdk.internal.Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.tla
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            n0.b bVar = new n0.b() { // from class: com.baidu.tieba.ppa
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 

@@ -10,9 +10,9 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.userLike.EntelechyUserLikeButton;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw7;
 import com.baidu.tieba.horizonalList.widget.ItemViewHolder;
-import com.baidu.tieba.kh6;
+import com.baidu.tieba.vi6;
+import com.baidu.tieba.vx7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     public BarImageView b;
     public TextView c;
     public EntelechyUserLikeButton d;
-    public kh6 e;
+    public vi6 e;
     public int f;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -69,17 +69,17 @@ public class CardExtendForumItemHolder extends ItemViewHolder {
     }
 
     @Override // com.baidu.tieba.horizonalList.widget.ItemViewHolder
-    public void a(aw7 aw7Var) {
+    public void a(vx7 vx7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aw7Var) == null) {
-            if (aw7Var != null && (aw7Var instanceof kh6)) {
-                kh6 kh6Var = (kh6) aw7Var;
-                this.e = kh6Var;
-                this.b.setTag(kh6Var.b);
+        if (interceptable == null || interceptable.invokeL(1048576, this, vx7Var) == null) {
+            if (vx7Var != null && (vx7Var instanceof vi6)) {
+                vi6 vi6Var = (vi6) vx7Var;
+                this.e = vi6Var;
+                this.b.setTag(vi6Var.b);
                 this.b.setTag(R.id.tag_forum_name, this.e.c);
                 this.b.N(this.e.b, 15, false);
                 TextView textView = this.c;
-                textView.setText(StringHelper.getFixedText(this.e.c, 4, true) + getView().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f06b5));
+                textView.setText(StringHelper.getFixedText(this.e.c, 4, true) + getView().getContext().getResources().getString(R.string.obfuscated_res_0x7f0f06c2));
                 this.c.setTag(R.id.tag_forum_name, this.e.c);
                 this.d.setTag(R.id.tag_forum_id, Long.valueOf(this.e.d));
                 this.d.setTag(R.id.tag_forum_name, this.e.c);

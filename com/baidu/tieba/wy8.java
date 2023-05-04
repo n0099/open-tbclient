@@ -1,163 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.DialogInterface;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.widget.ListView.TypeAdapter;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
-import com.baidu.tbadk.data.IconPopData;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.pb.pb.main.PbActivity;
-import com.baidu.tieba.qj9;
+import com.baidu.tieba.pb.pb.main.PbLoadMoreItemViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class wy8 extends PriorityOrganizer.Task {
+/* loaded from: classes7.dex */
+public class wy8 extends jy8<xv8, PbLoadMoreItemViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public PbActivity m;
+    public BdUniqueId g;
+    public View.OnClickListener h;
+    public int i;
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements qj9.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ wy8 a;
-
-        public a(wy8 wy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = wy8Var;
-        }
-
-        @Override // com.baidu.tieba.qj9.c
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.t();
-            }
-        }
-
-        @Override // com.baidu.tieba.qj9.c
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.t();
-            }
-        }
-
-        @Override // com.baidu.tieba.qj9.c
-        public void c() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                this.a.t();
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(wy8 wy8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {wy8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                a15.r("userIcon");
-            }
-        }
-    }
-
-    public wy8(PbActivity pbActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public wy8(z29 z29Var, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(z29Var, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {pbActivity};
+            Object[] objArr = {z29Var, bdUniqueId, bdUniqueId2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((z29) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.m = pbActivity;
+        this.g = bdUniqueId2;
+        this.i = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds104);
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: u */
+    public PbLoadMoreItemViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (a15.i()) {
-                return false;
-            }
-            IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-            if (!PollingModel.u0() || iconPopData.getPic160() == null || iconPopData.getTitle() == null || !this.m.W1() || iconPopData.getUid().longValue() != TbadkCoreApplication.getCurrentAccountId()) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new PbLoadMoreItemViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.new_pb_list_more, viewGroup, false), this.g);
         }
-        return invokeV.booleanValue;
+        return (PbLoadMoreItemViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
+    public void y(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (PollingModel.u0()) {
-                IconPopData iconPopData = TbSingleton.getInstance().getIconPopData();
-                qj9 qj9Var = new qj9();
-                qj9Var.d(iconPopData);
-                qj9Var.e(new a(this));
-                qj9Var.f(new b(this));
-                a15.l("userIcon");
-                return;
-            }
-            t();
+        if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
+            this.h = onClickListener;
         }
+    }
+
+    @Override // com.baidu.tieba.jy8, com.baidu.tieba.vm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, Object obj, TypeAdapter.ViewHolder viewHolder) {
+        x(i, view2, viewGroup, (xv8) obj, (PbLoadMoreItemViewHolder) viewHolder);
+        return view2;
+    }
+
+    public View x(int i, View view2, ViewGroup viewGroup, xv8 xv8Var, PbLoadMoreItemViewHolder pbLoadMoreItemViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, xv8Var, pbLoadMoreItemViewHolder})) == null) {
+            super.onFillViewHolder(i, view2, viewGroup, (ViewGroup) xv8Var, (xv8) pbLoadMoreItemViewHolder);
+            if (xv8Var.b) {
+                pbLoadMoreItemViewHolder.e(xv8Var.a);
+            } else {
+                pbLoadMoreItemViewHolder.d(xv8Var.a, this.i);
+            }
+            pbLoadMoreItemViewHolder.c(this.h);
+            pbLoadMoreItemViewHolder.b();
+            return view2;
+        }
+        return (View) invokeCommon.objValue;
     }
 }

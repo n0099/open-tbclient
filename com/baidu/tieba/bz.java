@@ -1,133 +1,79 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.cesium.a.i;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Method;
 /* loaded from: classes3.dex */
-public final class bz extends az {
-    public static /* synthetic */ Interceptable $ic;
+public class bz {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int b = 5;
+    public static int c = 40;
     public transient /* synthetic */ FieldHolder $fh;
-    public b d;
+    public com.baidu.cesium.a.b a;
 
-    /* loaded from: classes3.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Class<?> a;
-        public Method b;
-        public Method c;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            d();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1448301141, "Lcom/baidu/tieba/bz;")) == null) {
+            return;
         }
-
-        public /* synthetic */ b(a aVar) {
-            this();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        public final long b(Object obj) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, obj)) == null) {
-                try {
-                    return ((Long) this.c.invoke(obj, new Object[0])).longValue();
-                } catch (Exception unused) {
-                    throw new i.a("");
-                }
-            }
-            return invokeL.longValue;
-        }
-
-        public final void d() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                try {
-                    this.a = Class.forName(com.baidu.cesium.a.i.a(yy.a()), true, Object.class.getClassLoader());
-                    this.b = com.baidu.cesium.a.i.b(this.a, com.baidu.cesium.a.i.a(yy.b()), new Class[]{byte[].class, Integer.TYPE, Integer.TYPE});
-                    this.c = com.baidu.cesium.a.i.b(this.a, com.baidu.cesium.a.i.a(yy.c()), null);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        }
-
-        public final void f(Object obj, byte[] bArr, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLII(Constants.METHOD_SEND_USER_MSG, this, obj, bArr, i, i2) == null) {
-                try {
-                    this.b.invoke(obj, bArr, Integer.valueOf(i), Integer.valueOf(i2));
-                } catch (Exception unused) {
-                    throw new i.a("");
-                }
-            }
-        }
-
-        public final Object g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a.newInstance() : invokeV.objValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1448301141, "Lcom/baidu/tieba/bz;");
         }
     }
 
-    public bz(int i, int i2) {
+    public bz() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = 32;
-        this.b = i;
-        this.c = i2;
-        this.d = new b(null);
+        com.baidu.cesium.a.b bVar = new com.baidu.cesium.a.b(c);
+        this.a = bVar;
+        bVar.a(0, c, true);
     }
 
-    @Override // com.baidu.tieba.az
-    public com.baidu.cesium.a.b b(byte[] bArr, int i, int i2) {
-        long j;
-        InterceptResult invokeLII;
+    public void a(com.baidu.cesium.a.b bVar, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            try {
-                Object g = this.d.g();
-                this.d.f(g, bArr, i, i2);
-                j = this.d.b(g);
-            } catch (Exception unused) {
-                j = 4294967295L;
+        if (interceptable == null || interceptable.invokeLIII(1048576, this, bVar, i, i2, i3) == null) {
+            com.baidu.cesium.a.b d = this.a.d(i, i + i2);
+            if (i3 != 0) {
+                if (i3 != 1) {
+                    if (i3 == 2) {
+                        d.e(bVar);
+                    } else if (i3 == 3) {
+                        d.c(bVar);
+                    }
+                }
+                d.d(bVar);
+            } else {
+                d.b(bVar);
             }
-            return com.baidu.cesium.a.b.a(new long[]{j});
+            for (int i4 = 0; i4 < i2; i4++) {
+                this.a.a(i + i4, d.d(i4));
+            }
         }
-        return (com.baidu.cesium.a.b) invokeLII.objValue;
+    }
+
+    public byte[] b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.a() : (byte[]) invokeV.objValue;
     }
 }

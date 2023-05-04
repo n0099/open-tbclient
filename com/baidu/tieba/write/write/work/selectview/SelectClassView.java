@@ -17,7 +17,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.data.VideoCategoryClassData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.write.write.work.selectview.SelectClassView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -165,27 +165,27 @@ public class SelectClassView extends LinearLayout {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0965, (ViewGroup) this, true);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f0928aa);
+            LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0971, (ViewGroup) this, true);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f0928c6);
             Intrinsics.checkNotNullExpressionValue(findViewById, "findViewById(R.id.work_publish_class_sign)");
             setMClassTitleSign((ImageView) findViewById);
-            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091448);
+            View findViewById2 = findViewById(R.id.obfuscated_res_0x7f091456);
             Intrinsics.checkNotNullExpressionValue(findViewById2, "findViewById(R.id.left_title)");
             setMLeftTitle((TextView) findViewById2);
-            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f09065d);
+            View findViewById3 = findViewById(R.id.obfuscated_res_0x7f090660);
             Intrinsics.checkNotNullExpressionValue(findViewById3, "findViewById(R.id.center_content_tips)");
             setMCenterContentTips((TextView) findViewById3);
-            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0906e2);
+            View findViewById4 = findViewById(R.id.obfuscated_res_0x7f0906e5);
             Intrinsics.checkNotNullExpressionValue(findViewById4, "findViewById(R.id.class_center_content)");
             setMCenterContent((TextView) findViewById4);
-            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091dc7);
+            View findViewById5 = findViewById(R.id.obfuscated_res_0x7f091dd7);
             Intrinsics.checkNotNullExpressionValue(findViewById5, "findViewById(R.id.right_arrow)");
             setMRightArrow((ImageView) findViewById5);
             View findViewById6 = findViewById(R.id.bottom_line);
             Intrinsics.checkNotNullExpressionValue(findViewById6, "findViewById(R.id.bottom_line)");
             setMBottomLine(findViewById6);
             d();
-            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.l8a
+            setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.hca
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
@@ -208,7 +208,7 @@ public class SelectClassView extends LinearLayout {
             WebPManager.setPureDrawable(getMRightArrow(), R.drawable.icon_list_arrow20_right, R.color.CAM_X0109, WebPManager.ResourceStateType.NORMAL);
             SkinManager.setBackgroundColor(getMBottomLine(), R.color.CAM_X0210);
             getMCenterContentTips().setTextColor(SkinManager.getColor(R.color.CAM_X0109));
-            r25 d = r25.d(getMCenterContent());
+            g35 d = g35.d(getMCenterContent());
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X07);
             d.w(R.color.CAM_X0105);

@@ -1,149 +1,138 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.graphics.Typeface;
-import android.text.TextUtils;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 import android.widget.TextView;
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.widget.ListView.TypeAdapter;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.imageManager.TbFaceManager;
+import com.baidu.tieba.memberCenter.tail.data.TailData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class vo8 extends vm<lp8, a> {
+public class vo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public View a;
+    public TailData b;
+    public TextView c;
+    public TextView d;
+    public Context e;
+    public String f;
 
-    /* loaded from: classes6.dex */
-    public static class a extends TypeAdapter.ViewHolder {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public TextView b;
-        public View c;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(View view2, TextView textView, View view3) {
-            super(view2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {view2, textView, view3};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((View) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = 3;
-            this.b = textView;
-            this.c = view3;
-        }
-
-        public void a(lp8 lp8Var) {
-            int i;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, lp8Var) == null) && lp8Var != null) {
-                this.b.setText(lp8Var.a);
-                View view2 = this.c;
-                if (lp8Var.b) {
-                    i = 0;
-                } else {
-                    i = 8;
-                }
-                view2.setVisibility(i);
-            }
-        }
-
-        public void b(int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a != i) {
-                SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
-                SkinManager.setBackgroundColor(this.c, R.color.CAM_X0204);
-                this.a = i;
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public vo8(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), jp8.b);
+    public vo8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public a onCreateViewHolder(ViewGroup viewGroup) {
+    public TailData c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (TailData) invokeV.objValue;
+    }
+
+    public void a(TbPageContext<?> tbPageContext) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, tbPageContext) == null) {
+            int skinType = TbadkCoreApplication.getInst().getSkinType();
+            yv4 layoutMode = tbPageContext.getLayoutMode();
+            if (skinType == 4) {
+                z = true;
+            } else {
+                z = false;
+            }
+            layoutMode.l(z);
+            tbPageContext.getLayoutMode().k(this.a);
+            d(this.f);
+        }
+    }
+
+    public final void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.f = str;
+            this.c.setTextColor(jp8.a(str));
+        }
+    }
+
+    public final void e(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.c.setText(TbFaceManager.i().t(this.e, kp8.a(str), null));
+        }
+    }
+
+    public void f(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onClickListener) == null) {
+            this.d.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void g(Boolean bool) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, bool) == null) {
+            TextView textView = this.d;
+            if (bool.booleanValue()) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            textView.setVisibility(i);
+        }
+    }
+
+    public void h(View.OnClickListener onClickListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, onClickListener) == null) {
+            this.a.setOnClickListener(onClickListener);
+        }
+    }
+
+    public void i(TailData tailData) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, tailData) == null) {
+            this.b = tailData;
+            e(tailData.getContent());
+            d(tailData.getFontColor());
+        }
+    }
+
+    public View b(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            LinearLayout linearLayout = new LinearLayout(viewGroup.getContext());
-            linearLayout.setOrientation(1);
-            linearLayout.setPadding(ii.g(viewGroup.getContext(), R.dimen.tbds44), 0, ii.g(viewGroup.getContext(), R.dimen.tbds44), ii.g(viewGroup.getContext(), R.dimen.tbds12));
-            linearLayout.setLayoutParams(new RecyclerView.LayoutParams(-1, -2));
-            View view2 = new View(viewGroup.getContext());
-            linearLayout.addView(view2, new LinearLayout.LayoutParams(-1, ii.g(viewGroup.getContext(), R.dimen.tbds1)));
-            TextView textView = new TextView(viewGroup.getContext());
-            textView.setTextColor(viewGroup.getContext().getResources().getColor(R.color.CAM_X0105));
-            textView.setTextSize(0, ii.g(viewGroup.getContext(), R.dimen.tbds47));
-            textView.setTypeface(Typeface.DEFAULT_BOLD);
-            textView.setIncludeFontPadding(false);
-            textView.setSingleLine();
-            textView.setEllipsize(TextUtils.TruncateAt.END);
-            textView.setPadding(0, ii.g(viewGroup.getContext(), R.dimen.tbds48), 0, 0);
-            linearLayout.addView(textView, new LinearLayout.LayoutParams(-2, -2));
-            a aVar = new a(linearLayout, textView, view2);
-            aVar.b(TbadkCoreApplication.getInst().getSkinType());
-            return aVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            this.e = context;
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08da, (ViewGroup) null);
+            this.a = inflate;
+            inflate.setTag(this);
+            this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922b2);
+            TextView textView = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0922b1);
+            this.d = textView;
+            textView.setTag(this);
+            return this.a;
         }
-        return (a) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lp8 lp8Var, a aVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lp8Var, aVar})) == null) {
-            if (lp8Var != null && aVar != null) {
-                aVar.a(lp8Var);
-                aVar.b(TbadkCoreApplication.getInst().getSkinType());
-                return aVar.getView();
-            }
-            return null;
-        }
-        return (View) invokeCommon.objValue;
+        return (View) invokeL.objValue;
     }
 }

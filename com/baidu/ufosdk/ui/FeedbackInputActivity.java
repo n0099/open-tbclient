@@ -313,7 +313,7 @@ public class FeedbackInputActivity extends Activity {
             this.i0.setTextSize(1, 11.0f);
             this.i0.setGravity(17);
             this.i0.setId(2030633003);
-            this.i0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081169);
+            this.i0.setBackgroundResource(R.drawable.obfuscated_res_0x7f081199);
             this.i0.setPadding(p1.a(getApplicationContext(), 14.0f), p1.a(getApplicationContext(), 0.0f), p1.a(getApplicationContext(), 14.0f), p1.a(getApplicationContext(), 0.0f));
             RelativeLayout.LayoutParams layoutParams7 = new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 50.0f), p1.a(getApplicationContext(), 24.0f));
             layoutParams7.addRule(11);
@@ -355,7 +355,7 @@ public class FeedbackInputActivity extends Activity {
             this.Z.setTextSize(1, 15.0f);
             this.Z.setGravity(16);
             this.Z.setHint("请描述您遇到的问题...");
-            this.Z.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812ef);
+            this.Z.setBackgroundResource(R.drawable.obfuscated_res_0x7f081323);
             this.Z.setPadding(p1.a(getApplicationContext(), 8.0f), 0, p1.a(getApplicationContext(), 15.0f), 0);
             RelativeLayout.LayoutParams layoutParams10 = new RelativeLayout.LayoutParams(p1.a(getApplicationContext(), 280.0f), p1.a(getApplicationContext(), 28.0f));
             layoutParams10.addRule(0, imageView.getId());
@@ -456,7 +456,7 @@ public class FeedbackInputActivity extends Activity {
             button3.setText(t1.a("22"));
             this.j.setTextSize(1, 16.0f);
             this.j.setTextColor(-12814593);
-            this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ec9);
+            this.j.setBackgroundResource(R.drawable.obfuscated_res_0x7f080ef7);
             LinearLayout.LayoutParams layoutParams16 = new LinearLayout.LayoutParams(p1.a(getApplicationContext(), 122.0f), p1.a(getApplicationContext(), 40.0f));
             this.k0 = layoutParams16;
             layoutParams16.setMargins(0, p1.a(getApplicationContext(), 15.0f), 0, 0);
@@ -584,7 +584,7 @@ public class FeedbackInputActivity extends Activity {
                         relativeLayout8.setId(2030632968);
                         relativeLayout8.setClickable(false);
                         TextView textView = new TextView(this.b);
-                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812ed);
+                        textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081321);
                         textView.setTextColor(-1);
                         textView.setTextSize(1, 12.0f);
                         textView.setGravity(17);
@@ -608,7 +608,7 @@ public class FeedbackInputActivity extends Activity {
                         wVar2.b = imageView;
                         RelativeLayout relativeLayout9 = new RelativeLayout(this.b);
                         try {
-                            relativeLayout9.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f1);
+                            relativeLayout9.setBackgroundResource(R.drawable.obfuscated_res_0x7f081325);
                             relativeLayout9.setPadding(p1.a(this.b.getApplicationContext(), 1.0f), p1.a(this.b.getApplicationContext(), 1.0f), 11, p1.a(this.b.getApplicationContext(), 1.0f));
                         } catch (Exception e2) {
                             e2.printStackTrace();
@@ -661,7 +661,7 @@ public class FeedbackInputActivity extends Activity {
                         relativeLayout12.setId(2030632968);
                         relativeLayout12.setClickable(false);
                         TextView textView2 = new TextView(this.b);
-                        textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812ed);
+                        textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f081321);
                         textView2.setTextColor(-1);
                         textView2.setTextSize(1, 12.0f);
                         textView2.setGravity(17);
@@ -687,7 +687,7 @@ public class FeedbackInputActivity extends Activity {
                         textView3.setTextColor(-13421773);
                         textView3.setTextSize(1, 17.0f);
                         textView3.setLineSpacing(4.0f, 1.0f);
-                        textView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f1);
+                        textView3.setBackgroundResource(R.drawable.obfuscated_res_0x7f081325);
                         textView3.setGravity(16);
                         textView3.setPadding(p1.a(this.b.getApplicationContext(), 10.0f), p1.a(this.b.getApplicationContext(), 8.0f), p1.a(this.b.getApplicationContext(), 14.0f), p1.a(this.b.getApplicationContext(), 8.0f));
                         textView3.setLineSpacing(5.0f, 1.0f);
@@ -730,7 +730,7 @@ public class FeedbackInputActivity extends Activity {
                         relativeLayout15.setId(2030632968);
                         relativeLayout15.setClickable(false);
                         TextView textView4 = new TextView(this.b);
-                        textView4.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812ed);
+                        textView4.setBackgroundResource(R.drawable.obfuscated_res_0x7f081321);
                         textView4.setTextColor(-1);
                         textView4.setTextSize(1, 12.0f);
                         textView4.setGravity(17);
@@ -755,7 +755,7 @@ public class FeedbackInputActivity extends Activity {
                         LinearLayout linearLayout = new LinearLayout(this.a);
                         linearLayout.setOrientation(1);
                         linearLayout.setId(2031091720);
-                        linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f6);
+                        linearLayout.setBackgroundResource(R.drawable.obfuscated_res_0x7f08132a);
                         TextView textView5 = new TextView(this.b);
                         textView5.setId(2031091719);
                         obj2 = "content";
@@ -785,7 +785,7 @@ public class FeedbackInputActivity extends Activity {
                         obj = "contenttype";
                         bitmapDrawable.setBounds(p1.a(this.b.getApplicationContext(), 13.0f), 0, p1.a(this.b.getApplicationContext(), 33.0f), p1.a(this.b.getApplicationContext(), 20.0f));
                         textView6.setCompoundDrawables(bitmapDrawable, null, null, null);
-                        textView6.setBackgroundResource(R.drawable.obfuscated_res_0x7f081197);
+                        textView6.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811c9);
                         LinearLayout.LayoutParams layoutParams18 = new LinearLayout.LayoutParams(-1, p1.a(this.b.getApplicationContext(), 35.0f));
                         layoutParams18.setMargins(0, 0, p1.a(this.b.getApplicationContext(), 5.0f), 0);
                         layoutParams18.weight = 1.0f;
@@ -799,7 +799,7 @@ public class FeedbackInputActivity extends Activity {
                         int i8 = i3;
                         bitmapDrawable2.setBounds(p1.a(this.b.getApplicationContext(), 13.0f), 0, p1.a(this.b.getApplicationContext(), 33.0f), p1.a(this.b.getApplicationContext(), 20.0f));
                         textView7.setCompoundDrawables(bitmapDrawable2, null, null, null);
-                        textView7.setBackgroundResource(R.drawable.obfuscated_res_0x7f081197);
+                        textView7.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811c9);
                         LinearLayout.LayoutParams layoutParams19 = new LinearLayout.LayoutParams(-1, p1.a(this.b.getApplicationContext(), 35.0f));
                         layoutParams19.setMargins(p1.a(this.b.getApplicationContext(), 5.0f), 0, 0, 0);
                         layoutParams19.weight = 1.0f;
@@ -833,7 +833,7 @@ public class FeedbackInputActivity extends Activity {
                         textView8.setText("填写不满意原因");
                         textView8.setTextSize(15.0f);
                         textView8.setTextColor(p1.a(-12814593, -15644211, -12814593, -12814593));
-                        Drawable a2 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f0812f8);
+                        Drawable a2 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f08132c);
                         a2.setBounds(p1.a(this.a, 1.0f), p1.a(this.a, 1.0f), p1.a(this.a, 14.0f), p1.a(this.a, 14.0f));
                         textView8.setCompoundDrawables(null, null, a2, null);
                         RelativeLayout.LayoutParams layoutParams24 = new RelativeLayout.LayoutParams(-2, -2);
@@ -873,7 +873,7 @@ public class FeedbackInputActivity extends Activity {
                             relativeLayout19.setId(2030632968);
                             relativeLayout19.setClickable(false);
                             TextView textView9 = new TextView(this.b);
-                            textView9.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812ed);
+                            textView9.setBackgroundResource(R.drawable.obfuscated_res_0x7f081321);
                             textView9.setTextColor(-1);
                             textView9.setTextSize(1, 12.0f);
                             textView9.setGravity(17);
@@ -896,7 +896,7 @@ public class FeedbackInputActivity extends Activity {
                             relativeLayout18.addView(imageView6, layoutParams29);
                             tVar2.b = imageView6;
                             RelativeLayout relativeLayout20 = new RelativeLayout(this.b);
-                            relativeLayout20.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f6);
+                            relativeLayout20.setBackgroundResource(R.drawable.obfuscated_res_0x7f08132a);
                             relativeLayout20.setPadding(11, p1.a(this.b.getApplicationContext(), 1.2f), p1.a(this.b.getApplicationContext(), 1.0f), p1.a(this.b.getApplicationContext(), 1.0f));
                             ImageView imageView7 = new ImageView(this.b);
                             imageView7.setOnClickListener(new m(this));
@@ -948,7 +948,7 @@ public class FeedbackInputActivity extends Activity {
                                 relativeLayout23.setId(2030632968);
                                 relativeLayout23.setClickable(false);
                                 TextView textView10 = new TextView(this.b);
-                                textView10.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812ed);
+                                textView10.setBackgroundResource(R.drawable.obfuscated_res_0x7f081321);
                                 textView10.setTextColor(-1);
                                 textView10.setTextSize(1, 12.0f);
                                 textView10.setGravity(17);
@@ -973,7 +973,7 @@ public class FeedbackInputActivity extends Activity {
                                 LinearLayout linearLayout3 = new LinearLayout(this.b);
                                 linearLayout3.setOrientation(1);
                                 linearLayout3.setId(2031091718);
-                                linearLayout3.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812f7);
+                                linearLayout3.setBackgroundResource(R.drawable.obfuscated_res_0x7f08132b);
                                 linearLayout3.setPadding(10, 3, 2, 2);
                                 TextView textView11 = new TextView(this.b);
                                 textView11.setGravity(16);
@@ -1217,8 +1217,8 @@ public class FeedbackInputActivity extends Activity {
                             vVar.e.setVisibility(0);
                             vVar.g.setClickable(true);
                             vVar.f.setClickable(true);
-                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f081197);
-                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f081197);
+                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811c9);
+                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811c9);
                         } else if (i6 == 2) {
                             vVar.e.setVisibility(0);
                             vVar.j.setVisibility(8);
@@ -1226,8 +1226,8 @@ public class FeedbackInputActivity extends Activity {
                             vVar.f.setClickable(false);
                             vVar.h.setVisibility(8);
                             vVar.i.setVisibility(8);
-                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e9);
-                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e8);
+                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08131d);
+                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f08131c);
                         } else if (i6 == 3) {
                             vVar.e.setVisibility(0);
                             vVar.j.setVisibility(8);
@@ -1235,8 +1235,8 @@ public class FeedbackInputActivity extends Activity {
                             vVar.g.setClickable(false);
                             vVar.h.setVisibility(8);
                             vVar.i.setVisibility(8);
-                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e9);
-                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f0812e8);
+                            vVar.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f08131d);
+                            vVar.f.setBackgroundResource(R.drawable.obfuscated_res_0x7f08131c);
                         } else if (i6 == 9) {
                             if (this.b.K != 0) {
                                 i7 = 0;
@@ -1259,13 +1259,13 @@ public class FeedbackInputActivity extends Activity {
                             vVar.j.setVisibility(0);
                             if (((Map) this.b.o.get(i2)).containsKey("isClicked")) {
                                 vVar.j.setTextColor(p1.a(2034005759, -15644211, 2034005759, 2034005759));
-                                Drawable a4 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f0812f9);
+                                Drawable a4 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f08132d);
                                 a4.setAlpha(127);
                                 a4.setBounds(p1.a(this.a, 1.0f), p1.a(this.a, 1.0f), p1.a(this.a, 14.0f), p1.a(this.a, 14.0f));
                                 vVar.j.setCompoundDrawables(null, null, a4, null);
                             } else {
                                 vVar.j.setTextColor(p1.a(-12814593, -15644211, -12814593, -12814593));
-                                Drawable a5 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f0812f8);
+                                Drawable a5 = p1.a(this.a, (int) R.drawable.obfuscated_res_0x7f08132c);
                                 a5.setBounds(p1.a(this.a, 1.0f), p1.a(this.a, 1.0f), p1.a(this.a, 14.0f), p1.a(this.a, 14.0f));
                                 vVar.j.setCompoundDrawables(null, null, a5, null);
                             }
@@ -2273,7 +2273,7 @@ public class FeedbackInputActivity extends Activity {
                 String str13 = "" + message.arg2;
                 String str14 = "Handler = 12 PluginInvoker  tempRobotSwitch = " + aVar2.b.C + "; id = " + aVar2.b.m;
                 if (aVar2.b.C && aVar2.b.m != null && aVar2.b.m.length() > 0) {
-                    aVar2.b.s.execute(new RunnableC0506a(aVar2, str13));
+                    aVar2.b.s.execute(new RunnableC0509a(aVar2, str13));
                 }
             } else if (i == 13) {
                 FeedbackInputActivity feedbackInputActivity4 = aVar2.b;
@@ -2882,7 +2882,7 @@ public class FeedbackInputActivity extends Activity {
                         }
                         HashMap hashMap6 = new HashMap();
                         hashMap6.put(str5, 1);
-                        hashMap6.put("content", aVar.b.getString(R.string.obfuscated_res_0x7f0f10f0));
+                        hashMap6.put("content", aVar.b.getString(R.string.obfuscated_res_0x7f0f1109));
                         hashMap6.put("contenttype", str6);
                         hashMap6.put("time", String.valueOf(System.currentTimeMillis()));
                         hashMap6.put("ask", 0);
@@ -2949,13 +2949,13 @@ public class FeedbackInputActivity extends Activity {
 
         /* renamed from: com.baidu.ufosdk.ui.FeedbackInputActivity$a$a  reason: collision with other inner class name */
         /* loaded from: classes7.dex */
-        public class RunnableC0506a implements Runnable {
+        public class RunnableC0509a implements Runnable {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ String a;
             public final /* synthetic */ a b;
 
-            public RunnableC0506a(a aVar, String str) {
+            public RunnableC0509a(a aVar, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
                     InitContext newInitContext = TitanRuntime.newInitContext();
@@ -4153,7 +4153,7 @@ public class FeedbackInputActivity extends Activity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(65546, null, feedbackInputActivity, message) == null) {
             feedbackInputActivity.F.j.setVisibility(8);
-            feedbackInputActivity.F.l.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804b7);
+            feedbackInputActivity.F.l.setBackgroundResource(R.drawable.obfuscated_res_0x7f0804b8);
             feedbackInputActivity.F.l.setTextColor(-1);
             feedbackInputActivity.F.l.setClickable(true);
             feedbackInputActivity.F.k.setFocusable(true);
@@ -4236,71 +4236,71 @@ public class FeedbackInputActivity extends Activity {
                 if (feedbackInputActivity.o.get(feedbackInputActivity.H).containsKey("discontent_reason")) {
                     str = (String) feedbackInputActivity.o.get(feedbackInputActivity.H).get("discontent_reason");
                     if (feedbackInputActivity.G == null) {
-                        feedbackInputActivity.G = new g1(feedbackInputActivity, R.style.obfuscated_res_0x7f10042d);
+                        feedbackInputActivity.G = new g1(feedbackInputActivity, R.style.obfuscated_res_0x7f10042e);
                     }
                     g1Var = feedbackInputActivity.G;
                     if (g1Var == null) {
                         if (jSONArray != null && jSONArray.length() > 0) {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091558).setVisibility(0);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091566).setVisibility(0);
                             int length = jSONArray.length();
                             if (length != 1) {
                                 if (length != 2) {
                                     if (length != 3) {
                                         if (length != 4) {
                                             if (length == 5) {
-                                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155b).setVisibility(0);
-                                                CheckBox checkBox = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090628);
+                                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091569).setVisibility(0);
+                                                CheckBox checkBox = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f09062b);
                                                 checkBox.setVisibility(0);
                                                 checkBox.setText(jSONArray.optString(4));
                                             }
                                         } else {
-                                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155a).setVisibility(0);
-                                            CheckBox checkBox2 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090627);
+                                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091568).setVisibility(0);
+                                            CheckBox checkBox2 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f09062a);
                                             checkBox2.setVisibility(0);
                                             checkBox2.setText(jSONArray.optString(3));
                                         }
                                     } else {
-                                        g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155a).setVisibility(0);
-                                        CheckBox checkBox3 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090626);
+                                        g1Var.b.findViewById(R.id.obfuscated_res_0x7f091568).setVisibility(0);
+                                        CheckBox checkBox3 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090629);
                                         checkBox3.setVisibility(0);
                                         checkBox3.setText(jSONArray.optString(2));
                                     }
                                 } else {
-                                    g1Var.b.findViewById(R.id.obfuscated_res_0x7f091559).setVisibility(0);
-                                    CheckBox checkBox4 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090625);
+                                    g1Var.b.findViewById(R.id.obfuscated_res_0x7f091567).setVisibility(0);
+                                    CheckBox checkBox4 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090628);
                                     checkBox4.setVisibility(0);
                                     checkBox4.setText(jSONArray.optString(1));
                                 }
                             } else {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091559).setVisibility(0);
-                                CheckBox checkBox5 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090624);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091567).setVisibility(0);
+                                CheckBox checkBox5 = (CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090627);
                                 checkBox5.setVisibility(0);
                                 checkBox5.setText(jSONArray.optString(0));
                             }
                             if (jSONArray.length() == 4) {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155b).setVisibility(8);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091569).setVisibility(8);
                             }
                             if (jSONArray.length() == 3) {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155b).setVisibility(8);
-                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090627)).setVisibility(4);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091569).setVisibility(8);
+                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f09062a)).setVisibility(4);
                             }
                             if (jSONArray.length() == 2) {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155b).setVisibility(8);
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155a).setVisibility(8);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091569).setVisibility(8);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091568).setVisibility(8);
                             }
                             if (jSONArray.length() == 1) {
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155b).setVisibility(8);
-                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f09155a).setVisibility(8);
-                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090625)).setVisibility(4);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091569).setVisibility(8);
+                                g1Var.b.findViewById(R.id.obfuscated_res_0x7f091568).setVisibility(8);
+                                ((CheckBox) g1Var.b.findViewById(R.id.obfuscated_res_0x7f090628)).setVisibility(4);
                             }
                         } else {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091558).setVisibility(8);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091566).setVisibility(8);
                         }
                         if (!TextUtils.isEmpty(str)) {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091e04).setVisibility(0);
-                            ((TextView) g1Var.b.findViewById(R.id.obfuscated_res_0x7f0925f3)).setText(str);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091e14).setVisibility(0);
+                            ((TextView) g1Var.b.findViewById(R.id.obfuscated_res_0x7f09260c)).setText(str);
                         } else {
-                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091e04).setVisibility(8);
+                            g1Var.b.findViewById(R.id.obfuscated_res_0x7f091e14).setVisibility(8);
                         }
                         feedbackInputActivity.G.show();
                         return;
@@ -4315,7 +4315,7 @@ public class FeedbackInputActivity extends Activity {
                 }
             } else {
                 if (feedbackInputActivity.F == null) {
-                    feedbackInputActivity.F = new c1(feedbackInputActivity, R.style.obfuscated_res_0x7f10042d, feedbackInputActivity.N, feedbackInputActivity.M, feedbackInputActivity.L, feedbackInputActivity.W, feedbackInputActivity.o);
+                    feedbackInputActivity.F = new c1(feedbackInputActivity, R.style.obfuscated_res_0x7f10042e, feedbackInputActivity.N, feedbackInputActivity.M, feedbackInputActivity.L, feedbackInputActivity.W, feedbackInputActivity.o);
                 }
                 c1 c1Var = feedbackInputActivity.F;
                 c1Var.p = z2;
@@ -4417,7 +4417,7 @@ public class FeedbackInputActivity extends Activity {
                 hashMap.put("clientid", feedbackInputActivity.l0.a);
                 hashMap.put("appid", feedbackInputActivity.l0.b);
                 hashMap.put("devid", feedbackInputActivity.l0.c);
-                hashMap.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, "");
+                hashMap.put("brand", "");
                 hashMap.put("model", "");
                 hashMap.put("sdkvn", "4.1.9.1");
                 hashMap.put("os", "android");
@@ -4519,7 +4519,7 @@ public class FeedbackInputActivity extends Activity {
             popupWindow.getContentView().setOnClickListener(new j(this, view2, popupWindow));
             popupWindow.setTouchInterceptor(new k(this));
             try {
-                popupWindow.setBackgroundDrawable(new BitmapDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f0812f0)));
+                popupWindow.setBackgroundDrawable(new BitmapDrawable(BitmapFactory.decodeResource(getResources(), R.drawable.obfuscated_res_0x7f081324)));
             } catch (Exception e2) {
                 e2.printStackTrace();
             }
@@ -4552,7 +4552,7 @@ public class FeedbackInputActivity extends Activity {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             HashMap hashMap = new HashMap();
             hashMap.put("from", 1);
-            hashMap.put("content", getString(R.string.obfuscated_res_0x7f0f10f0));
+            hashMap.put("content", getString(R.string.obfuscated_res_0x7f0f1109));
             hashMap.put("contenttype", "0");
             hashMap.put("time", String.valueOf(System.currentTimeMillis()));
             hashMap.put("ask", 0);
@@ -4628,7 +4628,7 @@ public class FeedbackInputActivity extends Activity {
             } else {
                 hashMap.put("contact_way", str5);
             }
-            hashMap.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, "");
+            hashMap.put("brand", "");
             hashMap.put("model", "");
             hashMap.put("sdkvn", "4.1.9.1");
             hashMap.put("os", "android");

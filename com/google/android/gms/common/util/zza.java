@@ -1,5 +1,5 @@
 package com.google.android.gms.common.util;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zza {
     public static int zza(int i) {
         if (i == -1) {

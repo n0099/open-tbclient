@@ -1,50 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import androidx.annotation.NonNull;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import java.io.File;
-import org.json.JSONObject;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+@Autowired
 /* loaded from: classes6.dex */
-public interface pw3 {
-    String a();
+public class pw3 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    boolean b(Context context, Intent intent, String str, String str2, String str3);
+    @Inject(force = false)
+    public static qw3 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return q44.a();
+        }
+        return (qw3) invokeV.objValue;
+    }
 
-    String c();
+    @Inject
+    public static rw3 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return jr2.a();
+        }
+        return (rw3) invokeV.objValue;
+    }
 
-    boolean d(@NonNull Context context, @NonNull JSONObject jSONObject, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType, @NonNull wv3 wv3Var);
-
-    String e();
-
-    String f(String str);
-
-    String g();
-
-    String getAppId();
-
-    String getAppKey();
-
-    String getScene();
-
-    String getSdkVersion();
-
-    int h();
-
-    String i(String str);
-
-    int j();
-
-    int k();
-
-    Uri l(@NonNull Context context, @NonNull File file);
-
-    String m();
-
-    JSONObject n();
-
-    boolean o(View view2);
+    @Inject
+    public static sw3 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return new kr2();
+        }
+        return (sw3) invokeV.objValue;
+    }
 }

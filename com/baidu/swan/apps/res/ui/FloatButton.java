@@ -14,16 +14,16 @@ import android.widget.Button;
 import com.baidu.swan.apps.res.ui.FullScreenFloatView;
 import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fo1;
-import com.baidu.tieba.ml3;
+import com.baidu.tieba.ho1;
+import com.baidu.tieba.ol3;
 import com.google.android.exoplayer2.text.ttml.TtmlNode;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
 public class FloatButton extends FullScreenFloatView {
-    public static final boolean o = fo1.a;
+    public static final boolean o = ho1.a;
 
     public void setFloatButtonDefaultPosition() {
-        findViewById(R.id.obfuscated_res_0x7f090aeb).setBottom(ml3.O(191.0f));
+        findViewById(R.id.obfuscated_res_0x7f090af3).setBottom(ol3.O(191.0f));
     }
 
     public FloatButton(Context context, AttributeSet attributeSet) {
@@ -133,14 +133,14 @@ public class FloatButton extends FullScreenFloatView {
         if (drawable == null) {
             return;
         }
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090aeb);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090af3);
         if (findViewById instanceof Button) {
             findViewById.setBackground(drawable);
         }
     }
 
     public void setFloatButtonStyle(JSONObject jSONObject) {
-        View findViewById = findViewById(R.id.obfuscated_res_0x7f090aeb);
+        View findViewById = findViewById(R.id.obfuscated_res_0x7f090af3);
         String str = "#4E4E4E";
         if (jSONObject != null) {
             str = jSONObject.optString(TtmlNode.ATTR_TTS_BACKGROUND_COLOR, "#4E4E4E");

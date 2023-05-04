@@ -1,89 +1,112 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.client.result.ResultParser;
-import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
-import java.io.InputStream;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.nio.ByteBuffer;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
 /* loaded from: classes4.dex */
 public class do4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(InputStream inputStream) {
-        InterceptResult invokeL;
-        int i;
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
-            }
-            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-            byte[] bArr = new byte[1024];
-            while (true) {
-                try {
-                    i = inputStream.read(bArr, 0, 1024);
-                } catch (IOException unused) {
-                    i = 0;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
                 }
-                if (i != -1) {
-                    byteArrayOutputStream.write(bArr, 0, i);
-                } else {
-                    byte[] byteArray = byteArrayOutputStream.toByteArray();
-                    zn4.d(byteArrayOutputStream);
-                    return byteArray;
+                if (hexString.length() == 1) {
+                    sb.append("0");
                 }
+                sb.append(hexString);
+                sb.append(str);
             }
-        } else {
-            return (byte[]) invokeL.objValue;
+            return sb.toString();
         }
+        return (String) invokeLLZ.objValue;
     }
 
-    public static String c(InputStream inputStream) {
-        InterceptResult invokeL;
+    public static String b(File file, boolean z) {
+        InterceptResult invokeLZ;
+        ReadableByteChannel readableByteChannel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, file, z)) == null) {
+            ReadableByteChannel readableByteChannel2 = null;
             try {
-                byte[] a = a(inputStream);
-                if (a != null) {
-                    String str = new String(a);
-                    if (str.startsWith(ResultParser.BYTE_ORDER_MARK)) {
-                        str = str.substring(1);
-                    }
-                    zn4.d(inputStream);
-                    return str;
-                }
-            } catch (Exception unused) {
+                readableByteChannel = Channels.newChannel(new FileInputStream(file));
+            } catch (IOException unused) {
+                readableByteChannel = null;
             } catch (Throwable th) {
-                zn4.d(inputStream);
+                th = th;
+            }
+            try {
+                String c = c(z, readableByteChannel);
+                if (readableByteChannel != null && readableByteChannel.isOpen()) {
+                    bo4.d(readableByteChannel);
+                }
+                return c;
+            } catch (IOException unused2) {
+                if (readableByteChannel != null && readableByteChannel.isOpen()) {
+                    bo4.d(readableByteChannel);
+                }
+                return null;
+            } catch (Throwable th2) {
+                th = th2;
+                readableByteChannel2 = readableByteChannel;
+                if (readableByteChannel2 != null && readableByteChannel2.isOpen()) {
+                    bo4.d(readableByteChannel2);
+                }
                 throw th;
             }
-            zn4.d(inputStream);
-            return null;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeLZ.objValue;
     }
 
-    public static String b(String str) {
-        InterceptResult invokeL;
+    public static String c(boolean z, ReadableByteChannel readableByteChannel) throws IOException {
+        InterceptResult invokeZL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
+        if (interceptable == null || (invokeZL = interceptable.invokeZL(65538, null, z, readableByteChannel)) == null) {
             try {
-                return URLEncoder.encode(str, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str;
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                ByteBuffer allocate = ByteBuffer.allocate(8192);
+                while (readableByteChannel.read(allocate) != -1) {
+                    allocate.flip();
+                    messageDigest.update(allocate);
+                    allocate.clear();
+                }
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
             }
         }
-        return (String) invokeL.objValue;
+        return (String) invokeZL.objValue;
+    }
+
+    public static String d(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65539, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                return a(messageDigest.digest(), "", z);
+            } catch (NoSuchAlgorithmException unused) {
+                return null;
+            }
+        }
+        return (String) invokeLZ.objValue;
     }
 }

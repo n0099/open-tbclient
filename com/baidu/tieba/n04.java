@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Intent;
-import android.os.Build;
 import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,10 +10,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Locale;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class n04 extends b04 {
+public class n04 extends d04 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
@@ -33,12 +31,12 @@ public class n04 extends b04 {
                 return;
             }
         }
-        c = fo1.a;
+        c = ho1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public n04() {
-        super("startPermissionsPage");
+        super("GetSwanGameDuration");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,37 +52,55 @@ public class n04 extends b04 {
         }
     }
 
-    @Override // com.baidu.tieba.b04
-    public vz1 a(JSONObject jSONObject, zk2 zk2Var) {
+    public static boolean b(Long l, Long l2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
-            v73 b0 = v73.b0();
-            if (b0 != null && b0.w() != null) {
-                String str = Build.MANUFACTURER;
-                if (!TextUtils.isEmpty(str)) {
-                    str = str.toLowerCase(Locale.US);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.d04
+    public xz1 a(@NonNull JSONObject jSONObject, @NonNull bl2 bl2Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
+            if (jSONObject == null) {
+                bl2Var.onFail(202, "params may be error");
+                return null;
+            }
+            if (c) {
+                Log.e("GetSwanGameDuration", "params is " + jSONObject.toString());
+            }
+            String optString = jSONObject.optString("swanGameId");
+            if (TextUtils.isEmpty(optString)) {
+                bl2Var.onFail(202, "params may be error");
+            } else {
+                fg3 a = lg3.a();
+                if (!b(Long.valueOf(a.getLong(optString + "_LastPause", 0L)), Long.valueOf(System.currentTimeMillis()))) {
+                    fg3 a2 = lg3.a();
+                    a2.putLong(optString + "_Duration", 0L);
                 }
-                if (TextUtils.equals(str, "oppo")) {
-                    try {
-                        Intent intent = new Intent(b0.w().getPackageName());
-                        intent.setComponent(new ComponentName("com.oppo.launcher", "com.oppo.launcher.shortcut.ShortcutSettingsActivity"));
-                        b0.w().startActivity(intent);
-                    } catch (Exception e) {
-                        if (c) {
-                            e.printStackTrace();
-                        }
-                        zk3.f(b0.w());
+                fg3 a3 = lg3.a();
+                long j = a3.getLong(optString + "_Duration", 0L);
+                JSONObject jSONObject2 = new JSONObject();
+                JSONObject jSONObject3 = new JSONObject();
+                try {
+                    jSONObject3.put("swanGameDuration", j);
+                    jSONObject2.put("data", jSONObject3);
+                } catch (JSONException e) {
+                    if (c) {
+                        e.printStackTrace();
                     }
-                } else {
-                    zk3.g(b0.w());
                 }
-                zk2Var.a(null);
-            } else if (c) {
-                Log.d("StartPermissionsPage", "swan or activity is null");
+                bl2Var.a(jSONObject2);
             }
             return null;
         }
-        return (vz1) invokeLL.objValue;
+        return (xz1) invokeLL.objValue;
     }
 }

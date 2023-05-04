@@ -1,93 +1,142 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes5.dex */
 public class jfa {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile efa a;
+    public static bfa b;
+    public static dfa c;
+    public static cfa d;
+    public static dea e;
+    public static hea f;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public File b;
-    public long c;
-    public long d;
 
-    public void e(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-        }
-    }
-
-    public jfa(String str, String str2, File file) {
+    public jfa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, file};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = file;
     }
 
-    public File a() {
+    public static efa d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            synchronized (jfa.class) {
+                if (a == null) {
+                    a = ifa.a();
+                }
+            }
+            return a;
         }
-        return (File) invokeV.objValue;
+        return (efa) invokeV.objValue;
     }
 
-    public long b() {
+    public static bfa a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            bfa bfaVar = b;
+            if (bfaVar != null) {
+                return bfaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                b = a.a();
+            }
+            return b;
         }
-        return invokeV.longValue;
+        return (bfa) invokeV.objValue;
     }
 
-    public long c() {
+    public static cfa b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            cfa cfaVar = d;
+            if (cfaVar != null) {
+                return cfaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                d = a.e();
+            }
+            return d;
         }
-        return invokeV.longValue;
+        return (cfa) invokeV.objValue;
     }
 
-    public String d() {
+    public static dfa c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            dfa dfaVar = c;
+            if (dfaVar != null) {
+                return dfaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                c = a.b();
+            }
+            return c;
         }
-        return (String) invokeV.objValue;
+        return (dfa) invokeV.objValue;
     }
 
-    public void f(long j) {
+    public static dea e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048581, this, j) == null) {
-            this.d = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            dea deaVar = e;
+            if (deaVar != null) {
+                return deaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                e = a.c();
+            }
+            return e;
         }
+        return (dea) invokeV.objValue;
     }
 
-    public void g(long j) {
+    public static hea f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
-            this.c = j;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            hea heaVar = f;
+            if (heaVar != null) {
+                return heaVar;
+            }
+            if (a == null) {
+                a = d();
+            }
+            if (a != null) {
+                f = a.d();
+            }
+            return f;
         }
+        return (hea) invokeV.objValue;
     }
 }

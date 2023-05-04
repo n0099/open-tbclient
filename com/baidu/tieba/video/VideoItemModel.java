@@ -4,7 +4,7 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.su9;
+import com.baidu.tieba.ny9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,7 +27,7 @@ public class VideoItemModel implements Serializable, Parcelable {
     public transient /* synthetic */ FieldHolder $fh;
     public final int dataType;
     public final int mHashCode;
-    public su9 videoAdData;
+    public ny9 videoAdData;
     public final VideoItemData videoItemData;
 
     @Override // android.os.Parcelable
@@ -118,13 +118,13 @@ public class VideoItemModel implements Serializable, Parcelable {
         return invokeV.intValue;
     }
 
-    public su9 getVideoAdData() {
+    public ny9 getVideoAdData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.videoAdData;
         }
-        return (su9) invokeV.objValue;
+        return (ny9) invokeV.objValue;
     }
 
     public VideoItemData getVideoItemData() {
@@ -276,10 +276,10 @@ public class VideoItemModel implements Serializable, Parcelable {
         return invokeL.booleanValue;
     }
 
-    public void setVideoAdData(su9 su9Var) {
+    public void setVideoAdData(ny9 ny9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, su9Var) == null) {
-            this.videoAdData = su9Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ny9Var) == null) {
+            this.videoAdData = ny9Var;
         }
     }
 

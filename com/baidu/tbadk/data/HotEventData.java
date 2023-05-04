@@ -24,8 +24,10 @@ public class HotEventData implements Serializable {
     public String desc;
     public String icon;
     public String schemaUrl;
+    public boolean showCloseBtn;
     public int skinType;
     public String title;
+    public boolean useRightBg;
     public int windowType;
 
     public HotEventData() {
@@ -38,8 +40,11 @@ public class HotEventData implements Serializable {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.showCloseBtn = true;
+        this.useRightBg = true;
     }
 
     public static HotEventData getInstance() {
@@ -148,9 +153,27 @@ public class HotEventData implements Serializable {
         return invokeV.intValue;
     }
 
+    public boolean isShowCloseBtn() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.showCloseBtn;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean isUseRightBg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.useRightBg;
+        }
+        return invokeV.booleanValue;
+    }
+
     public void parsJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048588, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
         this.title = jSONObject.optString("title");
@@ -162,33 +185,49 @@ public class HotEventData implements Serializable {
         this.icon = jSONObject.optString("icon");
         this.windowType = jSONObject.optInt("window_type");
         this.schemaUrl = jSONObject.optString("scheme");
+        this.showCloseBtn = true;
+        this.useRightBg = true;
     }
 
     public void setBtnText(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
             this.btnText = str;
         }
     }
 
     public void setDesc(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
             this.desc = str;
         }
     }
 
     public void setSchemaUrl(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
             this.schemaUrl = str;
+        }
+    }
+
+    public void setShowCloseBtn(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048592, this, z) == null) {
+            this.showCloseBtn = z;
         }
     }
 
     public void setSkinType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048593, this, i) == null) {
             this.skinType = i;
+        }
+    }
+
+    public void setUseRightBg(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048594, this, z) == null) {
+            this.useRightBg = z;
         }
     }
 }

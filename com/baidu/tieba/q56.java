@@ -4,40 +4,81 @@ import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.ala.AlaSharedPrefConfig;
+import com.baidu.ala.AlaSharedPrefHelper;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tieba.ala.alasquare.livetab.view.LiveTabAlaRecommendViewHolder;
-import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernNotificationViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q56 extends vm<r56, LiveTabAlaRecommendViewHolder> {
+public class q56 extends vm<u56, LiveTabConcernNotificationViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext a;
-    public AlaRecommendLayout b;
-    public int c;
-    public String d;
+    public boolean b;
+    public ji6<u56> c;
+
+    /* loaded from: classes6.dex */
+    public class a extends ji6<u56> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q56 b;
+
+        public a(q56 q56Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q56Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = q56Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ji6
+        /* renamed from: d */
+        public void a(View view2, u56 u56Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, u56Var) == null) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090fb5) {
+                    if (!this.b.b) {
+                        this.b.b = true;
+                        AlaSharedPrefHelper.getInstance().putLong(AlaSharedPrefConfig.ALA_LIVE_TAB_NOTIFICATION_CLOSE_LAST_TIME, System.currentTimeMillis());
+                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921421));
+                    }
+                } else if (view2.getId() == R.id.obfuscated_res_0x7f090fb6) {
+                    x56.b(this.b.a);
+                }
+            }
+        }
+    }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public q56(TbPageContext tbPageContext, int i, String str) {
-        super(tbPageContext.getPageActivity(), r56.b);
+    public q56(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), u56.a);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
@@ -45,50 +86,37 @@ public class q56 extends vm<r56, LiveTabAlaRecommendViewHolder> {
                 return;
             }
         }
-        this.d = "0";
+        this.b = false;
+        this.c = new a(this);
         this.a = tbPageContext;
-        this.c = i;
-        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vm
-    /* renamed from: s */
-    public LiveTabAlaRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+    /* renamed from: x */
+    public LiveTabConcernNotificationViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            AlaRecommendLayout alaRecommendLayout = new AlaRecommendLayout(this.a.getPageActivity());
-            this.b = alaRecommendLayout;
-            alaRecommendLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds34), UtilHelper.getDimenPixelSize(R.dimen.tbds21), UtilHelper.getDimenPixelSize(R.dimen.tbds34), this.b.getPaddingBottom());
-            this.b.setFid(this.d);
-            TiebaStatic.log(bh6.e("c13620", this.c, this.d));
-            return new LiveTabAlaRecommendViewHolder(this.b);
+            d66 d66Var = new d66(this.a, viewGroup);
+            d66Var.k(this.c);
+            return new LiveTabConcernNotificationViewHolder(d66Var);
         }
-        return (LiveTabAlaRecommendViewHolder) invokeL.objValue;
+        return (LiveTabConcernNotificationViewHolder) invokeL.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, r56 r56Var, LiveTabAlaRecommendViewHolder liveTabAlaRecommendViewHolder) {
+    /* renamed from: y */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, u56 u56Var, LiveTabConcernNotificationViewHolder liveTabConcernNotificationViewHolder) {
         InterceptResult invokeCommon;
-        AlaRecommendLayout alaRecommendLayout;
+        d66 d66Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, r56Var, liveTabAlaRecommendViewHolder})) == null) {
-            if (liveTabAlaRecommendViewHolder != null && (alaRecommendLayout = liveTabAlaRecommendViewHolder.a) != null && r56Var != null) {
-                r25 d = r25.d(alaRecommendLayout.findViewById(R.id.ala_recommend_list_container));
-                d.o(R.string.J_X06);
-                d.f(R.color.CAM_X0201);
-                ch6 ch6Var = r56Var.a;
-                if (ch6Var != null && !ListUtils.isEmpty(ch6Var.c())) {
-                    liveTabAlaRecommendViewHolder.a.setData(r56Var.a);
-                    liveTabAlaRecommendViewHolder.a.d(TbadkCoreApplication.getInst().getSkinType());
-                    liveTabAlaRecommendViewHolder.a.setVisibility(0);
-                } else {
-                    liveTabAlaRecommendViewHolder.a.setVisibility(8);
-                }
-                return liveTabAlaRecommendViewHolder.getView();
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, u56Var, liveTabConcernNotificationViewHolder})) == null) {
+            if (liveTabConcernNotificationViewHolder != null && (d66Var = liveTabConcernNotificationViewHolder.a) != null) {
+                this.b = false;
+                d66Var.i(u56Var);
+                return liveTabConcernNotificationViewHolder.getView();
             }
             return null;
         }

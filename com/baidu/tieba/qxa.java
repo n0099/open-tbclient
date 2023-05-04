@@ -1,28 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.Executor;
 /* loaded from: classes6.dex */
-public class qxa {
+public final class qxa<TResult> implements wya<TResult> {
     public static /* synthetic */ Interceptable $ic;
-    public static Context a;
     public transient /* synthetic */ FieldHolder $fh;
+    public Executor a;
 
-    public static Context a() {
-        InterceptResult invokeV;
+    public qxa(Executor executor, mya myaVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {executor, myaVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        return (Context) invokeV.objValue;
+        this.a = executor;
     }
 
-    public static void b(Context context) {
+    @Override // com.baidu.tieba.wya
+    public final void a(iya<TResult> iyaVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, context) == null) && context != null && a == null) {
-            a = context.getApplicationContext();
+        if (interceptable == null || interceptable.invokeL(1048576, this, iyaVar) == null) {
+            iyaVar.e();
         }
     }
 }

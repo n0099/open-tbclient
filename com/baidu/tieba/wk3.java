@@ -1,8 +1,11 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.IBinder;
-import android.view.inputmethod.InputMethodManager;
+import android.app.Activity;
+import android.content.Intent;
+import android.os.Bundle;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.util.android.IntentUtils;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -27,34 +30,160 @@ public class wk3 {
                 return;
             }
         }
-        a = fo1.a;
+        a = ho1.a;
     }
 
-    public static void a(Context context, IBinder iBinder) {
-        InputMethodManager inputMethodManager;
+    public static boolean a(Activity activity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
-            try {
-                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
-            } catch (Exception e) {
-                if (a) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, activity)) == null) {
+            if (activity != null && b(activity.getIntent())) {
+                try {
+                    gk3.j(activity);
+                } catch (Exception unused) {
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(Intent intent) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, intent)) == null) {
+            if (intent != null) {
+                try {
+                    Bundle extras = intent.getExtras();
+                    if (extras != null) {
+                        extras.isEmpty();
+                        return false;
+                    }
+                    return false;
+                } catch (Throwable unused) {
+                    return true;
                 }
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void b(Context context, boolean z) {
-        InputMethodManager inputMethodManager;
-        int i;
+    public static boolean c(Bundle bundle, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
-            if (z) {
-                i = 2;
-            } else {
-                i = 0;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65539, null, bundle, str, z)) == null) {
+            try {
+                return bundle.getBoolean(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBoolean failed on bundle " + bundle);
+                }
+                return z;
             }
-            inputMethodManager.toggleSoftInput(i, 2);
         }
+        return invokeLLZ.booleanValue;
+    }
+
+    public static int f(Bundle bundle, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, bundle, str, i)) == null) {
+            try {
+                return bundle.getInt(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getInt failed on bundle " + bundle);
+                }
+                return i;
+            }
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static Bundle d(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, bundle, str)) == null) {
+            try {
+                return bundle.getBundle(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBundle failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static Bundle e(Intent intent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, intent, str)) == null) {
+            try {
+                return intent.getBundleExtra(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getBundleExtra failed on intent " + intent);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (Bundle) invokeLL.objValue;
+    }
+
+    public static String g(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65543, null, bundle, str)) == null) {
+            try {
+                return bundle.getString(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getString failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String h(Intent intent, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65544, null, intent, str)) == null) {
+            try {
+                return intent.getStringExtra(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getStringExtra failed on intent " + intent);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String i(Bundle bundle, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, bundle, str)) == null) {
+            try {
+                return bundle.getString(str);
+            } catch (Throwable unused) {
+                if (a) {
+                    Log.e(IntentUtils.TAG, "getStringExtra failed on bundle " + bundle);
+                    return null;
+                }
+                return null;
+            }
+        }
+        return (String) invokeLL.objValue;
     }
 }

@@ -1,54 +1,88 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.a51;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public final class d51 implements e51 {
+public class d51 {
     public static /* synthetic */ Interceptable $ic;
+    public static final d51 b;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<Integer, a51.b> a;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655433, "Lcom/baidu/tieba/d51;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947655433, "Lcom/baidu/tieba/d51;");
+                return;
+            }
+        }
+        b = new d51();
+    }
 
     public d51() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.a = new HashMap();
     }
 
-    public static d51 a() {
+    public static d51 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new d51();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b;
         }
         return (d51) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.e51
-    @SuppressLint({"UnsafeDynamicallyLoadedCode"})
-    public void load(String str) {
+    public void a(int i, a51.b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            System.load(str);
+        if (interceptable == null || interceptable.invokeIL(1048576, this, i, bVar) == null) {
+            synchronized (d51.class) {
+                this.a.put(Integer.valueOf(i), bVar);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.e51
-    public void loadLibrary(String str) {
+    public a51.b c(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            System.loadLibrary(str);
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            return this.a.get(Integer.valueOf(i));
+        }
+        return (a51.b) invokeI.objValue;
+    }
+
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            synchronized (d51.class) {
+                this.a.remove(Integer.valueOf(i));
+            }
         }
     }
 }

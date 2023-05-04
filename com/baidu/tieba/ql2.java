@@ -1,45 +1,47 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sl2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import org.json.JSONObject;
+@Service
 /* loaded from: classes6.dex */
-public abstract class ql2<W extends sl2> implements ZeusPlugin {
+public class ql2 extends UnitedSchemeBaseInterceptor {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean g;
     public transient /* synthetic */ FieldHolder $fh;
-    public rl2<W> a;
-    public ZeusPlugin.Callback b;
-    @NonNull
-    public W c;
-    public boolean d;
-    public final List<ZeusPlugin.Command> e;
-    public sl2.a f;
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor
+    public String getInterceptorName() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "" : (String) invokeV.objValue;
+    }
 
     /* loaded from: classes6.dex */
-    public class a implements sl2.a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ql2 a;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ String b;
 
-        public a(ql2 ql2Var) {
+        public a(ql2 ql2Var, Context context, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ql2Var};
+                Object[] objArr = {ql2Var, context, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -49,122 +51,130 @@ public abstract class ql2<W extends sl2> implements ZeusPlugin {
                     return;
                 }
             }
-            this.a = ql2Var;
+            this.a = context;
+            this.b = str;
         }
 
-        @Override // com.baidu.tieba.sl2.a
-        public void a(boolean z) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-                synchronized (this.a) {
-                    if (ql2.g) {
-                        Log.i("BaseInlineController", "组件初始化完成，开始flush挂起的指令=====");
-                    }
-                    this.a.d();
-                    this.a.d = true;
-                    if (ql2.g) {
-                        Log.i("BaseInlineController", "指令flush完成=========================");
-                    }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ml2.n().f(this.a, this.b);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ String a;
+
+        public b(ql2 ql2Var, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ql2Var, str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = str;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                boolean i = ol2.c().i(this.a);
+                ml2 n = ml2.n();
+                n.p("cloneResult = " + i);
+            }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948095602, "Lcom/baidu/tieba/ql2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948095602, "Lcom/baidu/tieba/ql2;");
-                return;
-            }
-        }
-        g = fo1.a;
-    }
-
-    public ql2(@NonNull W w) {
+    public ql2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {w};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.d = false;
-        this.e = new ArrayList();
-        this.f = new a(this);
-        this.a = new rl2<>();
-        this.c = w;
-        if (g) {
-            Log.i("BaseInlineController", "开始初始化组件");
-        }
-        this.c.A(this.f);
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void setCallback(ZeusPlugin.Callback callback) {
+    public final String a(UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callback) == null) {
-            this.b = callback;
-        }
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.e.size() == 0) {
-            return;
-        }
-        Iterator<ZeusPlugin.Command> it = this.e.iterator();
-        while (it.hasNext()) {
-            ZeusPlugin.Command next = it.next();
-            if (g) {
-                Log.i("BaseInlineController", "flush-尝试分发Command: + " + next.what);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, unitedSchemeEntity)) == null) {
+            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+            if (optParamsAsJo == null) {
+                return null;
             }
-            this.a.b(next, this.c);
-            it.remove();
+            return optParamsAsJo.optString("appKey");
         }
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPlugin
-    public void sendCommand(ZeusPlugin.Command command) {
+    public final boolean b(@Nullable String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, command) == null) {
-            synchronized (this) {
-                if (command == null) {
-                    return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            if (str == null) {
+                return false;
+            }
+            String trim = str.trim();
+            if (trim.length() == 0 || trim.contains("../")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeBaseInterceptor, com.baidu.searchbox.unitedscheme.intercept.UnitedSchemeAbsInterceptor
+    public boolean shouldInterceptDispatch(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, context, unitedSchemeEntity, callbackHandler)) == null) {
+            Uri uri = unitedSchemeEntity.getUri();
+            if (uri == null || !TextUtils.equals(uri.getHost(), "swanAPI")) {
+                return false;
+            }
+            String path = uri.getPath();
+            if (TextUtils.isEmpty(path)) {
+                return false;
+            }
+            if (TextUtils.equals(path, "/clone")) {
+                String a2 = a(unitedSchemeEntity);
+                if (!b(a2)) {
+                    return false;
                 }
-                if (this.d) {
-                    if (g) {
-                        Log.v("BaseInlineController", "组件已初始化，直接尝试分发Command: + " + command.what);
-                    }
-                    this.a.b(command, this.c);
-                } else {
-                    ZeusPlugin.Command command2 = new ZeusPlugin.Command();
-                    command2.what = command.what;
-                    command2.arg1 = command.arg1;
-                    command2.arg2 = command.arg2;
-                    command2.arg3 = command.arg3;
-                    command2.arg4 = command.arg4;
-                    command2.arg5 = command.arg5;
-                    command2.obj = command.obj;
-                    this.e.add(command2);
-                    if (g) {
-                        Log.i("BaseInlineController", "组件未初始化，加入Pending队列： " + command2.what);
-                    }
-                    this.a.c(command);
+                rk3.k(new a(this, context, a2), "cloneSwanAppRunnable");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
+            } else if (!TextUtils.equals(path, "/install")) {
+                return false;
+            } else {
+                String a3 = a(unitedSchemeEntity);
+                if (TextUtils.isEmpty(a3)) {
+                    return false;
                 }
+                rk3.k(new b(this, a3), "installSwanAppRunnable");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(0);
+                return true;
             }
         }
+        return invokeLLL.booleanValue;
     }
 }

@@ -3,7 +3,7 @@ package com.baidu.tieba.personExtra;
 import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.t39;
+import com.baidu.tieba.m69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.HistorySwan.HistorySwanResIdl;
 public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public t39 mData;
+    public m69 mData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public SmartAppBrowseHistoryHttpResponsedMessage() {
@@ -36,13 +36,13 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
         }
     }
 
-    public t39 getData() {
+    public m69 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.mData;
         }
-        return (t39) invokeV.objValue;
+        return (m69) invokeV.objValue;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
@@ -59,9 +59,9 @@ public class SmartAppBrowseHistoryHttpResponsedMessage extends HttpResponsedMess
             setErrorString(historySwanResIdl.error.usermsg);
         }
         if (historySwanResIdl.data != null) {
-            t39 t39Var = new t39();
-            this.mData = t39Var;
-            t39Var.b(historySwanResIdl.data);
+            m69 m69Var = new m69();
+            this.mData = m69Var;
+            m69Var.b(historySwanResIdl.data);
         }
     }
 }

@@ -1,34 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
-import com.baidu.adp.lib.featureSwitch.SwitchManager;
-import com.baidu.adp.widget.design.TbTabLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.BaseFragment;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tbadk.core.view.NoNetworkView;
-import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
-import com.baidu.tbadk.switchs.MessageChooseFriendSwitch;
-import com.baidu.tieba.immessagecenter.mention.ChatAggregationFragment;
-import com.baidu.tieba.immessagecenter.mention.MessageCenterActivity;
-import com.baidu.tieba.immessagecenter.mention.MessageCenterFragment;
-import com.baidu.tieba.immessagecenter.mention.MessageFragmentPagerAdapter;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.itemdata.TextGenImageMsg;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -37,380 +12,123 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class c98 extends y8 implements NoNetworkView.b {
+public class c98 extends ea8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MessageCenterFragment a;
-    public TbTabLayout b;
-    public BdBaseViewPager c;
-    public MessageFragmentPagerAdapter d;
-    public List<MessageFragmentPagerAdapter.a> e;
-    public View f;
-    public ChatAggregationFragment g;
-    public TextView h;
-    public NavigationBar i;
-    public NoNetworkView j;
+    public boolean e;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c98 a;
-
-        public a(c98 c98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c98Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                this.a.a.J1();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c98 a;
-
-        public b(c98 c98Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c98Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c98Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
-                TiebaStatic.log("c14668");
-                this.a.a.K1();
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c98(MessageCenterFragment messageCenterFragment) {
-        super(messageCenterFragment.getPageContext());
+    public c98() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {messageCenterFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((a9) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = messageCenterFragment;
+        this.e = true;
     }
 
-    public void I(boolean z) {
-        BdBaseViewPager bdBaseViewPager;
-        Fragment fragment;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
-            MessageFragmentPagerAdapter messageFragmentPagerAdapter = this.d;
-            if (messageFragmentPagerAdapter != null) {
-                messageFragmentPagerAdapter.b(z);
-            }
-            List<MessageFragmentPagerAdapter.a> list = this.e;
-            if (list != null && list.size() > 0 && (bdBaseViewPager = this.c) != null) {
-                MessageFragmentPagerAdapter.a aVar = this.e.get(bdBaseViewPager.getCurrentItem());
-                if (aVar != null && (fragment = aVar.a) != null && (fragment instanceof BaseFragment)) {
-                    ((BaseFragment) fragment).setPrimary(z);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tbadk.core.view.NoNetworkView.b
-    public void e(boolean z) {
-        List<MessageFragmentPagerAdapter.a> list;
-        Fragment fragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (list = this.e) != null && list.size() > 0) {
-            for (int i = 0; i < this.e.size(); i++) {
-                MessageFragmentPagerAdapter.a aVar = this.e.get(i);
-                if (aVar != null && (fragment = aVar.a) != null && (fragment instanceof NoNetworkView.b)) {
-                    ((NoNetworkView.b) fragment).e(z);
-                }
-            }
-        }
-    }
-
-    public TbTabLayout.f y(int i) {
-        InterceptResult invokeI;
-        int tabCount;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
-            TbTabLayout tbTabLayout = this.b;
-            if (tbTabLayout != null && (tabCount = tbTabLayout.getTabCount()) > 0) {
-                for (int i2 = 0; i2 < tabCount; i2++) {
-                    TbTabLayout.f w = this.b.w(i2);
-                    if (w != null && w.d() != -1 && w.d() == i) {
-                        return w;
-                    }
-                }
-            }
-            return null;
-        }
-        return (TbTabLayout.f) invokeI.objValue;
-    }
-
-    public static String D(int i, long j) {
+    @Override // com.baidu.tieba.da8
+    public boolean a(int i, boolean z, Object obj) {
         InterceptResult invokeCommon;
+        boolean z2;
+        boolean z3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), Long.valueOf(j)})) == null) {
-            return "android:switcher:" + i + ":" + j;
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public void B(View view2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) != null) || view2 == null) {
-            return;
-        }
-        this.f = view2;
-        C();
-        A();
-        z();
-        NoNetworkView noNetworkView = (NoNetworkView) this.f.findViewById(R.id.view_no_network);
-        this.j = noNetworkView;
-        noNetworkView.a(this);
-    }
-
-    public void H(int i) {
-        TbTabLayout.f y;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048582, this, i) == null) && (y = y(i)) != null) {
-            y.l();
-        }
-    }
-
-    public final void A() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbTabLayout tbTabLayout = (TbTabLayout) LayoutInflater.from(this.a.getContext()).inflate(R.layout.obfuscated_res_0x7f0d05d2, (ViewGroup) null);
-            this.b = tbTabLayout;
-            tbTabLayout.setupWithViewPager(this.c);
-            int tabCount = this.b.getTabCount();
-            if (tabCount > 0) {
-                for (int i = 0; i < tabCount; i++) {
-                    this.b.w(i).q(1);
-                }
-            }
-        }
-    }
-
-    public final void C() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.c = (BdBaseViewPager) this.f.findViewById(R.id.obfuscated_res_0x7f0916a9);
-            MessageFragmentPagerAdapter.a aVar = new MessageFragmentPagerAdapter.a();
-            ChatAggregationFragment chatAggregationFragment = new ChatAggregationFragment();
-            this.g = chatAggregationFragment;
-            aVar.a = chatAggregationFragment;
-            aVar.b = this.a.getResources().getString(R.string.obfuscated_res_0x7f0f0b91);
-            ArrayList arrayList = new ArrayList();
-            this.e = arrayList;
-            arrayList.add(aVar);
-            MessageFragmentPagerAdapter messageFragmentPagerAdapter = new MessageFragmentPagerAdapter(this.a.getActivity().getSupportFragmentManager(), this.e);
-            this.d = messageFragmentPagerAdapter;
-            this.c.setAdapter(messageFragmentPagerAdapter);
-            this.c.setOffscreenPageLimit(this.e.size());
-            this.d.notifyDataSetChanged();
-        }
-    }
-
-    public void F() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageCenterFragment messageCenterFragment = this.a;
-            if (messageCenterFragment != null && messageCenterFragment.getActivity() != null && this.e != null && this.c != null && this.d != null) {
-                FragmentManager supportFragmentManager = this.a.getActivity().getSupportFragmentManager();
-                if (supportFragmentManager.isDestroyed()) {
-                    return;
-                }
-                FragmentTransaction beginTransaction = supportFragmentManager.beginTransaction();
-                for (int i = 0; i < this.e.size(); i++) {
-                    Fragment findFragmentByTag = supportFragmentManager.findFragmentByTag(D(this.c.getId(), this.d.getItemId(i)));
-                    if (findFragmentByTag != null) {
-                        beginTransaction.remove(findFragmentByTag);
-                    }
-                }
-                beginTransaction.commitAllowingStateLoss();
-            }
-            NoNetworkView noNetworkView = this.j;
-            if (noNetworkView != null) {
-                noNetworkView.e(this);
-            }
-        }
-    }
-
-    public void E(int i, int i2, Intent intent) {
-        List<MessageFragmentPagerAdapter.a> list;
-        BdBaseViewPager bdBaseViewPager;
-        Fragment fragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIIL(1048579, this, i, i2, intent) == null) && (list = this.e) != null && list.size() > 0 && (bdBaseViewPager = this.c) != null) {
-            MessageFragmentPagerAdapter.a aVar = this.e.get(bdBaseViewPager.getCurrentItem());
-            if (aVar != null && (fragment = aVar.a) != null) {
-                fragment.onActivityResult(i, i2, intent);
-            }
-        }
-    }
-
-    public void G() {
-        ChatAggregationFragment chatAggregationFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (chatAggregationFragment = this.g) != null) {
-            chatAggregationFragment.u();
-        }
-    }
-
-    public TbTabLayout.f x() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            TbTabLayout tbTabLayout = this.b;
-            if (tbTabLayout != null && tbTabLayout.getTabCount() > 0) {
-                TbTabLayout tbTabLayout2 = this.b;
-                return tbTabLayout2.w(tbTabLayout2.getSelectedTabPosition());
-            }
-            return null;
-        }
-        return (TbTabLayout.f) invokeV.objValue;
-    }
-
-    public void onChangeSkinType(int i) {
-        Fragment fragment;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            NavigationBar navigationBar = this.i;
-            if (navigationBar != null) {
-                navigationBar.onChangeSkinType(getPageContext(), i);
-                SkinManager.setBackgroundColor(this.i.getBarBgView(), R.color.CAM_X0207, i);
-            }
-            NoNetworkView noNetworkView = this.j;
-            if (noNetworkView != null) {
-                noNetworkView.d(getPageContext(), i);
-            }
-            List<MessageFragmentPagerAdapter.a> list = this.e;
-            if (list != null && list.size() > 0) {
-                for (int i2 = 0; i2 < this.e.size(); i2++) {
-                    MessageFragmentPagerAdapter.a aVar = this.e.get(i2);
-                    if (aVar != null && (fragment = aVar.a) != null && (fragment instanceof BaseFragment)) {
-                        ((BaseFragment) fragment).onChangeSkinType(i);
-                    }
-                }
-            }
-            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a7c, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
-            r25 d = r25.d(this.h);
-            d.w(R.color.CAM_X0105);
-            d.B(R.dimen.T_X06);
-            TbTabLayout tbTabLayout = this.b;
-            if (tbTabLayout != null) {
-                tbTabLayout.setSelectedTabIndicatorColor(this.mContext.getResources().getColor(R.color.transparent));
-                this.b.setSelectedTabIndicatorHeight(0);
-                this.b.setTabTextColors(SkinManager.getColor(R.color.CAM_X0107), SkinManager.getColor(R.color.CAM_X0105));
-            }
-            ChatAggregationFragment chatAggregationFragment = this.g;
-            if (chatAggregationFragment != null) {
-                chatAggregationFragment.J1();
-            }
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
-            NavigationBar navigationBar = (NavigationBar) this.f.findViewById(R.id.navigation_bar);
-            this.i = navigationBar;
-            View addSystemImageButton = navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new a(this));
-            if (addSystemImageButton != null) {
-                if (this.a.getActivity() instanceof MessageCenterActivity) {
-                    addSystemImageButton.setVisibility(0);
-                } else {
-                    addSystemImageButton.setVisibility(4);
-                }
-            }
-            TextView textView = new TextView(this.a.getContext());
-            this.h = textView;
-            textView.setText(this.a.getContext().getString(R.string.im_send_private_msg));
-            this.h.setGravity(16);
-            this.h.setLayoutParams(new ViewGroup.LayoutParams(-2, -1));
-            this.h.setCompoundDrawablesWithIntrinsicBounds(WebPManager.getPureDrawable(R.drawable.obfuscated_res_0x7f080a7c, SkinManager.getColor(R.color.CAM_X0105), WebPManager.ResourceStateType.NORMAL_PRESS), (Drawable) null, (Drawable) null, (Drawable) null);
-            r25 d = r25.d(this.h);
-            d.w(R.color.CAM_X0105);
-            d.B(R.dimen.T_X06);
-            this.i.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, this.h, new b(this));
-            if (this.h.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
-                ViewGroup.MarginLayoutParams marginLayoutParams = (ViewGroup.MarginLayoutParams) this.h.getLayoutParams();
-                marginLayoutParams.setMargins(0, 0, ii.g(this.a.getContext(), R.dimen.M_W_X007), 0);
-                this.h.setLayoutParams(marginLayoutParams);
-            }
-            if (SwitchManager.getInstance().findType(MessageChooseFriendSwitch.SWITCH_NAME) == 1) {
-                this.h.setVisibility(0);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z), obj})) == null) {
+            da8 da8Var = this.c;
+            if (da8Var != null) {
+                z2 = da8Var.a(i, z, obj);
             } else {
-                this.h.setVisibility(4);
+                z2 = true;
             }
-            TbTabLayout tbTabLayout = this.b;
-            if (tbTabLayout != null) {
-                this.i.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_ABSOLUTE_CENTER, tbTabLayout, (View.OnClickListener) null);
-                ViewGroup viewGroup = (ViewGroup) this.b.getParent();
-                if (viewGroup instanceof LinearLayout) {
-                    ((LinearLayout) viewGroup).setGravity(17);
-                } else if (viewGroup instanceof RelativeLayout) {
-                    ((RelativeLayout) viewGroup).setGravity(17);
-                } else if (viewGroup instanceof FrameLayout) {
-                    FrameLayout.LayoutParams layoutParams = (FrameLayout.LayoutParams) viewGroup.getLayoutParams();
-                    layoutParams.gravity = 17;
-                    viewGroup.setLayoutParams(layoutParams);
+            for (int i2 = 0; i2 < this.a.size(); i2++) {
+                ca8 ca8Var = this.a.get(i2);
+                if (ca8Var instanceof k98) {
+                    k98 k98Var = (k98) ca8Var;
+                    if (k98Var.d() && i != i2) {
+                        k98Var.e(false);
+                        i(i2);
+                    } else {
+                        if (i == i2) {
+                            z3 = true;
+                        } else {
+                            z3 = false;
+                        }
+                        k98Var.e(z3);
+                    }
                 }
-                TbTabLayout tbTabLayout2 = this.b;
-                tbTabLayout2.setPadding(tbTabLayout2.getPaddingLeft(), this.b.getPaddingTop(), this.b.getPaddingRight(), this.b.getPaddingBottom() + ii.g(this.a.getContext(), R.dimen.obfuscated_res_0x7f070198));
             }
-            NavigationBar navigationBar2 = this.i;
-            if (navigationBar2 != null) {
-                navigationBar2.onChangeSkinType(getPageContext(), TbadkCoreApplication.getInst().getSkinType());
-                r25.d(this.i.getBarBgView()).f(R.color.CAM_X0207);
+            return z2;
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ea8
+    public List<ca8> j(List list) {
+        InterceptResult invokeL;
+        List<BotsDTO.BotListDTO.SkillDTO> list2;
+        i98 i98Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list)) == null) {
+            ArrayList arrayList = new ArrayList();
+            int i = 0;
+            while (true) {
+                boolean z = true;
+                if (i < list.size()) {
+                    Object obj = list.get(i);
+                    if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO) {
+                        BotsDTO.BotListDTO.SkillDTO.ItemsDTO itemsDTO = (BotsDTO.BotListDTO.SkillDTO.ItemsDTO) obj;
+                        if (itemsDTO.getItemType() == 1) {
+                            i98Var = new j98(itemsDTO);
+                        } else {
+                            i98 i98Var2 = new i98(itemsDTO);
+                            int i2 = this.d;
+                            if (i2 > -1) {
+                                if (i != i2) {
+                                    z = false;
+                                }
+                                i98Var2.n(z);
+                            }
+                            i98Var = i98Var2;
+                        }
+                        arrayList.add(i98Var);
+                    } else if (obj instanceof BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) {
+                        k98 k98Var = new k98((BotsDTO.BotListDTO.SkillDTO.ItemsDTO.OptsDTO) obj);
+                        int i3 = this.d;
+                        if (i3 > -1) {
+                            if (i != i3) {
+                                z = false;
+                            }
+                            k98Var.e(z);
+                        }
+                        arrayList.add(k98Var);
+                    } else if (obj instanceof BaseMsg) {
+                        TextGenImageMsg textGenImageMsg = (TextGenImageMsg) obj;
+                        if (textGenImageMsg.getSubSkillConfig() != null && (list2 = textGenImageMsg.getSubSkillConfig().a) != null && !list2.isEmpty()) {
+                            if (this.e) {
+                                arrayList.add(new g98());
+                                this.e = false;
+                            }
+                            for (BotsDTO.BotListDTO.SkillDTO skillDTO : list2) {
+                                h98 h98Var = new h98(skillDTO);
+                                h98Var.e(textGenImageMsg);
+                                arrayList.add(h98Var);
+                            }
+                        }
+                    }
+                    i++;
+                } else {
+                    this.e = true;
+                    return arrayList;
+                }
             }
+        } else {
+            return (List) invokeL.objValue;
         }
     }
 }

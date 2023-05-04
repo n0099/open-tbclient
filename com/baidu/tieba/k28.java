@@ -1,123 +1,238 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.SocketResponsedMessage;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
-import com.baidu.tbadk.data.ShareFromFrsMsgData;
-import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
-import com.baidu.tbadk.data.ShareFromPBMsgData;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.SyncServiceConfig;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryNotifyUpdataGroupMessage;
+import com.baidu.tieba.im.pushNotify.PushNotifyMessage;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONArray;
+import java.util.ArrayList;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class k28<T> {
+public class k28 {
     public static /* synthetic */ Interceptable $ic;
+    public static k28 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public T b;
+    public bb a;
+    public CustomMessageListener b;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947861304, "Lcom/baidu/tieba/k28;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947861304, "Lcom/baidu/tieba/k28;");
+        }
+    }
+
+    public void f(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class a extends bb {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ k28 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(k28 k28Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k28Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = k28Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        /* renamed from: a */
+        public void onMessage(SocketResponsedMessage socketResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, socketResponsedMessage) == null) && socketResponsedMessage != null && socketResponsedMessage.getCmd() == 202006 && (socketResponsedMessage instanceof PushNotifyMessage)) {
+                this.a.d((PushNotifyMessage) socketResponsedMessage);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(k28 k28Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {k28Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            ImMessageCenterPojo imMessageCenterPojo;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null || customResponsedMessage.getCmd() != 2016014 || (imMessageCenterPojo = (ImMessageCenterPojo) customResponsedMessage.getData()) == null) {
+                return;
+            }
+            c28.n().v(gg.g(imMessageCenterPojo.getGid(), 0L), b48.c(imMessageCenterPojo.getPulled_msgId()), 0L, true);
+        }
+    }
 
     public k28() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        new ArrayList();
+        this.a = new a(this, 202006);
+        this.b = new b(this, 0);
     }
 
-    public T a() {
+    public static synchronized k28 b() {
         InterceptResult invokeV;
+        k28 k28Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
-    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
-    public int c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (str == null) {
-                return -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (k28.class) {
+                if (c == null) {
+                    c = new k28();
+                }
+                k28Var = c;
             }
-            try {
-                JSONArray jSONArray = new JSONArray(str);
-                if (jSONArray.length() == 3) {
-                    jSONArray.optString(0);
-                    this.a = jSONArray.optInt(1);
-                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
-                    if (1 == this.a) {
-                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
-                        String optString2 = optJSONObject.optString("shareSourceIcon");
-                        String optString3 = optJSONObject.optString("shareSource");
-                        String optString4 = optJSONObject.optString("shareUrl");
-                        String optString5 = optJSONObject.optString("shareSourceUrl");
-                        if (TextUtils.isEmpty(optString4)) {
-                            ?? r4 = (T) new ShareFromPBMsgData();
-                            r4.setContent(optJSONObject.optString("themeContent"));
-                            r4.setForumName(optJSONObject.optString("forumName"));
-                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                            r4.setPostId(optJSONObject.optString("postID"));
-                            r4.setThreadId(optJSONObject.optString("themeID"));
-                            r4.setTitle(optJSONObject.optString("themeTitle"));
-                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
-                            r4.setThreadType(optJSONObject.optInt("threadType"));
-                            this.b = r4;
-                            return 0;
+            return k28Var;
+        }
+        return (k28) invokeV.objValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            e();
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().registerListener(this.a);
+            MessageManager.getInstance().registerListener(2016014, this.b);
+        }
+    }
+
+    public final void d(PushNotifyMessage pushNotifyMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushNotifyMessage) == null) && pushNotifyMessage != null) {
+            if (pushNotifyMessage.getType() == 3) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SyncServiceConfig(TbadkCoreApplication.getInst())));
+            } else if (pushNotifyMessage.getType() == 4) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2010001, pushNotifyMessage.getContent()));
+            } else if (pushNotifyMessage.getType() == 36) {
+                if (!TextUtils.isEmpty(pushNotifyMessage.getContent())) {
+                    try {
+                        String optString = new JSONObject(pushNotifyMessage.getContent()).optString("url");
+                        if (TbConfig.GET_POLLING_DATA.equals(optString)) {
+                            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921725, Boolean.TRUE));
                         }
-                        ?? r1 = (T) new ShareFromGameCenterMsgData();
-                        r1.setContent(optJSONObject.optString("themeContent"));
-                        r1.setForumName(optJSONObject.optString("forumName"));
-                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r1.setPostId(optJSONObject.optString("postID"));
-                        r1.setThreadId(optJSONObject.optString("themeID"));
-                        r1.setTitle(optJSONObject.optString("themeTitle"));
-                        r1.setButton(optString);
-                        r1.setShareSource(optString3);
-                        r1.setShareSourceIcon(optString2);
-                        r1.setShareSourceUrl(optString5);
-                        r1.setShareUrl(optString4);
-                        this.b = r1;
-                        return 1;
-                    } else if (4 == this.a) {
-                        ?? r12 = (T) new ShareFromFrsMsgData();
-                        r12.setName(optJSONObject.optString("forumName"));
-                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
-                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
-                        r12.setPostNum(optJSONObject.optInt("postNum"));
-                        this.b = r12;
-                        return 2;
-                    } else {
-                        return -1;
+                        if (!TextUtils.isEmpty(optString)) {
+                            la5.b().f(optString);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
                     }
                 }
-                return -1;
-            } catch (Exception unused) {
-                return -1;
+            } else if (!v18.n().w()) {
+            } else {
+                String valueOf = String.valueOf(pushNotifyMessage.getGroupId());
+                boolean z = false;
+                u45.a("im", -1L, 202006, "notify", 0, null, "comment", "gid-" + valueOf + "-gType-" + pushNotifyMessage.getGroupType() + "-mid-" + pushNotifyMessage.getNewestMsgId());
+                if (TextUtils.isEmpty(valueOf)) {
+                    return;
+                }
+                BdLog.e("pushNotifyManager groupType = " + pushNotifyMessage.getGroupType() + " gid = " + valueOf + "msgid = " + pushNotifyMessage.getNewestMsgId());
+                if (pushNotifyMessage.getGroupType() == 0) {
+                    c28.n().y(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                    return;
+                }
+                int a2 = b28.a(pushNotifyMessage.getGroupType());
+                if (v18.n().h(String.valueOf(pushNotifyMessage.getGroupId()), a2) != null) {
+                    z = true;
+                }
+                if (z) {
+                    c28.n().y(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), pushNotifyMessage.getPushTime());
+                } else {
+                    g(pushNotifyMessage.getGroupId(), pushNotifyMessage.getNewestMsgId(), a2);
+                }
             }
         }
-        return invokeLL.intValue;
+    }
+
+    public final void g(long j, long j2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i)}) != null) || j2 <= 0) {
+            return;
+        }
+        ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
+        imMessageCenterPojo.setCustomGroupType(i);
+        imMessageCenterPojo.setGid(String.valueOf(j));
+        imMessageCenterPojo.setPulled_msgId(b48.a(j2 - 1));
+        MessageManager.getInstance().dispatchResponsedMessage(new MemoryNotifyUpdataGroupMessage(imMessageCenterPojo));
     }
 }

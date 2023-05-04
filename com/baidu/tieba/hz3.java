@@ -1,43 +1,19 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.SharedPreferences;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.util.KVStorageFactory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class hz3 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile hz3 b;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final hz3 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-730589845, "Lcom/baidu/tieba/hz3$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-730589845, "Lcom/baidu/tieba/hz3$a;");
-                    return;
-                }
-            }
-            a = new hz3();
-        }
-    }
+    public SharedPreferences a;
 
     public hz3() {
         Interceptable interceptable = $ic;
@@ -49,77 +25,43 @@ public class hz3 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = KVStorageFactory.getSharedPreferences("gamecenter_wifi_resume_download_switch", 0);
     }
 
-    public static hz3 b() {
+    public static hz3 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+            if (b == null) {
+                synchronized (hz3.class) {
+                    if (b == null) {
+                        b = new hz3();
+                    }
+                }
+            }
+            return b;
         }
         return (hz3) invokeV.objValue;
     }
 
-    public void a(@NonNull JSONObject jSONObject, @NonNull oz3 oz3Var) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, oz3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                oz3Var.a(new pz3(31008, "download is not exist"));
-            } else {
-                m44.c().c(optString);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.getBoolean("gamecenter_wifi_resume_download_flag", false);
         }
+        return invokeV.booleanValue;
     }
 
-    public void c(@NonNull JSONObject jSONObject, @NonNull oz3 oz3Var) {
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject, oz3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                oz3Var.a(new pz3(31008, "download is not exist"));
-            } else {
-                m44.c().e(optString);
-            }
-        }
-    }
-
-    public void e(@NonNull JSONObject jSONObject, @NonNull oz3 oz3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jSONObject, oz3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            String optString = jSONObject.optString("url");
-            if (!optBoolean) {
-                oz3Var.a(new pz3(31008, "download is not exist"));
-            } else {
-                m44.c().f(optString);
-            }
-        }
-    }
-
-    public void d(@NonNull JSONObject jSONObject, @NonNull oz3 oz3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, oz3Var) == null) {
-            boolean optBoolean = jSONObject.optBoolean("baiduAppDownload");
-            if (!optBoolean) {
-                oz3Var.a(new pz3(31008, "download is not exist"));
-                return;
-            }
-            String optString = jSONObject.optString("packageName");
-            String optString2 = jSONObject.optString("apkId");
-            String optString3 = jSONObject.optString("url");
-            if (!TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                if (!m44.c().a(optString3, optString, optString2, optBoolean, new jz3(oz3Var))) {
-                    oz3Var.a(new pz3(31006, "is not in main process"));
-                    return;
-                }
-                return;
-            }
-            oz3Var.a(new pz3(31007, "invalid params"));
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            SharedPreferences.Editor edit = this.a.edit();
+            edit.putBoolean("gamecenter_wifi_resume_download_flag", z);
+            edit.apply();
         }
     }
 }

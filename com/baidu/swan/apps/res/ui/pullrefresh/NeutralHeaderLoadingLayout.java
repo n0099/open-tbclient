@@ -7,11 +7,11 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.baidu.tieba.R;
-import com.baidu.tieba.fo1;
-import com.baidu.tieba.ml3;
+import com.baidu.tieba.ho1;
+import com.baidu.tieba.ol3;
 /* loaded from: classes3.dex */
 public class NeutralHeaderLoadingLayout extends LoadingLayout {
-    public static final boolean k = fo1.a;
+    public static final boolean k = ho1.a;
     public int e;
     public int f;
     public int g;
@@ -53,7 +53,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
         if (view2 != null) {
             return view2.getHeight();
         }
-        return ml3.f(getContext(), 50.0f);
+        return ol3.f(getContext(), 50.0f);
     }
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
@@ -135,7 +135,7 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
 
     @Override // com.baidu.swan.apps.res.ui.pullrefresh.LoadingLayout
     public View a(Context context, ViewGroup viewGroup, AttributeSet attributeSet) {
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00c0, viewGroup, false);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d00c1, viewGroup, false);
         this.i = inflate;
         return inflate;
     }
@@ -168,8 +168,8 @@ public class NeutralHeaderLoadingLayout extends LoadingLayout {
     }
 
     public final void o() {
-        this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09180e);
-        int f = ml3.f(getContext(), 29.0f);
+        this.j = (NeutralRefreshAnimView) findViewById(R.id.obfuscated_res_0x7f09181c);
+        int f = ol3.f(getContext(), 29.0f);
         this.e = f;
         this.f = (int) (f * 2.4f);
         int i = (int) (f * 1.5f);

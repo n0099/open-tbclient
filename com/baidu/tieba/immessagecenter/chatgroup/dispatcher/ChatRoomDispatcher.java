@@ -1,6 +1,8 @@
 package com.baidu.tieba.immessagecenter.chatgroup.dispatcher;
 
 import android.content.Context;
+import android.os.Bundle;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
@@ -8,16 +10,19 @@ import com.baidu.tbadk.core.atomData.FrsActivityConfig;
 import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tieba.fd9;
-import com.baidu.tieba.ji5;
+import com.baidu.tbadk.util.DataExt;
+import com.baidu.tieba.cj5;
+import com.baidu.tieba.eg9;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.gson.JsonSyntaxException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class ChatRoomDispatcher implements fd9 {
+public class ChatRoomDispatcher implements eg9 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String OPEN_GROUPCHAT_SCHEME = "com.baidu.tieba://unidispatch/router/portal";
     public transient /* synthetic */ FieldHolder $fh;
@@ -53,12 +58,16 @@ public class ChatRoomDispatcher implements fd9 {
         return (JSONObject) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fd9
+    /* JADX WARN: Removed duplicated region for block: B:23:0x0082  */
+    /* JADX WARN: Removed duplicated region for block: B:24:0x0084  */
+    @Override // com.baidu.tieba.eg9
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
     public void dispatch(JSONObject jSONObject, Context context) {
-        long j;
-        String str;
+        Bundle bundle;
+        JsonSyntaxException e;
         boolean z;
-        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, context) == null) && jSONObject != null && context != null) {
             long optLong = jSONObject.optLong("roomId");
@@ -69,21 +78,33 @@ public class ChatRoomDispatcher implements fd9 {
             if (!ViewHelper.checkUpIsLoginFromH5(loginActivityConfig)) {
                 return;
             }
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("ability");
-            if (optJSONObject2 != null && (optJSONObject = optJSONObject2.optJSONObject("ability_conf")) != null) {
-                String optString2 = optJSONObject.optString("bot_uk");
-                j = optJSONObject.optLong("skill_id");
-                str = optString2;
+            String optString2 = jSONObject.optString("ability");
+            if (!TextUtils.isEmpty(optString2)) {
+                try {
+                    AbilityItem abilityItem = (AbilityItem) DataExt.toEntity(optString2, AbilityItem.class);
+                    bundle = new Bundle();
+                    try {
+                        bundle.putSerializable("ability", abilityItem);
+                    } catch (JsonSyntaxException e2) {
+                        e = e2;
+                        e.printStackTrace();
+                        if (jSONObject.optInt(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST) != 1) {
+                        }
+                        cj5.a().b(context, optLong, -1, optString, bundle, z);
+                    }
+                } catch (JsonSyntaxException e3) {
+                    bundle = null;
+                    e = e3;
+                }
             } else {
-                j = 0;
-                str = "";
+                bundle = null;
             }
-            if (jSONObject.optInt(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST) == 1) {
+            if (jSONObject.optInt(FrsActivityConfig.IS_SHOW_IM_GROUP_LIST) != 1) {
                 z = true;
             } else {
                 z = false;
             }
-            ji5.a().d(context, optLong, -1, optString, str, j, z);
+            cj5.a().b(context, optLong, -1, optString, bundle, z);
         }
     }
 }

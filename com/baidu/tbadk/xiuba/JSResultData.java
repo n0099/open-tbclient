@@ -17,6 +17,7 @@ public class JSResultData extends OrmObject implements Serializable {
     public static final int DOWNLOAD_START = 1;
     public static final String ERRORCODE_NO = "0";
     public static final String ERRORMSG_NO = "";
+    public static final int HAS_LOGIN = 2;
     public static final int INSTALL_SUCCESS = 1;
     public static final int IN_INSTALL_NO = 0;
     public static final int IN_INSTALL_YES = 1;

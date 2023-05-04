@@ -1,91 +1,172 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.os.Build;
+import android.view.LayoutInflater;
+import android.view.MotionEvent;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class bw6 implements c07<bw6> {
+public class bw6 extends PopupWindow implements View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<kx6> a;
+    public TextView a;
+    public TextView b;
+    public TextView c;
+    public View d;
+    public View e;
+    public View f;
+    public LinearLayout g;
+    public dw6 h;
+    public Context i;
 
-    @Override // com.baidu.tieba.c07
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "card_multi_link" : (String) invokeV.objValue;
-    }
+    /* loaded from: classes3.dex */
+    public class a implements View.OnTouchListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ bw6 a;
 
-    public bw6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (bw6) invokeV.objValue;
-    }
+        public a(bw6 bw6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {bw6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = bw6Var;
+        }
 
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, obj)) == null) {
-            if (this == obj) {
+        @Override // android.view.View.OnTouchListener
+        public boolean onTouch(View view2, MotionEvent motionEvent) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, view2, motionEvent)) == null) {
+                int top = this.a.d.findViewById(R.id.obfuscated_res_0x7f090fab).getTop();
+                int y = (int) motionEvent.getY();
+                if (motionEvent.getAction() == 1 && y < top) {
+                    this.a.dismiss();
+                }
                 return true;
             }
-            return (obj instanceof bw6) && Intrinsics.areEqual(this.a, ((bw6) obj).a);
+            return invokeLL.booleanValue;
         }
-        return invokeL.booleanValue;
     }
 
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? this.a.hashCode() : invokeV.intValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "CardMultiLinkUiState(data=" + this.a + ')';
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public bw6(List<kx6> data) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public bw6(Context context, int i) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {data};
+            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
+        b(context, i);
+        this.i = context;
+        e();
+        c(TbadkCoreApplication.getInst().getSkinType());
+        this.a.setOnClickListener(this);
+        this.b.setOnClickListener(this);
+        this.c.setOnClickListener(this);
     }
 
-    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
-    @Override // com.baidu.tieba.c07
-    public /* bridge */ /* synthetic */ bw6 b() {
-        c();
-        return this;
-    }
-
-    public final List<kx6> d() {
-        InterceptResult invokeV;
+    public void d(dw6 dw6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dw6Var) == null) {
+            this.h = dw6Var;
         }
-        return (List) invokeV.objValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            dismiss();
+            dw6 dw6Var = this.h;
+            if (dw6Var == null) {
+                return;
+            }
+            if (view2 == this.a) {
+                dw6Var.b();
+            } else if (view2 == this.b) {
+                dw6Var.a();
+            }
+        }
+    }
+
+    public final void b(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+            View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d026a, (ViewGroup) null);
+            this.d = inflate;
+            this.a = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09260f);
+            this.b = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f0925d3);
+            this.c = (TextView) this.d.findViewById(R.id.obfuscated_res_0x7f092574);
+            this.g = (LinearLayout) this.d.findViewById(R.id.obfuscated_res_0x7f090fab);
+            this.e = this.d.findViewById(R.id.obfuscated_res_0x7f091486);
+            this.f = this.d.findViewById(R.id.obfuscated_res_0x7f091487);
+            if (i == 1) {
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0105);
+            } else {
+                SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0204);
+            }
+        }
+    }
+
+    public void c(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            SkinManager.setBackgroundResource(this.g, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.e, R.color.CAM_X0204);
+            SkinManager.setBackgroundResource(this.f, R.color.CAM_X0204);
+            SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0107);
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (Build.VERSION.SDK_INT >= 22) {
+                setAttachedInDecor(false);
+            }
+            setContentView(this.d);
+            GreyUtil.grey(this);
+            setWidth(-1);
+            setHeight(ii.j(this.i));
+            setFocusable(true);
+            setBackgroundDrawable(new ColorDrawable(getContentView().getResources().getColor(R.color.black_alpha50)));
+            this.d.setOnTouchListener(new a(this));
+        }
     }
 }

@@ -1,8 +1,7 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
+import android.content.Context;
 /* loaded from: classes6.dex */
 public interface ur2 {
-    @Nullable
-    String a();
+    void a(Context context, String str, String str2, qo1 qo1Var);
 }

@@ -1,86 +1,156 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.BaseAdapter;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.adp.lib.util.NetWorkChangedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ry5 extends BaseAdapter {
+public class ry5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BaseActivity a;
-    public boolean b;
-    public List<AccountData> c;
-    public View.OnClickListener d;
+    public JSONArray a;
+    public String b;
+    public HttpMessageListener c;
+    public BdUniqueId d;
+    public BdUniqueId e;
+    public CustomMessageListener f;
+    public CustomMessageListener g;
 
     /* loaded from: classes6.dex */
-    public static /* synthetic */ class a {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-    }
+        public final /* synthetic */ ry5 a;
 
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getViewTypeCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 2;
-        }
-        return invokeV.intValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public TextView a;
-        public TextView b;
-        public ImageView c;
-        public TextView d;
-
-        public b(ry5 ry5Var) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(ry5 ry5Var, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ry5Var};
+                Object[] objArr = {ry5Var, Integer.valueOf(i)};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = ry5Var;
         }
 
-        public /* synthetic */ b(ry5 ry5Var, a aVar) {
-            this(ry5Var);
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003184 || httpResponsedMessage.getError() != 0) {
+                return;
+            }
+            this.a.a = null;
         }
     }
 
-    public ry5(BaseActivity baseActivity, View.OnClickListener onClickListener) {
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ry5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(ry5 ry5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ry5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ry5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && BdNetTypeUtil.isNetworkAvailableForImmediately() && this.a.a != null) {
+                ry5 ry5Var = this.a;
+                ry5Var.i(ry5Var.a, this.a.e);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ry5 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(ry5 ry5Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ry5Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ry5Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
+                this.a.f((JSONObject) customResponsedMessage.getData());
+            }
+        }
+    }
+
+    public ry5(TbPageContext tbPageContext, String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity, onClickListener};
+            Object[] objArr = {tbPageContext, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,146 +160,79 @@ public class ry5 extends BaseAdapter {
                 return;
             }
         }
-        this.a = baseActivity;
-        this.c = null;
-        this.b = false;
-        this.d = onClickListener;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        this.d = BdUniqueId.gen();
+        this.e = BdUniqueId.gen();
+        this.f = new b(this, 2000994);
+        this.g = new c(this, 2016488);
+        this.b = str;
+        if (this.c == null) {
+            this.c = new a(this, CmdConfigHttp.CMD_NEG_FEED_BACK);
         }
-        return invokeV.booleanValue;
+        this.c.setTag(this.e);
+        MessageManager.getInstance().registerListener(this.c);
+        MessageManager.getInstance().registerListener(this.f);
+        this.g.setTag(tbPageContext.getUniqueId());
+        this.g.setSelfListener(true);
+        this.g.setPriority(Integer.MIN_VALUE);
+        MessageManager.getInstance().registerListener(this.g);
     }
 
-    @Override // android.widget.Adapter
-    public int getCount() {
-        InterceptResult invokeV;
-        int i;
+    public final String g(JSONArray jSONArray) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            List<AccountData> list = this.c;
-            if (list != null) {
-                i = list.size();
-            } else {
-                i = 0;
-            }
-            return i + 1;
-        }
-        return invokeV.intValue;
-    }
-
-    public void b(List<AccountData> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
-            this.c = list;
-        }
-    }
-
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-        }
-    }
-
-    @Override // android.widget.Adapter
-    public Object getItem(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
-            List<AccountData> list = this.c;
-            if (list != null && i >= 0 && i < list.size()) {
-                return this.c.get(i);
-            }
-            return null;
-        }
-        return invokeI.objValue;
-    }
-
-    @Override // android.widget.Adapter
-    public long getItemId(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            if (getItem(i) != null) {
-                return i;
-            }
-            return -1L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.widget.BaseAdapter, android.widget.Adapter
-    public int getItemViewType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
-            if (getItemId(i) >= 0) {
-                return 0;
-            }
-            return 1;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.widget.Adapter
-    public View getView(int i, View view2, ViewGroup viewGroup) {
-        InterceptResult invokeILL;
-        b bVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048583, this, i, view2, viewGroup)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray)) == null) {
+            String str = this.b;
             try {
-                try {
-                    if (view2 == null) {
-                        if (getItemViewType(i) == 0) {
-                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0022, viewGroup, false);
-                            bVar = new b(this, null);
-                            bVar.a = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090055);
-                            bVar.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f090075);
-                            TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090834);
-                            bVar.d = textView;
-                            r25.d(textView).w(R.color.CAM_X0105);
-                            bVar.d.setOnClickListener(this.d);
-                            view2.setTag(bVar);
-                            r25.d(bVar.a).w(R.color.CAM_X0105);
-                            SkinManager.setBackgroundResource(bVar.c, R.drawable.icon_set_list_ok_s);
-                        } else {
-                            view2 = LayoutInflater.from(this.a.getPageContext().getContext()).inflate(R.layout.obfuscated_res_0x7f0d0020, viewGroup, false);
-                            bVar = new b(this, null);
-                            bVar.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f09012f);
-                            view2.setTag(bVar);
-                            r25.d(bVar.b).w(R.color.CAM_X0302);
-                        }
-                    } else {
-                        bVar = (b) view2.getTag();
-                    }
-                    if (getItemViewType(i) == 0) {
-                        AccountData accountData = (AccountData) getItem(i);
-                        bVar.c.setVisibility(8);
-                        bVar.d.setVisibility(8);
-                        bVar.d.setTag(accountData);
-                        if (accountData != null) {
-                            bVar.a.setText(accountData.getAccountNameShow());
-                            if (TextUtils.equals(accountData.getID(), TbadkCoreApplication.getCurrentAccount())) {
-                                bVar.c.setVisibility(0);
-                            }
-                            if (this.b) {
-                                bVar.d.setVisibility(0);
-                            }
-                        }
-                    }
-                } catch (Exception e) {
-                    BdLog.detailException(e);
+                String optString = jSONArray.optJSONObject(0).optString("dislike_from");
+                if (!TextUtils.isEmpty(optString)) {
+                    return optString;
                 }
-                return view2;
-            } finally {
-                r25.d(view2).f(R.color.CAM_X0205);
+                return str;
+            } catch (Exception unused) {
+                return str;
             }
         }
-        return (View) invokeILL.objValue;
+        return (String) invokeL.objValue;
+    }
+
+    public final void f(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        if (BdNetTypeUtil.isNetworkAvailableForImmediately()) {
+            JSONArray jSONArray = new JSONArray();
+            jSONArray.put(jSONObject);
+            i(jSONArray, this.d);
+            return;
+        }
+        if (this.a == null) {
+            this.a = new JSONArray();
+        }
+        if (this.a.length() <= 100) {
+            this.a.put(jSONObject);
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.c);
+            MessageManager.getInstance().unRegisterListener(this.f);
+            MessageManager.getInstance().unRegisterListener(this.g);
+            this.a = null;
+        }
+    }
+
+    public final void i(JSONArray jSONArray, BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, jSONArray, bdUniqueId) != null) || jSONArray == null) {
+            return;
+        }
+        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEG_FEED_BACK);
+        httpMessage.addParam("dislike", jSONArray.toString());
+        httpMessage.addParam("dislike_from", g(jSONArray));
+        httpMessage.setTag(bdUniqueId);
+        MessageManager.getInstance().sendMessage(httpMessage);
     }
 }

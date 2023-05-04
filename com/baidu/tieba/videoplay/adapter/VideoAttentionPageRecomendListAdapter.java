@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tbadk.core.view.UserIconBox;
 import com.baidu.tbadk.data.IconData;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.h75;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qr5;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.r65;
+import com.baidu.tieba.js5;
 import com.baidu.tieba.video.VideoItemData;
 import com.baidu.tieba.videoplay.data.VideoAttentionPersonListData;
 import com.baidu.tieba.view.UserLikeInAttentionButton;
@@ -60,7 +60,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         public HeadPendantClickableView f;
         public RecyclerView g;
         public VideoAttentionReccomendListAdapter h;
-        public r65 i;
+        public h75 i;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public RecomendViewHolder(Context context, View view2) {
@@ -80,7 +80,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
                     return;
                 }
             }
-            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f090e8e);
+            HeadPendantClickableView headPendantClickableView = (HeadPendantClickableView) view2.findViewById(R.id.obfuscated_res_0x7f090e9a);
             this.f = headPendantClickableView;
             headPendantClickableView.setHasPendantStyle();
             this.f.getHeadView().setIsRound(true);
@@ -89,20 +89,20 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
             this.f.getHeadView().setBorderColor(SkinManager.getColor(R.color.CAM_X0401));
             this.f.getHeadView().setPlaceHolder(1);
             this.f.setBigVDimenSize(R.dimen.tbds36);
-            this.a = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f0927f1);
-            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926b3);
+            this.a = (UserIconBox) view2.findViewById(R.id.obfuscated_res_0x7f09280d);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0926cf);
             this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0903e0);
-            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a85);
-            this.e = (UserLikeInAttentionButton) view2.findViewById(R.id.obfuscated_res_0x7f090763);
+            this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f090a8b);
+            this.e = (UserLikeInAttentionButton) view2.findViewById(R.id.obfuscated_res_0x7f090766);
             RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.thread_card_list);
             this.g = recyclerView;
             recyclerView.setLayoutManager(new LinearLayoutManager(context, 0, false));
             VideoAttentionReccomendListAdapter videoAttentionReccomendListAdapter = new VideoAttentionReccomendListAdapter(context);
             this.h = videoAttentionReccomendListAdapter;
             this.g.setAdapter(videoAttentionReccomendListAdapter);
-            r65 r65Var = new r65(this.f.getTbPageContext(), this.e);
-            this.i = r65Var;
-            r65Var.k(true);
+            h75 h75Var = new h75(this.f.getTbPageContext(), this.e);
+            this.i = h75Var;
+            h75Var.k(true);
         }
 
         public void a(View.OnClickListener onClickListener) {
@@ -147,7 +147,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (view2.getId() == R.id.obfuscated_res_0x7f090e8e || view2.getId() == R.id.obfuscated_res_0x7f0927f1 || view2.getId() == R.id.obfuscated_res_0x7f0926b3 || view2.getId() == R.id.obfuscated_res_0x7f0903e0 || view2.getId() == R.id.obfuscated_res_0x7f090a85) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f090e9a || view2.getId() == R.id.obfuscated_res_0x7f09280d || view2.getId() == R.id.obfuscated_res_0x7f0926cf || view2.getId() == R.id.obfuscated_res_0x7f0903e0 || view2.getId() == R.id.obfuscated_res_0x7f090a8b) {
                     PersonInfoActivityConfig personInfoActivityConfig = new PersonInfoActivityConfig(this.b.b, this.a.getUserData().getUserId(), this.a.getUserData().getName_show());
                     personInfoActivityConfig.setIsVideoThread(true);
                     if (this.b.a != 3 && this.b.a != 4) {
@@ -229,9 +229,9 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048579, this, viewGroup, i)) == null) {
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d093d, viewGroup, false);
+            View inflate = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d0949, viewGroup, false);
             this.d = inflate;
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f09279b);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f0927b7);
             return new RecomendViewHolder(this.b, this.d);
         }
         return (RecomendViewHolder) invokeLI.objValue;
@@ -284,7 +284,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
             q(videoAttentionPersonListData, recomendViewHolder);
             s(videoAttentionPersonListData.getVideoItemDatas(), recomendViewHolder);
             p(videoAttentionPersonListData, recomendViewHolder);
-            r25 d = r25.d(this.e);
+            g35 d = g35.d(this.e);
             d.o(R.string.J_X05);
             d.h(SkinManager.getColor(0, (int) R.color.CAM_X0105));
             recomendViewHolder.a(new a(this, videoAttentionPersonListData));
@@ -292,12 +292,12 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
     }
 
     public final void p(VideoAttentionPersonListData videoAttentionPersonListData, RecomendViewHolder recomendViewHolder) {
-        r65 r65Var;
+        h75 h75Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048582, this, videoAttentionPersonListData, recomendViewHolder) == null) {
             recomendViewHolder.e.setOnClickEvent(new b(this, videoAttentionPersonListData));
-            if (videoAttentionPersonListData != null && recomendViewHolder != null && (r65Var = recomendViewHolder.i) != null) {
-                r65Var.n(videoAttentionPersonListData.getUserData());
+            if (videoAttentionPersonListData != null && recomendViewHolder != null && (h75Var = recomendViewHolder.i) != null) {
+                h75Var.n(videoAttentionPersonListData.getUserData());
             }
         }
     }
@@ -319,7 +319,7 @@ public class VideoAttentionPageRecomendListAdapter extends RecyclerView.Adapter<
             if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().isNewGod()) {
                 RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) recomendViewHolder.d.getLayoutParams();
                 layoutParams.setMargins(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds32), layoutParams.topMargin, layoutParams.rightMargin, layoutParams.bottomMargin);
-                recomendViewHolder.c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getNewGodData().getFieldName() + qr5.c(videoAttentionPersonListData.getUserData().getNewGodData().isVideoGod()), 16, StringHelper.STRING_MORE));
+                recomendViewHolder.c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getNewGodData().getFieldName() + js5.c(videoAttentionPersonListData.getUserData().getNewGodData().isVideoGod()), 16, StringHelper.STRING_MORE));
                 recomendViewHolder.c.setVisibility(0);
             } else if (videoAttentionPersonListData.getUserData() != null && videoAttentionPersonListData.getUserData().showBazhuGrade()) {
                 recomendViewHolder.c.setText(StringHelper.cutChineseAndEnglishWithEmoji(videoAttentionPersonListData.getUserData().getBazhuGradeData().getDesc(), 16, StringHelper.STRING_MORE));

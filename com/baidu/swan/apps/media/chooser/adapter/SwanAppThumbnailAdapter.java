@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.swan.apps.media.chooser.model.MediaModel;
 import com.baidu.swan.apps.media.chooser.model.VideoModel;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr2;
+import com.baidu.tieba.er2;
 import com.facebook.drawee.backends.pipeline.Fresco;
 import com.facebook.drawee.controller.AbstractDraweeController;
 import com.facebook.drawee.generic.GenericDraweeHierarchy;
@@ -33,9 +33,9 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
 
         public a(SwanAppThumbnailAdapter swanAppThumbnailAdapter, View view2) {
             super(view2);
-            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09090c);
-            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090268);
-            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090267);
+            this.a = (SimpleDraweeView) view2.findViewById(R.id.obfuscated_res_0x7f09090f);
+            this.b = view2.findViewById(R.id.obfuscated_res_0x7f090267);
+            this.c = view2.findViewById(R.id.obfuscated_res_0x7f090266);
         }
     }
 
@@ -104,7 +104,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
         aVar.a.setController(build);
         DraweeHierarchy hierarchy = build.getHierarchy();
         if (hierarchy instanceof GenericDraweeHierarchy) {
-            cr2.C().c((GenericDraweeHierarchy) hierarchy, false);
+            er2.C().c((GenericDraweeHierarchy) hierarchy, false);
         }
     }
 
@@ -112,7 +112,7 @@ public class SwanAppThumbnailAdapter extends RecyclerView.Adapter<a> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: n */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a0, viewGroup, false));
+        return new a(this, LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d08ac, viewGroup, false));
     }
 
     public int o(MediaModel mediaModel) {

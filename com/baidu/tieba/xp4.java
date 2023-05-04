@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.uk4;
+import com.baidu.tieba.vp4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,123 +8,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebKitFactory;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Set;
 /* loaded from: classes7.dex */
-public final class xp4 implements uk4 {
+public final class xp4 extends vp4.c {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean c;
-    public static final Set<uk4.a> d;
+    public static final xp4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-
-    /* loaded from: classes7.dex */
-    public class a implements WebKitFactory.WebkitInstallListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ File b;
-        public final /* synthetic */ xp4 c;
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallStart() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        /* renamed from: com.baidu.tieba.xp4$a$a  reason: collision with other inner class name */
-        /* loaded from: classes7.dex */
-        public class RunnableC0474a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0474a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    xp4 xp4Var = this.a.c;
-                    xp4Var.j(xp4Var.b);
-                }
-            }
-        }
-
-        public a(xp4 xp4Var, String str, File file) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xp4Var, str, file};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = xp4Var;
-            this.a = str;
-            this.b = file;
-        }
-
-        @Override // com.baidu.webkit.sdk.WebKitFactory.WebkitInstallListener
-        public void onInstallFinish(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
-                boolean z = true;
-                if (zn4.B(this.a, str)) {
-                    synchronized (xp4.d) {
-                        this.c.i(true);
-                    }
-                    return;
-                }
-                if (xp4.e(this.c) <= 2) {
-                    if (8 == i) {
-                        this.c.b = this.a;
-                    } else {
-                        xp4 xp4Var = this.c;
-                        xp4Var.b = this.a + File.pathSeparator + this.c.a;
-                        if (zn4.f(this.b, new File(this.c.b)) != this.b.length()) {
-                            z = false;
-                        }
-                    }
-                    if (z && u73.M().postDelayed(new RunnableC0474a(this), 1000L)) {
-                        return;
-                    }
-                }
-                if (8 == i) {
-                    zn4.k(this.a);
-                }
-                synchronized (xp4.d) {
-                    this.c.i(false);
-                }
-            }
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -141,10 +27,12 @@ public final class xp4 implements uk4 {
                 return;
             }
         }
-        d = new HashSet();
+        b = new xp4();
     }
 
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public xp4() {
+        super(new vp4.b());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -152,68 +40,11 @@ public final class xp4 implements uk4 {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((vp4.b) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-        }
-        this.a = 0;
-    }
-
-    @Override // com.baidu.tieba.uk4
-    public void a(String str, uk4.a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, aVar) == null) {
-            synchronized (d) {
-                d.add(aVar);
-                if (c) {
-                    return;
-                }
-                c = true;
-                j(str);
-            }
-        }
-    }
-
-    public static /* synthetic */ int e(xp4 xp4Var) {
-        int i = xp4Var.a + 1;
-        xp4Var.a = i;
-        return i;
-    }
-
-    public final void i(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            synchronized (d) {
-                for (uk4.a aVar : d) {
-                    if (aVar != null) {
-                        aVar.a(z);
-                    }
-                }
-                d.clear();
-                c = false;
-                this.a = 0;
-            }
-        }
-    }
-
-    public final void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            if (TextUtils.isEmpty(str)) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            File file = new File(str);
-            if (!file.isFile()) {
-                synchronized (d) {
-                    i(false);
-                }
-                return;
-            }
-            WebKitFactory.installAsync("file://" + str, new a(this, str, file));
         }
     }
 }

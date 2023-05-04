@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.os.Bundle;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes4.dex */
 public interface cs1 {
-    void a(Activity activity, Bundle bundle, rv2 rv2Var);
+    InputStream a(InputStream inputStream) throws IOException;
 }

@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes7.dex */
 public interface y0a {
-    void c(int i, int i2);
+    void b();
+
+    void e();
 
     void f();
-
-    void setDragMode(int i, int i2);
 }

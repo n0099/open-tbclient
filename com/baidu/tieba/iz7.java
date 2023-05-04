@@ -1,674 +1,305 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import android.database.Cursor;
+import android.text.SpannableString;
+import android.text.SpannableStringBuilder;
+import android.text.TextPaint;
 import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.text.method.LinkMovementMethod;
+import android.view.View;
+import android.widget.LinearLayout;
+import android.widget.TextView;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.db.TableDefine;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.IMUserExtraData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbadkApplication;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.AddFriendActivityConfig;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TbEnum;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.chat.MsglistActivity;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.message.chat.PersonalChatMessage;
+import com.baidu.tieba.setting.SecretSettingActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class iz7 {
+public class iz7 extends x8<MsglistActivity<?>> {
     public static /* synthetic */ Interceptable $ic;
-    public static iz7 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TextView b;
+    public LinearLayout c;
+    public TextView d;
+    public TextView e;
 
-    public iz7() {
+    /* loaded from: classes5.dex */
+    public class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ long a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ String c;
+        public final /* synthetic */ iz7 d;
+
+        public a(iz7 iz7Var, long j, String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iz7Var, Long.valueOf(j), str, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = iz7Var;
+            this.a = j;
+            this.b = str;
+            this.c = str2;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new AddFriendActivityConfig(this.d.mContext.getPageActivity(), String.valueOf(this.a), this.b, this.c, "", false, AddFriendActivityConfig.TYPE_NEW_FRD)));
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends cr5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ChatMessage a;
+        public final /* synthetic */ iz7 b;
+
+        public b(iz7 iz7Var, ChatMessage chatMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iz7Var, chatMessage};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = iz7Var;
+            this.a = chatMessage;
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(@NonNull View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.b.mContext == null) {
+                return;
+            }
+            b29 b29Var = new b29(TbadkCoreApplication.getInst());
+            b29Var.b(this.b.mContext.getUniqueId());
+            b29Var.c(String.valueOf(this.a.getUserId()));
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 1));
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(@NonNull TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
+                textPaint.setUnderlineText(false);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c extends cr5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c(iz7 iz7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {iz7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan, android.text.style.CharacterStyle
+        public void updateDrawState(@NonNull TextPaint textPaint) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, textPaint) == null) {
+                super.updateDrawState(textPaint);
+                textPaint.setColor(SkinManager.getColor(R.color.CAM_X0304));
+                textPaint.setUnderlineText(false);
+            }
+        }
+
+        @Override // android.text.style.ClickableSpan
+        public void onClick(@NonNull View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new SecretSettingActivityConfig(TbadkCoreApplication.getInst())));
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_CYBER_VIOLENCE_MESSAGE_RECEIVER_CLICK).addParam("uid", TbadkCoreApplication.getCurrentAccount()).addParam("obj_type", 2));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iz7(TbPageContext<MsglistActivity<?>> tbPageContext) {
+        super(tbPageContext, R.layout.msg_msgmid_view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((a9) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = null;
+        B();
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    public void E(ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return gz7.d().delete("tb_message_center", "custom_group_type=? AND is_friend!=?", new String[]{String.valueOf(2), String.valueOf(1)});
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static synchronized iz7 f() {
-        InterceptResult invokeV;
-        iz7 iz7Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (iz7.class) {
-                if (a == null) {
-                    synchronized (iz7.class) {
-                        if (a == null) {
-                            a = new iz7();
-                        }
-                    }
-                }
-                iz7Var = a;
-            }
-            return iz7Var;
-        }
-        return (iz7) invokeV.objValue;
-    }
-
-    public void a(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048576, this, str, i) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put("unread_count", (Integer) 0);
-        gz7.d().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
-    }
-
-    public boolean c(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            try {
-                return gz7.d().delete("tb_message_center", "gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
-            } catch (Exception e) {
-                e.printStackTrace();
-                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.deleteByGid", new Object[0]);
-                return false;
-            }
-        }
-        return invokeLI.booleanValue;
-    }
-
-    public LinkedList<ImMessageCenterPojo> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-            Cursor e = gz7.d().e("SELECT * FROM tb_message_center", null);
-            if (e != null) {
-                while (e.moveToNext()) {
-                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                    imMessageCenterPojo.setPulled_msgId(gg.g(e.getString(e.getColumnIndex("pull_msgid")), 0L));
-                    imMessageCenterPojo.setGid(e.getString(e.getColumnIndex(TbEnum.ParamKey.GID)));
-                    imMessageCenterPojo.setGroup_name(e.getString(e.getColumnIndex("group_name")));
-                    imMessageCenterPojo.setNameShow(e.getString(e.getColumnIndex("group_name_show")));
-                    imMessageCenterPojo.setGroup_head(e.getString(e.getColumnIndex("group_head")));
-                    imMessageCenterPojo.setCustomGroupType(e.getInt(e.getColumnIndex("custom_group_type")));
-                    imMessageCenterPojo.setIsFriend(e.getInt(e.getColumnIndex("is_friend")));
-                    imMessageCenterPojo.setUnread_count(e.getInt(e.getColumnIndex("unread_count")));
-                    imMessageCenterPojo.setLast_rid(e.getLong(e.getColumnIndex("last_msgId")));
-                    imMessageCenterPojo.setLast_user_name(e.getString(e.getColumnIndex("last_user_name")));
-                    imMessageCenterPojo.setLast_content_time(e.getLong(e.getColumnIndex("last_content_time")));
-                    imMessageCenterPojo.setSend_status(e.getInt(e.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)));
-                    imMessageCenterPojo.setLast_content(e.getString(e.getColumnIndex("last_content")));
-                    imMessageCenterPojo.setPulled_msgId(e.getLong(e.getColumnIndex("pull_msgid")));
-                    imMessageCenterPojo.setIs_hidden(e.getInt(e.getColumnIndex("is_hidden")));
-                    imMessageCenterPojo.setSent_msgId(e.getLong(e.getColumnIndex("sent_mid")));
-                    imMessageCenterPojo.setRead_msgId(e.getLong(e.getColumnIndex("read_mid")));
-                    imMessageCenterPojo.setUserType(e.getInt(e.getColumnIndex("user_type")));
-                    imMessageCenterPojo.setSid(e.getLong(e.getColumnIndex("sid")));
-                    imMessageCenterPojo.setTaskId(e.getString(e.getColumnIndex("task_id")));
-                    imMessageCenterPojo.setServiceId(e.getString(e.getColumnIndex("service_id")));
-                    imMessageCenterPojo.setPushIds(e.getString(e.getColumnIndex("ext1")));
-                    o(imMessageCenterPojo, e.getString(e.getColumnIndex("ext2")));
-                    linkedList.add(imMessageCenterPojo);
+        if (interceptable == null || interceptable.invokeL(1048579, this, chatMessage) == null) {
+            this.c.setVisibility(8);
+            if (chatMessage == null) {
+                this.b.setText("");
+            } else if (!C(chatMessage) && !D(chatMessage)) {
+                this.b.setVisibility(0);
+                String C = c48.C(chatMessage);
+                if (!TextUtils.isEmpty(C)) {
+                    this.b.setText(C);
+                } else {
+                    this.b.setText("");
                 }
             }
-            ji.a(e);
-            return linkedList;
         }
-        return (LinkedList) invokeV.objValue;
     }
 
-    public LinkedList<ImMessageCenterPojo> e() {
-        InterceptResult invokeV;
+    public final void B() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-            Cursor e = gz7.d().e("SELECT * FROM tb_message_center", null);
-            if (e != null) {
-                while (e.moveToNext()) {
-                    ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                    imMessageCenterPojo.setPulled_msgId(gg.g(e.getString(e.getColumnIndex("pull_msgid")), 0L));
-                    imMessageCenterPojo.setGid(e.getString(e.getColumnIndex(TbEnum.ParamKey.GID)));
-                    imMessageCenterPojo.setGroup_name(e.getString(e.getColumnIndex("group_name")));
-                    imMessageCenterPojo.setNameShow(e.getString(e.getColumnIndex("group_name_show")));
-                    imMessageCenterPojo.setGroup_head(e.getString(e.getColumnIndex("group_head")));
-                    imMessageCenterPojo.setCustomGroupType(e.getInt(e.getColumnIndex("custom_group_type")));
-                    imMessageCenterPojo.setIsFriend(e.getInt(e.getColumnIndex("is_friend")));
-                    imMessageCenterPojo.setUnread_count(e.getInt(e.getColumnIndex("unread_count")));
-                    imMessageCenterPojo.setLast_rid(e.getLong(e.getColumnIndex("last_msgId")));
-                    imMessageCenterPojo.setLast_user_name(e.getString(e.getColumnIndex("last_user_name")));
-                    imMessageCenterPojo.setLast_content_time(e.getLong(e.getColumnIndex("last_content_time")));
-                    imMessageCenterPojo.setSend_status(e.getInt(e.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)));
-                    imMessageCenterPojo.setLast_content(e.getString(e.getColumnIndex("last_content")));
-                    imMessageCenterPojo.setPulled_msgId(e.getLong(e.getColumnIndex("pull_msgid")));
-                    imMessageCenterPojo.setIs_hidden(e.getInt(e.getColumnIndex("is_hidden")));
-                    o(imMessageCenterPojo, e.getString(e.getColumnIndex("ext2")));
-                    linkedList.add(imMessageCenterPojo);
-                }
-            }
-            ji.a(e);
-            return linkedList;
-        }
-        return (LinkedList) invokeV.objValue;
-    }
-
-    public ImMessageCenterPojo g(String str, int i) {
-        InterceptResult invokeLI;
-        ImMessageCenterPojo imMessageCenterPojo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048581, this, str, i)) == null) {
-            Cursor cursor = null;
-            r2 = null;
-            ImMessageCenterPojo imMessageCenterPojo2 = null;
-            cursor = null;
-            try {
-                try {
-                    Cursor e = gz7.d().e("select * from tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{str, String.valueOf(i)});
-                    if (e != null) {
-                        try {
-                            try {
-                                if (e.moveToNext()) {
-                                    imMessageCenterPojo = new ImMessageCenterPojo();
-                                    try {
-                                        imMessageCenterPojo.setPulled_msgId(gg.g(e.getString(e.getColumnIndex("pull_msgid")), 0L));
-                                        imMessageCenterPojo.setGid(e.getString(e.getColumnIndex(TbEnum.ParamKey.GID)));
-                                        imMessageCenterPojo.setGroup_name(e.getString(e.getColumnIndex("group_name")));
-                                        imMessageCenterPojo.setNameShow(e.getString(e.getColumnIndex("group_name_show")));
-                                        imMessageCenterPojo.setGroup_head(e.getString(e.getColumnIndex("group_head")));
-                                        imMessageCenterPojo.setCustomGroupType(e.getInt(e.getColumnIndex("custom_group_type")));
-                                        imMessageCenterPojo.setIsFriend(e.getInt(e.getColumnIndex("is_friend")));
-                                        imMessageCenterPojo.setUnread_count(e.getInt(e.getColumnIndex("unread_count")));
-                                        imMessageCenterPojo.setLast_rid(e.getLong(e.getColumnIndex("last_msgId")));
-                                        imMessageCenterPojo.setLast_user_name(e.getString(e.getColumnIndex("last_user_name")));
-                                        imMessageCenterPojo.setLast_content_time(e.getLong(e.getColumnIndex("last_content_time")));
-                                        imMessageCenterPojo.setSend_status(e.getInt(e.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)));
-                                        imMessageCenterPojo.setLast_content(e.getString(e.getColumnIndex("last_content")));
-                                        imMessageCenterPojo.setPulled_msgId(e.getLong(e.getColumnIndex("pull_msgid")));
-                                        imMessageCenterPojo.setIs_hidden(e.getInt(e.getColumnIndex("is_hidden")));
-                                        imMessageCenterPojo.setSent_msgId(e.getLong(e.getColumnIndex("sent_mid")));
-                                        imMessageCenterPojo.setRead_msgId(e.getLong(e.getColumnIndex("read_mid")));
-                                        imMessageCenterPojo.setUserType(e.getInt(e.getColumnIndex("user_type")));
-                                        imMessageCenterPojo.setSid(e.getLong(e.getColumnIndex("sid")));
-                                        imMessageCenterPojo.setTaskId(e.getString(e.getColumnIndex("task_id")));
-                                        imMessageCenterPojo.setServiceId(e.getString(e.getColumnIndex("service_id")));
-                                        imMessageCenterPojo.setPushIds(e.getString(e.getColumnIndex("ext1")));
-                                        o(imMessageCenterPojo, e.getString(e.getColumnIndex("ext2")));
-                                        imMessageCenterPojo2 = imMessageCenterPojo;
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        cursor = e;
-                                        e.printStackTrace();
-                                        TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getGroupInfo", new Object[0]);
-                                        ji.a(cursor);
-                                        return imMessageCenterPojo;
-                                    }
-                                }
-                            } catch (Exception e3) {
-                                e = e3;
-                                imMessageCenterPojo = null;
-                            }
-                        } catch (Throwable th) {
-                            th = th;
-                            cursor = e;
-                            ji.a(cursor);
-                            throw th;
-                        }
-                    }
-                    ji.a(e);
-                    return imMessageCenterPojo2;
-                } catch (Exception e4) {
-                    e = e4;
-                    imMessageCenterPojo = null;
-                }
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (ImMessageCenterPojo) invokeLI.objValue;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TextView textView = (TextView) u(R.id.tex_msgcontent);
+            this.b = textView;
+            textView.setMovementMethod(LinkMovementMethod.getInstance());
+            this.c = (LinearLayout) u(R.id.lay_add_friend);
+            this.d = (TextView) u(R.id.btn_add_friend);
+            this.e = (TextView) u(R.id.text_add_friend);
+            this.c.setVisibility(8);
         }
     }
 
-    /* JADX WARN: Not initialized variable reg: 3, insn: 0x0073: MOVE  (r2 I:??[OBJECT, ARRAY]) = (r3 I:??[OBJECT, ARRAY]), block:B:22:0x0073 */
-    public LinkedList<ImMessageCenterPojo> h() {
-        InterceptResult invokeV;
-        Cursor cursor;
-        Cursor cursor2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            LinkedList<ImMessageCenterPojo> linkedList = new LinkedList<>();
-            Cursor cursor3 = null;
-            try {
-                try {
-                    cursor = gz7.d().e("SELECT * FROM tb_message_center WHERE  custom_group_type IN (?,?,?,?,?)", new String[]{String.valueOf(2), String.valueOf(4), String.valueOf(-2)});
-                    if (cursor != null) {
-                        while (cursor.moveToNext()) {
-                            try {
-                                ImMessageCenterPojo imMessageCenterPojo = new ImMessageCenterPojo();
-                                imMessageCenterPojo.setGid(cursor.getString(cursor.getColumnIndex(TbEnum.ParamKey.GID)));
-                                imMessageCenterPojo.setCustomGroupType(cursor.getInt(cursor.getColumnIndex("custom_group_type")));
-                                linkedList.add(imMessageCenterPojo);
-                            } catch (Exception e) {
-                                e = e;
-                                e.printStackTrace();
-                                TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getShrinkData", new Object[0]);
-                                ji.a(cursor);
-                                return null;
-                            }
-                        }
-                    }
-                    ji.a(cursor);
-                    return linkedList;
-                } catch (Throwable th) {
-                    th = th;
-                    cursor3 = cursor2;
-                    ji.a(cursor3);
-                    throw th;
-                }
-            } catch (Exception e2) {
-                e = e2;
-                cursor = null;
-            } catch (Throwable th2) {
-                th = th2;
-                ji.a(cursor3);
-                throw th;
-            }
-        } else {
-            return (LinkedList) invokeV.objValue;
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:20:0x0171 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:33:0x0008 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r2v0 */
-    /* JADX WARN: Type inference failed for: r2v1 */
-    /* JADX WARN: Type inference failed for: r2v2, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r2v4, types: [com.baidu.tieba.im.db.pojo.ImMessageCenterPojo] */
-    public ImMessageCenterPojo i(String str) {
+    public final boolean C(ChatMessage chatMessage) {
         InterceptResult invokeL;
-        ImMessageCenterPojo imMessageCenterPojo;
+        UserData toUserInfo;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            Cursor cursor = 0;
-            r2 = null;
-            ImMessageCenterPojo imMessageCenterPojo2 = null;
-            Cursor cursor2 = null;
-            try {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, chatMessage)) == null) {
+            if (chatMessage != null && (chatMessage instanceof PersonalChatMessage) && chatMessage.getMsgType() == 11 && !TextUtils.isEmpty(chatMessage.getContent())) {
                 try {
-                    Cursor e = gz7.d().e("select * from tb_message_center WHERE group_head like ? ", new String[]{str + "%"});
-                    if (e != null) {
-                        try {
-                            try {
-                                if (e.moveToNext()) {
-                                    imMessageCenterPojo = new ImMessageCenterPojo();
-                                    try {
-                                        imMessageCenterPojo.setPulled_msgId(gg.g(e.getString(e.getColumnIndex("pull_msgid")), 0L));
-                                        imMessageCenterPojo.setGid(e.getString(e.getColumnIndex(TbEnum.ParamKey.GID)));
-                                        imMessageCenterPojo.setGroup_name(e.getString(e.getColumnIndex("group_name")));
-                                        imMessageCenterPojo.setNameShow(e.getString(e.getColumnIndex("group_name_show")));
-                                        imMessageCenterPojo.setGroup_head(e.getString(e.getColumnIndex("group_head")));
-                                        imMessageCenterPojo.setCustomGroupType(e.getInt(e.getColumnIndex("custom_group_type")));
-                                        imMessageCenterPojo.setIsFriend(e.getInt(e.getColumnIndex("is_friend")));
-                                        imMessageCenterPojo.setUnread_count(e.getInt(e.getColumnIndex("unread_count")));
-                                        imMessageCenterPojo.setLast_rid(e.getLong(e.getColumnIndex("last_msgId")));
-                                        imMessageCenterPojo.setLast_user_name(e.getString(e.getColumnIndex("last_user_name")));
-                                        imMessageCenterPojo.setLast_content_time(e.getLong(e.getColumnIndex("last_content_time")));
-                                        imMessageCenterPojo.setSend_status(e.getInt(e.getColumnIndex(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS)));
-                                        imMessageCenterPojo.setLast_content(e.getString(e.getColumnIndex("last_content")));
-                                        imMessageCenterPojo.setPulled_msgId(e.getLong(e.getColumnIndex("pull_msgid")));
-                                        imMessageCenterPojo.setIs_hidden(e.getInt(e.getColumnIndex("is_hidden")));
-                                        imMessageCenterPojo.setSent_msgId(e.getLong(e.getColumnIndex("sent_mid")));
-                                        imMessageCenterPojo.setRead_msgId(e.getLong(e.getColumnIndex("read_mid")));
-                                        imMessageCenterPojo.setUserType(e.getInt(e.getColumnIndex("user_type")));
-                                        imMessageCenterPojo.setSid(e.getLong(e.getColumnIndex("sid")));
-                                        imMessageCenterPojo.setTaskId(e.getString(e.getColumnIndex("task_id")));
-                                        imMessageCenterPojo.setServiceId(e.getString(e.getColumnIndex("service_id")));
-                                        imMessageCenterPojo.setPushIds(e.getString(e.getColumnIndex("ext1")));
-                                        o(imMessageCenterPojo, e.getString(e.getColumnIndex("ext2")));
-                                        imMessageCenterPojo2 = imMessageCenterPojo;
-                                    } catch (Exception e2) {
-                                        e = e2;
-                                        cursor2 = e;
-                                        e.printStackTrace();
-                                        TiebaStatic.printDBExceptionLog(e, "ImMessageCenterDao.getUidByPortrait", new Object[0]);
-                                        ji.a(cursor2);
-                                        cursor = imMessageCenterPojo;
-                                        return cursor;
-                                    }
-                                }
-                            } catch (Throwable th) {
-                                th = th;
-                                cursor = e;
-                                ji.a(cursor);
-                                throw th;
-                            }
-                        } catch (Exception e3) {
-                            e = e3;
-                            imMessageCenterPojo = null;
+                    JSONObject jSONObject = new JSONObject(chatMessage.getContent());
+                    String optString = jSONObject.optString("eventId");
+                    if (optString != null && optString.equals(TbEnum.SystemMessage.EVENT_ID_ADD_FRIEND)) {
+                        this.c.setVisibility(0);
+                        this.b.setVisibility(8);
+                        String optString2 = jSONObject.optString(TbEnum.SystemMessage.KEY_USER_MSG);
+                        JSONObject optJSONObject = jSONObject.optJSONObject(TbEnum.SystemMessage.KEY_EVENT_PARAM);
+                        if (optJSONObject == null) {
+                            return false;
+                        }
+                        int optInt = optJSONObject.optInt("button_type");
+                        String optString3 = optJSONObject.optString("name");
+                        long optLong = optJSONObject.optLong("userId");
+                        if (chatMessage.getUserId() == optLong) {
+                            toUserInfo = chatMessage.getUserInfo();
+                        } else {
+                            toUserInfo = chatMessage.getToUserInfo();
+                        }
+                        String userName = toUserInfo.getUserName();
+                        String portrait = toUserInfo.getPortrait();
+                        this.e.setText(optString2);
+                        if (optInt == 1) {
+                            this.d.setVisibility(0);
+                            this.d.setText(optString3);
+                            this.d.setOnClickListener(new a(this, optLong, userName, portrait));
+                            return true;
                         }
                     }
-                    ji.a(e);
-                    return imMessageCenterPojo2;
-                } catch (Throwable th2) {
-                    th = th2;
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
-            } catch (Exception e4) {
-                e = e4;
-                imMessageCenterPojo = null;
             }
-        } else {
-            return (ImMessageCenterPojo) invokeL.objValue;
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public final void j(ContentValues contentValues, ImMessageCenterPojo imMessageCenterPojo) {
+    public final boolean D(ChatMessage chatMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, contentValues, imMessageCenterPojo) == null) && contentValues != null && imMessageCenterPojo != null) {
-            try {
-                JSONObject jSONObject = new JSONObject();
-                if (!TextUtils.isEmpty(imMessageCenterPojo.getBjhAvatar())) {
-                    jSONObject.put("bjhAvatar", imMessageCenterPojo.getBjhAvatar());
-                }
-                if (imMessageCenterPojo.getShowOutOfStranger() > 0) {
-                    jSONObject.put("key_show_out_of_stranger", imMessageCenterPojo.getShowOutOfStranger());
-                }
-                if (imMessageCenterPojo.getImUserExtraData() != null) {
-                    jSONObject.put("key_user_extra_data", imMessageCenterPojo.getImUserExtraData().toJson());
-                }
-                contentValues.put("ext2", jSONObject.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void o(ImMessageCenterPojo imMessageCenterPojo, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048589, this, imMessageCenterPojo, str) == null) && imMessageCenterPojo != null && !TextUtils.isEmpty(str)) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                imMessageCenterPojo.setBjhAvatar(jSONObject.optString("bjhAvatar", null));
-                imMessageCenterPojo.setShowOutOfStranger(jSONObject.optInt("key_show_out_of_stranger", 0));
-                String optString = jSONObject.optString("key_user_extra_data");
-                if (!TextUtils.isEmpty(optString)) {
-                    IMUserExtraData iMUserExtraData = new IMUserExtraData();
-                    iMUserExtraData.parseJson(optString);
-                    imMessageCenterPojo.setImUserExtraData(iMUserExtraData);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public void k(ImMessageCenterPojo imMessageCenterPojo) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, imMessageCenterPojo) == null) {
-            l(imMessageCenterPojo, 1);
-        }
-    }
-
-    public void l(ImMessageCenterPojo imMessageCenterPojo, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048586, this, imMessageCenterPojo, i) == null) {
-            m(imMessageCenterPojo, i, 1);
-        }
-    }
-
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:75:0x00b9 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:77:0x0103 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:52:0x0120  */
-    /* JADX WARN: Removed duplicated region for block: B:55:0x0131  */
-    /* JADX WARN: Removed duplicated region for block: B:58:0x0144  */
-    /* JADX WARN: Removed duplicated region for block: B:61:0x017c  */
-    /* JADX WARN: Removed duplicated region for block: B:64:0x0191  */
-    /* JADX WARN: Removed duplicated region for block: B:67:0x01a6  */
-    /* JADX WARN: Removed duplicated region for block: B:70:0x01f4  */
-    /* JADX WARN: Removed duplicated region for block: B:83:? A[RETURN, SYNTHETIC] */
-    /* JADX WARN: Type inference failed for: r13v0, types: [int] */
-    /* JADX WARN: Type inference failed for: r13v1 */
-    /* JADX WARN: Type inference failed for: r13v2 */
-    /* JADX WARN: Type inference failed for: r13v3 */
-    /* JADX WARN: Type inference failed for: r13v4, types: [android.database.Cursor] */
-    /* JADX WARN: Type inference failed for: r13v40 */
-    /* JADX WARN: Type inference failed for: r13v6, types: [android.database.Cursor] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void m(ImMessageCenterPojo imMessageCenterPojo, int i, int i2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLII(1048587, this, imMessageCenterPojo, i, i2) == null) && imMessageCenterPojo != null && !TextUtils.isEmpty(imMessageCenterPojo.getGid()) && gg.g(imMessageCenterPojo.getGid(), 0L) != 0) {
-            ContentValues contentValues = new ContentValues();
-            contentValues.put(TbEnum.ParamKey.GID, imMessageCenterPojo.getGid());
-            contentValues.put("sid", Long.valueOf(imMessageCenterPojo.getSid()));
-            contentValues.put("task_id", imMessageCenterPojo.getTaskId());
-            contentValues.put("service_id", imMessageCenterPojo.getServiceId());
-            if (i2 == 2) {
-                contentValues.put("ext1", imMessageCenterPojo.getPushIds());
-            }
-            if (!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) {
-                contentValues.put("group_name", imMessageCenterPojo.getGroup_name());
-            }
-            if (!TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) {
-                contentValues.put("group_name_show", imMessageCenterPojo.getNameShow());
-            }
-            j(contentValues, imMessageCenterPojo);
-            if (!TextUtils.isEmpty(imMessageCenterPojo.getGroup_head())) {
-                contentValues.put("group_head", imMessageCenterPojo.getGroup_head());
-            }
-            contentValues.put("custom_group_type", Integer.valueOf(imMessageCenterPojo.getCustomGroupType()));
-            int unread_count = imMessageCenterPojo.getUnread_count();
-            Cursor cursor = null;
-            if (i == 2) {
-                contentValues.put("unread_count", Integer.valueOf(unread_count));
-            } else if (i == 3) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage)) == null) {
+            if (chatMessage != null && (chatMessage instanceof PersonalChatMessage) && chatMessage.getMsgType() == 11 && !TextUtils.isEmpty(chatMessage.getContent())) {
                 try {
-                    if (unread_count > 0) {
-                        try {
-                            i = gz7.d().e("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
-                        } catch (Exception e) {
-                            e = e;
-                            i = 0;
-                        } catch (Throwable th) {
-                            th = th;
-                            ji.a(cursor);
-                            throw th;
-                        }
-                        if (i != 0) {
-                            try {
-                            } catch (Exception e2) {
-                                e = e2;
-                                i = i;
-                                BdLog.e(e);
-                                ji.a(i);
-                                contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
-                                if (imMessageCenterPojo.getLast_user_name() != null) {
-                                }
-                                if (imMessageCenterPojo.getLast_content_time() != 0) {
-                                }
-                                if (imMessageCenterPojo.getLast_content() != null) {
-                                }
-                                contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(imMessageCenterPojo.getSend_status()));
-                                contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
-                                contentValues.put("is_friend", Integer.valueOf(imMessageCenterPojo.getIsFriend()));
-                                if (imMessageCenterPojo.getPulled_msgId() != 0) {
-                                }
-                                if (imMessageCenterPojo.getSent_msgId() > 0) {
-                                }
-                                if (imMessageCenterPojo.getRead_msgId() > 0) {
-                                }
-                                contentValues.put("user_type", Integer.valueOf(imMessageCenterPojo.getUserType()));
-                                BdLog.i("sql-" + contentValues);
-                                if (gz7.d().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
-                                }
-                            }
-                            if (i.moveToNext()) {
-                                int i3 = unread_count + i.getInt(i.getColumnIndex("unread_count"));
-                                if (i3 > 0) {
-                                    contentValues.put("unread_count", Integer.valueOf(i3));
-                                }
-                                ji.a(i);
-                            }
-                        }
-                        contentValues.put("unread_count", Integer.valueOf(unread_count));
-                        ji.a(i);
+                    String optString = new JSONObject(chatMessage.getContent()).optString("eventId");
+                    if (!TextUtils.isEmpty(optString) && optString.equals(TbEnum.SystemMessage.EVENT_ID_CYBER_VIOLENCE)) {
+                        this.c.setVisibility(8);
+                        this.b.setVisibility(0);
+                        SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
+                        String string = TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning0);
+                        SpannableString spannableString = new SpannableString(TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning_report));
+                        String string2 = TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning1);
+                        SpannableString spannableString2 = new SpannableString(TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning_close_stranger));
+                        String string3 = TbadkApplication.getInst().getString(R.string.im_cyber_violence_warning2);
+                        b bVar = new b(this, chatMessage);
+                        c cVar = new c(this);
+                        spannableString.setSpan(bVar, 0, spannableString.length(), 33);
+                        spannableString2.setSpan(cVar, 0, spannableString2.length(), 33);
+                        spannableStringBuilder.append((CharSequence) string).append((CharSequence) spannableString).append((CharSequence) string2).append((CharSequence) spannableString2).append((CharSequence) string3);
+                        this.b.setText(spannableStringBuilder);
+                        this.b.setMovementMethod(LinkMovementMethod.getInstance());
+                        return true;
                     }
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor = i;
+                } catch (Exception e) {
+                    BdLog.detailException(e);
                 }
             }
-            contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
-            if (imMessageCenterPojo.getLast_user_name() != null) {
-                contentValues.put("last_user_name", imMessageCenterPojo.getLast_user_name());
-            }
-            if (imMessageCenterPojo.getLast_content_time() != 0) {
-                contentValues.put("last_content_time", Long.valueOf(imMessageCenterPojo.getLast_content_time()));
-            }
-            if (imMessageCenterPojo.getLast_content() != null) {
-                contentValues.put("last_content", imMessageCenterPojo.getLast_content());
-            }
-            contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(imMessageCenterPojo.getSend_status()));
-            contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
-            contentValues.put("is_friend", Integer.valueOf(imMessageCenterPojo.getIsFriend()));
-            if (imMessageCenterPojo.getPulled_msgId() != 0) {
-                contentValues.put("pull_msgid", Long.valueOf(imMessageCenterPojo.getPulled_msgId()));
-            }
-            if (imMessageCenterPojo.getSent_msgId() > 0) {
-                contentValues.put("sent_mid", Long.valueOf(imMessageCenterPojo.getSent_msgId()));
-            }
-            if (imMessageCenterPojo.getRead_msgId() > 0) {
-                contentValues.put("read_mid", Long.valueOf(imMessageCenterPojo.getRead_msgId()));
-            }
-            contentValues.put("user_type", Integer.valueOf(imMessageCenterPojo.getUserType()));
-            BdLog.i("sql-" + contentValues);
-            if (gz7.d().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
-                BdLog.i("insert");
-                gz7.d().insert("tb_message_center", null, contentValues);
-            }
+            return false;
         }
-    }
-
-    /* JADX WARN: Removed duplicated region for block: B:47:0x00e7  */
-    /* JADX WARN: Removed duplicated region for block: B:50:0x00fa  */
-    /* JADX WARN: Removed duplicated region for block: B:53:0x010d  */
-    /* JADX WARN: Removed duplicated region for block: B:56:0x0145  */
-    /* JADX WARN: Removed duplicated region for block: B:59:0x0186  */
-    /* JADX WARN: Removed duplicated region for block: B:70:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void n(ImMessageCenterPojo imMessageCenterPojo, int i) {
-        Cursor cursor;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(1048588, this, imMessageCenterPojo, i) != null) || imMessageCenterPojo == null || TextUtils.isEmpty(imMessageCenterPojo.getGid())) {
-            return;
-        }
-        ContentValues contentValues = new ContentValues();
-        contentValues.put(TbEnum.ParamKey.GID, imMessageCenterPojo.getGid());
-        if (!TextUtils.isEmpty(imMessageCenterPojo.getGroup_name())) {
-            contentValues.put("group_name", imMessageCenterPojo.getGroup_name());
-        }
-        if (!TextUtils.isEmpty(imMessageCenterPojo.getNameShow())) {
-            contentValues.put("group_name_show", imMessageCenterPojo.getNameShow());
-        }
-        j(contentValues, imMessageCenterPojo);
-        if (!TextUtils.isEmpty(imMessageCenterPojo.getGroup_head())) {
-            contentValues.put("group_head", imMessageCenterPojo.getGroup_head());
-        }
-        contentValues.put("custom_group_type", Integer.valueOf(imMessageCenterPojo.getCustomGroupType()));
-        int unread_count = imMessageCenterPojo.getUnread_count();
-        Cursor cursor2 = null;
-        if (i == 2) {
-            contentValues.put("unread_count", Integer.valueOf(unread_count));
-        } else if (i == 3 && unread_count > 0) {
-            try {
-                cursor = gz7.d().e("SELECT * FROM tb_message_center WHERE gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())});
-            } catch (Exception e) {
-                e = e;
-                cursor = null;
-            } catch (Throwable th) {
-                th = th;
-                ji.a(cursor2);
-                throw th;
-            }
-            if (cursor != null) {
-                try {
-                    try {
-                    } catch (Exception e2) {
-                        e = e2;
-                        BdLog.e(e);
-                        ji.a(cursor);
-                        contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
-                        if (imMessageCenterPojo.getLast_user_name() != null) {
-                        }
-                        if (imMessageCenterPojo.getLast_content_time() != 0) {
-                        }
-                        if (imMessageCenterPojo.getLast_content() != null) {
-                        }
-                        contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(imMessageCenterPojo.getSend_status()));
-                        contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
-                        contentValues.put("is_friend", Integer.valueOf(imMessageCenterPojo.getIsFriend()));
-                        if (imMessageCenterPojo.getPulled_msgId() != 0) {
-                        }
-                        BdLog.i("sql-" + contentValues);
-                        if (gz7.d().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
-                        }
-                    }
-                    if (cursor.moveToNext()) {
-                        int i2 = unread_count + cursor.getInt(cursor.getColumnIndex("unread_count"));
-                        if (i2 > 0) {
-                            contentValues.put("unread_count", Integer.valueOf(i2));
-                        }
-                        ji.a(cursor);
-                    }
-                } catch (Throwable th2) {
-                    th = th2;
-                    cursor2 = cursor;
-                    ji.a(cursor2);
-                    throw th;
-                }
-            }
-            contentValues.put("unread_count", Integer.valueOf(unread_count));
-            ji.a(cursor);
-        }
-        contentValues.put("last_msgId", Long.valueOf(imMessageCenterPojo.getLast_rid()));
-        if (imMessageCenterPojo.getLast_user_name() != null) {
-            contentValues.put("last_user_name", imMessageCenterPojo.getLast_user_name());
-        }
-        if (imMessageCenterPojo.getLast_content_time() != 0) {
-            contentValues.put("last_content_time", Long.valueOf(imMessageCenterPojo.getLast_content_time()));
-        }
-        if (imMessageCenterPojo.getLast_content() != null) {
-            contentValues.put("last_content", imMessageCenterPojo.getLast_content());
-        }
-        contentValues.put(TableDefine.PaCmdQueueColumns.COLUMN_SEND_STATUS, Integer.valueOf(imMessageCenterPojo.getSend_status()));
-        contentValues.put("is_hidden", Integer.valueOf(imMessageCenterPojo.getIs_hidden()));
-        contentValues.put("is_friend", Integer.valueOf(imMessageCenterPojo.getIsFriend()));
-        if (imMessageCenterPojo.getPulled_msgId() != 0) {
-            contentValues.put("pull_msgid", Long.valueOf(imMessageCenterPojo.getPulled_msgId()));
-        }
-        BdLog.i("sql-" + contentValues);
-        if (gz7.d().update("tb_message_center", contentValues, "gid=? AND custom_group_type=?", new String[]{imMessageCenterPojo.getGid(), String.valueOf(imMessageCenterPojo.getCustomGroupType())}) != 0) {
-            BdLog.i("insert");
-            gz7.d().insert("tb_message_center", null, contentValues);
-        }
+        return invokeL.booleanValue;
     }
 }

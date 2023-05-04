@@ -8,10 +8,10 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import androidx.annotation.Nullable;
 import com.baidu.swan.apps.database.SwanAppDbControl;
-import com.baidu.tieba.cr2;
+import com.baidu.tieba.er2;
 /* loaded from: classes3.dex */
 public class SwanAppSubscribeMsgProvider extends ContentProvider {
-    public static final String b = cr2.c().getPackageName() + ".swan.subscribe_msg";
+    public static final String b = er2.c().getPackageName() + ".swan.subscribe_msg";
     public static final Uri c = Uri.parse("content://" + b);
     @Nullable
     public SQLiteDatabase a;
@@ -26,7 +26,7 @@ public class SwanAppSubscribeMsgProvider extends ContentProvider {
         if (this.a != null) {
             return false;
         }
-        SQLiteOpenHelper h = SwanAppDbControl.f(cr2.c()).h();
+        SQLiteOpenHelper h = SwanAppDbControl.f(er2.c()).h();
         if (h == null) {
             return true;
         }

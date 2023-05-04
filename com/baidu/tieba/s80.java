@@ -1,79 +1,131 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.down.retry.HttpRetryStrategyDataParse;
+import com.baidu.lcp.sdk.pb.LcmPb$Common;
+import com.baidu.tieba.p70;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class s80 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "lcpsdk";
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948105150, "Lcom/baidu/tieba/s80;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948105150, "Lcom/baidu/tieba/s80;");
+    public static void a(Context context, long j, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{context, Long.valueOf(j), str, str2}) == null) {
+            try {
+                p70.c cVar = new p70.c(context);
+                cVar.e(str);
+                cVar.f("1");
+                cVar.c(j);
+                cVar.d(str2);
+                cVar.a(501112L);
+                cVar.b();
+            } catch (Exception e) {
+                u80.c("LCPCommon", "businessEvent exception ", e);
+            }
         }
     }
 
-    public static void a(String str, String str2) {
+    @SuppressLint({"DefaultLocale"})
+    public static String e(String str, String str2, String str3, long j) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) && r80.a) {
-            String str3 = a;
-            Log.d(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{str, str2, str3, Long.valueOf(j)})) == null) {
+            return d(String.format("%s%s%s%d", str, str2, str3, Long.valueOf(j)));
         }
+        return (String) invokeCommon.objValue;
     }
 
-    public static void b(String str, String str2) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) && r80.a) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                return context.getPackageManager().getPackageInfo(context.getPackageName(), 0).versionName;
+            } catch (PackageManager.NameNotFoundException e) {
+                u80.c("LCPCommon", "getAppVersionName NameNotFoundException", e);
+                return null;
+            }
         }
+        return (String) invokeL.objValue;
     }
 
-    public static void d(String str, String str2) {
+    public static Object c(Context context, boolean z) {
+        InterceptResult invokeLZ;
+        String b;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && r80.a) {
-            String str3 = a;
-            Log.i(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, context, z)) == null) {
+            String valueOf = String.valueOf(System.currentTimeMillis());
+            if (TextUtils.isEmpty(b(context))) {
+                b = "";
+            } else {
+                b = b(context);
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            String b2 = v80.b(context);
+            String e = v80.e(context);
+            try {
+                if (z) {
+                    if (!TextUtils.isEmpty(b2) && !TextUtils.isEmpty(e)) {
+                        JSONObject jSONObject = new JSONObject();
+                        jSONObject.put(HttpRetryStrategyDataParse.DOWNFLOW_TETRY_REQUEST_ID, valueOf);
+                        jSONObject.put("cuid", e);
+                        jSONObject.put(HttpConstants.DEVICE_TYPE, "android");
+                        jSONObject.put("app_id", b2);
+                        jSONObject.put("app_version", b);
+                        jSONObject.put("sdk_version", "2310016");
+                        jSONObject.put("ts", currentTimeMillis);
+                        jSONObject.put("sign", e(b2, e, "android", currentTimeMillis));
+                        return jSONObject;
+                    }
+                    u80.b("LCPCommon", "getData appId : " + b2 + ", cuid :" + e);
+                    return null;
+                }
+                LcmPb$Common.b newBuilder = LcmPb$Common.newBuilder();
+                newBuilder.v(e);
+                newBuilder.w("android");
+                newBuilder.t(b2);
+                newBuilder.u(b);
+                newBuilder.x("2310016");
+                return newBuilder.build();
+            } catch (Exception e2) {
+                u80.c("LCPCommon", "getData :", e2);
+                return null;
+            }
         }
+        return invokeLZ.objValue;
     }
 
-    public static void e(String str, String str2) {
+    public static String d(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65541, null, str, str2) == null) && r80.a) {
-            String str3 = a;
-            Log.v(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            try {
+                byte[] digest = MessageDigest.getInstance("MD5").digest(str.getBytes());
+                StringBuilder sb = new StringBuilder();
+                for (byte b : digest) {
+                    int i = b & 255;
+                    if (i < 16) {
+                        sb.append(0);
+                    }
+                    sb.append(Integer.toHexString(i));
+                }
+                return sb.toString();
+            } catch (NoSuchAlgorithmException unused) {
+                return "";
+            }
         }
-    }
-
-    public static void f(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65542, null, str, str2) == null) && r80.a) {
-            String str3 = a;
-            Log.w(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2);
-        }
-    }
-
-    public static void c(String str, String str2, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, th) == null) && r80.a) {
-            String str3 = a;
-            Log.e(str3, str + ZeusCrashHandler.NAME_SEPERATOR + str2, th);
-        }
+        return (String) invokeL.objValue;
     }
 }

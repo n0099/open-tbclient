@@ -2,53 +2,73 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yc2 implements xc2 {
+public class yc2 implements zc2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile yc2 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, wc2> a;
+    public final List<bd2> a;
+    public boolean b;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ yc2 b;
 
-        public a(yc2 yc2Var, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yc2Var, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-265165052, "Lcom/baidu/tieba/yc2$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-265165052, "Lcom/baidu/tieba/yc2$a;");
                     return;
                 }
             }
-            this.b = yc2Var;
-            this.a = str;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.b.h(this.a);
+            int[] iArr = new int[RecordType.values().length];
+            a = iArr;
+            try {
+                iArr[RecordType.APP_ID.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[RecordType.APP_VERSION.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[RecordType.PREFETCH_TYPE.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[RecordType.PREFETCH_EVENT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+            try {
+                a[RecordType.PREFETCH_OTHER_MSG.ordinal()] = 5;
+            } catch (NoSuchFieldError unused5) {
+            }
+            try {
+                a[RecordType.PREFETCH_PRELINK.ordinal()] = 6;
+            } catch (NoSuchFieldError unused6) {
             }
         }
     }
@@ -66,65 +86,42 @@ public class yc2 implements xc2 {
                 return;
             }
         }
-        this.a = new HashMap();
+        this.a = new ArrayList();
+        this.b = false;
     }
 
-    public static yc2 d() {
-        InterceptResult invokeV;
+    public void a(String str, UbcFlowEvent ubcFlowEvent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (b == null) {
-                synchronized (yc2.class) {
-                    if (b == null) {
-                        b = new yc2();
-                    }
-                }
-            }
-            return b;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, str, ubcFlowEvent) != null) || !b(str)) {
+            return;
         }
-        return (yc2) invokeV.objValue;
+        c13.q(PrefetchEvent.MODULE, str).F(ubcFlowEvent);
     }
 
-    public synchronized yc2 b(String str, UbcFlowEvent ubcFlowEvent) {
-        InterceptResult invokeLL;
-        wc2 wc2Var;
+    public void d(String str, boolean z) {
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ubcFlowEvent)) == null) {
-            synchronized (this) {
-                if (c(str) && (wc2Var = this.a.get(str)) != null) {
-                    wc2Var.a(str, ubcFlowEvent);
-                    return this;
-                }
-                return this;
-            }
+        if ((interceptable != null && interceptable.invokeLZ(1048579, this, str, z) != null) || !b(str)) {
+            return;
         }
-        return (yc2) invokeLL.objValue;
+        HybridUbcFlow q = c13.q(PrefetchEvent.MODULE, str);
+        if (z) {
+            str2 = "success";
+        } else {
+            str2 = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+        }
+        q.E("value", str2);
     }
 
-    public synchronized yc2 f(String str, zc2 zc2Var) {
-        InterceptResult invokeLL;
-        wc2 wc2Var;
+    public void e(String str, bd2 bd2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, zc2Var)) == null) {
-            synchronized (this) {
-                if (c(str) && (wc2Var = this.a.get(str)) != null) {
-                    wc2Var.e(str, zc2Var);
-                    return this;
-                }
-                return this;
-            }
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, bd2Var) != null) || !b(str)) {
+            return;
         }
-        return (yc2) invokeLL.objValue;
+        c(c13.q(PrefetchEvent.MODULE, str), bd2Var);
     }
 
-    public void j(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(1048583, this, str, j) == null) {
-            ExecutorUtilsExt.delayPostOnElastic(new a(this, str), "PrefetchStageRecorder", 3, j);
-        }
-    }
-
-    public final boolean c(String str) {
+    public final boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
@@ -133,59 +130,91 @@ public class yc2 implements xc2 {
         return invokeL.booleanValue;
     }
 
-    public final synchronized void h(String str) {
-        wc2 wc2Var;
+    public void f(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, str) == null) {
-            synchronized (this) {
-                if (c(str) && (wc2Var = this.a.get(str)) != null) {
-                    this.a.remove(str);
-                    wc2Var.h(str);
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048581, this, str) != null) || !b(str)) {
+            return;
+        }
+        c13.s(PrefetchEvent.MODULE, str);
+        c13.q(PrefetchEvent.MODULE, str);
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048583, this, str) == null) && b(str) && !this.b) {
+            this.b = true;
+            HybridUbcFlow q = c13.q(PrefetchEvent.MODULE, str);
+            g(q);
+            q.A();
+            c13.s(PrefetchEvent.MODULE, str);
         }
     }
 
-    public void i(String str) {
+    public final void c(HybridUbcFlow hybridUbcFlow, bd2 bd2Var) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, str) == null) {
-            j(str, 0L);
-        }
-    }
-
-    public synchronized yc2 e(String str, boolean z, boolean z2) {
-        InterceptResult invokeCommon;
-        wc2 wc2Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, Boolean.valueOf(z), Boolean.valueOf(z2)})) == null) {
-            synchronized (this) {
-                if (c(str) && (wc2Var = this.a.get(str)) != null) {
-                    wc2Var.d(str, z);
-                    if (z2) {
-                        i(str);
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow, bd2Var) == null) && hybridUbcFlow != null && bd2Var != null) {
+            switch (a.a[bd2Var.a.ordinal()]) {
+                case 1:
+                    hybridUbcFlow.D("app_id", bd2Var.b);
+                    return;
+                case 2:
+                    hybridUbcFlow.D("app_version", bd2Var.b);
+                    return;
+                case 3:
+                    if (bd2Var.c) {
+                        str = "hot";
+                    } else {
+                        str = "cold";
                     }
-                    return this;
-                }
-                return this;
+                    hybridUbcFlow.E("type", str);
+                    return;
+                case 4:
+                    hybridUbcFlow.E("source", bd2Var.b);
+                    return;
+                case 5:
+                    hybridUbcFlow.D("msg", bd2Var.b);
+                    return;
+                case 6:
+                    synchronized (this.a) {
+                        this.a.add(bd2Var);
+                    }
+                    return;
+                default:
+                    return;
             }
         }
-        return (yc2) invokeCommon.objValue;
     }
 
-    public synchronized yc2 g(String str) {
-        InterceptResult invokeL;
+    public final void g(HybridUbcFlow hybridUbcFlow) {
+        List<bd2> list;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
-            synchronized (this) {
-                if (c(str) && !this.a.containsKey(str)) {
-                    wc2 wc2Var = new wc2();
-                    this.a.put(str, wc2Var);
-                    wc2Var.f(str);
-                    return this;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, hybridUbcFlow) == null) && hybridUbcFlow != null && (list = this.a) != null && list.size() > 0) {
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            synchronized (this.a) {
+                try {
+                    for (bd2 bd2Var : this.a) {
+                        String str2 = bd2Var.b;
+                        JSONObject jSONObject2 = new JSONObject();
+                        jSONObject2.put("url", str2);
+                        if (bd2Var.c) {
+                            str = "1";
+                        } else {
+                            str = "0";
+                        }
+                        jSONObject2.put("link", str);
+                        jSONArray.put(jSONObject2);
+                    }
+                    jSONObject.put("links", jSONArray);
+                } catch (JSONException unused) {
                 }
-                return this;
+                this.a.clear();
+            }
+            if (jSONObject.length() > 0) {
+                hybridUbcFlow.D("prelink", jSONObject.toString());
             }
         }
-        return (yc2) invokeL.objValue;
     }
 }

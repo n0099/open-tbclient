@@ -1,90 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.swan.apps.core.prefetch.statistics.item.RecordType;
-import com.baidu.tieba.zc2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Set;
 /* loaded from: classes4.dex */
-public class ed2 {
+public final class ed2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static final md2 b;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
+    public static class a {
+        public static /* synthetic */ Interceptable $ic = null;
+        public static int a = -1;
+        public static int b = -1;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ boolean b;
-        public final /* synthetic */ String c;
 
-        public a(String str, boolean z, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, Boolean.valueOf(z), str2};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-836824551, "Lcom/baidu/tieba/ed2$a;")) == null) {
+                return;
             }
-            this.a = str;
-            this.b = z;
-            this.c = str2;
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(-836824551, "Lcom/baidu/tieba/ed2$a;");
+            }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            long j;
+        public static String a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ed2.a) {
-                    j = System.currentTimeMillis();
-                } else {
-                    j = 0;
-                }
-                Set<String> m = fd2.k().m(this.a, true);
-                if (m != null && m.size() > 0) {
-                    if (ed2.a) {
-                        Log.d("SwanPreLinkWhenPreload", "start prelink, swan is already launched - " + this.b);
-                    }
-                    for (String str : m) {
-                        boolean b = ed2.b(this.c, this.a, str);
-                        yc2 d = yc2.d();
-                        String str2 = this.c;
-                        zc2.b a = zc2.a();
-                        a.h(RecordType.PREFETCH_PRELINK);
-                        a.f(str);
-                        a.g(b);
-                        d.f(str2, a.e());
-                        if (b) {
-                            fd2.k().s(this.a, str);
-                            ed2.d(this.a, str);
-                        }
-                    }
-                    if (ed2.a) {
-                        long currentTimeMillis = System.currentTimeMillis();
-                        Log.d("SwanPreLinkWhenPreload", " prelink - " + this.a + ", cost - " + (currentTimeMillis - j) + "ms");
-                    }
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return PreferenceManager.getDefaultSharedPreferences(AppRuntime.getAppContext()).getString("swan_sub_pkg_launch_switch", "debug_ab");
             }
+            return (String) invokeV.objValue;
+        }
+
+        public static boolean c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+                if (b == -1) {
+                    er2.g0().getSwitch("swan_app_launch_optimize_v2", 0);
+                    b = 0;
+                }
+                if (b != 1) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public static boolean b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+                if (ed2.a) {
+                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable getAppLaunchDebugSwitch : " + a());
+                    String a2 = a();
+                    char c = 65535;
+                    int hashCode = a2.hashCode();
+                    if (hashCode != 251117829) {
+                        if (hashCode != 547804557) {
+                            if (hashCode == 569516856 && a2.equals("debug_on_activity_create")) {
+                                c = 1;
+                            }
+                        } else if (a2.equals("debug_ab")) {
+                            c = 2;
+                        }
+                    } else if (a2.equals("debug_on_app_launch")) {
+                        c = 0;
+                    }
+                    if (c == 0) {
+                        return true;
+                    }
+                    if (c == 1) {
+                        return false;
+                    }
+                }
+                if (a < 0) {
+                    er2.g0().getSwitch("swan_sub_pkg_launch_switch", 0);
+                    a = 0;
+                }
+                if (ed2.a) {
+                    Log.d("AppLaunchMessenger", "isOnAppLaunchEnable sLaunchABSwitcher : " + a);
+                }
+                if (a != 1) {
+                    return false;
+                }
+                return true;
+            }
+            return invokeV.booleanValue;
         }
     }
 
@@ -101,57 +118,29 @@ public class ed2 {
                 return;
             }
         }
-        a = fo1.a;
-        b = od2.a();
+        a = ho1.a;
     }
 
-    public static boolean b(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
+    public static void b(w43 w43Var, Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, str2, str3)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return false;
+        if (interceptable == null || interceptable.invokeLL(65538, null, w43Var, bundle) == null) {
+            if (a) {
+                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event start.");
             }
-            return b.c(str, str2, str3);
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public static void e(String str, @NonNull String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(65541, null, str, str2, z) == null) {
-            ExecutorUtilsExt.postOnSerial(new a(str2, z, str), "SwanPreLinkWhenPreload");
-        }
-    }
-
-    public static void c(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, str, str2) == null) {
-            if (!b.b()) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload ab is off");
-                }
-            } else if (TextUtils.isEmpty(str2)) {
-                if (a) {
-                    Log.d("SwanPreLinkWhenPreload", "prelink by preload appId is empty");
-                }
+            Bundle bundle2 = new Bundle();
+            bundle2.putBundle("swan_app_on_launch_event", bundle);
+            p43 p43Var = new p43(122, bundle2);
+            if (!w43Var.T() && a.c()) {
+                w43Var.f0(p43Var.h());
             } else {
-                v73 q = u73.K().q();
-                if (q == null) {
-                    if (a) {
-                        Log.d("SwanPreLinkWhenPreload", "prelink by preload swanApp is null");
-                    }
-                } else if (TextUtils.equals(q.b, str2)) {
-                    e(str, str2, q.I());
-                }
+                n43 e = n43.e();
+                p43Var.b(w43Var.b);
+                p43Var.p(true);
+                e.h(p43Var);
             }
-        }
-    }
-
-    public static void d(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2) == null) && b.a() != null) {
-            b.a().b(str, str2, true);
+            if (a) {
+                Log.d("AppLaunchMessenger", "sendAppLaunchEvent event end.");
+            }
         }
     }
 }

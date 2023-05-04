@@ -30,17 +30,17 @@ import com.baidu.tbadk.widget.richText.TbRichTextImageInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.tiejia.TiePlusEventController;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ax4;
+import com.baidu.tieba.es5;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.mr5;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.ji6;
+import com.baidu.tieba.kx;
 import com.baidu.tieba.rm;
-import com.baidu.tieba.sv4;
 import com.baidu.tieba.tbadkCore.voice.PlayVoiceBntNew;
 import com.baidu.tieba.xf;
-import com.baidu.tieba.xu5;
-import com.baidu.tieba.yg6;
+import com.baidu.tieba.xv5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -51,7 +51,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.LinkedList;
 /* loaded from: classes2.dex */
-public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.OnClickListener {
+public class NewGridImageLayout extends LinearLayout implements kx<ax4>, View.OnClickListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final int a;
@@ -61,15 +61,15 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
     public VoteView e;
     public GridImageLayout f;
     public Context g;
-    public kw4 h;
+    public ax4 h;
     public String i;
     public boolean j;
     public boolean k;
-    public yg6<kw4> l;
+    public ji6<ax4> l;
     public boolean m;
     public boolean n;
     public LinkedList<MediaData> o;
-    public xu5 p;
+    public xv5 p;
     public View.OnClickListener q;
     public boolean r;
     public int s;
@@ -106,7 +106,7 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            yg6<kw4> subClickListener;
+            ji6<ax4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("2");
@@ -141,7 +141,7 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
 
         @Override // android.view.View.OnClickListener
         public void onClick(View view2) {
-            yg6<kw4> subClickListener;
+            ji6<ax4> subClickListener;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && (subClickListener = this.a.getSubClickListener()) != null) {
                 view2.setTag("1");
@@ -179,7 +179,7 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
             boolean z3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (mr5.c() && mr5.b(view2.getContext(), this.a.i, this.a.h)) {
+                if (es5.c() && es5.b(view2.getContext(), this.a.i, this.a.h)) {
                     return;
                 }
                 if (this.a.j) {
@@ -196,15 +196,15 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
     public class d implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ kw4 a;
+        public final /* synthetic */ ax4 a;
         public final /* synthetic */ NewGridImageLayout b;
 
-        public d(NewGridImageLayout newGridImageLayout, kw4 kw4Var) {
+        public d(NewGridImageLayout newGridImageLayout, ax4 ax4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {newGridImageLayout, kw4Var};
+                Object[] objArr = {newGridImageLayout, ax4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -215,7 +215,7 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
                 }
             }
             this.b = newGridImageLayout;
-            this.a = kw4Var;
+            this.a = ax4Var;
         }
 
         @Override // android.view.View.OnClickListener
@@ -288,7 +288,7 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
         public void a(View view2, String str, int i, boolean z, boolean z2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                if (mr5.c() && mr5.a(view2.getContext(), this.a.i, this.a.h)) {
+                if (es5.c() && es5.a(view2.getContext(), this.a.i, this.a.h)) {
                     return;
                 }
                 ThreadCardUtils.startImageViewer(view2, true, this.a.o, i, this.a.h.getThreadData().originalThreadData.b(), this.a.i, this.a.h.getThreadData().originalThreadData.o);
@@ -527,10 +527,10 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
         }
     }
 
-    public void setSubClickListener(yg6<kw4> yg6Var) {
+    public void setSubClickListener(ji6<ax4> ji6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, yg6Var) == null) {
-            this.l = yg6Var;
+        if (interceptable == null || interceptable.invokeL(1048597, this, ji6Var) == null) {
+            this.l = ji6Var;
         }
     }
 
@@ -575,8 +575,8 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, threadData)) == null) {
-            kw4 kw4Var = this.h;
-            if (kw4Var == null || kw4Var.getThreadData() == null) {
+            ax4 ax4Var = this.h;
+            if (ax4Var == null || ax4Var.getThreadData() == null) {
                 return true;
             }
             if (this.h.getThreadData().getTid() != null && !this.h.getThreadData().getTid().equals(threadData.getTid())) {
@@ -593,13 +593,13 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
         return invokeL.booleanValue;
     }
 
-    public yg6<kw4> getSubClickListener() {
+    public ji6<ax4> getSubClickListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.l;
         }
-        return (yg6) invokeV.objValue;
+        return (ji6) invokeV.objValue;
     }
 
     public final void k(ThreadData threadData) {
@@ -621,7 +621,7 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
             } else {
                 z = false;
             }
-            if (sv4.c().g() && ListUtils.getCount(medias) != 0) {
+            if (iw4.c().g() && ListUtils.getCount(medias) != 0) {
                 this.o.clear();
                 for (int i = 0; i < medias.size(); i++) {
                     MediaData mediaData = (MediaData) ListUtils.getItem(medias, i);
@@ -648,8 +648,8 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
                         }
                         TbRichTextImageInfo tbRichTextImageInfo = new TbRichTextImageInfo();
                         tbRichTextImageInfo.setSrc(l);
-                        tbRichTextImageInfo.a0(originalUrl);
-                        tbRichTextImageInfo.Z(mediaData2.isLongPic());
+                        tbRichTextImageInfo.f0(originalUrl);
+                        tbRichTextImageInfo.e0(mediaData2.isLongPic());
                         int i3 = mediaData2.picWidth;
                         if (i3 > 0 && mediaData2.picHeight > 0) {
                             tbRichTextImageInfo.setWidth(i3);
@@ -685,7 +685,7 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
             gridImageLayout.setSupportGifPlay(false);
             this.f.setCornerStyle(1);
             this.f.setAfterClickListener(new b(this));
-            this.p = new xu5();
+            this.p = new xv5();
             int i = ii.s(this.g)[0];
             this.p.J = (i - (ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X004) * 2)) - (ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.M_W_X005) * 2);
             this.p.K = ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds10);
@@ -731,32 +731,32 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.kx
     /* renamed from: q */
-    public void a(kw4 kw4Var) {
+    public void a(ax4 ax4Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048585, this, kw4Var) == null) && kw4Var != null && kw4Var.getThreadData() != null) {
-            ThreadData threadData = kw4Var.getThreadData();
+        if ((interceptable == null || interceptable.invokeL(1048585, this, ax4Var) == null) && ax4Var != null && ax4Var.getThreadData() != null) {
+            ThreadData threadData = ax4Var.getThreadData();
             OriginalThreadInfo originalThreadInfo = threadData.originalThreadData;
             if (originalThreadInfo != null && this.m) {
                 s(this.f, UtilHelper.getDimenPixelSize(R.dimen.M_H_X003));
-                r25 d2 = r25.d(this.c);
+                g35 d2 = g35.d(this.c);
                 d2.C(R.string.F_X01);
                 d2.B(R.dimen.T_X07);
-                r25.d(this.b).B(R.dimen.T_X07);
+                g35.d(this.b).B(R.dimen.T_X07);
                 this.b.setVisibility(8);
                 if (!originalThreadInfo.m && !threadData.shouldShowBlockedState()) {
                     SpannableString c2 = originalThreadInfo.c();
                     ThreadCardUtils.setAbstract(this.c, this.b, c2, threadData, this.a, this.m, this.r);
                     if (c2 != null) {
-                        TiePlusEventController.p(originalThreadInfo.h());
+                        TiePlusEventController.s(originalThreadInfo.h());
                     }
                 } else {
                     ThreadCardUtils.setAbstract(this.c, this.b, new SpannableString(this.g.getString(R.string.origin_thread_deleted_title)), threadData, this.a, this.m, this.r);
                     SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0108);
                 }
                 if (!originalThreadInfo.m && p(originalThreadInfo.G)) {
-                    d dVar = new d(this, kw4Var);
+                    d dVar = new d(this, ax4Var);
                     this.e.setOnClickListener(dVar);
                     this.e.setOnItemClickListener(dVar);
                     this.e.setIsTransmit(true);
@@ -775,15 +775,15 @@ public class NewGridImageLayout extends LinearLayout implements ix<kw4>, View.On
                 SpannableString abstractText = threadData.getAbstractText();
                 ThreadCardUtils.setAbstract(this.c, this.b, abstractText, threadData, this.a, this.m, this.r);
                 if (abstractText != null) {
-                    TiePlusEventController.p(threadData.getTiePlusLinkOriginData());
+                    TiePlusEventController.s(threadData.getTiePlusLinkOriginData());
                 }
             }
             if (t(threadData)) {
                 k(threadData);
             }
             setVoiceData(threadData);
-            this.h = kw4Var;
-            if (kw4Var.getThreadData().originalThreadData == null) {
+            this.h = ax4Var;
+            if (ax4Var.getThreadData().originalThreadData == null) {
                 return;
             }
             if (threadData.isShareThread) {

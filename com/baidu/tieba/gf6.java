@@ -1,170 +1,221 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.sapi2.views.SmsLoginView;
+import com.baidu.tbadk.TbConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.Closeable;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStreamReader;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class gf6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static boolean a(File file) {
-        InterceptResult invokeL;
+    public static df6 a(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, file)) == null) {
-            if (file != null && (!file.exists() ? file.mkdirs() : file.isDirectory())) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, str2)) == null) {
+            File k = ze6.l().k();
+            File file = new File(k, str + "/" + str2);
+            if (!file.exists() || TextUtils.isEmpty(str2)) {
+                return null;
             }
-            return false;
+            Map<String, if6> b = b(file);
+            if (!f(file, b)) {
+                return null;
+            }
+            return new df6(file, str2, b);
         }
-        return invokeL.booleanValue;
+        return (df6) invokeLL.objValue;
     }
 
-    public static boolean c(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            if (file != null && (!file.exists() || (file.isFile() && file.delete()))) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean b(File file) {
+    public static Map<String, if6> b(File file) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
-            if (file == null) {
-                return false;
+            File file2 = new File(file, "router.json");
+            if (!file2.exists()) {
+                return null;
             }
-            if (!file.exists()) {
-                return true;
+            try {
+                JSONObject jSONObject = new JSONObject(og6.d(file2));
+                Map<String, if6> d = d(jSONObject.optJSONObject("config"));
+                Map<String, if6> d2 = d(jSONObject.optJSONObject("proxyConfig"));
+                if (!mg6.b(d2)) {
+                    d.putAll(d2);
+                }
+                return d;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return null;
             }
-            if (!file.isDirectory()) {
-                return false;
+        }
+        return (Map) invokeL.objValue;
+    }
+
+    public static Set<String> c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            HashSet hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
             }
-            File[] listFiles = file.listFiles();
-            if (!ef6.e(listFiles)) {
-                for (File file2 : listFiles) {
-                    if (file2.isFile()) {
-                        if (!file2.delete()) {
-                            return false;
+            JSONArray optJSONArray = jSONObject.optJSONArray("data_urls");
+            if (!mg6.c(optJSONArray)) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    hashSet.add(optJSONArray.optString(i, ""));
+                }
+            }
+            return hashSet;
+        }
+        return (Set) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:16:0x0048 */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r10v0, types: [int] */
+    /* JADX WARN: Type inference failed for: r10v1 */
+    /* JADX WARN: Type inference failed for: r10v4, types: [boolean] */
+    public static Map<String, if6> d(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        boolean z;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
+            HashMap hashMap = new HashMap();
+            if (jSONObject == null) {
+                return hashMap;
+            }
+            Iterator<String> keys = jSONObject.keys();
+            while (keys.hasNext()) {
+                String next = keys.next();
+                if (!TextUtils.isEmpty(next) && !hashMap.containsKey(next)) {
+                    try {
+                        JSONObject jSONObject2 = jSONObject.getJSONObject(next);
+                        String optString = jSONObject2.optString("module", "");
+                        String optString2 = jSONObject2.optString("path", "");
+                        ?? optInt = jSONObject2.optInt("proxyMode", 0);
+                        if (jSONObject2.has("proxySwitch") && (optJSONObject = jSONObject2.optJSONObject("proxySwitch")) != null) {
+                            optInt = tg6.a(optJSONObject.optString("android", ""), TbConfig.getVersion());
                         }
-                    } else if (file2.isDirectory() && !b(file2)) {
-                        return false;
+                        if6 if6Var = new if6();
+                        if (jSONObject2.optInt("proxyMode", 0) == 1) {
+                            z = true;
+                        } else {
+                            z = false;
+                        }
+                        if6Var.i = z;
+                        if (optInt == 1) {
+                            if6Var.h = true;
+                            if6Var.a = rf6.a(jSONObject2);
+                        } else {
+                            if6Var.h = false;
+                            if6Var.b = c(jSONObject2);
+                        }
+                        if6Var.c = optString;
+                        if6Var.d = optString2;
+                        if6Var.f = e(next, jSONObject2);
+                        hashMap.put(next, if6Var);
+                        yc9.a().j(next, next);
+                        yc9.a().k(next, optString2);
+                    } catch (JSONException unused) {
                     }
                 }
             }
-            return file.delete();
+            return hashMap;
         }
-        return invokeL.booleanValue;
+        return (Map) invokeL.objValue;
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:21:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:39:0x0074 */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v13, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r1v6, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r1v8, types: [java.io.Closeable[]] */
-    /* JADX WARN: Type inference failed for: r6v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r6v2 */
-    /* JADX WARN: Type inference failed for: r6v3 */
-    /* JADX WARN: Type inference failed for: r6v4 */
-    /* JADX WARN: Type inference failed for: r6v5 */
-    /* JADX WARN: Type inference failed for: r6v6 */
-    /* JADX WARN: Type inference failed for: r6v7, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r6v8 */
-    /* JADX WARN: Type inference failed for: r7v0 */
-    /* JADX WARN: Type inference failed for: r7v2 */
-    /* JADX WARN: Type inference failed for: r7v4 */
-    /* JADX WARN: Type inference failed for: r7v5 */
-    /* JADX WARN: Type inference failed for: r7v7 */
-    /* JADX WARN: Type inference failed for: r7v9 */
-    /* JADX WARN: Type inference failed for: r9v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r9v2 */
-    /* JADX WARN: Type inference failed for: r9v4 */
-    /* JADX WARN: Type inference failed for: r9v5 */
-    /* JADX WARN: Type inference failed for: r9v6 */
-    /* JADX WARN: Type inference failed for: r9v8 */
-    /* JADX WARN: Type inference failed for: r9v9, types: [java.io.Reader, java.io.InputStreamReader] */
-    public static String d(File file) {
-        ?? r6;
-        ?? r7;
-        BufferedReader bufferedReader;
+    public static Set<String> e(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            r6 = interceptable;
-            r7 = 65539;
-            InterceptResult invokeL = r6.invokeL(65539, null, file);
-            if (invokeL != null) {
-                return (String) invokeL.objValue;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
+            HashSet<String> hashSet = new HashSet();
+            if (jSONObject == null) {
+                return hashSet;
             }
-        }
-        if (file == 0 || !file.exists() || !file.canRead()) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        try {
-            try {
-                r6 = new FileInputStream((File) file);
-            } catch (Throwable th) {
-                th = th;
-            }
-            try {
-                file = new InputStreamReader(r6);
-            } catch (Exception e) {
-                e = e;
-                file = 0;
-                bufferedReader = null;
-            } catch (Throwable th2) {
-                th = th2;
-                r7 = 0;
-                r6 = r6;
-                th = th;
-                file = r7;
-                if6.a(new Closeable[]{r6, file, r7});
-                throw th;
-            }
-        } catch (Exception e2) {
-            e = e2;
-            file = 0;
-            r6 = 0;
-            bufferedReader = null;
-        } catch (Throwable th3) {
-            th = th3;
-            r6 = 0;
-            r7 = 0;
-        }
-        try {
-            bufferedReader = new BufferedReader(file);
-            try {
-                for (String readLine = bufferedReader.readLine(); readLine != null; readLine = bufferedReader.readLine()) {
-                    sb.append(readLine);
+            JSONArray optJSONArray = jSONObject.optJSONArray("source");
+            if (!mg6.c(optJSONArray)) {
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    hashSet.add(optJSONArray.optString(i, ""));
                 }
-                String sb2 = sb.toString();
-                if6.a(new Closeable[]{r6, file, bufferedReader});
-                return sb2;
-            } catch (Exception e3) {
-                e = e3;
-                e.printStackTrace();
-                if6.a(new Closeable[]{r6, file, bufferedReader});
-                return null;
             }
-        } catch (Exception e4) {
-            e = e4;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            r7 = 0;
-            th = th4;
-            if6.a(new Closeable[]{r6, file, r7});
-            throw th;
+            String optString = jSONObject.optString("staticPrePath", "");
+            for (String str2 : hashSet) {
+                if (!TextUtils.isEmpty(str2)) {
+                    yc9 a = yc9.a();
+                    a.j(optString + "/" + str2, str);
+                    yc9 a2 = yc9.a();
+                    a2.k(optString + "/" + str2, str2);
+                }
+            }
+            return hashSet;
         }
+        return (Set) invokeLL.objValue;
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:27:0x0094 A[Catch: Exception -> 0x00e0, TryCatch #0 {Exception -> 0x00e0, blocks: (B:12:0x0023, B:15:0x002e, B:18:0x003c, B:21:0x0045, B:22:0x0052, B:24:0x0058, B:25:0x008e, B:27:0x0094, B:29:0x00a2, B:30:0x00ae, B:32:0x00ba, B:34:0x00c0), top: B:44:0x0023 }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static boolean f(File file, Map<String, if6> map) {
+        InterceptResult invokeLL;
+        String d;
+        JSONObject optJSONObject;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, file, map)) == null) {
+            File file2 = new File(file, "staticSources.json");
+            if (mg6.b(map) || !file2.exists() || !file2.isFile()) {
+                return false;
+            }
+            try {
+                d = og6.d(file2);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            if (TextUtils.isEmpty(d)) {
+                return false;
+            }
+            JSONObject optJSONObject2 = new JSONObject(d).optJSONObject("sources");
+            if (optJSONObject2 == null || (optJSONObject = optJSONObject2.optJSONObject(SmsLoginView.f.j)) == null) {
+                return true;
+            }
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, if6> entry : map.entrySet()) {
+                if6 value = entry.getValue();
+                HashSet<String> hashSet = new HashSet(value.f);
+                hashSet.add(value.d);
+                Log.e("lt-log", "-------------------------：" + entry.getKey());
+                for (String str : hashSet) {
+                    String str2 = (String) hashMap.get(str);
+                    if (str2 == null) {
+                        str2 = ng6.b(new File(file, str));
+                        hashMap.put(str, str2);
+                    }
+                    String optString = optJSONObject.optString(str, "");
+                    if (TextUtils.isEmpty(optString) || !optString.equalsIgnoreCase(str2)) {
+                        Log.e("lt-log", str + "," + optString + "_" + str2);
+                        return false;
+                    }
+                    while (r5.hasNext()) {
+                    }
+                }
+            }
+            return true;
+        }
+        return invokeLL.booleanValue;
     }
 }

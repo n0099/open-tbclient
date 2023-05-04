@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.game.ad.entity.AdElementInfo;
+import android.net.Uri;
+import com.baidu.swan.game.ad.jsbridge.CommandType;
 /* loaded from: classes4.dex */
 public interface hw3 {
-    void a(String str);
-
-    void c(AdElementInfo adElementInfo);
+    void b(CommandType commandType, Uri uri);
 }

@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
-import android.os.SystemClock;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,86 +8,66 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.GetVipInfo.VipRank;
+import tbclient.GetVipInfo.VipUser;
 /* loaded from: classes6.dex */
-public class qn8 {
+public class qn8 implements in {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public long c;
-    public boolean d;
+    public en8 a;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948097710, "Lcom/baidu/tieba/qn8;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948097710, "Lcom/baidu/tieba/qn8;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948097710, "Lcom/baidu/tieba/qn8;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948097710, "Lcom/baidu/tieba/qn8;");
-        }
+        b = BdUniqueId.gen();
     }
 
-    public qn8() {
+    @Override // com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public qn8(VipRank vipRank, VipUser vipUser) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {vipRank, vipUser};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a = 0L;
-            this.b = 0L;
-            this.c = 0L;
+        if (vipRank == null) {
+            return;
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.b = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.d = true;
-            this.a = SystemClock.elapsedRealtime();
-        }
-    }
-
-    public void d(o79 o79Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, o79Var) == null) && this.d) {
-            this.d = false;
-            long elapsedRealtime = SystemClock.elapsedRealtime();
-            long j = this.b - this.a;
-            long j2 = elapsedRealtime - this.c;
-            long j3 = j2 + j;
-            if ((BdNetTypeUtil.netType() == 2 || j <= 17500) && o79Var != null) {
-                o79Var.a(j, j2, j3);
-            }
-        }
+        String str = vipRank.card_id;
+        en8 en8Var = new en8();
+        this.a = en8Var;
+        en8Var.d(vipRank.class_name);
+        this.a.f(vipRank.class_url_name);
+        this.a.g(vipRank.class_url);
+        vipRank.my_score_rank.intValue();
+        String str2 = vipUser.portrait;
     }
 }

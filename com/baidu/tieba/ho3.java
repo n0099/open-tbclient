@@ -1,27 +1,16 @@
 package com.baidu.tieba;
 
+import android.os.Bundle;
+import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
 /* loaded from: classes4.dex */
-public class ho3 {
+public class ho3 extends ProviderDelegation {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public Map<String, String> b;
-
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(ho3 ho3Var);
-
-        void b(ho3 ho3Var);
-
-        void onFinish();
-
-        void onStart();
-    }
 
     public ho3() {
         Interceptable interceptable = $ic;
@@ -35,5 +24,17 @@ public class ho3 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
+    public Bundle execCall(Bundle bundle) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
+            Bundle bundle2 = new Bundle();
+            bundle2.putBoolean("result", yn3.E(getAgent().getContext()));
+            return bundle2;
+        }
+        return (Bundle) invokeL.objValue;
     }
 }

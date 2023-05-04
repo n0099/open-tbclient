@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalForumInfo;
 import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.xy4;
+import com.baidu.tieba.nz4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -395,11 +395,11 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
         }
     }
 
-    public void setRecomData(xy4 xy4Var) {
+    public void setRecomData(nz4 nz4Var) {
         Intent intent;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048620, this, xy4Var) == null) && (intent = getIntent()) != null && xy4Var != null) {
-            xy4Var.c(intent);
+        if ((interceptable == null || interceptable.invokeL(1048620, this, nz4Var) == null) && (intent = getIntent()) != null && nz4Var != null) {
+            nz4Var.c(intent);
         }
     }
 
@@ -589,8 +589,8 @@ public class PbCommentFloatActivityConfig extends IntentConfig {
             }
             Intent intent = getIntent();
             intent.putExtra("thread_id", threadData.getTid());
-            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().O())) {
-                intent.putExtra("god_reply_id", threadData.getTopAgreePost().O());
+            if (threadData.getTopAgreePost() != null && !StringUtils.isNull(threadData.getTopAgreePost().N())) {
+                intent.putExtra("god_reply_id", threadData.getTopAgreePost().N());
             }
             intent.putExtra("is_good", threadData.getIs_good());
             intent.putExtra("is_top", threadData.getIs_top());

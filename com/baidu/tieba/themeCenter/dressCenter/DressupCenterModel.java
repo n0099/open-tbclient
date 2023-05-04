@@ -7,10 +7,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
-import com.baidu.tieba.il9;
-import com.baidu.tieba.ms9;
-import com.baidu.tieba.ps9;
-import com.baidu.tieba.qs9;
+import com.baidu.tieba.hw9;
+import com.baidu.tieba.kw9;
+import com.baidu.tieba.lw9;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -22,23 +22,23 @@ import java.util.List;
 public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ps9> a;
-    public qs9 b;
-    public List<ms9> c;
+    public List<kw9> a;
+    public lw9 b;
+    public List<hw9> c;
     public b d;
     public boolean e;
     public za f;
 
     /* loaded from: classes6.dex */
     public interface b {
-        void a(int i, String str, List<ms9> list, qs9 qs9Var, List<ps9> list2);
+        void a(int i, String str, List<hw9> list, lw9 lw9Var, List<kw9> list2);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -127,14 +127,14 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
         registerListener(this.f);
     }
 
-    public void Y(b bVar) {
+    public void d0(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.d = bVar;
         }
     }
 
-    public boolean X() {
+    public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -164,8 +164,8 @@ public class DressupCenterModel extends BdBaseModel<DressupCenterModel> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            il9.h(309001, DressupCenterSocketResponseMessage.class, false, false);
-            il9.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
+            xo9.h(309001, DressupCenterSocketResponseMessage.class, false, false);
+            xo9.c(309001, CmdConfigHttp.CMD_DRESSUP_CENTER, TbConfig.DRESSUP_CENTER_PAGE, DressupCenterHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

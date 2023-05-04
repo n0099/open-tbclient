@@ -1,32 +1,75 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
+import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public abstract class d58 {
+public class d58 extends tj1<dj5> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b58 a;
 
-    public abstract void b(AbilityItem abilityItem, BaseMsg baseMsg);
+    /* loaded from: classes4.dex */
+    public class a implements dj5 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return false;
+        public a(d58 d58Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {d58Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return invokeV.booleanValue;
-    }
 
-    public abstract String d();
+        @Override // com.baidu.tieba.dj5
+        public void a(@NonNull Context context, long j, int i, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
+                GroupChatActivity.u1(context, j, i, str);
+            }
+        }
+
+        @Override // com.baidu.tieba.dj5
+        public void b(@NonNull Context context, long j, int i, String str, @Nullable Bundle bundle, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{context, Long.valueOf(j), Integer.valueOf(i), str, bundle, Boolean.valueOf(z)}) == null) {
+                GroupChatActivity.v1(context, j, i, str, bundle, z);
+            }
+        }
+
+        @Override // com.baidu.tieba.dj5
+        public void c(@NonNull Context context, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, context, j) == null) {
+                GroupChatActivity.u1(context, j, -1, "");
+            }
+        }
+
+        @Override // com.baidu.tieba.dj5
+        public void d(@NonNull Context context, long j, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{context, Long.valueOf(j), str}) == null) {
+                GroupChatActivity.w1(context, j, -1, str, "");
+            }
+        }
+    }
 
     public d58() {
         Interceptable interceptable = $ic;
@@ -42,14 +85,15 @@ public abstract class d58 {
         }
     }
 
-    public final void a(AbilityItem abilityItem, BaseMsg baseMsg) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.tj1
+    /* renamed from: a */
+    public dj5 createService() throws ServiceNotFoundException {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
-            Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            b58 b58Var = this.a;
-            if (b58Var != null) {
-                b58Var.b(abilityItem, baseMsg);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new a(this);
         }
+        return (dj5) invokeV.objValue;
     }
 }

@@ -1,153 +1,114 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.searchbox.http.request.PostBodyRequest;
+import com.baidu.swan.gamecenter.appmanager.notification.InstallNotifyReceiver;
+import com.baidu.tieba.us2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import com.baidubce.AbstractBceClient;
+import okhttp3.MediaType;
+import okhttp3.RequestBody;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yz3 implements qt1 {
+public class yz3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, Boolean> a;
-    public xz3 b;
 
-    /* loaded from: classes7.dex */
-    public class a implements zk2 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zk2 a;
-        public final /* synthetic */ yz3 b;
-
-        public a(yz3 yz3Var, zk2 zk2Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948347415, "Lcom/baidu/tieba/yz3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yz3Var, zk2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.b = yz3Var;
-            this.a = zk2Var;
-        }
-
-        @Override // com.baidu.tieba.zk2
-        public void a(@Nullable JSONObject jSONObject) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-                this.b.g(true);
-                this.a.a(jSONObject);
-            }
-        }
-
-        @Override // com.baidu.tieba.zk2
-        public void onFail(int i, @Nullable String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.b.g(false);
-                this.a.onFail(i, str);
-            }
-        }
-    }
-
-    public yz3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948347415, "Lcom/baidu/tieba/yz3;");
                 return;
             }
         }
-        this.a = new HashMap<>();
-        this.b = new xz3();
+        a = ho1.a;
     }
 
-    public final String d() {
-        InterceptResult invokeV;
+    public static void a(String str, String str2, String str3, String str4, wz3 wz3Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            v73 b0 = v73.b0();
-            if (b0 != null) {
-                return b0.O();
-            }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Boolean bool;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            String d = d();
-            if (TextUtils.isEmpty(d) || (bool = this.a.get(d)) == null) {
-                return false;
-            }
-            return bool.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.qt1
-    @Nullable
-    public vz1 a(@NonNull String str, @NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, jSONObject, zk2Var)) == null) {
-            if (f()) {
-                zk2Var.a(null);
-                return null;
-            }
-            return this.b.a(jSONObject, c(zk2Var));
-        }
-        return (vz1) invokeLLL.objValue;
-    }
-
-    public final zk2 c(@NonNull zk2 zk2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zk2Var)) == null) {
-            return new a(this, zk2Var);
-        }
-        return (zk2) invokeL.objValue;
-    }
-
-    public boolean e(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-            return TextUtils.equals(this.b.a, str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            String d = d();
-            if (TextUtils.isEmpty(d)) {
+        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, wz3Var) == null) {
+            String l = xz3.l(str2);
+            if (TextUtils.isEmpty(l)) {
                 return;
             }
-            this.a.put(d, Boolean.valueOf(z));
+            if (a) {
+                Log.d("GameCenterStatistic", "packageName:" + str + ";operation:" + str2 + ";value:" + str3 + ";errorCode:" + str4);
+            }
+            if (TextUtils.isEmpty(str)) {
+                return;
+            }
+            xz3 xz3Var = new xz3();
+            xz3Var.m(wz3Var);
+            xz3Var.b = l;
+            xz3Var.e = str3;
+            xz3Var.v = str;
+            xz3Var.l = rl3.D();
+            if (x73.b0() != null) {
+                us2.a W = x73.b0().W();
+                xz3Var.a = qe3.n(W.G());
+                xz3Var.f = W.H();
+                xz3Var.c = W.T();
+            }
+            xz3Var.t = str4;
+            qe3.x("1245", xz3Var);
+        }
+    }
+
+    public static void b(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            c(str, str2, "");
+        }
+    }
+
+    public static void c(String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) {
+            String l = xz3.l(str);
+            if (TextUtils.isEmpty(l)) {
+                return;
+            }
+            xz3 xz3Var = new xz3();
+            xz3Var.b = l;
+            xz3Var.a(InstallNotifyReceiver.OPPORTUNITY, str2);
+            if (str3 == null) {
+                str3 = "";
+            }
+            xz3Var.a("packageName", str3);
+            qe3.x("1245", xz3Var);
+        }
+    }
+
+    public static void d(int i, String str, String str2, String str3) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Integer.valueOf(i), str, str2, str3}) == null) {
+            String d = o44.b().d();
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("cuid", er2.h0().i(er2.c()));
+                jSONObject.put("type", i);
+                jSONObject.put("time", System.currentTimeMillis() / 1000);
+                jSONObject.put("host", er2.n().a());
+                jSONObject.put("version", rl3.D());
+                jSONObject.put("package", str);
+                jSONObject.put("appid", str2);
+                jSONObject.put("url", str3);
+                ((PostBodyRequest.PostBodyRequestBuilder) ((PostBodyRequest.PostBodyRequestBuilder) bf4.h(er2.c()).postRequest().cookieManager(er2.q().a())).url(d)).requestBody(RequestBody.create(MediaType.parse(AbstractBceClient.DEFAULT_CONTENT_TYPE), jSONObject.toString())).build().executeAsync(null);
+            } catch (Exception unused) {
+            }
         }
     }
 }

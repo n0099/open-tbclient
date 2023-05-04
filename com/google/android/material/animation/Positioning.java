@@ -1,5 +1,5 @@
 package com.google.android.material.animation;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class Positioning {
     public final int gravity;
     public final float xAdjustment;

@@ -16,20 +16,20 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.swan.apps.view.SwanAppRoundCornerListView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr2;
-import com.baidu.tieba.f73;
-import com.baidu.tieba.g73;
+import com.baidu.tieba.er2;
+import com.baidu.tieba.h73;
 import com.baidu.tieba.i73;
-import com.baidu.tieba.in3;
+import com.baidu.tieba.k73;
+import com.baidu.tieba.kn3;
 import com.facebook.drawee.view.SimpleDraweeView;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class SwanImageMenuView extends FrameLayout implements f73.g {
+public class SwanImageMenuView extends FrameLayout implements h73.g {
     public boolean a;
     public c b;
     public Context c;
     public SwanAppRoundCornerListView d;
-    public in3 e;
+    public kn3 e;
     public View f;
     public int g;
 
@@ -59,7 +59,7 @@ public class SwanImageMenuView extends FrameLayout implements f73.g {
 
     /* loaded from: classes3.dex */
     public static class c extends BaseAdapter {
-        public List<g73> a;
+        public List<i73> a;
         public Context b;
 
         @Override // android.widget.Adapter
@@ -67,35 +67,35 @@ public class SwanImageMenuView extends FrameLayout implements f73.g {
             return i;
         }
 
-        public c(Context context, List<g73> list) {
+        public c(Context context, List<i73> list) {
             this.a = list;
             this.b = context;
         }
 
         public final void c(@NonNull View view2, int i) {
             if (i == 0) {
-                view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811fd));
+                view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08122e));
             } else {
-                view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f0811fc));
+                view2.setBackground(this.b.getResources().getDrawable(R.drawable.obfuscated_res_0x7f08122d));
             }
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // android.widget.Adapter
         /* renamed from: a */
-        public g73 getItem(int i) {
+        public i73 getItem(int i) {
             return this.a.get(i);
         }
 
         public void b(int i) {
-            g73 g73Var = this.a.get(i);
-            g73.a d = g73Var.d();
+            i73 i73Var = this.a.get(i);
+            i73.a d = i73Var.d();
             if (d != null) {
-                d.a(g73Var);
+                d.a(i73Var);
             }
         }
 
-        public void d(List<g73> list) {
+        public void d(List<i73> list) {
             this.a = list;
             notifyDataSetChanged();
         }
@@ -108,18 +108,18 @@ public class SwanImageMenuView extends FrameLayout implements f73.g {
         @Override // android.widget.Adapter
         public View getView(int i, View view2, ViewGroup viewGroup) {
             View inflate;
-            g73 item = getItem(i);
-            if (item instanceof i73) {
-                inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d087e, null);
-                String i2 = ((i73) item).i();
+            i73 item = getItem(i);
+            if (item instanceof k73) {
+                inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d088a, null);
+                String i2 = ((k73) item).i();
                 if (!TextUtils.isEmpty(i2)) {
-                    ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090f68)).setImageURI(i2);
+                    ((SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f090f77)).setImageURI(i2);
                 }
-                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917a7)).setText(item.e());
+                ((TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0917b5)).setText(item.e());
             } else {
-                inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00d0, null);
-                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0922ef);
-                textView.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0602e3));
+                inflate = View.inflate(this.b, R.layout.obfuscated_res_0x7f0d00d1, null);
+                TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092307);
+                textView.setTextColor(this.b.getResources().getColor(R.color.obfuscated_res_0x7f0602e7));
                 textView.setText(item.e());
             }
             c(inflate, i);
@@ -135,7 +135,7 @@ public class SwanImageMenuView extends FrameLayout implements f73.g {
         c();
     }
 
-    public void d(List<g73> list) {
+    public void d(List<i73> list) {
         if (this.a) {
             return;
         }
@@ -150,8 +150,8 @@ public class SwanImageMenuView extends FrameLayout implements f73.g {
         this.a = true;
     }
 
-    public void setMenu(in3 in3Var) {
-        this.e = in3Var;
+    public void setMenu(kn3 kn3Var) {
+        this.e = kn3Var;
     }
 
     public SwanImageMenuView(Context context, AttributeSet attributeSet) {
@@ -171,17 +171,17 @@ public class SwanImageMenuView extends FrameLayout implements f73.g {
     }
 
     public final void c() {
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d087d, (ViewGroup) null);
-        SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f091493);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.c).inflate(R.layout.obfuscated_res_0x7f0d0889, (ViewGroup) null);
+        SwanAppRoundCornerListView swanAppRoundCornerListView = (SwanAppRoundCornerListView) linearLayout.findViewById(R.id.obfuscated_res_0x7f0914a1);
         this.d = swanAppRoundCornerListView;
         swanAppRoundCornerListView.setOnItemClickListener(new a());
         this.d.setSelector(new ColorDrawable(0));
         ((TextView) linearLayout.findViewById(R.id.negative_button)).setOnClickListener(new b());
         addView(linearLayout);
-        if (cr2.M().a()) {
+        if (er2.M().a()) {
             View view2 = new View(this.c);
             this.f = view2;
-            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f0811fe);
+            view2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08122f);
             this.f.setVisibility(8);
             addView(this.f);
         }

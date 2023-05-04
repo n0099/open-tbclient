@@ -23,8 +23,8 @@ import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.tieba.R;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.ig8;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.qi8;
 import com.baidu.tieba.share.ImplicitShareMessage;
 import com.baidu.tieba.yh;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -48,7 +48,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     public long j;
     public String k;
     public ShareItem l;
-    public ig8 m;
+    public qi8 m;
 
     /* loaded from: classes5.dex */
     public class a implements DialogInterface.OnDismissListener {
@@ -148,7 +148,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.E1();
+                this.a.D1();
                 if (this.a.l != null) {
                     StatisticItem statisticItem = new StatisticItem(CommonStatisticKey.KEY_VOICE_ROOM_SHARE);
                     statisticItem.addParam("obj_type", this.a.l.c0);
@@ -186,7 +186,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         MessageManager.getInstance().sendMessage(new ImplicitShareMessage(this, this.e, shareItem, true));
     }
 
-    public final void E1() {
+    public final void D1() {
         ShareItem shareItem;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (shareItem = this.l) == null) {
@@ -201,9 +201,9 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
             super.onDestroy();
-            ig8 ig8Var = this.m;
-            if (ig8Var != null) {
-                ig8Var.d();
+            qi8 qi8Var = this.m;
+            if (qi8Var != null) {
+                qi8Var.d();
             }
         }
     }
@@ -234,10 +234,10 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
     }
 
     public final void F1() {
-        ig8 ig8Var;
+        qi8 qi8Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (ig8Var = this.m) != null) {
-            if (ListUtils.isEmpty(ig8Var.b())) {
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && ViewHelper.checkUpIsLogin(getPageContext().getPageActivity()) && (qi8Var = this.m) != null) {
+            if (ListUtils.isEmpty(qi8Var.b())) {
                 this.m.c();
             }
             this.m.e(gg.g(this.g, 0L), this.i, this.l);
@@ -265,12 +265,12 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
                 statisticItem.eventStat();
             }
         } else {
-            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f0250, R.drawable.obfuscated_res_0x7f080972, new b(this));
+            shareDialogConfig.addOutsideTextView(R.string.obfuscated_res_0x7f0f024e, R.drawable.obfuscated_res_0x7f08099e, new b(this));
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2001276, shareDialogConfig));
-        ig8 ig8Var = this.m;
-        if (ig8Var != null) {
-            ig8Var.c();
+        qi8 qi8Var = this.m;
+        if (qi8Var != null) {
+            qi8Var.c();
         }
     }
 
@@ -292,7 +292,7 @@ public class AlaSDKShareEmptyActivity extends BaseActivity<AlaSDKShareEmptyActiv
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            this.m = new ig8(getPageContext());
+            this.m = new qi8(getPageContext());
             if (bundle != null) {
                 this.a = bundle.getString("title");
                 this.b = bundle.getString("content");

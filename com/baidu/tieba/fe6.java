@@ -1,92 +1,47 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.annotation.SuppressLint;
+import android.os.Build;
+import android.webkit.ValueCallback;
+import android.webkit.WebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
+import java.lang.reflect.Method;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class fe6 {
+public final class fe6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final fe6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, ee6> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947761298, "Lcom/baidu/tieba/fe6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947761298, "Lcom/baidu/tieba/fe6;");
-                return;
+    public static void a(WebView webView, List<String> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65536, null, webView, list) == null) {
+            try {
+                Method declaredMethod = WebView.class.getDeclaredMethod("setSafeBrowsingWhitelist", List.class, ValueCallback.class);
+                declaredMethod.setAccessible(true);
+                declaredMethod.invoke(webView, list, null);
+            } catch (Throwable th) {
+                th.printStackTrace();
             }
         }
-        b = new fe6();
     }
 
-    public fe6() {
+    @SuppressLint({"WebViewApiAvailability"})
+    public static void b(WebView webView) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65537, null, webView) == null) {
+            int i = Build.VERSION.SDK_INT;
+            if (i == 26) {
+                webView.setImportantForAutofill(2);
+                webView.getSettings().setSafeBrowsingEnabled(false);
+            } else if (i >= 27) {
+                List<String> a = kd6.a();
+                try {
+                    WebView.setSafeBrowsingWhitelist(a, null);
+                } catch (Throwable unused) {
+                    a(webView, a);
+                }
             }
         }
-        this.a = new ConcurrentHashMap();
-    }
-
-    public static fe6 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (fe6) invokeV.objValue;
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.clear();
-        }
-    }
-
-    public Map<String, ee6> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Map) invokeV.objValue;
-    }
-
-    public void a(String str, ee6 ee6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, str, ee6Var) == null) {
-            this.a.put(str, ee6Var);
-        }
-    }
-
-    public ee6 d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            return this.a.get(str);
-        }
-        return (ee6) invokeL.objValue;
     }
 }

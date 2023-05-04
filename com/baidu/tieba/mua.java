@@ -1,28 +1,30 @@
 package com.baidu.tieba;
 
+import android.content.DialogInterface;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-/* JADX WARN: Incorrect class signature, class is equals to this class: <TResult:Ljava/lang/Object;>Lcom/baidu/tieba/mua<TTResult;>; */
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes5.dex */
-public final class mua<TResult> {
+public class mua extends sua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
+    public boolean a;
     public boolean b;
-    public TResult c;
-    public Exception d;
-    public List<ava<TResult>> e;
+    public final /* synthetic */ KsNativeAd c;
+    public final /* synthetic */ lua d;
 
-    public mua() {
+    public mua(lua luaVar, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {luaVar, ksNativeAd};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,101 +34,37 @@ public final class mua<TResult> {
                 return;
             }
         }
-        this.a = new Object();
-        this.e = new ArrayList();
+        this.d = luaVar;
+        this.c = ksNativeAd;
     }
 
-    public final Exception c() {
-        InterceptResult invokeV;
-        Exception exc;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            synchronized (this.a) {
-                exc = this.d;
-            }
-            return exc;
-        }
-        return (Exception) invokeV.objValue;
-    }
-
-    public final TResult d() {
-        InterceptResult invokeV;
-        TResult tresult;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            synchronized (this.a) {
-                if (this.d == null) {
-                    tresult = this.c;
-                } else {
-                    throw new RuntimeException(this.d);
-                }
-            }
-            return tresult;
-        }
-        return (TResult) invokeV.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this.a) {
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final boolean f() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            synchronized (this.a) {
-                if (this.b) {
-                    e();
-                    if (this.d == null) {
-                        z = true;
-                    }
-                }
-                z = false;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final mua<TResult> a(ava<TResult> avaVar) {
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public boolean handleDownloadDialog(DialogInterface.OnClickListener onClickListener) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, avaVar)) == null) {
-            synchronized (this.a) {
-                if (!this.b) {
-                    this.e.add(avaVar);
-                } else {
-                    avaVar.a(this);
-                }
-            }
-            return this;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onClickListener)) == null) {
+            return false;
         }
-        return (mua) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void b() {
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdClicked(View view2, KsNativeAd ksNativeAd) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this.a) {
-                for (ava<TResult> avaVar : this.e) {
-                    try {
-                        avaVar.a(this);
-                    } catch (RuntimeException e) {
-                        throw e;
-                    } catch (Exception e2) {
-                        throw new RuntimeException(e2);
-                    }
-                }
-                this.e = null;
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdClicked(ksNativeAd, this.b, new String[0]);
+            this.b = true;
+        }
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onAdShow(KsNativeAd ksNativeAd) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ksNativeAd) == null) {
+            LogPrinter.d();
+            this.d.onAdShow(this.c, this.a, new String[0]);
+            this.a = true;
         }
     }
 }

@@ -1,92 +1,69 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.BigdayImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.FlutterLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.ImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalFileImageLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalPicDrawableLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.LocalVideoThumbLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.MemeLoaderProc2;
+import com.baidu.tbadk.core.util.resourceLoaderProc.NinePatchLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.PortraitLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleBlurLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleForeverMemoryLoaderProc;
+import com.baidu.tbadk.core.util.resourceLoaderProc.SimpleLoaderProc;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetBigday.BigdayInfo;
 /* loaded from: classes4.dex */
 public class dw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public int c;
-    public long d;
-    public int e;
-    public long f;
-    public long g;
 
-    public dw4() {
+    public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            cg.h().o(10, new SimpleLoaderProc(true, true, false, 10));
+            cg.h().o(11, new SimpleLoaderProc(false, true, false, 10));
+            cg.h().o(42, new SimpleLoaderProc(true, false, false, 10));
+            cg.h().o(13, new SimpleLoaderProc(true, true, false, 13));
+            cg.h().o(14, new SimpleLoaderProc(false, true, false, 13));
+            cg.h().o(17, new SimpleLoaderProc(true, true, false, 17));
+            cg.h().o(18, new SimpleLoaderProc(false, true, false, 17));
+            cg.h().o(39, new SimpleBlurLoaderProc(true, 39));
+            cg.h().o(12, new PortraitLoaderProc(false, false, 12));
+            cg.h().o(26, new PortraitLoaderProc(true, false, 26));
+            cg.h().o(28, new PortraitLoaderProc(false, false, 26));
+            cg.h().o(40, new PortraitBlurLoaderProc(false, false, 40));
+            cg.h().o(19, new NinePatchLoaderProc(19));
+            cg.h().o(24, new LocalPicDrawableLoaderProc(24));
+            cg.h().o(25, new PortraitLoaderProc(false, true, 26));
+            cg.h().o(27, new BigImageLoaderProc(27));
+            cg.h().o(29, new SimpleForeverLoaderProc(true, 29));
+            cg.h().o(32, new LocalFileDrawableLoaderProc(32));
+            cg.h().o(23, new q75());
+            cg.h().o(33, new MemeLoaderProc2());
+            cg.h().o(34, new EmotionShareLoaderProc());
+            cg.h().o(35, new LocalFileImageLoaderProc(160, 160));
+            cg.h().o(36, new LocalFileImageLoaderProc());
+            cg.h().o(43, new LocalFileImageLoaderProc2());
+            cg.h().o(37, new LocalVideoThumbLoaderProc());
+            cg.h().o(38, new ImageLoaderProc());
+            cg.h().o(41, new BigdayImageLoaderProc());
+            cg.h().o(44, new FlutterLoaderProc(true, 44, false));
+            cg.h().o(15, new SimpleLoaderProc(false, true, true, 15));
+            cg.h().o(16, new SimpleLoaderProc(false, true, true, 16));
+            cg.h().o(21, new SimpleLoaderProc(false, true, true, 21));
+            cg.h().o(30, new SimpleLoaderProc(true, true, false, 30));
+            cg.h().o(31, new SimpleLoaderProc(false, true, false, 30));
+            cg.h().o(45, new SimpleForeverMemoryLoaderProc(true, true, true, 45));
+            cg.h().o(46, new SimpleLoaderProc(true, true, false, 46));
+            cg.h().o(47, new SimpleLoaderProc(false, true, false, 46));
         }
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!StringUtils.isNULL(this.a) && this.d > 0) {
-                int i = this.e;
-                if (i == 1 || i == 3) {
-                    long j = this.f;
-                    if (j > 0) {
-                        long j2 = this.g;
-                        if (j2 > 0 && j2 > j) {
-                            return true;
-                        }
-                        return false;
-                    }
-                    return false;
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void b(BigdayInfo bigdayInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bigdayInfo) == null) && bigdayInfo != null && !StringUtils.isNULL(bigdayInfo.img_url) && bigdayInfo.id.longValue() > 0) {
-            if ((bigdayInfo.position.intValue() == 1 || bigdayInfo.position.intValue() == 3) && bigdayInfo.start_time.longValue() > 0 && bigdayInfo.end_time.longValue() > 0 && bigdayInfo.end_time.longValue() > bigdayInfo.start_time.longValue()) {
-                this.a = bigdayInfo.img_url;
-                this.b = bigdayInfo.jump_url;
-                this.c = bigdayInfo.img_colour.intValue();
-                this.d = bigdayInfo.id.longValue();
-                this.e = bigdayInfo.position.intValue();
-                this.f = bigdayInfo.start_time.longValue();
-                this.g = bigdayInfo.end_time.longValue();
-            }
-        }
-    }
-
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
-            if (!(obj instanceof dw4)) {
-                return false;
-            }
-            dw4 dw4Var = (dw4) obj;
-            if (!dw4Var.a() || !a() || this.d != dw4Var.d || !StringHelper.equals(this.a, dw4Var.a) || (((this.b != null || dw4Var.b != null) && !StringHelper.equals(this.b, dw4Var.b)) || this.c != dw4Var.c || this.e != dw4Var.e || this.f != dw4Var.f || this.g != dw4Var.g)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
     }
 }

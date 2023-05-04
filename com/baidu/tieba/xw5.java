@@ -1,13 +1,22 @@
 package com.baidu.tieba;
+
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface xw5<T> {
-    void a();
+public class xw5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(String str);
-
-    void c(T t);
-
-    String getTitle();
-
-    void onDestroy();
+    public static int a(int i, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
+            if (i != 80) {
+                return -1;
+            }
+            return z ? R.anim.pickerview_slide_in_bottom : R.anim.pickerview_slide_out_bottom;
+        }
+        return invokeCommon.intValue;
+    }
 }

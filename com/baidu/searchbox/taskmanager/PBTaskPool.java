@@ -124,7 +124,6 @@ public class PBTaskPool extends BaseTaskPool {
             arrayList.add(new InitArTask());
             arrayList.add(new InitAbi64WebViewCompatTask());
             arrayList.add(new ApplicationAsyncTask());
-            arrayList.add(new InitWebViewTask());
         } else if (i == 1) {
             arrayList.add(new InitAppSettingTask());
             arrayList.add(new InitViewConfigTask());
@@ -137,6 +136,7 @@ public class PBTaskPool extends BaseTaskPool {
             if (TbadkCoreApplication.getInst().isDebugMode()) {
                 arrayList.add(new InitDebugTask());
             }
+            arrayList.add(new InitWebViewTask());
         } else if (i == 3) {
             arrayList.add(new InitEmotionsTask());
             arrayList.add(new InitDiskStatTask());

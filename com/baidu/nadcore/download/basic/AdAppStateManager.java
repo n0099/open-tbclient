@@ -12,36 +12,36 @@ import com.baidu.nadcore.download.consts.AdDownloadAction;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.commonReceiver.PackageChangedReceiver;
-import com.baidu.tieba.cl0;
-import com.baidu.tieba.dm0;
-import com.baidu.tieba.i41;
-import com.baidu.tieba.ji0;
-import com.baidu.tieba.kj0;
-import com.baidu.tieba.lj0;
-import com.baidu.tieba.n21;
+import com.baidu.tieba.a11;
+import com.baidu.tieba.ak0;
+import com.baidu.tieba.el0;
+import com.baidu.tieba.fm0;
+import com.baidu.tieba.k41;
+import com.baidu.tieba.li0;
+import com.baidu.tieba.mj0;
 import com.baidu.tieba.nj0;
-import com.baidu.tieba.ol0;
+import com.baidu.tieba.p21;
 import com.baidu.tieba.pj0;
-import com.baidu.tieba.sh0;
-import com.baidu.tieba.sl0;
-import com.baidu.tieba.vl0;
-import com.baidu.tieba.y01;
-import com.baidu.tieba.yj0;
+import com.baidu.tieba.ql0;
+import com.baidu.tieba.rj0;
+import com.baidu.tieba.uh0;
+import com.baidu.tieba.ul0;
+import com.baidu.tieba.xl0;
 import java.util.HashMap;
 /* loaded from: classes2.dex */
 public class AdAppStateManager extends BroadcastReceiver {
     public static final String TAG = "AdAppStateManager";
-    public yj0 mBlockingNotifyData;
+    public ak0 mBlockingNotifyData;
     public long mBlockingTime;
-    public HashMap<String, yj0> mDatas;
+    public HashMap<String, ak0> mDatas;
     public boolean mIsForeGround;
 
     /* loaded from: classes2.dex */
     public class a implements Runnable {
-        public final /* synthetic */ yj0 a;
+        public final /* synthetic */ ak0 a;
 
-        public a(yj0 yj0Var) {
-            this.a = yj0Var;
+        public a(ak0 ak0Var) {
+            this.a = ak0Var;
         }
 
         @Override // java.lang.Runnable
@@ -51,20 +51,20 @@ public class AdAppStateManager extends BroadcastReceiver {
     }
 
     /* loaded from: classes2.dex */
-    public class b extends sl0<vl0> {
+    public class b extends ul0<xl0> {
         public b(Class cls) {
             super(cls);
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.sl0
-        public void onEvent(@NonNull vl0 vl0Var) {
-            AdAppStateManager.this.mIsForeGround = vl0Var.a;
-            if (vl0Var.a && AdAppStateManager.this.mBlockingNotifyData != null) {
-                String a = nj0.a(AdAppStateManager.this.mBlockingNotifyData.d);
+        @Override // com.baidu.tieba.ul0
+        public void onEvent(@NonNull xl0 xl0Var) {
+            AdAppStateManager.this.mIsForeGround = xl0Var.a;
+            if (xl0Var.a && AdAppStateManager.this.mBlockingNotifyData != null) {
+                String a = pj0.a(AdAppStateManager.this.mBlockingNotifyData.d);
                 if (a != null) {
-                    sh0.b(a);
-                    nj0.c(AdAppStateManager.this.mBlockingNotifyData.d);
+                    uh0.b(a);
+                    pj0.c(AdAppStateManager.this.mBlockingNotifyData.d);
                     return;
                 }
                 boolean z = AdAppStateManager.this.mBlockingNotifyData.q.s;
@@ -94,7 +94,7 @@ public class AdAppStateManager extends BroadcastReceiver {
         intentFilter.addAction(PackageChangedReceiver.ACTION_INSTALL);
         intentFilter.addAction(PackageChangedReceiver.ACTION_UNINSTALL);
         intentFilter.addDataScheme("package");
-        ji0.b().registerReceiver(this, intentFilter);
+        li0.b().registerReceiver(this, intentFilter);
         registerBackForegroundEvent();
     }
 
@@ -103,7 +103,7 @@ public class AdAppStateManager extends BroadcastReceiver {
     }
 
     public void registerBackForegroundEvent() {
-        ol0.a().b(new Object(), new b(vl0.class));
+        ql0.a().b(new Object(), new b(xl0.class));
     }
 
     public /* synthetic */ AdAppStateManager(a aVar) {
@@ -112,49 +112,49 @@ public class AdAppStateManager extends BroadcastReceiver {
 
     /* JADX INFO: Access modifiers changed from: private */
     public boolean isInternalValid(int i) {
-        if (i > 0 && !i41.c(System.currentTimeMillis(), this.mBlockingTime, i)) {
+        if (i > 0 && !k41.c(System.currentTimeMillis(), this.mBlockingTime, i)) {
             return true;
         }
         return false;
     }
 
-    public void launchAfterInstall(yj0 yj0Var) {
-        if (yj0Var == null) {
+    public void launchAfterInstall(ak0 ak0Var) {
+        if (ak0Var == null) {
             return;
         }
         if (!this.mIsForeGround) {
-            this.mBlockingNotifyData = yj0Var;
+            this.mBlockingNotifyData = ak0Var;
             this.mBlockingTime = System.currentTimeMillis();
             return;
         }
-        launch(yj0Var);
+        launch(ak0Var);
     }
 
-    public void register(@NonNull yj0 yj0Var) {
-        if (TextUtils.isEmpty(yj0Var.d)) {
+    public void register(@NonNull ak0 ak0Var) {
+        if (TextUtils.isEmpty(ak0Var.d)) {
             return;
         }
-        y01.e(this.mDatas, yj0Var.d, yj0Var);
+        a11.e(this.mDatas, ak0Var.d, ak0Var);
     }
 
-    public void launch(yj0 yj0Var) {
+    public void launch(ak0 ak0Var) {
         this.mBlockingNotifyData = null;
-        if (yj0Var == null) {
+        if (ak0Var == null) {
             return;
         }
-        if (!TextUtils.isEmpty(yj0Var.d)) {
-            String a2 = nj0.a(yj0Var.d);
+        if (!TextUtils.isEmpty(ak0Var.d)) {
+            String a2 = pj0.a(ak0Var.d);
             if (!TextUtils.isEmpty(a2)) {
-                sh0.b(a2);
-                nj0.c(yj0Var.d);
+                uh0.b(a2);
+                pj0.c(ak0Var.d);
                 return;
             }
         }
-        if ((!TextUtils.isEmpty(yj0Var.p.c) && sh0.b(yj0Var.p.c)) || !yj0Var.q.u) {
+        if ((!TextUtils.isEmpty(ak0Var.p.c) && uh0.b(ak0Var.p.c)) || !ak0Var.q.u) {
             return;
         }
-        cl0.g(yj0Var.d);
-        lj0.d(AdDownloadAction.OPEN, yj0Var);
+        el0.g(ak0Var.d);
+        nj0.d(AdDownloadAction.OPEN, ak0Var);
     }
 
     @Override // android.content.BroadcastReceiver
@@ -169,41 +169,41 @@ public class AdAppStateManager extends BroadcastReceiver {
         } else {
             str = "";
         }
-        yj0 yj0Var = (yj0) y01.b(this.mDatas, str);
-        if (yj0Var == null) {
+        ak0 ak0Var = (ak0) a11.b(this.mDatas, str);
+        if (ak0Var == null) {
             return;
         }
         if (TextUtils.equals(PackageChangedReceiver.ACTION_INSTALL, intent.getAction())) {
-            yj0Var.c = AdDownloadStatus.INSTALLED;
-            yj0Var.q.q = System.currentTimeMillis();
+            ak0Var.c = AdDownloadStatus.INSTALLED;
+            ak0Var.q.q = System.currentTimeMillis();
             try {
-                PackageInfo packageInfo = ji0.b().getPackageManager().getPackageInfo(yj0Var.d, 0);
+                PackageInfo packageInfo = li0.b().getPackageManager().getPackageInfo(ak0Var.d, 0);
                 if (packageInfo != null) {
-                    yj0Var.o = packageInfo.versionName;
-                    yj0Var.n = packageInfo.versionCode;
+                    ak0Var.o = packageInfo.versionName;
+                    ak0Var.n = packageInfo.versionCode;
                 }
             } catch (Throwable th) {
                 th.printStackTrace();
             }
-            yj0Var.q.j = ClogBuilder.Area.APP_NOTIFICATION.type;
-            lj0.b().f(AdDownloadAction.INSTALL_FINISH, yj0Var);
-            yj0Var.q.p = 0L;
+            ak0Var.q.j = ClogBuilder.Area.APP_NOTIFICATION.type;
+            nj0.b().f(AdDownloadAction.INSTALL_FINISH, ak0Var);
+            ak0Var.q.p = 0L;
             boolean z = true;
-            if (dm0.b().a().a("nad_uad_launch_immediate", 0) != 1) {
+            if (fm0.b().a().a("nad_uad_launch_immediate", 0) != 1) {
                 z = false;
             }
             if (z) {
-                n21.a(new a(yj0Var), "nad_uad_launch_immediate", 0, 1500L);
+                p21.a(new a(ak0Var), "nad_uad_launch_immediate", 0, 1500L);
             } else {
-                launchAfterInstall(yj0Var);
+                launchAfterInstall(ak0Var);
             }
         } else if (PackageChangedReceiver.ACTION_UNINSTALL.equals(intent.getAction())) {
-            lj0.b().f(AdDownloadAction.REMOVE, yj0Var);
-            if (yj0Var.q.q > 0) {
-                kj0.a().b(yj0Var);
+            nj0.b().f(AdDownloadAction.REMOVE, ak0Var);
+            if (ak0Var.q.q > 0) {
+                mj0.a().b(ak0Var);
             }
-            yj0Var.q.p = -1L;
+            ak0Var.q.p = -1L;
         }
-        pj0.b().d();
+        rj0.b().d();
     }
 }

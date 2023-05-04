@@ -1,50 +1,62 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation;
+import com.baidu.swan.bdprivate.extensions.loginauthmobile.LoginAndGetMobileActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class up3 {
+public class up3 extends ActivityDelegation implements jo1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948218641, "Lcom/baidu/tieba/up3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948218641, "Lcom/baidu/tieba/up3;");
-                return;
+    public up3() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        a = fo1.a;
     }
 
-    public static void a(String str, String str2, String str3, String str4, String str5) {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65537, null, str, str2, str3, str4, str5) == null) {
-            ye3 ye3Var = new ye3();
-            ye3Var.a = "swan";
-            ye3Var.b = str;
-            ye3Var.g = str2;
-            if (TextUtils.equals(str, "click")) {
-                ye3Var.e = str3;
-            }
-            ye3Var.f = str5;
-            ye3Var.a("source", str4);
-            if (a) {
-                Log.d("LoginAndGetMobileStatics", "staticLoginResult: event = " + ye3Var.f());
-            }
-            oe3.x("1372", ye3Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            vp3.b();
+            finish();
+        }
+    }
+
+    @Override // com.baidu.searchbox.process.ipc.delegate.activity.ActivityDelegation
+    public boolean onExec() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Intent intent = new Intent(getAgent(), LoginAndGetMobileActivity.class);
+            intent.putExtras(this.mParams);
+            getAgent().startActivity(intent);
+            getAgent().overridePendingTransition(R.anim.obfuscated_res_0x7f0100a4, 0);
+            vp3.c(this);
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.jo1
+    public void onResult(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.mResult.putInt("loginStatusCode", i);
+            c();
         }
     }
 }

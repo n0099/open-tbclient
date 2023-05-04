@@ -1,82 +1,122 @@
 package com.baidu.tieba;
 
-import androidx.exifinterface.media.ExifInterface;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
 /* loaded from: classes5.dex */
-public class ln1 {
+public final class ln1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static byte[] a(byte[] bArr) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947948538, "Lcom/baidu/tieba/ln1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947948538, "Lcom/baidu/tieba/ln1;");
+                return;
+            }
+        }
+        a = new String[]{"0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "a", "b", "c", "d", "e", "f"};
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:4:0x0004 */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v0, resolved type: byte */
+    /* JADX DEBUG: Multi-variable search result rejected for r4v1, resolved type: int */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r4v5, types: [int] */
+    public static String a(byte b) {
+        InterceptResult invokeB;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeB = interceptable.invokeB(65537, null, b)) == null) {
+            if (b < 0) {
+                b += 256;
+            }
+            return a[b / 16] + a[b % 16];
+        }
+        return (String) invokeB.objValue;
+    }
+
+    public static String b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            byte[] bArr2 = new byte[256];
-            for (int i = 0; i < 256; i++) {
-                bArr2[i] = (byte) i;
-            }
-            if (bArr != null && bArr.length != 0) {
-                int i2 = 0;
-                int i3 = 0;
-                for (int i4 = 0; i4 < 256; i4++) {
-                    i3 = ((bArr[i2] & 255) + (bArr2[i4] & 255) + i3) & 255;
-                    byte b = bArr2[i4];
-                    bArr2[i4] = bArr2[i3];
-                    bArr2[i3] = b;
-                    i2 = (i2 + 1) % bArr.length;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            String str2 = "";
+            try {
+                if (TextUtils.isEmpty(str)) {
+                    return "";
                 }
-                return bArr2;
+                String str3 = new String(str);
+                try {
+                    return c(MessageDigest.getInstance("MD5").digest(str3.getBytes()));
+                } catch (Throwable th) {
+                    th = th;
+                    str2 = str3;
+                    gn1.d(th);
+                    return str2;
+                }
+            } catch (Throwable th2) {
+                th = th2;
             }
-            return null;
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static String c(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bArr)) == null) {
+            StringBuffer stringBuffer = new StringBuffer();
+            for (byte b : bArr) {
+                stringBuffer.append(a(b));
+            }
+            return stringBuffer.toString();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, bArr)) == null) {
+            if (bArr == null || bArr.length <= 0) {
+                return "";
+            }
+            try {
+                return c(MessageDigest.getInstance("MD5").digest(bArr));
+            } catch (Throwable th) {
+                gn1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static byte[] e(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, bArr)) == null) {
+            if (bArr == null || bArr.length <= 0) {
+                return null;
+            }
+            try {
+                return MessageDigest.getInstance("MD5").digest(bArr);
+            } catch (Throwable th) {
+                gn1.d(th);
+                return null;
+            }
         }
         return (byte[]) invokeL.objValue;
-    }
-
-    public static byte[] b(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            if (bArr != null && bArr2 != null) {
-                return d(bArr, bArr2);
-            }
-            return null;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] c(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
-            if (bArr != null && bArr2 != null) {
-                return d(bArr, bArr2);
-            }
-            return null;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static byte[] d(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, bArr, bArr2)) == null) {
-            byte[] a = a(bArr2);
-            byte[] bArr3 = new byte[bArr.length];
-            int i = 0;
-            int i2 = 0;
-            for (int i3 = 0; i3 < bArr.length; i3++) {
-                i = (i + 1) & 255;
-                i2 = ((a[i] & 255) + i2) & 255;
-                byte b = a[i];
-                a[i] = a[i2];
-                a[i2] = b;
-                bArr3[i3] = (byte) (a[((a[i] & 255) + (a[i2] & 255)) & 255] ^ bArr[i3]);
-                bArr3[i3] = (byte) (bArr3[i3] ^ ExifInterface.START_CODE);
-            }
-            return bArr3;
-        }
-        return (byte[]) invokeLL.objValue;
     }
 }

@@ -1,157 +1,143 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.SpannableString;
-import android.text.SpannableStringBuilder;
-import android.view.View;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.kz6;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.data.VirtualImageCustomState;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
-import java.util.HashMap;
 import java.util.List;
-import kotlin.Unit;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.functions.Function2;
 import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import kotlin.text.StringsKt__StringsKt;
-import tbclient.FeedContentResource;
 /* loaded from: classes5.dex */
 public final class my6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ny6 a;
+    public final List<qy6> b;
+    public final List<qy6> c;
+    public final VirtualImageCustomState d;
+    public final lz6 e;
+    public final lz6 f;
 
-    /* loaded from: classes5.dex */
-    public static final class a extends ty6 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ lw6 b;
-        public final /* synthetic */ tx6 c;
-        public final /* synthetic */ ex6 d;
-
-        public a(lw6 lw6Var, tx6 tx6Var, ex6 ex6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {lw6Var, tx6Var, ex6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            this.b = lw6Var;
-            this.c = tx6Var;
-            this.d = ex6Var;
-        }
-
-        @Override // com.baidu.tieba.ty6, android.text.style.ClickableSpan
-        public void onClick(View widget) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, widget) == null) {
-                Intrinsics.checkNotNullParameter(widget, "widget");
-                Function2<Context, String, Unit> d = this.b.d();
-                Context context = widget.getContext();
-                Intrinsics.checkNotNullExpressionValue(context, "widget.context");
-                String b = lz6.b(this.c.d(), this.d.c());
-                Intrinsics.checkNotNullExpressionValue(b, "appendParams(richTextDat…xtraData.schemaLocalInfo)");
-                d.invoke(context, b);
-                vx6 e = this.c.e();
-                if (e != null) {
-                    this.b.e().invoke(e);
-                }
+            if (obj instanceof my6) {
+                my6 my6Var = (my6) obj;
+                return Intrinsics.areEqual(this.a, my6Var.a) && Intrinsics.areEqual(this.b, my6Var.b) && Intrinsics.areEqual(this.c, my6Var.c) && Intrinsics.areEqual(this.d, my6Var.d) && Intrinsics.areEqual(this.e, my6Var.e) && Intrinsics.areEqual(this.f, my6Var.f);
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:22:0x008e A[Catch: Exception -> 0x00e9, TryCatch #0 {Exception -> 0x00e9, blocks: (B:11:0x0031, B:13:0x0059, B:14:0x0064, B:16:0x0082, B:22:0x008e, B:24:0x009f, B:30:0x00d6, B:25:0x00b3, B:27:0x00bd, B:29:0x00c5, B:31:0x00dd), top: B:41:0x0031 }] */
-    /* JADX WARN: Removed duplicated region for block: B:44:0x00ef A[SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:46:0x0025 A[SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static final void a(List<FeedContentResource> list, SpannableStringBuilder stringBuilder, ex6 feedExtraData, final lw6 uiState) {
-        sy6 sy6Var;
-        tx6 c;
-        String c2;
-        boolean z;
+    public int hashCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, list, stringBuilder, feedExtraData, uiState) == null) {
-            Intrinsics.checkNotNullParameter(list, "<this>");
-            Intrinsics.checkNotNullParameter(stringBuilder, "stringBuilder");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            Intrinsics.checkNotNullParameter(uiState, "uiState");
-            if (ListUtils.isEmpty(list)) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            VirtualImageCustomState virtualImageCustomState = this.d;
+            int hashCode2 = (hashCode + (virtualImageCustomState == null ? 0 : virtualImageCustomState.hashCode())) * 31;
+            lz6 lz6Var = this.e;
+            int hashCode3 = (hashCode2 + (lz6Var == null ? 0 : lz6Var.hashCode())) * 31;
+            lz6 lz6Var2 = this.f;
+            return hashCode3 + (lz6Var2 != null ? lz6Var2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "CardVirtualHeadData(imageData=" + this.a + ", mainData=" + this.b + ", extraData=" + this.c + ", stateData=" + this.d + ", showStatData=" + this.e + ", clickStatData=" + this.f + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public my6(ny6 imageData, List<? extends qy6> mainData, List<? extends qy6> extraData, VirtualImageCustomState virtualImageCustomState, lz6 lz6Var, lz6 lz6Var2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imageData, mainData, extraData, virtualImageCustomState, lz6Var, lz6Var2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            SpannableString spannableString = null;
-            for (FeedContentResource feedContentResource : list) {
-                try {
-                    HashMap<String, Class> a2 = vy6.a();
-                    kz6.a aVar = kz6.a;
-                    Integer num = feedContentResource.type;
-                    Intrinsics.checkNotNullExpressionValue(num, "content.type");
-                    Class cls = a2.get(aVar.a(num.intValue()));
-                    Intrinsics.checkNotNull(cls);
-                    sy6Var = (sy6) cls.newInstance();
-                    if (sy6Var instanceof zy6) {
-                        ((zy6) sy6Var).a(new cz6() { // from class: com.baidu.tieba.by6
-                            public static /* synthetic */ Interceptable $ic;
-                            public transient /* synthetic */ FieldHolder $fh;
-
-                            @Override // com.baidu.tieba.cz6
-                            public final void onUpdate() {
-                                Interceptable interceptable2 = $ic;
-                                if (interceptable2 == null || interceptable2.invokeV(1048576, this) == null) {
-                                    my6.b(lw6.this);
-                                }
-                            }
-                        });
-                    }
-                    c = kz6.a.c(feedContentResource, feedExtraData.a(), feedExtraData.b(), feedExtraData.d());
-                    c2 = c.f().c();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (c2 != null && c2.length() != 0) {
-                    z = false;
-                    if (!z) {
-                        String c3 = c.f().c();
-                        if (StringsKt__StringsJVMKt.endsWith$default(c3, "\n", false, 2, null)) {
-                            c3 = StringsKt__StringsKt.replaceRange((CharSequence) c3, c3.length() - 1, c3.length(), (CharSequence) " \n").toString();
-                        } else if (Intrinsics.areEqual(feedContentResource, CollectionsKt___CollectionsKt.last((List<? extends Object>) list)) && !StringsKt__StringsJVMKt.endsWith$default(c3, " ", false, 2, null)) {
-                            c3 = c3 + WebvttCueParser.CHAR_SPACE;
-                        }
-                        c.f().d(c3);
-                    }
-                    spannableString = sy6Var.b(zu6.a, c, new a(uiState, c, feedExtraData));
-                    if (spannableString == null) {
-                        stringBuilder.append((CharSequence) spannableString);
-                    }
-                }
-                z = true;
-                if (!z) {
-                }
-                spannableString = sy6Var.b(zu6.a, c, new a(uiState, c, feedExtraData));
-                if (spannableString == null) {
-                }
-            }
         }
+        Intrinsics.checkNotNullParameter(imageData, "imageData");
+        Intrinsics.checkNotNullParameter(mainData, "mainData");
+        Intrinsics.checkNotNullParameter(extraData, "extraData");
+        this.a = imageData;
+        this.b = mainData;
+        this.c = extraData;
+        this.d = virtualImageCustomState;
+        this.e = lz6Var;
+        this.f = lz6Var2;
     }
 
-    public static final void b(lw6 uiState) {
+    public final lz6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, uiState) == null) {
-            Intrinsics.checkNotNullParameter(uiState, "$uiState");
-            uiState.b();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
         }
+        return (lz6) invokeV.objValue;
+    }
+
+    public final List<qy6> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final ny6 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (ny6) invokeV.objValue;
+    }
+
+    public final List<qy6> d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public final lz6 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.e;
+        }
+        return (lz6) invokeV.objValue;
+    }
+
+    public final VirtualImageCustomState f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
+        }
+        return (VirtualImageCustomState) invokeV.objValue;
     }
 }

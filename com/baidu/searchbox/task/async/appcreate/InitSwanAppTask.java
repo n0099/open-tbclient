@@ -1,7 +1,7 @@
 package com.baidu.searchbox.task.async.appcreate;
 
 import com.baidu.searchbox.performance.speed.task.LaunchTask;
-import com.baidu.tieba.v16;
+import com.baidu.tieba.w26;
 /* loaded from: classes2.dex */
 public class InitSwanAppTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -16,6 +16,6 @@ public class InitSwanAppTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public void execute() {
-        v16.a();
+        w26.a();
     }
 }

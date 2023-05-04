@@ -1,42 +1,29 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.holder.CardViewHolder;
+import com.baidu.tieba.tbadkCore.LikeModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class x69 extends zf6<v59> {
+/* loaded from: classes7.dex */
+public class x69 extends vm<i89, CardViewHolder<m99>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbImageView i;
-    public View j;
-    public View k;
-
-    @Override // com.baidu.tieba.zf6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01b8 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
+    public TbPageContext<?> a;
+    public LikeModel b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public x69(TbPageContext tbPageContext) {
-        super(tbPageContext);
+    public x69(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity(), i89.l);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -46,50 +33,42 @@ public class x69 extends zf6<v59> {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View h = h();
-        this.j = h;
-        this.i = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f090661);
-        this.k = this.j.findViewById(R.id.obfuscated_res_0x7f0916e9);
+        this.a = tbPageContext;
+        this.b = new LikeModel(tbPageContext);
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf6
-    /* renamed from: r */
-    public void l(v59 v59Var) {
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public CardViewHolder<m99> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, v59Var) == null) {
-            if (v59Var == null) {
-                this.j.setVisibility(8);
-            }
-            ViewGroup.LayoutParams layoutParams = this.k.getLayoutParams();
-            if (layoutParams != null) {
-                if (layoutParams.width > 0) {
-                    layoutParams.width = v59Var.a;
-                }
-                if (layoutParams.height > 0) {
-                    layoutParams.height = v59Var.b;
-                }
-            }
-            this.k.setLayoutParams(layoutParams);
-            this.j.setVisibility(0);
-            m(this.b, TbadkCoreApplication.getInst().getSkinType());
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            m99 m99Var = new m99(this.a);
+            m99Var.z(this.b);
+            return new CardViewHolder<>(m99Var);
         }
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.zf6
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, i89 i89Var, CardViewHolder<m99> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, i89Var, cardViewHolder})) == null) {
+            cardViewHolder.a().i(i89Var);
+            cardViewHolder.a().j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            return cardViewHolder.getView();
         }
-        this.a = i;
-        SkinManager.setImageResource(this.i, R.drawable.icon_mine_more);
-        SkinManager.setBackgroundResource(this.j, R.drawable.btn_look_more_selector);
+        return (View) invokeCommon.objValue;
     }
 }

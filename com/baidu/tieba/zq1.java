@@ -6,56 +6,30 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
+import java.io.File;
 /* loaded from: classes7.dex */
-public class zq1 implements mt1 {
+public class zq1 implements nt1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.mt1
-    public ExecutorService d() {
+    @Override // com.baidu.tieba.nt1
+    public String[] a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return null;
         }
-        return (ExecutorService) invokeV.objValue;
+        return (String[]) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.mt1
-    public void e(String str, int i, JSONArray jSONArray) {
+    @Override // com.baidu.tieba.nt1
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, jSONArray) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.mt1
-    public void f(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mt1
-    public void g(String str, String str2, int i, String str3, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mt1
-    public void i(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, str2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.mt1
-    public void n(String str, String str2, int i, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-        }
+        return invokeV.booleanValue;
     }
 
     public zq1() {
@@ -70,5 +44,21 @@ public class zq1 implements mt1 {
                 interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
+
+    @Override // com.baidu.tieba.nt1
+    public String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!er2.w0().d()) {
+                if (xd2.b()) {
+                    return xd2.b + File.separator + "libcom.baidu.zeus.so";
+                }
+                return xd2.d + File.separator + "libcom.baidu.zeus.so";
+            }
+            return null;
+        }
+        return (String) invokeV.objValue;
     }
 }

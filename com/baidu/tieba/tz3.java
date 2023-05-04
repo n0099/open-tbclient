@@ -1,74 +1,170 @@
 package com.baidu.tieba;
 
-import android.app.NotificationChannel;
-import android.app.NotificationManager;
-import android.app.PendingIntent;
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.drawable.Drawable;
-import android.os.Build;
-import android.text.TextUtils;
-import androidx.core.app.NotificationCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.down.manage.Download;
+import com.baidu.down.request.task.ProgressInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Collection;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class tz3 {
+public class tz3 extends sz3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(Context context, int i) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948198460, "Lcom/baidu/tieba/tz3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948198460, "Lcom/baidu/tieba/tz3;");
+                return;
+            }
+        }
+        d = ho1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz3(Download download) {
+        super("onSuccess", 0, g(f(download), ""));
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(65536, null, context, i) == null) {
-            ((NotificationManager) context.getSystemService("notification")).cancel(i);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {download};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    public static final Bitmap b(Drawable drawable) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz3(String str) {
+        super("onSuccess", 0, g(null, str));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public tz3(Collection<Download> collection) {
+        super("onSuccess", 0, g(e(collection), ""));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {collection};
+            interceptable.invokeUnInit(65539, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), (String) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65539, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public static JSONArray e(Collection<Download> collection) {
         InterceptResult invokeL;
-        Bitmap.Config config;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, drawable)) == null) {
-            int intrinsicWidth = drawable.getIntrinsicWidth();
-            int intrinsicHeight = drawable.getIntrinsicHeight();
-            if (drawable.getOpacity() != -1) {
-                config = Bitmap.Config.ARGB_8888;
-            } else {
-                config = Bitmap.Config.RGB_565;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, collection)) == null) {
+            JSONArray jSONArray = new JSONArray();
+            if (collection == null) {
+                return jSONArray;
             }
-            Bitmap createBitmap = Bitmap.createBitmap(intrinsicWidth, intrinsicHeight, config);
-            Canvas canvas = new Canvas(createBitmap);
-            drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
-            drawable.draw(canvas);
-            return createBitmap;
+            for (Download download : collection) {
+                if (download != null) {
+                    jSONArray.put(f(download));
+                }
+            }
+            return jSONArray;
         }
-        return (Bitmap) invokeL.objValue;
+        return (JSONArray) invokeL.objValue;
     }
 
-    public static void c(Context context, int i, String str, String str2, Bitmap bitmap, long j, PendingIntent pendingIntent, String str3, String str4) {
-        NotificationCompat.Builder builder;
+    public static JSONObject f(Download download) {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{context, Integer.valueOf(i), str, str2, bitmap, Long.valueOf(j), pendingIntent, str3, str4}) == null) {
-            NotificationManager notificationManager = (NotificationManager) context.getSystemService("notification");
-            if (Build.VERSION.SDK_INT >= 26) {
-                notificationManager.createNotificationChannel(new NotificationChannel(String.valueOf(i), "swan_game_center", 4));
-                builder = new NotificationCompat.Builder(context, String.valueOf(i));
-            } else {
-                builder = new NotificationCompat.Builder(context);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, download)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            if (download == null) {
+                return jSONObject;
             }
-            if (!TextUtils.isEmpty(str3)) {
-                wz3.c("notifyShow", str3, str4);
+            try {
+                jSONObject.put("apkId", new gz3(download).c());
+                jSONObject.put("downloadId", download.getId());
+                jSONObject.put("packageName", download.getKeyByUser());
+                jSONObject.put("url", download.getUrl());
+                jSONObject.put("status", download.getState().ordinal());
+                jSONObject.put(ProgressInfo.JSON_KEY_CURRENT, download.getCurrentbytes());
+                jSONObject.put("total", download.getTotalbytes());
+                if (iz3.j(download)) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject.put("fileExist", str);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
+                }
             }
-            if (pendingIntent != null) {
-                builder.setContentIntent(pendingIntent);
-            }
-            NotificationCompat.Builder smallIcon = builder.setContentTitle(str).setContentText(str2).setWhen(j).setSmallIcon(R.drawable.obfuscated_res_0x7f08016a);
-            if (bitmap == null) {
-                bitmap = b(AppRuntime.getAppContext().getResources().getDrawable(R.drawable.obfuscated_res_0x7f08016a));
-            }
-            notificationManager.notify(i, smallIcon.setLargeIcon(bitmap).setAutoCancel(true).build());
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public static String g(Object obj, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, obj, str)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("data", obj);
+                jSONObject.put("message", str);
+            } catch (JSONException e) {
+                if (d) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

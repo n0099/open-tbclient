@@ -1,21 +1,252 @@
 package com.baidu.tieba;
 
-import android.os.Build;
+import android.annotation.SuppressLint;
+import android.app.ActivityManager;
+import android.os.Handler;
+import android.os.Message;
 import android.os.Process;
+import android.text.TextUtils;
 import android.util.Log;
+import android.view.Choreographer;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.uj3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
+import java.util.Set;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 /* loaded from: classes6.dex */
 public class u52 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean i;
+    public static final String j;
+    public static final String k;
+    public static final String l;
+    public static final String m;
+    public static final String n;
+    public static final String o;
+    public static final String p;
+    public static final String q;
+    public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
+    public e a;
+    public f b;
+    public c c;
+    public b d;
+    public ConcurrentMap<String, Object> e;
+    public boolean f;
+    public int g;
+    public int h;
+
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public final /* synthetic */ u52 b;
+
+        public b(u52 u52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u52Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = u52Var;
+        }
+
+        public /* synthetic */ b(u52 u52Var, a aVar) {
+            this(u52Var);
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a = true;
+                String a = w52.a();
+                if (!TextUtils.isEmpty(a)) {
+                    this.b.e.put("cpu", a);
+                }
+                this.a = false;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements Choreographer.FrameCallback {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public long a;
+        public int b;
+        public final /* synthetic */ u52 c;
+
+        public c(u52 u52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u52Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = u52Var;
+            this.a = -1L;
+            this.b = -1;
+        }
+
+        public /* synthetic */ c(u52 u52Var, a aVar) {
+            this(u52Var);
+        }
+
+        @Override // android.view.Choreographer.FrameCallback
+        public void doFrame(long j) {
+            int i;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeJ(1048576, this, j) != null) || !this.c.f) {
+                return;
+            }
+            long j2 = this.a;
+            if (j2 > 0 && this.b != (i = (int) ((1.0d / (j - j2)) * 1.0E9d))) {
+                this.b = i;
+                this.c.e.put("frame", Integer.valueOf(i));
+            }
+            this.a = j;
+            Choreographer.getInstance().postFrameCallback(this);
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class d {
+        public static /* synthetic */ Interceptable $ic;
+        public static final u52 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-422163529, "Lcom/baidu/tieba/u52$d;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-422163529, "Lcom/baidu/tieba/u52$d;");
+                    return;
+                }
+            }
+            a = new u52(null);
+        }
+    }
+
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes6.dex */
+    public class e extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u52 a;
+
+        public e(u52 u52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u52Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u52Var;
+        }
+
+        public /* synthetic */ e(u52 u52Var, a aVar) {
+            this(u52Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.e != null) {
+                this.a.f();
+                this.a.e.put("mem", Long.valueOf(((ActivityManager) er2.c().getSystemService("activity")).getProcessMemoryInfo(new int[]{Process.myPid()})[0].getTotalPss() / 1000));
+                if (this.a.a != null) {
+                    this.a.a.sendEmptyMessageDelayed(0, this.a.g);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements uj3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u52 a;
+
+        public f(u52 u52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u52Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u52Var;
+        }
+
+        public /* synthetic */ f(u52 u52Var, a aVar) {
+            this(u52Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qm3
+        /* renamed from: b */
+        public void a(Set<sj3<?>> set) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, set) == null) && set != null && set.size() > 0) {
+                for (sj3<?> sj3Var : set) {
+                    this.a.e.put(sj3Var.a, sj3Var.a());
+                }
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -30,140 +261,128 @@ public class u52 {
                 return;
             }
         }
-        a = fo1.a;
+        i = ho1.a;
+        j = tj3.d.a;
+        k = tj3.b.a;
+        l = tj3.c.a;
+        String str = tj3.g.a;
+        m = tj3.i.a;
+        n = tj3.e.a;
+        o = tj3.f.a;
+        p = tj3.h.a;
+        q = tj3.j.a;
+        r = tj3.k.a;
     }
 
-    public static synchronized String a() {
+    public final void k() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            if (!this.f) {
+                if (i) {
+                    Log.d("PropertyMonitor", "System monitor not started yet");
+                    return;
+                }
+                return;
+            }
+            this.f = false;
+            e eVar = this.a;
+            if (eVar != null) {
+                eVar.removeMessages(0);
+                this.a = null;
+            }
+            if (this.b != null) {
+                uj3.a().j(this.b, new sj3[0]);
+                this.b = null;
+            }
+            this.c = null;
+            this.d = null;
+            if (i) {
+                Log.d("PropertyMonitor", "Stop system monitor");
+            }
+        }
+    }
+
+    public u52() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.e = new ConcurrentHashMap();
+        this.g = 1000;
+    }
+
+    public static u52 g() {
         InterceptResult invokeV;
-        BufferedReader bufferedReader;
-        IOException e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            synchronized (u52.class) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "start cpu monitor thread");
-                }
-                try {
-                } catch (Throwable th) {
-                    th = th;
-                }
-                try {
-                    bufferedReader = new BufferedReader(new InputStreamReader(Runtime.getRuntime().exec(new String[]{"sh", "-c", "top -n 1 | grep " + Process.myPid()}).getInputStream()));
-                    try {
-                        String c = c(bufferedReader);
-                        if (a) {
-                            Log.d("SwanCpuProperty", "stop cpu monitor thread , cpu rate is : " + c);
-                        }
-                        zn4.d(bufferedReader);
-                        return c;
-                    } catch (IOException e2) {
-                        e = e2;
-                        if (a) {
-                            Log.e("SwanCpuProperty", "error in cpu monitor", e);
-                        }
-                        zn4.d(bufferedReader);
-                        return "";
-                    }
-                } catch (IOException e3) {
-                    bufferedReader = null;
-                    e = e3;
-                } catch (Throwable th2) {
-                    th = th2;
-                    zn4.d(null);
-                    throw th;
-                }
-            }
-        } else {
-            return (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            return d.a;
+        }
+        return (u52) invokeV.objValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.d.a) {
+            rk3.k(this.d, "swanAppCpuMonitor");
         }
     }
 
-    public static float b() {
+    public Map<String, Object> h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String a2 = a();
-            try {
-                if (a2.contains("%")) {
-                    return Float.parseFloat(a2.replace("%", "").trim());
-                }
-                return Float.parseFloat(a2);
-            } catch (Exception e) {
-                if (a) {
-                    Log.d("SwanCpuProperty", "解析cpu使用率错误", e);
-                    return 0.0f;
-                }
-                return 0.0f;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            this.h++;
+            j();
+            return this.e;
         }
-        return invokeV.floatValue;
+        return (Map) invokeV.objValue;
     }
 
-    /* JADX WARN: Can't wrap try/catch for region: R(10:6|(1:9)|10|(6:12|(1:15)|16|17|18|19)|(1:27)(1:32)|(1:31)|16|17|18|19) */
-    /* JADX WARN: Code restructure failed: missing block: B:28:0x0053, code lost:
-        r11 = move-exception;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:30:0x0056, code lost:
-        if (com.baidu.tieba.u52.a != false) goto L25;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:31:0x0058, code lost:
-        android.util.Log.e("SwanCpuProperty", "get CPU Fail : " + r11.getMessage());
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String c(BufferedReader bufferedReader) throws IOException {
-        InterceptResult invokeL;
-        char read;
-        boolean z;
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, bufferedReader)) == null) {
-            char[] cArr = new char[4];
-            int i = 0;
-            if (Build.VERSION.SDK_INT >= 26) {
-                boolean z2 = true;
-                int i2 = 0;
-                int i3 = 0;
-                while (true) {
-                    char read2 = (char) bufferedReader.read();
-                    if (z2 && read2 != ' ') {
-                        i2++;
-                    }
-                    if (i2 == 9) {
-                        if (read2 != '.' && read2 != ' ') {
-                            cArr[i3] = read2;
-                            i3++;
-                        }
-                        i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                        return i + "%";
-                    }
-                    if (read2 == ' ') {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    if (i2 <= 9 && read2 != 65535 && i3 < 4) {
-                        z2 = z;
-                    }
-                    i = Integer.parseInt(String.valueOf(cArr, 0, i3)) / Runtime.getRuntime().availableProcessors();
-                    return i + "%";
-                }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            int i2 = this.h - 1;
+            this.h = i2;
+            if (i2 <= 0) {
+                k();
             }
-            int i4 = 0;
-            do {
-                read = (char) bufferedReader.read();
-                if (read != ' ' && i4 != 4) {
-                    cArr[i4] = read;
-                    i4++;
-                } else {
-                    i4 = 0;
-                }
-                if (read == '%') {
-                    break;
-                }
-            } while (read != 65535);
-            return String.valueOf(cArr, 0, i4);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public /* synthetic */ u52(a aVar) {
+        this();
+    }
+
+    public final void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            if (this.f) {
+                if (i) {
+                    Log.d("PropertyMonitor", "System monitor already started");
+                    return;
+                }
+                return;
+            }
+            this.f = true;
+            this.c = new c(this, null);
+            Choreographer.getInstance().postFrameCallback(this.c);
+            this.d = new b(this, null);
+            this.b = new f(this, null);
+            uj3.a().g(this.b, tj3.d, tj3.b, tj3.c, tj3.i, tj3.e, tj3.f, tj3.g, tj3.h, tj3.j, tj3.k);
+            e eVar = new e(this, null);
+            this.a = eVar;
+            eVar.sendEmptyMessage(0);
+            if (i) {
+                Log.d("PropertyMonitor", "Start system monitor");
+            }
+        }
     }
 }

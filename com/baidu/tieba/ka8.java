@@ -1,31 +1,68 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.view.View;
-import com.baidu.android.imsdk.internal.Constants;
+import android.widget.ListView;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.MsglistModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Objects;
-import kotlin.Unit;
-import kotlin.jvm.functions.Function2;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class ka8<T> {
+public class ka8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final va8<T> a;
-    public Function2<? super View, ? super va8<T>, Unit> b;
-    public Function2<? super View, ? super va8<T>, Unit> c;
+    public final ArrayList<ja8> a;
 
-    public ka8(va8<T> data) {
+    /* loaded from: classes5.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ListView a;
+        public final /* synthetic */ List b;
+        public final /* synthetic */ ja8 c;
+        public final /* synthetic */ ChatMessage d;
+        public final /* synthetic */ ChatMessage e;
+
+        public a(ka8 ka8Var, ListView listView, List list, ja8 ja8Var, ChatMessage chatMessage, ChatMessage chatMessage2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ka8Var, listView, list, ja8Var, chatMessage, chatMessage2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = listView;
+            this.b = list;
+            this.c = ja8Var;
+            this.d = chatMessage;
+            this.e = chatMessage2;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.a.getLastVisiblePosition() != this.b.size() - 1) {
+                return;
+            }
+            this.c.b(this.a, this.d, this.e);
+        }
+    }
+
+    public ka8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {data};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,118 +72,29 @@ public abstract class ka8<T> {
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(data, "data");
-        this.a = data;
+        ArrayList<ja8> arrayList = new ArrayList<>(2);
+        this.a = arrayList;
+        arrayList.add(new ia8());
+        this.a.add(new la8());
     }
 
-    public boolean f(ka8<?> other) {
-        InterceptResult invokeL;
+    public void a(MsglistModel msglistModel, ListView listView) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, other)) == null) {
-            Intrinsics.checkNotNullParameter(other, "other");
-            if (this.a.e().c() != 2 && other.a.e().c() != 2) {
-                return false;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, msglistModel, listView) == null) && msglistModel != null && msglistModel.getData() != null) {
+            List<ChatMessage> chatMessages = msglistModel.getData().getChatMessages();
+            if (ListUtils.isEmpty(chatMessages)) {
+                return;
             }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final va8<T> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (va8) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.va8<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.va8<T>, kotlin.Unit> */
-    public final Function2<View, va8<T>, Unit> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return (Function2<? super View, ? super va8<T>, Unit>) this.b;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    /* JADX DEBUG: Type inference failed for r0v2. Raw type applied. Possible types: kotlin.jvm.functions.Function2<? super android.view.View, ? super com.baidu.tieba.va8<T>, kotlin.Unit>, kotlin.jvm.functions.Function2<android.view.View, com.baidu.tieba.va8<T>, kotlin.Unit> */
-    public final Function2<View, va8<T>, Unit> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return (Function2<? super View, ? super va8<T>, Unit>) this.c;
-        }
-        return (Function2) invokeV.objValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return Objects.hashCode(this.a);
-        }
-        return invokeV.intValue;
-    }
-
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Type inference failed for: r1v10 */
-    /* JADX WARN: Type inference failed for: r1v11 */
-    /* JADX WARN: Type inference failed for: r1v12 */
-    /* JADX WARN: Type inference failed for: r1v4, types: [java.lang.CharSequence] */
-    /* JADX WARN: Type inference failed for: r1v9 */
-    public boolean equals(Object obj) {
-        InterceptResult invokeL;
-        ka8 ka8Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
-            if (this == obj) {
-                return true;
-            }
-            va8<T> va8Var = (va8<T>) false;
-            if (obj instanceof ka8) {
-                ka8Var = (ka8) obj;
-            } else {
-                ka8Var = null;
-            }
-            if (this instanceof ma8) {
-                String a = ((ma8) this).c().g().a();
-                ?? r1 = va8Var;
-                if (ka8Var != null) {
-                    va8<T> va8Var2 = ka8Var.a;
-                    r1 = va8Var;
-                    if (va8Var2 != null) {
-                        ua8 g = va8Var2.g();
-                        r1 = va8Var;
-                        if (g != null) {
-                            r1 = (va8<T>) g.a();
-                        }
-                    }
+            ChatMessage chatMessage = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 1);
+            ChatMessage chatMessage2 = (ChatMessage) ListUtils.getItem(chatMessages, ListUtils.getCount(chatMessages) - 2);
+            Iterator<ja8> it = this.a.iterator();
+            while (it.hasNext()) {
+                ja8 next = it.next();
+                if (next.a(chatMessage, chatMessage2)) {
+                    listView.postDelayed(new a(this, listView, chatMessages, next, chatMessage, chatMessage2), 200L);
+                    return;
                 }
-                return TextUtils.equals(a, r1);
             }
-            va8<T> va8Var3 = this.a;
-            va8<T> va8Var4 = va8Var;
-            if (ka8Var != null) {
-                va8Var4 = ka8Var.a;
-            }
-            return Objects.equals(va8Var3, va8Var4);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public final void g(Function2<? super View, ? super va8<T>, Unit> function2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, function2) == null) {
-            this.b = function2;
-        }
-    }
-
-    public final void h(Function2<? super View, ? super va8<T>, Unit> function2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, function2) == null) {
-            this.c = function2;
         }
     }
 }

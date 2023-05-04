@@ -1,63 +1,454 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.RemoteException;
-import android.util.Log;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.view.animation.OvershootInterpolator;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ita;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
-import java.util.concurrent.atomic.AtomicBoolean;
+import com.fun.ad.sdk.FunAdSlot;
+import com.fun.ad.sdk.FunAdType;
+import com.fun.ad.sdk.FunSplashAd;
+import com.fun.ad.sdk.FunSplashAdInteractionListener;
+import com.fun.ad.sdk.internal.api.config.Ssp;
+import com.fun.ad.sdk.internal.api.ripper.AdRipper;
+import com.fun.ad.sdk.internal.api.utils.LogPrinter;
+import com.fun.ad.sdk.internal.api.utils.ViewUtils;
+import com.qq.e.ads.splash.SplashAD;
+import com.qq.e.ads.splash.SplashADZoomOutListener;
+import com.qq.e.comm.util.AdError;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
-public final class eta implements Runnable {
+public class eta extends ssa<SplashAD> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ Activity a;
-    public final /* synthetic */ ata b;
-    public final /* synthetic */ zsa c;
+    public boolean e;
+    public WeakReference<b> f;
 
-    public eta(zsa zsaVar, Activity activity, ata ataVar) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public eta(Ssp.Pid pid) {
+        super(FunAdType.obtainType(pid, FunAdType.AdType.SPLASH), pid, true, false, true);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zsaVar, activity, ataVar};
+            Object[] objArr = {pid};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((FunAdType) objArr2[0], (Ssp.Pid) objArr2[1], ((Boolean) objArr2[2]).booleanValue(), ((Boolean) objArr2[3]).booleanValue(), ((Boolean) objArr2[4]).booleanValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = zsaVar;
-        this.a = activity;
-        this.b = ataVar;
+        this.f = new WeakReference<>(null);
     }
 
-    @Override // java.lang.Runnable
-    public final void run() {
-        com.google.a.b.a.a.a.a aVar;
-        Bundle l;
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public AdRipper createAdRipper(Ssp.Pid pid) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            try {
-                AtomicBoolean atomicBoolean = new AtomicBoolean(false);
-                aVar = this.c.d;
-                String str = this.a.getApplicationInfo().packageName;
-                zsa zsaVar = this.c;
-                l = zsa.l();
-                aVar.a(str, Collections.singletonList(l), new Bundle(), new com.google.ar.core.x(this, atomicBoolean));
-                new Handler().postDelayed(new fta(this, atomicBoolean), 3000L);
-            } catch (RemoteException e) {
-                Log.w("ARCore-InstallService", "requestInstall threw, launching fullscreen.", e);
-                zsa zsaVar2 = this.c;
-                zsa.n(this.a, this.b);
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pid)) == null) ? new psa(pid) : (AdRipper) invokeL.objValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void destroyInternal(Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
+            SplashAD splashAD = (SplashAD) obj;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public void loadInternal(Context context, FunAdSlot funAdSlot) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, funAdSlot) == null) {
+            this.e = false;
+            a aVar = new a(this, r0, funAdSlot);
+            onLoadStart(funAdSlot);
+            SplashAD splashAD = new SplashAD(context.getApplicationContext(), this.mPid.pid, aVar, 0);
+            SplashAD[] splashADArr = {splashAD};
+            splashAD.fetchAdOnly();
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class a implements SplashADZoomOutListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public boolean b;
+        public final /* synthetic */ SplashAD[] c;
+        public final /* synthetic */ FunAdSlot d;
+        public final /* synthetic */ eta e;
+
+        public a(eta etaVar, SplashAD[] splashADArr, FunAdSlot funAdSlot) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {etaVar, splashADArr, funAdSlot};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = etaVar;
+            this.c = splashADArr;
+            this.d = funAdSlot;
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
+        public boolean isSupportZoomOut() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                LogPrinter.d("isSupportZoomOut", new Object[0]);
+                return true;
+            }
+            return invokeV.booleanValue;
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADExposure() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                LogPrinter.d();
+                this.e.onAdShow(this.c[0], this.a, new String[0]);
+                this.a = true;
             }
         }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADLoaded(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+                LogPrinter.d();
+                this.e.onAdLoaded((eta) this.c[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADPresent() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADTick(long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeJ(1048582, this, j) == null) {
+                LogPrinter.d();
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onNoAD(AdError adError) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048583, this, adError) == null) {
+                int errorCode = adError.getErrorCode();
+                LogPrinter.e("onNoAD code: " + errorCode + ", message: " + adError.getErrorMsg(), new Object[0]);
+                if (errorCode != 4005) {
+                    this.e.onError(errorCode, adError.getErrorMsg());
+                    return;
+                }
+                this.e.onAdError(this.c[0], adError.getErrorMsg());
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
+        public void onZoomOutPlayFinish() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+                LogPrinter.d("onZoomOutPlayFinish", new Object[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADClicked() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                this.e.onAdClicked(this.c[0], this.b, new String[0]);
+                this.b = true;
+                b bVar = this.e.f.get();
+                if (bVar != null) {
+                    String sid = this.d.getSid();
+                    FunSplashAdInteractionListener funSplashAdInteractionListener = bVar.e;
+                    if (funSplashAdInteractionListener != null) {
+                        funSplashAdInteractionListener.onAdClicked(sid);
+                    }
+                }
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADZoomOutListener
+        public void onZoomOut() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                this.e.e = true;
+                b bVar = this.e.f.get();
+                if (bVar != null) {
+                    bVar.c = true;
+                }
+                LogPrinter.d("onZoomOut", new Object[0]);
+                this.e.onAdClose(this.c[0]);
+            }
+        }
+
+        @Override // com.qq.e.ads.splash.SplashADListener
+        public void onADDismissed() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                LogPrinter.d();
+                eta etaVar = this.e;
+                if (!etaVar.e) {
+                    etaVar.onAdClose(this.c[0]);
+                    return;
+                }
+                b bVar = etaVar.f.get();
+                if (bVar != null) {
+                    bVar.a();
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements FunSplashAd {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ita a;
+        public SplashAD b;
+        public boolean c;
+        public ViewGroup d;
+        public FunSplashAdInteractionListener e;
+
+        /* loaded from: classes4.dex */
+        public class a implements ita.a {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ b a;
+
+            public a(b bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {bVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = bVar;
+            }
+        }
+
+        public b(SplashAD splashAD) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {splashAD};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = splashAD;
+        }
+
+        @Override // com.fun.ad.sdk.FunSplashAd
+        public void removeMiniWindow() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                LogPrinter.d();
+                a();
+            }
+        }
+
+        public void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                ita itaVar = this.a;
+                if (itaVar != null) {
+                    itaVar.g = null;
+                    itaVar.h = null;
+                }
+                ViewUtils.removeFromParent(this.d);
+                this.d = null;
+                this.a = null;
+                this.b = null;
+                this.e = null;
+            }
+        }
+
+        @Override // com.fun.ad.sdk.FunSplashAd
+        public boolean showMiniWindow(Activity activity, boolean z, FunSplashAdInteractionListener funSplashAdInteractionListener) {
+            InterceptResult invokeCommon;
+            b bVar;
+            int i;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{activity, Boolean.valueOf(z), funSplashAdInteractionListener})) == null) {
+                if (activity != null) {
+                    if (!this.c) {
+                        LogPrinter.d("isZoomOutPulled == false, will not show mini window", new Object[0]);
+                        return false;
+                    }
+                    ita itaVar = this.a;
+                    if (itaVar == null) {
+                        return false;
+                    }
+                    this.e = funSplashAdInteractionListener;
+                    ViewGroup viewGroup = (ViewGroup) activity.getWindow().getDecorView();
+                    ViewGroup viewGroup2 = (ViewGroup) activity.findViewById(16908290);
+                    a aVar = new a(this);
+                    itaVar.getClass();
+                    LogPrinter.d("zoomOut startZoomOut activity", new Object[0]);
+                    com.fun.module.gdt.q qVar = null;
+                    if (viewGroup != null && viewGroup2 != null) {
+                        if (itaVar.g != null && itaVar.h != null) {
+                            int[] iArr = new int[2];
+                            viewGroup.getLocationOnScreen(iArr);
+                            int[] iArr2 = itaVar.k;
+                            int i2 = iArr2[0] - iArr[0];
+                            int i3 = iArr2[1] - iArr[1];
+                            ViewUtils.removeFromParent(itaVar.h);
+                            viewGroup.addView(itaVar.h, new FrameLayout.LayoutParams(itaVar.i, itaVar.j));
+                            itaVar.h.setX(i2);
+                            itaVar.h.setY(i3);
+                            View view2 = itaVar.h;
+                            itaVar.g = null;
+                            itaVar.h = null;
+                            if (view2 != null) {
+                                Context context = viewGroup2.getContext();
+                                int[] iArr3 = new int[2];
+                                view2.getLocationOnScreen(iArr3);
+                                int width = view2.getWidth();
+                                int height = view2.getHeight();
+                                int width2 = viewGroup.getWidth();
+                                int height2 = viewGroup.getHeight();
+                                if (width2 == 0) {
+                                    width2 = itaVar.l;
+                                }
+                                if (height2 == 0) {
+                                    height2 = itaVar.m;
+                                }
+                                int i4 = itaVar.a;
+                                float f = i4 / width;
+                                int i5 = itaVar.b;
+                                float f2 = i5 / height;
+                                if (itaVar.e == 0) {
+                                    i = itaVar.c;
+                                } else {
+                                    i = (width2 - itaVar.c) - i4;
+                                }
+                                float f3 = i;
+                                float f4 = (height2 - itaVar.d) - i5;
+                                LogPrinter.d("zoomOut animationContainerWidth:" + width2 + " animationContainerHeight:" + height2, new Object[0]);
+                                StringBuilder sb = new StringBuilder();
+                                sb.append("zoomOut splashScreenX:");
+                                sb.append(iArr3[0]);
+                                sb.append(" splashScreenY:");
+                                sb.append(iArr3[1]);
+                                LogPrinter.d(sb.toString(), new Object[0]);
+                                LogPrinter.d("zoomOut splashWidth:" + width + " splashHeight:" + height, new Object[0]);
+                                LogPrinter.d("zoomOut width:" + itaVar.a + " height:" + itaVar.b, new Object[0]);
+                                LogPrinter.d("zoomOut animationDistX:" + f3 + " animationDistY:" + f4, new Object[0]);
+                                ViewUtils.removeFromParent(view2);
+                                viewGroup.addView(view2, new FrameLayout.LayoutParams(width, height));
+                                com.fun.module.gdt.q qVar2 = new com.fun.module.gdt.q(context, itaVar.c);
+                                view2.setPivotX(0.0f);
+                                view2.setPivotY(0.0f);
+                                if (z) {
+                                    view2.animate().scaleX(f).scaleY(f2).x(f3).y(f4).setInterpolator(new OvershootInterpolator(0.0f)).setDuration(itaVar.f).setListener(new hta(itaVar, aVar, view2, viewGroup2, f3, f4, iArr3, qVar2));
+                                } else {
+                                    itaVar.a(view2, viewGroup2, f3, f4, iArr3, qVar2, aVar);
+                                }
+                                bVar = this;
+                                qVar = qVar2;
+                                bVar.d = qVar;
+                                return true;
+                            }
+                        } else {
+                            LogPrinter.d("zoomOut splashAD or splashView is null", new Object[0]);
+                        }
+                    } else {
+                        LogPrinter.d("zoomOut animationContainer or zoomOutContainer is null", new Object[0]);
+                    }
+                    bVar = this;
+                    bVar.d = qVar;
+                    return true;
+                }
+                throw new IllegalArgumentException();
+            }
+            return invokeCommon.booleanValue;
+        }
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public boolean showInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048579, this, activity, viewGroup, str, obj)) == null) {
+            SplashAD splashAD = (SplashAD) obj;
+            onShowStart(splashAD);
+            splashAD.showAd(viewGroup);
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // com.fun.ad.sdk.internal.api.BasePidLoader
+    public FunSplashAd showSplashInternal(Activity activity, ViewGroup viewGroup, String str, Object obj) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, activity, viewGroup, str, obj)) == null) {
+            SplashAD splashAD = (SplashAD) obj;
+            onShowStart(splashAD);
+            splashAD.showAd(viewGroup);
+            b bVar = new b(splashAD);
+            this.f = new WeakReference<>(bVar);
+            View decorView = activity.getWindow().getDecorView();
+            if (bVar.a == null) {
+                bVar.a = new ita(decorView.getContext());
+            }
+            ita itaVar = bVar.a;
+            itaVar.g = bVar.b;
+            itaVar.h = viewGroup;
+            viewGroup.getLocationOnScreen(itaVar.k);
+            itaVar.i = viewGroup.getWidth();
+            itaVar.j = viewGroup.getHeight();
+            itaVar.l = decorView.getWidth();
+            itaVar.m = decorView.getHeight();
+            return bVar;
+        }
+        return (FunSplashAd) invokeLLLL.objValue;
     }
 }

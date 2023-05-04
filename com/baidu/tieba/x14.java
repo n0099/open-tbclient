@@ -1,9 +1,7 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsArrayBuffer;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,80 +9,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.Closeable;
-import java.io.File;
-import java.io.FileOutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
-/* loaded from: classes6.dex */
-public class x14 {
+/* loaded from: classes7.dex */
+public class x14 implements w14 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean e;
-    public static volatile x14 f;
+    public static final boolean f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, ArrayList<b>> a;
-    public final ExecutorService b;
+    public HashMap<String, y14> a;
+    public HashMap<String, ArrayList<w14>> b;
     public String c;
-    public Object d;
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(String str);
-
-        void b();
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ JsArrayBuffer a;
-        public final /* synthetic */ b b;
-        public final /* synthetic */ x14 c;
-
-        public a(x14 x14Var, JsArrayBuffer jsArrayBuffer, b bVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {x14Var, jsArrayBuffer, bVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = x14Var;
-            this.a = jsArrayBuffer;
-            this.b = bVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
-                return;
-            }
-            String g = this.c.g(this.a.buffer());
-            File file = new File(g);
-            if (file.exists()) {
-                if (!file.isDirectory()) {
-                    this.b.a(g);
-                } else {
-                    this.b.b();
-                }
-            } else if (this.c.e(g, this.b)) {
-            } else {
-                this.c.i(g, this.a.buffer());
-            }
-        }
-    }
+    public e64 d;
+    public final Object e;
 
     static {
         InterceptResult invokeClinit;
@@ -99,29 +35,15 @@ public class x14 {
                 return;
             }
         }
-        e = fo1.a;
+        f = ho1.a;
     }
 
-    public static x14 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            if (f == null) {
-                synchronized (x14.class) {
-                    if (f == null) {
-                        f = new x14();
-                    }
-                }
-            }
-            return f;
-        }
-        return (x14) invokeV.objValue;
-    }
-
-    public x14() {
+    public x14(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -132,139 +54,99 @@ public class x14 {
             }
         }
         this.a = new HashMap<>();
-        this.b = Executors.newCachedThreadPool();
-        this.d = new Object();
-        this.c = r14.g() + r14.f();
+        this.b = new HashMap<>();
+        this.e = new Object();
+        this.c = str;
     }
 
-    public final boolean e(String str, b bVar) {
-        InterceptResult invokeLL;
-        boolean z;
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bVar)) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                z = true;
-                if (arrayList == null) {
-                    arrayList = new ArrayList<>();
-                    this.a.put(str, arrayList);
-                    z = false;
-                }
-                arrayList.add(bVar);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (f) {
+                Log.d("AudioDownloadManager", "AudioDownloader SwanGamePreloadManager url:" + str);
             }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void h(JsArrayBuffer jsArrayBuffer, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, jsArrayBuffer, bVar) == null) {
-            this.b.execute(new a(this, jsArrayBuffer, bVar));
+            if (this.d == null) {
+                this.d = e64.b();
+            }
+            y14 y14Var = new y14(this.d, this.c, str, this);
+            this.a.put(str, y14Var);
+            y14Var.e();
         }
     }
 
-    public final void d(String str) {
+    @Override // com.baidu.tieba.w14
+    public void a(String str, String str2) {
+        ArrayList<w14> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-            synchronized (this.d) {
-                ArrayList<b> arrayList = this.a.get(str);
-                if (arrayList == null) {
-                    return;
-                }
-                boolean isEmpty = TextUtils.isEmpty(str);
-                Iterator<b> it = arrayList.iterator();
-                while (it.hasNext()) {
-                    b next = it.next();
-                    if (!isEmpty) {
-                        if (e) {
-                            Log.e("AudioBufferManager", "save success path: " + str);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i = 0; i < size; i++) {
+                        arrayList.get(i).a(str, str2);
+                        if (f) {
+                            Log.e("AudioDownloadManager", i + " load success url = " + str + " path = " + str2);
                         }
-                        next.a(str);
-                    } else {
-                        next.b();
                     }
+                    this.a.remove(str);
                 }
-                this.a.remove(str);
             }
         }
     }
 
-    public final String g(byte[] bArr) {
+    public void e(String str, w14 w14Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, str, w14Var) == null) {
+            synchronized (this.e) {
+                if (!d(str)) {
+                    if (f) {
+                        Log.e("AudioDownloadManager", "start load url = " + str);
+                    }
+                    c(str);
+                } else if (f) {
+                    Log.e("AudioDownloadManager", "re load url = " + str);
+                }
+                b(str, w14Var);
+            }
+        }
+    }
+
+    public final void b(String str, w14 w14Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, w14Var) == null) {
+            if (this.b.containsKey(str)) {
+                this.b.get(str).add(w14Var);
+                return;
+            }
+            ArrayList<w14> arrayList = new ArrayList<>();
+            arrayList.add(w14Var);
+            this.b.put(str, arrayList);
+        }
+    }
+
+    public final boolean d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-            String h = r14.h(bArr);
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.c);
-            sb.append(bArr.length);
-            if (TextUtils.isEmpty(h)) {
-                h = "";
-            }
-            sb.append(h);
-            return sb.toString();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            return this.a.containsKey(str);
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    public final void i(String str, byte[] bArr) {
-        FileOutputStream fileOutputStream;
+    @Override // com.baidu.tieba.w14
+    public void fail(int i, String str) {
+        ArrayList<w14> arrayList;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, bArr) == null) {
-            File file = new File(this.c);
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            File file2 = new File(str + ".bdsave");
-            Closeable closeable = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file2);
-                    try {
-                        fileOutputStream.write(bArr);
-                        fileOutputStream.flush();
-                        File file3 = new File(str);
-                        if (file3.exists() && !file3.isDirectory()) {
-                            file3.delete();
-                        }
-                        if (file2.renameTo(file3)) {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename success path = " + str);
-                            }
-                            d(str);
-                        } else {
-                            if (e) {
-                                Log.e("AudioBufferManager", "buffer load rename error path = " + str);
-                            }
-                            file2.delete();
-                            d(null);
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        if (e) {
-                            e.printStackTrace();
-                        }
-                        if (file2.exists()) {
-                            file2.delete();
-                        }
-                        d(null);
-                        zn4.d(fileOutputStream);
+        if (interceptable == null || interceptable.invokeIL(1048581, this, i, str) == null) {
+            synchronized (this.e) {
+                if (d(str) && (arrayList = this.b.get(str)) != null) {
+                    int size = arrayList.size();
+                    for (int i2 = 0; i2 < size; i2++) {
+                        arrayList.get(i2).fail(i, str);
                     }
-                } catch (Throwable th) {
-                    th = th;
-                    closeable = ".bdsave";
-                    zn4.d(closeable);
-                    throw th;
+                    this.a.remove(str);
                 }
-            } catch (Exception e3) {
-                e = e3;
-                fileOutputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-                zn4.d(closeable);
-                throw th;
             }
-            zn4.d(fileOutputStream);
         }
     }
 }

@@ -1,15 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.tieba.p62;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.webkit.sdk.WebSettings;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class q62 {
+public final class q62 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -25,40 +29,41 @@ public class q62 {
                 return;
             }
         }
-        boolean z = fo1.a;
+        a = ho1.a;
     }
 
-    public static void a(String str, String str2) {
+    @NonNull
+    public static WebSettings.CodeCacheSetting a(String str, @NonNull String str2) {
+        InterceptResult invokeLL;
+        char c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            HashMap hashMap = new HashMap(1);
-            hashMap.put("data", str2);
-            it2.U().m(it2.U().q().a(), new wh2(str, hashMap));
-        }
-    }
-
-    public static void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
-            du1 A = it2.U().A(it2.U().C());
-            if (A != null) {
-                v42.i("ConsoleMessageHelper", "send full San request");
-                A.handleSchemeDispatchCallback("window.__san_devtool__.retrieveData", null);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            WebSettings.CodeCacheSetting codeCacheSetting = new WebSettings.CodeCacheSetting();
+            codeCacheSetting.id = str;
+            ArrayList<String> arrayList = new ArrayList<>();
+            codeCacheSetting.pathList = arrayList;
+            arrayList.add(str2);
+            if (str.hashCode() == 93029162 && str.equals("appjs")) {
+                c = 0;
+            } else {
+                c = 65535;
             }
+            if (c != 0) {
+                codeCacheSetting.maxCount = 20;
+                codeCacheSetting.sizeLimit = 102400;
+            } else {
+                p62.a d = p62.b.d();
+                codeCacheSetting.maxCount = d.a;
+                codeCacheSetting.sizeLimit = d.b;
+                codeCacheSetting.diskCodeCacheSizeThreshold = d.c;
+            }
+            if (a) {
+                Log.d("WebViewCodeCacheHelper", "buildCacheSetting cacheType: " + str);
+                Log.d("WebViewCodeCacheHelper", "buildCacheSetting maxCount: " + codeCacheSetting.maxCount);
+                Log.d("WebViewCodeCacheHelper", "buildCacheSetting sizeLimit: " + codeCacheSetting.sizeLimit);
+            }
+            return codeCacheSetting;
         }
-    }
-
-    public static void c(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            a("sanFullData2Console", str);
-        }
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            a("sanIncData2Console", str);
-        }
+        return (WebSettings.CodeCacheSetting) invokeLL.objValue;
     }
 }

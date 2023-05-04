@@ -1,8 +1,16 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import com.baidu.tieba.ko5;
+import com.baidu.tieba.cp5;
+import com.baidu.tieba.dp5;
 /* loaded from: classes4.dex */
-public interface ep5<T extends ko5> extends gp5, fp5<T> {
-    View getView();
+public interface ep5<Q extends cp5, P extends dp5> {
+    int a();
+
+    Q b();
+
+    String c();
+
+    P d();
+
+    int e();
 }

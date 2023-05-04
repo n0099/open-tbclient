@@ -1,44 +1,49 @@
 package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.Executor;
+import com.fun.ad.sdk.internal.api.ripper.RippedAd;
+import com.kwad.sdk.core.response.model.AdInfo;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public final class dua<TResult> implements ava<TResult> {
+public class dua {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public cva a;
-    public Executor b;
-    public final Object c;
 
-    public dua(Executor executor, cva cvaVar) {
+    public static RippedAd a(AdInfo adInfo) {
+        InterceptResult invokeL;
+        String str;
+        String str2;
+        List<AdInfo.AdMaterialInfo.MaterialFeature> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {executor, cvaVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, adInfo)) == null) {
+            AdInfo.AdBaseInfo adBaseInfo = adInfo.adBaseInfo;
+            AdInfo.AdConversionInfo adConversionInfo = adInfo.adConversionInfo;
+            RippedAd.Builder builder = new RippedAd.Builder();
+            AdInfo.AdMaterialInfo adMaterialInfo = adInfo.adMaterialInfo;
+            ArrayList arrayList = null;
+            if (adMaterialInfo == null || (list = adMaterialInfo.materialFeatureList) == null || list.isEmpty()) {
+                str = null;
+            } else if (adMaterialInfo.materialType == 1) {
+                AdInfo.AdMaterialInfo.MaterialFeature materialFeature = adMaterialInfo.materialFeatureList.get(0);
+                str2 = materialFeature.materialUrl;
+                str = materialFeature.coverUrl;
+                builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+                return builder.build();
+            } else {
+                ArrayList arrayList2 = new ArrayList();
+                for (AdInfo.AdMaterialInfo.MaterialFeature materialFeature2 : adMaterialInfo.materialFeatureList) {
+                    arrayList2.add(materialFeature2.materialUrl);
+                }
+                str = null;
+                arrayList = arrayList2;
             }
+            str2 = str;
+            builder.setCorporation(adBaseInfo.corporationName).setTitle(adBaseInfo.productName).setDescription(adBaseInfo.adDescription).setAppName(adBaseInfo.appName).setAppPkg(adBaseInfo.appPackageName).setAppUrl(adConversionInfo.appDownloadUrl).setIconUrl(adBaseInfo.appIconUrl).setImageUrl(RippedAd.combineStrWithComma(arrayList)).setVideoImageUrl(str).setVideoUrl(str2).setClickUrl(adBaseInfo.clickUrl).setDeepLinkUrl(adConversionInfo.deeplinkUrl).setConvUrl(adBaseInfo.convUrl);
+            return builder.build();
         }
-        this.c = new Object();
-        this.a = cvaVar;
-        this.b = executor;
-    }
-
-    @Override // com.baidu.tieba.ava
-    public final void a(mua<TResult> muaVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, muaVar) == null) && !muaVar.f()) {
-            muaVar.e();
-            this.b.execute(new bua(this, muaVar));
-        }
+        return (RippedAd) invokeL.objValue;
     }
 }

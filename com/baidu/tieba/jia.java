@@ -1,147 +1,150 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.os.Looper;
-import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jia {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String b = "UnionIDHelper";
-    public static boolean c;
-    public static jia d;
+public class jia implements pia {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public float a;
+    public byte[] b;
+    public boolean c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947885639, "Lcom/baidu/tieba/jia;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947885639, "Lcom/baidu/tieba/jia;");
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a implements ria {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ iia a;
-
-        public a(jia jiaVar, iia iiaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {jiaVar, iiaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = iiaVar;
-        }
-
-        @Override // com.baidu.tieba.ria
-        public void a(sia siaVar) {
-            hia hiaVar;
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, siaVar) == null) {
-                if (jia.c) {
-                    String str = jia.b;
-                    Log.d(str, "异步回调 结果:" + siaVar);
-                    String str2 = jia.b;
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("异步回调 (listener != null):");
-                    if (this.a != null) {
-                        z = true;
-                    } else {
-                        z = false;
-                    }
-                    sb.append(z);
-                    Log.d(str2, sb.toString());
-                }
-                iia iiaVar = this.a;
-                if (iiaVar != null) {
-                    if (siaVar == null) {
-                        hiaVar = null;
-                    } else {
-                        hiaVar = new hia(siaVar.c(), siaVar.isSupport(), siaVar.getOAID(), siaVar.getAAID(), siaVar.getVAID(), siaVar.getStatusCode());
-                    }
-                    iiaVar.a(0, hiaVar);
-                }
-            }
-        }
-    }
-
-    public jia(Context context) {
+    public jia() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.a = context.getApplicationContext();
     }
 
-    public static jia c(Context context) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.pia
+    public int a(byte[] bArr, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (d == null) {
-                synchronized (jia.class) {
-                    if (d == null) {
-                        d = new jia(context);
-                        lia.c(context);
-                    }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, bArr, i)) == null) {
+            float f = this.a;
+            if (f != 1.0d) {
+                if (bArr != null) {
+                    this.b = c(bArr, f);
                 }
+                return i;
             }
-            return d;
+            this.b = bArr;
+            this.c = true;
+            return i;
         }
-        return (jia) invokeL.objValue;
+        return invokeLI.intValue;
     }
 
-    public void e(iia iiaVar) {
+    @Override // com.baidu.tieba.pia
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iiaVar) == null) {
-            kia kiaVar = new kia();
-            kiaVar.b(1);
-            kiaVar.a(false);
-            d(kiaVar, iiaVar, Looper.getMainLooper());
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            float f = this.a;
+            return f >= 0.0f && f <= 1.0f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pia
+    public boolean a(int i, int i2, int i3, int i4) {
+        InterceptResult invokeIIII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeIIII = interceptable.invokeIIII(Constants.METHOD_SEND_USER_MSG, this, i, i2, i3, i4)) == null) {
+            return false;
+        }
+        return invokeIIII.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pia
+    public byte[] a(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+            if (this.c) {
+                this.c = false;
+                return this.b;
+            }
+            return null;
+        }
+        return (byte[]) invokeI.objValue;
+    }
+
+    public void b(float f) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeF(1048580, this, f) == null) {
+            this.a = f;
         }
     }
 
-    public void d(kia kiaVar, iia iiaVar, Looper looper) {
+    @Override // com.baidu.tieba.pia
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, kiaVar, iiaVar, looper) == null) {
-            pia.o().i(this.a, looper, new a(this, iiaVar));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.pia
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.c = false;
+            this.b = null;
+        }
+    }
+
+    public final byte[] c(byte[] bArr, float f) {
+        InterceptResult invokeLF;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLF = interceptable.invokeLF(1048583, this, bArr, f)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                return null;
+            }
+            int length = bArr.length / 2;
+            short[] sArr = new short[length];
+            for (int i = 0; i < length; i++) {
+                int i2 = i * 2;
+                sArr[i] = (short) (((short) (((bArr[i2 + 1] & 255) << 8) | (bArr[i2] & 255))) * f);
+            }
+            for (int i3 = 0; i3 < length; i3++) {
+                int i4 = i3 * 2;
+                bArr[i4] = (byte) (sArr[i3] & 255);
+                bArr[i4 + 1] = (byte) ((sArr[i3] & 65280) >> 8);
+            }
+            return bArr;
+        }
+        return (byte[]) invokeLF.objValue;
+    }
+
+    @Override // com.baidu.tieba.pia
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.c = false;
+            this.b = null;
+        }
+    }
+
+    @Override // com.baidu.tieba.pia
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
         }
     }
 }

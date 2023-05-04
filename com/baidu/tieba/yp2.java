@@ -1,26 +1,31 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.HashMap;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yp2 extends pl2<gq2> {
+public class yp2 extends rl2<iq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int b;
+    public int c;
 
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "updateVideoRect" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setZeusVideoExt" : (String) invokeV.objValue;
     }
 
     public yp2() {
@@ -33,19 +38,66 @@ public class yp2 extends pl2<gq2> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.b = 1;
+        this.c = 3;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
+    @SuppressLint({"BDThrowableCheck"})
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gq2 gq2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gq2Var) == null) {
-            gq2Var.L(command.arg1, command.arg2, command.arg3, command.arg4);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) == null) {
+            Object obj = command.obj;
+            boolean z = false;
+            if (!(obj instanceof String)) {
+                if (rl2.a) {
+                    StringBuilder sb = new StringBuilder();
+                    sb.append("setZeusVideoExt with a illegal obj ");
+                    if (obj == null) {
+                        z = true;
+                    }
+                    sb.append(z);
+                    throw new RuntimeException(sb.toString());
+                }
+                return;
+            }
             String str = command.what;
-            d(gq2Var, str, "Rect: (" + command.arg1 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg2 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg3 + StringUtil.ARRAY_ELEMENT_SEPARATOR + command.arg4 + SmallTailInfo.EMOTION_SUFFIX, false);
+            d(iq2Var, str, "setZeusVideoExt:" + obj, false);
+            try {
+                JSONObject jSONObject = new JSONObject((String) obj);
+                if (jSONObject.has("instance-error")) {
+                    HashMap hashMap = new HashMap();
+                    hashMap.put("instance-error", jSONObject.optString("instance-error"));
+                    iq2Var.S(hashMap);
+                }
+                String optString = jSONObject.optString("firstPlayStatus");
+                if (!TextUtils.isEmpty(optString)) {
+                    iq2Var.a0(optString);
+                }
+                this.b = jSONObject.optInt("min-cache", this.b);
+                int optInt = jSONObject.optInt("max-cache", this.c);
+                this.c = optInt;
+                if (this.b <= optInt) {
+                    if (jSONObject.has("min-cache")) {
+                        iq2Var.G(this.b);
+                    }
+                    if (jSONObject.has("max-cache")) {
+                        iq2Var.f0(this.c);
+                    }
+                } else if (rl2.a) {
+                    Log.w("【InlineCommand】", "setZeusVideoExt: minCache " + this.b + " > maxCache " + this.c);
+                }
+            } catch (Exception e) {
+                if (!rl2.a) {
+                    return;
+                }
+                throw new RuntimeException("setZeusVideoExt with a illegal str", e);
+            }
         }
     }
 }

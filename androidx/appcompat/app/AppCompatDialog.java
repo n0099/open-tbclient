@@ -91,7 +91,7 @@ public class AppCompatDialog extends Dialog implements AppCompatCallback {
     public static int getThemeResId(Context context, int i) {
         if (i == 0) {
             TypedValue typedValue = new TypedValue();
-            context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f040213, typedValue, true);
+            context.getTheme().resolveAttribute(R.attr.obfuscated_res_0x7f04021c, typedValue, true);
             return typedValue.resourceId;
         }
         return i;

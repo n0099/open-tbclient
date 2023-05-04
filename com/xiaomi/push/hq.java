@@ -6,7 +6,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.BitSet;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class hq implements is<hq, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */

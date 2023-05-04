@@ -1,27 +1,17 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class rt2 implements st2 {
+public class rt2 implements ot2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-
-    @Override // com.baidu.tieba.st2
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
+    @Nullable
+    public ff2 a;
 
     public rt2() {
         Interceptable interceptable = $ic;
@@ -33,71 +23,42 @@ public class rt2 implements st2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = -2;
-        this.b = -2;
     }
 
-    @Override // com.baidu.tieba.st2
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ot2
+    public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            a();
+            ff2 ff2Var = this.a;
+            if (ff2Var != null) {
+                ff2Var.suspendTimer();
+            }
         }
-        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.st2
-    public boolean c() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ot2
+    public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == -2) {
-                cr2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            a();
+            ff2 ff2Var = this.a;
+            if (ff2Var != null) {
+                ff2Var.continueTimer();
             }
-            if ((this.b & 2) == 2) {
-                return true;
-            }
-            return false;
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.st2
-    public boolean d() {
-        InterceptResult invokeV;
+    public final void a() {
+        t92 W;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.b == -2) {
-                cr2.g0().getSwitch("swan_webview_pause_control", 3);
-                this.b = 3;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ff2 ff2Var = this.a;
+            if ((ff2Var == null || ff2Var.isDestroyed()) && (W = re2.U().W()) != null && (W.e() instanceof ff2)) {
+                this.a = (ff2) W.e();
             }
-            if ((this.b & 1) == 1) {
-                return true;
-            }
-            return false;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.st2
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.a == -2) {
-                cr2.g0().getSwitch("swan_webview_backstage_optimize", -1);
-                this.a = -1;
-            }
-            if (this.a > -1) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
     }
 }

@@ -21,7 +21,7 @@ import com.huawei.hms.adapter.internal.CommonCode;
 import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
 @KeepForSdk
 @SafeParcelable.Class(creator = "StatusCreator")
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class Status extends AbstractSafeParcelable implements Result, ReflectedParcelable {
     @SafeParcelable.VersionField(id = 1000)
     public final int zzb;

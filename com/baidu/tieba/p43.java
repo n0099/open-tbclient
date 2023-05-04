@@ -3,80 +3,280 @@ package com.baidu.tieba;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.swan.apps.process.SwanAppProcessInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.Iterator;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Arrays;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class p43 {
+public final class p43 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Message a;
+    public final Set<SwanAppProcessInfo> b;
+    public final Set<String> c;
+    public boolean d;
+    public boolean e;
+    public long f;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948012026, "Lcom/baidu/tieba/p43;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948012026, "Lcom/baidu/tieba/p43;");
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public p43(int i) {
+        this(Message.obtain((Handler) null, i));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((Message) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fo1.a;
     }
 
-    public static void a(@Nullable Bundle bundle, @NonNull Class<? extends v33> cls) {
+    public p43 e(int... iArr) {
+        InterceptResult invokeL;
+        SwanAppProcessInfo[] indices;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, bundle, cls) == null) {
-            Iterator<u43> it = w43.k().q().iterator();
-            while (it.hasNext()) {
-                u43 next = it.next();
-                if (next != null && next.T()) {
-                    b(next.b, bundle, cls, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, iArr)) == null) {
+            for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
+                if (swanAppProcessInfo.isSwanAppProcess() && !g(iArr, swanAppProcessInfo.index)) {
+                    b(swanAppProcessInfo);
                 }
             }
+            return this;
+        }
+        return (p43) invokeL.objValue;
+    }
+
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public p43(int i, Object obj) {
+        this(Message.obtain(null, i, obj));
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), obj};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                this((Message) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
     }
 
-    public static void b(SwanAppProcessInfo swanAppProcessInfo, @Nullable Bundle bundle, @NonNull Class<? extends v33> cls, @Nullable c43 c43Var) {
+    public p43(Message message) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65538, null, swanAppProcessInfo, bundle, cls, c43Var) == null) {
-            if (a) {
-                Log.d("SwanAppMessageChannel", "sendMessageToClient: delegation: " + cls.getName());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {message};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
             }
-            Message obtain = Message.obtain((Handler) null, 125);
-            obtain.replyTo = w43.k().d;
-            Bundle bundle2 = new Bundle();
-            bundle2.putString("ai_apps_delegation_name", cls.getName());
-            if (c43Var != null) {
-                bundle2.putString("ai_apps_observer_id", c43Var.b());
-                z33.b().e(c43Var);
-            }
-            if (bundle != null) {
-                bundle2.putBundle("ai_apps_data", bundle);
-            }
-            obtain.obj = bundle2;
-            l43 e = l43.e();
-            n43 n43Var = new n43(obtain);
-            n43Var.b(swanAppProcessInfo);
-            e.h(n43Var);
         }
+        this.b = new HashSet();
+        this.c = new HashSet();
+        this.d = false;
+        this.e = false;
+        this.f = 0L;
+        this.a = message == null ? Message.obtain() : message;
     }
 
-    public static void c(@Nullable Bundle bundle, @NonNull Class<? extends v33> cls, @Nullable c43 c43Var) {
+    public p43 a(int... iArr) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65539, null, bundle, cls, c43Var) == null) {
-            q43.Q().X(bundle, cls, c43Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, iArr)) == null) {
+            if (iArr != null) {
+                for (int i : iArr) {
+                    if (SwanAppProcessInfo.checkProcessId(i)) {
+                        b(SwanAppProcessInfo.indexOf(i));
+                    }
+                }
+            }
+            return this;
         }
+        return (p43) invokeL.objValue;
+    }
+
+    public p43 b(SwanAppProcessInfo... swanAppProcessInfoArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, swanAppProcessInfoArr)) == null) {
+            if (swanAppProcessInfoArr != null) {
+                this.b.addAll(Arrays.asList(swanAppProcessInfoArr));
+            }
+            return this;
+        }
+        return (p43) invokeL.objValue;
+    }
+
+    public p43 c(String... strArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            if (strArr != null) {
+                this.c.addAll(Arrays.asList(strArr));
+            }
+            return this;
+        }
+        return (p43) invokeL.objValue;
+    }
+
+    public p43 f(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048581, this, z)) == null) {
+            this.d = z;
+            return this;
+        }
+        return (p43) invokeZ.objValue;
+    }
+
+    public p43 j(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            this.f = j;
+            return this;
+        }
+        return (p43) invokeJ.objValue;
+    }
+
+    public p43 o(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, obj)) == null) {
+            this.a.obj = obj;
+            return this;
+        }
+        return (p43) invokeL.objValue;
+    }
+
+    public p43 p(boolean z) {
+        InterceptResult invokeZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048591, this, z)) == null) {
+            this.e = z;
+            return this;
+        }
+        return (p43) invokeZ.objValue;
+    }
+
+    public p43 d() {
+        InterceptResult invokeV;
+        SwanAppProcessInfo[] indices;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            for (SwanAppProcessInfo swanAppProcessInfo : SwanAppProcessInfo.indices()) {
+                if (swanAppProcessInfo.isSwanAppProcess()) {
+                    b(swanAppProcessInfo);
+                }
+            }
+            return this;
+        }
+        return (p43) invokeV.objValue;
+    }
+
+    @NonNull
+    public Message h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (this.a.obj == null) {
+                o(new Bundle());
+            }
+            return this.a;
+        }
+        return (Message) invokeV.objValue;
+    }
+
+    public long i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            long j = this.f;
+            if (j < 0) {
+                return 0L;
+            }
+            return j;
+        }
+        return invokeV.longValue;
+    }
+
+    public Set<String> k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return new HashSet(this.c);
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public Set<SwanAppProcessInfo> l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return new HashSet(this.b);
+        }
+        return (Set) invokeV.objValue;
+    }
+
+    public boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.e;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final boolean g(int[] iArr, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, iArr, i)) == null) {
+            if (iArr != null) {
+                for (int i2 : iArr) {
+                    if (i2 == i) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLI.booleanValue;
     }
 }

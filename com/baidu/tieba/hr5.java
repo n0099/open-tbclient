@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.asyncTask.BdAsyncTaskParallel;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TiebaIMConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Activity;
+import android.view.View;
+import androidx.appcompat.app.AlertDialog;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,23 +15,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class hr5 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
-    public static final BdAsyncTaskParallel b;
     public transient /* synthetic */ FieldHolder $fh;
+    public AlertDialog a;
 
     /* loaded from: classes4.dex */
-    public static class a<T> extends BdAsyncTask<String, Object, T> {
+    public class a implements View.OnClickListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public dr5<T> a;
-        public gq5<T> b;
+        public final /* synthetic */ hr5 a;
 
-        public a(dr5<T> dr5Var, gq5<T> gq5Var) {
+        public a(hr5 hr5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dr5Var, gq5Var};
+                Object[] objArr = {hr5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -42,85 +39,104 @@ public class hr5 {
                     return;
                 }
             }
-            this.a = null;
-            this.b = null;
-            this.a = dr5Var;
-            this.b = gq5Var;
+            this.a = hr5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public T doInBackground(String... strArr) {
-            InterceptResult invokeL;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
-                try {
-                    if (this.a == null) {
-                        return null;
-                    }
-                    return this.a.doInBackground();
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                    return null;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.a != null) {
+                this.a.a.dismiss();
+            }
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ hr5 b;
+
+        public b(hr5 hr5Var, Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hr5Var, activity};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return (T) invokeL.objValue;
+            this.b = hr5Var;
+            this.a = activity;
         }
 
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPostExecute(T t) {
-            gq5<T> gq5Var;
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t) == null) && (gq5Var = this.b) != null) {
-                gq5Var.onReturnDataInUI(t);
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                if (this.b.a != null) {
+                    this.b.a.dismiss();
+                }
+                if (!StringUtils.isNull(TbConfig.MEMBER_AUTO_RENEWAL_URL)) {
+                    pt4.s(this.a, TbConfig.MEMBER_AUTO_RENEWAL_URL);
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947833342, "Lcom/baidu/tieba/hr5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+    public hr5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947833342, "Lcom/baidu/tieba/hr5;");
+        }
+    }
+
+    public static boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return f55.m().i("key_member_auto_ban_renewal_show", false);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+            AlertDialog alertDialog = this.a;
+            if (alertDialog != null && alertDialog.isShowing()) {
+                this.a.dismiss();
+            }
+            if (activity == null) {
                 return;
             }
-        }
-        a = BdUniqueId.gen();
-        b = new BdAsyncTaskParallel(BdAsyncTaskParallel.BdAsyncTaskParallelType.SERIAL, a);
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            BdAsyncTask.removeAllTask(a);
-        }
-    }
-
-    public static <T> void b(dr5<T> dr5Var, gq5<T> gq5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, dr5Var, gq5Var) == null) && dr5Var != null) {
-            a aVar = new a(dr5Var, gq5Var);
-            aVar.setParallel(b);
-            aVar.setTag(a);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
-        }
-    }
-
-    public static <T> void c(dr5<T> dr5Var, gq5<T> gq5Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65539, null, dr5Var, gq5Var) == null) && dr5Var != null) {
-            a aVar = new a(dr5Var, gq5Var);
-            aVar.setParallel(TiebaIMConfig.getParallel());
-            aVar.setTag(a);
-            aVar.setPriority(4);
-            aVar.execute(new String[0]);
+            TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.protocol_confirm, TBAlertConfig.OperateBtnStyle.MAIN);
+            TBAlertConfig.a aVar2 = new TBAlertConfig.a((int) R.string.goto_see_more, TBAlertConfig.OperateBtnStyle.SECONDARY);
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
+            tBAlertBuilder.w(R.string.member_reminder);
+            tBAlertBuilder.m(R.string.cancel_member_auto_renewal);
+            tBAlertBuilder.u(aVar2, aVar);
+            tBAlertBuilder.o(true);
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.n(3);
+            this.a = tBAlertBuilder.z();
+            f55.m().w("key_member_auto_ban_renewal_show", true);
+            aVar.a(new a(this));
+            aVar2.a(new b(this, activity));
         }
     }
 }

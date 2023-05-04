@@ -1,17 +1,17 @@
 package rx.internal.operators;
 
-import com.baidu.tieba.p1b;
+import com.baidu.tieba.l5b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public class OperatorElementAt$InnerProducer extends AtomicBoolean implements p1b {
+public class OperatorElementAt$InnerProducer extends AtomicBoolean implements l5b {
     public static final long serialVersionUID = 1;
-    public final p1b actual;
+    public final l5b actual;
 
-    public OperatorElementAt$InnerProducer(p1b p1bVar) {
-        this.actual = p1bVar;
+    public OperatorElementAt$InnerProducer(l5b l5bVar) {
+        this.actual = l5bVar;
     }
 
-    @Override // com.baidu.tieba.p1b
+    @Override // com.baidu.tieba.l5b
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {

@@ -1,17 +1,15 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.appcompat.widget.ActivityChooserModel;
+import androidx.annotation.WorkerThread;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.config.QuickPersistConfig;
-import com.baidu.storage.swankv.SwanKV;
-import com.baidu.tieba.js1;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tieba.rh2;
+import com.baidu.tieba.us2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,36 +17,32 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import okhttp3.RequestBody;
+import okhttp3.Response;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kl2 {
+public class kl2 implements lo1 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public boolean a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
     /* loaded from: classes5.dex */
-    public class a implements js1.a {
+    public static class a implements il2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ File a;
-        public final /* synthetic */ kl2 b;
+        public final /* synthetic */ us2 a;
 
-        public a(kl2 kl2Var, File file) {
+        public a(us2 us2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {kl2Var, file};
+                Object[] objArr = {us2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -58,25 +52,237 @@ public class kl2 {
                     return;
                 }
             }
-            this.b = kl2Var;
-            this.a = file;
+            this.a = us2Var;
         }
 
-        @Override // com.baidu.tieba.js1.a
-        public void onResult(String str) {
+        @Override // com.baidu.tieba.il2
+        public void onResult(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (!fo1.a) {
-                    zn4.L(this.a);
-                }
-                kl2 kl2Var = this.b;
-                kl2Var.p("upload file: done. feedback data = " + str);
+            if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && z) {
+                af2.u(AppRuntime.getAppContext().getContentResolver(), this.a.H(), 1);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class b {
+    public static class b extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ il2 a;
+
+        public b(il2 il2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {il2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = il2Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            il2 il2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, exc) != null) || (il2Var = this.a) == null) {
+                return;
+            }
+            il2Var.onResult(false);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            il2 il2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) != null) || (il2Var = this.a) == null) {
+                return;
+            }
+            if (jSONObject == null) {
+                il2Var.onResult(false);
+                return;
+            }
+            if (kl2.a) {
+                Log.d("SwanHistoryManager", "上报数据 onSuccess: response=" + jSONObject);
+            }
+            if (jSONObject.optInt("errno", -1) == 0) {
+                this.a.onResult(true);
+            } else {
+                this.a.onResult(false);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return xk3.d(response.body().string());
+                }
+                return null;
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                kl2.h(true);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class d implements hl2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.hl2
+        public void a(List<jl2> list) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, list) != null) || list == null) {
+                return;
+            }
+            af2.f();
+            af2.l(list);
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class e extends ResponseCallback<JSONObject> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hl2 a;
+
+        public e(hl2 hl2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hl2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hl2Var;
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            hl2 hl2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, exc) == null) && (hl2Var = this.a) != null) {
+                hl2Var.a(null);
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onSuccess(JSONObject jSONObject, int i) {
+            hl2 hl2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, jSONObject, i) != null) || (hl2Var = this.a) == null) {
+                return;
+            }
+            if (jSONObject == null) {
+                hl2Var.a(null);
+                return;
+            }
+            if (kl2.a) {
+                Log.d("SwanHistoryManager", "下拉数据 onSuccess: response=" + jSONObject);
+            }
+            if (jSONObject.optInt("errno", -1) != 0) {
+                this.a.a(null);
+                return;
+            }
+            JSONObject optJSONObject = jSONObject.optJSONObject("data");
+            if (optJSONObject == null) {
+                this.a.a(null);
+                return;
+            }
+            JSONArray optJSONArray = optJSONObject.optJSONArray("items");
+            if (optJSONArray == null) {
+                this.a.a(null);
+                return;
+            }
+            ArrayList arrayList = new ArrayList();
+            for (int i2 = 0; i2 < optJSONArray.length(); i2++) {
+                jl2 b = jl2.b(optJSONArray.optJSONObject(i2));
+                if (b != null) {
+                    arrayList.add(b);
+                }
+            }
+            lg3.a().putString("fetch_history_data_last_id", optJSONObject.optString(ImageViewerConfig.LAST_ID));
+            this.a.a(arrayList);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public JSONObject parseResponse(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) {
+                if (response != null && response.body() != null) {
+                    return xk3.d(response.body().string());
+                }
+                return null;
+            }
+            return (JSONObject) invokeLI.objValue;
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class f {
         public static /* synthetic */ Interceptable $ic;
         public static final kl2 a;
         public transient /* synthetic */ FieldHolder $fh;
@@ -84,13 +290,13 @@ public class kl2 {
         static {
             InterceptResult invokeClinit;
             ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-657661446, "Lcom/baidu/tieba/kl2$b;")) != null) {
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-657661322, "Lcom/baidu/tieba/kl2$f;")) != null) {
                 Interceptable interceptable = invokeClinit.interceptor;
                 if (interceptable != null) {
                     $ic = interceptable;
                 }
                 if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-657661446, "Lcom/baidu/tieba/kl2$b;");
+                    classClinitInterceptable.invokePostClinit(-657661322, "Lcom/baidu/tieba/kl2$f;");
                     return;
                 }
             }
@@ -111,7 +317,7 @@ public class kl2 {
                 return;
             }
         }
-        a = fo1.a;
+        a = ho1.a;
     }
 
     public kl2() {
@@ -124,15 +330,24 @@ public class kl2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        er2.h0().c(this);
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
+            rk3.k(new c(), "fetchHistoryDataFromServer");
         }
     }
 
-    public static kl2 n() {
+    public static kl2 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return b.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            return f.a;
         }
         return (kl2) invokeV.objValue;
     }
@@ -141,256 +356,159 @@ public class kl2 {
         this();
     }
 
-    public boolean l(File file) {
-        InterceptResult invokeL;
+    public static void h(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, file)) == null) {
-            if (file == null) {
-                return false;
-            }
-            zn4.j(file);
-            return zn4.l(file);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public void p(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048590, this, str) == null) && !TextUtils.isEmpty(str) && a) {
-            Log.d("SwanAppCloneModule", str);
-        }
-    }
-
-    public boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, file)) == null) {
-            File q = q(str, file, nl2.h);
-            if (q == null) {
-                return false;
-            }
-            File file2 = new File(nl2.a, str);
-            if (!file2.exists()) {
-                return false;
-            }
-            File file3 = new File(q, str);
-            zn4.l(file3);
-            zn4.e(file2, file3);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean i(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, file)) == null) {
-            File q = q(str, file, nl2.g);
-            if (q == null) {
-                return false;
-            }
-            File file2 = new File(nl2.a, str);
-            if (!file2.exists()) {
-                return false;
-            }
-            File file3 = new File(q, str);
-            zn4.l(file3);
-            zn4.e(file2, file3);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void j(String str, File file) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, file) == null) && !TextUtils.isEmpty(str) && file != null && file.exists()) {
-            File databasePath = AppRuntime.getApplication().getDatabasePath(str);
-            if (!databasePath.exists()) {
+        if (interceptable == null || interceptable.invokeZ(65545, null, z) == null) {
+            List<jl2> r = af2.r();
+            if (!z && (r == null || r.size() <= 0)) {
                 return;
             }
-            zn4.f(databasePath, new File(file, str));
+            g("ADD", r, new d());
         }
     }
 
-    public final void o(File file, File file2) {
+    @Override // com.baidu.tieba.lo1
+    public void a(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048589, this, file, file2) == null) {
-            boolean X = zn4.X(file.getAbsolutePath(), file2.getAbsolutePath());
-            if (X) {
-                zn4.j(file);
-            }
-            p("zip file status = " + X);
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            f();
         }
     }
 
-    public boolean c(String str, File file) {
+    @WorkerThread
+    public static void c(x73 x73Var, rh2.b bVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, x73Var, bVar) != null) || x73Var == null) {
+            return;
+        }
+        us2.a W = x73Var.W();
+        if (TextUtils.equals("1", W.c0())) {
+            x42.b("SwanHistoryManager", "add history with 'notinhis=1': " + W.H() + "/" + W.K());
+            return;
+        }
+        x42.b("SwanHistoryManager", "add history: " + W.H() + "/" + W.K());
+        jl2 a2 = jl2.a(W);
+        boolean c2 = af2.c(AppRuntime.getAppContext().getContentResolver(), a2, bVar);
+        a aVar = new a(W);
+        if (c2) {
+            j("ADD", a2.a, a2.e, a2.b, a2.g, a2.j, aVar);
+        }
+        if (a && !c2) {
+            Log.e("SwanHistoryManager", "addHistoryAsync Failed!");
+        }
+    }
+
+    public static String d(String str, List<jl2> list) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, file)) == null) {
-            File q = q(str, file, nl2.k);
-            if (q == null) {
-                return false;
-            }
-            j("ai_apps.db", q);
-            j("ai_apps_pms.db", q);
-            return true;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public boolean d(String str, File file) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, file)) == null) {
-            File q = q(str, new File(file, nl2.i), "swan_plugin_workspace");
-            if (q == null) {
-                return false;
-            }
-            File q2 = rq2.q();
-            if (!q2.exists()) {
-                return false;
-            }
-            zn4.e(q2, q);
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public void f(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
-            p("cloneSwanApp: start");
-            r(h(context, str), str);
-            p("cloneSwanApp: end");
-        }
-    }
-
-    public boolean e(Context context, String str, File file) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048580, this, context, str, file)) == null) {
-            File q = q(str, file, nl2.j);
-            if (context != null && q != null) {
-                return m(context, str, q, new File(mg3.e()), SwanKV.PREFS_SUFFIX) | m(context, str, q, new File(AppRuntime.getAppContext().getApplicationInfo().dataDir, "shared_prefs/"), ActivityChooserModel.HISTORY_FILE_EXTENSION);
-            }
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    public final void g(Context context, String str, File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048582, this, context, str, file) == null) {
-            boolean i = i(str, file);
-            boolean b2 = b(nl2.b, file);
-            boolean b3 = b(nl2.c, file);
-            boolean e = e(context, str, file);
-            boolean c = c(str, file);
-            boolean a2 = a(str);
-            boolean d = d(str, file);
-            p("cloneSwanPkg = " + i + " ; cloneSwanCore = " + b2 + " ; cloneExtensionCore = " + b3 + " ; cloneSp = " + e + " ; cloneDb = " + c + " ; cloneAbTest = " + a2 + " ; cloneDynamicLib = " + d);
-        }
-    }
-
-    public File h(Context context, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, context, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                p("appKey is empty");
-                return null;
-            }
-            p("cloneFilesAndMakeZip start, appKey = " + str);
-            File file = new File(nl2.f + str);
-            if (!l(file)) {
-                p("delete old tmp dir failed");
-                return null;
-            }
-            File a2 = nl2.a();
-            if (a2 == null) {
-                p("dest zip dir is null");
-                return null;
-            }
-            File file2 = new File(a2, nl2.l);
-            if (file2.exists()) {
-                zn4.L(file2);
-            }
-            zn4.h(file2);
-            g(context, str, file);
-            o(file.getParentFile(), file2);
-            p("cloneFilesAndMakeZip end, appKey = " + str);
-            return file2;
-        }
-        return (File) invokeLL.objValue;
-    }
-
-    public final void k(String str, File file, File file2, String str2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048586, this, str, file, file2, str2) == null) && !TextUtils.isEmpty(str) && file != null && file.exists() && file2 != null && file2.exists()) {
-            String str3 = str + str2;
-            File file3 = new File(file, str3);
-            if (file3.exists()) {
-                zn4.f(file3, new File(file2, str3));
-            }
-        }
-    }
-
-    public final boolean m(@NonNull Context context, @NonNull String str, @NonNull File file, @Nullable File file2, @NonNull String str2) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048588, this, context, str, file, file2, str2)) == null) {
-            if (file2 == null || !file2.exists() || !file2.isDirectory()) {
-                return false;
-            }
-            String[] strArr = {"aiapp_" + str, "aiapp_setting_" + str, "searchbox_webapps_sp", "searchbox_sconsole_sp", "aiapp_open_stat", QuickPersistConfig.SP_FILE_STARTUP, "com.baidu.searchbox_aiapp_openstat", "aiapps_favorite", "aiapps_guide_dialog_sp", "key_pms_sp_name", context.getPackageName() + "_preferences", "abtesting"};
-            for (int i = 0; i < 12; i++) {
-                k(strArr[i], file2, file, str2);
-            }
-            return true;
-        }
-        return invokeLLLLL.booleanValue;
-    }
-
-    public File q(String str, File file, String str2) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048591, this, str, file, str2)) == null) {
-            if (TextUtils.isEmpty(str) || file == null || TextUtils.isEmpty(str2)) {
-                return null;
-            }
-            File file2 = new File(file, str2);
-            if (!zn4.l(file2)) {
-                return null;
-            }
-            return file2;
-        }
-        return (File) invokeLLL.objValue;
-    }
-
-    public boolean r(File file, String str) {
-        InterceptResult invokeLL;
-        String str2;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048592, this, file, str)) == null) {
-            if (file != null && file.exists()) {
-                File file2 = new File(nl2.a, str);
-                if (file2.exists() && (list = file2.list()) != null && list.length > 0) {
-                    str2 = list[0];
-                } else {
-                    str2 = "-1";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, list)) == null) {
+            if (list != null && list.size() > 0) {
+                JSONObject jSONObject = new JSONObject();
+                JSONArray jSONArray = new JSONArray();
+                try {
+                    for (jl2 jl2Var : list) {
+                        if (jl2Var != null) {
+                            JSONObject jSONObject2 = new JSONObject();
+                            jSONObject2.put("cmd", str);
+                            jSONObject2.put("bundle_id", jl2Var.a);
+                            jSONObject2.put("time", jl2Var.e);
+                            jSONArray.put(jSONObject2);
+                        }
+                    }
+                    jSONObject.put("items", jSONArray);
+                } catch (JSONException e2) {
+                    if (a) {
+                        e2.printStackTrace();
+                    }
                 }
-                p("upload file: ready");
-                js1 u = cr2.u();
-                HashMap<String, String> hashMap = new HashMap<>();
-                hashMap.put("aiappid", str);
-                hashMap.put("aiappversion", str2);
-                u.c(hashMap, file, new a(this, file));
-                return true;
+                return jSONObject.toString();
             }
-            p("no zip file");
-            return false;
+            return null;
         }
-        return invokeLL.booleanValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static String e(String str, String str2, long j, String str3, String str4, String str5) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65542, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, str5})) == null) {
+            if (TextUtils.isEmpty(str2)) {
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            try {
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("cmd", str);
+                if (TextUtils.isEmpty(str3)) {
+                    jSONObject2.put("bundle_id", str2);
+                } else {
+                    jSONObject2.put("appkey", str3);
+                }
+                if (!TextUtils.isEmpty(str4)) {
+                    jSONObject2.put("pkg_type", Integer.parseInt(str4));
+                }
+                if (!TextUtils.isEmpty(str5)) {
+                    jSONObject2.put("version_code", Integer.parseInt(str5));
+                }
+                jSONObject2.put("time", j);
+                jSONArray.put(jSONObject2);
+                jSONObject.put("items", jSONArray);
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+            return jSONObject.toString();
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public static void g(String str, List<jl2> list, hl2 hl2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65544, null, str, list, hl2Var) == null) {
+            String p = er2.o().p();
+            HashMap hashMap = new HashMap();
+            hashMap.put(ImageViewerConfig.LAST_ID, lg3.a().getString("fetch_history_data_last_id", ""));
+            String b2 = pl3.b(p, hashMap);
+            String d2 = d(str, list);
+            if (a) {
+                Log.d("SwanHistoryManager", "fetchHistoryDataFromServer: url=" + b2 + "  params=" + d2);
+            }
+            e eVar = new e(hl2Var);
+            af4 af4Var = new af4();
+            af4Var.b = "POST";
+            af4Var.a = b2;
+            af4Var.f = true;
+            af4Var.g = true;
+            if (!TextUtils.isEmpty(d2)) {
+                af4Var.d = RequestBody.create(ez2.a, d2);
+            }
+            af4Var.e = eVar;
+            bf4.g().e(af4Var);
+        }
+    }
+
+    public static void j(String str, String str2, long j, String str3, String str4, String str5, il2 il2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65547, null, new Object[]{str, str2, Long.valueOf(j), str3, str4, str5, il2Var}) == null) {
+            String c2 = er2.o().c();
+            String e2 = e(str, str2, j, str3, str4, str5);
+            if (TextUtils.isEmpty(e2)) {
+                return;
+            }
+            if (a) {
+                Log.d("SwanHistoryManager", "reportHistoryDataToServer: 上行参数" + e2);
+            }
+            b bVar = new b(il2Var);
+            af4 af4Var = new af4();
+            af4Var.b = "POST";
+            af4Var.a = c2;
+            af4Var.f = true;
+            af4Var.g = true;
+            af4Var.d = RequestBody.create(ez2.a, e2);
+            af4Var.e = bVar;
+            bf4.g().e(af4Var);
+        }
     }
 }

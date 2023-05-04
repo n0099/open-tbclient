@@ -1,232 +1,282 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.liveremind.LiveRemindConfig;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Date;
 /* loaded from: classes6.dex */
 public class t45 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile t45 g;
+    public static int h;
+    public static int i;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public Activity b;
-    public AlertDialog c;
+    public String a;
+    public String b;
+    public String c;
     public String d;
-    public TextView e;
-    public DialogInterface.OnCancelListener f;
-    public boolean g;
+    public String e;
+    public String f;
 
-    public t45(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {activity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-451626921, "Lcom/baidu/tieba/t45$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-451626921, "Lcom/baidu/tieba/t45$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[LiveRemindConfig.Scene.values().length];
+            a = iArr;
+            try {
+                iArr[LiveRemindConfig.Scene.LIVE_BUBBLE.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[LiveRemindConfig.Scene.LIVE_FLOAT.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948131252, "Lcom/baidu/tieba/t45;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948131252, "Lcom/baidu/tieba/t45;");
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.g = true;
-        this.b = activity;
+        new Date();
+        new Date();
     }
 
-    public t45(TbPageContext<?> tbPageContext) {
+    public t45() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = null;
-        this.d = null;
-        this.e = null;
-        this.g = true;
-        this.a = tbPageContext;
-        if (tbPageContext != null && tbPageContext.getPageActivity() != null) {
-            this.b = this.a.getPageActivity();
-        }
+        h();
     }
 
-    public final t45 a(DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, onCancelListener)) == null) {
-            if (this.b == null) {
-                return this;
-            }
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.c = create;
-            GreyUtil.grey(create);
-            lg.i(this.c, this.b);
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
-                textView.setText(this.d);
-            }
-            AlertDialog alertDialog = this.c;
-            if (alertDialog != null && alertDialog.getWindow() != null) {
-                this.c.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.c.setCancelable(true);
-                    this.c.setCanceledOnTouchOutside(true);
-                    this.c.setOnCancelListener(onCancelListener);
-                } else {
-                    this.c.setCanceledOnTouchOutside(false);
-                    this.c.setCancelable(false);
-                }
-            }
-            return this;
-        }
-        return (t45) invokeL.objValue;
-    }
-
-    public final t45 b(DialogInterface.OnCancelListener onCancelListener) {
-        InterceptResult invokeL;
-        TextView textView;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onCancelListener)) == null) {
-            if (this.b == null) {
-                return this;
-            }
-            AlertDialog create = new AlertDialog.Builder(this.b).create();
-            this.c = create;
-            GreyUtil.grey(create);
-            lg.i(this.c, this.b);
-            View inflate = LayoutInflater.from(this.b).inflate(R.layout.custom_loading_toast, (ViewGroup) null);
-            this.e = (TextView) inflate.findViewById(R.id.custom_loading_text);
-            if (!StringUtils.isNull(this.d) && (textView = this.e) != null) {
-                textView.setText(this.d);
-            }
-            AlertDialog alertDialog = this.c;
-            if (alertDialog != null && alertDialog.getWindow() != null) {
-                this.c.getWindow().setContentView(inflate);
-                if (onCancelListener != null) {
-                    this.c.setOnCancelListener(onCancelListener);
-                }
-            }
-            return this;
-        }
-        return (t45) invokeL.objValue;
-    }
-
-    public boolean c() {
+    public static t45 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            AlertDialog alertDialog = this.c;
-            if (alertDialog == null || !alertDialog.isShowing()) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (g == null) {
+                synchronized (t45.class) {
+                    if (g == null) {
+                        g = new t45();
+                    }
+                }
+            }
+            return g;
+        }
+        return (t45) invokeV.objValue;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return f55.m().n(c(LiveRemindConfig.Scene.LIVE_BUBBLE), 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public void l() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            i = 0;
+            h = 0;
+            if (TbadkCoreApplication.isLogin()) {
+                h();
+            }
+        }
+    }
+
+    public final String c(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, scene)) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                return this.a;
+            }
+            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                return this.d;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String d(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, scene)) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                return this.c;
+            }
+            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                return this.f;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final String e(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, scene)) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                return this.b;
+            }
+            if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                return this.e;
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public final void g(LiveRemindConfig.Scene scene) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, scene) == null) {
+            f55.m().z(c(scene), f55.m().n(c(scene), 0) + 1);
+        }
+    }
+
+    public void m(LiveRemindConfig.Scene scene) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048587, this, scene) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                i = 0;
+            } else if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                h = 0;
+            }
+            f55.m().z(c(scene), 0);
+        }
+    }
+
+    public void n(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i2) == null) {
+            f55.m().z(c(LiveRemindConfig.Scene.LIVE_BUBBLE), i2);
+        }
+    }
+
+    public void f(LiveRemindConfig.Scene scene) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, scene) == null) {
+            int i2 = a.a[scene.ordinal()];
+            if (i2 != 1) {
+                if (i2 == 2) {
+                    f55.m().A(d(scene), System.currentTimeMillis());
+                    h++;
+                    g(LiveRemindConfig.Scene.LIVE_FLOAT);
+                    return;
+                }
+                return;
+            }
+            f55.m().A(d(scene), System.currentTimeMillis());
+            i++;
+            g(LiveRemindConfig.Scene.LIVE_BUBBLE);
+        }
+    }
+
+    public boolean j(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, scene)) == null) {
+            if (!StringHelper.isTaday(f55.m().o(e(scene), 0L))) {
+                f55.m().A(e(scene), System.currentTimeMillis());
+                m(scene);
+            }
+            if (i(scene) && k(scene)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = "key_live_bubble_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
+            this.b = "key_live_bubble_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
+            this.c = "key_live_bubble_last_show_time" + TbadkCoreApplication.getCurrentAccount();
+            this.d = "key_live_top_float_remind_show_count" + TbadkCoreApplication.getCurrentAccount();
+            this.e = "key_live_top_float_remind_show_time" + TbadkCoreApplication.getCurrentAccount();
+            this.f = "key_live_top_float_last_show_time" + TbadkCoreApplication.getCurrentAccount();
+        }
+    }
+
+    public final boolean i(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, scene)) == null) {
+            if (scene == LiveRemindConfig.Scene.LIVE_BUBBLE) {
+                i2 = i;
+            } else if (scene == LiveRemindConfig.Scene.LIVE_FLOAT) {
+                i2 = h;
+            } else {
+                i2 = 0;
+            }
+            if (f55.m().n(c(scene), 0) >= LiveRemindConfig.c().b() || i2 >= LiveRemindConfig.c().a()) {
                 return false;
             }
             return true;
         }
-        return invokeV.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    @Nullable
-    public Activity getActivity() {
-        InterceptResult invokeV;
+    public final boolean k(LiveRemindConfig.Scene scene) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.b;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public void d(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void e(DialogInterface.OnCancelListener onCancelListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onCancelListener) == null) {
-            this.f = onCancelListener;
-        }
-    }
-
-    public void f(boolean z) {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && (alertDialog = this.c) != null) {
-            alertDialog.setCancelable(z);
-        }
-    }
-
-    public void g(boolean z) {
-        AlertDialog alertDialog;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048582, this, z) == null) && (alertDialog = this.c) != null) {
-            alertDialog.setCanceledOnTouchOutside(z);
-        }
-    }
-
-    public void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            if (z) {
-                if (this.g) {
-                    a(this.f);
-                    return;
-                } else {
-                    b(this.f);
-                    return;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, scene)) == null) {
+            long currentTimeMillis = System.currentTimeMillis();
+            long o = f55.m().o(d(scene), currentTimeMillis);
+            if (currentTimeMillis == o || (currentTimeMillis - o) / 1000 >= LiveRemindConfig.c().d()) {
+                return true;
             }
-            lg.a(this.c, this.b);
+            return false;
         }
-    }
-
-    public void i(int i) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048585, this, i) == null) && (activity = this.b) != null) {
-            this.d = activity.getString(i);
-        }
-    }
-
-    public void j(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, str) == null) {
-            this.d = str;
-            TextView textView = this.e;
-            if (textView != null) {
-                textView.setText(str);
-            }
-        }
+        return invokeL.booleanValue;
     }
 }

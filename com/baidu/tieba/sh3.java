@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.text.TextUtils;
 import android.util.Log;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.tieba.qh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -17,18 +17,18 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class sh3 extends s93 {
+public abstract class sh3 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sh3(s83 s83Var) {
-        super(s83Var, "/swanAPI/brightness");
+    public sh3(u83 u83Var, String str) {
+        super(u83Var, str);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -42,122 +42,49 @@ public class sh3 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    public boolean j(Context context, x73 x73Var, UnitedSchemeEntity unitedSchemeEntity) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("Brightness", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, x73Var, unitedSchemeEntity)) == null) {
+            if (x73Var == null) {
+                x42.c("battery", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
+                if (u93.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
+                }
                 return false;
+            } else if (context == null) {
+                x42.c("battery", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
+                if (u93.b) {
+                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
+                }
+                return false;
+            } else {
+                return true;
             }
-            return false;
         }
-        return invokeLLLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:65:0x010d  */
-    /* JADX WARN: Removed duplicated region for block: B:68:0x011b  */
-    @Override // com.baidu.tieba.s93
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, v73 v73Var) {
-        InterceptResult invokeLLLLL;
-        Activity activity;
+    @Nullable
+    public JSONObject k(@NonNull qh3.a aVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("Brightness", "handleSubAction: " + unitedSchemeEntity.toString());
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (s93.b) {
-                Log.i("Brightness", "handleSubAction params: " + unitedSchemeEntity.getParam("params"));
-            }
-            JSONObject jSONObject = null;
-            if (context instanceof Activity) {
-                activity = (Activity) context;
-            } else {
-                activity = null;
-            }
-            if (activity == null) {
-                v42.c("brightness", "activity is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            }
-            int i = 1001;
-            char c = 65535;
-            int hashCode = str.hashCode();
-            boolean z = true;
-            if (hashCode != -1634890823) {
-                if (hashCode != 1913219981) {
-                    if (hashCode == 1913231513 && str.equals("/swanAPI/brightness/set")) {
-                        c = 0;
-                    }
-                } else if (str.equals("/swanAPI/brightness/get")) {
-                    c = 1;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                int i = 100;
+                if (aVar.a <= 100) {
+                    i = aVar.a;
                 }
-            } else if (str.equals("/swanAPI/brightness/keepScreenOn")) {
-                c = 2;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c == 2) {
-                        if (optParamsAsJo == null) {
-                            v42.c("brightness", "paramsJson is null");
-                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                            return false;
-                        }
-                        try {
-                            th3.c().f(activity, optParamsAsJo.getBoolean("keepScreenOn"));
-                        } catch (JSONException unused) {
-                        }
-                    }
-                    z = false;
-                } else {
-                    jSONObject = new JSONObject();
-                    try {
-                        jSONObject.put("value", th3.c().a(activity));
-                    } catch (JSONException e) {
-                        e.printStackTrace();
-                    }
-                }
-                if (z) {
-                    if (jSONObject != null) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                    } else {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-                    }
-                } else {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i);
-                }
-                return z;
-            } else if (optParamsAsJo == null) {
-                v42.c("brightness", "paramsJson is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
-                return false;
-            } else {
-                String optString = optParamsAsJo.optString("value");
-                float f = -1.0f;
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        f = Float.parseFloat(optString);
-                    } catch (Exception unused2) {
-                    }
-                }
-                if (f >= 0.0f && f <= 1.0f) {
-                    th3.c().e(activity, f);
-                    if (z) {
-                    }
-                    return z;
-                }
-                i = 202;
-                z = false;
-                if (z) {
-                }
-                return z;
+                jSONObject.put("level", String.valueOf(i));
+                jSONObject.put("isCharging", aVar.b);
+                return jSONObject;
+            } catch (JSONException unused) {
+                return null;
             }
         }
-        return invokeLLLLL.booleanValue;
+        return (JSONObject) invokeL.objValue;
     }
 }

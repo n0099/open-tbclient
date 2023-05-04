@@ -67,7 +67,7 @@ public class e implements View.OnClickListener {
                 z = false;
                 if (z) {
                     webLoaderActivity.startActivity(a);
-                    webLoaderActivity.overridePendingTransition(com.baidu.tieba.R.anim.obfuscated_res_0x7f010153, com.baidu.tieba.R.anim.obfuscated_res_0x7f010155);
+                    webLoaderActivity.overridePendingTransition(com.baidu.tieba.R.anim.obfuscated_res_0x7f010155, com.baidu.tieba.R.anim.obfuscated_res_0x7f010157);
                     return;
                 }
                 return;

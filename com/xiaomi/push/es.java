@@ -4,7 +4,7 @@ import android.util.Pair;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.util.Vector;
 import java.util.concurrent.ConcurrentHashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class es {
     public static Vector<Pair<String, Long>> a = new Vector<>();
 

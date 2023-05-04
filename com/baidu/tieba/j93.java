@@ -1,38 +1,68 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.net.Uri;
 import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.pms.constants.PmsConstant;
+import com.baidu.searchbox.retrieve.upload.UploadConstant;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.performance.HybridUbcFlow;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
+import com.baidu.swan.apps.SwanAppActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONException;
+import java.io.File;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class j93 extends s93 {
+public class j93 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes5.dex */
+    public interface b {
+    }
+
+    /* loaded from: classes5.dex */
+    public class a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Activity a;
+        public final /* synthetic */ Uri b;
+
+        public a(j93 j93Var, Activity activity, Uri uri, String str, CallbackHandler callbackHandler, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {j93Var, activity, uri, str, callbackHandler, str2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = activity;
+            this.b = uri;
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public j93(s83 s83Var) {
-        super(s83Var, "/swanAPI/openStatisticFlowJar");
+    public j93(u83 u83Var) {
+        super(u83Var, "/swanAPI/file/openDocument");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,107 +76,100 @@ public class j93 extends s93 {
         }
     }
 
-    public List<UbcFlowEvent> l(JSONArray jSONArray) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, jSONArray)) == null) {
-            ArrayList arrayList = new ArrayList();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                UbcFlowEvent k = k(jSONArray.optJSONObject(i));
-                if (k != null) {
-                    k.e("FE");
-                    arrayList.add(k);
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
+        Uri uri;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (v73Var == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (x73Var == null) {
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "swanApp is null");
                 return false;
-            }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            if (optParamsAsJo == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                return false;
-            }
-            String optString = optParamsAsJo.optString("flowId");
-            if (TextUtils.isEmpty(optString)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty flowId");
-                return false;
-            }
-            char c = 65535;
-            int hashCode = optString.hashCode();
-            if (hashCode != 53647) {
-                if (hashCode == 55357 && optString.equals("805")) {
-                    c = 1;
+            } else if (x73Var.n0()) {
+                if (u93.b) {
+                    Log.d("SwanAppAction", "SwanAppAction does not supported when app is invisible.");
                 }
-            } else if (optString.equals("670")) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201, "unknown flowId");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                return false;
+            } else {
+                JSONObject a2 = u93.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal params");
                     return false;
                 }
-                j(optParamsAsJo.optJSONArray("data"));
-            } else {
-                HybridUbcFlow o = a13.o();
-                o.G(l(optParamsAsJo.optJSONArray("data")));
-                o.n();
+                String optString = a2.optString("filePath");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal filePath");
+                    return false;
+                }
+                String g0 = x73.g0();
+                if (TextUtils.isEmpty(g0)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal appId");
+                    return false;
+                }
+                String M = ff3.M(optString, g0);
+                if (TextUtils.isEmpty(M)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal realFilePath");
+                    return false;
+                }
+                String optString2 = a2.optString(UploadConstant.KEY_FILE_TYPE);
+                String t = bo4.t(M);
+                if (TextUtils.isEmpty(t)) {
+                    if (TextUtils.isEmpty(optString2)) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file ext");
+                        return false;
+                    }
+                } else {
+                    optString2 = t;
+                }
+                String b2 = ok3.b(optString2);
+                if (TextUtils.isEmpty(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal file mimeType");
+                    return false;
+                }
+                Uri parse = Uri.parse(M);
+                if (parse == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal Uri path");
+                    return false;
+                }
+                if (parse.getScheme() == null) {
+                    uri = Uri.fromFile(new File(M));
+                } else {
+                    uri = parse;
+                }
+                SwanAppActivity w = x73Var.w();
+                if (w == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal activity == null");
+                    return false;
+                } else if (!ok3.a(b2)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not support this mimeType=" + b2);
+                    return false;
+                } else {
+                    String optString3 = a2.optString("cb");
+                    js1 r = er2.r();
+                    if (!r.b(w, b2)) {
+                        if (TextUtils.isEmpty(optString3)) {
+                            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "not found plugin,mimeType=" + b2);
+                            return false;
+                        }
+                        j(w, b2, uri, optString3, callbackHandler);
+                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                        return true;
+                    }
+                    r.c(w, uri, b2);
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    callbackHandler.handleSchemeDispatchCallback(optString3, UnitedSchemeUtility.wrapCallbackParams(0).toString());
+                    return true;
+                }
             }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
-            return true;
         }
         return invokeLLLL.booleanValue;
     }
 
-    public final void j(JSONArray jSONArray) {
-        d72 H;
+    public final void j(Activity activity, String str, Uri uri, String str2, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) != null) || (H = it2.U().H()) == null) {
-            return;
+        if (interceptable == null || interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, uri, str2, callbackHandler) == null) {
+            er2.r().a(activity, str, new a(this, activity, uri, str, callbackHandler, str2));
         }
-        try {
-            JSONObject jSONObject = jSONArray.getJSONObject(0);
-            if (jSONObject != null) {
-                String string = jSONObject.getString("eventId");
-                String optString = jSONObject.optString(PmsConstant.Statistic.Key.REV_TIMESTAMP);
-                long j = 0;
-                if (!TextUtils.isEmpty(optString)) {
-                    try {
-                        j = Long.valueOf(optString).longValue();
-                    } catch (NumberFormatException e) {
-                        e.printStackTrace();
-                    }
-                }
-                H.O3(new ze3(string, j));
-            }
-        } catch (JSONException e2) {
-            e2.printStackTrace();
-        }
-    }
-
-    public UbcFlowEvent k(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            String optString = jSONObject.optString("actionId");
-            long optLong = jSONObject.optLong("timestamp");
-            if (TextUtils.isEmpty(optString)) {
-                return null;
-            }
-            UbcFlowEvent ubcFlowEvent = new UbcFlowEvent(optString);
-            ubcFlowEvent.h(optLong);
-            return ubcFlowEvent;
-        }
-        return (UbcFlowEvent) invokeL.objValue;
     }
 }

@@ -4,7 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 import com.xiaomi.push.aj;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class dq {
     public static volatile dq a;
 
@@ -14,7 +14,7 @@ public class dq {
     /* renamed from: a  reason: collision with other field name */
     public a f234a;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface a {
         void a();
     }

@@ -16,12 +16,12 @@ import com.baidu.tieba.R;
 import com.kwad.sdk.api.loader.Wrapper;
 /* loaded from: classes8.dex */
 public final class a extends Dialog {
-    public final InterfaceC0602a GY;
+    public final InterfaceC0605a GY;
     public final String GZ;
 
     /* renamed from: com.kwad.components.core.page.widget.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0602a {
+    public interface InterfaceC0605a {
         void a(DialogInterface dialogInterface);
 
         void b(DialogInterface dialogInterface);
@@ -29,45 +29,45 @@ public final class a extends Dialog {
         void c(DialogInterface dialogInterface);
     }
 
-    public a(@NonNull Context context, @NonNull InterfaceC0602a interfaceC0602a) {
-        this(context, null, interfaceC0602a);
+    public a(@NonNull Context context, @NonNull InterfaceC0605a interfaceC0605a) {
+        this(context, null, interfaceC0605a);
     }
 
-    public a(@NonNull Context context, String str, @NonNull InterfaceC0602a interfaceC0602a) {
+    public a(@NonNull Context context, String str, @NonNull InterfaceC0605a interfaceC0605a) {
         super(context);
         if (context instanceof Activity) {
             setOwnerActivity((Activity) context);
         }
-        this.GY = interfaceC0602a;
+        this.GY = interfaceC0605a;
         this.GZ = str;
     }
 
     private View nZ() {
-        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d04be, (ViewGroup) null, false);
-        inflate.findViewById(R.id.obfuscated_res_0x7f09121f).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.1
+        View inflate = LayoutInflater.from(Wrapper.wrapContextIfNeed(getContext())).inflate(R.layout.obfuscated_res_0x7f0d04c4, (ViewGroup) null, false);
+        inflate.findViewById(R.id.obfuscated_res_0x7f09122d).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.1
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.GY.c(a.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f09121e).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.2
+        inflate.findViewById(R.id.obfuscated_res_0x7f09122c).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.2
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f0913ae).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.3
+        inflate.findViewById(R.id.obfuscated_res_0x7f0913bc).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.3
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.GY.a(a.this);
             }
         });
-        inflate.findViewById(R.id.obfuscated_res_0x7f0913ad).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.4
+        inflate.findViewById(R.id.obfuscated_res_0x7f0913bb).setOnClickListener(new View.OnClickListener() { // from class: com.kwad.components.core.page.widget.a.4
             @Override // android.view.View.OnClickListener
             public final void onClick(View view2) {
                 a.this.GY.b(a.this);
             }
         });
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09121d);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09122b);
         if (!TextUtils.isEmpty(this.GZ)) {
             textView.setText(this.GZ);
         }

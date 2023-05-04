@@ -1,26 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import com.baidu.adp.lib.util.StringUtils;
+import android.webkit.JsPromptResult;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class nu4 {
+public class nu4 implements xf6 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile nu4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public HashMap<String, JSONObject> a;
+
+    @Override // com.baidu.tieba.xf6
+    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
+        wf6.a(this, webView, str, jSONObject);
+    }
+
+    @Override // com.baidu.tieba.xf6
+    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            return false;
+        }
+        return invokeLLLLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.xf6
+    public /* synthetic */ void onDestroy() {
+        wf6.b(this);
+    }
 
     public nu4() {
         Interceptable interceptable = $ic;
@@ -32,67 +45,20 @@ public class nu4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new HashMap<>();
-    }
-
-    public static nu4 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (nu4.class) {
-                    if (b == null) {
-                        b = new nu4();
-                    }
-                }
-            }
-            return b;
-        }
-        return (nu4) invokeV.objValue;
-    }
-
-    public void a(String str, String str2, String str3, String str4) {
-        HashMap<String, JSONObject> hashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(1048576, this, str, str2, str3, str4) == null) && StringUtils.isNotNull(str) && (hashMap = this.a) != null && hashMap.get(str) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("apkName", str2);
-                jSONObject.put("source", str3 + "");
-                jSONObject.put("apkUrl", str4);
-                this.a.put(str, jSONObject);
-            } catch (JSONException e) {
-                e.printStackTrace();
             }
         }
     }
 
-    public void b(String str, String str2, String str3, String str4) {
+    public hq9 c(WebView webView, HashMap<String, String> hashMap) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, str3, str4) == null) {
-            StatisticItem param = new StatisticItem(str).param("obj_source", str2).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_name", str3);
-            if (StringUtils.isNotNull(str4)) {
-                param.param(TiebaStatic.Params.OBJ_URL, str4);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, hashMap)) == null) {
+            hq9 hq9Var = new hq9();
+            if (hashMap != null && hashMap.get("result") != null) {
+                hq9Var.o(hashMap.get("result"));
             }
-            TiebaStatic.log(param);
+            return hq9Var;
         }
-    }
-
-    public void d(Intent intent) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) {
-            String g = hg5.g(intent);
-            HashMap<String, JSONObject> hashMap = this.a;
-            if (hashMap != null && hashMap.get(g) != null) {
-                JSONObject jSONObject = this.a.get(g);
-                if (jSONObject != null) {
-                    b(TbadkCoreStatisticKey.INSTALL_APK_COMPLETION, jSONObject.optString("source"), jSONObject.optString("apkName"), jSONObject.optString("apkUrl"));
-                }
-                this.a.remove(g);
-            }
-        }
+        return (hq9) invokeLL.objValue;
     }
 }

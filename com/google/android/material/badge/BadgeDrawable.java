@@ -36,7 +36,7 @@ import com.google.android.material.shape.MaterialShapeDrawable;
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;
 import java.lang.ref.WeakReference;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDrawableDelegate {
     public static final int BADGE_NUMBER_NONE = -1;
     public static final int BOTTOM_END = 8388693;
@@ -75,7 +75,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     public final TextDrawableHelper textDrawableHelper;
 
     @Retention(RetentionPolicy.SOURCE)
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public @interface BadgeGravity {
     }
 
@@ -110,7 +110,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
     }
 
     @RestrictTo({RestrictTo.Scope.LIBRARY_GROUP})
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class SavedState implements Parcelable {
         public static final Parcelable.Creator<SavedState> CREATOR = new Parcelable.Creator<SavedState>() { // from class: com.google.android.material.badge.BadgeDrawable.SavedState.1
             /* JADX DEBUG: Method merged with bridge method */
@@ -157,9 +157,9 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
             this.alpha = 255;
             this.number = -1;
             this.badgeTextColor = new TextAppearance(context, R.style.obfuscated_res_0x7f10020d).textColor.getDefaultColor();
-            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0bc8);
+            this.contentDescriptionNumberless = context.getString(R.string.obfuscated_res_0x7f0f0bdd);
             this.contentDescriptionQuantityStrings = R.plurals.obfuscated;
-            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0bca;
+            this.contentDescriptionExceedsMaxBadgeNumberRes = R.string.obfuscated_res_0x7f0f0bdf;
         }
 
         public SavedState(@NonNull Parcel parcel) {
@@ -418,7 +418,7 @@ public class BadgeDrawable extends Drawable implements TextDrawableHelper.TextDr
         if (context == null) {
             return "";
         }
-        return context.getString(R.string.obfuscated_res_0x7f0f0bcb, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
+        return context.getString(R.string.obfuscated_res_0x7f0f0be0, Integer.valueOf(this.maxBadgeNumber), DEFAULT_EXCEED_MAX_BADGE_NUMBER_SUFFIX);
     }
 
     private void loadDefaultStateFromAttributes(Context context, AttributeSet attributeSet, @AttrRes int i, @StyleRes int i2) {

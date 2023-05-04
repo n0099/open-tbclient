@@ -2,39 +2,39 @@ package rx.internal.util;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.tieba.a2b;
-import com.baidu.tieba.f2b;
-import com.baidu.tieba.i3b;
-import com.baidu.tieba.n1b;
-import com.baidu.tieba.p1b;
-import com.baidu.tieba.q1b;
-import com.baidu.tieba.r5b;
-import com.baidu.tieba.t1b;
-import com.baidu.tieba.u1b;
-import com.baidu.tieba.u5b;
-import com.baidu.tieba.z1b;
+import com.baidu.tieba.b6b;
+import com.baidu.tieba.g7b;
+import com.baidu.tieba.j5b;
+import com.baidu.tieba.l5b;
+import com.baidu.tieba.m5b;
+import com.baidu.tieba.p5b;
+import com.baidu.tieba.p9b;
+import com.baidu.tieba.q5b;
+import com.baidu.tieba.s9b;
+import com.baidu.tieba.v5b;
+import com.baidu.tieba.w5b;
 import java.util.concurrent.atomic.AtomicBoolean;
 import rx.internal.producers.SingleProducer;
 /* loaded from: classes9.dex */
-public final class ScalarSynchronousObservable<T> extends n1b<T> {
+public final class ScalarSynchronousObservable<T> extends j5b<T> {
     public static final boolean c = Boolean.valueOf(System.getProperty("rx.just.strong-mode", "false")).booleanValue();
     public final T b;
 
     /* loaded from: classes9.dex */
-    public class b implements f2b<a2b, u1b> {
-        public final /* synthetic */ q1b a;
+    public class b implements b6b<w5b, q5b> {
+        public final /* synthetic */ m5b a;
 
         /* loaded from: classes9.dex */
-        public class a implements a2b {
-            public final /* synthetic */ a2b a;
-            public final /* synthetic */ q1b.a b;
+        public class a implements w5b {
+            public final /* synthetic */ w5b a;
+            public final /* synthetic */ m5b.a b;
 
-            public a(b bVar, a2b a2bVar, q1b.a aVar) {
-                this.a = a2bVar;
+            public a(b bVar, w5b w5bVar, m5b.a aVar) {
+                this.a = w5bVar;
                 this.b = aVar;
             }
 
-            @Override // com.baidu.tieba.a2b
+            @Override // com.baidu.tieba.w5b
             public void call() {
                 try {
                     this.a.call();
@@ -44,47 +44,47 @@ public final class ScalarSynchronousObservable<T> extends n1b<T> {
             }
         }
 
-        public b(ScalarSynchronousObservable scalarSynchronousObservable, q1b q1bVar) {
-            this.a = q1bVar;
+        public b(ScalarSynchronousObservable scalarSynchronousObservable, m5b m5bVar) {
+            this.a = m5bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f2b
-        public u1b call(a2b a2bVar) {
-            q1b.a createWorker = this.a.createWorker();
-            createWorker.b(new a(this, a2bVar, createWorker));
+        @Override // com.baidu.tieba.b6b
+        public q5b call(w5b w5bVar) {
+            m5b.a createWorker = this.a.createWorker();
+            createWorker.b(new a(this, w5bVar, createWorker));
             return createWorker;
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements p1b, a2b {
+    public static final class ScalarAsyncProducer<T> extends AtomicBoolean implements l5b, w5b {
         public static final long serialVersionUID = -2466317989629281651L;
-        public final t1b<? super T> actual;
-        public final f2b<a2b, u1b> onSchedule;
+        public final p5b<? super T> actual;
+        public final b6b<w5b, q5b> onSchedule;
         public final T value;
 
-        public ScalarAsyncProducer(t1b<? super T> t1bVar, T t, f2b<a2b, u1b> f2bVar) {
-            this.actual = t1bVar;
+        public ScalarAsyncProducer(p5b<? super T> p5bVar, T t, b6b<w5b, q5b> b6bVar) {
+            this.actual = p5bVar;
             this.value = t;
-            this.onSchedule = f2bVar;
+            this.onSchedule = b6bVar;
         }
 
-        @Override // com.baidu.tieba.a2b
+        @Override // com.baidu.tieba.w5b
         public void call() {
-            t1b<? super T> t1bVar = this.actual;
-            if (t1bVar.isUnsubscribed()) {
+            p5b<? super T> p5bVar = this.actual;
+            if (p5bVar.isUnsubscribed()) {
                 return;
             }
             Object obj = (T) this.value;
             try {
-                t1bVar.onNext(obj);
-                if (t1bVar.isUnsubscribed()) {
+                p5bVar.onNext(obj);
+                if (p5bVar.isUnsubscribed()) {
                     return;
                 }
-                t1bVar.onCompleted();
+                p5bVar.onCompleted();
             } catch (Throwable th) {
-                z1b.g(th, t1bVar, obj);
+                v5b.g(th, p5bVar, obj);
             }
         }
 
@@ -93,7 +93,7 @@ public final class ScalarSynchronousObservable<T> extends n1b<T> {
             return "ScalarAsyncProducer[" + this.value + StringUtil.ARRAY_ELEMENT_SEPARATOR + get() + PreferencesUtil.RIGHT_MOUNT;
         }
 
-        @Override // com.baidu.tieba.p1b
+        @Override // com.baidu.tieba.l5b
         public void request(long j) {
             int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
             if (i >= 0) {
@@ -108,94 +108,94 @@ public final class ScalarSynchronousObservable<T> extends n1b<T> {
     }
 
     /* loaded from: classes9.dex */
-    public class a implements f2b<a2b, u1b> {
-        public final /* synthetic */ i3b a;
+    public class a implements b6b<w5b, q5b> {
+        public final /* synthetic */ g7b a;
 
-        public a(ScalarSynchronousObservable scalarSynchronousObservable, i3b i3bVar) {
-            this.a = i3bVar;
+        public a(ScalarSynchronousObservable scalarSynchronousObservable, g7b g7bVar) {
+            this.a = g7bVar;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.f2b
-        public u1b call(a2b a2bVar) {
-            return this.a.a(a2bVar);
+        @Override // com.baidu.tieba.b6b
+        public q5b call(w5b w5bVar) {
+            return this.a.a(w5bVar);
         }
     }
 
     /* JADX INFO: Add missing generic type declarations: [R] */
     /* loaded from: classes9.dex */
-    public class c<R> implements n1b.a<R> {
-        public final /* synthetic */ f2b a;
+    public class c<R> implements j5b.a<R> {
+        public final /* synthetic */ b6b a;
 
-        public c(f2b f2bVar) {
-            this.a = f2bVar;
+        public c(b6b b6bVar) {
+            this.a = b6bVar;
         }
 
-        public void call(t1b<? super R> t1bVar) {
-            n1b n1bVar = (n1b) this.a.call(ScalarSynchronousObservable.this.b);
-            if (n1bVar instanceof ScalarSynchronousObservable) {
-                t1bVar.f(ScalarSynchronousObservable.D(t1bVar, ((ScalarSynchronousObservable) n1bVar).b));
+        public void call(p5b<? super R> p5bVar) {
+            j5b j5bVar = (j5b) this.a.call(ScalarSynchronousObservable.this.b);
+            if (j5bVar instanceof ScalarSynchronousObservable) {
+                p5bVar.f(ScalarSynchronousObservable.F(p5bVar, ((ScalarSynchronousObservable) j5bVar).b));
             } else {
-                n1bVar.B(r5b.c(t1bVar));
+                j5bVar.D(p9b.c(p5bVar));
             }
         }
 
-        @Override // com.baidu.tieba.n1b.a, com.baidu.tieba.b2b
+        @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((t1b) ((t1b) obj));
+            call((p5b) ((p5b) obj));
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class d<T> implements n1b.a<T> {
+    public static final class d<T> implements j5b.a<T> {
         public final T a;
 
         public d(T t) {
             this.a = t;
         }
 
-        public void call(t1b<? super T> t1bVar) {
-            t1bVar.f(ScalarSynchronousObservable.D(t1bVar, this.a));
+        public void call(p5b<? super T> p5bVar) {
+            p5bVar.f(ScalarSynchronousObservable.F(p5bVar, this.a));
         }
 
-        @Override // com.baidu.tieba.n1b.a, com.baidu.tieba.b2b
+        @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((t1b) ((t1b) obj));
+            call((p5b) ((p5b) obj));
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class e<T> implements n1b.a<T> {
+    public static final class e<T> implements j5b.a<T> {
         public final T a;
-        public final f2b<a2b, u1b> b;
+        public final b6b<w5b, q5b> b;
 
-        public e(T t, f2b<a2b, u1b> f2bVar) {
+        public e(T t, b6b<w5b, q5b> b6bVar) {
             this.a = t;
-            this.b = f2bVar;
+            this.b = b6bVar;
         }
 
-        public void call(t1b<? super T> t1bVar) {
-            t1bVar.f(new ScalarAsyncProducer(t1bVar, this.a, this.b));
+        public void call(p5b<? super T> p5bVar) {
+            p5bVar.f(new ScalarAsyncProducer(p5bVar, this.a, this.b));
         }
 
-        @Override // com.baidu.tieba.n1b.a, com.baidu.tieba.b2b
+        @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
         public /* bridge */ /* synthetic */ void call(Object obj) {
-            call((t1b) ((t1b) obj));
+            call((p5b) ((p5b) obj));
         }
     }
 
     /* loaded from: classes9.dex */
-    public static final class f<T> implements p1b {
-        public final t1b<? super T> a;
+    public static final class f<T> implements l5b {
+        public final p5b<? super T> a;
         public final T b;
         public boolean c;
 
-        public f(t1b<? super T> t1bVar, T t) {
-            this.a = t1bVar;
+        public f(p5b<? super T> p5bVar, T t) {
+            this.a = p5bVar;
             this.b = t;
         }
 
-        @Override // com.baidu.tieba.p1b
+        @Override // com.baidu.tieba.l5b
         public void request(long j) {
             if (this.c) {
                 return;
@@ -206,20 +206,20 @@ public final class ScalarSynchronousObservable<T> extends n1b<T> {
                     return;
                 }
                 this.c = true;
-                t1b<? super T> t1bVar = this.a;
-                if (t1bVar.isUnsubscribed()) {
+                p5b<? super T> p5bVar = this.a;
+                if (p5bVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.b;
                 try {
-                    t1bVar.onNext(obj);
-                    if (t1bVar.isUnsubscribed()) {
+                    p5bVar.onNext(obj);
+                    if (p5bVar.isUnsubscribed()) {
                         return;
                     }
-                    t1bVar.onCompleted();
+                    p5bVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    z1b.g(th, t1bVar, obj);
+                    v5b.g(th, p5bVar, obj);
                     return;
                 }
             }
@@ -227,37 +227,37 @@ public final class ScalarSynchronousObservable<T> extends n1b<T> {
         }
     }
 
-    public T E() {
+    public T G() {
         return this.b;
     }
 
     public ScalarSynchronousObservable(T t) {
-        super(u5b.h(new d(t)));
+        super(s9b.h(new d(t)));
         this.b = t;
     }
 
-    public static <T> ScalarSynchronousObservable<T> C(T t) {
+    public static <T> ScalarSynchronousObservable<T> E(T t) {
         return new ScalarSynchronousObservable<>(t);
     }
 
-    public <R> n1b<R> F(f2b<? super T, ? extends n1b<? extends R>> f2bVar) {
-        return n1b.a(new c(f2bVar));
+    public <R> j5b<R> H(b6b<? super T, ? extends j5b<? extends R>> b6bVar) {
+        return j5b.a(new c(b6bVar));
     }
 
-    public n1b<T> G(q1b q1bVar) {
-        f2b bVar;
-        if (q1bVar instanceof i3b) {
-            bVar = new a(this, (i3b) q1bVar);
+    public j5b<T> I(m5b m5bVar) {
+        b6b bVar;
+        if (m5bVar instanceof g7b) {
+            bVar = new a(this, (g7b) m5bVar);
         } else {
-            bVar = new b(this, q1bVar);
+            bVar = new b(this, m5bVar);
         }
-        return n1b.a(new e(this.b, bVar));
+        return j5b.a(new e(this.b, bVar));
     }
 
-    public static <T> p1b D(t1b<? super T> t1bVar, T t) {
+    public static <T> l5b F(p5b<? super T> p5bVar, T t) {
         if (c) {
-            return new SingleProducer(t1bVar, t);
+            return new SingleProducer(p5bVar, t);
         }
-        return new f(t1bVar, t);
+        return new f(p5bVar, t);
     }
 }

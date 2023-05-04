@@ -3,10 +3,10 @@ package com.baidu.sso.j;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
-import com.baidu.tieba.dm1;
-import com.baidu.tieba.en1;
-import com.baidu.tieba.ql1;
-import com.baidu.tieba.rm1;
+import com.baidu.tieba.fm1;
+import com.baidu.tieba.gn1;
+import com.baidu.tieba.sl1;
+import com.baidu.tieba.tm1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -48,12 +48,12 @@ public class d extends BroadcastReceiver {
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                 try {
                     if ("sso_action_t_m".equals(this.a)) {
-                        en1.j(this.b);
-                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.a) && en1.h(this.b) != 0 && ql1.a(this.b).e(false)) {
-                        dm1.m().h(this.b.getApplicationContext(), false);
+                        gn1.j(this.b);
+                    } else if ("android.net.conn.CONNECTIVITY_CHANGE".equals(this.a) && gn1.h(this.b) != 0 && sl1.a(this.b).e(false)) {
+                        fm1.m().h(this.b.getApplicationContext(), false);
                     }
                 } catch (Throwable th) {
-                    en1.d(th);
+                    gn1.d(th);
                 }
             }
         }
@@ -79,6 +79,6 @@ public class d extends BroadcastReceiver {
         if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null) {
             return;
         }
-        rm1.b().post(new a(this, intent.getAction(), context));
+        tm1.b().post(new a(this, intent.getAction(), context));
     }
 }

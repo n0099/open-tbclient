@@ -1,125 +1,147 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
-import com.baidu.android.imsdk.internal.Constants;
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.Intent;
+import android.graphics.Bitmap;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.BitmapHelper;
+import com.baidu.tbadk.core.util.schemeaction.UriBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import com.tencent.mm.opensdk.modelmsg.SendMessageToWX;
+import com.tencent.mm.opensdk.modelmsg.WXMediaMessage;
+import com.tencent.mm.opensdk.modelmsg.WXWebpageObject;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
+import java.io.ByteArrayOutputStream;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes4.dex */
-public class gs5 extends ImageSpan {
+public class gs5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<Drawable> a;
-    public int b;
-    public int c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gs5(Drawable drawable, int i) {
-        super(drawable);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {drawable, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                super((Drawable) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.b = 0;
-        this.c = 1;
-        this.c = i;
-    }
+    /* loaded from: classes4.dex */
+    public static class a extends bg<tm> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ WXMediaMessage a;
+        public final /* synthetic */ IWXAPI b;
+        public final /* synthetic */ SendMessageToWX.Req c;
 
-    public final Drawable a() {
-        InterceptResult invokeV;
-        Drawable drawable;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            WeakReference<Drawable> weakReference = this.a;
-            if (weakReference != null) {
-                drawable = weakReference.get();
-            } else {
-                drawable = null;
-            }
-            if (drawable == null) {
-                Drawable drawable2 = getDrawable();
-                this.a = new WeakReference<>(drawable2);
-                return drawable2;
-            }
-            return drawable;
-        }
-        return (Drawable) invokeV.objValue;
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
-        Drawable a;
-        float f2;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) != null) || (a = a()) == null) {
-            return;
-        }
-        int i6 = this.c;
-        float f3 = 0.0f;
-        if (i6 != 0) {
-            if (i6 != 1) {
-                if (i6 != 2) {
-                    f2 = 0.0f;
-                } else {
-                    f2 = 0.2f;
+        public a(WXMediaMessage wXMediaMessage, IWXAPI iwxapi, SendMessageToWX.Req req) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wXMediaMessage, iwxapi, req};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
-            } else {
-                f2 = 0.15f;
             }
-        } else {
-            f2 = 0.1f;
+            this.a = wXMediaMessage;
+            this.b = iwxapi;
+            this.c = req;
         }
-        if (f2 != 0.0f) {
-            f3 = ((i4 - i5) + (a.getBounds().height() * f2)) - this.b;
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(tm tmVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
+                super.onLoaded((a) tmVar, str, i);
+                if (tmVar != null) {
+                    Bitmap p = tmVar.p();
+                    this.a.thumbData = gs5.a(p);
+                } else {
+                    Bitmap cashBitmap = BitmapHelper.getCashBitmap(R.drawable.pic_wechatguide_head);
+                    this.a.thumbData = gs5.a(cashBitmap);
+                }
+                this.b.sendReq(this.c);
+            }
         }
-        canvas.save();
-        canvas.translate(a.getBounds().width() * 0.15f, f3);
-        super.draw(canvas, charSequence, i, i2, f, i3, i4, i5, paint);
-        canvas.restore();
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
+    public static byte[] a(Bitmap bitmap) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Drawable a = a();
-            if (a == null) {
-                return super.getSize(paint, charSequence, i, i2, fontMetricsInt);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bitmap)) == null) {
+            if (bitmap == null) {
+                try {
+                    bitmap = BitmapHelper.getCashBitmap(R.drawable.pic_wechatguide_head);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
+                }
             }
-            Rect bounds = a.getBounds();
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
-            }
-            return bounds.right;
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            bitmap.compress(Bitmap.CompressFormat.PNG, 100, byteArrayOutputStream);
+            byte[] byteArray = byteArrayOutputStream.toByteArray();
+            byteArrayOutputStream.close();
+            return byteArray;
         }
-        return invokeCommon.intValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public static String b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            if (str == null) {
+                return String.valueOf(System.currentTimeMillis());
+            }
+            return str + System.currentTimeMillis();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void c(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, context) == null) {
+            try {
+                Intent intent = new Intent("android.intent.action.MAIN");
+                ComponentName componentName = new ComponentName("com.tencent.mm", "com.tencent.mm.ui.LauncherUI");
+                intent.addCategory("android.intent.category.LAUNCHER");
+                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
+                intent.setComponent(componentName);
+                context.startActivity(intent);
+            } catch (Exception e) {
+                BdLog.e(e);
+            }
+        }
+    }
+
+    public static void d(TiebaPlusInfo tiebaPlusInfo, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65539, null, tiebaPlusInfo, str) == null) {
+            UriBuilder uriBuilder = new UriBuilder(tiebaPlusInfo.h5_jump_param);
+            if (uriBuilder.getParamsObject() != null) {
+                WXWebpageObject wXWebpageObject = new WXWebpageObject();
+                String string = uriBuilder.getParamsObject().getString("url");
+                if (TextUtils.isEmpty(string)) {
+                    return;
+                }
+                wXWebpageObject.webpageUrl = string;
+                WXMediaMessage wXMediaMessage = new WXMediaMessage(wXWebpageObject);
+                wXMediaMessage.title = str;
+                SendMessageToWX.Req req = new SendMessageToWX.Req();
+                req.transaction = b("webpage");
+                req.message = wXMediaMessage;
+                req.scene = 1;
+                cg.h().k(tiebaPlusInfo.wx_thumbnail, 10, new a(wXMediaMessage, WXAPIFactory.createWXAPI(TbadkCoreApplication.getInst().getContext(), TbConfig.WEIXIN_APP_ID), req), 0, 0, null, new Object[0]);
+            }
+        }
     }
 }

@@ -1,38 +1,102 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedContentResource;
-import tbclient.TitleComponent;
 /* loaded from: classes5.dex */
 public final class oy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final int a;
+    public final String b;
+    public final String c;
 
-    public static final void a(TitleComponent titleComponent, List<c07<?>> dataList, SpannableStringBuilder titleBuilder, ex6 feedExtraData, boolean z) {
-        boolean z2;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{titleComponent, dataList, titleBuilder, feedExtraData, Boolean.valueOf(z)}) == null) {
-            Intrinsics.checkNotNullParameter(titleComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(titleBuilder, "titleBuilder");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            fw6 fw6Var = new fw6(titleBuilder, z);
-            List<FeedContentResource> list = titleComponent.data;
-            if (list != null) {
-                my6.a(list, titleBuilder, feedExtraData, fw6Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            if (titleBuilder.length() > 0) {
-                z2 = true;
-            } else {
-                z2 = false;
+            if (obj instanceof oy6) {
+                oy6 oy6Var = (oy6) obj;
+                return this.a == oy6Var.a && Intrinsics.areEqual(this.b, oy6Var.b) && Intrinsics.areEqual(this.c, oy6Var.c);
             }
-            if (z2) {
-                dataList.add(new d07(fw6Var, "title"));
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            int i = this.a * 31;
+            String str = this.b;
+            int hashCode = (i + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.c;
+            return hashCode + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return "ColorData(type=" + this.a + ", day=" + this.b + ", dark=" + this.c + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public oy6(int i, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), str, str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = str;
+        this.c = str2;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
     }
 }

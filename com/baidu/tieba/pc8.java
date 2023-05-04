@@ -1,9 +1,6 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.messages.AudioMsg;
-import com.baidu.tieba.impersonal.data.VoiceMsgContent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,94 +8,54 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class pc8 extends jc8<AudioMsg, VoiceMsgContent> {
+public final class pc8 extends oc8<vc8> implements s17<pc8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948057348, "Lcom/baidu/tieba/pc8;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948057348, "Lcom/baidu/tieba/pc8;");
-        }
-    }
-
-    @Override // com.baidu.tieba.jc8
-    public int c() {
+    public pc8 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 3;
-        }
-        return invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (pc8) invokeV.objValue;
     }
 
-    public pc8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pc8(zc8<vc8> data, String templateName) {
+        super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, templateName};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zc8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(templateName, "templateName");
+        this.d = templateName;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jc8
-    /* renamed from: h */
-    public AudioMsg e(VoiceMsgContent voiceMsgContent) {
-        InterceptResult invokeL;
-        int i;
-        String str;
+    @Override // com.baidu.tieba.s17
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, voiceMsgContent)) == null) {
-            String str2 = (voiceMsgContent == null || (str2 = voiceMsgContent.b()) == null) ? "" : "";
-            if (voiceMsgContent != null) {
-                i = voiceMsgContent.a();
-            } else {
-                i = 0;
-            }
-            AudioMsg audioMsg = new AudioMsg(str2, i, 2);
-            if (voiceMsgContent != null) {
-                str = voiceMsgContent.f();
-            } else {
-                str = null;
-            }
-            audioMsg.setRemoteUrl(str);
-            return audioMsg;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (AudioMsg) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.jc8
-    /* renamed from: i */
-    public VoiceMsgContent g(AudioMsg sdkMsg) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
-            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
-            VoiceMsgContent voiceMsgContent = new VoiceMsgContent();
-            String localUrl = sdkMsg.getLocalUrl();
-            Intrinsics.checkNotNullExpressionValue(localUrl, "sdkMsg.localUrl");
-            voiceMsgContent.i(localUrl);
-            String remoteUrl = sdkMsg.getRemoteUrl();
-            Intrinsics.checkNotNullExpressionValue(remoteUrl, "sdkMsg.remoteUrl");
-            voiceMsgContent.k(remoteUrl);
-            voiceMsgContent.h(sdkMsg.getDuration());
-            return voiceMsgContent;
-        }
-        return (VoiceMsgContent) invokeL.objValue;
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.s17
+    public /* bridge */ /* synthetic */ pc8 b() {
+        i();
+        return this;
     }
 }

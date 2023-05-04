@@ -1,40 +1,40 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.searchbox.live.interfaces.service.PayChannelService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Iterator;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class mi8 extends rj1<PayChannelService> {
+public class mi8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public mi8() {
+    public static String a(String str, JSONObject jSONObject) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, str, jSONObject)) == null) {
+            StringBuilder sb = new StringBuilder();
+            sb.append(str + "?");
+            Iterator<String> keys = jSONObject.keys();
+            boolean z = true;
+            while (keys.hasNext()) {
+                if (z) {
+                    String next = keys.next();
+                    if (next != null) {
+                        sb.append(next + "=" + jSONObject.optString(next));
+                        z = false;
+                    }
+                } else {
+                    String next2 = keys.next();
+                    if (next2 != null) {
+                        sb.append("&");
+                        sb.append(next2 + "=" + jSONObject.optString(next2));
+                    }
+                }
             }
+            return sb.toString();
         }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rj1
-    /* renamed from: a */
-    public PayChannelService createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new ni8();
-        }
-        return (PayChannelService) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 }

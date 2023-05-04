@@ -753,7 +753,7 @@ public class DrawerLayout extends ViewGroup implements Openable {
     }
 
     public DrawerLayout(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040263);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04026c);
     }
 
     private void mirror(Drawable drawable, int i) {

@@ -1,108 +1,122 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.live.interfaces.defaultimpl.service.LivePreStartPlayServiceImpl;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.tieba.ss2;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.View;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.tieba.g72;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class t04 {
+public class t04 implements nw3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str, String str2, long j) {
+    public t04() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j)}) == null) {
-            s04 s04Var = new s04();
-            s04Var.b = str;
-            s04Var.e = str2;
-            if (v73.M() != null && v73.M().Y() != null) {
-                ss2.a Y = v73.M().Y();
-                s04Var.a = oe3.n(Y.G());
-                s04Var.f = Y.H();
-                s04Var.c = Y.T();
-                s04Var.a("play_time", Long.valueOf(j));
-            }
-            oe3.y("916", "68", s04Var);
-        }
-    }
-
-    public static void b(String str, String str2) {
-        String str3;
-        ss2.a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, str2) == null) {
-            if (v73.M() != null && v73.M().Y() != null) {
-                aVar = v73.M().Y();
-                str3 = oe3.n(aVar.G());
-            } else {
-                str3 = "";
-                aVar = null;
-            }
-            if (aVar != null && TextUtils.equals(str3, SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME)) {
-                s04 s04Var = new s04();
-                s04Var.b = str;
-                s04Var.e = str2;
-                s04Var.a = str3;
-                s04Var.f = aVar.H();
-                s04Var.c = aVar.T();
-                oe3.y("916", "68", s04Var);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public static void c(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65538, null, str, str2, str3) == null) {
-            s04 s04Var = new s04();
-            s04Var.b = str;
-            s04Var.e = str2;
-            if (v73.M() != null && v73.M().Y() != null) {
-                ss2.a Y = v73.M().Y();
-                s04Var.a = oe3.n(Y.G());
-                s04Var.f = Y.H();
-                s04Var.c = Y.T();
-            }
-            s04Var.k = str3;
-            oe3.y("916", "68", s04Var);
-        }
-    }
-
-    public static void d(String str) {
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            s04 s04Var = new s04();
-            s04Var.b = str;
-            s04Var.e = "show";
-            if (v73.M() != null && v73.M().Y() != null) {
-                ss2.a Y = v73.M().Y();
-                s04Var.a = oe3.n(Y.G());
-                s04Var.f = Y.H();
-                s04Var.c = Y.T();
-            }
-            if (e()) {
-                str2 = "0";
-            } else {
-                str2 = "1";
-            }
-            s04Var.a("early", str2);
-            oe3.y("916", "68", s04Var);
-        }
-    }
-
-    public static boolean e() {
+    @Override // com.baidu.tieba.nw3
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (s84.c() > 0 && f44.c() && System.currentTimeMillis() - s84.c() > LivePreStartPlayServiceImpl.PLAYER_TIME_OUT_DURATION) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return w04.b();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nw3
+    @SuppressLint({"SourceLockedOrientationActivity"})
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && b()) {
+            SwanAppActivity activity = kt2.U().getActivity();
+            if (activity != null) {
+                activity.setRequestedOrientation(1);
+            }
+            kt2.U().W().g(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public void a(String str, JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            g72 V = kt2.U().V();
+            Context appContext = AppRuntime.getAppContext();
+            if (V == null) {
+                if (appContext != null) {
+                    p73.f(appContext, R.string.obfuscated_res_0x7f0f01a6).G();
+                    return;
+                }
+                return;
+            }
+            xx2 d = xx2.d(str, str);
+            d.h(jSONObject.toString());
+            g72.b i = V.i("adLanding");
+            i.n(g72.g, g72.i);
+            i.k("adLanding", d).b();
+        }
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            return w04.c(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public boolean removeView(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            return w04.d(view2);
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public boolean d(View view2, hv3 hv3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, hv3Var)) == null) {
+            return w04.a(view2, new dy2(hv3Var.c(), hv3Var.d(), hv3Var.e(), hv3Var.b()));
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public boolean f(View view2, hv3 hv3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, hv3Var)) == null) {
+            op1 W = kt2.U().W();
+            if (W != null && W.a(view2, new dy2(hv3Var.c(), hv3Var.d(), hv3Var.e(), hv3Var.b()))) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLL.booleanValue;
     }
 }

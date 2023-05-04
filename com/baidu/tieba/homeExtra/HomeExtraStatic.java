@@ -4,9 +4,9 @@ import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tieba.kr9;
-import com.baidu.tieba.pl7;
-import com.baidu.tieba.sl7;
+import com.baidu.tieba.fv9;
+import com.baidu.tieba.kn7;
+import com.baidu.tieba.nn7;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,7 +20,7 @@ public class HomeExtraStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<kr9.a> {
+    public static class a implements CustomMessageTask.CustomRunnable<fv9.a> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -40,11 +40,11 @@ public class HomeExtraStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<kr9.a> run(CustomMessage<kr9.a> customMessage) {
+        public CustomResponsedMessage<fv9.a> run(CustomMessage<fv9.a> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156671, new sl7());
+                return new CustomResponsedMessage<>(2156671, new nn7());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -63,7 +63,7 @@ public class HomeExtraStatic {
                 return;
             }
         }
-        MessageManager.getInstance().registerTask(new pl7());
+        MessageManager.getInstance().registerTask(new kn7());
         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001407, Boolean.TRUE));
         CustomMessageTask customMessageTask = new CustomMessageTask(2156671, new a());
         customMessageTask.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);

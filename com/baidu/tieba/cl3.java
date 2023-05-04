@@ -1,64 +1,67 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
+import android.content.Context;
+import android.graphics.Color;
+import android.graphics.PorterDuff;
+import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.internal.blink.WebSettingsGlobalBlink;
 /* loaded from: classes3.dex */
-public class cl3 {
+public final class cl3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947678559, "Lcom/baidu/tieba/cl3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947678559, "Lcom/baidu/tieba/cl3;");
+                return;
+            }
+        }
+        boolean z = ho1.a;
+    }
+
+    public static void a(Context context, Drawable drawable, PorterDuff.Mode mode, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(65537, null, context, drawable, mode, i) == null) && context != null && drawable != null) {
+            int d = d(context);
+            if (i >= 0 && i < 255) {
+                d = Color.argb((Color.alpha(d) * i) / 255, Color.red(d), Color.green(d), Color.blue(d));
+            }
+            drawable.setColorFilter(d, mode);
+        }
+    }
+
+    public static void b(Context context, Drawable drawable) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, drawable) == null) {
+            c(context, drawable, 255);
+        }
+    }
+
+    public static void c(Context context, Drawable drawable, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65539, null, context, drawable, i) == null) {
+            a(context, drawable, PorterDuff.Mode.SRC_ATOP, i);
+        }
+    }
+
+    public static int d(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            v73 M = v73.M();
-            if (M != null) {
-                return String.format(str, M.O(), M.V());
-            }
-            return "";
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            return context.getResources().getColor(R.color.obfuscated_res_0x7f06034f);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            String a = a("https://smartapps.cn/%s/%s/page-frame.html");
-            if (fo1.a) {
-                Log.d("SwanAppRefererUtils", "getFixedReferer: " + a);
-            }
-            return a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            String b = b();
-            if (!TextUtils.isEmpty(b)) {
-                if (fo1.a) {
-                    Log.d("SwanAppRefererUtils", "call setRefererPattern for Slave Webview; referer is " + b);
-                }
-                WebSettingsGlobalBlink.setRefererPattern(b, rq2.i());
-            }
-        }
-    }
-
-    public static boolean c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("https://")) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 }

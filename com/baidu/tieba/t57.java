@@ -1,67 +1,51 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
 public class t57 {
     public static /* synthetic */ Interceptable $ic;
-    public static t57 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<u57> a;
+    public r57 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948132275, "Lcom/baidu/tieba/t57;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948132275, "Lcom/baidu/tieba/t57;");
-                return;
-            }
-        }
-        b = new t57();
-    }
-
-    public t57() {
+    public t57(TbPageContext tbPageContext, BdTypeListView bdTypeListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdTypeListView};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        if (bdTypeListView == null) {
+            return;
+        }
+        ArrayList arrayList = new ArrayList();
+        arrayList.add(new p57(tbPageContext, y57.d, tbPageContext.getUniqueId()));
+        r57 r57Var = new r57(tbPageContext, z57.h, tbPageContext.getUniqueId());
+        this.a = r57Var;
+        arrayList.add(r57Var);
+        arrayList.add(new q57(tbPageContext, y57.c, tbPageContext.getUniqueId()));
+        arrayList.add(new s57(tbPageContext, y57.e, tbPageContext.getUniqueId()));
+        bdTypeListView.addAdapters(arrayList);
     }
 
-    public static t57 a() {
-        InterceptResult invokeV;
+    public void a(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onClickListener) == null) {
+            this.a.u(onClickListener);
         }
-        return (t57) invokeV.objValue;
-    }
-
-    public u57 b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.a.get(i);
-        }
-        return (u57) invokeI.objValue;
     }
 }

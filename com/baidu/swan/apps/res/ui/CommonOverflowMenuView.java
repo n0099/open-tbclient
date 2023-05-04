@@ -13,37 +13,37 @@ import android.widget.TextView;
 import androidx.annotation.ColorRes;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr2;
-import com.baidu.tieba.f73;
-import com.baidu.tieba.g73;
-import com.baidu.tieba.jd3;
+import com.baidu.tieba.er2;
+import com.baidu.tieba.h73;
+import com.baidu.tieba.i73;
+import com.baidu.tieba.ld3;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class CommonOverflowMenuView extends LinearLayout implements f73.g {
+public class CommonOverflowMenuView extends LinearLayout implements h73.g {
     public int a;
     public int b;
     public ColorStateList c;
     public List<ImageView> d;
     public List<TextView> e;
-    public HashMap<g73, ImageView> f;
+    public HashMap<i73, ImageView> f;
     public View g;
     public LinearLayout h;
     public SwanAppScrollView i;
     public Object j;
 
     /* loaded from: classes3.dex */
-    public class a implements jd3 {
+    public class a implements ld3 {
         public a() {
         }
     }
 
     public CommonOverflowMenuView(Context context) {
         super(context);
-        this.a = R.drawable.obfuscated_res_0x7f08014d;
-        this.b = R.color.obfuscated_res_0x7f060315;
+        this.a = R.drawable.obfuscated_res_0x7f08014e;
+        this.b = R.color.obfuscated_res_0x7f060319;
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.f = new HashMap<>();
@@ -53,10 +53,10 @@ public class CommonOverflowMenuView extends LinearLayout implements f73.g {
     }
 
     public final void a(Context context) {
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00be, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d00bf, (ViewGroup) this, true);
         this.g = inflate;
-        this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091684);
-        this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f091687);
+        this.h = (LinearLayout) inflate.findViewById(R.id.obfuscated_res_0x7f091692);
+        this.i = (SwanAppScrollView) this.g.findViewById(R.id.obfuscated_res_0x7f091695);
         setFocusable(true);
         setFocusableInTouchMode(true);
         b();
@@ -80,8 +80,8 @@ public class CommonOverflowMenuView extends LinearLayout implements f73.g {
 
     public CommonOverflowMenuView(Context context, AttributeSet attributeSet) {
         super(context, attributeSet);
-        this.a = R.drawable.obfuscated_res_0x7f08014d;
-        this.b = R.color.obfuscated_res_0x7f060315;
+        this.a = R.drawable.obfuscated_res_0x7f08014e;
+        this.b = R.color.obfuscated_res_0x7f060319;
         this.d = new ArrayList();
         this.e = new ArrayList();
         this.f = new HashMap<>();
@@ -95,15 +95,15 @@ public class CommonOverflowMenuView extends LinearLayout implements f73.g {
     }
 
     public final void b() {
-        this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0602f8);
-        setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014c));
+        this.c = AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f0602fc);
+        setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014d));
         for (ImageView imageView : this.d) {
             imageView.setBackgroundColor(getResources().getColor(this.b));
         }
         for (TextView textView : this.e) {
             textView.setTextColor(this.c);
         }
-        for (Map.Entry<g73, ImageView> entry : this.f.entrySet()) {
+        for (Map.Entry<i73, ImageView> entry : this.f.entrySet()) {
             entry.getValue().setImageDrawable(entry.getKey().b());
         }
     }
@@ -123,13 +123,13 @@ public class CommonOverflowMenuView extends LinearLayout implements f73.g {
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        cr2.M().f(this.j, new a());
+        er2.M().f(this.j, new a());
         b();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        cr2.M().g(this.j);
+        er2.M().g(this.j);
     }
 }

@@ -1,23 +1,19 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public interface gn0 {
-    public static final ServiceReference a = new ServiceReference("nad.business", "rewardLpBDTaskCenter");
+    public static final ServiceReference a = new ServiceReference("nad.core", "loadImage");
     public static final gn0 b = new a();
 
-    @NonNull
-    String a();
+    void c(String str, fn0 fn0Var);
 
-    @NonNull
-    String b();
+    void d(String str);
 
     /* loaded from: classes4.dex */
     public static class a implements gn0 {
@@ -25,19 +21,17 @@ public interface gn0 {
         public transient /* synthetic */ FieldHolder $fh;
 
         @Override // com.baidu.tieba.gn0
-        @NonNull
-        public String a() {
-            InterceptResult invokeV;
+        public void c(String str, fn0 fn0Var) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "" : (String) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, fn0Var) == null) {
+            }
         }
 
         @Override // com.baidu.tieba.gn0
-        @NonNull
-        public String b() {
-            InterceptResult invokeV;
+        public void d(String str) {
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            }
         }
 
         public a() {

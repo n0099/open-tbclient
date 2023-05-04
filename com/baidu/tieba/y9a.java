@@ -1,119 +1,136 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.graphics.drawable.NinePatchDrawable;
+import android.text.TextUtils;
+import android.view.View;
+import android.widget.RelativeLayout;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.HttpMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.framework.message.HttpResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.HttpManager;
-import com.baidu.searchbox.http.request.PostBodyRequest;
-import com.baidu.searchbox.http.request.PostByteRequest;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.afx.TbAlphaVideo;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BubbleChooseActivityConfig;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tieba.ap9;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.io.InputStream;
 import java.util.Map;
-import okhttp3.MediaType;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import okio.BufferedSink;
-import okio.Okio;
-import okio.Source;
-@Singleton
-@Service
 /* loaded from: classes7.dex */
-public class y9a extends r9a {
-    public static /* synthetic */ Interceptable $ic;
+public class y9a {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static double k = 3.88d;
     public transient /* synthetic */ FieldHolder $fh;
+    @NonNull
+    public final TbPageContext<?> a;
+    @NonNull
+    public final v8a b;
+    @Nullable
+    public final View c;
+    @Nullable
+    public final TbAlphaVideo d;
+    public final int e;
+    public String f;
+    public String g;
+    public final HttpMessageListener h;
+    public final ap9.f i;
+    public ap9.f j;
 
-    /* loaded from: classes7.dex */
-    public class a extends vaa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
-
-        public a(y9a y9aVar, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y9aVar, response};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = response;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948286376, "Lcom/baidu/tieba/y9a;")) == null) {
+            return;
         }
-
-        @Override // com.baidu.tieba.vaa
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-
-        @Override // com.baidu.tieba.vaa
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.vaa
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.vaa
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.vaa
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948286376, "Lcom/baidu/tieba/y9a;");
         }
     }
 
     /* loaded from: classes7.dex */
-    public class b extends RequestBody {
+    public class a extends HttpMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Map a;
-        public final /* synthetic */ InputStream b;
+        public final /* synthetic */ y9a a;
 
-        public b(y9a y9aVar, Map map, InputStream inputStream) {
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(y9a y9aVar, int i) {
+            super(i);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {y9aVar, map, inputStream};
+                Object[] objArr = {y9aVar, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = y9aVar;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
+            Map map;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage.getError() != 0 || (map = (Map) MessageManager.getInstance().runTask(2001284, Map.class, httpResponsedMessage).getData()) == null) {
+                return;
+            }
+            String str = (String) map.get("b_url");
+            String str2 = (String) map.get("dynamic_url");
+            if (!TextUtils.isEmpty(str) || TextUtils.isEmpty(this.a.f)) {
+                if (TextUtils.isEmpty(str) || str.equals(this.a.f)) {
+                    return;
+                }
+                this.a.f = str;
+                this.a.g = str2;
+                TbadkCoreApplication.getInst().setDefaultBubble(this.a.f);
+                TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(this.a.g);
+                this.a.o(true);
+                return;
+            }
+            this.a.f = str;
+            this.a.g = str2;
+            TbadkCoreApplication.getInst().setDefaultBubble(str);
+            TbadkCoreApplication.getInst().setDefaultBubbleDynamicRes(str2);
+            this.a.o(true);
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements ap9.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ y9a a;
+
+        public b(y9a y9aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y9aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -123,172 +140,172 @@ public class y9a extends r9a {
                     return;
                 }
             }
-            this.a = map;
-            this.b = inputStream;
+            this.a = y9aVar;
         }
 
-        @Override // okhttp3.RequestBody
-        public long contentLength() throws IOException {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.ap9.f
+        public void onRefresh() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.a.containsKey("Content-Length")) {
-                    try {
-                        return Long.valueOf((String) this.a.get("Content-Length")).longValue();
-                    } catch (Exception unused) {
+            if (interceptable != null && interceptable.invokeV(1048576, this) != null) {
+                return;
+            }
+            this.a.f = null;
+            this.a.g = null;
+            this.a.o(false);
+            if (this.a.j != null) {
+                this.a.j.onRefresh();
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends bg<tm> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ y9a b;
+
+        public c(y9a y9aVar, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {y9aVar, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = y9aVar;
+            this.a = z;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(tm tmVar, String str, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
+                super.onLoaded((c) tmVar, str, i);
+                if (tmVar != null && tmVar.p() != null && tmVar.o() != null) {
+                    NinePatchDrawable ninePatchDrawable = new NinePatchDrawable(TbadkCoreApplication.getInst().getResources(), tmVar.p(), tmVar.p().getNinePatchChunk(), tmVar.o(), null);
+                    if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                        ninePatchDrawable.getPaint().setAlpha(TbConfig.ALPHA_80);
                     }
-                }
-                return super.contentLength();
-            }
-            return invokeV.longValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public MediaType contentType() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return MediaType.parse("application/octet-stream");
-            }
-            return (MediaType) invokeV.objValue;
-        }
-
-        @Override // okhttp3.RequestBody
-        public void writeTo(BufferedSink bufferedSink) throws IOException {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bufferedSink) == null) {
-                Source source = null;
-                try {
-                    source = Okio.source(this.b);
-                    bufferedSink.writeAll(source);
-                } finally {
-                    if (source != null) {
-                        source.close();
+                    this.b.c.setBackgroundDrawable(ninePatchDrawable);
+                    if (this.a && this.b.b.p() != null) {
+                        ap9.c(this.b.a, this.b.b.p(), true, this.b.i);
                     }
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001353, Boolean.TRUE));
                 }
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class c extends vaa {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Response a;
-
-        public c(y9a y9aVar, Response response) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y9aVar, response};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = response;
-        }
-
-        @Override // com.baidu.tieba.vaa
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.body().close();
-            }
-        }
-
-        @Override // com.baidu.tieba.vaa
-        public String b() throws IOException {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return this.a.body().string();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.vaa
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return this.a.code();
-            }
-            return invokeV.intValue;
-        }
-
-        @Override // com.baidu.tieba.vaa
-        public String d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                return this.a.message();
-            }
-            return (String) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.vaa
-        public boolean e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.isSuccessful();
-            }
-            return invokeV.booleanValue;
-        }
-    }
-
-    public y9a() {
+    public y9a(@NonNull TbPageContext<?> tbPageContext, @NonNull v8a v8aVar, @Nullable View view2, @Nullable TbAlphaVideo tbAlphaVideo, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, v8aVar, view2, tbAlphaVideo, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
+        }
+        this.f = TbadkCoreApplication.getInst().getDefaultBubble();
+        this.g = TbadkCoreApplication.getInst().getDefaultBubbleDynamicRes();
+        this.h = new a(this, CmdConfigHttp.REQUEST_BUBBLELIST_CMD);
+        this.i = new b(this);
+        this.a = tbPageContext;
+        this.b = v8aVar;
+        this.c = view2;
+        this.d = tbAlphaVideo;
+        this.e = i;
+        tbPageContext.registerListener(this.h);
+        o(true);
+    }
+
+    @SuppressLint({"ResourceAsColor"})
+    public final void o(boolean z) {
+        View view2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048580, this, z) != null) || (view2 = this.c) == null) {
+            return;
+        }
+        view2.setPadding(0, 0, 0, 0);
+        this.c.setBackgroundDrawable(null);
+        SkinManager.setBackgroundColor(this.c, R.color.CAM_X0201);
+        l(z);
+    }
+
+    public void p(ap9.f fVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, fVar) == null) {
+            this.j = fVar;
         }
     }
 
-    @Override // com.baidu.tieba.r9a
-    public vaa j(String str, InputStream inputStream, Map<String, String> map) throws IOException {
-        InterceptResult invokeLLL;
+    public final void k(TbAlphaVideo tbAlphaVideo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, inputStream, map)) == null) {
-            PostBodyRequest.PostBodyRequestBuilder postRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postRequest();
-            postRequest.requestFrom(3);
-            postRequest.url(str);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                postRequest.addHeader(entry.getKey(), entry.getValue());
-            }
-            postRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            postRequest.requestBody(new b(this, map, inputStream));
-            return new c(this, postRequest.build().executeSync());
+        if ((interceptable != null && interceptable.invokeL(1048576, this, tbAlphaVideo) != null) || tbAlphaVideo == null) {
+            return;
         }
-        return (vaa) invokeLLL.objValue;
+        int d = ii.d(TbadkCoreApplication.getInst(), 50.0f);
+        RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams((int) (d * k), d);
+        layoutParams.addRule(11);
+        layoutParams.rightMargin = this.a.getResources().getDimensionPixelSize(R.dimen.M_W_X007);
+        tbAlphaVideo.setLayoutParams(layoutParams);
     }
 
-    @Override // com.baidu.tieba.r9a
-    public vaa k(String str, byte[] bArr, Map<String, String> map) throws IOException {
-        InterceptResult invokeLLL;
+    public void n(jd5 jd5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, bArr, map)) == null) {
-            PostByteRequest.PostByteRequestBuilder postByteRequest = HttpManager.getDefault(AppRuntime.getAppContext()).postByteRequest();
-            postByteRequest.requestFrom(3);
-            postByteRequest.url(str);
-            for (Map.Entry<String, String> entry : map.entrySet()) {
-                postByteRequest.addHeader(entry.getKey(), entry.getValue());
+        if ((interceptable == null || interceptable.invokeL(1048579, this, jd5Var) == null) && jd5Var.a == 25) {
+            Object obj = jd5Var.c;
+            if (obj instanceof Map) {
+                Map map = (Map) obj;
+                this.f = (String) map.get("b_url");
+                this.g = (String) map.get("dynamic_url");
+            } else {
+                this.f = null;
+                this.g = null;
             }
-            postByteRequest.cookieManager(HttpManager.getDefault(AppRuntime.getAppContext()).getCookieManager(true, true));
-            return new a(this, postByteRequest.content(bArr).build().executeSync());
+            o(false);
         }
-        return (vaa) invokeLLL.objValue;
+    }
+
+    public final void l(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) != null) || this.c == null || this.e == 14 || !TbadkCoreApplication.getInst().appResponseToIntentClass(BubbleChooseActivityConfig.class)) {
+            return;
+        }
+        if (!TextUtils.isEmpty(this.f)) {
+            if (this.d != null) {
+                if (!TextUtils.isEmpty(this.g)) {
+                    this.d.setVisibility(0);
+                    this.d.k(ks4.a(this.g));
+                    k(this.d);
+                } else {
+                    this.d.setVisibility(8);
+                }
+            }
+            cg.h().m(this.f, 19, new c(this, z), this.a.getUniqueId());
+            return;
+        }
+        this.d.setVisibility(8);
+    }
+
+    public void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            o(false);
+        }
     }
 }

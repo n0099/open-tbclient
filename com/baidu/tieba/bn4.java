@@ -2,268 +2,674 @@ package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.IBinder;
-import android.os.RemoteException;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import android.text.TextUtils;
+import android.util.Base64InputStream;
+import android.util.Base64OutputStream;
+import android.util.Log;
+import android.util.SparseArray;
+import android.util.SparseIntArray;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.ubc.Flow;
-import com.baidu.swan.ubc.IRemoteUBCService;
-import com.baidu.tbadk.core.util.GameCenterCoreUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.platform.comapi.map.MapBundleKey;
+import com.baidu.searchbox.live.interfaces.DI;
+import com.baidu.searchbox.logsystem.basic.upload.Constant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.InputStream;
+import java.io.OutputStream;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import java.util.List;
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
-@Autowired
 /* loaded from: classes3.dex */
 public class bn4 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile IRemoteUBCService a;
-    public static final Map<String, Integer> b;
-    public static final Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
+    public Context a;
+    public zm4 b;
+    public an4 c;
+    public List<hn4> d;
+    public long e;
+    public long f;
+    public long g;
+    public int h;
+    public SparseArray<ArrayList> i;
+    public HashMap<String, Long> j;
+    public ln4 k;
+    public cn4 l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947650721, "Lcom/baidu/tieba/bn4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947650721, "Lcom/baidu/tieba/bn4;");
-                return;
-            }
-        }
-        b = new HashMap();
-        HashSet hashSet = new HashSet();
-        c = hashSet;
-        hashSet.add(GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER);
-        c.add("671");
-        b.put(GameCenterCoreUtils.REF_TYPE_FROM_GAMECENTER, -1);
-        b.put("671", -1);
-    }
-
-    public bn4() {
+    public bn4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.b = new zm4(context);
+        this.c = new an4(context);
+        this.k = dn4.g().l();
+        this.d = new ArrayList(20);
+        sn4 f = sn4.f();
+        this.e = f.getLong("ubc_last_upload_all_time", 0L);
+        this.f = f.getLong("ubc_last_upload_non_real", 0L);
+        this.g = f.getLong("ubc_reset_real_time_count_time", 0L);
+        this.h = f.getInt("ubc_real_time_count", 0);
+        cn4 g = cn4.g();
+        this.l = g;
+        g.k(this, context);
     }
 
-    @Inject
-    public static in4 g() {
-        InterceptResult invokeV;
+    public void k(hn4 hn4Var) {
+        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return c03.a();
-        }
-        return (in4) invokeV.objValue;
-    }
-
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return AppRuntime.getAppContext();
-        }
-        return (Context) invokeV.objValue;
-    }
-
-    public static int a(String str, String str2) {
-        InterceptResult invokeLL;
-        int intValue;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
-            Integer num = b.get(str);
-            if (num == null) {
-                num = -1;
-            }
-            if (num.intValue() == -1) {
-                intValue = qn4.f().getInt(str2, 0);
+        if (interceptable == null || interceptable.invokeL(1048588, this, hn4Var) == null) {
+            if (TextUtils.equals(hn4Var.a, hn4Var.b) && this.l.b(hn4Var.a) && (hn4Var.g & 64) == 0) {
+                z = true;
             } else {
-                intValue = num.intValue();
+                z = false;
             }
-            int i = intValue + 1;
-            if (i >= Integer.MAX_VALUE || i < 0) {
-                return 0;
-            }
-            return i;
-        }
-        return invokeLL.intValue;
-    }
-
-    public static String b(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
-            if (!c.contains(str)) {
-                return str2;
-            }
-            in4 g = g();
-            if (g != null && g.p()) {
-                synchronized (bn4.class) {
-                    String str3 = "ubc_counter" + str;
-                    int a2 = a(str, str3);
-                    try {
-                        JSONObject jSONObject = new JSONObject(str2);
-                        jSONObject.put("counter", a2);
-                        str2 = jSONObject.toString();
-                        qn4.f().putInt(str3, a2);
-                        b.put(str, Integer.valueOf(a2));
-                    } catch (JSONException unused) {
-                    }
+            if (z && !A(hn4Var)) {
+                this.b.y(hn4Var);
+            } else if (Math.abs(System.currentTimeMillis() - this.f) >= cn4.g().h()) {
+                if (!z) {
+                    this.d.add(hn4Var);
                 }
-                return str2;
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public static JSONObject c(String str, JSONObject jSONObject) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, jSONObject)) == null) {
-            if (!c.contains(str)) {
-                return jSONObject;
-            }
-            in4 g = g();
-            if (g != null && g.p()) {
-                synchronized (bn4.class) {
-                    String str2 = "ubc_counter" + str;
-                    int a2 = a(str, str2);
-                    try {
-                        jSONObject.put("counter", a2);
-                        qn4.f().putInt(str2, a2);
-                        b.put(str, Integer.valueOf(a2));
-                    } catch (JSONException unused) {
-                    }
+                z();
+            } else if ((1 & hn4Var.g) == 0) {
+                if (!z) {
+                    this.d.add(hn4Var);
                 }
-                return jSONObject;
+                if (this.d.size() >= 20) {
+                    j();
+                }
+            } else if (!z) {
+                this.b.y(hn4Var);
             }
-            return jSONObject;
         }
-        return (JSONObject) invokeLL.objValue;
     }
 
-    public static Flow d(String str) {
+    public final void q(tn4 tn4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048594, this, tn4Var) != null) || tn4Var.d()) {
+            return;
+        }
+        JSONArray jSONArray = tn4Var.a;
+        String d = do4.d(jSONArray.toString().getBytes(), true);
+        m(jSONArray.toString(), d);
+        this.b.A(d, tn4Var.g);
+        if (!this.b.g(tn4Var.b, tn4Var.c, tn4Var.g, d)) {
+            tn4Var.c();
+            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", d);
+            if (file.exists() && file.delete()) {
+                Log.d("CeresBehaviorModel", "db fail deleteUploadFile file suc");
+            }
+            this.b.i(d);
+            return;
+        }
+        mn4.f().r(jSONArray, d);
+        tn4Var.c();
+    }
+
+    public void v(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
+            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", str);
+            InputStream inputStream = null;
+            try {
+                InputStream fileInputStream = new FileInputStream(file);
+                try {
+                    if (fileInputStream.available() > 0) {
+                        inputStream = new Base64InputStream(fileInputStream, 0);
+                        mn4.f().r(new JSONArray(fo4.c(inputStream)), str);
+                        fileInputStream = inputStream;
+                    }
+                    bo4.d(fileInputStream);
+                } catch (Exception unused) {
+                    inputStream = fileInputStream;
+                    bo4.d(inputStream);
+                } catch (Throwable th) {
+                    th = th;
+                    inputStream = fileInputStream;
+                    bo4.d(inputStream);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
+    }
+
+    public final boolean A(hn4 hn4Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return e(str, "", 0);
-        }
-        return (Flow) invokeL.objValue;
-    }
-
-    public static void onEvent(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, str) == null) {
-            i(str, "", 0);
-        }
-    }
-
-    public static Flow e(String str, String str2, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65542, null, str, str2, i)) == null) {
-            return mn4.b().a(str, str2, i);
-        }
-        return (Flow) invokeLLI.objValue;
-    }
-
-    public static void i(String str, String str2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65547, null, str, str2, i) == null) {
-            if (gj1.g()) {
-                str2 = b(str, str2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, hn4Var)) == null) {
+            if (!g(this.a) || !c()) {
+                return false;
             }
-            if (vn4.a()) {
-                mn4.b().e(str, str2, i);
+            j();
+            tn4 tn4Var = new tn4();
+            tn4Var.g = true;
+            JSONObject jSONObject = hn4Var.e;
+            try {
+                if (jSONObject != null && jSONObject.has("bizId")) {
+                    qn4.a(jSONObject);
+                    tn4Var.a(jSONObject);
+                    long j = hn4Var.f;
+                    tn4Var.g(j, j);
+                    JSONObject jSONObject2 = jSONObject.getJSONObject("content");
+                    JSONObject jSONObject3 = jSONObject.getJSONObject(DI.APP_INFO_NAME);
+                    if (jSONObject2 != null && jSONObject3 != null) {
+                        jSONObject2.put(DI.APP_INFO_NAME, jSONObject3);
+                        jSONObject.remove(DI.APP_INFO_NAME);
+                    }
+                } else {
+                    JSONObject e = new qn4(hn4Var.a()).e();
+                    e.put("bizId", hn4Var.a);
+                    e.put("timestamp", Long.toString(hn4Var.f));
+                    if (hn4Var.e != null) {
+                        e.put("content", hn4Var.e);
+                    } else {
+                        e.put("content", hn4Var.d);
+                    }
+                    e.put("eventType", "0");
+                    if (!TextUtils.isEmpty(hn4Var.h)) {
+                        e.put("abtest", hn4Var.h);
+                        tn4Var.f = "1";
+                    }
+                    if (!TextUtils.isEmpty(hn4Var.i)) {
+                        e.put("c", hn4Var.i);
+                    }
+                    if (hn4Var.j) {
+                        e.put(MapBundleKey.MapObjKey.OBJ_OFFSET, "1");
+                    }
+                    e.put(Constant.ID_TYPE, this.l.j(hn4Var.a));
+                    tn4Var.a(e);
+                    tn4Var.g(hn4Var.f, hn4Var.f);
+                }
+            } catch (JSONException unused) {
             }
+            if (this.i == null) {
+                f();
+            }
+            if (this.i.size() > 0) {
+                this.b.m(this.i.valueAt(0), tn4Var);
+            }
+            q(tn4Var);
+            i();
+            return true;
         }
+        return invokeL.booleanValue;
     }
 
-    public static void k(String str, Map<String, String> map, int i) {
+    public final void B() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLI(65549, null, str, map, i) == null) && vn4.a()) {
-            mn4.b().f(str, map, i);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !g(this.a) || !c()) {
+            return;
         }
+        tn4 tn4Var = new tn4();
+        tn4Var.g = true;
+        if (this.i == null) {
+            f();
+        }
+        if (this.i.size() > 0) {
+            if (dn4.g().r()) {
+                this.b.l(tn4Var);
+            } else {
+                this.b.m(this.i.valueAt(0), tn4Var);
+            }
+        }
+        q(tn4Var);
+        i();
     }
 
-    public static void m(String str, JSONObject jSONObject, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(65551, null, str, jSONObject, i) == null) {
-            if (gj1.g()) {
-                c(str, jSONObject);
-            }
-            if (vn4.a()) {
-                mn4.b().g(str, jSONObject, i);
-            }
-        }
-    }
-
-    @SuppressLint({"BDThrowableCheck"})
-    public static IRemoteUBCService f() throws RemoteException {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (a == null) {
-                synchronized (bn4.class) {
-                    if (a == null) {
-                        IBinder f = IPCServiceManager.f("open_log", true);
-                        if (f != null) {
-                            if (f != null) {
-                                a = IRemoteUBCService.Stub.asInterface(f);
-                            }
-                        } else {
-                            throw new RemoteException("Ceres get remote service empty !");
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (dn4.g().r()) {
+                return true;
+            }
+            long currentTimeMillis = System.currentTimeMillis();
+            if (Math.abs(currentTimeMillis - this.g) > 86400000) {
+                this.h = 0;
+                this.g = currentTimeMillis;
+                sn4.f().putLong("ubc_reset_real_time_count_time", this.g);
+                sn4.f().putInt("ubc_real_time_count", this.h);
+            }
+            int i = this.h;
+            if (i < 1000) {
+                return true;
+            }
+            if (i == 1000) {
+                this.h = i + 1;
+                dn4.h("23", "realLimit");
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048583, this) != null) || this.i != null) {
+            return;
+        }
+        SparseArray<ArrayList> sparseArray = new SparseArray<>();
+        this.i = sparseArray;
+        this.b.v(sparseArray);
+        this.j = new HashMap<>();
+        int i = 0;
+        for (int i2 = 0; i2 < this.i.size(); i2++) {
+            int keyAt = this.i.keyAt(i2);
+            if (keyAt != 0 && i == 0) {
+                i = keyAt;
+            }
+            HashMap<String, Long> hashMap = this.j;
+            hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
+        }
+        this.l.p(i);
+    }
+
+    public void a(String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
+            j();
+            this.b.d(str, i);
+            if (Math.abs(System.currentTimeMillis() - this.f) >= cn4.g().h()) {
+                z();
+            }
+        }
+    }
+
+    public final void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            n(true);
+            n(false);
+        }
+    }
+
+    public zm4 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.b;
+        }
+        return (zm4) invokeV.objValue;
+    }
+
+    public final void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.h++;
+            sn4.f().putInt("ubc_real_time_count", this.h);
+        }
+    }
+
+    public final void j() {
+        List<hn4> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && (list = this.d) != null && list.size() != 0) {
+            this.b.z(this.d);
+            this.d.clear();
+        }
+    }
+
+    public void o() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            this.b.C();
+        }
+    }
+
+    public void d(String str, int i, long j, JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, Integer.valueOf(i), Long.valueOf(j), jSONArray}) == null) {
+            j();
+            this.b.j(str, i, j, jSONArray);
+            if (this.l.b(str)) {
+                B();
+            }
+            if (Math.abs(System.currentTimeMillis() - this.f) >= cn4.g().h()) {
+                z();
+            }
+        }
+    }
+
+    @SuppressLint({"MissingPermission"})
+    public final boolean g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context)) == null) {
+            ConnectivityManager connectivityManager = (ConnectivityManager) context.getApplicationContext().getSystemService("connectivity");
+            if (connectivityManager == null) {
+                return false;
+            }
+            NetworkInfo networkInfo = null;
+            try {
+                networkInfo = connectivityManager.getActiveNetworkInfo();
+            } catch (Exception unused) {
+            }
+            if (networkInfo == null || !networkInfo.isAvailable()) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void l(hn4 hn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, hn4Var) == null) {
+            this.c.d(hn4Var, this.l.b(hn4Var.a));
+        }
+    }
+
+    public final void n(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
+            tn4 tn4Var = new tn4();
+            tn4Var.g = z;
+            if (this.c.c(tn4Var, z)) {
+                JSONArray jSONArray = tn4Var.a;
+                this.c.b(z);
+                mn4.f().s(jSONArray);
+            }
+        }
+    }
+
+    public void p(jn4 jn4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048593, this, jn4Var) == null) {
+            this.b.B(jn4Var);
+        }
+    }
+
+    public void w(JSONArray jSONArray) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048600, this, jSONArray) == null) && !this.k.a(jSONArray)) {
+            dn4.h("23", "sendFail");
+        }
+    }
+
+    public void x(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            rn4.a("upload file fail");
+            this.b.F(str);
+        }
+    }
+
+    public void h() {
+        File[] listFiles;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048585, this) != null) || !g(this.a)) {
+            return;
+        }
+        File file = new File(this.a.getFilesDir() + File.separator + "statistics_data");
+        if (file.exists() && file.isDirectory() && (listFiles = file.listFiles()) != null) {
+            if (listFiles.length > 50) {
+                JSONObject jSONObject = new JSONObject();
+                try {
+                    jSONObject.put("type", "del_file");
+                    jSONObject.put("del_file_size", listFiles.length);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                dn4.h("23", jSONObject.toString());
+                for (File file2 : listFiles) {
+                    file2.delete();
+                }
+                this.b.h();
+            }
+            for (int i = 0; i < listFiles.length; i++) {
+                in4 u = this.b.u(listFiles[i].getName());
+                if (u != null && TextUtils.equals("0", u.a())) {
+                    rn4.a("processFailedData file, no need to send");
+                } else if (u != null && TextUtils.equals("1", u.a())) {
+                    rn4.a("processFailedData file, send");
+                    this.b.G(listFiles[i].getName(), "0");
+                    v(listFiles[i].getName());
+                } else {
+                    rn4.a("processFailedData file, data in db, delete file");
+                    listFiles[i].delete();
+                }
+            }
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048597, this) != null) || !g(this.a) || Math.abs(System.currentTimeMillis() - this.e) < 3600000) {
+            return;
+        }
+        this.b.f();
+        tn4 tn4Var = new tn4();
+        if (this.b.l(tn4Var) == 0) {
+            return;
+        }
+        tn4 tn4Var2 = new tn4();
+        tn4Var2.g(tn4Var.d, tn4Var.e);
+        tn4Var2.f = tn4Var.f;
+        tn4Var2.g = true;
+        tn4 tn4Var3 = new tn4();
+        tn4Var3.g(tn4Var.d, tn4Var.e);
+        tn4Var3.f = tn4Var.f;
+        tn4Var3.g = false;
+        SparseIntArray sparseIntArray = tn4Var.b;
+        int size = sparseIntArray.size();
+        for (int i = 0; i < size; i++) {
+            if (this.l.b(String.valueOf(sparseIntArray.valueAt(i)))) {
+                tn4Var2.f(sparseIntArray.keyAt(i), sparseIntArray.valueAt(i));
+            } else {
+                tn4Var3.f(sparseIntArray.keyAt(i), sparseIntArray.valueAt(i));
+            }
+        }
+        ArrayList<String> arrayList = tn4Var.c;
+        int size2 = arrayList.size();
+        for (int i2 = 0; i2 < size2; i2++) {
+            String str = arrayList.get(i2);
+            if (this.l.b(str)) {
+                tn4Var2.e(str);
+            } else {
+                tn4Var3.e(str);
+            }
+        }
+        JSONArray jSONArray = tn4Var.a;
+        int length = jSONArray.length();
+        for (int i3 = 0; i3 < length; i3++) {
+            JSONObject optJSONObject = jSONArray.optJSONObject(i3);
+            if (optJSONObject.has("bizId")) {
+                String str2 = null;
+                try {
+                    str2 = optJSONObject.getString("bizId");
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+                if (!TextUtils.isEmpty(str2)) {
+                    if (this.l.b(str2)) {
+                        tn4Var2.a(optJSONObject);
+                    } else {
+                        tn4Var3.a(optJSONObject);
                     }
                 }
             }
-            return a;
         }
-        return (IRemoteUBCService) invokeV.objValue;
+        if (tn4Var2.a.length() > 0) {
+            q(tn4Var2);
+        }
+        if (tn4Var3.a.length() > 0) {
+            q(tn4Var3);
+        }
+        this.e = System.currentTimeMillis();
+        sn4.f().putLong("ubc_last_upload_all_time", this.e);
+        this.f = this.e;
+        sn4.f().putLong("ubc_last_upload_non_real", this.f);
     }
 
-    public static void h(String str, String str2) {
+    public final void z() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65546, null, str, str2) == null) {
-            i(str, str2, 0);
+        if ((interceptable != null && interceptable.invokeV(1048603, this) != null) || !g(this.a)) {
+            return;
+        }
+        this.f = System.currentTimeMillis();
+        sn4.f().putLong("ubc_last_upload_non_real", this.f);
+        b();
+        j();
+        this.b.f();
+        HashSet hashSet = new HashSet();
+        if (this.i == null) {
+            f();
+        }
+        tn4 tn4Var = new tn4();
+        tn4Var.g = false;
+        int i = 0;
+        for (int i2 = 0; i2 < this.i.size(); i2++) {
+            int keyAt = this.i.keyAt(i2);
+            if (keyAt != 0) {
+                HashMap<String, Long> hashMap = this.j;
+                long longValue = hashMap.get("ubc_last_upload_time_level_" + keyAt).longValue();
+                if (longValue == 0 || (longValue + (keyAt * 60000)) - System.currentTimeMillis() < this.l.h()) {
+                    i |= this.b.m(this.i.valueAt(i2), tn4Var);
+                    HashMap<String, Long> hashMap2 = this.j;
+                    hashMap2.put("ubc_last_upload_time_level_" + keyAt, Long.valueOf(System.currentTimeMillis()));
+                    hashSet.add(Integer.valueOf(keyAt));
+                }
+            }
+        }
+        if (i == 0) {
+            return;
+        }
+        for (int i3 = 0; i3 < this.i.size(); i3++) {
+            int keyAt2 = this.i.keyAt(i3);
+            if (keyAt2 != 0 && !hashSet.contains(Integer.valueOf(keyAt2))) {
+                if (tn4Var.b(51200)) {
+                    break;
+                }
+                this.b.m(this.i.valueAt(i3), tn4Var);
+            }
+        }
+        q(tn4Var);
+    }
+
+    public final void m(String str, String str2) {
+        OutputStream fileOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048590, this, str, str2) == null) {
+            String str3 = this.a.getFilesDir() + File.separator + "statistics_data";
+            File file = new File(str3);
+            if (!file.exists()) {
+                file.mkdir();
+            }
+            File file2 = new File(str3, str2);
+            if (!file2.exists()) {
+                OutputStream outputStream = null;
+                try {
+                    try {
+                        fileOutputStream = new FileOutputStream(file2);
+                    } catch (Exception e) {
+                        e = e;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                }
+                try {
+                    outputStream = new Base64OutputStream(fileOutputStream, 0);
+                    outputStream.write(str.getBytes());
+                    outputStream.flush();
+                    rn4.a("save to file suc");
+                } catch (Exception e2) {
+                    e = e2;
+                    outputStream = fileOutputStream;
+                    e.printStackTrace();
+                    bo4.d(outputStream);
+                } catch (Throwable th2) {
+                    th = th2;
+                    outputStream = fileOutputStream;
+                    bo4.d(outputStream);
+                    throw th;
+                }
+                bo4.d(outputStream);
+            }
         }
     }
 
-    public static void j(String str, Map<String, String> map) {
+    public void r(pn4 pn4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65548, null, str, map) == null) {
-            k(str, map, 0);
+        if (interceptable == null || interceptable.invokeL(1048595, this, pn4Var) == null) {
+            this.l.q(pn4Var.a());
+            this.l.n(pn4Var.d() * 86400000);
+            this.l.o(pn4Var.c());
+            sn4.f().putString("ubc_version_md5", pn4Var.b());
+            this.b.D(pn4Var.a());
+            pn4Var.a().clear();
+            if (this.i == null) {
+                this.i = new SparseArray<>();
+            }
+            this.i.clear();
+            if (this.j == null) {
+                this.j = new HashMap<>();
+            }
+            this.j.clear();
+            this.b.v(this.i);
+            int i = 0;
+            for (int i2 = 0; i2 < this.i.size(); i2++) {
+                int keyAt = this.i.keyAt(i2);
+                if (keyAt != 0 && i == 0) {
+                    i = keyAt;
+                }
+                HashMap<String, Long> hashMap = this.j;
+                hashMap.put("ubc_last_upload_time_level_" + keyAt, 0L);
+            }
+            this.l.p(i);
         }
     }
 
-    public static void l(String str, JSONObject jSONObject) {
+    public void s(String str, int i, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65550, null, str, jSONObject) == null) {
-            m(str, jSONObject, 0);
+        if (interceptable == null || interceptable.invokeLIL(1048596, this, str, i, str2) == null) {
+            this.b.E(str, i, str2);
+        }
+    }
+
+    public final void u(JSONArray jSONArray, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048598, this, jSONArray, str) == null) {
+            mn4.f().t(str, this.k.a(jSONArray));
+        }
+    }
+
+    public void y(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048602, this, str) == null) {
+            File file = new File(this.a.getFilesDir() + File.separator + "statistics_data", str);
+            rn4.a("delete file");
+            if (file.exists() && file.delete()) {
+                Log.d("CeresBehaviorModel", "deleteUploadFile file suc");
+                rn4.a("delete file suc");
+            }
+            this.b.i(str);
         }
     }
 }

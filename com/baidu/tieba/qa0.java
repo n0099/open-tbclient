@@ -1,96 +1,106 @@
 package com.baidu.tieba;
 
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.player.LivePlayer;
-import com.baidu.searchbox.player.callback.IVideoPlayerCallback;
+import com.baidu.live.LiveFeedPageSdk;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.text.webvtt.WebvttCueParser;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.concurrent.ConcurrentHashMap;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.JvmStatic;
 /* loaded from: classes6.dex */
-public class qa0 implements IVideoPlayerCallback, LivePlayer.OnInfoListener {
+public final class qa0 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ConcurrentHashMap<String, List<pa0>> a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void goBackOrForeground(boolean z) {
+    @JvmStatic
+    @JvmOverloads
+    public static final pa0 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) ? c(null, str, 1, null) : (pa0) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onBufferEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onBufferStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onNetworkSpeedUpdate(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onPrepared() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onSeekEnd() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.searchbox.player.callback.IVideoPlayerCallback
-    public void onUpdateProgress(int i, int i2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2, i3) == null) {
-        }
-    }
-
-    public qa0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948084969, "Lcom/baidu/tieba/qa0;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948084969, "Lcom/baidu/tieba/qa0;");
+                return;
             }
         }
+        a = new ConcurrentHashMap<>();
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.player.LivePlayer.OnInfoListener
-    public Object onInfo(int i, int i2, Object obj) {
-        InterceptResult invokeIIL;
+    @JvmStatic
+    @JvmOverloads
+    public static final pa0 b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIIL = interceptable.invokeIIL(1048579, this, i, i2, obj)) == null) {
-            return Boolean.FALSE;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer pageId= " + str2 + WebvttCueParser.CHAR_SPACE + a.size());
+            List<pa0> list = a.get(str2);
+            if (list == null) {
+                list = new ArrayList<>();
+            }
+            if (!list.isEmpty() && list.size() >= 2) {
+                pa0 pa0Var = list.get(0);
+                Collections.swap(list, 0, 1);
+                if (pa0Var.isPlaying()) {
+                    pa0Var.detachFromContainer();
+                    pa0Var.stop();
+                }
+                LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "getPlayer " + pa0Var);
+                return pa0Var;
+            }
+            pa0 pa0Var2 = new pa0(new ra0(str, 0, null, null, 14, null));
+            list.add(pa0Var2);
+            a.put(str2, list);
+            return pa0Var2;
         }
-        return invokeIIL.objValue;
+        return (pa0) invokeLL.objValue;
+    }
+
+    public static /* synthetic */ pa0 c(String str, String str2, int i, Object obj) {
+        if ((i & 1) != 0) {
+            str = "";
+        }
+        return b(str, str2);
+    }
+
+    @JvmStatic
+    public static final void d(String str) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
+            LiveFeedPageSdk.liveLog("LiveFeedPlayerPool", "release playerMap= " + a.size());
+            List<pa0> list = a.get(str);
+            if (list != null && !list.isEmpty()) {
+                z = false;
+            } else {
+                z = true;
+            }
+            if (z) {
+                return;
+            }
+            for (pa0 pa0Var : list) {
+                pa0Var.detachFromContainer();
+                pa0Var.release();
+            }
+            list.clear();
+            a.remove(str);
+        }
     }
 }

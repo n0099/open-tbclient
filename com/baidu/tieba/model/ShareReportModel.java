@@ -7,10 +7,10 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.il9;
 import com.baidu.tieba.model.message.ShareReportHttpResponseMessage;
 import com.baidu.tieba.model.message.ShareReportNetMessage;
 import com.baidu.tieba.model.message.ShareReportSocketResponseMessage;
+import com.baidu.tieba.xo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -59,18 +59,18 @@ public class ShareReportModel extends BdBaseModel {
                 return;
             }
         }
-        Q();
+        V();
     }
 
-    public final void Q() {
+    public final void V() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            il9.h(309480, ShareReportSocketResponseMessage.class, false, false);
-            il9.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
+            xo9.h(309480, ShareReportSocketResponseMessage.class, false, false);
+            xo9.c(309480, CmdConfigHttp.CMD_SHARE_REPORT, TbConfig.URL_SHARE_REPORT, ShareReportHttpResponseMessage.class, false, false, false, false);
         }
     }
 
-    public void R(String str, String str2, int i) {
+    public void W(String str, String str2, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, i) == null) {
             ShareReportNetMessage shareReportNetMessage = new ShareReportNetMessage();

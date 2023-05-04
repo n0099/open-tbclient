@@ -1,29 +1,29 @@
 package com.baidu.tieba;
 
 import android.annotation.SuppressLint;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.browser.sailor.util.BdZeusUtil;
-import com.baidu.searchbox.unitedscheme.SchemeConfig;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.swan.apps.core.container.NgWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.extcore.model.ExtensionCore;
+import android.app.Activity;
+import android.content.Context;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeMainDispatcher;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.tencent.connect.common.Constants;
-import java.util.Collection;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes4.dex */
 public class fs2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean DEBUG;
     public transient /* synthetic */ FieldHolder $fh;
+    public WeakReference<Activity> mActivityRef;
+    public CallbackHandler mCallbackHandler;
+    public Context mContext;
+    public v62 mJsContainer;
+    public UnitedSchemeMainDispatcher mMainDispatcher;
 
     static {
         InterceptResult invokeClinit;
@@ -38,77 +38,66 @@ public class fs2 {
                 return;
             }
         }
-        a = fo1.a;
+        DEBUG = ho1.a;
     }
 
-    @NonNull
+    public Context getDispatchContext() {
+        InterceptResult invokeV;
+        Activity activity;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            WeakReference<Activity> weakReference = this.mActivityRef;
+            if (weakReference != null) {
+                activity = weakReference.get();
+            } else {
+                activity = null;
+            }
+            if (activity == null) {
+                return this.mContext;
+            }
+            return activity;
+        }
+        return (Context) invokeV.objValue;
+    }
+
     @SuppressLint({"BDThrowableCheck"})
-    public static String a(t62 t62Var) {
-        InterceptResult invokeL;
+    public fs2(Context context, UnitedSchemeMainDispatcher unitedSchemeMainDispatcher, CallbackHandler callbackHandler, v62 v62Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, t62Var)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            if (t62Var != null) {
-                try {
-                    jSONObject.put("containerId", t62Var.getContainerId());
-                    jSONObject.put(PrefetchEvent.EVENT_DATA_T7_AVAILABLE, BdZeusUtil.isWebkitLoaded());
-                } catch (JSONException e) {
-                    if (!a) {
-                        e.printStackTrace();
-                    } else {
-                        throw new RuntimeException(e);
-                    }
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, unitedSchemeMainDispatcher, callbackHandler, v62Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            jSONObject.put("scheme", SchemeConfig.getSchemeHead());
-            String b = b(pe2.U().T());
-            v42.k("SwanAppNativeSwanUtils", "getEnvVariables extensionAvailable:" + ij2.r(b));
-            jSONObject.put("sdkExtension", b);
-            jSONObject.put("gameSdkExtension", b(dr2.i().s()));
-            jSONObject.put("isDebugSdk", a);
-            if ((t62Var instanceof NgWebView) && ((NgWebView) t62Var).isSwanWebMode()) {
-                jSONObject.put("ctsEnabled", jg3.a().getInt("aiapps_web_mode_cts_use_key", 0));
-            }
-            String string = jg3.a().getString("ctsUrl", "");
-            if (!TextUtils.isEmpty(string) && u33.s()) {
-                jSONObject.put("ctsJsAddress", new JSONObject(string));
-            }
-            String i = cr2.o().i();
-            if (!TextUtils.isEmpty(i)) {
-                jSONObject.put("hostName", i);
-            }
-            jSONObject.put(Constants.PARAM_PLATFORM, "android");
-            JSONObject a2 = bh3.a();
-            a2.put("swanswitch_common_sys_info_binding", true);
-            a2.put("swanswitch_ab_sync_auth", true);
-            jSONObject.put("abTestSwitch", a2);
-            jSONObject.put("userDataPath", sj2.USER_DATA_PATH);
-            jSONObject.put("preloadId", pe2.U().a0());
-            jSONObject.put("isBaiduSeries", SwanAppAllianceLoginHelper.d.h());
-            jSONObject.put("ttsExtractJSUrl", ek4.b().a());
-            jSONObject.put("coreJSPath", pe2.U().c0());
-            if (fx1.d()) {
-                jSONObject.put("pendingList", new JSONArray((Collection) qz1.d()));
-            }
-            jSONObject.put("swanNativeVersion", go1.a());
-            String jSONObject2 = jSONObject.toString();
-            if (TextUtils.isEmpty(jSONObject2)) {
-                return "";
-            }
-            return jSONObject2;
         }
-        return (String) invokeL.objValue;
+        this.mContext = context;
+        this.mMainDispatcher = unitedSchemeMainDispatcher;
+        this.mCallbackHandler = callbackHandler;
+        this.mJsContainer = v62Var;
+        if (DEBUG) {
+            if (context == null || unitedSchemeMainDispatcher == null) {
+                throw new IllegalArgumentException("any of context, dispatcher objects can't be null.");
+            }
+        }
     }
 
-    public static String b(ExtensionCore extensionCore) {
-        InterceptResult invokeL;
+    public void setActivityRef(Activity activity) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, extensionCore)) == null) {
-            if (extensionCore != null && !TextUtils.isEmpty(extensionCore.extensionCorePath)) {
-                return extensionCore.extensionCorePath;
-            }
-            return "";
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && activity != null) {
+            this.mActivityRef = new WeakReference<>(activity);
         }
-        return (String) invokeL.objValue;
+    }
+
+    public void setCallbackHandler(CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler) == null) {
+            this.mCallbackHandler = callbackHandler;
+        }
     }
 }

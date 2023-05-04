@@ -1,74 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.drawable.BitmapDrawable;
-import android.text.SpannableString;
-import android.text.style.ClickableSpan;
-import android.text.style.ReplacementSpan;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.feed.data.richtext.DrawableSpan;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-/* loaded from: classes6.dex */
-public final class wy6 implements sy6, zy6 {
+/* loaded from: classes7.dex */
+public final class wy6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public cz6 b;
+    public String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final Object e;
 
-    /* loaded from: classes6.dex */
-    public static final class a extends bg<tm> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ DrawableSpan a;
-        public final /* synthetic */ wy6 b;
-
-        public a(DrawableSpan drawableSpan, wy6 wy6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {drawableSpan, wy6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
-            this.a = drawableSpan;
-            this.b = wy6Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.bg
-        public void onLoaded(tm tmVar, String key, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, key, i) == null) {
-                Intrinsics.checkNotNullParameter(key, "key");
-                if (tmVar != null) {
-                    TbImageMemoryCache.s().l(key, new tm(tmVar.p()));
-                    this.a.d(new BitmapDrawable(tmVar.p()));
-                    cz6 cz6Var = this.b.b;
-                    if (cz6Var != null) {
-                        cz6Var.onUpdate();
-                    }
-                }
+            if (obj instanceof wy6) {
+                wy6 wy6Var = (wy6) obj;
+                return Intrinsics.areEqual(this.a, wy6Var.a) && Intrinsics.areEqual(this.b, wy6Var.b) && Intrinsics.areEqual(this.c, wy6Var.c) && Intrinsics.areEqual(this.d, wy6Var.d) && Intrinsics.areEqual(this.e, wy6Var.e);
             }
+            return false;
         }
+        return invokeL.booleanValue;
     }
 
-    public wy6() {
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            int hashCode = this.a.hashCode() * 31;
+            String str = this.b;
+            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.c;
+            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
+            String str3 = this.d;
+            int hashCode4 = (hashCode3 + (str3 == null ? 0 : str3.hashCode())) * 31;
+            Object obj = this.e;
+            return hashCode4 + (obj != null ? obj.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return "FeedFeedbackData(type=" + this.a + ", title=" + this.b + ", buttonText=" + this.c + ", commonId=" + this.d + ", businessData=" + this.e + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public wy6(String type, String str, String str2, String str3, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {type, str, str2, str3, obj};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -78,61 +74,47 @@ public final class wy6 implements sy6, zy6 {
                 return;
             }
         }
-        this.a = "m";
+        Intrinsics.checkNotNullParameter(type, "type");
+        this.a = type;
+        this.b = str;
+        this.c = str2;
+        this.d = str3;
+        this.e = obj;
     }
 
-    @Override // com.baidu.tieba.zy6
-    public void a(cz6 cz6Var) {
+    public final Object a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cz6Var) == null) {
-            this.b = cz6Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
+        return invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.sy6
-    public SpannableString b(Context context, tx6 richTextData, ClickableSpan clickableSpan) {
-        InterceptResult invokeLLL;
+    public final String b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, richTextData, clickableSpan)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(richTextData, "richTextData");
-            Intrinsics.checkNotNullParameter(clickableSpan, "clickableSpan");
-            SpannableString spannableString = new SpannableString(this.a);
-            spannableString.setSpan(d(richTextData), 0, this.a.length(), 33);
-            spannableString.setSpan(clickableSpan, 0, this.a.length(), 33);
-            return spannableString;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (SpannableString) invokeLLL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final ReplacementSpan d(tx6 tx6Var) {
-        InterceptResult invokeL;
-        DrawableSpan.IconType iconType;
+    public final String c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tx6Var)) == null) {
-            String b = k17.a.b(tx6Var.c());
-            mx6 a2 = k17.a.a(b);
-            if (a2 != null) {
-                String type = a2.getType();
-                if (Intrinsics.areEqual(type, "webp")) {
-                    iconType = DrawableSpan.IconType.WEBP;
-                } else if (Intrinsics.areEqual(type, "svg")) {
-                    iconType = DrawableSpan.IconType.SVG;
-                } else {
-                    iconType = DrawableSpan.IconType.PIC;
-                }
-                DrawableSpan drawableSpan = new DrawableSpan(a2.b(), iconType, a2.a());
-                drawableSpan.c(a2.c());
-                return drawableSpan;
-            }
-            tm B = TbImageMemoryCache.s().B(b);
-            if (B != null) {
-                return new DrawableSpan(new BitmapDrawable(B.p()));
-            }
-            DrawableSpan drawableSpan2 = new DrawableSpan(null);
-            cg.h().m(b, 10, new a(drawableSpan2, this), null);
-            return drawableSpan2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (ReplacementSpan) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    public final String getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
     }
 }

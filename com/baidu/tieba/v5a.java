@@ -1,44 +1,249 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.mobstat.Config;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.editortools.EditorTools;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.database.ContentObserver;
+import android.os.Handler;
+import android.os.Looper;
+import android.provider.MediaStore;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
 public class v5a {
     public static /* synthetic */ Interceptable $ic;
+    public static v5a g;
     public transient /* synthetic */ FieldHolder $fh;
+    public Handler a;
+    public BroadcastReceiver b;
+    public ContentObserver c;
+    public ArrayList<d> d;
+    public Handler e;
+    public Runnable f;
 
-    public static void a(@NonNull TbPageContext<?> tbPageContext, @NonNull EditorTools editorTools, @NonNull rc5 rc5Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, tbPageContext, editorTools, rc5Var, str) == null) {
-            if ("e1".equals(str)) {
-                d6a.h(tbPageContext, editorTools, rc5Var);
-            } else if (Config.SESSTION_TRACK_END_TIME.equals(str)) {
-                d6a.j(tbPageContext, editorTools, rc5Var);
-            } else if ("e3".equals(str)) {
-                d6a.k(tbPageContext, editorTools, rc5Var);
-            } else if ("e4".equals(str)) {
-                d6a.g(tbPageContext, editorTools, rc5Var);
-            } else if ("e5".equals(str)) {
-                d6a.d(editorTools, rc5Var);
-            } else if ("e6".equals(str)) {
-                d6a.a(tbPageContext, editorTools, rc5Var);
-            } else if ("e7".equals(str)) {
-                d6a.l(tbPageContext, editorTools, rc5Var);
-            } else if ("e8".equals(str)) {
-                d6a.b(tbPageContext, editorTools, rc5Var);
-            } else if ("e9".equals(str)) {
-                d6a.i(tbPageContext, editorTools);
-            } else if ("e10".equals(str)) {
-                d6a.c(tbPageContext, editorTools, rc5Var);
-            } else if ("e11".equals(str)) {
-                d6a.f(tbPageContext, editorTools, rc5Var);
-            } else if ("e12".equals(str)) {
-                d6a.e(tbPageContext, editorTools, rc5Var);
+    /* loaded from: classes6.dex */
+    public interface d {
+        void D(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v5a a;
+
+        public a(v5a v5aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v5aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
+            this.a = v5aVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.h(false);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v5a this$0;
+
+        public b(v5a v5aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v5aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.this$0 = v5aVar;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, context, intent) == null) {
+                this.this$0.i(intent);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c extends ContentObserver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ v5a a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(v5a v5aVar, Handler handler) {
+            super(handler);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v5aVar, handler};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    super((Handler) newInitContext.callArgs[0]);
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = v5aVar;
+        }
+
+        @Override // android.database.ContentObserver
+        public void onChange(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                this.a.e.removeCallbacks(this.a.f);
+                this.a.e.postDelayed(this.a.f, 2000L);
+            }
+        }
+    }
+
+    public v5a() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new Handler(Looper.getMainLooper());
+        this.d = new ArrayList<>();
+        this.e = new Handler();
+        this.f = new a(this);
+    }
+
+    public static v5a f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (g == null) {
+                synchronized (v5a.class) {
+                    if (g == null) {
+                        v5a v5aVar = new v5a();
+                        g = v5aVar;
+                        v5aVar.g(TbadkCoreApplication.getInst());
+                    }
+                }
+            }
+            return g;
+        }
+        return (v5a) invokeV.objValue;
+    }
+
+    public void d(d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) && dVar != null && !this.d.contains(dVar)) {
+            this.d.add(dVar);
+        }
+    }
+
+    public void h(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            Iterator<d> it = this.d.iterator();
+            while (it.hasNext()) {
+                it.next().D(z);
+            }
+        }
+    }
+
+    public final void i(Intent intent) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, intent) == null) {
+            if (intent.getAction().equals("android.intent.action.MEDIA_UNMOUNTED")) {
+                h(true);
+                return;
+            }
+            this.e.removeCallbacks(this.f);
+            this.e.postDelayed(this.f, 2000L);
+        }
+    }
+
+    public void k(d dVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) && this.d.contains(dVar)) {
+            this.d.remove(dVar);
+        }
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            j();
+            TbadkCoreApplication inst = TbadkCoreApplication.getInst();
+            inst.unregisterReceiver(this.b);
+            inst.getContentResolver().unregisterContentObserver(this.c);
+            this.e.removeCallbacks(this.f);
+            g = null;
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            this.d.clear();
+        }
+    }
+
+    public final void g(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
+            this.b = new b(this);
+            this.c = new c(this, this.a);
+            IntentFilter intentFilter = new IntentFilter();
+            intentFilter.addAction("android.intent.action.MEDIA_MOUNTED");
+            intentFilter.addAction("android.intent.action.MEDIA_UNMOUNTED");
+            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_STARTED");
+            intentFilter.addAction("android.intent.action.MEDIA_SCANNER_FINISHED");
+            intentFilter.addAction("android.intent.action.MEDIA_EJECT");
+            intentFilter.addDataScheme("file");
+            context.registerReceiver(this.b, intentFilter);
+            context.getContentResolver().registerContentObserver(MediaStore.Images.Media.EXTERNAL_CONTENT_URI, true, this.c);
         }
     }
 }

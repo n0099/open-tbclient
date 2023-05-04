@@ -2,6 +2,8 @@ package com.baidu.android.util;
 
 import com.baidu.pyramid.annotation.Autowired;
 import com.baidu.pyramid.annotation.Inject;
+import com.baidu.searchbox.util.KVStorageControlImpl_Factory;
+import com.baidu.searchbox.util.KVStorageProxyImpl_Factory;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -32,7 +34,7 @@ public class KVStorageRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return IKVStorageControl.EMPTY;
+            return KVStorageControlImpl_Factory.get();
         }
         return (IKVStorageControl) invokeV.objValue;
     }
@@ -42,7 +44,7 @@ public class KVStorageRuntime {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return IKVStorageProxy.EMPTY;
+            return KVStorageProxyImpl_Factory.get();
         }
         return (IKVStorageProxy) invokeV.objValue;
     }

@@ -1,142 +1,49 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.framework.common.ExceptionCode;
 /* loaded from: classes5.dex */
-public class ns3 implements gs3 {
+public class ns3 implements Object {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public os3 a;
-    public int b;
-    public boolean c;
+    public final int a;
+    public final int b;
+    public final int c;
 
-    public ns3(@NonNull Context context) {
+    public ns3(int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = -1;
-        c(context);
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
     }
 
-    public final void e(int i) {
-        int a;
+    /* JADX DEBUG: Method merged with bridge method */
+    /* renamed from: a */
+    public int compareTo(ns3 ns3Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            ms3 f = ts3.f();
-            int i2 = f.a;
-            if (i2 < 1) {
-                i2 = 10;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, ns3Var)) == null) {
+            if (this.c < ns3Var.c) {
+                return -1;
             }
-            if (f.a() <= 0) {
-                a = ExceptionCode.CRASH_EXCEPTION;
-            } else {
-                a = f.a();
-            }
-            int f2 = this.a.f(i2, a, i2, a);
-            this.b = f2;
-            if (f2 != -1) {
-                this.a.e(f2, i);
-            }
+            return 1;
         }
-    }
-
-    @Override // com.baidu.tieba.gs3
-    public void a() {
-        os3 os3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && (os3Var = this.a) != null && os3Var.c()) {
-            this.c = false;
-            if (this.a.b()) {
-                g();
-            } else {
-                f();
-            }
-        }
-    }
-
-    public final void f() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.j(this.b);
-        }
-    }
-
-    public final void g() {
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (i = this.b) != -1) {
-            this.a.d(i);
-            this.a.i(this.b);
-        }
-    }
-
-    @Override // com.baidu.tieba.gs3
-    public void b(int i) {
-        os3 os3Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && !this.c && (os3Var = this.a) != null && os3Var.c()) {
-            this.c = true;
-            if (this.a.b()) {
-                e(i);
-            } else {
-                d(i);
-            }
-        }
-    }
-
-    public final void c(Context context) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) && this.a == null) {
-            this.a = os3.a(context);
-        }
-    }
-
-    public final void d(int i) {
-        int a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            int g = this.a.g();
-            this.b = g;
-            if (g != -1) {
-                ms3 f = ts3.f();
-                int i2 = f.a;
-                if (i2 < 1) {
-                    i2 = 10;
-                }
-                if (f.a() <= 0) {
-                    a = ExceptionCode.CRASH_EXCEPTION;
-                } else {
-                    a = f.a();
-                }
-                int i3 = i2;
-                this.a.h(this.b, 0, i3, -1, -1, -1);
-                this.a.h(this.b, 2, i3, i2, -1, -1);
-                int i4 = a;
-                this.a.h(this.b, 4, i4, -1, -1, -1);
-                this.a.h(this.b, 6, i4, a, -1, -1);
-                this.a.h(this.b, 15, i2, i2, i2, i2);
-                this.a.h(this.b, 17, a, a, a, a);
-                this.a.e(this.b, i);
-            }
-        }
+        return invokeL.intValue;
     }
 }

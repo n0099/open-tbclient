@@ -5,7 +5,7 @@ import com.baidu.tbadk.core.data.SmallTailInfo;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ie implements is<ie, Object>, Serializable, Cloneable {
 
     /* renamed from: a  reason: collision with other field name */

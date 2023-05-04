@@ -1,23 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.framework.message.ResponsedMessage;
-import com.baidu.ala.AlaCmdConfigHttp;
-import com.baidu.ala.AlaCmdConfigSocket;
-import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusHttpResponseMessage;
-import com.baidu.ala.liveroom.messages.AlaMGetLiveStatusSocketResponseMessage;
+import com.baidu.ala.widget.multicolumn.BdTypeMultiColumnListView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.ala.livecard.models.FrsPageAlaTabRequestMessage;
-import com.baidu.tieba.ala.livecard.models.FrsPageAlaTabResponseMessage;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -25,156 +10,21 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
-public class c86 implements g67 {
+public class c86 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public int b;
-    public v67 c;
-    public ArrayList<in> d;
-    public k67 e;
-    public za f;
-    public HttpMessageListener g;
+    public a9 a;
+    public final List<vm> b;
+    public BdTypeMultiColumnListView c;
+    public d86 d;
+    public g86 e;
 
-    /* loaded from: classes3.dex */
-    public class a extends za {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c86 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(c86 c86Var, int i, int i2) {
-            super(i, i2);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c86Var, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c86Var;
-        }
-
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ThreadData threadData;
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null || responsedMessage.getOrginalMessage().getTag() != this.a.a) {
-                return;
-            }
-            List<Long> list = null;
-            if (responsedMessage instanceof AlaMGetLiveStatusHttpResponseMessage) {
-                list = ((AlaMGetLiveStatusHttpResponseMessage) responsedMessage).getClosedIds();
-            }
-            if (responsedMessage instanceof AlaMGetLiveStatusSocketResponseMessage) {
-                list = ((AlaMGetLiveStatusSocketResponseMessage) responsedMessage).getClosedIds();
-            }
-            if (!ListUtils.isEmpty(this.a.d) && !ListUtils.isEmpty(list)) {
-                boolean z = false;
-                for (int size = this.a.d.size() - 1; size >= 0; size--) {
-                    if (this.a.d.get(size).getType() == ThreadData.TYPE_VIDEO_ALA_ONLIVE && (threadData = (ThreadData) this.a.d.get(size)) != null && threadData.getThreadAlaInfo() != null && list.contains(Long.valueOf(threadData.getThreadAlaInfo().live_id))) {
-                        this.a.d.remove(size);
-                        z = true;
-                    }
-                }
-                if (z && this.a.e != null) {
-                    this.a.e.a(49, this.a.b, this.a.c, this.a.d);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public class b extends HttpMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c86 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(c86 c86Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {c86Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = c86Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1021038) {
-                if (httpResponsedMessage.getStatusCode() == 200 && (httpResponsedMessage instanceof FrsPageAlaTabResponseMessage)) {
-                    FrsPageAlaTabResponseMessage frsPageAlaTabResponseMessage = (FrsPageAlaTabResponseMessage) httpResponsedMessage;
-                    if (frsPageAlaTabResponseMessage.errCode == 0) {
-                        ArrayList<in> arrayList = frsPageAlaTabResponseMessage.mThreadList;
-                        ArrayList<in> arrayList2 = frsPageAlaTabResponseMessage.mAltList;
-                        v67 v67Var = frsPageAlaTabResponseMessage.pageInfo;
-                        int i = frsPageAlaTabResponseMessage.alaLiveCount;
-                        this.a.c = v67Var;
-                        if (v67Var.c == 1) {
-                            this.a.d.clear();
-                        }
-                        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001606, Integer.valueOf(i)));
-                        if (this.a.e != null) {
-                            if (arrayList != null && arrayList.size() > 0) {
-                                this.a.d.addAll(arrayList);
-                                this.a.e.a(49, this.a.b, v67Var, this.a.d);
-                                return;
-                            }
-                            ThreadData threadData = new ThreadData();
-                            threadData.setThreadType(51);
-                            if (this.a.d.size() == 0 || (this.a.d.size() > 0 && ((ThreadData) this.a.d.get(0)).getThreadType() != 51)) {
-                                this.a.d.add(0, threadData);
-                            }
-                            if (arrayList2 != null && arrayList2.size() > 0) {
-                                threadData.hasRecommend = true;
-                                if (arrayList2.get(0) != null) {
-                                    ((ThreadData) arrayList2.get(0)).isFirstRecommend = true;
-                                }
-                                this.a.d.addAll(arrayList2);
-                            }
-                            this.a.e.a(49, this.a.b, v67Var, this.a.d);
-                            return;
-                        }
-                        return;
-                    } else if (this.a.e != null) {
-                        this.a.e.a(49, this.a.b, null, null);
-                        return;
-                    } else {
-                        return;
-                    }
-                }
-                this.a.e.a(49, this.a.b, null, null);
-            }
-        }
-    }
-
-    public c86() {
+    public c86(a9 a9Var, BdTypeMultiColumnListView bdTypeMultiColumnListView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a9Var, bdTypeMultiColumnListView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -184,81 +34,42 @@ public class c86 implements g67 {
                 return;
             }
         }
-        this.d = new ArrayList<>();
-        this.f = new a(this, AlaCmdConfigHttp.CMD_ALA_LIVE_GET_CLOSED_STATUS, AlaCmdConfigSocket.ALA_SOCKET_GET_LIVE_STATUS2);
-        this.g = new b(this, AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
+        this.b = new ArrayList();
+        this.a = a9Var;
+        this.c = bdTypeMultiColumnListView;
+        a();
     }
 
-    @Override // com.baidu.tieba.g67
-    public void init() {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, TbConfig.SERVER_ADDRESS + "c/f/frs/getFrsLiveThreads");
-            tbHttpMessageTask.setResponsedClass(FrsPageAlaTabResponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-            f();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.d = new d86((TbPageContext) this.a, j86.b);
+            this.e = new g86((TbPageContext) this.a, j86.c);
+            this.b.add(this.d);
+            this.b.add(this.e);
+            this.c.addAdapters(this.b);
         }
     }
 
-    @Override // com.baidu.tieba.g67
-    public void N(k67 k67Var) {
+    public void b(s46 s46Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k67Var) == null) {
-            this.e = k67Var;
-        }
-    }
-
-    public void g(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, bdUniqueId) != null) || bdUniqueId == null) {
-            return;
-        }
-        this.a = bdUniqueId;
-    }
-
-    @Override // com.baidu.tieba.g67
-    public void I(int i, int i2, q67 q67Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, q67Var) == null) {
-            this.b = i2;
-            if (q67Var != null && !TextUtils.isEmpty(q67Var.a) && !TextUtils.isEmpty(q67Var.b)) {
-                if (q67Var.c <= 0) {
-                    q67Var.c = 1;
-                }
-                MessageManager.getInstance().sendMessage(new FrsPageAlaTabRequestMessage(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD, q67Var.a, q67Var.b, q67Var.c));
-                return;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s46Var) == null) {
+            d86 d86Var = this.d;
+            if (d86Var != null) {
+                d86Var.u(s46Var);
             }
-            this.e.a(49, this.b, null, null);
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            BdUniqueId bdUniqueId = this.a;
-            if (bdUniqueId != null) {
-                this.g.setTag(bdUniqueId);
-                this.f.setTag(this.a);
+            g86 g86Var = this.e;
+            if (g86Var != null) {
+                g86Var.u(s46Var);
             }
-            MessageManager.getInstance().registerListener(this.f);
-            MessageManager.getInstance().registerListener(this.g);
         }
     }
 
-    public final void h() {
+    public void c(List<in> list) {
+        BdTypeMultiColumnListView bdTypeMultiColumnListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.f);
-            MessageManager.getInstance().unRegisterListener(this.g);
-        }
-    }
-
-    @Override // com.baidu.tieba.g67
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            MessageManager.getInstance().unRegisterTask(AlaCmdConfigHttp.FRS_ALA_LIVE_TAB_CMD);
-            h();
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) && (bdTypeMultiColumnListView = this.c) != null) {
+            bdTypeMultiColumnListView.setData(list);
         }
     }
 }

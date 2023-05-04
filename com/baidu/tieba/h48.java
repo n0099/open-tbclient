@@ -1,73 +1,24 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ii5;
-import com.baidu.tieba.immessagecenter.chatgroup.floatentrance.ChatFloatEntranceFragment;
+import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.data.ShareFromFrsMsgData;
+import com.baidu.tbadk.data.ShareFromGameCenterMsgData;
+import com.baidu.tbadk.data.ShareFromPBMsgData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class h48 implements sj1<ii5> {
+public class h48<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes4.dex */
-    public class a implements ii5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public ChatFloatEntranceFragment b;
-
-        @Override // com.baidu.tieba.ii5
-        public void a(@Nullable ii5.a aVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            }
-        }
-
-        public a(h48 h48Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {h48Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.ii5
-        public void onChangeSkinType(int i) {
-            ChatFloatEntranceFragment chatFloatEntranceFragment;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && (chatFloatEntranceFragment = this.b) != null) {
-                chatFloatEntranceFragment.onChangeSkinType(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.ii5
-        @NonNull
-        public ii5.b b(String str, li5 li5Var) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, li5Var)) == null) {
-                if (this.b == null) {
-                    this.b = new ChatFloatEntranceFragment(str, li5Var);
-                }
-                return this.b;
-            }
-            return (ii5.b) invokeLL.objValue;
-        }
-    }
+    public int a;
+    public T b;
 
     public h48() {
         Interceptable interceptable = $ic;
@@ -83,15 +34,90 @@ public class h48 implements sj1<ii5> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sj1
-    /* renamed from: a */
-    public ii5 getService() {
+    public T a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+            return this.b;
         }
-        return (ii5) invokeV.objValue;
+        return (T) invokeV.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    /* JADX WARN: Type inference failed for: r1v8, types: [com.baidu.tbadk.data.ShareFromFrsMsgData, T] */
+    /* JADX WARN: Type inference failed for: r1v9, types: [com.baidu.tbadk.data.ShareFromGameCenterMsgData, T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    /* JADX WARN: Type inference failed for: r4v2, types: [T, com.baidu.tbadk.data.ShareFromPBMsgData] */
+    public int c(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
+            if (str == null) {
+                return -1;
+            }
+            try {
+                JSONArray jSONArray = new JSONArray(str);
+                if (jSONArray.length() == 3) {
+                    jSONArray.optString(0);
+                    this.a = jSONArray.optInt(1);
+                    JSONObject optJSONObject = jSONArray.optJSONObject(2);
+                    if (1 == this.a) {
+                        String optString = optJSONObject.optString(NativeConstants.ID_BUTTON);
+                        String optString2 = optJSONObject.optString("shareSourceIcon");
+                        String optString3 = optJSONObject.optString("shareSource");
+                        String optString4 = optJSONObject.optString("shareUrl");
+                        String optString5 = optJSONObject.optString("shareSourceUrl");
+                        if (TextUtils.isEmpty(optString4)) {
+                            ?? r4 = (T) new ShareFromPBMsgData();
+                            r4.setContent(optJSONObject.optString("themeContent"));
+                            r4.setForumName(optJSONObject.optString("forumName"));
+                            r4.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                            r4.setPostId(optJSONObject.optString("postID"));
+                            r4.setThreadId(optJSONObject.optString("themeID"));
+                            r4.setTitle(optJSONObject.optString("themeTitle"));
+                            r4.setTheNewThemeId(optJSONObject.optString("theNewThemeID"));
+                            r4.setThreadType(optJSONObject.optInt("threadType"));
+                            this.b = r4;
+                            return 0;
+                        }
+                        ?? r1 = (T) new ShareFromGameCenterMsgData();
+                        r1.setContent(optJSONObject.optString("themeContent"));
+                        r1.setForumName(optJSONObject.optString("forumName"));
+                        r1.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r1.setPostId(optJSONObject.optString("postID"));
+                        r1.setThreadId(optJSONObject.optString("themeID"));
+                        r1.setTitle(optJSONObject.optString("themeTitle"));
+                        r1.setButton(optString);
+                        r1.setShareSource(optString3);
+                        r1.setShareSourceIcon(optString2);
+                        r1.setShareSourceUrl(optString5);
+                        r1.setShareUrl(optString4);
+                        this.b = r1;
+                        return 1;
+                    } else if (4 == this.a) {
+                        ?? r12 = (T) new ShareFromFrsMsgData();
+                        r12.setName(optJSONObject.optString("forumName"));
+                        r12.setImageUrl(optJSONObject.optString("themeImageUrl"));
+                        r12.setMemberNum(optJSONObject.optInt("memberNum"));
+                        r12.setPostNum(optJSONObject.optInt("postNum"));
+                        this.b = r12;
+                        return 2;
+                    } else {
+                        return -1;
+                    }
+                }
+                return -1;
+            } catch (Exception unused) {
+                return -1;
+            }
+        }
+        return invokeLL.intValue;
     }
 }

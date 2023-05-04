@@ -1,19 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class ea2 {
     public static /* synthetic */ Interceptable $ic;
-    public static ea2 b;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public x92 a;
 
     static {
         InterceptResult invokeClinit;
@@ -28,52 +26,56 @@ public class ea2 {
                 return;
             }
         }
-        b = new ea2();
+        a = ho1.a;
     }
 
-    public ea2() {
+    public static boolean a(v62 v62Var, String str) {
+        InterceptResult invokeLL;
+        x73 b0;
+        z92 a2;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, v62Var, str)) == null) {
+            if (a) {
+                Log.d("MasterIsolationHelper", "JS CALL - " + str);
             }
+            boolean z = false;
+            if (w33.D()) {
+                return false;
+            }
+            if (v62Var != null && !TextUtils.isEmpty(v62Var.getContainerId())) {
+                if (ma2.i().k(v62Var.getContainerId())) {
+                    return true;
+                }
+                if (!xb2.h()) {
+                    return false;
+                }
+                String containerId = v62Var.getContainerId();
+                if (!da2.a(containerId) || (b0 = x73.b0()) == null || !b(v62Var) || (a2 = ga2.b().a()) == null) {
+                    return false;
+                }
+                String h = a2.h();
+                if (TextUtils.isEmpty(h)) {
+                    return false;
+                }
+                z = (TextUtils.equals(a2.i().a(), v62Var.getContainerId()) && TextUtils.equals(h, b0.b)) ? true : true;
+                if (a && z) {
+                    Log.w("MasterIsolationHelper", "master id - " + containerId + ",can not call API - " + str + ", intercept for preload/prefetch");
+                }
+            }
+            return z;
         }
+        return invokeLL.booleanValue;
     }
 
-    public static ea2 b() {
-        InterceptResult invokeV;
+    public static boolean b(v62 v62Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, v62Var)) == null) {
+            if ((v62Var instanceof ff2) && ((ff2) v62Var).getInvokeSourceType() == 0) {
+                return true;
+            }
+            return false;
         }
-        return (ea2) invokeV.objValue;
-    }
-
-    public x92 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (x92) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a = null;
-        }
-    }
-
-    public void c(x92 x92Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, x92Var) == null) {
-            this.a = x92Var;
-        }
+        return invokeL.booleanValue;
     }
 }

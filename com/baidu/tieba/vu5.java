@@ -1,15 +1,11 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.widget.layout.ConstrainImageLayout;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class vu5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vu5 {
+    int a(ConstrainImageLayout constrainImageLayout, List<MediaData> list, int i, int i2);
 
-    public static void a(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65536, null, str, str2) == null) {
-        }
-    }
+    int b(int i);
 }

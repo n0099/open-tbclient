@@ -1,108 +1,23 @@
 package com.baidu.tieba;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ObjectAnimator;
-import android.animation.ValueAnimator;
-import android.view.animation.DecelerateInterpolator;
-import android.widget.ProgressBar;
-import androidx.constraintlayout.motion.widget.Key;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import org.xml.sax.Attributes;
 /* loaded from: classes5.dex */
-public class ne6 {
+public class ne6 extends me6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ObjectAnimator a;
-    public ObjectAnimator b;
 
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b extends AnimatorListenerAdapter {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ProgressBar> a;
-
-        public b(ProgressBar progressBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {progressBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(progressBar);
-        }
-
-        public /* synthetic */ b(ProgressBar progressBar, a aVar) {
-            this(progressBar);
-        }
-
-        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
-        public void onAnimationEnd(Animator animator) {
-            ProgressBar progressBar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && (progressBar = this.a.get()) != null) {
-                progressBar.setProgress(0);
-                mf6.e(progressBar, 8);
-                progressBar.setAlpha(1.0f);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class c implements ValueAnimator.AnimatorUpdateListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final WeakReference<ProgressBar> a;
-
-        public c(ProgressBar progressBar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {progressBar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new WeakReference<>(progressBar);
-        }
-
-        public /* synthetic */ c(ProgressBar progressBar, a aVar) {
-            this(progressBar);
-        }
-
-        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
-        public void onAnimationUpdate(ValueAnimator valueAnimator) {
-            ProgressBar progressBar;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && (progressBar = this.a.get()) != null) {
-                float animatedFraction = valueAnimator.getAnimatedFraction();
-                int progress = progressBar.getProgress();
-                progressBar.setProgress((int) (progress + ((100 - progress) * animatedFraction)));
-            }
+    @Override // com.baidu.tieba.me6
+    public void a(boolean z, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
         }
     }
 
@@ -120,53 +35,25 @@ public class ne6 {
         }
     }
 
-    public void c() {
+    @Override // com.baidu.tieba.me6
+    public void b(boolean z, String str, Attributes attributes) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            ObjectAnimator objectAnimator = this.a;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Boolean.valueOf(z), str, attributes}) == null) {
+            String value = attributes.getValue("", NativeConstants.HREF);
+            if (TextUtils.equals(attributes.getValue("", "rel"), "stylesheet") && !TextUtils.isEmpty(value)) {
+                String str2 = "http";
+                if (!value.startsWith("http")) {
+                    StringBuilder sb = new StringBuilder();
+                    if (z) {
+                        str2 = "https";
+                    }
+                    sb.append(str2);
+                    sb.append(":");
+                    sb.append(value);
+                    value = sb.toString();
+                }
+                qe6.g().b(value, value, new HashMap());
             }
-            this.a = null;
-            ObjectAnimator objectAnimator2 = this.b;
-            if (objectAnimator2 != null) {
-                objectAnimator2.cancel();
-            }
-            this.b = null;
-        }
-    }
-
-    public void a(ProgressBar progressBar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, progressBar) == null) {
-            ObjectAnimator objectAnimator = this.b;
-            if (objectAnimator != null) {
-                objectAnimator.cancel();
-            }
-            ObjectAnimator ofFloat = ObjectAnimator.ofFloat(progressBar, Key.ALPHA, 1.0f, 0.0f);
-            this.b = ofFloat;
-            ofFloat.setDuration(150L);
-            this.b.setInterpolator(new DecelerateInterpolator());
-            this.b.addUpdateListener(new c(progressBar, null));
-            this.b.addListener(new b(progressBar, null));
-            this.b.start();
-        }
-    }
-
-    public void b(ProgressBar progressBar, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, progressBar, i) == null) {
-            ObjectAnimator objectAnimator = this.a;
-            if (objectAnimator == null) {
-                ObjectAnimator ofInt = ObjectAnimator.ofInt(progressBar, "progress", 0);
-                this.a = ofInt;
-                ofInt.setDuration(100L);
-                this.a.setInterpolator(new DecelerateInterpolator());
-            } else {
-                objectAnimator.cancel();
-            }
-            this.a.setIntValues(progressBar.getProgress(), i);
-            this.a.start();
         }
     }
 }

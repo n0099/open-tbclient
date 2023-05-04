@@ -1,9 +1,35 @@
 package com.baidu.tieba;
+
+import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes5.dex */
-public interface kga {
-    void a();
+public final class kga {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void b(long j);
-
-    void c(int i);
+    public static boolean a(Context context, String str) {
+        InterceptResult invokeLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, context, str)) == null) {
+            NetworkInfo activeNetworkInfo = ((ConnectivityManager) context.getSystemService("connectivity")).getActiveNetworkInfo();
+            if (activeNetworkInfo != null && activeNetworkInfo.isConnected()) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z) {
+                return false;
+            }
+            if (rga.i() && uga.f(context) != 1) {
+                return false;
+            }
+            return lga.c(lga.b(str, "http://absample.baidu.com/appabapp/appapi/applog"), null);
+        }
+        return invokeLL.booleanValue;
+    }
 }

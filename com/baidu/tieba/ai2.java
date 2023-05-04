@@ -1,43 +1,73 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
+import android.util.Log;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class ai2 extends vh2 {
+public final class ai2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vz1 c;
+    public final String a;
+    public final String b;
 
-    public ai2(@NonNull String str, @NonNull vz1 vz1Var) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947616063, "Lcom/baidu/tieba/ai2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947616063, "Lcom/baidu/tieba/ai2;");
+                return;
+            }
+        }
+        c = ho1.a;
+    }
+
+    public ai2(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, vz1Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, str2};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
         this.a = str;
-        this.c = vz1Var;
+        this.b = str2;
     }
 
-    @Override // com.baidu.tieba.vh2
-    public void m(Map<String, Object> map) {
+    public static ai2 a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            map.put("status", Integer.valueOf(this.c.b));
-            map.put("data", this.c.d);
-            map.put("message", this.c.c);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new ai2(jSONObject.optString("webviewid"), jSONObject.optString("message"));
+            } catch (JSONException e) {
+                if (c) {
+                    Log.e("SwanAppNativeMessage", "createEvent failed. " + Log.getStackTraceString(e));
+                    return null;
+                }
+                return null;
+            }
         }
+        return (ai2) invokeL.objValue;
     }
 }

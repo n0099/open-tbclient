@@ -1,75 +1,96 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.lcs.LCSStatisticsResponseMessage;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.ubc.UBCManager;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class ig5 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947852562, "Lcom/baidu/tieba/ig5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947852562, "Lcom/baidu/tieba/ig5;");
-                return;
-            }
-        }
-        boolean z = false;
-        if (q45.m().n("key_lcs_log_switch", 0) == 1) {
-            z = true;
-        }
-        a = z;
-        if (z) {
-            a();
-        }
-    }
 
     public static void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            MessageManager messageManager = MessageManager.getInstance();
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_LCS_STATISTICS, TbConfig.SERVER_ADDRESS + TbConfig.LCS_STATISTICS_URL);
-            tbHttpMessageTask.setResponsedClass(LCSStatisticsResponseMessage.class);
-            tbHttpMessageTask.setIsNeedTbs(true);
-            messageManager.registerTask(tbHttpMessageTask);
+        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", "before_request");
+                jSONObject.put("value", "1");
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public static void b(int i, int i2, int i3, int i4, int i5) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)}) == null) {
-            c(i, i2, i3, i4, i5, 0);
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "0");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
+                }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
-    public static void c(int i, int i2, int i3, int i4, int i5, int i6) {
+    public static void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), Integer.valueOf(i6)}) != null) || !a) {
-            return;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("type", TableDefine.DRColumns.COLUMN_JUMP_TO_RECENT);
+                jSONObject.put("value", "1");
+                JSONObject jSONObject2 = new JSONObject();
+                if (StringUtils.isNull(str)) {
+                    str = "";
+                }
+                jSONObject2.put("scheme", str);
+                jSONObject.put("ext", jSONObject2);
+                uBCManager.onEvent("4509", jSONObject);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_LCS_STATISTICS);
-        httpMessage.addParam("cmd", i);
-        httpMessage.addParam("lcs_status", i2);
-        httpMessage.addParam("online_status", i3);
-        httpMessage.addParam("status_change_name", i4);
-        httpMessage.addParam("status_change_trigger", i5);
-        httpMessage.addParam("lcs_vailable", i6);
-        MessageManager.getInstance().sendMessageFromBackground(httpMessage);
+    }
+
+    public static void d(boolean z, JSONObject jSONObject) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZL(65539, null, z, jSONObject) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            JSONObject jSONObject2 = new JSONObject();
+            try {
+                jSONObject2.put("type", "request");
+                if (z) {
+                    str = "1";
+                } else {
+                    str = "0";
+                }
+                jSONObject2.put("value", str);
+                JSONObject jSONObject3 = new JSONObject();
+                jSONObject3.put("slog", jSONObject != null ? jSONObject : "");
+                jSONObject2.put("ext", jSONObject3);
+                uBCManager.onEvent("4509", jSONObject2);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }

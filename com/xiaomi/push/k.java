@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.preference.PreferenceManager;
 import java.util.Map;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class k {
     public static void a(Context context) {
     }

@@ -53,24 +53,29 @@ public class VideoAttentionHttpResponseMessage extends JsonHttpResponsedMessage 
             if (jSONObject == null) {
                 return;
             }
-            JSONObject jSONObject2 = jSONObject.getJSONObject("concern_list");
-            JSONArray jSONArray = jSONObject.getJSONArray("forum_friends");
-            JSONArray jSONArray2 = jSONObject2.getJSONArray("thread_list");
-            this.mFeedId = jSONObject2.getLong("feed_id");
-            this.mShowWord = jSONObject2.getString("show_word");
-            this.mHasMore = jSONObject2.getInt("has_more");
-            if (jSONArray2 != null && jSONArray2.length() > 0) {
-                for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                    VideoItemData videoItemData = new VideoItemData();
-                    videoItemData.parseFeedJson(jSONArray2.getString(i2), "");
-                    this.mVideoItemDatasVideo.add(videoItemData);
+            JSONObject optJSONObject = jSONObject.optJSONObject("concern_list");
+            JSONArray optJSONArray = jSONObject.optJSONArray("forum_friends");
+            if (optJSONObject != null) {
+                JSONArray optJSONArray2 = optJSONObject.optJSONArray("thread_list");
+                this.mFeedId = optJSONObject.optLong("feed_id");
+                this.mShowWord = optJSONObject.optString("show_word");
+                this.mHasMore = optJSONObject.optInt("has_more");
+                if (optJSONArray2 != null && optJSONArray2.length() > 0) {
+                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
+                        VideoItemData videoItemData = new VideoItemData();
+                        videoItemData.parseFeedJson(optJSONArray2.optString(i2), "");
+                        this.mVideoItemDatasVideo.add(videoItemData);
+                    }
                 }
             }
-            if (jSONArray != null && jSONArray.length() > 0) {
-                for (int i3 = 0; i3 < jSONArray.length(); i3++) {
-                    VideoAttentionPersonListData videoAttentionPersonListData = new VideoAttentionPersonListData();
-                    videoAttentionPersonListData.parseJson(jSONArray.getJSONObject(i3).getJSONArray("thread_list"), jSONArray.getJSONObject(i3).getJSONObject("user_info"));
-                    this.mVideoAttentionPersonListData.add(videoAttentionPersonListData);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
+                    JSONObject optJSONObject2 = optJSONArray.optJSONObject(i3);
+                    if (optJSONObject2 != null) {
+                        VideoAttentionPersonListData videoAttentionPersonListData = new VideoAttentionPersonListData();
+                        videoAttentionPersonListData.parseJson(optJSONObject2.optJSONArray("thread_list"), optJSONObject2.optJSONObject("user_info"));
+                        this.mVideoAttentionPersonListData.add(videoAttentionPersonListData);
+                    }
                 }
             }
         }

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,14 +10,18 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 /* loaded from: classes3.dex */
 public final class c0b {
     public static /* synthetic */ Interceptable $ic;
-    public static final c0b[] d;
+    public static Map<Class<?>, yza> b;
+    public static Map<Class<?>, Object> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final byte[] a;
-    public final int b;
-    public final byte[] c;
+    public Map<Class<?>, yza> a;
 
     static {
         InterceptResult invokeClinit;
@@ -31,98 +36,106 @@ public final class c0b {
                 return;
             }
         }
-        d = new c0b[]{new c0b("", 0, ""), new c0b("", 0, " "), new c0b(" ", 0, " "), new c0b("", 12, ""), new c0b("", 10, " "), new c0b("", 0, " the "), new c0b(" ", 0, ""), new c0b("s ", 0, " "), new c0b("", 0, " of "), new c0b("", 10, ""), new c0b("", 0, " and "), new c0b("", 13, ""), new c0b("", 1, ""), new c0b(StringUtil.ARRAY_ELEMENT_SEPARATOR, 0, " "), new c0b("", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new c0b(" ", 10, " "), new c0b("", 0, " in "), new c0b("", 0, " to "), new c0b("e ", 0, " "), new c0b("", 0, "\""), new c0b("", 0, "."), new c0b("", 0, "\">"), new c0b("", 0, "\n"), new c0b("", 3, ""), new c0b("", 0, PreferencesUtil.RIGHT_MOUNT), new c0b("", 0, " for "), new c0b("", 14, ""), new c0b("", 2, ""), new c0b("", 0, " a "), new c0b("", 0, " that "), new c0b(" ", 10, ""), new c0b("", 0, ". "), new c0b(".", 0, ""), new c0b(" ", 0, StringUtil.ARRAY_ELEMENT_SEPARATOR), new c0b("", 15, ""), new c0b("", 0, " with "), new c0b("", 0, "'"), new c0b("", 0, " from "), new c0b("", 0, " by "), new c0b("", 16, ""), new c0b("", 17, ""), new c0b(" the ", 0, ""), new c0b("", 4, ""), new c0b("", 0, ". The "), new c0b("", 11, ""), new c0b("", 0, " on "), new c0b("", 0, " as "), new c0b("", 0, " is "), new c0b("", 7, ""), new c0b("", 1, "ing "), new c0b("", 0, "\n\t"), new c0b("", 0, ":"), new c0b(" ", 0, ". "), new c0b("", 0, "ed "), new c0b("", 20, ""), new c0b("", 18, ""), new c0b("", 6, ""), new c0b("", 0, "("), new c0b("", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new c0b("", 8, ""), new c0b("", 0, " at "), new c0b("", 0, "ly "), new c0b(" the ", 0, " of "), new c0b("", 5, ""), new c0b("", 9, ""), new c0b(" ", 10, StringUtil.ARRAY_ELEMENT_SEPARATOR), new c0b("", 10, "\""), new c0b(".", 0, "("), new c0b("", 11, " "), new c0b("", 10, "\">"), new c0b("", 0, "=\""), new c0b(" ", 0, "."), new c0b(".com/", 0, ""), new c0b(" the ", 0, " of the "), new c0b("", 10, "'"), new c0b("", 0, ". This "), new c0b("", 0, ","), new c0b(".", 0, " "), new c0b("", 10, "("), new c0b("", 10, "."), new c0b("", 0, " not "), new c0b(" ", 0, "=\""), new c0b("", 0, "er "), new c0b(" ", 11, " "), new c0b("", 0, "al "), new c0b(" ", 11, ""), new c0b("", 0, "='"), new c0b("", 11, "\""), new c0b("", 10, ". "), new c0b(" ", 0, "("), new c0b("", 0, "ful "), new c0b(" ", 10, ". "), new c0b("", 0, "ive "), new c0b("", 0, "less "), new c0b("", 11, "'"), new c0b("", 0, "est "), new c0b(" ", 10, "."), new c0b("", 11, "\">"), new c0b(" ", 0, "='"), new c0b("", 10, ","), new c0b("", 0, "ize "), new c0b("", 11, "."), new c0b("Â ", 0, ""), new c0b(" ", 0, ","), new c0b("", 10, "=\""), new c0b("", 11, "=\""), new c0b("", 0, "ous "), new c0b("", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new c0b("", 10, "='"), new c0b(" ", 10, ","), new c0b(" ", 11, "=\""), new c0b(" ", 11, StringUtil.ARRAY_ELEMENT_SEPARATOR), new c0b("", 11, ","), new c0b("", 11, "("), new c0b("", 11, ". "), new c0b(" ", 11, "."), new c0b("", 11, "='"), new c0b(" ", 11, ". "), new c0b(" ", 10, "=\""), new c0b(" ", 11, "='"), new c0b(" ", 10, "='")};
+        b = new HashMap();
+        c = new HashMap();
     }
 
-    public c0b(String str, int i, String str2) {
+    public c0b(List<yza> list, Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), str2};
+            Object[] objArr = {list, context};
             interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = a(str);
-        this.b = i;
-        this.c = a(str2);
+        this.a = new HashMap();
+        new HashMap();
+        c(list, context);
     }
 
-    public static byte[] a(String str) {
-        InterceptResult invokeL;
+    public static Constructor a(Class cls, Class... clsArr) {
+        InterceptResult invokeLL;
+        Constructor<?>[] declaredConstructors;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            int length = str.length();
-            byte[] bArr = new byte[length];
-            for (int i = 0; i < length; i++) {
-                bArr[i] = (byte) str.charAt(i);
-            }
-            return bArr;
-        }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static int b(byte[] bArr, int i, byte[] bArr2, int i2, int i3, c0b c0bVar) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{bArr, Integer.valueOf(i), bArr2, Integer.valueOf(i2), Integer.valueOf(i3), c0bVar})) == null) {
-            int i4 = i;
-            for (byte b : c0bVar.a) {
-                bArr[i4] = b;
-                i4++;
-            }
-            int i5 = c0bVar.b;
-            int a = e0b.a(i5);
-            if (a > i3) {
-                a = i3;
-            }
-            int i6 = i2 + a;
-            int b2 = (i3 - a) - e0b.b(i5);
-            int i7 = b2;
-            while (i7 > 0) {
-                bArr[i4] = bArr2[i6];
-                i7--;
-                i4++;
-                i6++;
-            }
-            if (i5 == 11 || i5 == 10) {
-                int i8 = i4 - b2;
-                if (i5 == 10) {
-                    b2 = 1;
-                }
-                while (b2 > 0) {
-                    int i9 = bArr[i8] & 255;
-                    if (i9 < 192) {
-                        if (i9 >= 97 && i9 <= 122) {
-                            bArr[i8] = (byte) (bArr[i8] ^ 32);
-                        }
-                        i8++;
-                        b2--;
-                    } else if (i9 < 224) {
-                        int i10 = i8 + 1;
-                        bArr[i10] = (byte) (bArr[i10] ^ 32);
-                        i8 += 2;
-                        b2 -= 2;
-                    } else {
-                        int i11 = i8 + 2;
-                        bArr[i11] = (byte) (bArr[i11] ^ 5);
-                        i8 += 3;
-                        b2 -= 3;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, cls, clsArr)) == null) {
+            boolean z = false;
+            for (Constructor<?> constructor : cls.getDeclaredConstructors()) {
+                Class<?>[] parameterTypes = constructor.getParameterTypes();
+                if (parameterTypes.length == clsArr.length) {
+                    for (int i = 0; i < clsArr.length; i++) {
+                        z = parameterTypes[i] == clsArr[i];
+                    }
+                    if (z) {
+                        return constructor;
                     }
                 }
             }
-            for (byte b3 : c0bVar.c) {
-                bArr[i4] = b3;
-                i4++;
-            }
-            return i4 - i;
+            return null;
         }
-        return invokeCommon.intValue;
+        return (Constructor) invokeLL.objValue;
+    }
+
+    public final void b(String str, Exception exc) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, exc) == null) {
+            Log.e("ServiceRepository", "Instantiate shared service " + str + exc.getLocalizedMessage());
+            StringBuilder sb = new StringBuilder();
+            sb.append("cause message:");
+            sb.append(exc.getCause() != null ? exc.getCause().getMessage() : "");
+            Log.e("ServiceRepository", sb.toString());
+        }
+    }
+
+    /* JADX WARN: Removed duplicated region for block: B:24:0x005f A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
+    /* JADX WARN: Removed duplicated region for block: B:25:0x0068 A[Catch: InvocationTargetException -> 0x007a, InstantiationException -> 0x007e, IllegalAccessException -> 0x0082, TryCatch #2 {IllegalAccessException -> 0x0082, InstantiationException -> 0x007e, InvocationTargetException -> 0x007a, blocks: (B:22:0x004d, B:24:0x005f, B:26:0x0070, B:25:0x0068), top: B:39:0x004d }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public void c(List<yza> list, Context context) {
+        Map<Class<?>, yza> map;
+        String str;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list, context) == null) || list == null) {
+            return;
+        }
+        for (yza yzaVar : list) {
+            if (yzaVar.c()) {
+                if (!b.containsKey(yzaVar.a())) {
+                    map = b;
+                }
+                if (yzaVar.b() && yzaVar.getType() != null && !c.containsKey(yzaVar.a())) {
+                    try {
+                        Constructor a = a(yzaVar.getType(), Context.class);
+                        c.put(yzaVar.a(), a == null ? a.newInstance(context) : yzaVar.getType().newInstance());
+                    } catch (IllegalAccessException e) {
+                        e = e;
+                        str = "AccessException";
+                        b(str, e);
+                    } catch (InstantiationException e2) {
+                        e = e2;
+                        str = "InstantiationException";
+                        b(str, e);
+                    } catch (InvocationTargetException e3) {
+                        e = e3;
+                        str = "TargetException";
+                        b(str, e);
+                    }
+                }
+            } else {
+                map = this.a;
+            }
+            map.put(yzaVar.a(), yzaVar);
+            if (yzaVar.b()) {
+                Constructor a2 = a(yzaVar.getType(), Context.class);
+                c.put(yzaVar.a(), a2 == null ? a2.newInstance(context) : yzaVar.getType().newInstance());
+            }
+        }
     }
 }

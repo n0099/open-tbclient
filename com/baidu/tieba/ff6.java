@@ -1,137 +1,151 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.core.util.Pair;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.tieba.browser.exception.UnzipErrorException;
+import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.InputStream;
-import java.security.MessageDigest;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class ff6 {
+public class ff6 extends BdAsyncTask<Void, Void, df6> {
     public static /* synthetic */ Interceptable $ic;
-    public static final char[] a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947762259, "Lcom/baidu/tieba/ff6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947762259, "Lcom/baidu/tieba/ff6;");
+    public ff6(String str, bd9 bd9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, bd9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new char[]{TransactionIdCreater.FILL_BYTE, '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F'};
+        this.a = str;
+        this.c = bd9Var.c();
+        this.b = bd9Var.a();
+        this.d = bd9Var.b();
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    public static void c(String str, bd9 bd9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr == null) {
-                return null;
-            }
-            StringBuilder sb = new StringBuilder(bArr.length * 2);
-            for (byte b : bArr) {
-                sb.append(a[(b & 240) >>> 4]);
-                sb.append(a[b & 15]);
-            }
-            return sb.toString();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(File file) {
-        InterceptResult invokeL;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            FileInputStream fileInputStream2 = null;
-            try {
-                fileInputStream = new FileInputStream(file);
-                try {
-                    String c = c(fileInputStream);
-                    if6.a(fileInputStream);
-                    return c;
-                } catch (Exception unused) {
-                    if6.a(fileInputStream);
-                    return null;
-                } catch (Throwable th) {
-                    th = th;
-                    fileInputStream2 = fileInputStream;
-                    if6.a(fileInputStream2);
-                    throw th;
-                }
-            } catch (Exception unused2) {
-                fileInputStream = null;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeL.objValue;
+        if (interceptable == null || interceptable.invokeLL(65537, null, str, bd9Var) == null) {
+            ff6 ff6Var = new ff6(str, bd9Var);
+            ff6Var.setPriority(4);
+            ff6Var.execute(new Void[0]);
         }
     }
 
-    public static String c(InputStream inputStream) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: b */
+    public df6 doInBackground(Void... voidArr) {
         InterceptResult invokeL;
+        boolean z;
+        df6 df6Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, inputStream)) == null) {
-            if (inputStream == null) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+            File file = new File(ze6.l().m(), this.a);
+            if (!og6.a(file)) {
+                kg6.b("lt-log", "离线包下载失败：" + this.a + "->目录创建失败");
             }
-            byte[] bArr = new byte[1024];
-            try {
-                try {
-                    MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                    while (true) {
-                        int read = inputStream.read(bArr);
-                        if (read > 0) {
-                            messageDigest.update(bArr, 0, read);
-                        } else {
-                            String a2 = a(messageDigest.digest());
-                            if6.a(inputStream);
-                            return a2;
-                        }
-                    }
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if6.a(inputStream);
+            File file2 = new File(file, this.c + ".zip");
+            if (!file2.exists()) {
+                z = new NetWork(this.b).downloadFile(file2.getAbsolutePath(), null, 0, 3, 0, true);
+            } else {
+                z = true;
+            }
+            if (!z) {
+                og6.c(file2);
+                kg6.b("lt-log", "离线包下载失败:网络下载异常：" + this.a);
+                ze6.t("download bundle", "download_error", this.a, this.c, pg6.a(Pair.create("error_code", "-1"), Pair.create(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络下载错误")));
+                return null;
+            } else if (!ng6.d(file2, this.d)) {
+                og6.c(file2);
+                kg6.b("lt-log", "离线包目md5验证失败：" + this.a);
+                ze6.t("download bundle", "md5_error", this.a, this.c, pg6.a(Pair.create("detail", this.d + "_" + ng6.b(file2))));
+                return null;
+            } else {
+                File file3 = new File(ze6.l().k(), this.a);
+                if (!e(file2, file3, this.c)) {
+                    ze6.t("download bundle", "unzip_error", this.a, this.c, "");
                     return null;
                 }
-            } catch (Throwable th) {
-                if6.a(inputStream);
-                throw th;
+                File file4 = new File(file3, this.c);
+                Map<String, if6> b = gf6.b(file4);
+                if (gf6.f(file4, b)) {
+                    df6Var = new df6(file4, this.c, b);
+                } else {
+                    df6Var = null;
+                }
+                if (df6Var != null && df6Var.c()) {
+                    ze6.i(ze6.l().k(), this.c, this.a);
+                    ze6.i(ze6.l().m(), this.c + ".zip", this.a);
+                    return df6Var;
+                }
+                og6.b(file4);
+                kg6.b("lt-log", "离线包应用失败：" + this.a + "，path：" + file4.getAbsolutePath());
+                return null;
             }
-        } else {
-            return (String) invokeL.objValue;
+        }
+        return (df6) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: d */
+    public void onPostExecute(df6 df6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, df6Var) == null) {
+            super.onPostExecute(df6Var);
+            if (df6Var != null) {
+                ze6.l().v(this.a, df6Var.b());
+                ze6.l().s();
+                af6.d().j(this.a, df6Var.a());
+                af6.d().c(this.a);
+                ze6.t("download bundle", "success", this.a, df6Var.b(), "");
+            } else {
+                ze6.l().h(this.a);
+                ze6.l().s();
+                af6.d().h(this.a);
+            }
+            ye6.b(df6Var, this.a);
         }
     }
 
-    public static boolean d(File file, String str) {
-        InterceptResult invokeLL;
+    public final boolean e(File file, File file2, String str) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, file, str)) == null) {
-            try {
-                String b = b(file);
-                if (b != null) {
-                    if (TextUtils.equals(b.toLowerCase(), str.toLowerCase())) {
-                        return true;
-                    }
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, file, file2, str)) == null) {
+            File file3 = new File(file2, str);
+            if (!file3.exists()) {
+                try {
+                    sg6.c(file, file3);
+                    return true;
+                } catch (UnzipErrorException e) {
+                    og6.b(file2);
+                    kg6.b("lt-log", "离线包资源解压缩失败：" + e);
+                    return false;
                 }
-            } catch (Exception unused) {
             }
-            return false;
+            return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 }

@@ -1,66 +1,90 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.ala.data.SdkLiveInfoData;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumUserLiveActiivtyConfig;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernRecommendLineHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class s56 {
+public class s56 extends vm<w56, LiveTabConcernRecommendLineHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext a;
+    public g66 b;
+    public h66 c;
 
-    public static void a(t36 t36Var, String str, String str2) {
-        SdkLiveInfoData sdkLiveInfoData;
-        String str3;
-        String str4;
-        String str5;
-        String str6;
-        int i;
-        SdkLiveInfoData.YYExt yYExt;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public s56(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), w56.d);
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65536, null, t36Var, str, str2) == null) && t36Var != null && (sdkLiveInfoData = t36Var.a) != null) {
-            SdkLiveInfoData.AlaLiveInfo alaLiveInfo = sdkLiveInfoData.liveInfo;
-            String str7 = "";
-            if (alaLiveInfo == null || (yYExt = alaLiveInfo.yyExt) == null) {
-                str3 = "";
-                str4 = str3;
-                str5 = str4;
-                str6 = str5;
-            } else {
-                str4 = yYExt.sid;
-                str5 = yYExt.ssid;
-                str6 = yYExt.yyUid;
-                str3 = yYExt.templateId;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StatisticItem param = new StatisticItem(str).param("fid", t36Var.c).param("liveid", t36Var.a.liveId).param("hdid", TbadkCoreApplication.getInst().getHdid()).param(TiebaStatic.YYParams.YYSID, str4).param(TiebaStatic.YYParams.YYSSID, str5).param(TiebaStatic.YYParams.YYUID, str6).param("template_id", str3);
-            if (!TextUtils.isEmpty(str4)) {
-                str7 = "1";
+        }
+        this.a = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public LiveTabConcernRecommendLineHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            g66 g66Var = new g66(this.a, viewGroup);
+            this.b = g66Var;
+            h66 h66Var = this.c;
+            if (h66Var != null) {
+                g66Var.s(h66Var);
             }
-            StatisticItem param2 = param.param(TiebaStatic.YYParams.YYLIVEID, str7).param(TiebaStatic.Params.VID, t36Var.a.nid);
-            if (TextUtils.equals(ForumUserLiveActiivtyConfig.KEY_FROM_FRS_CARD, str2)) {
-                i = 1;
-            } else {
-                i = 2;
+            return new LiveTabConcernRecommendLineHolder(this.b);
+        }
+        return (LiveTabConcernRecommendLineHolder) invokeL.objValue;
+    }
+
+    public void u(h66 h66Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, h66Var) == null) {
+            this.c = h66Var;
+            g66 g66Var = this.b;
+            if (g66Var != null) {
+                g66Var.s(h66Var);
             }
-            TiebaStatic.log(param2.param("obj_source", i));
         }
     }
 
-    public static void b(t36 t36Var, String str) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, w56 w56Var, LiveTabConcernRecommendLineHolder liveTabConcernRecommendLineHolder) {
+        InterceptResult invokeCommon;
+        g66 g66Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, t36Var, str) == null) {
-            a(t36Var, "c14705", str);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, w56Var, liveTabConcernRecommendLineHolder})) == null) {
+            if (liveTabConcernRecommendLineHolder != null && (g66Var = liveTabConcernRecommendLineHolder.a) != null) {
+                g66Var.i(w56Var);
+                return liveTabConcernRecommendLineHolder.getView();
+            }
+            return null;
         }
-    }
-
-    public static void c(t36 t36Var, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, t36Var, str) == null) {
-            a(t36Var, "c14704", str);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -1,28 +1,38 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes5.dex */
-public final class pc2 extends InputStream {
+public final class pc2 implements gc2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public InputStream a;
-    public nc2 b;
+    public a b;
+    public OutputStream c;
+    public File d;
+    public boolean e;
 
-    public pc2(@NonNull InputStream inputStream, @NonNull nc2 nc2Var) {
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(File file);
+
+        void b(File file);
+    }
+
+    public pc2(File file, a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {inputStream, nc2Var};
+            Object[] objArr = {file, aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -32,103 +42,69 @@ public final class pc2 extends InputStream {
                 return;
             }
         }
-        this.a = inputStream;
-        this.b = nc2Var;
+        this.d = file;
+        this.b = aVar;
+        b(file);
     }
 
-    @Override // java.io.InputStream
-    public int available() throws IOException {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.available();
+        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
+            return;
         }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
-    public void close() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            super.close();
-            this.b.c(this.a);
-            this.b.a();
-            zn4.d(this.a);
+        a aVar = this.b;
+        if (aVar != null) {
+            if (this.e) {
+                aVar.a(this.d);
+            } else {
+                aVar.b(this.d);
+            }
         }
+        bo4.d(this.c);
     }
 
-    @Override // java.io.InputStream
-    public boolean markSupported() {
-        InterceptResult invokeV;
+    public final void b(File file) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.markSupported();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read() throws IOException {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a.read();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public synchronized void reset() throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            synchronized (this) {
-                super.reset();
-                this.a.reset();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) {
+            try {
+                if (this.c == null && file != null) {
+                    bo4.h(this.d);
+                    this.c = new FileOutputStream(file);
+                }
+            } catch (Exception e) {
+                if (gc2.a) {
+                    Log.e("HybridIntercept", Log.getStackTraceString(e));
+                }
             }
         }
     }
 
-    @Override // java.io.InputStream
-    public void mark(int i) {
+    public void c(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            super.mark(i);
-            this.a.mark(i);
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, inputStream) == null) && inputStream != null && !this.e) {
+            bo4.Q(inputStream, this.d);
+            this.e = true;
         }
     }
 
-    @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr) throws IOException {
-        InterceptResult invokeL;
+    public void d(byte[] bArr, int i, int i2) {
+        OutputStream outputStream;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
-            int read = this.a.read(bArr);
-            this.b.d(bArr, 0, read);
-            return read;
+        if ((interceptable == null || interceptable.invokeLII(1048579, this, bArr, i, i2) == null) && (outputStream = this.c) != null) {
+            try {
+                if (i2 > 0) {
+                    outputStream.write(bArr, i, i2);
+                } else {
+                    this.e = true;
+                }
+            } catch (IOException unused) {
+                bo4.d(this.c);
+                this.c = null;
+                a aVar = this.b;
+                if (aVar != null) {
+                    aVar.b(this.d);
+                }
+            }
         }
-        return invokeL.intValue;
-    }
-
-    @Override // java.io.InputStream
-    public long skip(long j) throws IOException {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
-            this.a.skip(j);
-            return super.skip(j);
-        }
-        return invokeJ.longValue;
-    }
-
-    @Override // java.io.InputStream
-    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
-            int read = this.a.read(bArr, i, i2);
-            this.b.d(bArr, i, read);
-            return read;
-        }
-        return invokeLII.intValue;
     }
 }

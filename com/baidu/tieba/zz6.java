@@ -1,68 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedLiveComponent;
 /* loaded from: classes7.dex */
-public class zz6 implements tz6 {
+public final class zz6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public fj1<tz6> a;
 
-    public void b() {
+    public static final void a(FeedLiveComponent feedLiveComponent, List<s17<?>> dataList, uy6 feedExtraData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            dj1 b = dj1.b();
-            this.a = b;
-            b.a(new uz6());
+        if (interceptable == null || interceptable.invokeLLL(65536, null, feedLiveComponent, dataList, feedExtraData) == null) {
+            Intrinsics.checkNotNullParameter(feedLiveComponent, "<this>");
+            Intrinsics.checkNotNullParameter(dataList, "dataList");
+            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
+            bz6 bz6Var = new bz6();
+            bz6Var.a = feedLiveComponent.top_label;
+            bz6Var.b = feedLiveComponent.bottom_label;
+            bz6Var.c = feedLiveComponent.audience_label;
+            bz6Var.d = feedLiveComponent.cover_url;
+            bz6Var.f = feedLiveComponent.schema;
+            bz6Var.e = vy6.b(feedExtraData, "live_head_show");
+            dataList.add(new t17(new px6(bz6Var, null, 2, null), "live"));
         }
-    }
-
-    public zz6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        b();
-    }
-
-    @Override // com.baidu.tieba.tz6
-    @NonNull
-    public List<b07<?, ?>> a() {
-        InterceptResult invokeV;
-        List<tz6> list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            ArrayList arrayList = new ArrayList();
-            fj1<tz6> fj1Var = this.a;
-            if (fj1Var == null) {
-                list = null;
-            } else {
-                list = fj1Var.getList();
-            }
-            if (list != null) {
-                for (tz6 tz6Var : list) {
-                    arrayList.addAll(tz6Var.a());
-                }
-            }
-            return arrayList;
-        }
-        return (List) invokeV.objValue;
     }
 }

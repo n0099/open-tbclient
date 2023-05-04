@@ -1,110 +1,134 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tieba.ri4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class kh4<T> {
+public class kh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<T> a;
 
-    public kh4() {
+    public static <T> void a(@NonNull ci4 ci4Var, @NonNull List<zh4<T>> list) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(65536, null, ci4Var, list) == null) {
+            for (zh4<T> zh4Var : list) {
+                ci4Var.c(xh4.b().a(zh4Var));
             }
         }
-        this.a = new ArrayList();
     }
 
-    public synchronized T c() {
-        InterceptResult invokeV;
+    public static synchronized void d(ti4 ti4Var, sf4 sf4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                T t = this.a.get(0);
-                this.a.remove(0);
-                return t;
+        if (interceptable == null || interceptable.invokeLL(65539, null, ti4Var, sf4Var) == null) {
+            synchronized (kh4.class) {
+                zh4<yg4> i = bi4.i(ti4Var.a, sf4Var);
+                ci4 ci4Var = new ci4(sf4Var);
+                ci4Var.c(xh4.b().a(i));
+                ci4Var.e();
             }
         }
-        return (T) invokeV.objValue;
     }
 
-    public synchronized T d() {
-        InterceptResult invokeV;
+    public static synchronized void g(List<yg4> list, sf4 sf4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                if (this.a.isEmpty()) {
-                    return null;
-                }
-                return this.a.get(0);
+        if (interceptable == null || interceptable.invokeLL(65542, null, list, sf4Var) == null) {
+            synchronized (kh4.class) {
+                List<zh4<yg4>> e = bi4.e(list, sf4Var);
+                ci4 ci4Var = new ci4(sf4Var);
+                a(ci4Var, e);
+                ci4Var.e();
             }
         }
-        return (T) invokeV.objValue;
     }
 
     @NonNull
-    public Iterator<T> f() {
-        InterceptResult invokeV;
+    public static ci4 b(ri4 ri4Var, sf4 sf4Var) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.iterator();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, ri4Var, sf4Var)) == null) {
+            List<zh4<ri4.a>> f = bi4.f(ri4Var.a, sf4Var);
+            ci4 ci4Var = new ci4(sf4Var);
+            for (zh4<ri4.a> zh4Var : f) {
+                ci4Var.c(xh4.b().a(zh4Var));
+            }
+            return ci4Var;
         }
-        return (Iterator) invokeV.objValue;
+        return (ci4) invokeLL.objValue;
     }
 
-    public T e(T t) {
-        InterceptResult invokeL;
+    public static synchronized void e(ui4 ui4Var, sf4 sf4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, t)) == null) {
-            if (t != null) {
-                for (int size = this.a.size() - 1; size >= 0; size--) {
-                    if (t.equals(this.a.get(size))) {
-                        return this.a.get(size);
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ui4Var, sf4Var) == null) {
+            synchronized (kh4.class) {
+                List<zh4<xg4>> h = bi4.h(ui4Var.a, sf4Var);
+                ci4 ci4Var = new ci4(sf4Var);
+                for (zh4<xg4> zh4Var : h) {
+                    ci4Var.c(xh4.b().a(zh4Var));
+                }
+                ci4Var.e();
+            }
+        }
+    }
+
+    public static synchronized void c(si4 si4Var, sf4 sf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, si4Var, sf4Var) == null) {
+            synchronized (kh4.class) {
+                zh4<ug4> d = bi4.d(si4Var.d, sf4Var);
+                zh4<wg4> g = bi4.g(si4Var.a, sf4Var);
+                zh4<sg4> c = bi4.c(si4Var.f, sf4Var);
+                List<zh4<xg4>> h = bi4.h(si4Var.b, sf4Var);
+                List<zh4<yg4>> e = bi4.e(si4Var.c, sf4Var);
+                ci4 ci4Var = new ci4(sf4Var);
+                ci4Var.c(xh4.b().a(d));
+                ci4Var.c(xh4.b().a(g));
+                ci4Var.c(xh4.b().a(c));
+                a(ci4Var, h);
+                a(ci4Var, e);
+                ci4Var.e();
+            }
+        }
+    }
+
+    public static synchronized void f(pk4 pk4Var, sf4 sf4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65541, null, pk4Var, sf4Var) == null) {
+            synchronized (kh4.class) {
+                zh4<ug4> d = bi4.d(pk4Var.b, sf4Var);
+                zh4<ug4> d2 = bi4.d(pk4Var.a, sf4Var);
+                zh4<sg4> c = bi4.c(pk4Var.c, sf4Var);
+                ci4 ci4Var = new ci4(sf4Var);
+                if (d != null) {
+                    ci4Var.c(xh4.b().a(d));
+                }
+                if (d2 != null) {
+                    ci4Var.c(xh4.b().a(d2));
+                }
+                if (c != null) {
+                    ci4Var.c(xh4.b().a(c));
+                }
+                if (pk4Var.d != null) {
+                    for (zg4 zg4Var : pk4Var.d) {
+                        zh4<zg4> j = bi4.j(zg4Var, sf4Var);
+                        if (j != null) {
+                            ci4Var.c(xh4.b().a(j));
+                        }
                     }
                 }
-                return null;
-            }
-            return null;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(",Queue Size:" + this.a.size());
-            synchronized (this) {
-                int i = 0;
-                for (T t : this.a) {
-                    sb.append(":[" + i + PreferencesUtil.RIGHT_MOUNT + t);
-                    i++;
+                if (pk4Var.e != null) {
+                    for (yg4 yg4Var : pk4Var.e) {
+                        zh4<yg4> i = bi4.i(yg4Var, sf4Var);
+                        if (i != null) {
+                            ci4Var.c(xh4.b().a(i));
+                        }
+                    }
                 }
+                ci4Var.e();
             }
-            return sb.toString();
         }
-        return (String) invokeV.objValue;
     }
 }

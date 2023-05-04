@@ -1,58 +1,135 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.adp.log.DefaultLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.BookInfo;
-import tbclient.TbBookrack;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class o19 {
+public final class o19 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public int b;
-    public List<p19> c;
-    public String d;
-    public String e;
-    public String f;
+    public final Activity a;
+    public View b;
+    public TBLottieAnimationView c;
+    public TextView d;
 
-    public o19() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947979538, "Lcom/baidu/tieba/o19;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947979538, "Lcom/baidu/tieba/o19;");
+        }
+    }
+
+    public o19(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = activity;
+    }
+
+    public final void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null) {
+                SkinManager.setLottieAnimation(tBLottieAnimationView, R.raw.lottie_full_screen_refresh);
+            }
+            TextView textView = this.d;
+            if (textView != null) {
+                g35.d(textView).w(R.color.CAM_X0108);
             }
         }
     }
 
-    public void a(TbBookrack tbBookrack) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, tbBookrack) != null) || tbBookrack == null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null && tBLottieAnimationView.isAnimating()) {
+                tBLottieAnimationView.cancelAnimation();
+            }
+            View view2 = this.b;
+            if (view2 != null) {
+                view2.setVisibility(8);
+            }
+            DefaultLog.getInstance().c("PbFragmentLoadingManager", "隐藏最上层loading");
         }
-        this.a = tbBookrack.booktown;
-        this.b = tbBookrack.num.intValue();
-        this.d = tbBookrack.title;
-        this.e = tbBookrack.icon;
-        this.f = tbBookrack.tip;
-        this.c = new ArrayList();
-        List<BookInfo> list = tbBookrack.book_list;
-        if (list != null) {
-            for (BookInfo bookInfo : list) {
-                if (bookInfo != null) {
-                    p19 p19Var = new p19();
-                    p19Var.a(bookInfo);
-                    this.c.add(p19Var);
+    }
+
+    public final Activity getActivity() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
+        }
+        return (Activity) invokeV.objValue;
+    }
+
+    public final void c(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+            TBLottieAnimationView tBLottieAnimationView = this.c;
+            if (tBLottieAnimationView != null) {
+                Intrinsics.checkNotNull(tBLottieAnimationView);
+                if (tBLottieAnimationView.isAnimating()) {
+                    return;
                 }
             }
+            if (view2 != null) {
+                this.b = view2;
+                if (view2 != null) {
+                    view2.setVisibility(0);
+                }
+                TBLottieAnimationView tBLottieAnimationView2 = (TBLottieAnimationView) view2.findViewById(R.id.obfuscated_res_0x7f092694);
+                this.c = tBLottieAnimationView2;
+                if (tBLottieAnimationView2 != null) {
+                    SkinManager.setLottieAnimation(tBLottieAnimationView2, R.raw.lottie_full_screen_refresh);
+                    TBLottieAnimationView tBLottieAnimationView3 = this.c;
+                    if (tBLottieAnimationView3 != null) {
+                        tBLottieAnimationView3.setRepeatCount(-1);
+                    }
+                    TBLottieAnimationView tBLottieAnimationView4 = this.c;
+                    if (tBLottieAnimationView4 != null) {
+                        tBLottieAnimationView4.setSpeed(1.2f);
+                    }
+                    TBLottieAnimationView tBLottieAnimationView5 = this.c;
+                    if (tBLottieAnimationView5 != null) {
+                        tBLottieAnimationView5.playAnimation();
+                    }
+                }
+                this.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092695);
+            }
+            DefaultLog.getInstance().c("PbFragmentLoadingManager", "显示最上层loading");
         }
     }
 }

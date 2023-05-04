@@ -13,7 +13,6 @@ import com.baidu.webkit.sdk.WebView;
 import com.baidu.webkit.sdk.WebViewFactory;
 import com.baidu.webkit.sdk.WebViewFactoryProvider;
 import com.baidu.webkit.sdk.abtest.ABTestSDK;
-import com.xiaomi.mipush.sdk.Constants;
 import java.lang.ref.WeakReference;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -113,7 +112,7 @@ public class SessionMonitorEngine implements INoProGuard {
                 String str4 = Build.VERSION.RELEASE;
                 int i = Build.VERSION.SDK_INT;
                 this.mStaticPublicData.put("product", str3);
-                this.mStaticPublicData.put(Constants.PHONE_BRAND, str);
+                this.mStaticPublicData.put("brand", str);
                 this.mStaticPublicData.put("model", str2);
                 this.mStaticPublicData.put("version", str4);
                 this.mStaticPublicData.put("sdk", i);
@@ -346,30 +345,30 @@ public class SessionMonitorEngine implements INoProGuard {
     public void recordFrameworkBehaviorValue(int i, Object obj) {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0510a(aVar, (byte) 0);
+            aVar.a = new a.C0513a(aVar, (byte) 0);
         }
         if (i == 9) {
             aVar.a.a();
             aVar.a.f = true;
         }
-        a.C0510a c0510a = aVar.a;
-        if (c0510a.f) {
+        a.C0513a c0513a = aVar.a;
+        if (c0513a.f) {
             switch (i) {
                 case 7:
-                    c0510a.a = ((Boolean) obj).booleanValue();
+                    c0513a.a = ((Boolean) obj).booleanValue();
                     return;
                 case 8:
-                    c0510a.b = ((Boolean) obj).booleanValue();
+                    c0513a.b = ((Boolean) obj).booleanValue();
                     return;
                 case 9:
-                    c0510a.c = ((Long) obj).longValue();
+                    c0513a.c = ((Long) obj).longValue();
                     return;
                 case 10:
-                    c0510a.d = ((Long) obj).longValue();
+                    c0513a.d = ((Long) obj).longValue();
                     aVar.a.f = true;
                     return;
                 case 11:
-                    c0510a.e = ((Boolean) obj).booleanValue();
+                    c0513a.e = ((Boolean) obj).booleanValue();
                     return;
                 default:
                     return;
@@ -379,9 +378,9 @@ public class SessionMonitorEngine implements INoProGuard {
 
     public void recordFrameworkBehaviorValue(String str, long j) {
         a aVar = this.sFrameworkBehaviorProvider;
-        a.C0510a c0510a = aVar.a;
-        if (c0510a != null) {
-            aVar.a.g.put(str, Long.valueOf(j + (c0510a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
+        a.C0513a c0513a = aVar.a;
+        if (c0513a != null) {
+            aVar.a.g.put(str, Long.valueOf(j + (c0513a.g.containsKey(str) ? aVar.a.g.get(str).longValue() : 0L)));
         }
     }
 
@@ -496,17 +495,17 @@ public class SessionMonitorEngine implements INoProGuard {
     public void startFrameworkBehaviorMonitor() {
         a aVar = this.sFrameworkBehaviorProvider;
         if (aVar.a == null) {
-            aVar.a = new a.C0510a(aVar, (byte) 0);
+            aVar.a = new a.C0513a(aVar, (byte) 0);
         }
-        a.C0510a c0510a = aVar.a;
-        if (c0510a.c == -1) {
-            c0510a.a();
+        a.C0513a c0513a = aVar.a;
+        if (c0513a.c == -1) {
+            c0513a.a();
         }
-        a.C0510a c0510a2 = aVar.a;
-        if (c0510a2.f) {
+        a.C0513a c0513a2 = aVar.a;
+        if (c0513a2.f) {
             return;
         }
-        c0510a2.f = true;
+        c0513a2.f = true;
     }
 
     public void updateCuidIfNeeded() {

@@ -1,40 +1,112 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import androidx.annotation.Nullable;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.SapiAccountManager;
-import com.baidu.searchbox.live.interfaces.DI;
-import com.baidu.tbadk.BaseActivity;
+import com.baidu.card.Align;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.AccountData;
-import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.xv4;
+import com.baidu.tbadk.core.atomData.ImageViewerConfig;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.gy;
+import com.baidu.tieba.ry;
+import com.baidu.tieba.uw;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class nr8 {
+public class nr8 extends fr8<yi6, ThreadCardViewHolder<yi6>> implements qz5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public final BaseActivity<?> a;
-    @Nullable
-    public BdAsyncTask<?, ?, ?> b;
-    public final xv4.a c;
+    public BdUniqueId c;
+    public TbPageContext<?> d;
+    public String e;
+    public boolean f;
+    public ji6<yi6> g;
 
     /* loaded from: classes5.dex */
-    public class a implements xv4.a {
+    public class a extends ji6<yi6> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ nr8 b;
+
+        public a(nr8 nr8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = nr8Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ji6
+        /* renamed from: d */
+        public void a(View view2, yi6 yi6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, yi6Var) == null) {
+                cr8.b(this.b, yi6Var);
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class b implements uw.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b(nr8 nr8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {nr8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.uw.b
+        public void a(ax4 ax4Var, View view2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeLL(1048576, this, ax4Var, view2) == null) && ax4Var != null) {
+                if (view2.getId() == R.id.user_name) {
+                    ax4Var.objType = 3;
+                } else if (view2.getId() == R.id.user_avatar) {
+                    ax4Var.objType = 4;
+                } else {
+                    ax4Var.objType = 1;
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public class c implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nr8 a;
 
-        public a(nr8 nr8Var) {
+        public c(nr8 nr8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -52,167 +124,124 @@ public class nr8 {
             this.a = nr8Var;
         }
 
-        @Override // com.baidu.tieba.xv4.a
-        public void b(String str) {
+        @Override // com.baidu.tieba.sn
+        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            String str;
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) {
-                return;
-            }
-            this.a.j();
-        }
-
-        @Override // com.baidu.tieba.xv4.a
-        public void c(AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) != null) {
-                return;
-            }
-            this.a.e();
-            this.a.g(accountData);
-        }
-
-        @Override // com.baidu.tieba.xv4.a
-        public void a(String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                this.a.e();
-                if (this.a.a != null) {
-                    this.a.a.showToast(str2);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (inVar instanceof yi6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
+                yi6 yi6Var = (yi6) inVar;
+                yi6Var.f = 1;
+                if (this.a.g != null) {
+                    this.a.g.a(threadCardViewHolder.getView(), yi6Var);
                 }
+                Context context = view2.getContext();
+                String A1 = this.a.b.getOrignalPage().A1();
+                if (this.a.s()) {
+                    str = "3";
+                } else {
+                    str = "2";
+                }
+                ThreadCardUtils.jumpToPB(yi6Var, context, 17, false, A1, str);
+                threadCardViewHolder.a().p(new ry.a(1));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AccountData a;
-
-        public b(nr8 nr8Var, AccountData accountData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nr8Var, accountData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = accountData;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                vv4.g(this.a);
-                f45.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_db", 0, "", new Object[0]);
-            }
-        }
-    }
-
-    public nr8(@Nullable BaseActivity<?> baseActivity) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public nr8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {baseActivity};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new a(this);
-        this.a = baseActivity;
+        this.f = true;
+        this.g = new a(this);
+        this.d = tbPageContext;
     }
 
-    public final void g(AccountData accountData) {
+    @Override // com.baidu.tieba.qz5
+    public void g(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-            i(accountData);
-            f45.a(DI.ACCOUNT, -1L, 0, "login_pass_cslogin_goMainTab", 0, "", new Object[0]);
-            if (this.a != null) {
-                TbadkCoreApplication.getInst().onUserChanged(this.a.getIntent());
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            this.e = str;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: y */
+    public ThreadCardViewHolder<yi6> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            gy.b bVar = new gy.b(this.d.getPageActivity());
+            uw uwVar = new uw(this.d.getPageActivity());
+            uwVar.z(this.c);
+            uwVar.f(128);
+            uwVar.g(1024);
+            uwVar.y(new b(this));
+            bVar.o(uwVar);
+            ly lyVar = new ly(this.d.getPageActivity());
+            bVar.n(lyVar);
+            lyVar.A(2);
+            bVar.h(new ky(this.d.getPageActivity()));
+            bVar.h(new bx(this.d.getPageActivity()));
+            fx fxVar = new fx(this.d.getPageActivity());
+            fxVar.D(this.f);
+            fxVar.C(ImageViewerConfig.FROM_CONCERN);
+            bVar.h(fxVar);
+            iy iyVar = new iy(this.d.getPageActivity());
+            gx4 gx4Var = new gx4();
+            gx4Var.b = 9;
+            gx4Var.h = 9;
+            iyVar.B(gx4Var);
+            iyVar.D(9);
+            iyVar.I(4);
+            iyVar.E(17);
+            iyVar.C(false);
+            bVar.m(iyVar);
+            gy i = bVar.i();
+            i.s(17);
+            ThreadCardViewHolder<yi6> threadCardViewHolder = new ThreadCardViewHolder<>(i);
+            threadCardViewHolder.i(this.c);
+            setOnAdapterItemClickListener(new c(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: z */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, yi6 yi6Var, ThreadCardViewHolder<yi6> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), view2, viewGroup, yi6Var, threadCardViewHolder})) == null) {
+            if (yi6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && yi6Var.a != null) {
+                yi6Var.B(yi6Var.position + 1);
+                threadCardViewHolder.a().b(this.e);
+                threadCardViewHolder.s(true, Align.ALIGN_RIGHT_TOP);
+                threadCardViewHolder.e(yi6Var);
+                threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
+                threadCardViewHolder.a().q(this.g);
+                cr8.c(this, yi6Var);
+                return threadCardViewHolder.getView();
             }
-            f(-1);
-            TbadkCoreApplication.getInst().onDeviceFirstLoginChanged(accountData);
+            return null;
         }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) != null) || this.a == null) {
-            return;
-        }
-        this.a.setResult(i, new Intent());
-        this.a.finish();
-    }
-
-    public final void e() {
-        BaseActivity<?> baseActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || (baseActivity = this.a) == null) {
-            return;
-        }
-        baseActivity.closeLoadingDialog();
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
-            SapiAccount session = SapiAccountManager.getInstance().getSession();
-            if (session != null) {
-                BdAsyncTask<?, ?, ?> bdAsyncTask = this.b;
-                if (bdAsyncTask != null) {
-                    bdAsyncTask.cancel();
-                }
-                this.b = xv4.b().a(session.username, session.bduss, "", null, this.c);
-                return;
-            }
-            e();
-            f(0);
-        }
-    }
-
-    public final void j() {
-        BaseActivity<?> baseActivity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048581, this) != null) || (baseActivity = this.a) == null) {
-            return;
-        }
-        if (baseActivity.getLoadingDialog() != null && this.a.getLoadingDialog().c()) {
-            return;
-        }
-        BaseActivity<?> baseActivity2 = this.a;
-        baseActivity2.showLoadingDialog(baseActivity2.getString(R.string.sapi_logining));
-        if (this.a.getLoadingDialog() != null) {
-            this.a.getLoadingDialog().f(false);
-            this.a.getLoadingDialog().g(false);
-        }
-    }
-
-    public final void i(AccountData accountData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, accountData) == null) {
-            mg.a().c(new b(this, accountData));
-            f45.a(DI.ACCOUNT, -1L, 0, "login_activity_save_account_to_application", 0, "", new Object[0]);
-            BaseActivity<?> baseActivity = this.a;
-            if (baseActivity != null) {
-                TbadkCoreApplication.setCurrentAccount(accountData, baseActivity);
-            }
-            jt4.j(TbadkCoreApplication.getInst());
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921024, Boolean.TRUE));
-        }
+        return (View) invokeCommon.objValue;
     }
 }

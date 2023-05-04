@@ -3,13 +3,13 @@ package com.baidu.tieba;
 import android.database.Cursor;
 import android.database.MatrixCursor;
 import android.net.Uri;
-import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.database.SwanAppDbControl;
+import com.baidu.swan.game.guide.GameGuideConfigInfo;
+import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -17,13 +17,85 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class eu3 extends bu3 {
+public class eu3 extends du3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final String[] a;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes4.dex */
+    public static class b implements Comparator<c> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public /* synthetic */ b(a aVar) {
+            this();
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(c cVar, c cVar2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, cVar, cVar2)) == null) {
+                return Long.compare(cVar2.b, cVar.b);
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public long b;
+
+        public c(eu3 eu3Var, String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eu3Var, str, Long.valueOf(j)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = str;
+            this.b = j;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -38,7 +110,28 @@ public class eu3 extends bu3 {
                 return;
             }
         }
-        a = fo1.a;
+        a = new String[]{"_id", "app_id", GameGuideConfigInfo.KEY_APP_KEY, "app_sign", "version_code", "version_name", "description", "app_status", "status_detail", "status_desc", "resume_date", "icon_url", "app_name", "service_category", "subject_info", "type", "pkg_size", "app_category", "orientation", "create_time", "favorite_time"};
+    }
+
+    public final List<c> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            Cursor l = SwanAppDbControl.f(AppRuntime.getAppContext()).l(null, null, null, null);
+            ArrayList arrayList = new ArrayList();
+            if (l != null && l.moveToFirst()) {
+                int columnIndex = l.getColumnIndex("app_id");
+                int columnIndex2 = l.getColumnIndex("favorite_time");
+                do {
+                    arrayList.add(new c(this, l.getString(columnIndex), l.getLong(columnIndex2)));
+                } while (l.moveToNext());
+                bo4.d(l);
+                return arrayList;
+            }
+            bo4.d(l);
+            return arrayList;
+        }
+        return (List) invokeV.objValue;
     }
 
     public eu3() {
@@ -55,66 +148,38 @@ public class eu3 extends bu3 {
         }
     }
 
-    public final Cursor a(String str) {
-        InterceptResult invokeL;
+    public final void a(MatrixCursor matrixCursor, int i, c cVar, PMSAppInfo pMSAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            MatrixCursor matrixCursor = new MatrixCursor(new String[]{"params"}, 1);
-            matrixCursor.newRow().add("params", str);
-            return matrixCursor;
+        if ((interceptable == null || interceptable.invokeLILL(1048576, this, matrixCursor, i, cVar, pMSAppInfo) == null) && matrixCursor != null && i >= 0 && cVar != null && pMSAppInfo != null) {
+            matrixCursor.newRow().add("_id", Integer.valueOf(i)).add("app_id", pMSAppInfo.appId).add(GameGuideConfigInfo.KEY_APP_KEY, pMSAppInfo.appKey).add("app_sign", Long.valueOf(pMSAppInfo.appSign)).add("version_code", Long.valueOf(pMSAppInfo.versionCode)).add("version_name", pMSAppInfo.versionName).add("description", pMSAppInfo.description).add("app_status", Integer.valueOf(pMSAppInfo.appStatus)).add("status_detail", pMSAppInfo.statusDetail).add("status_desc", pMSAppInfo.statusDesc).add("resume_date", pMSAppInfo.resumeDate).add("icon_url", pMSAppInfo.iconUrl).add("app_name", pMSAppInfo.appName).add("service_category", pMSAppInfo.serviceCategory).add("subject_info", pMSAppInfo.subjectInfo).add("type", Integer.valueOf(pMSAppInfo.type)).add("pkg_size", Long.valueOf(pMSAppInfo.pkgSize)).add("app_category", Integer.valueOf(pMSAppInfo.appCategory)).add("orientation", Integer.valueOf(pMSAppInfo.getOrientation())).add("create_time", Long.valueOf(pMSAppInfo.createTime)).add("favorite_time", Long.valueOf(cVar.b));
         }
-        return (Cursor) invokeL.objValue;
     }
 
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            return Base64.encodeToString(gu3.b(str.getBytes(), "MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDI4nl5QCs/mwaPjm2H4cHaxTBya7F1S1f2IXBwfEB6QD16esL+37EX+SeGR3NQ+0Xxs32Bpl/E70xlII24e/E6GJnU1vks/d1+h4rBjv987X2eppIBrT8f6COjczYcUm0OBa7IGmAMnqMCnOt/U1Wx3Mn7zniQKueT5DjQBOuxyQIDAQAB", 117), 10);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("swan_sdk_version", go1.a());
-                jSONObject.put("swan_core_version", ah3.h(0));
-                jSONObject.put("game_core_version", ah3.h(1));
-                jSONObject.put("uid", cr2.h0().i(AppRuntime.getAppContext()));
-                jSONObject.put("puid", cr2.h0().h(AppRuntime.getAppContext()));
-                jSONObject.put("ua", r42.s());
-                jSONObject.put("ut", r42.f());
-                jSONObject.put("timestamp", System.currentTimeMillis());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            return jSONObject.toString();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.bu3
+    @Override // com.baidu.tieba.du3
     @Nullable
     public Cursor query(@NonNull Uri uri, @Nullable String[] strArr, @Nullable String str, @Nullable String[] strArr2, @Nullable String str2) {
         InterceptResult invokeLLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048579, this, uri, strArr, str, strArr2, str2)) == null) {
-            String b = b();
-            if (a) {
-                Log.i("ParamsProcessor", "params: " + b);
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_SEND_USER_MSG, this, uri, strArr, str, strArr2, str2)) == null) {
+            List<c> b2 = b();
+            if (b2.isEmpty()) {
+                return null;
             }
-            String c = c(b);
-            if (a) {
-                Log.i("ParamsProcessor", "encryption params: " + c);
+            HashMap<String, PMSAppInfo> a2 = hu3.a();
+            if (a2.isEmpty()) {
+                return null;
             }
-            return a(c);
+            Collections.sort(b2, new b(null));
+            MatrixCursor matrixCursor = new MatrixCursor(a, b2.size());
+            int i = 0;
+            for (c cVar : b2) {
+                PMSAppInfo pMSAppInfo = a2.get(cVar.a);
+                if (pMSAppInfo != null) {
+                    a(matrixCursor, i, cVar, pMSAppInfo);
+                    i++;
+                }
+            }
+            return matrixCursor;
         }
         return (Cursor) invokeLLLLL.objValue;
     }

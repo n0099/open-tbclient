@@ -1,242 +1,113 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
+import android.text.SpannableStringBuilder;
+import android.text.style.ImageSpan;
+import android.widget.EditText;
+import android.widget.Toast;
+import com.baidu.adp.base.BdBaseActivity;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.ForumSquareActivityConfig;
-import com.baidu.tbadk.core.atomData.FrsActivityConfig;
-import com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ey;
+import com.baidu.tbadk.core.util.GreyUtil;
+import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class ip8 extends wo8<az4, ThreadCardViewHolder<az4>> implements qy5 {
+public class ip8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId c;
-    public TbPageContext<?> d;
-    public on e;
-    public String f;
-    public String g;
-    public View.OnClickListener h;
-    public PullLeftRefreshLayout.f i;
-    public av4 j;
 
     /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
+    public class a extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ip8 a;
+        public final /* synthetic */ EditText a;
+        public final /* synthetic */ SpannableStringBuilder b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ EmotionGroupType d;
+        public final /* synthetic */ ip8 e;
 
-        public a(ip8 ip8Var) {
+        public a(ip8 ip8Var, EditText editText, SpannableStringBuilder spannableStringBuilder, int i, EmotionGroupType emotionGroupType) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ip8Var};
+                Object[] objArr = {ip8Var, editText, spannableStringBuilder, Integer.valueOf(i), emotionGroupType};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ip8Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.d.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a.d.getPageActivity(), this.a.g)));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements PullLeftRefreshLayout.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ip8 a;
-
-        public b(ip8 ip8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ip8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ip8Var;
-        }
-
-        @Override // com.baidu.tbadk.widget.horizontalpullview.PullLeftRefreshLayout.f
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.d.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a.d.getPageActivity(), this.a.g)));
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements av4<zy4> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ip8 a;
-
-        public c(ip8 ip8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ip8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ip8Var;
+            this.e = ip8Var;
+            this.a = editText;
+            this.b = spannableStringBuilder;
+            this.c = i;
+            this.d = emotionGroupType;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.av4
-        /* renamed from: a */
-        public void c(View view2, zy4 zy4Var, int i, long j) {
+        @Override // com.baidu.tieba.bg
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, zy4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                to8.a("c14399", zy4Var, i + 1, this.a.b.getOrignalPage().A1());
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.av4
-        /* renamed from: b */
-        public void d(View view2, zy4 zy4Var, int i, long j) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{view2, zy4Var, Integer.valueOf(i), Long.valueOf(j)}) == null) {
-                if (zy4Var == null) {
-                    this.a.d.sendMessage(new CustomMessage(2002001, new ForumSquareActivityConfig(this.a.d.getPageActivity(), this.a.g)));
-                    return;
+            if (interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) {
+                super.onLoaded((a) tmVar, str, i);
+                if (tmVar != null) {
+                    this.e.c(this.a, this.b, this.c, tmVar, this.d);
                 }
-                String h = zy4Var.h();
-                if (!hi.isForumName(h)) {
-                    return;
-                }
-                this.a.d.sendMessage(new CustomMessage(2003000, new FrsActivityConfig(this.a.d.getPageActivity()).createNormalCfg(h, FrsActivityConfig.FRS_FROM_ENTERFORUM_RECOMMEND).setCallFrom(3)));
-                to8.a("c13739", zy4Var, i + 1, this.a.b.getOrignalPage().A1());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ip8(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext, bdUniqueId);
+    public ip8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void b(BdBaseActivity<?> bdBaseActivity, EditText editText, v85 v85Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, bdBaseActivity, editText, v85Var) == null) {
+            if (((ImageSpan[]) editText.getText().getSpans(0, editText.getText().length(), ImageSpan.class)).length >= 10) {
+                Toast makeText = Toast.makeText(bdBaseActivity.getPageContext().getPageActivity(), (int) R.string.too_many_face, 0);
+                GreyUtil.grey(makeText);
+                makeText.show();
                 return;
             }
-        }
-        this.h = new a(this);
-        this.i = new b(this);
-        this.j = new c(this);
-        this.d = tbPageContext;
-    }
-
-    public void B(on onVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, onVar) == null) {
-            this.e = onVar;
-        }
-    }
-
-    @Override // com.baidu.tieba.qy5
-    public void g(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            this.f = str;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: A */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, az4 az4Var, ThreadCardViewHolder<az4> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), view2, viewGroup, az4Var, threadCardViewHolder})) == null) {
-            if (az4Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null) {
-                to8.g("c14384", this.b.getOrignalPage().A1());
-                threadCardViewHolder.a().r(i);
-                if (threadCardViewHolder.a() instanceof py5) {
-                    threadCardViewHolder.a().b(this.f);
-                }
-                threadCardViewHolder.e(az4Var);
-                threadCardViewHolder.a().onChangeSkinType(this.d, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+            String d = v85Var.d();
+            EmotionGroupType type = v85Var.getType();
+            if (d != null) {
+                cg.h().k(d, 20, new a(this, editText, new SpannableStringBuilder(d), editText.getSelectionStart(), type), 0, 0, bdBaseActivity.getUniqueId(), null, d, Boolean.FALSE, null);
             }
-            return null;
         }
-        return (View) invokeCommon.objValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: z */
-    public ThreadCardViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
+    public final void c(EditText editText, SpannableStringBuilder spannableStringBuilder, int i, tm tmVar, EmotionGroupType emotionGroupType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            ey.b bVar = new ey.b(this.d.getPageActivity(), false);
-            xx xxVar = new xx(this.d, this.c);
-            xxVar.y(false);
-            xxVar.t(false);
-            xxVar.x(false);
-            xxVar.w(this.i);
-            xxVar.u(this.h);
-            xxVar.v(this.j);
-            bVar.n(xxVar);
-            bVar.l().c(0);
-            bVar.l().g(0);
-            bVar.l().f(0);
-            bVar.l().i(0);
-            ThreadCardViewHolder threadCardViewHolder = new ThreadCardViewHolder(bVar.k(BaseCardInfo.SupportType.FULL, viewGroup, this.e));
-            threadCardViewHolder.i(this.c);
-            return threadCardViewHolder;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{editText, spannableStringBuilder, Integer.valueOf(i), tmVar, emotionGroupType}) == null) {
+            Bitmap p = tmVar.p();
+            BitmapDrawable bitmapDrawable = new BitmapDrawable(p);
+            int width = p.getWidth();
+            if (emotionGroupType == EmotionGroupType.LOCAL) {
+                width = (int) (width * 0.5d);
+            }
+            bitmapDrawable.setBounds(0, 0, width, width);
+            bitmapDrawable.setGravity(119);
+            spannableStringBuilder.setSpan(new ImageSpan(bitmapDrawable, 0), 0, spannableStringBuilder.length(), 33);
+            editText.getText().insert(i, spannableStringBuilder);
         }
-        return (ThreadCardViewHolder) invokeL.objValue;
     }
 }

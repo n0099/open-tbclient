@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.webkit.JavascriptInterface;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,19 +8,17 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ba1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public long f;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void a();
-    }
-
-    public ba1(a aVar) {
+    public ba1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,14 +28,11 @@ public class ba1 {
                 return;
             }
         }
-        this.a = aVar;
-    }
-
-    @JavascriptInterface
-    public void onGoBack() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.a.a();
-        }
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
+        this.f = 0L;
     }
 }

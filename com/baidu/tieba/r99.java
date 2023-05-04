@@ -1,85 +1,113 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.GetLockWindowMsg.DataRes;
 /* loaded from: classes6.dex */
-public class r99 {
+public class r99 extends kh6<p89> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public s99 c;
-    public MetaData d;
+    public View i;
+    public ImageView j;
+    public TextView k;
+    public String l;
 
-    public r99() {
+    @Override // com.baidu.tieba.kh6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d01bc : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public r99(TbPageContext<?> tbPageContext) {
+        super(tbPageContext);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        r(h());
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public final void r(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeL(1048580, this, view2) == null) {
+            this.i = view2.findViewById(R.id.obfuscated_res_0x7f0905dc);
+            this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0905db);
+            this.k = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0905dd);
         }
-        return (String) invokeV.objValue;
     }
 
-    public String b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.kh6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            if (this.a != i) {
+                SkinManager.setBackgroundResource(this.i, R.color.CAM_X0201);
+                SkinManager.setImageResource(this.j, R.drawable.new_pic_emotion_07);
+                SkinManager.setViewTextColor(this.k, R.color.CAM_X0108, 1);
+            }
+            this.a = i;
         }
-        return (String) invokeV.objValue;
     }
 
-    public s99 c() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kh6
+    /* renamed from: s */
+    public void i(p89 p89Var) {
+        String string;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
+        if (interceptable == null || interceptable.invokeL(1048581, this, p89Var) == null) {
+            if (p89Var == null) {
+                this.i.setVisibility(8);
+                return;
+            }
+            if (this.i.getVisibility() != 0) {
+                this.i.setVisibility(0);
+            }
+            if (StringUtils.isNull(this.l)) {
+                TextView textView = this.k;
+                String string2 = this.c.getString(R.string.obfuscated_res_0x7f0f0f59);
+                Object[] objArr = new Object[1];
+                if (p89Var.a) {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f175d);
+                } else if (p89Var.b == 2) {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f126d);
+                } else {
+                    string = this.c.getString(R.string.obfuscated_res_0x7f0f08f4);
+                }
+                objArr[0] = string;
+                textView.setText(String.format(string2, objArr));
+                return;
+            }
+            this.k.setText(this.l);
         }
-        return (s99) invokeV.objValue;
-    }
-
-    public MetaData d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (MetaData) invokeV.objValue;
-    }
-
-    public void e(DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, dataRes) != null) || dataRes == null) {
-            return;
-        }
-        this.a = dataRes.publish_user;
-        this.b = dataRes.publish_pic;
-        MetaData metaData = new MetaData();
-        this.d = metaData;
-        metaData.parserProtobuf(dataRes.author);
-        this.d.setPendantData(null);
-        s99 s99Var = new s99();
-        this.c = s99Var;
-        s99Var.e(dataRes.thread_info);
     }
 }

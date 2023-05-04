@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import android.view.View;
 /* loaded from: classes5.dex */
 public interface ok1 {
-    @Nullable
-    ni1 a();
+    void a(pk1 pk1Var);
 
-    JSONObject b();
+    void c(nk1 nk1Var);
+
+    View getAdView();
+
+    void load();
 }

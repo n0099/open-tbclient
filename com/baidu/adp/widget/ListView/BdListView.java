@@ -102,7 +102,7 @@ public class BdListView extends ListView implements kn<BdListView> {
 
     /* loaded from: classes.dex */
     public interface q {
-        void y(BdListView bdListView);
+        void C(BdListView bdListView);
     }
 
     /* loaded from: classes.dex */
@@ -873,7 +873,7 @@ public class BdListView extends ListView implements kn<BdListView> {
                         this.a.m.onScrollToBottom();
                     }
                     if (this.a.n != null && absListView.getLastVisiblePosition() == absListView.getCount() - 1 && absListView.getFirstVisiblePosition() != 0) {
-                        this.a.n.y(this.a);
+                        this.a.n.C(this.a);
                     }
                     if (this.a.k != null && absListView.getFirstVisiblePosition() <= this.a.l) {
                         this.a.k.onScrollToTop();

@@ -1,30 +1,44 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
+import android.os.Handler;
+import android.os.Message;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import java.io.IOException;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class sb5 implements ft5 {
+public class sb5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public String b;
-    public String c;
-    public boolean d;
-    public boolean e;
+    public d a;
+    public c b;
+    public b c;
 
     /* loaded from: classes6.dex */
-    public class a implements Runnable {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sb5 a;
+    }
 
-        public a(sb5 sb5Var) {
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(boolean z);
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends BdAsyncTask<String, Void, Boolean> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public Process a;
+        public final /* synthetic */ sb5 b;
+
+        public b(sb5 sb5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -39,120 +53,183 @@ public class sb5 implements ft5 {
                     return;
                 }
             }
-            this.a = sb5Var;
+            this.b = sb5Var;
+            this.a = null;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public /* synthetic */ b(sb5 sb5Var, a aVar) {
+            this(sb5Var);
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public Boolean doInBackground(String... strArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                cg.h().m(this.a.b, 10, null, null);
-                cg.h().m(this.a.c, 10, null, null);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, strArr)) == null) {
+                boolean z = false;
+                if (strArr != null && strArr.length >= 1) {
+                    try {
+                        try {
+                            try {
+                                Process exec = Runtime.getRuntime().exec(strArr[0]);
+                                this.a = exec;
+                                if (exec.waitFor() == 0) {
+                                    z = true;
+                                }
+                            } catch (IOException e) {
+                                e.printStackTrace();
+                            }
+                        } catch (InterruptedException e2) {
+                            e2.printStackTrace();
+                        }
+                    } finally {
+                        this.a.destroy();
+                    }
+                }
+                return Boolean.valueOf(z);
+            }
+            return (Boolean) invokeL.objValue;
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onCancelled() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+                super.onCancelled();
+                Process process = this.a;
+                if (process != null) {
+                    try {
+                        process.destroy();
+                    } catch (Throwable th) {
+                        th.printStackTrace();
+                    }
+                }
+                if (this.b.b != null) {
+                    this.b.b.a(false);
+                }
+                if (this.b.a != null) {
+                    this.b.a.removeMessages(0);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPostExecute(Boolean bool) {
+            boolean booleanValue;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
+                if (this.b.b != null) {
+                    c cVar = this.b.b;
+                    if (bool == null) {
+                        booleanValue = false;
+                    } else {
+                        booleanValue = bool.booleanValue();
+                    }
+                    cVar.a(booleanValue);
+                }
+                if (this.b.a != null) {
+                    this.b.a.removeMessages(0);
+                }
             }
         }
     }
 
-    public sb5() {
+    /* loaded from: classes6.dex */
+    public static class d extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final WeakReference<sb5> a;
+
+        public d(sb5 sb5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sb5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = new WeakReference<>(sb5Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            sb5 sb5Var;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
+                super.handleMessage(message);
+                if (message.what == 0 && (sb5Var = this.a.get()) != null) {
+                    sb5Var.e();
+                }
+            }
+        }
+    }
+
+    public sb5(String str, c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, cVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        d dVar = new d(this);
+        this.a = dVar;
+        this.b = cVar;
+        dVar.sendEmptyMessageDelayed(0, 50000L);
+        b bVar = new b(this, null);
+        this.c = bVar;
+        bVar.setSelfExecute(true);
+        b bVar2 = this.c;
+        bVar2.execute(d() + str);
     }
 
-    @Override // com.baidu.tieba.ft5
-    public String a() {
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ft5
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ft5
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.ft5
-    public boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            if (this.d && this.e) {
-                return true;
+            int netType = BdNetTypeUtil.netType();
+            if (netType != 1) {
+                if (netType != 2) {
+                    return "ping -c 3 -w 5000 ";
+                }
+                return "ping -c 3 -w 10000 ";
             }
-            return false;
+            return "ping -c 3 -w 3000 ";
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void g() {
+    public final void e() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && isValid()) {
-            jg.a().post(new a(this));
-        }
-    }
-
-    @Override // com.baidu.tieba.ft5
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            if (!StringUtils.isNull(this.a) && !StringUtils.isNull(this.b) && !StringUtils.isNull(this.c)) {
-                return true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            b bVar = this.c;
+            if (bVar != null) {
+                bVar.cancel(true);
             }
-            return false;
+            d dVar = this.a;
+            if (dVar != null) {
+                dVar.removeMessages(0);
+            }
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ft5
-    public void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (!this.d) {
-            this.d = str.equals(this.b);
-        }
-        if (!this.e) {
-            this.e = str.equals(this.c);
-        }
-    }
-
-    public void f(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048581, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        this.a = jSONObject.optString("url");
-        this.b = jSONObject.optString("fold_lottie");
-        jSONObject.optString("fold_name");
-        this.c = jSONObject.optString("unfold_lottie");
-        jSONObject.optString("unfold_name");
-        g();
     }
 }

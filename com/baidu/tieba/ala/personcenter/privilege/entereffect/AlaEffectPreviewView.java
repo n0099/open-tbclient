@@ -26,7 +26,7 @@ import com.baidu.tieba.ala.personcenter.privilege.entereffect.data.AlaEnterEffec
 import com.baidu.tieba.bg;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.cg;
-import com.baidu.tieba.da6;
+import com.baidu.tieba.db6;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -43,7 +43,7 @@ public class AlaEffectPreviewView extends LinearLayout {
     public View c;
     public ImageView d;
     public TextView e;
-    public da6.c f;
+    public db6.c f;
     public ObjectAnimator g;
     public LinearLayout h;
     public ImageView i;
@@ -324,7 +324,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         e();
     }
 
-    public void setAnimCompleteCallback(da6.c cVar) {
+    public void setAnimCompleteCallback(db6.c cVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
             this.f = cVar;
@@ -334,11 +334,11 @@ public class AlaEffectPreviewView extends LinearLayout {
     public final void e() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f1, this);
-            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e8);
-            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901e7);
-            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901ce);
-            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e9);
+            this.c = LinearLayout.inflate(getContext(), R.layout.obfuscated_res_0x7f0d00f2, this);
+            this.d = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e7);
+            this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0901e6);
+            this.h = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0901cd);
+            this.i = (ImageView) findViewById(R.id.obfuscated_res_0x7f0901e8);
         }
     }
 
@@ -386,7 +386,7 @@ public class AlaEffectPreviewView extends LinearLayout {
         SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
         if (StringUtils.isNull(str) && StringUtils.isNull(str2)) {
             spannableStringBuilder.append((CharSequence) currentAccountNameShow);
-            spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getResources().getString(R.string.obfuscated_res_0x7f0f020b)));
+            spannableStringBuilder.append((CharSequence) SpannableString.valueOf(getResources().getString(R.string.obfuscated_res_0x7f0f0209)));
         } else {
             if (!StringUtils.isNull(str)) {
                 spannableStringBuilder.append((CharSequence) SpannableString.valueOf(str + " "));

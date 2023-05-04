@@ -1,9 +1,11 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.WorkerThread;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.TreeSet;
 /* loaded from: classes5.dex */
 public interface mi5 {
-    void a(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
-
-    void b(@NonNull String str, @NonNull String str2, @NonNull String str3, boolean z);
+    @WorkerThread
+    void a(int i, @NonNull String str, @NonNull TreeSet<ChatMsg> treeSet);
 }

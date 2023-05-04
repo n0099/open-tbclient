@@ -1,104 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.BdToken.activeConfig.ActiveCenterData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActiveCenter;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.MoreTreasureTrove.DataRes;
+import tbclient.MoreTreasureTrove.MoreTreasureTroveResIdl;
+import tbclient.ThreadInfo;
 /* loaded from: classes3.dex */
-public class bs7 extends fh6 implements th6 {
+public class bs7 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId T;
     public transient /* synthetic */ FieldHolder $fh;
-    public int R;
-    public ActiveCenterData S;
 
-    @Override // com.baidu.tieba.th6
-    public void J(boolean z) {
+    public static List<in> a(List<ThreadInfo> list) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.th6
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.th6
-    public boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947655619, "Lcom/baidu/tieba/bs7;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
+            if (list == null) {
+                return null;
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947655619, "Lcom/baidu/tieba/bs7;");
-                return;
+            ArrayList arrayList = new ArrayList(list.size());
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                threadData.isFromLowFlowsPage = true;
+                arrayList.add(threadData);
             }
+            return pq7.a(arrayList);
         }
-        T = BdUniqueId.gen();
+        return (List) invokeL.objValue;
     }
 
-    public bs7() {
+    public static List<in> b(MoreTreasureTroveResIdl moreTreasureTroveResIdl) {
+        InterceptResult invokeL;
+        DataRes dataRes;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, moreTreasureTroveResIdl)) == null) {
+            if (moreTreasureTroveResIdl != null && (dataRes = moreTreasureTroveResIdl.data) != null && !ListUtils.isEmpty(dataRes.hot_thread_info)) {
+                return a(moreTreasureTroveResIdl.data.hot_thread_info);
             }
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.th6
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.R;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return T;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void L(ActiveCenter activeCenter) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activeCenter) == null) && activeCenter != null) {
-            ActiveCenterData activeCenterData = new ActiveCenterData();
-            this.S = activeCenterData;
-            activeCenterData.parseProto(activeCenter);
-        }
+        return (List) invokeL.objValue;
     }
 }

@@ -1,8 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.network.outback.core.Request;
-import java.io.IOException;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
-public interface l60 {
-    i60 a(Request request) throws IOException;
+public class l60 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+
+    public l60() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public static boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            try {
+                Method declaredMethod = Class.forName("com.baidu.browser.sailor.util.BdZeusUtil", true, l60.class.getClassLoader()).getDeclaredMethod("isWebkitLoaded", new Class[0]);
+                declaredMethod.setAccessible(true);
+                boolean booleanValue = ((Boolean) declaredMethod.invoke(null, new Object[0])).booleanValue();
+                Method declaredMethod2 = Class.forName("com.baidu.webkit.internal.blink.WebSettingsGlobalBlink", true, l60.class.getClassLoader()).getDeclaredMethod("getChromiunNetInit", new Class[0]);
+                declaredMethod2.setAccessible(true);
+                if (!booleanValue) {
+                    return false;
+                }
+                if (!((Boolean) declaredMethod2.invoke(null, new Object[0])).booleanValue()) {
+                    return false;
+                }
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeV.booleanValue;
+    }
 }

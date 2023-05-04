@@ -14,7 +14,7 @@ import com.google.android.gms.common.GooglePlayServicesUtilLight;
 import com.google.android.gms.common.internal.Preconditions;
 import com.google.android.gms.dynamite.DynamiteModule;
 import java.lang.reflect.Method;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ProviderInstaller {
     @NonNull
     public static final String PROVIDER_NAME = "GmsCore_OpenSSL";
@@ -25,7 +25,7 @@ public class ProviderInstaller {
     @GuardedBy("ProviderInstaller.lock")
     public static Method zzd = null;
 
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public interface ProviderInstallListener {
         void onProviderInstallFailed(int i, @Nullable Intent intent);
 

@@ -8,14 +8,14 @@ import android.view.View;
 import android.view.ViewGroup;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ao4;
-import com.baidu.tieba.de4;
+import com.baidu.tieba.co4;
+import com.baidu.tieba.fe4;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes3.dex */
 public class MenuContentAdapter extends RecyclerView.Adapter<a> {
-    public List<de4> a = new ArrayList();
-    public List<de4> b = new ArrayList();
+    public List<fe4> a = new ArrayList();
+    public List<fe4> b = new ArrayList();
     public int c;
     public Context d;
 
@@ -26,8 +26,8 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
 
         public a(View view2) {
             super(view2);
-            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090abf);
-            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091fd9);
+            this.a = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f090ac7);
+            this.b = (SwanAppMenuItemView) view2.findViewById(R.id.obfuscated_res_0x7f091fed);
         }
     }
 
@@ -94,7 +94,7 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
     @Override // androidx.recyclerview.widget.RecyclerView.Adapter
     /* renamed from: m */
     public a onCreateViewHolder(ViewGroup viewGroup, int i) {
-        View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d0881, viewGroup, false);
+        View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d088d, viewGroup, false);
         ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
         if (layoutParams == null) {
             layoutParams = new ViewGroup.LayoutParams(this.c, -2);
@@ -105,11 +105,11 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         return new a(inflate);
     }
 
-    public void n(List<List<de4>> list, boolean z, int i) {
+    public void n(List<List<fe4>> list, boolean z, int i) {
         int max;
         float f;
-        List<de4> list2;
-        List<de4> list3;
+        List<fe4> list2;
+        List<fe4> list3;
         this.a.clear();
         this.b.clear();
         if (list == null) {
@@ -132,10 +132,10 @@ public class MenuContentAdapter extends RecyclerView.Adapter<a> {
         } else {
             f = 5.0f;
         }
-        if (ao4.d()) {
+        if (co4.d()) {
             Context context = this.d;
-            if ((context instanceof Activity) && ao4.e((Activity) context)) {
-                max = ao4.a((Activity) this.d);
+            if ((context instanceof Activity) && co4.e((Activity) context)) {
+                max = co4.a((Activity) this.d);
             }
         }
         this.c = (int) (max / f);

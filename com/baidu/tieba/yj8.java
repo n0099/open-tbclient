@@ -1,58 +1,46 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
-import android.net.Uri;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.live.interfaces.service.RouterService;
-import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
-import com.baidu.tbadk.BdToken.BdUniDispatchSchemeController;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.browser.WebViewBroadcastReceiver;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UrlManager;
-import com.baidu.tbadk.core.util.UrlSchemaHelper;
-import com.baidu.tbadk.core.util.UrlSchemaJumpHelper;
-import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tieba.dk8;
+import com.baidu.tieba.mainentrance.searchsuggestlist.viewholder.SearchSuggestRankingViewHolder;
+import com.baidu.tieba.tbadkCore.data.FlutterOpenData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes7.dex */
-public class yj8 implements RouterService {
+public class yj8 extends vm<dk8, SearchSuggestRankingViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public boolean invokeSchemeWithCallBack(Context context, Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048583, this, context, uri, str, liveShowSchemeCallBack)) == null) {
-            return false;
-        }
-        return invokeLLLL.booleanValue;
-    }
+    public final Context a;
 
     /* loaded from: classes7.dex */
-    public class a implements Runnable {
+    public class a implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ Context b;
-        public final /* synthetic */ yj8 c;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ yj8 b;
 
-        public a(yj8 yj8Var, String str, Context context) {
+        public a(yj8 yj8Var, Context context) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {yj8Var, str, context};
+                Object[] objArr = {yj8Var, context};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -62,186 +50,121 @@ public class yj8 implements RouterService {
                     return;
                 }
             }
-            this.c = yj8Var;
-            this.a = str;
-            this.b = context;
+            this.b = yj8Var;
+            this.a = context;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.sn
+        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+            dk8 dk8Var;
+            dk8.a b;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                Activity b = w8.f().b();
-                if (b != null && (g9.a(b) instanceof TbPageContext)) {
-                    UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(b), new String[]{this.a}, true);
-                } else if (!this.a.startsWith(BdUniDispatchSchemeController.SCHEME)) {
-                    this.c.c(this.b, this.a);
-                } else {
-                    UtilHelper.dealOneScheme(this.b, this.a);
-                }
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(inVar instanceof dk8) || (b = (dk8Var = (dk8) inVar).b()) == null) {
+                return;
             }
+            HashMap hashMap = new HashMap();
+            hashMap.put(TiebaStatic.Params.TAB_ID, b.d() + "");
+            hashMap.put("sort_type", b.c() + "");
+            hashMap.put("rank_type", b.b() + "");
+            hashMap.put("rank_code", b.a() + "");
+            MessageManager.getInstance().sendMessage(new CustomMessage(2002015, new FlutterOpenData(this.a, "ItemRecommendList", hashMap)));
+            this.b.u(dk8Var);
         }
     }
 
-    public yj8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public yj8(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this, context));
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public boolean invokeScheme(Uri uri, String str, RouterService.LiveShowSchemeCallBack liveShowSchemeCallBack) {
-        InterceptResult invokeLLL;
+    public final void t(StatisticItem statisticItem, dk8 dk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, uri, str, liveShowSchemeCallBack)) == null) {
-            openScheme(uri.toString());
-            return true;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, statisticItem, dk8Var) == null) {
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_name", dk8Var.c());
         }
-        return invokeLLL.booleanValue;
     }
 
-    public final boolean b(Context context, String str) {
-        InterceptResult invokeLL;
+    public final void A(dk8 dk8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, str)) == null) {
-            if (StringUtils.isNull(str) || !str.contains("from=tieba")) {
-                return false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, dk8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_SHOW);
+            t(statisticItem, dk8Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public final void u(dk8 dk8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dk8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SEARCH_SUG_RANKING_CLICK);
+            t(statisticItem, dk8Var);
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: x */
+    public SearchSuggestRankingViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
+            return new SearchSuggestRankingViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d080f, viewGroup, false));
+        }
+        return (SearchSuggestRankingViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.vm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, dk8 dk8Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+        y(i, view2, viewGroup, dk8Var, searchSuggestRankingViewHolder);
+        return view2;
+    }
+
+    public View y(int i, View view2, ViewGroup viewGroup, dk8 dk8Var, SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), view2, viewGroup, dk8Var, searchSuggestRankingViewHolder})) == null) {
+            if (dk8Var == null) {
+                return view2;
             }
-            if (str.contains("com.baidu.tieba.unidispatch://pwStatisticalLog?")) {
-                e(Uri.parse(str));
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_MESSAGE_CENTER_PAGE)) {
-                UrlSchemaJumpHelper.jumpMessageCenterPage(context, str);
-                return true;
-            } else if (str.startsWith("com.baidu.tieba://unidispatch/GameGodsDetailPage")) {
-                UrlSchemaJumpHelper.jumpGameGodsPage(context, str);
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_DISPATCH_PAGE)) {
-                UrlSchemaJumpHelper.jumpDispatchOrderPage(context, str);
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_PAGE)) {
-                UrlSchemaJumpHelper.jumpUnPaidOrderPage(context, str);
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_UNPAID_LIST_PAGE)) {
-                UrlSchemaJumpHelper.jumpUnPaidListPage(context, str);
-                return true;
-            } else if (str.startsWith(UrlSchemaHelper.SCHEMA_GAME_PLAY_PERSON_CHAT)) {
-                UrlSchemaJumpHelper.jumpPersonChat(context, str, true);
-                return true;
-            } else if (str.startsWith("com.baidu.tieba://unidispatch/tbwebview")) {
-                UrlSchemaJumpHelper.jumpNativeH5Page(context, str);
-                return true;
-            } else {
-                if (str.startsWith(UrlSchemaHelper.SCHEME_POST_DETAIL_PAGE)) {
-                    UrlSchemaJumpHelper.jumpPostDetailPage(context, str);
-                }
-                return false;
-            }
+            z(searchSuggestRankingViewHolder);
+            WebPManager.setMaskDrawable(searchSuggestRankingViewHolder.c, R.drawable.obfuscated_res_0x7f080b00, null);
+            tj8.a(searchSuggestRankingViewHolder.b, dk8Var.d(), dk8Var.a());
+            A(dk8Var);
+            return view2;
         }
-        return invokeLL.booleanValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public final boolean c(Context context, String str) {
-        InterceptResult invokeLL;
+    public final void z(SearchSuggestRankingViewHolder searchSuggestRankingViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
-            if (context != null) {
-                Intent intent = new Intent("android.intent.action.VIEW", Uri.parse(str));
-                intent.addFlags(LaunchTaskConstants.OTHER_PROCESS);
-                if (UtilHelper.isIntentAvailable(context, intent)) {
-                    try {
-                        context.startActivity(intent);
-                        return true;
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                        return false;
-                    }
-                }
-                return false;
-            }
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final void d(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) != null) || StringUtils.isNull(str) || b(context, str)) {
-            return;
-        }
-        StringBuilder sb = new StringBuilder();
-        sb.append(str);
-        if (str.indexOf("?") > 0) {
-            sb.append("&");
-        } else {
-            sb.append("?");
-        }
-        sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
-        sb.append("=1");
-        sb.append("&page_from=live");
-        jg.a().post(new a(this, sb.toString(), context));
-    }
-
-    public final void e(Uri uri) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, uri) != null) || uri == null) {
-            return;
-        }
-        String queryParameter = uri.getQueryParameter("key");
-        if (TextUtils.isEmpty(queryParameter)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(queryParameter);
-        for (String str : uri.getQueryParameterNames()) {
-            if (!TextUtils.equals(str, "key")) {
-                statisticItem.addParam(str, uri.getQueryParameter(str));
-            }
-        }
-        TiebaStatic.log(statisticItem);
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public void openScheme(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) && !StringUtils.isNull(str)) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(str);
-            if (str.indexOf("?") > 0) {
-                sb.append("&");
-            } else {
-                sb.append("?");
-            }
-            sb.append(WebViewBroadcastReceiver.INTENT_LOCALE_RECEV_CLOSE);
-            sb.append("=1");
-            sb.append("&page_from=live");
-            Activity b = w8.f().b();
-            if (b != null) {
-                UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(b), new String[]{sb.toString()}, true);
-            }
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public void invoke(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) {
-            d(context, str);
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.RouterService
-    public void invokeScheme(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) {
-            d(context, str);
+        if (interceptable == null || interceptable.invokeL(1048583, this, searchSuggestRankingViewHolder) == null) {
+            g35 d = g35.d(searchSuggestRankingViewHolder.b);
+            d.w(R.color.CAM_X0105);
+            d.B(R.dimen.T_X06);
+            SkinManager.setBackgroundResource(searchSuggestRankingViewHolder.a, R.drawable.addresslist_item_bg);
+            g35.d(searchSuggestRankingViewHolder.d).f(R.color.CAM_X0203);
         }
     }
 }

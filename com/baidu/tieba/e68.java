@@ -1,17 +1,11 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tbadk.data.AtSelectData;
-import java.util.List;
-import java.util.Map;
+import android.view.View;
 /* loaded from: classes4.dex */
-public interface e68 {
-    void b(@NonNull String str, @NonNull String str2, @NonNull Map<String, Object> map);
+public interface e68 extends View.OnClickListener {
+    String v();
 
-    void d(@NonNull String str, int i);
+    long w();
 
-    void f(@NonNull String str, @Nullable Object obj, @Nullable g48 g48Var, @Nullable List<AtSelectData> list, @Nullable Map<String, Integer> map, int i);
-
-    void g(@NonNull String str, @NonNull String str2);
+    void z1();
 }

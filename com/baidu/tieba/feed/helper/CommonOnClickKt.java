@@ -1,7 +1,7 @@
 package com.baidu.tieba.feed.helper;
 
 import android.view.View;
-import com.baidu.tieba.gx6;
+import com.baidu.tieba.wy6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,7 +15,7 @@ import kotlin.jvm.functions.Function2;
 public final class CommonOnClickKt {
     public static /* synthetic */ Interceptable $ic;
     public static final Function2<View, String, Unit> a;
-    public static final Function2<gx6, View, Unit> b;
+    public static final Function2<wy6, View, Unit> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,7 +35,7 @@ public final class CommonOnClickKt {
         b = CommonOnClickKt$FeedBackOnClick$1.INSTANCE;
     }
 
-    public static final Function2<gx6, View, Unit> a() {
+    public static final Function2<wy6, View, Unit> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {

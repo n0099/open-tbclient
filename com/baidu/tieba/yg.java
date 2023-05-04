@@ -33,8 +33,9 @@ public class yg {
             diskFileOperate.setSdCard(z);
             diskFileOperate.setOperateType(DiskFileOperate.OperateType.MUST_SUCCESS);
             ub.f().call(diskFileOperate);
-            if (diskFileOperate.getFileInfo() != null && diskFileOperate.getFileInfo().listFiles() != null) {
-                fileArr = diskFileOperate.getFileInfo().listFiles();
+            File fileInfo = diskFileOperate.getFileInfo();
+            if (fileInfo != null) {
+                fileArr = fileInfo.listFiles();
             } else {
                 fileArr = null;
             }

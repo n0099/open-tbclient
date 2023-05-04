@@ -1,5 +1,8 @@
 package com.baidu.tieba;
 
+import android.bluetooth.BluetoothAdapter;
+import android.content.Context;
+import android.media.AudioManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -9,24 +12,31 @@ public final class a01 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final String a(String[] array) {
+    public static final boolean a(Context context) {
         InterceptResult invokeL;
         boolean z;
+        boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, array)) == null) {
-            Intrinsics.checkNotNullParameter(array, "array");
-            for (String str : array) {
-                if (str != null && str.length() != 0) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    return str;
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Intrinsics.checkNotNullParameter(context, "context");
+            AudioManager a = i01.a(context);
+            if (a != null) {
+                z = a.isWiredHeadsetOn();
+            } else {
+                z = false;
             }
-            return "";
+            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
+            if (defaultAdapter != null && defaultAdapter.getProfileConnectionState(1) == 2) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            f01.b("BdHeadsetUtils", "当前耳机连接状态>>> 有线耳机=" + z + ", 蓝牙=" + z2);
+            if (!z && !z2) {
+                return false;
+            }
+            return true;
         }
-        return (String) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

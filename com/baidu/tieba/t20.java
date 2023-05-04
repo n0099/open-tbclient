@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface t20 {
-    JSONObject a();
+public class t20 implements Runnable {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 }

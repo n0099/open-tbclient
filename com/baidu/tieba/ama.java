@@ -1,203 +1,107 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.VisibleForTesting;
-import androidx.exifinterface.media.ExifInterface;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.tieba.fma;
-import com.baidu.tieba.hma;
+import android.util.DisplayMetrics;
+import android.view.WindowManager;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.fun.ad.sdk.internal.api.config.Ssp;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
-import com.fun.ad.sdk.internal.api.utils.NumberUtils;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Set;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class ama {
+public class ama {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
+    public static float b;
+    public static int c;
+    public static int d;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public int b;
-    public int c;
-    public dma d;
-    public final Set<Ssp> e;
-    public final Set<hma> f;
-    public final Set<fma> g;
 
-    public ama() {
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947621364, "Lcom/baidu/tieba/ama;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.e = new HashSet();
-        this.f = new HashSet();
-        this.g = new HashSet();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947621364, "Lcom/baidu/tieba/ama;");
+        }
     }
 
-    public boolean b(String str) {
-        InterceptResult invokeL;
+    public static int a(float f) {
+        InterceptResult invokeF;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
+        if (interceptable == null || (invokeF = interceptable.invokeF(65537, null, f)) == null) {
+            if (!a) {
+                f();
             }
-            try {
-                c(str);
-                LogPrinter.v("Config cfgv:%d parsed over.", Long.valueOf(this.a));
-                if (d()) {
-                    a();
-                    LogPrinter.v("Config cfgv:%d persisted over.", Long.valueOf(this.a));
-                    return true;
-                }
-            } catch (JSONException e) {
-                LogPrinter.e(e);
-            }
-            this.e.clear();
-            this.f.clear();
-            this.g.clear();
-            return false;
+            return (int) ((f * b) + 0.5f);
         }
-        return invokeL.booleanValue;
+        return invokeF.intValue;
     }
 
-    @VisibleForTesting
-    public boolean d() {
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            HashSet hashSet = new HashSet();
-            HashSet hashSet2 = new HashSet();
-            for (Ssp ssp : this.e) {
-                if (hashSet.contains(ssp.type)) {
-                    LogPrinter.e("Duplicate ssp:type(%s) found.", ssp.type);
-                    return false;
-                }
-                hashSet.add(ssp.type);
-                for (Ssp.Pid pid : ssp.pids) {
-                    if (hashSet2.contains(Long.valueOf(pid.id))) {
-                        LogPrinter.e("Duplicate pid(%d) found.", Long.valueOf(pid.id));
-                        return false;
-                    }
-                    hashSet2.add(Long.valueOf(pid.id));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (!a) {
+                f();
             }
-            HashSet hashSet3 = new HashSet();
-            for (hma hmaVar : this.f) {
-                if (hashSet3.contains(hmaVar.a)) {
-                    LogPrinter.e("Duplicate sid(%s) found in SlotId", hmaVar.a);
-                    return false;
-                }
-                hashSet3.add(hmaVar.a);
-                for (hma.c cVar : hmaVar.e) {
-                    HashSet hashSet4 = new HashSet();
-                    for (hma.b bVar : cVar.b) {
-                        if (!hashSet2.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Unregistered adId:(%d) in SlotId", Long.valueOf(bVar.a));
-                            return false;
-                        } else if (hashSet4.contains(Long.valueOf(bVar.a))) {
-                            LogPrinter.e("Duplicate adId:(%d) found in one sid:(%s) in SlotId", Long.valueOf(bVar.a), hmaVar.a);
-                            return false;
-                        } else {
-                            hashSet4.add(Long.valueOf(bVar.a));
-                        }
-                    }
-                }
-            }
-            if (this.c == 2) {
-                for (fma fmaVar : this.g) {
-                    if (hashSet3.contains(fmaVar.a)) {
-                        LogPrinter.e("Duplicate sid(%s) found in SerialSlotId.", fmaVar.a);
-                        return false;
-                    }
-                    hashSet3.add(fmaVar.a);
-                    for (fma.b bVar2 : fmaVar.b) {
-                        for (fma.a aVar : bVar2.b) {
-                            if (!hashSet2.contains(Long.valueOf(aVar.a))) {
-                                LogPrinter.e("Unregistered adId:(%d) in SerialSlotId", Long.valueOf(aVar.a));
-                                return false;
-                            }
-                        }
-                    }
-                }
-            }
-            return true;
+            return d;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
-    public final void a() {
-        int length;
+    public static int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            long j = this.a;
-            int i = this.b;
-            int i2 = this.c;
-            rla rlaVar = new rla(this.e, this.f, this.g);
-            dma dmaVar = this.d;
-            Object obj = oma.a;
-            String d = xla.d(rlaVar);
-            Object[] objArr = new Object[1];
-            if (d == null) {
-                length = -1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (!a) {
+                f();
+            }
+            return c;
+        }
+        return invokeV.intValue;
+    }
+
+    public static int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return b();
+        }
+        return invokeV.intValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return c();
+        }
+        return invokeV.intValue;
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            DisplayMetrics displayMetrics = new DisplayMetrics();
+            WindowManager windowManager = (WindowManager) kha.c().getContext().getSystemService("window");
+            windowManager.getDefaultDisplay().getMetrics(displayMetrics);
+            int orientation = windowManager.getDefaultDisplay().getOrientation();
+            if (orientation != 1 && orientation != 3) {
+                c = displayMetrics.widthPixels;
+                d = displayMetrics.heightPixels;
             } else {
-                length = d.length();
+                c = displayMetrics.heightPixels;
+                d = displayMetrics.widthPixels;
             }
-            objArr[0] = Integer.valueOf(length);
-            LogPrinter.v("sspsUTF len:%d", objArr);
-            oma.b.edit().putLong("key_config_v", j).putInt("key_config_interval", i).putInt("key_V", i2).putString("key_adcfg", d).putString("key_rptcfg", xla.d(dmaVar)).apply();
-        }
-    }
-
-    @VisibleForTesting
-    public void c(String str) {
-        JSONArray optJSONArray;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject jSONObject2 = jSONObject.getJSONObject("config");
-            this.a = NumberUtils.adjustLong(jSONObject2.getLong("ver"), 0L);
-            this.b = NumberUtils.adjustInt(jSONObject2.getInt("interval"), 1, 1440);
-            this.c = NumberUtils.adjustInt(jSONObject2.optInt(ExifInterface.GPS_MEASUREMENT_INTERRUPTED, 1), 1);
-            JSONObject jSONObject3 = jSONObject.getJSONObject("adConfig");
-            JSONArray jSONArray = jSONObject3.getJSONArray("ssps");
-            HashMap hashMap = new HashMap();
-            for (int i = 0; i < jSONArray.length(); i++) {
-                Ssp ssp = new Ssp(jSONArray.getJSONObject(i));
-                for (Ssp.Pid pid : ssp.pids) {
-                    hashMap.put(Long.valueOf(pid.id), pid);
-                }
-                this.e.add(ssp);
-            }
-            JSONArray jSONArray2 = jSONObject3.getJSONArray(Config.SID);
-            for (int i2 = 0; i2 < jSONArray2.length(); i2++) {
-                this.f.add(new hma(jSONArray2.getJSONObject(i2), hashMap));
-            }
-            if (this.c >= 2 && (optJSONArray = jSONObject3.optJSONArray("serialSids")) != null) {
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    this.g.add(new fma(optJSONArray.getJSONObject(i3), hashMap));
-                }
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("rptConfig");
-            if (optJSONObject != null) {
-                this.d = new dma(optJSONObject);
-            }
+            b = displayMetrics.density;
+            a = true;
         }
     }
 }

@@ -7,7 +7,7 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.gslbsdk.db.DelayTB;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
 import kotlin.jvm.JvmField;
 import kotlin.jvm.JvmStatic;
 import kotlin.jvm.internal.DefaultConstructorMarker;
@@ -18,11 +18,11 @@ public final class op0 {
     public static final a d;
     public transient /* synthetic */ FieldHolder $fh;
     @JvmField
-    public int a;
+    public String a;
     @JvmField
-    public long b;
+    public String b;
     @JvmField
-    public long c;
+    public String c;
 
     static {
         InterceptResult invokeClinit;
@@ -68,18 +68,22 @@ public final class op0 {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-                if (jSONObject != null) {
-                    op0 op0Var = new op0();
-                    op0Var.a = jSONObject.optInt("style");
-                    long j = 0;
-                    if (jSONObject.optLong(DelayTB.DELAY) >= 0) {
-                        j = jSONObject.optLong(DelayTB.DELAY);
-                    }
-                    op0Var.b = j;
-                    op0Var.c = jSONObject.optLong("duration");
-                    return op0Var;
+                if (jSONObject == null) {
+                    return null;
                 }
-                return null;
+                JSONObject optJSONObject = jSONObject.optJSONObject("panel");
+                if (optJSONObject == null) {
+                    optJSONObject = z01.c(jSONObject.optString("panel"));
+                }
+                if (optJSONObject == null) {
+                    return null;
+                }
+                op0 op0Var = new op0();
+                op0Var.a = optJSONObject.optString("title");
+                op0Var.b = optJSONObject.optString("brand_name");
+                op0Var.c = optJSONObject.optString("avatar");
+                optJSONObject.optJSONArray(PushConstants.SUB_TAGS_STATUS_LIST);
+                return op0Var;
             }
             return (op0) invokeL.objValue;
         }

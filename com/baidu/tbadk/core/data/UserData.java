@@ -119,7 +119,7 @@ public class UserData extends com.baidu.tbadk.data.UserData implements TbCheckBo
         }
     }
 
-    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.p65
+    @Override // com.baidu.tbadk.data.MetaData, com.baidu.tieba.f75
     public void setIsLike(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {

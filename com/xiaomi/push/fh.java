@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.xiaomi.push.dw;
 import com.xiaomi.push.service.bv;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fh extends bv.a {
     public final /* synthetic */ fg a;
 

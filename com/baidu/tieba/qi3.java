@@ -1,5 +1,8 @@
 package com.baidu.tieba;
+
+import android.net.wifi.ScanResult;
+import java.util.List;
 /* loaded from: classes6.dex */
 public interface qi3 {
-    void a(ti3 ti3Var, om3<vi3<ui3>> om3Var);
+    void a(List<ScanResult> list);
 }

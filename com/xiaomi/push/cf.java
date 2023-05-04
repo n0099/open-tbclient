@@ -5,7 +5,7 @@ import android.content.Context;
 import com.baidu.sapi2.activity.BaseActivity;
 import com.xiaomi.mipush.sdk.MiPushMessage;
 import com.xiaomi.push.ci;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cf extends ci.e {
     public String a;
 

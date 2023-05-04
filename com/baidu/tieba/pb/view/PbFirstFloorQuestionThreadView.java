@@ -16,10 +16,10 @@ import com.baidu.tbadk.core.data.ThreadData;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.bk6;
-import com.baidu.tieba.c09;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.ol6;
+import com.baidu.tieba.v29;
 import com.baidu.tieba.view.RoundRelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -36,7 +36,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public TbPageContext e;
     public boolean f;
     public boolean g;
-    public bk6 h;
+    public ol6 h;
     public boolean i;
 
     /* loaded from: classes5.dex */
@@ -67,11 +67,11 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.h != null && this.a.h.e()) {
-                    this.a.h.d();
-                    c09.t("c14884");
+                if (this.a.h != null && this.a.h.i()) {
+                    this.a.h.h();
+                    v29.t("c14884");
                 }
-                c09.t("c14885");
+                v29.t("c14885");
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921724));
             }
         }
@@ -105,7 +105,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h != null) {
-                this.a.h.d();
+                this.a.h.h();
             }
         }
     }
@@ -245,11 +245,11 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context) == null) {
             setOrientation(1);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0717, (ViewGroup) this, true);
-            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc2);
-            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091cbf);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091cc3);
-            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cc4);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0722, (ViewGroup) this, true);
+            this.a = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd2);
+            this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f091ccf);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f091cd3);
+            this.d = (RoundRelativeLayout) findViewById(R.id.obfuscated_res_0x7f091cd4);
             i();
         }
     }
@@ -259,7 +259,7 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             SkinManager.setViewTextColor(this.a, (int) R.color.CAM_X0109);
             SkinManager.setViewTextColor(this.b, (int) R.color.CAM_X0109);
-            r25.d(this.c).w(R.color.CAM_X0302);
+            g35.d(this.c).w(R.color.CAM_X0302);
             this.d.setAllCornerRound(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds42));
             SkinManager.setBackgroundColorWithAlpha(this.d, R.color.CAM_X0304, 0.08f, TbadkCoreApplication.getInst().getSkinType());
         }
@@ -268,26 +268,26 @@ public class PbFirstFloorQuestionThreadView extends LinearLayout {
     public final void j() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            bk6 bk6Var = new bk6(this.e, this.c);
-            this.h = bk6Var;
-            bk6Var.C(R.drawable.ic_question_tip_arror);
-            this.h.q(true);
-            this.h.E(true);
-            this.h.h(2);
-            this.h.k(48);
-            this.h.t(R.color.CAM_X0101);
-            this.h.A(R.dimen.tbds29);
-            this.h.z(UtilHelper.getDimenPixelSize(R.dimen.M_H_X002));
-            this.h.w(UtilHelper.getDimenPixelSize(R.dimen.tbds29));
-            this.h.x(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
-            this.h.y(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
-            this.h.I(-UtilHelper.getDimenPixelSize(R.dimen.M_H_X001));
-            this.h.s(100);
-            this.h.j(3000);
+            ol6 ol6Var = new ol6(this.e, this.c);
+            this.h = ol6Var;
+            ol6Var.L(R.drawable.ic_question_tip_arror);
+            this.h.x(true);
+            this.h.N(true);
+            this.h.l(2);
+            this.h.o(48);
+            this.h.C(R.color.CAM_X0101);
+            this.h.J(R.dimen.tbds29);
+            this.h.I(UtilHelper.getDimenPixelSize(R.dimen.M_H_X002));
+            this.h.F(UtilHelper.getDimenPixelSize(R.dimen.tbds29));
+            this.h.G(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
+            this.h.H(UtilHelper.getDimenPixelSize(R.dimen.M_W_X006));
+            this.h.R(-UtilHelper.getDimenPixelSize(R.dimen.M_H_X001));
+            this.h.B(100);
+            this.h.n(3000);
             String string = getContext().getString(R.string.pb_ask_post_first_tip);
-            this.h.i(new b(this));
-            this.h.J(string);
-            c09.t("c14883");
+            this.h.m(new b(this));
+            this.h.S(string);
+            v29.t("c14883");
         }
     }
 

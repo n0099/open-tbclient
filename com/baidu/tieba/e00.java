@@ -1,270 +1,391 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.Context;
-import android.content.Intent;
-import android.content.pm.ActivityInfo;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.ResolveInfo;
-import android.content.pm.Signature;
-import android.os.Bundle;
-import android.text.TextUtils;
-import android.util.Log;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
+import java.security.DigestException;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.MessageDigest;
+import java.security.NoSuchAlgorithmException;
+import java.security.SecureRandom;
+import java.security.spec.MGF1ParameterSpec;
 import java.util.Collections;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import java.util.HashMap;
+import java.util.Map;
+import javax.crypto.BadPaddingException;
+import javax.crypto.spec.OAEPParameterSpec;
+import javax.crypto.spec.PSource;
 /* loaded from: classes4.dex */
-public class e00 {
+public final class e00 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, byte[]> h;
     public transient /* synthetic */ FieldHolder $fh;
-    public a00 a;
-    public List<d00> b;
+    public final int a;
+    public final int b;
+    public SecureRandom c;
+    public final int d;
+    public MessageDigest e;
+    public MessageDigest f;
+    public byte[] g;
 
-    /* loaded from: classes4.dex */
-    public class a implements Comparator<d00> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a(e00 e00Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947680388, "Lcom/baidu/tieba/e00;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {e00Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
             }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(d00 d00Var, d00 d00Var2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, d00Var, d00Var2)) == null) {
-                int i = d00Var2.b - d00Var.b;
-                if (i == 0) {
-                    if (d00Var.d && d00Var2.d) {
-                        return 0;
-                    }
-                    if (d00Var.d) {
-                        return -1;
-                    }
-                    if (d00Var2.d) {
-                        return 1;
-                    }
-                }
-                return i;
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    public e00() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947680388, "Lcom/baidu/tieba/e00;");
                 return;
             }
         }
-        c();
+        h = Collections.synchronizedMap(new HashMap());
     }
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
-        StringBuilder sb;
+    public e00(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, bArr)) == null) {
-            if (bArr != null) {
-                String str = "";
-                for (byte b : bArr) {
-                    String hexString = Integer.toHexString(b & 255);
-                    if (hexString.length() == 1) {
-                        sb = new StringBuilder();
-                        sb.append(str);
-                        str = "0";
-                    } else {
-                        sb = new StringBuilder();
-                    }
-                    sb.append(str);
-                    sb.append(hexString);
-                    str = sb.toString();
-                }
-                return str.toLowerCase();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), secureRandom, oAEPParameterSpec};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            throw new IllegalArgumentException("Argument b ( byte array ) is null! ");
         }
-        return (String) invokeL.objValue;
+        this.a = i;
+        this.b = i2;
+        this.c = secureRandom;
+        if (i2 < 64) {
+            throw new InvalidKeyException("Padded size must be at least 64");
+        }
+        if (i == 1 || i == 2) {
+            i2 -= 11;
+        } else if (i != 3) {
+            if (i != 4) {
+                throw new InvalidKeyException("Invalid padding: " + i);
+            }
+            byte[] bArr = null;
+            String str2 = "SHA-1";
+            if (oAEPParameterSpec != null) {
+                try {
+                    str2 = oAEPParameterSpec.getDigestAlgorithm();
+                    String mGFAlgorithm = oAEPParameterSpec.getMGFAlgorithm();
+                    if (!mGFAlgorithm.equalsIgnoreCase("MGF1")) {
+                        throw new InvalidAlgorithmParameterException("Unsupported MGF algo: " + mGFAlgorithm);
+                    }
+                    String digestAlgorithm = ((MGF1ParameterSpec) oAEPParameterSpec.getMGFParameters()).getDigestAlgorithm();
+                    PSource pSource = oAEPParameterSpec.getPSource();
+                    String algorithm = pSource.getAlgorithm();
+                    if (!algorithm.equalsIgnoreCase("PSpecified")) {
+                        throw new InvalidAlgorithmParameterException("Unsupported pSource algo: " + algorithm);
+                    }
+                    byte[] value = ((PSource.PSpecified) pSource).getValue();
+                    str = digestAlgorithm;
+                    bArr = value;
+                } catch (NoSuchAlgorithmException e) {
+                    throw new InvalidKeyException("Digest SHA-1 not available", e);
+                }
+            } else {
+                str = "SHA-1";
+            }
+            this.e = MessageDigest.getInstance(str2);
+            this.f = MessageDigest.getInstance(str);
+            byte[] e2 = e(this.e, bArr);
+            this.g = e2;
+            int length = (i2 - 2) - (e2.length * 2);
+            this.d = length;
+            if (length > 0) {
+                return;
+            }
+            throw new InvalidKeyException("Key is too short for encryption using OAEPPadding with " + str2 + " and MGF1" + str);
+        }
+        this.d = i2;
     }
 
-    public static byte[] f(byte[] bArr, a00 a00Var) {
+    public static e00 b(int i, int i2, SecureRandom secureRandom) {
+        InterceptResult invokeIIL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeIIL = interceptable.invokeIIL(65538, null, i, i2, secureRandom)) == null) ? new e00(i, i2, secureRandom, null) : (e00) invokeIIL.objValue;
+    }
+
+    public static e00 c(int i, int i2, SecureRandom secureRandom, OAEPParameterSpec oAEPParameterSpec) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), secureRandom, oAEPParameterSpec})) == null) ? new e00(i, i2, secureRandom, oAEPParameterSpec) : (e00) invokeCommon.objValue;
+    }
+
+    public static byte[] e(MessageDigest messageDigest, byte[] bArr) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, a00Var)) == null) {
-            xz a2 = xz.a();
-            a2.b(2, a00Var);
-            return a2.c(bArr);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, messageDigest, bArr)) == null) {
+            if (bArr == null || bArr.length == 0) {
+                String algorithm = messageDigest.getAlgorithm();
+                byte[] bArr2 = h.get(algorithm);
+                if (bArr2 == null) {
+                    byte[] digest = messageDigest.digest();
+                    h.put(algorithm, digest);
+                    return digest;
+                }
+                return bArr2;
+            }
+            return messageDigest.digest(bArr);
         }
         return (byte[]) invokeLL.objValue;
     }
 
-    public List<d00> b(Context context, Intent intent, boolean z) {
-        InterceptResult invokeLLZ;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, context, intent, z)) == null) {
-            ArrayList arrayList = new ArrayList();
-            PackageManager packageManager = context.getPackageManager();
-            List<ResolveInfo> queryBroadcastReceivers = packageManager.queryBroadcastReceivers(intent, 0);
-            if (queryBroadcastReceivers != null) {
-                for (ResolveInfo resolveInfo : queryBroadcastReceivers) {
-                    ActivityInfo activityInfo = resolveInfo.activityInfo;
-                    if (activityInfo != null && activityInfo.applicationInfo != null) {
-                        try {
-                            Bundle bundle = packageManager.getReceiverInfo(new ComponentName(resolveInfo.activityInfo.packageName, resolveInfo.activityInfo.name), 128).metaData;
-                            if (bundle != null) {
-                                String string = bundle.getString("galaxy_data");
-                                if (!TextUtils.isEmpty(string)) {
-                                    byte[] b = f00.b(string.getBytes(IMAudioTransRequest.CHARSET));
-                                    JSONObject jSONObject = new JSONObject(new String(b));
-                                    d00 d00Var = new d00();
-                                    d00Var.b = jSONObject.getInt("priority");
-                                    d00Var.a = resolveInfo.activityInfo.applicationInfo;
-                                    if (context.getPackageName().equals(resolveInfo.activityInfo.applicationInfo.packageName)) {
-                                        d00Var.d = true;
-                                    }
-                                    if (z) {
-                                        String string2 = bundle.getString("galaxy_sf");
-                                        if (!TextUtils.isEmpty(string2)) {
-                                            PackageInfo packageInfo = packageManager.getPackageInfo(resolveInfo.activityInfo.applicationInfo.packageName, 64);
-                                            JSONArray jSONArray = jSONObject.getJSONArray("sigs");
-                                            int length = jSONArray.length();
-                                            String[] strArr = new String[length];
-                                            for (int i = 0; i < length; i++) {
-                                                strArr[i] = jSONArray.getString(i);
-                                            }
-                                            if (e(strArr, g(packageInfo.signatures))) {
-                                                byte[] f = f(f00.b(string2.getBytes()), this.a);
-                                                if (f != null && Arrays.equals(f, h00.a(b))) {
-                                                    d00Var.c = true;
-                                                }
-                                            }
-                                        }
-                                    }
-                                    arrayList.add(d00Var);
-                                }
-                            }
-                        } catch (Exception unused) {
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.d : invokeV.intValue;
+    }
+
+    public final void d(byte[] bArr, int i, int i2, byte[] bArr2, int i3, int i4) {
+        int i5;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{bArr, Integer.valueOf(i), Integer.valueOf(i2), bArr2, Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+            byte[] bArr3 = new byte[4];
+            byte[] bArr4 = new byte[20];
+            while (i4 > 0) {
+                this.f.update(bArr, i, i2);
+                this.f.update(bArr3);
+                try {
+                    this.f.digest(bArr4, 0, 20);
+                    for (int i6 = 0; i6 < 20 && i4 > 0; i6++) {
+                        bArr2[i3] = (byte) (bArr4[i6] ^ bArr2[i3]);
+                        i4--;
+                        i3++;
+                    }
+                    if (i4 > 0) {
+                        while (true) {
+                            byte b = (byte) (bArr3[i5] + 1);
+                            bArr3[i5] = b;
+                            i5 = (b == 0 && i5 > 0) ? i5 - 1 : 3;
                         }
                     }
+                } catch (DigestException e) {
+                    throw new BadPaddingException(e.toString());
                 }
             }
-            Collections.sort(arrayList, new a(this));
-            return arrayList;
-        }
-        return (List) invokeLLZ.objValue;
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a = new b00(j00.a(), j00.b());
         }
     }
 
-    public boolean d(Context context) {
+    public byte[] f(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
-            List<d00> b = b(context, new Intent("com.baidu.intent.action.GALAXY").setPackage(context.getPackageName()), true);
-            if (b == null || b.size() == 0) {
-                for (int i = 0; i < 3; i++) {
-                    Log.w("CuidBuddyInfoManager", "galaxy lib host missing meta-data,make sure you know the right way to integrate galaxy");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
+            if (bArr.length > this.d) {
+                throw new BadPaddingException("Data must be shorter than " + (this.d + 1) + " bytes");
+            }
+            int i = this.a;
+            if (i == 1 || i == 2) {
+                return i(bArr);
+            }
+            if (i != 3) {
+                if (i == 4) {
+                    return k(bArr);
                 }
-                return false;
+                throw new AssertionError();
             }
-            boolean z = b.get(0).c;
-            if (!z) {
-                for (int i2 = 0; i2 < 3; i2++) {
-                    Log.w("CuidBuddyInfoManager", "galaxy config err, In the release version of the signature should be matched");
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public byte[] g(byte[] bArr, int i, int i2) {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeLII = interceptable.invokeLII(1048579, this, bArr, i, i2)) == null) ? f(a00.d(bArr, i, i2)) : (byte[]) invokeLII.objValue;
+    }
+
+    public byte[] h(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, bArr)) == null) {
+            if (bArr.length != this.b) {
+                throw new BadPaddingException("Padded length must be " + this.b);
+            }
+            int i = this.a;
+            if (i == 1 || i == 2) {
+                return j(bArr);
+            }
+            if (i != 3) {
+                if (i == 4) {
+                    return l(bArr);
+                }
+                throw new AssertionError();
+            }
+            return bArr;
+        }
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] i(byte[] bArr) {
+        InterceptResult invokeL;
+        int i;
+        int i2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            int i3 = this.b;
+            byte[] bArr2 = new byte[i3];
+            System.arraycopy(bArr, 0, bArr2, i3 - bArr.length, bArr.length);
+            int length = (this.b - 3) - bArr.length;
+            bArr2[0] = 0;
+            int i4 = this.a;
+            bArr2[1] = (byte) i4;
+            int i5 = -1;
+            int i6 = 2;
+            if (i4 != 1) {
+                if (this.c == null) {
+                    this.c = a00.a;
+                }
+                byte[] bArr3 = new byte[64];
+                while (true) {
+                    int i7 = length - 1;
+                    if (length <= 0) {
+                        break;
+                    }
+                    while (true) {
+                        if (i5 < 0) {
+                            this.c.nextBytes(bArr3);
+                            i5 = 63;
+                        }
+                        i = i5 - 1;
+                        i2 = bArr3[i5] & 255;
+                        if (i2 != 0) {
+                            break;
+                        }
+                        i5 = i;
+                    }
+                    bArr2[i6] = (byte) i2;
+                    i5 = i;
+                    length = i7;
+                    i6++;
+                }
+            } else {
+                while (true) {
+                    int i8 = length - 1;
+                    if (length <= 0) {
+                        break;
+                    }
+                    bArr2[i6] = -1;
+                    i6++;
+                    length = i8;
                 }
             }
-            return z;
+            return bArr2;
         }
-        return invokeL.booleanValue;
+        return (byte[]) invokeL.objValue;
     }
 
-    public final boolean e(String[] strArr, String[] strArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, strArr, strArr2)) == null) {
-            if (strArr == null || strArr2 == null || strArr.length != strArr2.length) {
-                return false;
-            }
-            HashSet hashSet = new HashSet();
-            for (String str : strArr) {
-                hashSet.add(str);
-            }
-            HashSet hashSet2 = new HashSet();
-            for (String str2 : strArr2) {
-                hashSet2.add(str2);
-            }
-            return hashSet.equals(hashSet2);
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final String[] g(Signature[] signatureArr) {
+    public final byte[] j(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, signatureArr)) == null) {
-            int length = signatureArr.length;
-            String[] strArr = new String[length];
-            for (int i = 0; i < length; i++) {
-                strArr[i] = a(h00.a(signatureArr[i].toByteArray()));
-            }
-            return strArr;
+        if (interceptable != null && (invokeL = interceptable.invokeL(1048582, this, bArr)) != null) {
+            return (byte[]) invokeL.objValue;
         }
-        return (String[]) invokeL.objValue;
+        if (bArr[0] != 0) {
+            throw new BadPaddingException("Data must start with zero");
+        }
+        int i = 2;
+        if (bArr[1] != this.a) {
+            throw new BadPaddingException("Blocktype mismatch: " + ((int) bArr[1]));
+        }
+        while (true) {
+            int i2 = i + 1;
+            int i3 = bArr[i] & 255;
+            if (i3 == 0) {
+                int length = bArr.length - i2;
+                if (length <= this.d) {
+                    byte[] bArr2 = new byte[length];
+                    System.arraycopy(bArr, bArr.length - length, bArr2, 0, length);
+                    return bArr2;
+                }
+                throw new BadPaddingException("Padding string too short");
+            } else if (i2 == bArr.length) {
+                throw new BadPaddingException("Padding string not terminated");
+            } else {
+                if (this.a == 1 && i3 != 255) {
+                    throw new BadPaddingException("Padding byte not 0xff: " + i3);
+                }
+                i = i2;
+            }
+        }
     }
 
-    public List<d00> h(Context context) {
+    public final byte[] k(byte[] bArr) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, context)) == null) {
-            List<d00> list = this.b;
-            if (list != null) {
-                return list;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, bArr)) == null) {
+            if (this.c == null) {
+                this.c = a00.a;
             }
-            d(context);
-            List<d00> b = b(context, new Intent("com.baidu.intent.action.GALAXY"), true);
-            this.b = b;
-            return b;
+            int length = this.g.length;
+            byte[] bArr2 = new byte[length];
+            this.c.nextBytes(bArr2);
+            int i = this.b;
+            byte[] bArr3 = new byte[i];
+            System.arraycopy(bArr2, 0, bArr3, 1, length);
+            int i2 = length + 1;
+            int i3 = i - i2;
+            int length2 = this.b - bArr.length;
+            System.arraycopy(this.g, 0, bArr3, i2, length);
+            bArr3[length2 - 1] = 1;
+            System.arraycopy(bArr, 0, bArr3, length2, bArr.length);
+            d(bArr3, 1, length, bArr3, i2, i3);
+            d(bArr3, i2, i3, bArr3, 1, length);
+            return bArr3;
         }
-        return (List) invokeL.objValue;
+        return (byte[]) invokeL.objValue;
+    }
+
+    public final byte[] l(byte[] bArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, bArr)) == null) {
+            int length = this.g.length;
+            if (bArr[0] == 0) {
+                int i = length + 1;
+                int length2 = bArr.length - i;
+                d(bArr, i, length2, bArr, 1, length);
+                d(bArr, 1, length, bArr, i, length2);
+                for (int i2 = 0; i2 < length; i2++) {
+                    if (this.g[i2] != bArr[i + i2]) {
+                        throw new BadPaddingException("lHash mismatch");
+                    }
+                }
+                int i3 = i + length;
+                while (bArr[i3] == 0) {
+                    i3++;
+                    if (i3 >= bArr.length) {
+                        throw new BadPaddingException("Padding string not terminated");
+                    }
+                }
+                int i4 = i3 + 1;
+                if (bArr[i3] == 1) {
+                    int length3 = bArr.length - i4;
+                    byte[] bArr2 = new byte[length3];
+                    System.arraycopy(bArr, i4, bArr2, 0, length3);
+                    return bArr2;
+                }
+                throw new BadPaddingException("Padding string not terminated by 0x01 byte");
+            }
+            throw new BadPaddingException("Data must start with zero");
+        }
+        return (byte[]) invokeL.objValue;
     }
 }

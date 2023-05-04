@@ -1,39 +1,34 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.ListView.BdTypeListView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.widget.richText.TbRichTextView;
-import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
-import com.baidu.tieba.pb.pb.sub.adapter.SubPbReplyAdapter;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.frameworkData.IntentConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 /* loaded from: classes5.dex */
 public class mz8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public qz8 a;
-    public SubPbReplyAdapter b;
-    public NewSubPbActivity c;
-    public BdTypeListView d;
-    public List<vm> e;
-    public View.OnClickListener f;
-    public boolean g;
-    public boolean h;
+    public TbPageContext a;
+    public boolean b;
+    public hz4 c;
 
-    public mz8(NewSubPbActivity newSubPbActivity, BdTypeListView bdTypeListView) {
+    public mz8(TbPageContext tbPageContext) {
+        Uri uri;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {newSubPbActivity, bdTypeListView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -43,102 +38,32 @@ public class mz8 {
                 return;
             }
         }
-        this.e = new ArrayList();
-        this.f = null;
-        this.g = false;
-        this.h = true;
-        this.c = newSubPbActivity;
-        this.d = bdTypeListView;
-    }
-
-    public boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.d.getAdapter2() != null) {
-            this.d.getAdapter2().notifyDataSetChanged();
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            qz8 qz8Var = new qz8(this.c, am9.R0);
-            this.a = qz8Var;
-            qz8Var.e(this.f);
-            this.a.setFromCDN(this.h);
-            this.e.add(this.a);
-            SubPbReplyAdapter subPbReplyAdapter = new SubPbReplyAdapter(this.c, tz8.b);
-            this.b = subPbReplyAdapter;
-            this.e.add(subPbReplyAdapter);
-            this.e.add(new rz8(this.c, sz8.a));
-            this.d.addAdapters(this.e);
-        }
-    }
-
-    public void d(View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, onClickListener) == null) {
-            this.f = onClickListener;
-        }
-    }
-
-    public void f(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            this.h = z;
-        }
-    }
-
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            this.g = z;
-        }
-    }
-
-    public void h(View.OnLongClickListener onLongClickListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, onLongClickListener) == null) {
-            this.a.d(onLongClickListener);
-        }
-    }
-
-    public void i(boolean z) {
-        qz8 qz8Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) && (qz8Var = this.a) != null) {
-            qz8Var.H(z);
-        }
-    }
-
-    public void j(TbRichTextView.a0 a0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, a0Var) == null) {
-            this.a.n(a0Var);
-        }
-    }
-
-    public void e(ThreadData threadData, List<in> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, threadData, list) == null) {
-            this.a.J(threadData);
-            if (!hi.isEmpty(this.c.L3().H0())) {
-                this.a.I(this.c.L3().H0());
+        this.b = false;
+        this.a = tbPageContext;
+        if (tbPageContext.getPageActivity() != null && this.a.getPageActivity().getIntent() != null && (uri = (Uri) this.a.getPageActivity().getIntent().getParcelableExtra(IntentConfig.KEY_URI)) != null) {
+            String queryParameter = uri.getQueryParameter("tid");
+            hz4 hz4Var = new hz4();
+            this.c = hz4Var;
+            hz4Var.a = uri.getQueryParameter("tid");
+            this.c.b = uri.getQueryParameter(TiebaStatic.Params.EQID);
+            if (!TextUtils.isEmpty(queryParameter) && w8.f().g() <= 3) {
+                this.b = true;
             }
-            NewSubPbActivity newSubPbActivity = this.c;
-            if (newSubPbActivity != null && newSubPbActivity.L3() != null) {
-                this.a.G(this.c.L3().e1());
+        }
+    }
+
+    public void a(PbModel pbModel) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, pbModel) == null) && this.b && this.c != null && pbModel != null && pbModel.z1() != null && pbModel.z1().k() != null) {
+            ForumData k = pbModel.z1().k();
+            this.c.c = k.getFirst_class();
+            this.c.d = k.getSecond_class();
+            TbSingleton.getInstance().setPbToHomeUpdateData(this.c);
+            if (w8.f().h("MainTabActivity")) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921455));
+            } else {
+                TbSingleton.getInstance().setForceRefreshHomeRecommend(true);
             }
-            this.d.setData(list);
-            this.d.getAdapter2().notifyDataSetChanged();
         }
     }
 }

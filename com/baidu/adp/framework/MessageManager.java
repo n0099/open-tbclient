@@ -38,6 +38,7 @@ import com.baidu.tieba.ca;
 import com.baidu.tieba.cb;
 import com.baidu.tieba.da;
 import com.baidu.tieba.db;
+import com.baidu.tieba.dj8;
 import com.baidu.tieba.ea;
 import com.baidu.tieba.eb;
 import com.baidu.tieba.eh;
@@ -50,7 +51,6 @@ import com.baidu.tieba.q9;
 import com.baidu.tieba.sa;
 import com.baidu.tieba.ta;
 import com.baidu.tieba.ua;
-import com.baidu.tieba.vg8;
 import com.baidu.tieba.wa;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
@@ -1004,8 +1004,8 @@ public class MessageManager {
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:116:0x0346  */
-    /* JADX WARN: Removed duplicated region for block: B:117:0x0353  */
+    /* JADX WARN: Removed duplicated region for block: B:116:0x0349  */
+    /* JADX WARN: Removed duplicated region for block: B:117:0x0356  */
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
@@ -1056,7 +1056,7 @@ public class MessageManager {
                     l9.h("Response_Http", responsedMessage);
                     if (responsedMessage.getmOrginalMessage() != null) {
                         String valueOf = String.valueOf(((HttpResponsedMessage) responsedMessage).getHeader("tracecode"));
-                        NetLog.getInstance().c("Response_Http", " ErrorString : " + responsedMessage.getErrorString() + " Error : " + responsedMessage.getError() + " ClientLogId : " + responsedMessage.getmOrginalMessage().getClientLogID() + " tracecode:" + valueOf);
+                        NetLog.getInstance().c("Response_Http", "分发请求结果：ErrorString : " + responsedMessage.getErrorString() + " Error : " + responsedMessage.getError() + " ClientLogId : " + responsedMessage.getmOrginalMessage().getClientLogID() + " tracecode:" + valueOf);
                     }
                     if (responsedMessage.getError() != 0) {
                         if (BdNetTypeUtil.isNetWorkAvailable()) {
@@ -1328,13 +1328,11 @@ public class MessageManager {
             message.setStartTime(System.currentTimeMillis());
             if (message instanceof HttpMessage) {
                 l9.h("Request_Http", message);
-                vg8 netLog = NetLog.getInstance();
-                netLog.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mHttpManager.c((HttpMessage) message, null);
             } else if (message instanceof SocketMessage) {
                 l9.h("Request_Socket", message);
-                vg8 netLog2 = NetLog.getInstance();
-                netLog2.c("Request_Http", " ClientLogId : " + message.getClientLogID());
+                dj8 netLog = NetLog.getInstance();
+                netLog.c("Request_Http", "触发请求： ClientLogId : " + message.getClientLogID());
                 return this.mSocketManager.c((SocketMessage) message, null);
             } else if (message instanceof CustomMessage) {
                 MultiValueMap<String, String> multiValueMap = CmdRouter.cmdMaps;
@@ -1380,12 +1378,12 @@ public class MessageManager {
             }
             if ((message instanceof HttpMessage) && (messageTask instanceof HttpMessageTask)) {
                 l9.h("Request_Http", message);
-                vg8 netLog = NetLog.getInstance();
+                dj8 netLog = NetLog.getInstance();
                 netLog.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mHttpManager.c((HttpMessage) message, (HttpMessageTask) messageTask);
             } else if ((message instanceof SocketMessage) && (messageTask instanceof SocketMessageTask)) {
                 l9.h("Request_Socket", message);
-                vg8 netLog2 = NetLog.getInstance();
+                dj8 netLog2 = NetLog.getInstance();
                 netLog2.c("Request_Http", " ClientLogId : " + message.getClientLogID());
                 return this.mSocketManager.c((SocketMessage) message, (SocketMessageTask) messageTask);
             } else if ((message instanceof CustomMessage) && (messageTask instanceof CustomMessageTask)) {

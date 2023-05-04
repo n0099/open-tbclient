@@ -19,12 +19,12 @@ import com.baidu.sapi2.SapiWebView;
 import com.baidu.searchbox.bddownload.core.Util;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.switchs.QuickWebViewSwitch;
-import com.baidu.tieba.ba9;
-import com.baidu.tieba.ca9;
-import com.baidu.tieba.da9;
-import com.baidu.tieba.kf6;
-import com.baidu.tieba.o35;
-import com.baidu.tieba.rt4;
+import com.baidu.tieba.d45;
+import com.baidu.tieba.rg6;
+import com.baidu.tieba.xc9;
+import com.baidu.tieba.yc9;
+import com.baidu.tieba.zc9;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -48,11 +48,14 @@ public class BridgeWebViewClient extends WebViewClient {
     public WebViewClient a;
     public WebViewBridge b;
     public final HashSet<String> c;
+    public final boolean d;
 
-    public BridgeWebViewClient() {
+    public BridgeWebViewClient(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -64,6 +67,7 @@ public class BridgeWebViewClient extends WebViewClient {
         }
         this.b = null;
         this.c = new HashSet<>(6);
+        this.d = z;
     }
 
     public static WebResourceResponse a(String str, Map<String, String> map, InputStream inputStream, long j) {
@@ -71,7 +75,7 @@ public class BridgeWebViewClient extends WebViewClient {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{str, map, inputStream, Long.valueOf(j)})) == null) {
-            String b = kf6.b(str);
+            String b = rg6.b(str);
             HashMap<String, String> hashMap = new HashMap<String, String>() { // from class: com.baidu.tbadk.core.hybrid.BridgeWebViewClient.1
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
@@ -207,7 +211,7 @@ public class BridgeWebViewClient extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048587, this, webView, renderProcessGoneDetail)) == null) {
-            rt4.a("BridgeWebViewClient", webView);
+            zt4.a("BridgeWebViewClient", webView);
             return true;
         }
         return invokeLL.booleanValue;
@@ -258,7 +262,7 @@ public class BridgeWebViewClient extends WebViewClient {
     public void onPageFinished(WebView webView, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048581, this, webView, str) == null) {
-            o35.a("page " + str + " load finished.");
+            d45.a("page " + str + " load finished.");
             if (!this.c.contains(str)) {
                 this.b.p(str);
             }
@@ -276,7 +280,7 @@ public class BridgeWebViewClient extends WebViewClient {
     public void onReceivedError(WebView webView, int i, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLILL(1048583, this, webView, i, str, str2) == null) {
-            o35.a("Failed url " + str2 + " with description:" + str);
+            d45.a("Failed url " + str2 + " with description:" + str);
             this.c.add(str2);
             WebViewClient webViewClient = this.a;
             if (webViewClient != null) {
@@ -331,18 +335,24 @@ public class BridgeWebViewClient extends WebViewClient {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLL = interceptable.invokeLL(1048591, this, webView, webResourceRequest)) == null) {
-            if (webResourceRequest != null && webResourceRequest.getUrl() != null && QuickWebViewSwitch.getInOn()) {
+            if (!this.d) {
+                WebViewClient webViewClient = this.a;
+                if (webViewClient != null) {
+                    return webViewClient.shouldInterceptRequest(webView, webResourceRequest);
+                }
+                return super.shouldInterceptRequest(webView, webResourceRequest);
+            } else if (webResourceRequest != null && webResourceRequest.getUrl() != null && QuickWebViewSwitch.getInOn()) {
                 String uri = webResourceRequest.getUrl().toString();
-                if (ba9.s(uri)) {
-                    WebViewClient webViewClient = this.a;
-                    if (webViewClient != null) {
-                        return webViewClient.shouldInterceptRequest(webView, webResourceRequest);
+                if (xc9.s(uri)) {
+                    WebViewClient webViewClient2 = this.a;
+                    if (webViewClient2 != null) {
+                        return webViewClient2.shouldInterceptRequest(webView, webResourceRequest);
                     }
                     return super.shouldInterceptRequest(webView, webResourceRequest);
                 }
                 try {
                     String path = new URL(uri).getPath();
-                    da9 c = ca9.a().c(path);
+                    zc9 c = yc9.a().c(path);
                     if (c == null) {
                         if (this.a != null) {
                             return this.a.shouldInterceptRequest(webView, webResourceRequest);
@@ -359,7 +369,7 @@ public class BridgeWebViewClient extends WebViewClient {
                         }
                         return super.shouldInterceptRequest(webView, webResourceRequest);
                     } else {
-                        String str = (ba9.n().m() + "/" + c.b + "/" + ba9.n().p(c.b) + "/") + ca9.a().e(path);
+                        String str = (xc9.n().m() + "/" + c.b + "/" + xc9.n().p(c.b) + "/") + yc9.a().e(path);
                         File file = new File(str);
                         try {
                             BufferedSource buffer = Okio.buffer(Okio.source(file));
@@ -375,9 +385,9 @@ public class BridgeWebViewClient extends WebViewClient {
                             return a(uri, webResourceRequest.getRequestHeaders(), buffer.inputStream(), file.length());
                         } catch (IOException e) {
                             e.printStackTrace();
-                            WebViewClient webViewClient2 = this.a;
-                            if (webViewClient2 != null) {
-                                return webViewClient2.shouldInterceptRequest(webView, webResourceRequest);
+                            WebViewClient webViewClient3 = this.a;
+                            if (webViewClient3 != null) {
+                                return webViewClient3.shouldInterceptRequest(webView, webResourceRequest);
                             }
                             return super.shouldInterceptRequest(webView, webResourceRequest);
                         }
@@ -386,9 +396,9 @@ public class BridgeWebViewClient extends WebViewClient {
                     e2.printStackTrace();
                 }
             } else {
-                WebViewClient webViewClient3 = this.a;
-                if (webViewClient3 != null) {
-                    return webViewClient3.shouldInterceptRequest(webView, webResourceRequest);
+                WebViewClient webViewClient4 = this.a;
+                if (webViewClient4 != null) {
+                    return webViewClient4.shouldInterceptRequest(webView, webResourceRequest);
                 }
                 return super.shouldInterceptRequest(webView, webResourceRequest);
             }

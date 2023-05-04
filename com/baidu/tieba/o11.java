@@ -1,108 +1,98 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.nadcore.net.request.BodyStyle;
 import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
 /* loaded from: classes5.dex */
 public class o11 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ClogBuilder.LogType a;
-    public String b;
-    public String c;
-    public boolean d;
-    public String e;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public o11(ClogBuilder.LogType logType, String str, String str2, boolean z) {
-        this(logType, str, str2, z, "");
+    /* loaded from: classes5.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u11 a;
+        public final /* synthetic */ lr0 b;
+
+        public a(u11 u11Var, lr0 lr0Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u11Var, lr0Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u11Var;
+            this.b = lr0Var;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                o11.d(this.a, this.b);
+            }
+        }
+    }
+
+    public static <T> void c(@NonNull u11 u11Var, @Nullable lr0<T> lr0Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((ClogBuilder.LogType) objArr2[0], (String) objArr2[1], (String) objArr2[2], ((Boolean) objArr2[3]).booleanValue(), (String) objArr2[4]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65538, null, u11Var, lr0Var) == null) {
+            u11Var.a();
+            p21.c(new a(u11Var, lr0Var), "als_async_executor", 2);
+        }
+    }
+
+    public static void b(@NonNull u11 u11Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, u11Var) == null) {
+            c(u11Var, null);
+        }
+    }
+
+    public static <T> void d(u11 u11Var, @Nullable lr0<T> lr0Var) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, u11Var, lr0Var) == null) && u11Var != null && u11Var.isValid()) {
+            String u11Var2 = u11Var.toString();
+            if (u11Var instanceof ClogBuilder) {
+                if (wf0.a) {
+                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/clog/clog";
+                } else {
+                    str = "https://als.baidu.com/clog/clog";
+                }
+            } else if (u11Var instanceof v11) {
+                if (wf0.a) {
+                    str = "http://x1250658afd00.als.nativeads-afd.otp.baidu.com/elog/plog";
+                } else {
+                    str = "https://als.baidu.com/elog/plog";
+                }
+            } else if (u11Var instanceof s11) {
+                str = "https://afd.baidu.com/afd/close";
+            } else {
                 return;
             }
+            sr0 sr0Var = new sr0();
+            sr0Var.h(u11Var2);
+            sr0Var.k(BodyStyle.STRING);
+            sr0Var.i("application/x-www-form-urlencoded");
+            tr0 tr0Var = new tr0();
+            tr0Var.l(str);
+            tr0Var.f(sr0Var);
+            ar0.b().a().a(tr0Var, lr0Var);
         }
-    }
-
-    public o11(ClogBuilder.LogType logType, String str, String str2, boolean z, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {logType, str, str2, Boolean.valueOf(z), str3};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.c = "";
-        this.a = logType;
-        this.b = str;
-        this.c = str2;
-        this.d = z;
-        this.e = str3;
-    }
-
-    public t11 a(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            return b(i, str, "normal");
-        }
-        return (t11) invokeIL.objValue;
-    }
-
-    public t11 b(int i, String str, String str2) {
-        InterceptResult invokeILL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str, str2)) == null) {
-            t11 t11Var = new t11();
-            try {
-                t11Var.g("1030").h(this.c).b("f1", this.a.type).b("f2", str2).b("f3", URLEncoder.encode(this.b, IMAudioTransRequest.CHARSET)).b("f4", String.valueOf(i)).b("f5", str);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-            }
-            return t11Var;
-        }
-        return (t11) invokeILL.objValue;
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
     }
 }

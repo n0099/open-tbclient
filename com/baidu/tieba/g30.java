@@ -1,44 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
+import android.content.Context;
 /* loaded from: classes4.dex */
-public class g30 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface g30 {
+    String a();
 
-    public static JSONObject a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            if (b(str)) {
-                return null;
-            }
-            try {
-                return new JSONObject(str);
-            } catch (Throwable unused) {
-                return null;
-            }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
+    String a(Context context);
 
-    public static boolean b(String str) {
-        InterceptResult invokeL;
-        int length;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            if (str != null && (length = str.length()) != 0) {
-                for (int i = 0; i < length; i++) {
-                    if (!Character.isWhitespace(str.charAt(i))) {
-                        return false;
-                    }
-                }
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
+    long b();
+
+    String b(Context context);
+
+    String c(Context context);
+
+    String d(Context context);
 }

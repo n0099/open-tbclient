@@ -1,103 +1,115 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.tieba.eh4;
+import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Response;
-import org.json.JSONObject;
+import java.util.Map;
 /* loaded from: classes4.dex */
-public class fh4 extends ch4<String> {
+public class fh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eh4.a a;
 
-    public fh4(eh4.a aVar) {
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            String a = go4.a(go4.a(go4.a(go4.a(go4.a(go4.a(go4.a(go4.a(go4.a(go4.a(go4.a(str, "cuid", if4.b().g()), "uuid", if4.b().e()), "ut", if4.b().I()), "ua", go4.b(if4.b().h())), "host_app", if4.b().c()), "host_app_ver", if4.b().h()), "host_os", yn4.f()), "host_os_ver", yn4.g()), "network", yn4.e()), "sdk_ver", if4.b().b()), "ut_score", String.valueOf(if4.b().a()));
+            String q = if4.b().q();
+            if (!TextUtils.isEmpty(q)) {
+                return go4.a(a, "sid", q);
             }
+            return a;
         }
-        this.a = aVar;
+        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    public void onFail(Exception exc) {
+    public static String b(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, exc) == null) && a()) {
-            this.a.onFail(exc);
-        }
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a != null) {
-                return true;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, map)) == null) {
+            if (map != null) {
+                for (String str2 : map.keySet()) {
+                    if (!TextUtils.isEmpty(map.get(str2))) {
+                        str = go4.a(str, str2, map.get(str2));
+                    }
+                }
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eh4.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && a()) {
-            this.a.onStart();
-        }
-    }
-
-    @Override // com.baidu.tieba.eh4.a
-    public void b(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
-            this.a.b(str, str2, jSONObject);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: c */
-    public void onSuccess(String str, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) && a()) {
-            this.a.c(str, i);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: d */
-    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-        InterceptResult invokeLIL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, response, i, networkStatRecord)) == null) {
-            String str2 = "";
-            if (response == null || response.body() == null) {
-                str = "";
-            } else {
-                str2 = response.request().url().toString();
-                str = response.body().string();
-            }
-            b(str2, str, networkStatRecord.toUBCJson());
             return str;
         }
-        return (String) invokeLIL.objValue;
+        return (String) invokeLL.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return h() + "/getopenbundleid";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return h() + "/fetchpkglist";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            return h() + "/getpkg";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            return h() + "/getplugin";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            return h() + "/updatecore";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            return if4.b().E();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
+            return a(str);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String j(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65545, null, str, map)) == null) {
+            return b(a(str), map);
+        }
+        return (String) invokeLL.objValue;
     }
 }

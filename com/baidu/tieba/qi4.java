@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -10,12 +9,9 @@ import java.util.List;
 public class qi4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ug4 a;
-    public List<vg4> b;
-    public List<wg4> c;
-    public sg4 d;
-    public PMSAppInfo e;
-    public qg4 f;
+    public int a;
+    public String b;
+    public List<yg4> c;
 
     public qi4() {
         Interceptable interceptable = $ic;

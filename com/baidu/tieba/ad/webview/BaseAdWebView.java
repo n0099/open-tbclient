@@ -20,10 +20,11 @@ import android.webkit.WebViewClient;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d41;
-import com.baidu.tieba.kv4;
-import com.baidu.tieba.rt4;
-import com.baidu.tieba.yj0;
+import com.baidu.tieba.ak0;
+import com.baidu.tieba.aw4;
+import com.baidu.tieba.f41;
+import com.baidu.tieba.k06;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,31 +33,23 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.lang.reflect.Method;
-import java.util.Map;
 /* loaded from: classes3.dex */
 public abstract class BaseAdWebView extends WebView {
     public static /* synthetic */ Interceptable $ic;
-    public static final String h;
+    public static final String f;
     public transient /* synthetic */ FieldHolder $fh;
     public BaseAdWebView a;
     public Context b;
-    public String c;
-    public boolean d;
+    public k06 c;
+    public ak0 d;
     public d e;
-    public yj0 f;
-    public e g;
 
     /* loaded from: classes3.dex */
     public interface d {
-        void j1(yj0 yj0Var);
-    }
-
-    /* loaded from: classes3.dex */
-    public interface e {
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
 
-    public abstract void b(@NonNull yj0 yj0Var, boolean z);
+    public abstract void b(@NonNull ak0 ak0Var, boolean z);
 
     public abstract String getUserAgent();
 
@@ -64,28 +57,27 @@ public abstract class BaseAdWebView extends WebView {
     public class a extends c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ BaseAdWebView c;
+        public final /* synthetic */ BaseAdWebView b;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(BaseAdWebView baseAdWebView, BaseAdWebView baseAdWebView2, Activity activity) {
-            super(baseAdWebView2, activity);
+        public a(BaseAdWebView baseAdWebView, Activity activity) {
+            super(activity);
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {baseAdWebView, baseAdWebView2, activity};
+                Object[] objArr = {baseAdWebView, activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super((BaseAdWebView) objArr2[0], (Activity) objArr2[1]);
+                    super((Activity) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.c = baseAdWebView;
+            this.b = baseAdWebView;
         }
 
         @Override // com.baidu.tieba.ad.webview.BaseAdWebView.c, android.webkit.WebViewClient
@@ -96,7 +88,7 @@ public abstract class BaseAdWebView extends WebView {
             }
         }
 
-        @Override // com.baidu.tieba.ad.webview.BaseAdWebView.c, android.webkit.WebViewClient
+        @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
@@ -145,15 +137,14 @@ public abstract class BaseAdWebView extends WebView {
     public static class c extends WebViewClient {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public BaseAdWebView a;
-        public Activity b;
+        public Activity a;
 
-        public c(BaseAdWebView baseAdWebView, Activity activity) {
+        public c(Activity activity) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {baseAdWebView, activity};
+                Object[] objArr = {activity};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -163,19 +154,14 @@ public abstract class BaseAdWebView extends WebView {
                     return;
                 }
             }
-            this.a = baseAdWebView;
-            this.b = activity;
+            this.a = activity;
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(1048576, this, webView, str) == null) {
-                this.a.setLightTouchEnabled();
-                BaseAdWebView baseAdWebView = this.a;
-                if (!baseAdWebView.d) {
-                    baseAdWebView.getSettings().setBlockNetworkImage(false);
-                }
+                BaseAdWebView.setLightTouchEnabled(webView);
                 super.onPageFinished(webView, str);
             }
         }
@@ -184,38 +170,29 @@ public abstract class BaseAdWebView extends WebView {
         public boolean onRenderProcessGone(WebView webView, RenderProcessGoneDetail renderProcessGoneDetail) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, renderProcessGoneDetail)) == null) {
-                rt4.a("BaseAdWebView", webView);
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, renderProcessGoneDetail)) == null) {
+                zt4.a("BaseAdWebView", webView);
                 return true;
             }
             return invokeLL.booleanValue;
         }
 
         @Override // android.webkit.WebViewClient
-        public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, bitmap) == null) {
-                this.a.c = str;
-                super.onPageStarted(webView, str, bitmap);
-            }
-        }
-
-        @Override // android.webkit.WebViewClient
         public boolean shouldOverrideUrlLoading(WebView webView, String str) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str)) == null) {
                 super.shouldOverrideUrlLoading(webView, str);
                 try {
-                    if (this.b != null) {
+                    if (this.a != null) {
                         if (str.startsWith("tel:")) {
-                            this.b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
+                            this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse(str)));
                             return true;
                         } else if (str.startsWith("wtai://wp/mc;")) {
-                            this.b.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
+                            this.a.startActivity(new Intent("android.intent.action.VIEW", Uri.parse("tel:" + str.substring(13))));
                             return true;
                         } else if (str.startsWith("mailto:")) {
-                            this.b.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
+                            this.a.startActivity(new Intent("android.intent.action.SENDTO", Uri.parse(str)));
                             return true;
                         }
                     }
@@ -241,7 +218,7 @@ public abstract class BaseAdWebView extends WebView {
                 return;
             }
         }
-        h = BaseAdWebView.class.getSimpleName();
+        f = BaseAdWebView.class.getSimpleName();
     }
 
     @Override // android.webkit.WebView
@@ -250,14 +227,6 @@ public abstract class BaseAdWebView extends WebView {
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.removeAllViews();
             super.destroy();
-        }
-    }
-
-    public void setLightTouchEnabled() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            loadUrl("javascript:eval(\"window.SetBodyStyleTapColor=function() {\tvar bodystyle = document.body.style.cssText;\tif (bodystyle == undefined || bodystyle == null)\t\tbodystyle = '';\tvar tapstylekey = '-webkit-tap-highlight-color';\tif (bodystyle.indexOf(tapstylekey) < 0) {\t\tbodystyle += (bodystyle == '' ? '' : ';') + tapstylekey + ':rgba(0,0,0,0);';\t\tdocument.body.style.cssText = bodystyle;\t}}\");");
-            loadUrl("javascript:SetBodyStyleTapColor();");
         }
     }
 
@@ -279,7 +248,6 @@ public abstract class BaseAdWebView extends WebView {
                 return;
             }
         }
-        this.d = true;
         this.a = this;
         this.b = context;
         c();
@@ -304,7 +272,6 @@ public abstract class BaseAdWebView extends WebView {
                 return;
             }
         }
-        this.d = true;
         this.a = this;
         this.b = context;
         c();
@@ -329,10 +296,48 @@ public abstract class BaseAdWebView extends WebView {
                 return;
             }
         }
-        this.d = true;
         this.a = this;
         this.b = context;
         c();
+    }
+
+    public static void setLightTouchEnabled(WebView webView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, webView) == null) {
+            webView.loadUrl("javascript:eval(\"window.SetBodyStyleTapColor=function() {\tvar bodystyle = document.body.style.cssText;\tif (bodystyle == undefined || bodystyle == null)\t\tbodystyle = '';\tvar tapstylekey = '-webkit-tap-highlight-color';\tif (bodystyle.indexOf(tapstylekey) < 0) {\t\tbodystyle += (bodystyle == '' ? '' : ';') + tapstylekey + ':rgba(0,0,0,0);';\t\tdocument.body.style.cssText = bodystyle;\t}}\");");
+            webView.loadUrl("javascript:SetBodyStyleTapColor();");
+        }
+    }
+
+    public void d(@NonNull ak0 ak0Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, ak0Var) == null) {
+            this.d = ak0Var;
+        }
+    }
+
+    public final void setAcceptThirdPartyCookies(boolean z) {
+        CookieManager cookieManager;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
+            try {
+                CookieSyncManager.createInstance(getContext());
+                cookieManager = CookieManager.getInstance();
+            } catch (Throwable th) {
+                th.printStackTrace();
+                cookieManager = null;
+            }
+            if (cookieManager != null && Build.VERSION.SDK_INT >= 21) {
+                cookieManager.setAcceptThirdPartyCookies(this, z);
+            }
+        }
+    }
+
+    public void setDownloadStartListener(k06 k06Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, k06Var) == null) {
+            this.c = k06Var;
+        }
     }
 
     public final void a(Context context) {
@@ -346,10 +351,10 @@ public abstract class BaseAdWebView extends WebView {
                 Method declaredMethod = accessibilityManager.getClass().getDeclaredMethod("setState", Integer.TYPE);
                 declaredMethod.setAccessible(true);
                 declaredMethod.invoke(accessibilityManager, 0);
-            } catch (Error e2) {
+            } catch (Error e) {
+                e.printStackTrace();
+            } catch (Exception e2) {
                 e2.printStackTrace();
-            } catch (Exception e3) {
-                e3.printStackTrace();
             }
         }
     }
@@ -361,8 +366,8 @@ public abstract class BaseAdWebView extends WebView {
                 this.a.removeJavascriptInterface("searchBoxJavaBridge_");
                 this.a.removeJavascriptInterface("accessibility");
                 this.a.removeJavascriptInterface("accessibilityTraversal");
-            } catch (Exception e2) {
-                e2.printStackTrace();
+            } catch (Exception e) {
+                e.printStackTrace();
             }
             a(this.b);
             setScrollbarFadingEnabled(true);
@@ -383,58 +388,16 @@ public abstract class BaseAdWebView extends WebView {
                 ((Activity) getContext()).getWindow().setFlags(16777216, 16777216);
             }
             getSettings().setDomStorageEnabled(true);
-            setWebViewClient(new a(this, this, (Activity) getContext()));
+            setWebViewClient(new a(this, (Activity) getContext()));
             clearFocus();
             clearHistory();
             clearView();
             setScrollBarStyle(0);
             setAcceptThirdPartyCookies(true);
             setDownloadListener(new b(this));
-            if (kv4.e()) {
-                Log.e(h, "init webview succeed");
+            if (aw4.e()) {
+                Log.e(f, "init webview succeed");
             }
-        }
-    }
-
-    public void d(@NonNull yj0 yj0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, yj0Var) == null) {
-            this.f = yj0Var;
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void loadUrl(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
-            if (!this.d) {
-                getSettings().setBlockNetworkImage(true);
-            }
-            super.loadUrl(str);
-        }
-    }
-
-    public final void setAcceptThirdPartyCookies(boolean z) {
-        CookieManager cookieManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048588, this, z) == null) {
-            try {
-                CookieSyncManager.createInstance(getContext());
-                cookieManager = CookieManager.getInstance();
-            } catch (Throwable th) {
-                th.printStackTrace();
-                cookieManager = null;
-            }
-            if (cookieManager != null && Build.VERSION.SDK_INT >= 21) {
-                cookieManager.setAcceptThirdPartyCookies(this, z);
-            }
-        }
-    }
-
-    public void setDownloadStartListener(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, dVar) == null) {
-            this.e = dVar;
         }
     }
 
@@ -444,81 +407,48 @@ public abstract class BaseAdWebView extends WebView {
         if ((interceptable != null && interceptable.invokeCommon(1048581, this, new Object[]{str, str2, str3, Long.valueOf(j)}) != null) || TextUtils.isEmpty(str)) {
             return;
         }
-        if (this.f == null) {
-            if (!kv4.e()) {
+        if (this.d == null) {
+            if (!aw4.e()) {
                 return;
             }
             throw new IllegalArgumentException("cache key is null");
         }
-        if (kv4.e()) {
-            Log.e(h, "start downloading.....");
-            String str4 = h;
+        if (aw4.e()) {
+            Log.e(f, "start downloading.....");
+            String str4 = f;
             Log.e(str4, "download url：" + str);
         }
-        this.f.g = str;
-        String e2 = d41.e(str, str2, str3);
-        if (d41.b(d41.c(e2), str3) == 3) {
+        this.d.g = str;
+        String e = f41.e(str, str2, str3);
+        if (f41.b(f41.c(e), str3) == 3) {
             z = true;
         } else {
             z = false;
         }
-        if (TextUtils.isEmpty(e2)) {
+        if (TextUtils.isEmpty(e)) {
             String[] split = str.split("/");
             if (split.length > 1) {
                 str = split[split.length - 1];
             }
             if (str != null && str.length() > 50) {
-                e2 = str.substring(0, 50);
+                e = str.substring(0, 50);
             } else {
-                e2 = str;
+                e = str;
             }
         }
-        yj0 yj0Var = this.f;
-        yj0Var.d = e2;
-        b(yj0Var, z);
-    }
-
-    @Override // android.webkit.WebView
-    public void loadData(String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048583, this, str, str2, str3) == null) {
-            if (!this.d) {
-                getSettings().setBlockNetworkImage(true);
-            }
-            super.loadData(str, str2, str3);
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void loadDataWithBaseURL(String str, String str2, String str3, String str4, String str5) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2, str3, str4, str5) == null) {
-            if (!this.d) {
-                getSettings().setBlockNetworkImage(true);
-            }
-            super.loadDataWithBaseURL(str, str2, str3, str4, str5);
-        }
-    }
-
-    @Override // android.webkit.WebView
-    public void loadUrl(String str, Map<String, String> map) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048586, this, str, map) == null) {
-            if (!this.d) {
-                getSettings().setBlockNetworkImage(true);
-            }
-            super.loadUrl(str, map);
-        }
+        ak0 ak0Var = this.d;
+        ak0Var.d = e;
+        b(ak0Var, z);
     }
 
     @Override // android.webkit.WebView, android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIII(1048587, this, i, i2, i3, i4) == null) {
+        if (interceptable == null || interceptable.invokeIIII(1048583, this, i, i2, i3, i4) == null) {
             super.onScrollChanged(i, i2, i3, i4);
-            e eVar = this.g;
-            if (eVar != null) {
-                eVar.onScrollChanged(i, i2, i3, i4);
+            d dVar = this.e;
+            if (dVar != null) {
+                dVar.onScrollChanged(i, i2, i3, i4);
             }
         }
     }

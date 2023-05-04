@@ -20,11 +20,11 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eb9;
-import com.baidu.tieba.ey5;
+import com.baidu.tieba.be9;
+import com.baidu.tieba.cx4;
+import com.baidu.tieba.ez5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.m11;
-import com.baidu.tieba.mw4;
+import com.baidu.tieba.o11;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -42,7 +42,7 @@ public class AdAppInfoView extends FrameLayout {
     public TextView f;
     public TextView g;
     public RelativeLayout h;
-    public mw4 i;
+    public cx4 i;
     public AdvertAppInfo j;
     public int k;
     public int l;
@@ -145,7 +145,7 @@ public class AdAppInfoView extends FrameLayout {
                 int id = view2.getId();
                 String str3 = "";
                 if (id == R.id.ad_privacy) {
-                    mw4.b bVar = this.a.i.g;
+                    cx4.b bVar = this.a.i.g;
                     if (bVar != null) {
                         str3 = bVar.b;
                         str = bVar.c;
@@ -155,7 +155,7 @@ public class AdAppInfoView extends FrameLayout {
                     str2 = str;
                 } else {
                     if (id == R.id.ad_permission) {
-                        mw4.a aVar = this.a.i.h;
+                        cx4.a aVar = this.a.i.h;
                         if (aVar != null) {
                             str3 = aVar.b;
                             str = aVar.c;
@@ -168,7 +168,7 @@ public class AdAppInfoView extends FrameLayout {
                     str = "";
                     str2 = str;
                 }
-                eb9.a(this.a.getContext(), str3, null, null, str);
+                be9.a(this.a.getContext(), str3, null, null, str);
                 this.a.d(str2);
             }
         };
@@ -180,7 +180,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, this, attributeSet) != null) || attributeSet == null) {
             return;
         }
-        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ey5.SimpleAdInfoView);
+        TypedArray obtainStyledAttributes = getContext().obtainStyledAttributes(attributeSet, ez5.SimpleAdInfoView);
         this.k = obtainStyledAttributes.getResourceId(0, this.k);
         obtainStyledAttributes.recycle();
     }
@@ -219,7 +219,7 @@ public class AdAppInfoView extends FrameLayout {
             this.e = (TextView) findViewById(R.id.ad_privacy);
             this.f = (TextView) findViewById(R.id.ad_permission);
             this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0900fe);
-            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0908eb);
+            this.h = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f0908ee);
             this.e.setOnClickListener(this.m);
             this.f.setOnClickListener(this.m);
         }
@@ -303,7 +303,7 @@ public class AdAppInfoView extends FrameLayout {
         if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.j != null && !TextUtils.isEmpty(str)) {
             ClogBuilder clogBuilder = new ClogBuilder();
             clogBuilder.y(ClogBuilder.LogType.FREE_CLICK).v("VIDEO_FLOW_TAIL").q(String.valueOf(this.j.position + 1)).j(str).p(this.j.g);
-            m11.b(clogBuilder);
+            o11.b(clogBuilder);
         }
     }
 
@@ -319,60 +319,60 @@ public class AdAppInfoView extends FrameLayout {
         }
     }
 
-    public void setAppInfo(mw4 mw4Var) {
+    public void setAppInfo(cx4 cx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, mw4Var) == null) {
-            if (mw4Var != null && mw4.c(mw4Var)) {
-                this.i = mw4Var;
+        if (interceptable == null || interceptable.invokeL(1048583, this, cx4Var) == null) {
+            if (cx4Var != null && cx4.c(cx4Var)) {
+                this.i = cx4Var;
                 if (this.a != null) {
-                    if (!TextUtils.isEmpty(mw4Var.c)) {
+                    if (!TextUtils.isEmpty(cx4Var.c)) {
                         this.a.setVisibility(0);
-                        this.a.setText(mw4Var.c);
+                        this.a.setText(cx4Var.c);
                     } else {
                         this.a.setVisibility(8);
                     }
                 }
                 AdStarRatingBar adStarRatingBar = this.b;
                 if (adStarRatingBar != null) {
-                    float f = mw4Var.e;
+                    float f = cx4Var.e;
                     if (f >= 0.0f && f <= 5.0f) {
                         adStarRatingBar.setVisibility(0);
-                        this.b.setRating(mw4Var.e);
+                        this.b.setRating(cx4Var.e);
                     } else {
                         this.b.setVisibility(8);
                     }
                 }
                 if (this.c != null) {
-                    if (!TextUtils.isEmpty(mw4Var.f)) {
+                    if (!TextUtils.isEmpty(cx4Var.f)) {
                         this.c.setVisibility(0);
-                        this.c.setText(mw4Var.f);
+                        this.c.setText(cx4Var.f);
                     } else {
                         this.c.setVisibility(8);
                     }
                 }
                 if (this.d != null) {
-                    if (!TextUtils.isEmpty(mw4Var.d)) {
+                    if (!TextUtils.isEmpty(cx4Var.d)) {
                         this.d.setVisibility(0);
-                        this.d.setText(mw4Var.d);
+                        this.d.setText(cx4Var.d);
                         c();
                     } else {
                         this.d.setVisibility(8);
                     }
                 }
                 if (this.e != null) {
-                    mw4.b bVar = mw4Var.g;
-                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(mw4Var.g.a)) {
+                    cx4.b bVar = cx4Var.g;
+                    if (bVar != null && !TextUtils.isEmpty(bVar.b) && !TextUtils.isEmpty(cx4Var.g.a)) {
                         this.e.setVisibility(0);
-                        this.e.setText(mw4Var.g.a);
+                        this.e.setText(cx4Var.g.a);
                     } else {
                         this.e.setVisibility(8);
                     }
                 }
                 if (this.f != null) {
-                    mw4.a aVar = mw4Var.h;
-                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(mw4Var.h.a)) {
+                    cx4.a aVar = cx4Var.h;
+                    if (aVar != null && !TextUtils.isEmpty(aVar.b) && !TextUtils.isEmpty(cx4Var.h.a)) {
                         this.f.setVisibility(0);
-                        this.f.setText(mw4Var.h.a);
+                        this.f.setText(cx4Var.h.a);
                     } else {
                         this.f.setVisibility(8);
                     }

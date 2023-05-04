@@ -25,13 +25,13 @@ import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.at5;
-import com.baidu.tieba.bt5;
-import com.baidu.tieba.et5;
-import com.baidu.tieba.ft5;
-import com.baidu.tieba.gt5;
-import com.baidu.tieba.ht5;
+import com.baidu.tieba.au5;
+import com.baidu.tieba.bu5;
+import com.baidu.tieba.eu5;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.vt5;
+import com.baidu.tieba.wt5;
+import com.baidu.tieba.zt5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -40,17 +40,17 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class FullScreenLayout extends FrameLayout implements gt5 {
+public class FullScreenLayout extends FrameLayout implements bu5 {
     public static /* synthetic */ Interceptable $ic;
     public static final int G;
     public transient /* synthetic */ FieldHolder $fh;
     public ValueAnimator A;
     public ObjectAnimator B;
-    public bt5 C;
-    public ft5 D;
-    public et5 E;
+    public wt5 C;
+    public au5 D;
+    public zt5 E;
     public ViewTreeObserver.OnGlobalLayoutListener F;
-    public at5 a;
+    public vt5 a;
     public ImageView b;
     public FrameLayout.LayoutParams c;
     public ImageView d;
@@ -68,7 +68,7 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
     public int p;
     public int q;
     public int r;
-    public ht5 s;
+    public eu5 s;
     public boolean t;
     public int u;
     public int v;
@@ -133,7 +133,7 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
     }
 
     /* loaded from: classes3.dex */
-    public class b implements bt5.b {
+    public class b implements wt5.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FullScreenLayout a;
@@ -156,7 +156,7 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
             this.a = fullScreenLayout;
         }
 
-        @Override // com.baidu.tieba.bt5.b
+        @Override // com.baidu.tieba.wt5.b
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && !this.a.J() && this.a.isAttachedToWindow()) {
@@ -573,7 +573,7 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
         }
     }
 
-    @Override // com.baidu.tieba.gt5
+    @Override // com.baidu.tieba.bu5
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
@@ -586,9 +586,9 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
             super.onAttachedToWindow();
-            bt5 bt5Var = this.C;
-            if (bt5Var != null) {
-                bt5Var.e();
+            wt5 wt5Var = this.C;
+            if (wt5Var != null) {
+                wt5Var.e();
             }
         }
     }
@@ -628,7 +628,7 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
             this.h = ViewConfiguration.get(context).getScaledTouchSlop();
-            this.s = new ht5(this);
+            this.s = new eu5(this);
             G(context);
             E(context);
             W();
@@ -740,7 +740,7 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
                 return;
             }
         }
-        this.a = at5.a();
+        this.a = vt5.a();
         this.g = new RectF();
         this.j = true;
         this.k = true;
@@ -763,23 +763,23 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
         }
     }
 
-    public void setClickListener(et5 et5Var) {
+    public void setClickListener(zt5 zt5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, et5Var) == null) {
-            this.E = et5Var;
+        if (interceptable == null || interceptable.invokeL(1048604, this, zt5Var) == null) {
+            this.E = zt5Var;
         }
     }
 
-    public void setFloatData(ft5 ft5Var) {
+    public void setFloatData(au5 au5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048605, this, ft5Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048605, this, au5Var) == null) {
             if (this.C == null) {
-                bt5 bt5Var = new bt5(this.b, this.d);
-                this.C = bt5Var;
-                bt5Var.f(new b(this));
+                wt5 wt5Var = new wt5(this.b, this.d);
+                this.C = wt5Var;
+                wt5Var.f(new b(this));
             }
-            this.C.g(ft5Var);
-            this.D = ft5Var;
+            this.C.g(au5Var);
+            this.D = au5Var;
         }
     }
 
@@ -844,8 +844,8 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
                 this.B.cancel();
                 this.b.setRotation(0.0f);
             }
-            ht5 ht5Var = this.s;
-            if (ht5Var != null && ht5Var.a()) {
+            eu5 eu5Var = this.s;
+            if (eu5Var != null && eu5Var.a()) {
                 this.s.d();
             }
             this.d.setAlpha(1.0f);
@@ -901,19 +901,19 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
     }
 
     public final void O() {
-        ft5 ft5Var;
+        au5 au5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (ft5Var = this.D) != null && !StringUtils.isNull(ft5Var.c())) {
+        if ((interceptable == null || interceptable.invokeV(1048590, this) == null) && (au5Var = this.D) != null && !StringUtils.isNull(au5Var.c())) {
             if (this.f == null) {
-                FloatWebLayout floatWebLayout = new FloatWebLayout(getContext());
+                FloatWebLayout floatWebLayout = new FloatWebLayout(getContext(), this.D.c());
                 this.f = floatWebLayout;
                 addView(floatWebLayout, new FrameLayout.LayoutParams(-1, -1));
             }
             this.f.j(this.D.c());
             x(this.a.l());
-            et5 et5Var = this.E;
-            if (et5Var != null) {
-                et5Var.a(this.j);
+            zt5 zt5Var = this.E;
+            if (zt5Var != null) {
+                zt5Var.a(this.j);
             }
         }
     }
@@ -1094,7 +1094,7 @@ public class FullScreenLayout extends FrameLayout implements gt5 {
         }
     }
 
-    @Override // com.baidu.tieba.gt5
+    @Override // com.baidu.tieba.bu5
     public void b(int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048600, this, i2, i3, i4, i5) == null) {

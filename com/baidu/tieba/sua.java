@@ -1,72 +1,41 @@
 package com.baidu.tieba;
 
-import android.os.Looper;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.lua;
-import com.baidu.tieba.pua;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.hihonor.push.framework.aidl.IPushInvoke;
-import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
-import java.util.concurrent.atomic.AtomicInteger;
+import com.kwad.sdk.api.KsNativeAd;
 /* loaded from: classes6.dex */
-public class sua implements pua {
+public abstract class sua implements KsNativeAd.AdInteractionListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final AtomicInteger a;
-    public volatile IPushInvoke b;
-    public final pua.a c;
-    public vua d;
 
-    public sua(pua.a aVar) {
+    public sua() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = new AtomicInteger(1);
-        this.c = aVar;
-    }
-
-    public final void a(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            Log.i("PushConnectionClient", "notifyFailed result: " + i);
-            pua.a aVar = this.c;
-            if (aVar != null) {
-                lua.a aVar2 = (lua.a) aVar;
-                aVar2.getClass();
-                if (Looper.myLooper() == aVar2.f.a.getLooper()) {
-                    aVar2.b(HonorPushErrorEnum.fromCode(i));
-                } else {
-                    aVar2.f.a.post(new kua(aVar2, i));
-                }
             }
         }
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onDownloadTipsDialogDismiss() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            if (this.a.get() != 3 && this.a.get() != 4) {
-                return false;
-            }
-            return true;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.kwad.sdk.api.KsNativeAd.AdInteractionListener
+    public void onDownloadTipsDialogShow() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+        }
     }
 }

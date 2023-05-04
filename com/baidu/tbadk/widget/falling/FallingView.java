@@ -36,14 +36,14 @@ import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.bg;
 import com.baidu.tieba.cg;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.rt9;
+import com.baidu.tieba.mx9;
+import com.baidu.tieba.st5;
 import com.baidu.tieba.tm;
-import com.baidu.tieba.xs5;
-import com.baidu.tieba.ys5;
-import com.baidu.tieba.zs5;
+import com.baidu.tieba.tt5;
+import com.baidu.tieba.ut5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +65,7 @@ public abstract class FallingView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public o a;
-    public final List<xs5> b;
+    public final List<st5> b;
     public final Context c;
     public int d;
     public int e;
@@ -81,9 +81,9 @@ public abstract class FallingView extends FrameLayout {
     public r o;
     public View.OnClickListener p;
     @NonNull
-    public ys5 q;
+    public tt5 q;
     @Nullable
-    public zs5 r;
+    public ut5 r;
     public final Runnable s;
     public final Runnable t;
     public final Runnable u;
@@ -95,9 +95,9 @@ public abstract class FallingView extends FrameLayout {
         void onAnimationStart();
     }
 
-    public abstract ys5 p();
+    public abstract tt5 p();
 
-    public abstract xs5 q(Bitmap bitmap);
+    public abstract st5 q(Bitmap bitmap);
 
     public abstract void u(@NonNull View view2, @NonNull FallingData fallingData);
 
@@ -313,7 +313,7 @@ public abstract class FallingView extends FrameLayout {
                 if (this.b.q.f()) {
                     this.b.k.start();
                 } else {
-                    rt9.b(this.b.a.b, 600);
+                    mx9.b(this.b.a.b, 600);
                 }
             }
         }
@@ -761,7 +761,7 @@ public abstract class FallingView extends FrameLayout {
                     return;
                 }
                 for (int i = 0; i < this.b.b.size(); i++) {
-                    ((xs5) this.b.b.get(i)).c();
+                    ((st5) this.b.b.get(i)).c();
                 }
                 this.b.invalidate();
                 sendEmptyMessageDelayed(0, 5L);
@@ -838,9 +838,9 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    public final void m(xs5 xs5Var, int i2) {
+    public final void m(st5 st5Var, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, xs5Var, i2) == null) {
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, st5Var, i2) == null) {
             if (this.d == 0) {
                 this.d = ii.l(this.c);
             }
@@ -849,9 +849,9 @@ public abstract class FallingView extends FrameLayout {
             }
             this.b.clear();
             for (int i3 = 0; i3 < i2; i3++) {
-                xs5 xs5Var2 = new xs5(xs5Var.i, this.d, this.e);
-                xs5Var2.e = (-i3) * 180;
-                this.b.add(xs5Var2);
+                st5 st5Var2 = new st5(st5Var.i, this.d, this.e);
+                st5Var2.e = (-i3) * 180;
+                this.b.add(st5Var2);
             }
         }
     }
@@ -905,10 +905,10 @@ public abstract class FallingView extends FrameLayout {
         }
     }
 
-    public void setEventCallback(@NonNull zs5 zs5Var) {
+    public void setEventCallback(@NonNull ut5 ut5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, zs5Var) == null) {
-            this.r = zs5Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, ut5Var) == null) {
+            this.r = ut5Var;
         }
     }
 
@@ -1035,13 +1035,13 @@ public abstract class FallingView extends FrameLayout {
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, context) == null) {
             this.a = o.d(LayoutInflater.from(context).inflate(R.layout.rain_falling_click_view, (ViewGroup) null, false));
             this.n = new p(this, this);
-            r25 d2 = r25.d(this.a.c);
+            g35 d2 = g35.d(this.a.c);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0608);
-            r25 d3 = r25.d(this.a.e);
+            g35 d3 = g35.d(this.a.e);
             d3.C(R.string.F_X01);
             d3.w(R.color.CAM_X0101);
-            r25 d4 = r25.d(this.a.d);
+            g35 d4 = g35.d(this.a.d);
             d4.o(R.string.J_X01);
             d4.f(R.color.CAM_X0317);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);

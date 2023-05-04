@@ -1,47 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.widget.Toast;
 import androidx.annotation.NonNull;
-import com.baidu.pyramid.annotation.Autowired;
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.tieba.o31;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.StringRes;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceReference;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
-@Autowired
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class g31 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface g31 {
+    public static final ServiceReference a = new ServiceReference("nad.core", "toast");
+    public static final g31 b = new a();
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947742884, "Lcom/baidu/tieba/g31;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947742884, "Lcom/baidu/tieba/g31;");
-        }
-    }
+    void a(@NonNull Context context, @StringRes int i);
 
-    @NonNull
-    @JvmStatic
-    @Singleton
-    @Inject(force = false)
-    public static final o31 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return new o31.a();
+    void b(@NonNull Context context, @StringRes int i, int i2);
+
+    void showToast(@NonNull Context context, String str);
+
+    /* loaded from: classes4.dex */
+    public static class a implements g31 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
         }
-        return (o31) invokeV.objValue;
+
+        @Override // com.baidu.tieba.g31
+        public void a(@NonNull Context context, @StringRes int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, context, i) == null) {
+                Toast.makeText(context, i, 0).show();
+            }
+        }
+
+        @Override // com.baidu.tieba.g31
+        public void showToast(@NonNull Context context, String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, context, str) == null) {
+                Toast.makeText(context, str, 0).show();
+            }
+        }
+
+        @Override // com.baidu.tieba.g31
+        public void b(@NonNull Context context, int i, int i2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, i, i2) == null) {
+                Toast.makeText(context, i, i2).show();
+            }
+        }
     }
 }

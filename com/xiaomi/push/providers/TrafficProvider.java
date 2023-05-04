@@ -8,7 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.net.Uri;
 import com.xiaomi.push.ha;
 import com.yy.hiidostatis.inner.BaseStatisContent;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class TrafficProvider extends ContentProvider {
     public static final UriMatcher a;
 

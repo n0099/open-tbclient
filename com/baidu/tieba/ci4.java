@@ -1,25 +1,37 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ci4 extends hh4 {
+public class ci4 implements vh4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xh4 a;
-    public boolean b;
+    public List<jh4> a;
+    public pf4 b;
+    public List<vg4> c;
+    public List<vg4> d;
+    public List<vg4> e;
 
-    public ci4(xh4 xh4Var, boolean z) {
+    @Override // com.baidu.tieba.vh4
+    public <T> void a(zh4<T> zh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, zh4Var) == null) {
+        }
+    }
+
+    public ci4(pf4 pf4Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {xh4Var, Boolean.valueOf(z)};
+            Object[] objArr = {pf4Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,56 +41,73 @@ public class ci4 extends hh4 {
                 return;
             }
         }
-        this.a = xh4Var;
-        this.b = z;
+        this.c = new ArrayList();
+        this.d = new ArrayList();
+        this.e = new ArrayList();
+        this.b = pf4Var;
+        this.a = new ArrayList();
+        xh4.b().e(this);
     }
 
-    @Override // com.baidu.tieba.hh4
-    public xh4 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.vh4
+    public <T> void b(zh4<T> zh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
-        }
-        return (xh4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.hh4
-    public boolean b(xh4 xh4Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xh4Var)) == null) {
-            xh4 xh4Var2 = this.a;
-            if (xh4Var2 == xh4Var) {
-                return true;
-            }
-            return xh4Var2.d(xh4Var);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.hh4
-    public void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || this.b) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zh4Var) != null) || zh4Var.k()) {
             return;
         }
-        if (z) {
-            xh4 xh4Var = this.a;
-            xh4Var.a.b.b = 0L;
-            xh4Var.b(0);
+        Iterator<jh4> it = this.a.iterator();
+        while (true) {
+            if (!it.hasNext()) {
+                break;
+            }
+            jh4 next = it.next();
+            if (next.b(zh4Var)) {
+                int i = zh4Var.i();
+                this.a.remove(next);
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i == 10) {
+                            this.c.add(next.a().a.b);
+                        }
+                    } else {
+                        this.d.add(next.a().a.b);
+                    }
+                } else {
+                    this.e.add(next.a().a.b);
+                }
+            }
         }
-        vh4.b().f(this.a);
+        d();
     }
 
-    @Override // com.baidu.tieba.hh4
-    @NonNull
-    public String toString() {
+    public void c(jh4 jh4Var) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jh4Var) == null) && jh4Var != null) {
+            this.a.add(jh4Var);
+        }
+    }
+
+    public final boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return "isAttached=" + this.b + " " + super.toString();
+            if (this.a.isEmpty()) {
+                this.b.b();
+                xh4.b().g(this);
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || d()) {
+            return;
+        }
+        for (jh4 jh4Var : this.a) {
+            jh4Var.c(false);
+        }
     }
 }

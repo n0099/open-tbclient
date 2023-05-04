@@ -35,13 +35,11 @@ public class TbConfig {
     public static final /* synthetic */ boolean $assertionsDisabled = false;
     public static /* synthetic */ Interceptable $ic = null;
     public static final int ABSTRACT_AUTO = 0;
-    public static final int ABSTRACT_CLOSE = 2;
     public static final int ABSTRACT_OPEN = 1;
     public static final int ADD_IAMGE_WATER_NONE = 0;
     public static final int ADD_IMAGE_WATER_FORUM_NAME = 2;
     public static final int ADD_IMAGE_WATER_NO = 3;
     public static final int ADD_IMAGE_WATER_USER_NAME = 1;
-    public static final String ADD_LINK = "c/c/thread/addLink";
     public static String ADD_MSG_RECORD = null;
     public static int ALPHA_80 = 0;
     public static final String API_CLICK_FRS_GAMEPLAY_CARD = "/peiwan/api/index/audio";
@@ -68,7 +66,6 @@ public class TbConfig {
     public static final String BROADCAST_FIELD_SKIN_TYPE = "skin_type";
     public static final String BROADCAST_IMAGE_RESIZED = "com.baidu.tieba.broadcast.image.resized";
     public static final String BROADCAST_NEWVERSION = "com.baidu.tieba.broadcast.newversion";
-    public static final String BROADCAST_PAGE_CHANGED = "com.baidu.tieba.broadcast.imagepb.pagechanged";
     public static final String BROADCAST_SIGN_ALERT = "com.baidu.tieba.broadcast.signalert";
     public static final String BUBBLE_GROUP_PAGE = "c/e/theme/getBubbleByCategory";
     public static final String BUBBLE_LIST_PAGE = "c/e/theme/getBubbleList";
@@ -106,7 +103,6 @@ public class TbConfig {
     public static final String DEL_THREAD_ADDRESS = "c/c/bawu/delthread";
     public static final String DEL_TOKEN_INFO = "c/s/delTokenInfo";
     public static final String DETECT_USERNAME_ADDRESS = "c/s/detectuname";
-    public static final String DIALOG_FROM = "dianzishichang";
     public static final String DO_DAILY_TASK = "c/c/encourage/member/doDailyTask";
     public static final String DRESSUP_CENTER_PAGE = "c/e/theme/getThemeList";
     public static final String EARN_MONEY = "https://gamecenter.baidu.com/single/beeplaying?productid=7&gtype=1&channel=100073&actionmode=&idfrom=tieba-gamecenter-top";
@@ -124,7 +120,6 @@ public class TbConfig {
     public static final String FATAL_ERROR_FILE = "fatal_error.log";
     public static final long FATAL_ERROR_FILE_MAX_SIZE = 204800;
     public static final String FATAL_ERROR_NATIVE_DIR = "native_crash";
-    public static final String FEED_BACK_WEB_VIEW_URL;
     public static final String FINE_PB_PAGE = "c/f/excellent/excpbpage";
     public static final String FINE_PB_PRAISE = "c/f/excellent/exczan";
     public static final String FINISH_MEMBER_TASK = "c/c/encourage/point/finishmembertask";
@@ -166,7 +161,6 @@ public class TbConfig {
     public static final String GET_IMAGE_WATERMARK_TYPE = "c/u/user/getWatermark";
     public static final String GET_IP_LIST = "c/s/getipinfo";
     public static final String GET_LEVEL_INFO_URL = "c/f/forum/getLevelInfo";
-    public static final String GET_LIVE_ROOM_REMIND_DATA = "c/u/live/getRemindLiveRooms";
     public static final String GET_MEMBER_INFO = "c/f/forum/getMemberInfo";
     public static final String GET_MEMBER_TASK = "c/e/point/getmembertasklist";
     public static final String GET_MY_POST = "c/f/frs/getmypost";
@@ -184,7 +178,6 @@ public class TbConfig {
     public static final String GET_QM_FILTERS = "c/f/video/qmFilters";
     public static final String GET_QM_STICKERS = "c/f/video/qmStickers";
     public static final String GET_RELATIVE_MEME_LIST = "c/f/chat/getRelativeMemeList";
-    public static final String GET_RN_SYNC_ADDRESS = "c/s/newRnSync";
     public static final String GET_STICKERS = "c/f/video/sticker";
     public static final String GET_SUBSCRIBE_GROUP_CHAT_LIST = "c/u/chat/getChatSubscriptionList";
     public static final String GET_SUGGEST_LOCATION_BY_NAME = "c/s/getSuggestionByAddrName";
@@ -218,7 +211,6 @@ public class TbConfig {
     public static final String IMAGE_RESIZED_FILE = "tieba_resized_image";
     public static final String IMAGE_RESIZED_FILE_DISPLAY = "tieba_resized_image_display";
     public static final float IMAGE_ROUND = 10.0f;
-    public static final String IM_USER_ID_TBJX = "1501754229";
     public static final String INCR_FORUM_ACCESS_ACOUNT = "c/c/forum/incrForumAccessCount";
     public static final String IN_PV_ADDRESS = "c/s/inpv";
     public static boolean IS_CHECK_OFFICAL_APPLICATION = false;
@@ -270,7 +262,6 @@ public class TbConfig {
     public static final boolean MSG_DEFAULT_NODISTURB_SWITCH = false;
     public static final String MULTI_DEL_POST_ADDRESS = "c/c/bawu/multiDelPost";
     public static final int MUTI_IMAGE_MAX_COUNT = 9;
-    public static final String NANI_CAMPUS_SQUARE = "https://nani.baidu.com/n/nani/campus/square";
     public static final String NANI_DEFAULT_H5_PREFIX = "https://nani.baidu.com/n/nani/share/tieba";
     public static final int NAVI_STATE_EDIT = 2;
     public static final int NAVI_STATE_SEARCH = 0;
@@ -351,7 +342,9 @@ public class TbConfig {
     public static final String RELEVANCE_ITEM_SEARCH_URL = "c/f/forum/itemSearchList";
     public static final String REMOVE_MULTI_FANS = "c/c/user/multiRemoveFans";
     public static final String REPLY_THREAD_ADDRESS = "c/c/post/add";
+    public static final String REQUEST_SPRITE_CREATE_MEME = "c/c/chatroom/createMeme";
     public static final String REQUEST_SPRITE_LOOP = "c/f/sprite/getSpriteSpeech";
+    public static final String REQUEST_SPRITE_QUERY_MEME = "c/f/chat/queryMeme";
     public static final String REQUEST_SPRITE_QUESTION_REPLY = "c/f/sprite/getSpriteBottomChat";
     public static final String SEARCH_FRIEND = "c/r/friend/searchFriend";
     public static final String SEARCH_POST_FORUM = "c/f/forum/searchPostForum";
@@ -370,19 +363,13 @@ public class TbConfig {
     public static final String SHARE_CONTENT_TO_CHAT_GROUP_ROOM = "c/c/chatroom/shareCard";
     public static final String SHARE_HUB_DIR_NAME = "share_hub";
     public static final String SIGN_ADDRESS = "c/c/forum/sign";
-    public static final String SMART_APP_URL = "c/f/frs/smartapplist";
     public static final String SQUARE_SEARCH_PAGE = "mo/q/hybrid/search?keyword=";
     public static final String STAT_CLIENT_START = "c/c/forum/statClientStartTimes";
-    public static final String ST_PARAM_PERSON_INFO_SEND_MESSAGE = "3";
-    public static final String ST_PARAM_TAB_MSG_CREATE_CHAT = "2";
     public static final String ST_PARAM_TAB_MSG_PERSONAL_CHAT_CLICK = "1";
     public static final String ST_TYPE_ENTER_FORE = "enter_fore";
-    public static final String ST_TYPE_EYESHIELD_MODE = "eyeshield";
-    public static final String ST_TYPE_IM = "chat_pg";
     public static final String ST_TYPE_PCHAT = "pchat";
     public static final String ST_TYPE_USE = "use";
     public static String SUBAPP_TYPE = null;
-    public static final String SUBMIT_SHOW_PB_TIPS = "c/c/follow/showPbTips";
     public static final int SUBPB_FONT_SIZE_BIG;
     public static final int SUBPB_FONT_SIZE_MID;
     public static final int SUBPB_FONT_SIZE_SMALL;
@@ -429,10 +416,10 @@ public class TbConfig {
     public static final String URL_BAIDU_SINGKIL = "https://eopa.baidu.com/page/HomePage-YW54iXYf?channel=7";
     public static final String URL_BJH_REPORT = "https://ufosdk.baidu.com/?m=Client&a=commonreport&appid=234410&nid=%1$s&platid=%2$s&remark=bjh";
     public static final String URL_CALL_FANS = "god/rights/callFans";
+    public static final String URL_CALL_ROBOT_ROUTER = "c/c/chatroom/callRobotRouter";
     public static final String URL_CANCEL_FORBIDDEN_FORUM = "c/c/excellent/submitCancelDislike";
     public static final String URL_CANDIDATE_SEARCH = "c/f/bawu/search";
     public static final String URL_CHAT_ROOM = "https://tieba.baidu.com/mo/q/wise-bawu-core/group-chat-manage?fr=room&customfullscreen=1&nonavigationbar=1";
-    public static final String URL_CHAT_ROOM_NOTICEMODIFY = "https://tieba.baidu.com/mo/q/wise-bawu-core/group-chat-manage#/preview?";
     public static final String URL_CHECK_REAL_NAME = "c/s/checkRealName";
     public static final String URL_CHECK_SHOW_INIT_NAME_DIALOG = "c/s/initNickname";
     public static final String URL_CHECK_VIDEO_STATUS = "c/c/video/uploadVideoStatus";
@@ -440,10 +427,10 @@ public class TbConfig {
     public static final String URL_CONCERN_PAGE = "c/f/concern/userlike";
     public static final String URL_CREATE_CENTER = "https://tieba.baidu.com/mo/q/creativeCenter";
     public static final String URL_CREATE_COLLEGE = "https://tieba.baidu.com/mo/q/creativeCenter?local=college";
-    public static final String URL_DAILY_PAGE = "c/f/general/dailyPage";
     public static final String URL_DELETE_REPLY_AT_MSG = "c/c/post/delmsg";
     public static final String URL_DELETE_USER_DATA = "c/c/user/delAllUserData";
     public static final String URL_ENTER_FORUM_AD = "c/f/forum/getAdInfo";
+    public static final String URL_EXCELLENT_ROOM = "https://tieba.baidu.com/mo/q/wise-bawu-core/group-chat-manage?customfullscreen=1&nonavigationbar=1#/essence";
     public static final String URL_FEED_BACK = "https://ufosdk.baidu.com/ufosdk/postview/tSi1tVlylkKfcPzxh%2FBspQ%3D%3D/222251";
     public static final String URL_FORUM_BROADCAST_HISTORY = "c/f/forum/getForumBroadcastList";
     public static final String URL_FORUM_BROADCAST_RESIDUE = "c/f/forum/getForumMangerRights";
@@ -492,12 +479,10 @@ public class TbConfig {
     public static final String URL_PLAY_DURATION_STATISTICS = "c/c/video/playDura";
     public static final String URL_PLAY_STATISTICS = "c/c/video/playStat";
     public static final String URL_POST_VIDEO_MONITOR_REPORT = "ala/sys/vtlog";
-    public static final String URL_PROFESSION_PERMISSION = "c/f/frs/zoneRight";
-    public static final String URL_RECOMMEND_SETTING = "https://tieba.baidu.com/mo/q/personality";
+    public static final String URL_RECOMMEND_SETTING = "https://tieba.baidu.com/mo/q/hybrid-main-service/pushSettings";
     public static final String URL_RELATE_REC_THREAD = "c/f/forum/relateRecThread";
     public static final String URL_REMOVE_FANS = "c/c/user/removeFans";
     public static String URL_REQUEST_PID = null;
-    public static final String URL_SEARCH_MAJOR = "c/f/forum/searchMajor";
     public static final String URL_SET_PRIVACY = "c/c/thread/setPrivacy";
     public static final String URL_SHARE_COMMAND_GENERATE = "mo/q/schemeToken";
     public static final String URL_SHARE_REPORT = "c/c/thread/share";
@@ -779,7 +764,6 @@ public class TbConfig {
         PHOTO_BIG_ADDRESS = "http://tb.himg.baidu.com/sys/portrait/item/";
         FRIEND_PHOTO_ADDRESS = "http://tb.himg.baidu.com/sys/portraitn/item/";
         IMAGE_ADDRESS = SERVER_ADDRESS + "c/p/img?";
-        FEED_BACK_WEB_VIEW_URL = TIEBA_ADDRESS + "mo/q/feedback";
         UPLOAD_IMG_URL = SERVER_ADDRESS + "c/s/uploadPicture";
         URL_REQUEST_PID = SERVER_ADDRESS + "c/s/getPidByPicUrl";
         CHANGE_USER_PORTRAIT = SERVER_ADDRESS + "c/c/img/changeportrait";
@@ -1373,7 +1357,7 @@ public class TbConfig {
                 i = 60;
             }
             if (MAX_PHOTO_MEMORY_CACHE != i) {
-                TbImageMemoryCache.s().G(i);
+                TbImageMemoryCache.v().K(i);
             }
             MAX_PHOTO_MEMORY_CACHE = i;
         }

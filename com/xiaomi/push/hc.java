@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.xiaomi.push.service.XMPushService;
 import java.io.File;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class hc implements XMPushService.n {
     public static boolean a;
 

@@ -1,14 +1,10 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.SharedPreferences;
-import android.preference.PreferenceManager;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.performance.HybridUbcFlow;
+import com.baidu.swan.apps.performance.UbcFlowEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,20 +12,53 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-@Singleton
-@Service
 /* loaded from: classes3.dex */
-public class b03 implements in4 {
+public class b03 implements qm3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public Boolean b;
+
+    /* loaded from: classes3.dex */
+    public class a implements zz2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UbcFlowEvent a;
+        public final /* synthetic */ UbcFlowEvent b;
+        public final /* synthetic */ b03 c;
+
+        public a(b03 b03Var, UbcFlowEvent ubcFlowEvent, UbcFlowEvent ubcFlowEvent2) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {b03Var, ubcFlowEvent, ubcFlowEvent2};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = b03Var;
+            this.a = ubcFlowEvent;
+            this.b = ubcFlowEvent2;
+        }
+
+        @Override // com.baidu.tieba.zz2
+        public boolean a(c03 c03Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, c03Var)) == null) {
+                if (c03Var == null) {
+                    return false;
+                }
+                return this.c.c(c03Var, this.a, this.b);
+            }
+            return invokeL.booleanValue;
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,7 +73,7 @@ public class b03 implements in4 {
                 return;
             }
         }
-        c = fo1.a;
+        a = ho1.a;
     }
 
     public b03() {
@@ -60,295 +89,57 @@ public class b03 implements in4 {
                 return;
             }
         }
-        this.b = null;
-        this.a = AppRuntime.getAppContext();
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return cr2.n().a();
+        a03.f().g();
+        if (a) {
+            Log.d("MaUpdateReporter", "MaUpdateReporter init - " + System.currentTimeMillis());
         }
-        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.in4
-    public String b() {
-        InterceptResult invokeV;
+    public final boolean c(@NonNull c03 c03Var, @NonNull UbcFlowEvent ubcFlowEvent, @NonNull UbcFlowEvent ubcFlowEvent2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return go1.a();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public ExecutorService d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return cr2.z0().d();
-        }
-        return (ExecutorService) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String getAppId() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            v73 D = it2.U().D();
-            if (D != null) {
-                return D.b;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String getAppVersion() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            v73 D = it2.U().D();
-            if (D != null) {
-                return D.Y().v1();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String getScene() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            v73 D = it2.U().D();
-            if (D != null) {
-                return D.W().T();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            rr1 g0 = cr2.g0();
-            if (g0 != null) {
-                return g0.getExpInfos();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return cr2.g0().j();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return u73.K().k();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public jn4 l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return cr2.O().l();
-        }
-        return (jn4) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return ah3.h(k());
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public boolean p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            if (this.b == null) {
-                cr2.g0().getSwitch("swan_ceres_add_counter", false);
-                this.b = false;
-            }
-            return this.b.booleanValue();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            if (u33.X() && (r() || fo1.b)) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c03Var, ubcFlowEvent, ubcFlowEvent2)) == null) {
+            long b = c03Var.b();
+            if (b >= ubcFlowEvent.g() && b <= ubcFlowEvent2.g()) {
                 return true;
             }
             return false;
         }
-        return invokeV.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.in4
-    public boolean r() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm3
+    /* renamed from: d */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            SharedPreferences defaultSharedPreferences = PreferenceManager.getDefaultSharedPreferences(cr2.c());
-            if (c && defaultSharedPreferences.getBoolean("KEY_UBC_DEBUG", true)) {
-                return true;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) {
+            if (a) {
+                Log.i("MaUpdateReporter", "report: flow=" + hybridUbcFlow);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            String b = cr2.n().b();
-            if (!pl3.G() && !TextUtils.isEmpty(b)) {
-                return b;
+            if (hybridUbcFlow == null) {
+                return;
             }
-            return null;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return p42.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public boolean c(String str) {
-        InterceptResult invokeL;
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            rr1 g0 = cr2.g0();
-            if (g0 != null) {
-                g0.getSwitch("ANDROID_UBC_SAMPLE_" + str, "");
+            UbcFlowEvent g = hybridUbcFlow.g("naStart");
+            UbcFlowEvent g2 = hybridUbcFlow.g("na_first_meaningful_paint");
+            if (g != null && g2 != null) {
+                a03.f().h(new a(this, g, g2));
+                a03.f().a(hybridUbcFlow);
+                if (a) {
+                    Log.d("MaUpdateReporter", "na_start ts - " + g.g());
+                    Log.d("MaUpdateReporter", "fmp_end ts - " + g2.g());
+                    return;
+                }
+                return;
             }
-            if (TextUtils.isEmpty("")) {
-                return false;
+            if (a) {
+                if (g == null) {
+                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_start = null !!!");
+                } else {
+                    Log.w("MaUpdateReporter", "MaUpdateReporter: na_first_meaningful_paint = null !!!");
+                }
             }
-            try {
-                i = new JSONObject("").getInt("probability");
-            } catch (JSONException e) {
-                e.printStackTrace();
-                i = 0;
-            }
-            if (new Random().nextInt(100) >= i) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public void e(String str, int i, JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048580, this, str, i, jSONArray) == null) {
-            cr2.z0().e(str, i, jSONArray);
-        }
-    }
-
-    @Override // com.baidu.tieba.in4
-    public void i(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048588, this, str, i, str2) == null) {
-            cr2.z0().i(str, i, str2);
-        }
-    }
-
-    @Override // com.baidu.tieba.in4
-    public void f(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048581, this, str, i) == null) {
-            cr2.z0().f(str, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.in4
-    public void g(String str, String str2, int i, String str3, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2)}) == null) {
-            cr2.z0().g(str, str2, i, str3, i2);
-        }
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String getDeviceId(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, context)) == null) {
-            return cr2.h0().i(cr2.c());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String o(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, context)) == null) {
-            return ho4.b(context).a();
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public String u(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, context)) == null) {
-            return cr2.h0().h(cr2.c());
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.in4
-    public void n(String str, String str2, int i, String str3, long j, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{str, str2, Integer.valueOf(i), str3, Long.valueOf(j), Integer.valueOf(i2)}) == null) {
-            cr2.z0().n(str, str2, i, str3, j, i2);
+            a03.f().c();
         }
     }
 }

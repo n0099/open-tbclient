@@ -1,316 +1,119 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.widget.Button;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-import androidx.core.view.InputDeviceCompat;
+import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.RectF;
+import android.text.style.ReplacementSpan;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.ParseException;
-import java.util.Calendar;
-import java.util.Date;
 /* loaded from: classes7.dex */
-public class zv5 extends yv5 implements View.OnClickListener {
+public class zv5 extends ReplacementSpan {
     public static /* synthetic */ Interceptable $ic;
+    public static final int j;
+    public static final int k;
+    public static final int l;
+    public static final int m;
     public transient /* synthetic */ FieldHolder $fh;
-    public bw5 q;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
+    public int f;
+    public int g;
+    public int h;
+    public int i;
 
-    /* loaded from: classes7.dex */
-    public class a implements qv5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zv5 a;
-
-        public a(zv5 zv5Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948373424, "Lcom/baidu/tieba/zv5;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zv5Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = zv5Var;
-        }
-
-        @Override // com.baidu.tieba.qv5
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.e.b.a(bw5.y.parse(this.a.q.o()));
-                } catch (ParseException e) {
-                    e.printStackTrace();
-                }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948373424, "Lcom/baidu/tieba/zv5;");
+                return;
             }
         }
+        j = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds5);
+        k = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds11);
+        l = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds12);
+        m = TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds44);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public zv5(ov5 ov5Var) {
-        super(ov5Var.A);
+    public zv5(yv5 yv5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {ov5Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {yv5Var};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.e = ov5Var;
-        A(ov5Var.A);
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, view2) == null) {
-            if (((String) view2.getTag()).equals("submit")) {
-                C();
-            }
-            f();
+        this.a = TbadkCoreApplication.getInst().getResources().getColor(R.color.white_alpha100);
+        this.b = R.color.CAM_X0305;
+        this.c = j;
+        this.d = k;
+        this.e = m;
+        this.f = 0;
+        this.g = l;
+        this.h = 0;
+        if (yv5Var != null) {
+            this.a = yv5Var.a;
+            this.b = yv5Var.b;
+            this.c = yv5Var.c;
+            this.e = yv5Var.d;
+            this.d = yv5Var.e;
+            this.f = yv5Var.f;
+            this.g = yv5Var.g;
+            this.h = yv5Var.h;
         }
     }
 
-    public final void A(Context context) {
-        String str;
-        String str2;
-        String str3;
+    @Override // android.text.style.ReplacementSpan
+    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            r();
-            n();
-            m();
-            pv5 pv5Var = this.e.c;
-            if (pv5Var == null) {
-                LayoutInflater.from(context).inflate(R.layout.pickerview_time, this.b);
-                TextView textView = (TextView) i(R.id.obfuscated_res_0x7f092541);
-                RelativeLayout relativeLayout = (RelativeLayout) i(R.id.rv_topbar);
-                Button button = (Button) i(R.id.obfuscated_res_0x7f09047c);
-                Button button2 = (Button) i(R.id.obfuscated_res_0x7f090478);
-                button.setTag("submit");
-                button2.setTag("cancel");
-                button.setOnClickListener(this);
-                button2.setOnClickListener(this);
-                if (TextUtils.isEmpty(this.e.B)) {
-                    str = context.getResources().getString(R.string.pickerview_submit);
-                } else {
-                    str = this.e.B;
-                }
-                button.setText(str);
-                if (TextUtils.isEmpty(this.e.C)) {
-                    str2 = context.getResources().getString(R.string.pickerview_cancel);
-                } else {
-                    str2 = this.e.C;
-                }
-                button2.setText(str2);
-                if (TextUtils.isEmpty(this.e.D)) {
-                    str3 = "";
-                } else {
-                    str3 = this.e.D;
-                }
-                textView.setText(str3);
-                button.setTextColor(this.e.E);
-                button2.setTextColor(this.e.F);
-                textView.setTextColor(this.e.G);
-                relativeLayout.setBackgroundColor(this.e.I);
-                button.setTextSize(this.e.J);
-                button2.setTextSize(this.e.J);
-                textView.setTextSize(this.e.K);
-            } else {
-                pv5Var.a(LayoutInflater.from(context).inflate(this.e.x, this.b));
-            }
-            LinearLayout linearLayout = (LinearLayout) i(R.id.obfuscated_res_0x7f0923c4);
-            linearLayout.setBackgroundColor(this.e.H);
-            B(linearLayout);
+        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
+            canvas.save();
+            canvas.translate(0.0f, this.h);
+            paint.setColor(SkinManager.getColor(this.b));
+            paint.setAntiAlias(true);
+            float descent = this.e - (paint.descent() - paint.ascent());
+            float f2 = i4;
+            RectF rectF = new RectF(this.f + f, (paint.ascent() + f2) - descent, this.f + f + this.i + (this.d * 2), paint.descent() + f2);
+            int i6 = this.c;
+            canvas.drawRoundRect(rectF, i6, i6, paint);
+            paint.setColor(this.a);
+            canvas.drawText(charSequence, i, i2, this.d + f + this.f, f2 - (descent / 2.0f), paint);
+            canvas.restore();
         }
     }
 
-    public final void B(LinearLayout linearLayout) {
-        int i;
+    @Override // android.text.style.ReplacementSpan
+    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, linearLayout) == null) {
-            ov5 ov5Var = this.e;
-            bw5 bw5Var = new bw5(linearLayout, ov5Var.d, ov5Var.z, ov5Var.L);
-            this.q = bw5Var;
-            if (this.e.b != null) {
-                bw5Var.G(new a(this));
-            }
-            this.q.C(this.e.k);
-            ov5 ov5Var2 = this.e;
-            int i2 = ov5Var2.h;
-            if (i2 != 0 && (i = ov5Var2.i) != 0 && i2 <= i) {
-                E();
-            }
-            ov5 ov5Var3 = this.e;
-            Calendar calendar = ov5Var3.f;
-            if (calendar != null && ov5Var3.g != null) {
-                if (calendar.getTimeInMillis() <= this.e.g.getTimeInMillis()) {
-                    D();
-                } else {
-                    throw new IllegalArgumentException("startDate can't be later than endDate");
-                }
-            } else {
-                ov5 ov5Var4 = this.e;
-                Calendar calendar2 = ov5Var4.f;
-                if (calendar2 != null) {
-                    if (calendar2.get(1) >= 1900) {
-                        D();
-                    } else {
-                        throw new IllegalArgumentException("The startDate can not as early as 1900");
-                    }
-                } else {
-                    Calendar calendar3 = ov5Var4.g;
-                    if (calendar3 != null) {
-                        if (calendar3.get(1) <= 2100) {
-                            D();
-                        } else {
-                            throw new IllegalArgumentException("The endDate should not be later than 2100");
-                        }
-                    } else {
-                        D();
-                    }
-                }
-            }
-            F();
-            bw5 bw5Var2 = this.q;
-            ov5 ov5Var5 = this.e;
-            bw5Var2.y(ov5Var5.l, ov5Var5.m, ov5Var5.n, ov5Var5.o, ov5Var5.p, ov5Var5.q);
-            bw5 bw5Var3 = this.q;
-            ov5 ov5Var6 = this.e;
-            bw5Var3.N(ov5Var6.r, ov5Var6.s, ov5Var6.t, ov5Var6.u, ov5Var6.v, ov5Var6.w);
-            t(this.e.S);
-            this.q.s(this.e.j);
-            this.q.u(this.e.O);
-            this.q.w(this.e.U);
-            this.q.A(this.e.Q);
-            this.q.M(this.e.M);
-            this.q.K(this.e.N);
-            this.q.p(this.e.T);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
+            int measureText = (int) paint.measureText(charSequence, i, i2);
+            this.i = measureText;
+            return measureText + (this.d * 2) + this.f + this.g;
         }
-    }
-
-    public void C() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.e.a != null) {
-            try {
-                Date parse = bw5.y.parse(this.q.o());
-                this.e.a.a(parse, this.m);
-                p95.d().c0(parse.getHours(), parse.getMinutes());
-            } catch (ParseException e) {
-                e.printStackTrace();
-            }
-        }
-    }
-
-    public final void D() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            bw5 bw5Var = this.q;
-            ov5 ov5Var = this.e;
-            bw5Var.E(ov5Var.f, ov5Var.g);
-            z();
-        }
-    }
-
-    public final void E() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.q.I(this.e.h);
-            this.q.x(this.e.i);
-        }
-    }
-
-    @Override // com.baidu.tieba.yv5
-    public boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.e.R;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void F() {
-        int i;
-        int i2;
-        int i3;
-        int i4;
-        int i5;
-        int i6;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            Calendar calendar = Calendar.getInstance();
-            Calendar calendar2 = this.e.e;
-            if (calendar2 == null) {
-                calendar.setTimeInMillis(System.currentTimeMillis());
-                i = calendar.get(1);
-                i2 = calendar.get(2);
-                i3 = calendar.get(5);
-                i4 = calendar.get(11);
-                i5 = calendar.get(12);
-                i6 = calendar.get(13);
-            } else {
-                i = calendar2.get(1);
-                i2 = this.e.e.get(2);
-                i3 = this.e.e.get(5);
-                i4 = this.e.e.get(11);
-                i5 = this.e.e.get(12);
-                i6 = this.e.e.get(13);
-            }
-            int i7 = i4;
-            int i8 = i3;
-            int i9 = i2;
-            bw5 bw5Var = this.q;
-            bw5Var.D(i, i9, i8, i7, i5, i6);
-        }
-    }
-
-    public final void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            ov5 ov5Var = this.e;
-            if (ov5Var.f != null && ov5Var.g != null) {
-                Calendar calendar = ov5Var.e;
-                if (calendar == null || calendar.getTimeInMillis() < this.e.f.getTimeInMillis() || this.e.e.getTimeInMillis() > this.e.g.getTimeInMillis()) {
-                    ov5 ov5Var2 = this.e;
-                    ov5Var2.e = ov5Var2.f;
-                    return;
-                }
-                return;
-            }
-            ov5 ov5Var3 = this.e;
-            Calendar calendar2 = ov5Var3.f;
-            if (calendar2 != null) {
-                ov5Var3.e = calendar2;
-                return;
-            }
-            Calendar calendar3 = ov5Var3.g;
-            if (calendar3 != null) {
-                ov5Var3.e = calendar3;
-            }
-        }
+        return invokeCommon.intValue;
     }
 }

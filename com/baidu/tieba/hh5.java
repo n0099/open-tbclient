@@ -1,77 +1,43 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
-import com.baidu.pyramid.runtime.service.ServiceReference;
+import android.view.View;
+import android.widget.LinearLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Comparator;
-import java.util.List;
 /* loaded from: classes4.dex */
-public interface hh5 {
-    @NonNull
-    public static final ServiceReference a = new ServiceReference("AlaLiveSdk", "IMSdkService");
-    public static final Comparator<ChatMsg> b = new a();
+public class hh5 implements fh5 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void a(@NonNull Context context, @NonNull List<Long> list, @NonNull rh5 rh5Var);
-
-    void b(@NonNull Context context, long j, long j2, int i, boolean z, boolean z2, @Nullable uh5 uh5Var, @NonNull th5 th5Var);
-
-    void c(@NonNull Context context, @NonNull List<Long> list, @NonNull rh5 rh5Var);
-
-    void d(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull oh5 oh5Var);
-
-    void e(@NonNull sh5 sh5Var);
-
-    void f(@NonNull Context context, @NonNull String str, @NonNull List<Long> list, @NonNull ph5 ph5Var);
-
-    void g(@NonNull sh5 sh5Var);
-
-    void h(@NonNull Context context, @NonNull String str, @NonNull List<Long> list);
-
-    void i(@NonNull Context context, long j, @NonNull ChatMsg chatMsg, @NonNull vh5 vh5Var);
-
-    /* loaded from: classes4.dex */
-    public static class a implements Comparator<ChatMsg> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+    public hh5() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
+    }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(ChatMsg chatMsg, ChatMsg chatMsg2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, chatMsg, chatMsg2)) == null) {
-                if (TextUtils.equals(chatMsg.getMsgKey(), chatMsg2.getMsgKey())) {
-                    return 0;
-                }
-                if (chatMsg.getMsgId() - chatMsg2.getMsgId() > 0) {
-                    return 1;
-                }
-                return -1;
+    @Override // com.baidu.tieba.fh5
+    public void a(View view2, View view3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
+            LinearLayout linearLayout = (LinearLayout) view2;
+            if (z) {
+                linearLayout.addView(view3, 0);
+            } else {
+                linearLayout.addView(view3);
             }
-            return invokeLL.intValue;
+            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
+            layoutParams.gravity = 1;
+            view3.setLayoutParams(layoutParams);
         }
     }
 }

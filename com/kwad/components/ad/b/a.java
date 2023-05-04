@@ -50,10 +50,10 @@ public final class a {
             r4 = ad != null ? ad.length() : 0L;
             adTemplate.mDownloadType = 2;
         } else if (sc > 0) {
-            a.C0635a c0635a = new a.C0635a();
+            a.C0638a c0638a = new a.C0638a();
             int i = sc * 1024;
-            boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0635a);
-            str = c0635a.Qd;
+            boolean a2 = com.kwad.sdk.core.videocache.b.a.bC(KsAdSDKImpl.get().getContext()).a(A, i, c0638a);
+            str = c0638a.Qd;
             adTemplate.mDownloadType = 3;
             adTemplate.mDownloadSize = i;
             z2 = a2;

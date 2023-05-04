@@ -1,64 +1,34 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.themeCenter.background.DressItemData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.GetPendantByCategory.ThemePendantInMain;
-import tbclient.ThemeBgProp;
 /* loaded from: classes5.dex */
 public class or9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-    public List<DressItemData> b;
 
-    public or9() {
+    public static void a(boolean z, boolean z2) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_THREAD_POST_RESULT_DIALOG_SHOW).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_type", z ? 1 : 0).param("obj_source", z2 ? 1 : 0));
         }
     }
 
-    public String a() {
-        InterceptResult invokeV;
+    public static void b(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
+            TiebaStatic.log(new StatisticItem(CommonStatisticKey.KEY_THREAD_POST_FAIL_DIALOG_RETRY_CLICK).param("uid", TbadkCoreApplication.getCurrentAccount()).param("obj_source", z ? 1 : 0));
         }
-        return (String) invokeV.objValue;
     }
 
-    public List<DressItemData> b() {
-        InterceptResult invokeV;
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public void c(ThemePendantInMain themePendantInMain) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, themePendantInMain) != null) || themePendantInMain == null) {
-            return;
-        }
-        this.a = themePendantInMain.pendant_category;
-        this.b = new ArrayList();
-        for (ThemeBgProp themeBgProp : themePendantInMain.props) {
-            this.b.add(new DressItemData(themeBgProp));
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            TiebaStatic.log(new StatisticItem("c14029").param("uid", TbadkCoreApplication.getCurrentAccount()));
         }
     }
 }

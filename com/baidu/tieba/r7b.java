@@ -1,19 +1,13 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.yy.mobile.framework.revenuesdk.payapi.IPayCallback;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.CurrencyChargeMessage;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PayWayInfo;
-import java.util.List;
-import tv.athena.revenue.payui.view.IYYPayAmountView;
-import tv.athena.revenue.payui.view.PaySplitOrderViewSource;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
-public interface r7b {
-    void a(Activity activity, g9b g9bVar, List<PayWayInfo> list, String str, PaySplitOrderViewSource paySplitOrderViewSource, IYYPayAmountView.ViewParams viewParams, IPayCallback<CurrencyChargeMessage> iPayCallback);
+public class r7b {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    i9b b();
+    public abstract Object[] a();
 
-    void c(i9b i9bVar);
-
-    void release();
+    public abstract int b();
 }

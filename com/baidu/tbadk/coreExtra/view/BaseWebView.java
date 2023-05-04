@@ -31,13 +31,13 @@ import com.baidu.tbadk.browser.TbChannelJsInterface;
 import com.baidu.tbadk.core.log.HybridLog;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.jt4;
+import com.baidu.tieba.cq9;
+import com.baidu.tieba.dj8;
+import com.baidu.tieba.eq9;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.lg;
-import com.baidu.tieba.nm9;
-import com.baidu.tieba.pm9;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.rt4;
-import com.baidu.tieba.vg8;
+import com.baidu.tieba.pt4;
+import com.baidu.tieba.zt4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,11 +55,11 @@ public class BaseWebView extends WebView {
     public transient /* synthetic */ FieldHolder $fh;
     public long initFinishedTime;
     public final long initStartTime;
-    public pm9 jsCallback;
+    public eq9 jsCallback;
     public CommonTbJsBridge mCommonJsBridge;
     public Context mContext;
     public boolean mIsLoaded;
-    public nm9 mJsBridge;
+    public cq9 mJsBridge;
     public c mOnLoadUrlListener;
     public d mOnPageFinishedListener;
     public e mOnPageStartedListener;
@@ -89,7 +89,7 @@ public class BaseWebView extends WebView {
 
     /* loaded from: classes3.dex */
     public interface f {
-        void b(WebView webView, int i);
+        void g(WebView webView, int i);
     }
 
     /* loaded from: classes3.dex */
@@ -115,7 +115,7 @@ public class BaseWebView extends WebView {
     }
 
     /* loaded from: classes3.dex */
-    public class a implements pm9 {
+    public class a implements eq9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ BaseWebView a;
@@ -138,15 +138,15 @@ public class BaseWebView extends WebView {
             this.a = baseWebView;
         }
 
-        @Override // com.baidu.tieba.pm9
+        @Override // com.baidu.tieba.eq9
         public boolean onJsPrompt(String str, JsPromptResult jsPromptResult) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, jsPromptResult)) == null) {
                 BaseWebView baseWebView = this.a;
-                nm9 nm9Var = baseWebView.mJsBridge;
-                if (nm9Var != null) {
-                    return nm9Var.c(baseWebView.getWebView(), str, jsPromptResult);
+                cq9 cq9Var = baseWebView.mJsBridge;
+                if (cq9Var != null) {
+                    return cq9Var.c(baseWebView.getWebView(), str, jsPromptResult);
                 }
                 return false;
             }
@@ -191,7 +191,7 @@ public class BaseWebView extends WebView {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, renderProcessGoneDetail)) == null) {
-                rt4.a(BaseWebView.TAG, webView);
+                zt4.a(BaseWebView.TAG, webView);
                 return true;
             }
             return invokeLL.booleanValue;
@@ -229,7 +229,7 @@ public class BaseWebView extends WebView {
                 if (this.a.mOnPageFinishedListener != null) {
                     this.a.mOnPageFinishedListener.onPageFinished(webView, str);
                 }
-                vg8 hybridLog = HybridLog.getInstance();
+                dj8 hybridLog = HybridLog.getInstance();
                 hybridLog.c(BaseWebView.TAG, "onPageFinished:" + str);
             }
         }
@@ -253,7 +253,7 @@ public class BaseWebView extends WebView {
                 if (this.a.mOnReceivedErrorListener != null) {
                     this.a.mOnReceivedErrorListener.a(webView, i, str, str2);
                 }
-                vg8 hybridLog = HybridLog.getInstance();
+                dj8 hybridLog = HybridLog.getInstance();
                 hybridLog.b(BaseWebView.TAG, "onReceivedError errorCode:" + i + " description:" + str + " failingUrl:" + str2);
             }
         }
@@ -269,7 +269,7 @@ public class BaseWebView extends WebView {
                 if (this.a.mOnReceivedSslErrorListener != null) {
                     this.a.mOnReceivedSslErrorListener.a(webView, sslErrorHandler, sslError);
                 }
-                vg8 hybridLog = HybridLog.getInstance();
+                dj8 hybridLog = HybridLog.getInstance();
                 hybridLog.b(BaseWebView.TAG, "onReceivedSslError error:" + sslError);
             }
         }
@@ -309,7 +309,7 @@ public class BaseWebView extends WebView {
             if (interceptable == null || interceptable.invokeLI(1048580, this, webView, i) == null) {
                 super.onProgressChanged(webView, i);
                 if (this.a.mOnProgressChangedListener != null) {
-                    this.a.mOnProgressChangedListener.b(webView, i);
+                    this.a.mOnProgressChangedListener.g(webView, i);
                 }
             }
         }
@@ -509,10 +509,10 @@ public class BaseWebView extends WebView {
         }
     }
 
-    public void setOnJsPromptCallback(pm9 pm9Var) {
+    public void setOnJsPromptCallback(eq9 eq9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, pm9Var) == null) {
-            this.jsCallback = pm9Var;
+        if (interceptable == null || interceptable.invokeL(1048587, this, eq9Var) == null) {
+            this.jsCallback = eq9Var;
         }
     }
 
@@ -593,10 +593,10 @@ public class BaseWebView extends WebView {
     }
 
     public void sendNotification(String str, HashMap hashMap) {
-        nm9 nm9Var;
+        cq9 cq9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (nm9Var = this.mJsBridge) != null) {
-            nm9Var.i(getWebView(), str, hashMap);
+        if ((interceptable == null || interceptable.invokeLL(1048585, this, str, hashMap) == null) && (cq9Var = this.mJsBridge) != null) {
+            cq9Var.i(getWebView(), str, hashMap);
         }
     }
 
@@ -613,7 +613,7 @@ public class BaseWebView extends WebView {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(65552, this) == null) && (view2 = this.skinOverlayView) != null) {
             view2.setVisibility(0);
-            r25.d(this.skinOverlayView).f(R.color.CAM_X0503);
+            g35.d(this.skinOverlayView).f(R.color.CAM_X0503);
         }
     }
 
@@ -649,10 +649,10 @@ public class BaseWebView extends WebView {
     }
 
     public void reshow() {
-        nm9 nm9Var;
+        cq9 cq9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (nm9Var = this.mJsBridge) != null) {
-            nm9Var.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && (cq9Var = this.mJsBridge) != null) {
+            cq9Var.i(getWebView(), CommonTbJsBridge.RE_SHOW, null);
         }
     }
 
@@ -663,10 +663,10 @@ public class BaseWebView extends WebView {
             getSettings().setCacheMode(2);
             getSettings().setUseWideViewPort(true);
             getSettings().setUserAgentString(getSettings().getUserAgentString() + " tieba/" + TbConfig.getVersion() + " skin/" + SkinManager.getCurrentSkinTypeString());
-            jt4.a(getSettings());
+            pt4.a(getSettings());
             this.mWebViewClient = new b(this);
             this.mWebChromeClient = new j(this, null);
-            this.mJsBridge = new nm9();
+            this.mJsBridge = new cq9();
             setWebViewClient(this.mWebViewClient);
             setWebChromeClient(this.mWebChromeClient);
             if (Build.VERSION.SDK_INT >= 11) {
@@ -674,7 +674,7 @@ public class BaseWebView extends WebView {
                 removeJavascriptInterface("accessibility");
                 removeJavascriptInterface("accessibilityTraversal");
             }
-            jt4.j(getContext());
+            pt4.j(getContext());
             if (Build.VERSION.SDK_INT >= 21) {
                 setAcceptThirdPartyCookies(true);
                 getSettings().setMixedContentMode(0);
@@ -706,7 +706,7 @@ public class BaseWebView extends WebView {
             }
             View view2 = this.skinOverlayView;
             if (view2 != null) {
-                r25.d(view2).f(R.color.CAM_X0503);
+                g35.d(view2).f(R.color.CAM_X0503);
             }
         }
     }
@@ -719,7 +719,7 @@ public class BaseWebView extends WebView {
             if (tbChannelJsInterface != null) {
                 tbChannelJsInterface.startLoadUrl(str);
             }
-            vg8 hybridLog = HybridLog.getInstance();
+            dj8 hybridLog = HybridLog.getInstance();
             hybridLog.c(TAG, "loadUrl:" + str);
             super.loadUrl(str);
         }
@@ -733,7 +733,7 @@ public class BaseWebView extends WebView {
             if (tbChannelJsInterface != null) {
                 tbChannelJsInterface.startLoadUrl(str);
             }
-            vg8 hybridLog = HybridLog.getInstance();
+            dj8 hybridLog = HybridLog.getInstance();
             hybridLog.c(TAG, "loadUrl:" + str + " additionalHttpHeaders:" + map);
             super.loadUrl(str, map);
         }

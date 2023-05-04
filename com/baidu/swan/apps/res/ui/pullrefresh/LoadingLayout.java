@@ -7,10 +7,10 @@ import android.util.AttributeSet;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.FrameLayout;
-import com.baidu.tieba.fo1;
+import com.baidu.tieba.ho1;
 /* loaded from: classes3.dex */
 public abstract class LoadingLayout extends FrameLayout {
-    public static final boolean d = fo1.a;
+    public static final boolean d = ho1.a;
     public View a;
     public ILoadingLayout$State b;
     public ILoadingLayout$State c;

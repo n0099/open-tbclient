@@ -12,7 +12,7 @@ import com.google.android.gms.dynamic.IObjectWrapper;
 import com.google.android.gms.dynamic.ObjectWrapper;
 import javax.annotation.Nullable;
 @SafeParcelable.Class(creator = "GoogleCertificatesQueryCreator")
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzs extends AbstractSafeParcelable {
     public static final Parcelable.Creator<zzs> CREATOR = new zzt();
     @SafeParcelable.Field(getter = "getCallingPackage", id = 1)

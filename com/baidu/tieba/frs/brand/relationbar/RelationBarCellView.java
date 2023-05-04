@@ -107,10 +107,10 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d031d, (ViewGroup) this, true);
-            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c01);
-            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c02);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c00);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0320, (ViewGroup) this, true);
+            this.b = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090c09);
+            this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f090c0a);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f090c08);
             this.b.setDefaultResource(17170445);
             this.b.setDefaultBgResource(R.color.CAM_X0205);
             this.b.setBorderColor(0);
@@ -155,7 +155,7 @@ public class RelationBarCellView extends RelativeLayout implements View.OnClickL
             this.g = oriForumInfo;
             this.b.N(oriForumInfo.ori_avatar, 10, false);
             this.c.setText(oriForumInfo.ori_fname);
-            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0732), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
+            this.d.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f073f), StringHelper.numFormatOverWanNa(oriForumInfo.ori_member_num.longValue())));
         }
     }
 

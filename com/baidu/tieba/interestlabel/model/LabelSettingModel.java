@@ -9,14 +9,14 @@ import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.ed8;
-import com.baidu.tieba.fd8;
 import com.baidu.tieba.interestlabel.message.RequestGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.RequestSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseHttpSubLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketGetLabelMessage;
 import com.baidu.tieba.interestlabel.message.ResponseSocketSubLabelMessage;
+import com.baidu.tieba.mf8;
+import com.baidu.tieba.nf8;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -29,8 +29,8 @@ public class LabelSettingModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public TbPageContext<?> a;
-    public fd8 b;
-    public ed8 c;
+    public nf8 b;
+    public mf8 c;
     public za d;
     public za e;
 
@@ -74,18 +74,18 @@ public class LabelSettingModel extends BdBaseModel {
 
         @Override // com.baidu.tieba.za
         public void onMessage(ResponsedMessage<?> responsedMessage) {
-            ed8 ed8Var;
+            mf8 mf8Var;
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, responsedMessage) == null) && responsedMessage != null && responsedMessage.getOrginalMessage() != null) {
                 if (((responsedMessage instanceof ResponseHttpGetLabelMessage) || (responsedMessage instanceof ResponseSocketGetLabelMessage)) && this.a.unique_id == responsedMessage.getOrginalMessage().getTag() && this.a.b != null) {
-                    fd8 fd8Var = this.a.b;
+                    nf8 nf8Var = this.a.b;
                     LabelRequestEnum labelRequestEnum = LabelRequestEnum.GET_LABEL;
                     if (responsedMessage.getError() == 0) {
-                        ed8Var = this.a.c;
+                        mf8Var = this.a.c;
                     } else {
-                        ed8Var = null;
+                        mf8Var = null;
                     }
-                    fd8Var.a(labelRequestEnum, ed8Var, responsedMessage.getError());
+                    nf8Var.a(labelRequestEnum, mf8Var, responsedMessage.getError());
                 }
             }
         }
@@ -158,16 +158,16 @@ public class LabelSettingModel extends BdBaseModel {
         this.d = new a(this, CmdConfigHttp.CMD_GET_INTEREST_LABEL_LIST, 309467);
         this.e = new b(this, CmdConfigHttp.CMD_SUB_INTEREST_LABEL_LIST, 309468);
         this.a = tbPageContext;
-        this.c = new ed8();
+        this.c = new mf8();
         registerListener(this.d);
         registerListener(this.e);
     }
 
-    public void W(List<Integer> list) {
+    public void b0(List<Integer> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0d1b);
+                this.a.showToast((int) R.string.obfuscated_res_0x7f0f0d30);
                 return;
             }
             RequestSubLabelMessage requestSubLabelMessage = new RequestSubLabelMessage();
@@ -177,20 +177,20 @@ public class LabelSettingModel extends BdBaseModel {
         }
     }
 
-    public void X(fd8 fd8Var) {
+    public void c0(nf8 nf8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, fd8Var) == null) {
-            this.b = fd8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, nf8Var) == null) {
+            this.b = nf8Var;
         }
     }
 
-    public void V() {
+    public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             if (!BdNetTypeUtil.isNetworkAvailableForImmediately()) {
-                fd8 fd8Var = this.b;
-                if (fd8Var != null) {
-                    fd8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
+                nf8 nf8Var = this.b;
+                if (nf8Var != null) {
+                    nf8Var.a(LabelRequestEnum.GET_LABEL, null, -1);
                     return;
                 }
                 return;

@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import com.xiaomi.push.aj;
 import com.xiaomi.push.ci;
 import java.util.ArrayList;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cj extends aj.a {
     public final /* synthetic */ ci a;
 

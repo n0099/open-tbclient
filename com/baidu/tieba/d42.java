@@ -7,15 +7,14 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public final class d42 extends h32 {
+public final class d42 extends g32 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int D;
-    public String E;
+    public boolean u;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public d42() {
-        super("coverView", "viewId");
+        super("coverImage", "viewId");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -30,10 +29,10 @@ public final class d42 extends h32 {
                 return;
             }
         }
-        this.E = "";
+        this.u = false;
     }
 
-    @Override // com.baidu.tieba.h32, com.baidu.tieba.j32, com.baidu.tieba.l32, com.baidu.tieba.ux2
+    @Override // com.baidu.tieba.g32, com.baidu.tieba.l32, com.baidu.tieba.n32, com.baidu.tieba.wx2
     public void a(JSONObject jSONObject) throws JSONException {
         JSONObject jSONObject2;
         Interceptable interceptable = $ic;
@@ -41,14 +40,10 @@ public final class d42 extends h32 {
             return;
         }
         super.a(jSONObject);
-        this.D = jSONObject.optInt("scrollTop");
-        JSONObject jSONObject3 = this.j;
-        if (jSONObject3 != null) {
-            this.E = jSONObject3.optString("overflowY");
-        }
-        by2 by2Var = this.h;
-        if (by2Var != null && (jSONObject2 = this.j) != null) {
-            by2Var.i(jSONObject2.optBoolean("fixed", false));
+        this.u = jSONObject.optBoolean("loadState", false);
+        dy2 dy2Var = this.h;
+        if (dy2Var != null && (jSONObject2 = this.j) != null) {
+            dy2Var.i(jSONObject2.optBoolean("fixed", false));
         }
     }
 }

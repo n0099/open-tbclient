@@ -24,10 +24,10 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.HeadPendantClickableView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.av4;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.h75;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.r65;
+import com.baidu.tieba.qv4;
 import com.baidu.tieba.view.DynamicUserLikeButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -44,7 +44,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
     public BdUniqueId c;
     public int d;
     public List<MetaData> e;
-    public av4<MetaData> f;
+    public qv4<MetaData> f;
 
     public void r(boolean z) {
         Interceptable interceptable = $ic;
@@ -61,7 +61,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         public TextView c;
         public HeadPendantClickableView d;
         public DynamicUserLikeButton e;
-        public r65 f;
+        public h75 f;
         public boolean g;
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
@@ -95,7 +95,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
             this.b = (TextView) view2.findViewById(R.id.concern_user_name);
             this.c = (TextView) view2.findViewById(R.id.concern_user_desc);
             this.e = (DynamicUserLikeButton) view2.findViewById(R.id.user_recommend_like_btn);
-            this.f = new r65(concernRecommendListAdapter.b, this.e);
+            this.f = new h75(concernRecommendListAdapter.b, this.e);
         }
 
         public void a(int i) {
@@ -108,7 +108,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
                 }
                 SkinManager.setViewTextColor(this.c, (int) R.color.CAM_X0109);
                 this.e.onChangeSkinType(i);
-                r25 d = r25.d(this.a);
+                g35 d = g35.d(this.a);
                 d.o(R.string.J_X05);
                 d.f(R.color.CAM_X0206);
             }
@@ -273,10 +273,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         }
     }
 
-    public void s(av4<MetaData> av4Var) {
+    public void s(qv4<MetaData> qv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, av4Var) == null) {
-            this.f = av4Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, qv4Var) == null) {
+            this.f = qv4Var;
         }
     }
 
@@ -333,9 +333,9 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         A(metaData, forumViewHolder);
         y(metaData, forumViewHolder);
         z(metaData, forumViewHolder);
-        av4<MetaData> av4Var = this.f;
-        if (av4Var != null) {
-            av4Var.c(forumViewHolder.itemView, metaData, i, i);
+        qv4<MetaData> qv4Var = this.f;
+        if (qv4Var != null) {
+            qv4Var.c(forumViewHolder.itemView, metaData, i, i);
         }
         forumViewHolder.a(this.d);
     }
@@ -361,7 +361,7 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048582, this, viewGroup, i)) == null) {
-            return new ForumViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0203, (ViewGroup) null));
+            return new ForumViewHolder(this, LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0206, (ViewGroup) null));
         }
         return (ForumViewHolder) invokeLI.objValue;
     }
@@ -392,10 +392,10 @@ public class ConcernRecommendListAdapter extends RecyclerView.Adapter<ForumViewH
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048591, this, metaData, forumViewHolder) == null) {
             forumViewHolder.e.setOnClickEvent(new b(this, metaData));
-            r65 r65Var = forumViewHolder.f;
-            if (r65Var != null) {
-                r65Var.l(this.c);
-                r65Var.n(metaData);
+            h75 h75Var = forumViewHolder.f;
+            if (h75Var != null) {
+                h75Var.l(this.c);
+                h75Var.n(metaData);
             }
         }
     }

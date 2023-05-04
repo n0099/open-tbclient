@@ -1,10 +1,12 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.content.pm.PackageInfo;
+import android.os.Build;
+import android.os.Process;
+import android.os.SystemClock;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.mva;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,145 +14,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import com.heytap.mcssdk.PushService;
+import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes4.dex */
-public class fwa extends jva {
+public class fwa {
     public static /* synthetic */ Interceptable $ic;
-    public static List<cwa> c;
-    public static final Object d;
-    public static final Map<String, jva> e;
-    public static String f;
+    public static String A;
+    public static int B;
+    public static final SimpleDateFormat x;
+    public static String y;
+    public static String z;
     public transient /* synthetic */ FieldHolder $fh;
-    public final kva a;
-    public final gwa b;
-
-    /* loaded from: classes4.dex */
-    public static class a implements mva.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mva.a
-        public String a(kva kvaVar) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kvaVar)) == null) {
-                if (kvaVar.b().equals(hva.c)) {
-                    str = "/agcgw_all/CN";
-                } else if (kvaVar.b().equals(hva.e)) {
-                    str = "/agcgw_all/RU";
-                } else if (kvaVar.b().equals(hva.d)) {
-                    str = "/agcgw_all/DE";
-                } else if (!kvaVar.b().equals(hva.f)) {
-                    return null;
-                } else {
-                    str = "/agcgw_all/SG";
-                }
-                return kvaVar.a(str);
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b implements mva.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mva.a
-        public String a(kva kvaVar) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kvaVar)) == null) {
-                if (kvaVar.b().equals(hva.c)) {
-                    str = "/agcgw_all/CN_back";
-                } else if (kvaVar.b().equals(hva.e)) {
-                    str = "/agcgw_all/RU_back";
-                } else if (kvaVar.b().equals(hva.d)) {
-                    str = "/agcgw_all/DE_back";
-                } else if (!kvaVar.b().equals(hva.f)) {
-                    return null;
-                } else {
-                    str = "/agcgw_all/SG_back";
-                }
-                return kvaVar.a(str);
-            }
-            return (String) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class c implements mva.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.mva.a
-        public String a(kva kvaVar) {
-            InterceptResult invokeL;
-            String str;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, kvaVar)) == null) {
-                if (kvaVar.b().equals(hva.c)) {
-                    str = "/service/analytics/collector_url_cn";
-                } else if (kvaVar.b().equals(hva.e)) {
-                    str = "/service/analytics/collector_url_ru";
-                } else if (kvaVar.b().equals(hva.d)) {
-                    str = "/service/analytics/collector_url_de";
-                } else if (!kvaVar.b().equals(hva.f)) {
-                    return null;
-                } else {
-                    str = "/service/analytics/collector_url_sg";
-                }
-                return kvaVar.a(str);
-            }
-            return (String) invokeL.objValue;
-        }
-    }
+    public String a;
+    public String b;
+    public String c;
+    public int d;
+    public String e;
+    public String f;
+    public String g;
+    public int h;
+    public String i;
+    public String j;
+    public String k;
+    public long l;
+    public long m;
+    public String n;
+    public String o;
+    public boolean p;
+    public String q;
+    public String r;
+    public ArrayList<String> s;
+    public StringBuilder t;
+    public StringBuilder u;
+    public StringBuilder v;
+    public StringBuilder w;
 
     static {
         InterceptResult invokeClinit;
@@ -165,16 +65,19 @@ public class fwa extends jva {
                 return;
             }
         }
-        d = new Object();
-        e = new HashMap();
+        x = new SimpleDateFormat("MM-dd HH:mm:ss.SSS", Locale.US);
+        A = "";
+        B = -1;
+        B = gwa.b();
+        z = Build.MODEL;
+        A = Build.VERSION.SDK_INT + " " + Build.VERSION.RELEASE;
+        y = yva.getContext().provideQualifier();
     }
 
-    public fwa(kva kvaVar) {
+    public fwa() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {kvaVar};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -184,144 +87,197 @@ public class fwa extends jva {
                 return;
             }
         }
-        this.a = kvaVar;
-        if (c == null) {
-            Log.e("AGConnectInstance", "please call `initialize()` first");
-        }
-        new gwa(c, kvaVar.getContext());
-        gwa gwaVar = new gwa(null, kvaVar.getContext());
-        this.b = gwaVar;
-        if (kvaVar instanceof sva) {
-            gwaVar.c(((sva) kvaVar).d(), kvaVar.getContext());
-        }
+        this.c = "";
+        this.d = -1;
+        this.g = "";
+        this.r = "-1";
+        this.s = new ArrayList<>();
+        this.t = new StringBuilder();
+        this.u = new StringBuilder();
+        this.v = new StringBuilder();
+        this.w = new StringBuilder();
     }
 
-    public static jva e() {
+    public static fwa b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            String str = f;
-            if (str == null) {
-                str = "DEFAULT_INSTANCE";
+            fwa fwaVar = new fwa();
+            Context provideContext = yva.getContext().provideContext();
+            String str = fwaVar.g;
+            if (str == null || str.length() == 0) {
+                try {
+                    PackageInfo packageInfo = provideContext.getPackageManager().getPackageInfo(provideContext.getPackageName(), 0);
+                    fwaVar.h = packageInfo.versionCode;
+                    fwaVar.g = packageInfo.versionName;
+                } catch (Throwable th) {
+                    Log.e("BlockInfo", "newInstance: ", th);
+                }
             }
-            return h(str);
+            fwaVar.d = B;
+            fwaVar.b = z;
+            fwaVar.c = A;
+            fwaVar.a = y;
+            fwaVar.e = yva.getContext().provideUid();
+            fwaVar.f = hwa.a();
+            fwaVar.i = yva.getContext().provideNetworkType();
+            fwaVar.j = String.valueOf(gwa.a());
+            fwaVar.k = String.valueOf(gwa.c());
+            if (Build.VERSION.SDK_INT >= 24) {
+                fwaVar.r = Long.toString(SystemClock.elapsedRealtime() - Process.getStartElapsedRealtime());
+            }
+            return fwaVar;
         }
-        return (jva) invokeV.objValue;
+        return (fwa) invokeV.objValue;
     }
 
-    public static jva f(kva kvaVar) {
+    public fwa a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            StringBuilder sb = this.t;
+            sb.append("qua");
+            sb.append(" = ");
+            sb.append(this.a);
+            sb.append("\r\n");
+            StringBuilder sb2 = this.t;
+            sb2.append(PushService.APP_VERSION_NAME);
+            sb2.append(" = ");
+            sb2.append(this.g);
+            sb2.append("\r\n");
+            StringBuilder sb3 = this.t;
+            sb3.append(PushService.APP_VERSION_CODE);
+            sb3.append(" = ");
+            sb3.append(this.h);
+            sb3.append("\r\n");
+            StringBuilder sb4 = this.t;
+            sb4.append("uid");
+            sb4.append(" = ");
+            sb4.append(this.e);
+            sb4.append("\r\n");
+            StringBuilder sb5 = this.t;
+            sb5.append("network");
+            sb5.append(" = ");
+            sb5.append(this.i);
+            sb5.append("\r\n");
+            StringBuilder sb6 = this.t;
+            sb6.append("model");
+            sb6.append(" = ");
+            sb6.append(this.b);
+            sb6.append("\r\n");
+            StringBuilder sb7 = this.t;
+            sb7.append("api-level");
+            sb7.append(" = ");
+            sb7.append(this.c);
+            sb7.append("\r\n");
+            StringBuilder sb8 = this.t;
+            sb8.append("cpu-core");
+            sb8.append(" = ");
+            sb8.append(this.d);
+            sb8.append("\r\n");
+            StringBuilder sb9 = this.t;
+            sb9.append("process");
+            sb9.append(" = ");
+            sb9.append(this.f);
+            sb9.append("\r\n");
+            StringBuilder sb10 = this.t;
+            sb10.append("freeMemory");
+            sb10.append(" = ");
+            sb10.append(this.j);
+            sb10.append("\r\n");
+            StringBuilder sb11 = this.t;
+            sb11.append("totalMemory");
+            sb11.append(" = ");
+            sb11.append(this.k);
+            sb11.append("\r\n");
+            StringBuilder sb12 = this.v;
+            sb12.append("time");
+            sb12.append(" = ");
+            sb12.append(this.l);
+            sb12.append("\r\n");
+            StringBuilder sb13 = this.v;
+            sb13.append("thread-time");
+            sb13.append(" = ");
+            sb13.append(this.m);
+            sb13.append("\r\n");
+            StringBuilder sb14 = this.v;
+            sb14.append("time-start");
+            sb14.append(" = ");
+            sb14.append(this.n);
+            sb14.append("\r\n");
+            StringBuilder sb15 = this.v;
+            sb15.append("time-end");
+            sb15.append(" = ");
+            sb15.append(this.o);
+            sb15.append("\r\n");
+            StringBuilder sb16 = this.u;
+            sb16.append("cpu-busy");
+            sb16.append(" = ");
+            sb16.append(this.p);
+            sb16.append("\r\n");
+            StringBuilder sb17 = this.u;
+            sb17.append("cpu-rate");
+            sb17.append(" = ");
+            sb17.append(this.q);
+            sb17.append("\r\n");
+            ArrayList<String> arrayList = this.s;
+            if (arrayList != null && !arrayList.isEmpty()) {
+                StringBuilder sb18 = new StringBuilder();
+                Iterator<String> it = this.s.iterator();
+                while (it.hasNext()) {
+                    sb18.append(it.next());
+                    sb18.append("\r\n");
+                }
+                StringBuilder sb19 = this.w;
+                sb19.append("stack");
+                sb19.append(" = ");
+                sb19.append(sb18.toString());
+                sb19.append("\r\n");
+            }
+            return this;
+        }
+        return (fwa) invokeV.objValue;
+    }
+
+    public fwa c(long j, long j2, long j3, long j4) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), Long.valueOf(j4)})) == null) {
+            this.l = j2 - j;
+            this.m = j4 - j3;
+            this.n = Long.toString(j);
+            this.o = Long.toString(j2);
+            return this;
+        }
+        return (fwa) invokeCommon.objValue;
+    }
+
+    public fwa d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, kvaVar)) == null) ? g(kvaVar, false) : (jva) invokeL.objValue;
-    }
-
-    public static jva g(kva kvaVar, boolean z) {
-        InterceptResult invokeLZ;
-        jva jvaVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(InputDeviceCompat.SOURCE_TRACKBALL, null, kvaVar, z)) == null) {
-            synchronized (d) {
-                jvaVar = e.get(kvaVar.getIdentifier());
-                if (jvaVar == null || z) {
-                    jvaVar = new fwa(kvaVar);
-                    e.put(kvaVar.getIdentifier(), jvaVar);
-                }
-            }
-            return jvaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            this.q = str;
+            return this;
         }
-        return (jva) invokeLZ.objValue;
+        return (fwa) invokeL.objValue;
     }
 
-    public static jva h(String str) {
+    public fwa e(ArrayList<String> arrayList) {
         InterceptResult invokeL;
-        jva jvaVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            synchronized (d) {
-                jvaVar = e.get(str);
-                if (jvaVar == null) {
-                    if ("DEFAULT_INSTANCE".equals(str)) {
-                        Log.w("AGC_Instance", "please call `initialize()` first");
-                    } else {
-                        Log.w("AGC_Instance", "not find instance for : " + str);
-                    }
-                }
-            }
-            return jvaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, arrayList)) == null) {
+            this.s = arrayList;
+            return this;
         }
-        return (jva) invokeL.objValue;
+        return (fwa) invokeL.objValue;
     }
 
-    public static synchronized void i(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, context) == null) {
-            synchronized (fwa.class) {
-                if (e.size() > 0) {
-                    Log.w("AGC_Instance", "Repeated invoking initialize");
-                } else {
-                    j(context, nva.c(context));
-                }
-            }
-        }
-    }
-
-    public static synchronized void j(Context context, kva kvaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65543, null, context, kvaVar) == null) {
-            synchronized (fwa.class) {
-                Context applicationContext = context.getApplicationContext();
-                if (applicationContext == null) {
-                    Log.w("AGC_Instance", "context.getApplicationContext null");
-                } else {
-                    context = applicationContext;
-                }
-                k();
-                l();
-                rva.a(context);
-                if (c == null) {
-                    c = new com.huawei.agconnect.core.a.c(context).b();
-                }
-                g(kvaVar, true);
-                f = kvaVar.getIdentifier();
-                Log.i("AGC_Instance", "AGC SDK initialize end, default route:" + kvaVar.b().a());
-                ewa.a();
-            }
-        }
-    }
-
-    public static void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            mva.b("/agcgw/url", new a());
-            mva.b("/agcgw/backurl", new b());
-        }
-    }
-
-    public static void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
-            mva.b("/service/analytics/collector_url", new c());
-        }
-    }
-
-    @Override // com.baidu.tieba.jva
-    public kva c() {
+    public String toString() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.a : (kva) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jva
-    public Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.a.getContext() : (Context) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.jva
-    public String getIdentifier() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a.getIdentifier() : (String) invokeV.objValue;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return String.valueOf(this.t) + ((Object) this.v) + ((Object) this.u) + ((Object) this.w);
+        }
+        return (String) invokeV.objValue;
     }
 }

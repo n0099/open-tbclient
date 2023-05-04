@@ -1,16 +1,29 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
+import android.util.Base64;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.spswitch.emotion.resource.EmotionResourceInfo;
-import com.baidu.swan.apps.swancore.model.SwanCoreVersion;
+import com.baidu.android.common.security.RSAUtil;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.nio.channels.Channels;
+import java.nio.channels.ReadableByteChannel;
+import java.security.GeneralSecurityException;
+import java.security.KeyFactory;
+import java.security.NoSuchAlgorithmException;
+import java.security.PublicKey;
+import java.security.spec.InvalidKeySpecException;
+import java.security.spec.X509EncodedKeySpec;
+import javax.crypto.Cipher;
 /* loaded from: classes5.dex */
 public class kl3 {
     public static /* synthetic */ Interceptable $ic;
@@ -30,154 +43,131 @@ public class kl3 {
                 return;
             }
         }
-        a = fo1.a;
+        a = ho1.a;
     }
 
-    public static boolean a(String str, String str2) {
+    public static boolean a(File file, String str) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
-            if (b(str) > b(str2)) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, file, str)) == null) {
+            return b(file, str, null);
         }
         return invokeLL.booleanValue;
     }
 
-    public static long b(String str) {
-        InterceptResult invokeL;
+    public static boolean c(ReadableByteChannel readableByteChannel, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            String[] g = g(str);
-            if (g == null) {
-                return 0L;
-            }
-            long j = 0;
-            for (int i = 0; i < g.length; i++) {
-                try {
-                    j += Integer.parseInt(g[i]) * ((long) Math.pow(1000.0d, (g.length - i) - 1));
-                } catch (NumberFormatException e) {
-                    v42.l("SwanAppSwanCoreUtils", "getVersionCode exception", e);
-                    return 0L;
-                }
-            }
-            v42.b("SwanAppSwanCoreUtils", "getVersion version: ", str, " ,versionCode: ", Long.valueOf(j));
-            return j;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, readableByteChannel, str)) == null) {
+            return d(readableByteChannel, str, null);
         }
-        return invokeL.longValue;
+        return invokeLL.booleanValue;
     }
 
-    public static long c(String str) {
-        InterceptResult invokeL;
-        long j;
+    public static byte[] e(byte[] bArr, PublicKey publicKey) throws GeneralSecurityException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            String[] g = g(str);
-            if (g == null) {
-                return 0L;
-            }
-            long j2 = 0;
-            for (int i = 0; i < 3; i++) {
-                try {
-                    if (i < g.length) {
-                        j = Integer.parseInt(g[i]);
-                    } else {
-                        j = 0;
-                    }
-                    j2 = (j2 << 16) | j;
-                } catch (NumberFormatException e) {
-                    if (!a) {
-                        return 0L;
-                    }
-                    throw e;
-                }
-            }
-            if (a) {
-                Log.d("SwanAppSwanCoreUtils", "getVersion version: " + str + " ,versionCode: " + j2);
-            }
-            return j2;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, bArr, publicKey)) == null) {
+            Cipher cipher = Cipher.getInstance("RSA/ECB/PKCS1Padding");
+            cipher.init(2, publicKey);
+            return cipher.doFinal(bArr);
         }
-        return invokeL.longValue;
+        return (byte[]) invokeLL.objValue;
     }
 
-    public static String d(long j) {
-        InterceptResult invokeJ;
+    public static boolean b(File file, String str, em3 em3Var) {
+        InterceptResult invokeLLL;
+        boolean z;
+        Object valueOf;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TRACKBALL, null, j)) == null) {
-            if (j < 0) {
-                v42.k("SwanAppSwanCoreUtils", "versionCode < 0, versionCode = " + j);
-                return "0";
-            }
-            StringBuilder sb = new StringBuilder();
-            long j2 = j;
-            for (int i = 2; i >= 0; i--) {
-                if (i > 0) {
-                    long pow = (long) Math.pow(1000.0d, i);
-                    sb.append(j2 / pow);
-                    sb.append(".");
-                    j2 %= pow;
-                } else {
-                    sb.append(j2);
-                }
-            }
-            String sb2 = sb.toString();
-            v42.b("SwanAppSwanCoreUtils", "getVersionName version code: ", Long.valueOf(j), " ,version name: ", sb2);
-            return sb2;
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static boolean e(String str) {
-        InterceptResult invokeL;
-        String[] list;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            File file = new File(str);
-            if (!file.isDirectory() || (list = file.list()) == null || list.length <= 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static boolean f(String str) {
-        InterceptResult invokeL;
-        long j;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            long b = b(str);
-            SwanCoreVersion d0 = pe2.U().d0();
-            if (d0 != null) {
-                j = b(d0.swanCoreVersionName);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, file, str, em3Var)) == null) {
+            if (file == null) {
+                z = true;
             } else {
-                j = 0;
+                z = false;
             }
-            if (j < b) {
-                return true;
+            if (!z && file.exists() && !TextUtils.isEmpty(str)) {
+                ReadableByteChannel readableByteChannel = null;
+                try {
+                    readableByteChannel = Channels.newChannel(new FileInputStream(file));
+                    return d(readableByteChannel, str, em3Var);
+                } catch (IOException e) {
+                    if (a) {
+                        e.printStackTrace();
+                    }
+                    return false;
+                } finally {
+                    bo4.d(readableByteChannel);
+                }
+            }
+            if (em3Var != null) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("zipfile: isEmpty=");
+                sb.append(z);
+                sb.append("; exists=");
+                if (z) {
+                    valueOf = "";
+                } else {
+                    valueOf = Boolean.valueOf(file.exists());
+                }
+                sb.append(valueOf);
+                em3Var.a = sb.toString();
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLLL.booleanValue;
     }
 
-    public static String[] g(String str) {
+    public static boolean d(ReadableByteChannel readableByteChannel, String str, em3 em3Var) throws IOException {
+        InterceptResult invokeLLL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, readableByteChannel, str, em3Var)) == null) {
+            if (readableByteChannel == null) {
+                z = true;
+            } else {
+                z = false;
+            }
+            if (!z && !TextUtils.isEmpty(str)) {
+                String c = do4.c(false, readableByteChannel);
+                if (em3Var != null) {
+                    em3Var.a = c;
+                }
+                try {
+                    String str2 = new String(e(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 8), f("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDZuy3GEbahJc292fsyvrGneTJKQnzpdhNsJfDS5csb0MtmW+4JEvBH5wCZK5j4+nrRfKBF7JuTHe0nSWOZWNxgLU87pwCxozXSNrsiiOjsV+3KwYfdz5QlvvyCfvmllGObPqL7dWR92V2UYEWMSneBHtwDhCBCzmhAoOxZVsAq2wIDAQAB")), IMAudioTransRequest.CHARSET);
+                    if (em3Var != null) {
+                        em3Var.b = str2;
+                    }
+                    return TextUtils.equals(str2, c);
+                } catch (Exception e) {
+                    if (a) {
+                        Log.i("SwanAppSignChecker", e.toString());
+                        e.printStackTrace();
+                    }
+                    if (em3Var != null) {
+                        em3Var.b = e.getLocalizedMessage();
+                    }
+                    return false;
+                }
+            }
+            if (em3Var != null) {
+                em3Var.a = "zipSource isNullIs=" + z;
+            }
+            return false;
+        }
+        return invokeLLL.booleanValue;
+    }
+
+    public static PublicKey f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
+            try {
+                return KeyFactory.getInstance(RSAUtil.ALGORITHM_RSA).generatePublic(new X509EncodedKeySpec(Base64.decode(str.getBytes(IMAudioTransRequest.CHARSET), 0)));
+            } catch (UnsupportedEncodingException | NullPointerException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
                 return null;
             }
-            String[] split = str.split(EmotionResourceInfo.VERSION_NAME_SEPARATOR_REGEX);
-            if (split.length != 3) {
-                return null;
-            }
-            return split;
         }
-        return (String[]) invokeL.objValue;
+        return (PublicKey) invokeL.objValue;
     }
 }

@@ -1,58 +1,47 @@
 package com.baidu.tieba;
 
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.OutputStream;
 /* loaded from: classes6.dex */
-public abstract class s1b<T> implements u1b {
+public class s1b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final y3b a;
 
-    public abstract void b(Throwable th);
-
-    public abstract void c(T t);
-
-    public s1b() {
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (IOException unused) {
+                Log.e("IOUtil", "closeSecure IOException");
             }
         }
-        this.a = new y3b();
     }
 
-    @Override // com.baidu.tieba.u1b
-    public final boolean isUnsubscribed() {
-        InterceptResult invokeV;
+    public static void b(InputStream inputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a.isUnsubscribed();
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.u1b
-    public final void unsubscribe() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.unsubscribe();
+        if (interceptable == null || interceptable.invokeL(65537, null, inputStream) == null) {
+            a(inputStream);
         }
     }
 
-    public final void a(u1b u1bVar) {
+    public static void c(OutputStream outputStream) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, u1bVar) == null) {
-            this.a.a(u1bVar);
+        if (interceptable == null || interceptable.invokeL(65538, null, outputStream) == null) {
+            a(outputStream);
+        }
+    }
+
+    public static void d(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, file) == null) && file != null && file.exists() && !file.delete()) {
+            Log.e("IOUtil", "deleteSecure exception");
         }
     }
 }

@@ -14,8 +14,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.appcompat.content.res.AppCompatResources;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cr2;
-import com.baidu.tieba.jd3;
+import com.baidu.tieba.er2;
+import com.baidu.tieba.ld3;
 /* loaded from: classes3.dex */
 public class CommonEmptyView extends RelativeLayout {
     public ImageView a;
@@ -27,7 +27,7 @@ public class CommonEmptyView extends RelativeLayout {
     public TextView g;
 
     /* loaded from: classes3.dex */
-    public class a implements jd3 {
+    public class a implements ld3 {
         public a() {
         }
     }
@@ -56,7 +56,7 @@ public class CommonEmptyView extends RelativeLayout {
     public void setSubTitle(int i) {
         this.c.setVisibility(0);
         this.c.setText(i);
-        this.c.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060305));
+        this.c.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060309));
     }
 
     public void setTextButtonClickListener(View.OnClickListener onClickListener) {
@@ -82,28 +82,28 @@ public class CommonEmptyView extends RelativeLayout {
     }
 
     public final void a(Context context) {
-        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009e, (ViewGroup) this, true);
-        setBackground(context.getResources().getDrawable(R.color.obfuscated_res_0x7f060302));
-        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909ac);
-        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0909b0);
-        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0909af);
-        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ad);
-        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ab);
-        this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909aa);
-        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ae);
+        LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d009f, (ViewGroup) this, true);
+        setBackground(context.getResources().getDrawable(R.color.obfuscated_res_0x7f060306));
+        this.a = (ImageView) findViewById(R.id.obfuscated_res_0x7f0909af);
+        this.b = (TextView) findViewById(R.id.obfuscated_res_0x7f0909b3);
+        this.c = (TextView) findViewById(R.id.obfuscated_res_0x7f0909b2);
+        this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f0909b0);
+        this.e = (TextView) findViewById(R.id.obfuscated_res_0x7f0909ae);
+        this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f0909ad);
+        this.g = (TextView) findViewById(R.id.obfuscated_res_0x7f0909b1);
         setPageResources();
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onAttachedToWindow() {
         super.onAttachedToWindow();
-        cr2.M().f(this, new a());
+        er2.M().f(this, new a());
     }
 
     @Override // android.view.ViewGroup, android.view.View
     public void onDetachedFromWindow() {
         super.onDetachedFromWindow();
-        cr2.M().g(this);
+        er2.M().g(this);
     }
 
     @Override // android.view.View
@@ -133,7 +133,7 @@ public class CommonEmptyView extends RelativeLayout {
     public void setSubTitle(String str) {
         this.c.setVisibility(0);
         this.c.setText(str);
-        this.c.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060305));
+        this.c.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060309));
     }
 
     public void setTitle(String str) {
@@ -144,20 +144,20 @@ public class CommonEmptyView extends RelativeLayout {
         setBackgroundColor(-1);
         TextView textView = this.b;
         if (textView != null) {
-            textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060307));
+            textView.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f06030b));
         }
         TextView textView2 = this.d;
         if (textView2 != null) {
-            textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060305));
+            textView2.setTextColor(getResources().getColor(R.color.obfuscated_res_0x7f060309));
         }
         TextView textView3 = this.e;
         if (textView3 != null) {
-            textView3.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014e));
-            this.e.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060920));
+            textView3.setBackground(getResources().getDrawable(R.drawable.obfuscated_res_0x7f08014f));
+            this.e.setTextColor(AppCompatResources.getColorStateList(getContext(), R.color.obfuscated_res_0x7f060924));
         }
         TextView textView4 = this.c;
         if (textView4 != null) {
-            textView4.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060305));
+            textView4.setTextColor(getContext().getResources().getColor(R.color.obfuscated_res_0x7f060309));
         }
     }
 }

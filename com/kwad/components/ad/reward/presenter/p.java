@@ -178,7 +178,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
                     }
                 }
                 if (adTemplate != null) {
-                    AdWebViewActivityProxy.launch(p.this.getContext(), new AdWebViewActivityProxy.a.C0600a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
+                    AdWebViewActivityProxy.launch(p.this.getContext(), new AdWebViewActivityProxy.a.C0603a().ao(bVar.title).ap(bVar.url).N(adTemplate).nx());
                 }
             }
         }));
@@ -364,7 +364,7 @@ public final class p extends a implements KsRefluxView.a, e.a, e.b, com.kwad.sdk
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f09132b);
+        KsRefluxView ksRefluxView = (KsRefluxView) findViewById(R.id.obfuscated_res_0x7f091339);
         this.qX = ksRefluxView;
         this.bF = ksRefluxView.getWebView();
         this.qX.setViewListener(this);

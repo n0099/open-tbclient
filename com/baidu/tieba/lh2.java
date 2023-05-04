@@ -1,14 +1,13 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.kh2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Arrays;
+import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
+import com.facebook.common.internal.Sets;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -16,97 +15,12 @@ import java.util.Set;
 /* loaded from: classes5.dex */
 public class lh2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Set<String> a;
+    public static final Set<String> b;
+    public static final Set<String> c;
+    public static final Map<String, kh2> d;
+    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Set<String> a;
-    public final Map<String, a<Boolean>> b;
-    public final Map<String, a<b>> c;
-    public a<Exception> d;
-
-    /* loaded from: classes5.dex */
-    public static class a<T> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public Set<om3<T>> a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new HashSet();
-        }
-
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.clear();
-            }
-        }
-
-        public void a(T t) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, t) == null) {
-                for (om3<T> om3Var : this.a) {
-                    om3Var.a(t);
-                }
-            }
-        }
-
-        public void c(om3<T> om3Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, om3Var) == null) && om3Var != null) {
-                this.a.add(om3Var);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final long a;
-        public final long b;
-
-        public b(long j, long j2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = j;
-            this.b = j2;
-            int i3 = (j2 > 0L ? 1 : (j2 == 0L ? 0 : -1));
-        }
-
-        public boolean a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (this.b > 0) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeV.booleanValue;
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -121,116 +35,47 @@ public class lh2 {
                 return;
             }
         }
-        boolean z = fo1.a;
+        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+        b = new HashSet(a);
+        c = new HashSet(b);
+        d = new HashMap();
+        e = false;
     }
 
-    public HashSet<String> a() {
+    public static kh2 a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            c();
+            return d.get(str);
+        }
+        return (kh2) invokeL.objValue;
+    }
+
+    public static kh2 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new HashSet<>(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            kh2.b bVar = new kh2.b();
+            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
+            bVar.e(er2.w0().a());
+            bVar.b(er2.w0().d());
+            return bVar.a();
         }
-        return (HashSet) invokeV.objValue;
+        return (kh2) invokeV.objValue;
     }
 
-    public lh2() {
+    public static void c() {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
+            if (!e) {
+                for (String str : c) {
+                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
+                        d.put(str, b());
+                    }
+                }
             }
+            e = true;
         }
-        this.a = new HashSet();
-        this.b = new HashMap();
-        this.c = new HashMap();
-        this.d = new a<>();
-    }
-
-    public static <T> a<T> i(Map<String, a<T>> map, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, map, str)) == null) {
-            a<T> aVar = map.get(str);
-            if (aVar == null) {
-                a<T> aVar2 = new a<>();
-                map.put(str, aVar2);
-                return aVar2;
-            }
-            return aVar;
-        }
-        return (a) invokeLL.objValue;
-    }
-
-    public void c(String str, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_SEND_USER_MSG, this, str, z) == null) {
-            a i = i(this.b, str);
-            i.a(Boolean.valueOf(z));
-            i.b();
-        }
-    }
-
-    public void d(String str, b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048579, this, str, bVar) == null) {
-            if (bVar == null || bVar.a()) {
-                i(this.c, str).a(bVar);
-            }
-        }
-    }
-
-    public lh2 h(String str, om3<Boolean> om3Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, str, om3Var)) == null) {
-            g(this.b, str, om3Var);
-            return this;
-        }
-        return (lh2) invokeLL.objValue;
-    }
-
-    public void b(Exception exc) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
-            this.d.a(exc);
-            this.d.b();
-        }
-    }
-
-    public lh2 e(om3<Exception> om3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, om3Var)) == null) {
-            this.d.c(om3Var);
-            return this;
-        }
-        return (lh2) invokeL.objValue;
-    }
-
-    public lh2 f(String... strArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, strArr)) == null) {
-            this.a.addAll(Arrays.asList(strArr));
-            return this;
-        }
-        return (lh2) invokeL.objValue;
-    }
-
-    public final <T> lh2 g(Map<String, a<T>> map, String str, om3<T> om3Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048582, this, map, str, om3Var)) == null) {
-            f(str);
-            i(map, str).c(om3Var);
-            return this;
-        }
-        return (lh2) invokeLLL.objValue;
     }
 }

@@ -4,7 +4,7 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.pg8;
+import com.baidu.tieba.xi8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,7 +16,7 @@ import tbclient.GetSuggestionByAddrName.GetSuggestionByAddrNameResIdl;
 public class LocationSearchResponseMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pg8 mLocationData;
+    public xi8 mLocationData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public LocationSearchResponseMessage() {
@@ -36,13 +36,13 @@ public class LocationSearchResponseMessage extends SocketResponsedMessage {
         }
     }
 
-    public pg8 getLocationData() {
+    public xi8 getLocationData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mLocationData;
         }
-        return (pg8) invokeV.objValue;
+        return (xi8) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -57,19 +57,19 @@ public class LocationSearchResponseMessage extends SocketResponsedMessage {
             if (getError() != 0) {
                 return getSuggestionByAddrNameResIdl;
             }
-            pg8 pg8Var = new pg8();
-            this.mLocationData = pg8Var;
-            pg8Var.b(getSuggestionByAddrNameResIdl.data);
+            xi8 xi8Var = new xi8();
+            this.mLocationData = xi8Var;
+            xi8Var.b(getSuggestionByAddrNameResIdl.data);
             BdLog.detailException(null);
             return getSuggestionByAddrNameResIdl;
         }
         return invokeIL.objValue;
     }
 
-    public void setLocationData(pg8 pg8Var) {
+    public void setLocationData(xi8 xi8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pg8Var) == null) {
-            this.mLocationData = pg8Var;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, xi8Var) == null) {
+            this.mLocationData = xi8Var;
         }
     }
 }

@@ -1,7 +1,8 @@
 package com.baidu.tieba;
 
-import java.util.ArrayList;
+import android.view.View;
+import com.baidu.tbadk.core.data.ThreadData;
 /* loaded from: classes5.dex */
 public interface k67 {
-    void a(int i, int i2, v67 v67Var, ArrayList<in> arrayList);
+    void a(int i, int i2, View view2, View view3, ThreadData threadData);
 }

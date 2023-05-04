@@ -1,53 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import android.os.Handler;
+import android.os.Message;
+import android.widget.TextView;
+import androidx.core.view.InputDeviceCompat;
+import androidx.viewpager.widget.ViewPager;
+import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.account.utils.SocialEncodeUtils;
-import com.baidu.searchbox.live.interfaces.data.UserAccount;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.data.AccountData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.view.viewpager.BdBaseViewPagerAdapter;
+import com.baidu.tbadk.widget.viewpager.ListViewPager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.net.URLEncoder;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ei8 implements AccountManagerService {
+public class ei8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService.AccountStatusChangedListener a;
-    public AccountManagerService.LoginResultListener b;
+    public ListViewPager a;
+    public IndicatorView b;
+    public mh8 c;
+    public TextView d;
+    public BdBaseViewPagerAdapter e;
+    public k75 f;
+    public boolean g;
+    public boolean h;
+    public int i;
+    public Context j;
+    public List<in> k;
+    public ViewPager.OnPageChangeListener l;
+    public long m;
+    public final Handler.Callback n;
+    public final Handler o;
+    public ViewPager.OnPageChangeListener p;
 
     /* loaded from: classes4.dex */
-    public class a extends CustomMessageListener {
+    public class a implements Handler.Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ei8 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ei8 ei8Var, int i) {
-            super(i);
+        public a(ei8 ei8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ei8Var, Integer.valueOf(i)};
+                Object[] objArr = {ei8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -56,31 +63,101 @@ public class ei8 implements AccountManagerService {
             this.a = ei8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            int i;
+        @Override // android.os.Handler.Callback
+        public boolean handleMessage(Message message) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2005016) {
-                if (this.a.b != null) {
-                    if (this.a.isLogin(2)) {
-                        i = 0;
-                    } else {
-                        i = -2;
-                    }
-                    this.a.b.onResult(i);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
+                if (message.what != 1 || !this.a.k()) {
+                    return false;
                 }
-                if (this.a.a != null) {
-                    this.a.a.onAccountStatusChanged(this.a.isLogin(2));
+                this.a.i();
+                return false;
+            }
+            return invokeL.booleanValue;
+        }
+    }
+
+    /* loaded from: classes4.dex */
+    public class b implements ViewPager.OnPageChangeListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ei8 a;
+
+        public b(ei8 ei8Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ei8Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ei8Var;
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrollStateChanged(int i) {
+            int count;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (this.a.l != null) {
+                    this.a.l.onPageScrollStateChanged(i);
+                }
+                if (i == 1) {
+                    this.a.s();
+                } else if (i != 0 || (count = this.a.e.getCount()) < 2) {
+                } else {
+                    int currentItem = this.a.a.getCurrentItem();
+                    int i2 = count - 2;
+                    if (currentItem < 1) {
+                        this.a.a.setCurrentItem(i2, false);
+                    } else if (currentItem > i2) {
+                        this.a.a.setCurrentItem(1, false);
+                    }
+                    this.a.r();
+                }
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageScrolled(int i, float f, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Float.valueOf(f), Integer.valueOf(i2)}) == null) && this.a.l != null) {
+                this.a.l.onPageScrolled(i, f, i2);
+            }
+        }
+
+        @Override // androidx.viewpager.widget.ViewPager.OnPageChangeListener
+        public void onPageSelected(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && this.a.f != null && this.a.f.a(i) == i) {
+                if (this.a.b != null) {
+                    this.a.b.setPosition(this.a.f.c(i));
+                    if (this.a.c != null) {
+                        this.a.b.setVisibility(8);
+                        this.a.c.b(this.a.f.c(i));
+                    }
+                }
+                if (this.a.l != null) {
+                    this.a.l.onPageSelected(this.a.f.c(i));
                 }
             }
         }
     }
 
-    public ei8() {
+    public ei8(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, listViewPager, indicatorView, textView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -90,113 +167,215 @@ public class ei8 implements AccountManagerService {
                 return;
             }
         }
-        MessageManager.getInstance().registerListener(new a(this, 2005016));
+        this.g = false;
+        this.h = true;
+        this.i = 2;
+        this.k = new ArrayList();
+        this.m = 5000L;
+        this.n = new a(this);
+        this.o = new Handler(this.n);
+        this.p = new b(this);
+        j(context, listViewPager, indicatorView, textView);
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getUid() {
+    public void m(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
+            if (j < 0) {
+                j = 0;
+            }
+            this.m = j;
+        }
+    }
+
+    public void o(mh8 mh8Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048582, this, mh8Var) == null) {
+            if (mh8Var != null) {
+                this.b.setVisibility(8);
+            } else {
+                this.b.setVisibility(0);
+            }
+            this.c = mh8Var;
+        }
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.i = i;
+            k75 k75Var = this.f;
+            if (k75Var != null) {
+                k75Var.h(i);
+            }
+        }
+    }
+
+    public void q(ViewPager.OnPageChangeListener onPageChangeListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, onPageChangeListener) == null) {
+            this.l = onPageChangeListener;
+        }
+    }
+
+    public final void i() {
+        int count;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a != null && this.e != null) {
+            f9 c = g9.c(this.j);
+            if ((c != null && c.isScroll()) || (count = this.e.getCount()) < 2) {
+                return;
+            }
+            int currentItem = this.a.getCurrentItem();
+            int i = count - 2;
+            if (currentItem < 1) {
+                this.a.setCurrentItem(i, false);
+            } else if (currentItem > i) {
+                this.a.setCurrentItem(1, false);
+            } else {
+                this.a.setCurrentItem(currentItem + 1);
+            }
+        }
+    }
+
+    public final void j(Context context, ListViewPager listViewPager, IndicatorView indicatorView, TextView textView) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, listViewPager, indicatorView, textView) == null) {
+            this.a = listViewPager;
+            this.b = indicatorView;
+            this.d = textView;
+            this.j = context;
+            BdBaseViewPagerAdapter bdBaseViewPagerAdapter = new BdBaseViewPagerAdapter(context);
+            this.e = bdBaseViewPagerAdapter;
+            ListViewPager listViewPager2 = this.a;
+            if (listViewPager2 != null) {
+                listViewPager2.setAdapter(bdBaseViewPagerAdapter);
+                this.a.setOnPageChangeListener(this.p);
+            }
+        }
+    }
+
+    public final boolean k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            UserAccount account = getAccount();
-            if (account != null) {
-                return account.getUid();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ListViewPager listViewPager = this.a;
+            if (listViewPager == null) {
+                return false;
             }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void addLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, accountStatusChangedListener) == null) {
-            this.a = accountStatusChangedListener;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public boolean isLogin(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            return TbadkCoreApplication.isLogin();
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void removeLoginStatusChangedListener(AccountManagerService.AccountStatusChangedListener accountStatusChangedListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, accountStatusChangedListener) == null) {
-            this.a = null;
-        }
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public UserAccount getAccount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            UserAccount userAccount = new UserAccount();
-            AccountData currentAccountInfo = TbadkCoreApplication.getCurrentAccountInfo();
-            if (currentAccountInfo != null) {
-                userAccount.setDisplayname(currentAccountInfo.getAccountNameShow());
-                userAccount.setBduss(currentAccountInfo.getBDUSS());
-                userAccount.setUid(currentAccountInfo.getID());
-                userAccount.setProtrait(TbConfig.getBigPhotoAdress() + currentAccountInfo.getPortrait());
-                userAccount.setNickName(currentAccountInfo.getAccountNameShow());
-                userAccount.setUk(getSocialEncryption(currentAccountInfo.getID(), "baiduuid_"));
+            int[] iArr = new int[2];
+            listViewPager.getLocationOnScreen(iArr);
+            int measuredHeight = iArr[1] + (this.a.getMeasuredHeight() / 2);
+            if (measuredHeight <= 0 || measuredHeight >= ii.j(this.j)) {
+                return false;
             }
-            return userAccount;
+            return true;
         }
-        return (UserAccount) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getSocialDecrypt(String str, String str2) {
-        InterceptResult invokeLL;
+    public void l(Context context, j75<?, ?> j75Var) {
+        BdBaseViewPagerAdapter bdBaseViewPagerAdapter;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                return SocialEncodeUtils.getSocialDecrypt(str, str2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                return "";
-            }
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public void login(Context context, AccountManagerService.LoginResultListener loginResultListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, context, loginResultListener) == null) {
-            this.b = loginResultListener;
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new LoginActivityConfig((Context) TbadkCoreApplication.getInst(), true)));
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, context, j75Var) == null) && (bdBaseViewPagerAdapter = this.e) != null) {
+            bdBaseViewPagerAdapter.g(context, j75Var);
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.AccountManagerService
-    public String getSocialEncryption(String str, String str2) {
-        InterceptResult invokeLL;
+    public void n(List<in> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            String str3 = "";
-            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
-                return "";
-            }
-            try {
-                str3 = SocialEncodeUtils.getSocialEncryption(str, str2);
-                return URLEncoder.encode(str3, IMAudioTransRequest.CHARSET);
-            } catch (UnsupportedEncodingException e) {
-                e.printStackTrace();
-                return str3;
-            }
+        if ((interceptable != null && interceptable.invokeL(1048581, this, list) != null) || ListUtils.getCount(list) == 0) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        this.k = list;
+        k75 k75Var = new k75(list, this.g, this.i);
+        this.f = k75Var;
+        k75Var.i(2);
+        boolean z = true;
+        this.f.g(1);
+        this.e.h(this.f.e());
+        this.e.notifyDataSetChanged();
+        this.a.setCurrentItem(this.f.d(), false);
+        if (this.f.b() <= 0) {
+            return;
+        }
+        if (this.f.b() > this.i) {
+            TextView textView = this.d;
+            if (textView != null) {
+                textView.setVisibility(0);
+                this.d.setOnClickListener(null);
+                IndicatorView indicatorView = this.b;
+                if (indicatorView != null) {
+                    indicatorView.setVisibility(8);
+                }
+            }
+            if (this.b != null && this.d == null && this.g) {
+                z = false;
+            }
+            if (!z) {
+                this.b.setVisibility(8);
+                int count = this.b.getCount();
+                int i = this.i;
+                if (count != i) {
+                    this.b.setCount(i);
+                }
+            }
+            r();
+        }
+        if (this.f.b() >= 2 && this.f.b() <= this.i) {
+            TextView textView2 = this.d;
+            if (textView2 != null) {
+                textView2.setVisibility(8);
+            }
+            IndicatorView indicatorView2 = this.b;
+            if (indicatorView2 != null) {
+                indicatorView2.setVisibility(0);
+                if (this.b.getCount() != this.f.b()) {
+                    this.b.setCount(this.f.b());
+                    mh8 mh8Var = this.c;
+                    if (mh8Var != null) {
+                        mh8Var.a(this.f.b());
+                        this.b.setVisibility(8);
+                    }
+                } else {
+                    mh8 mh8Var2 = this.c;
+                    if (mh8Var2 != null) {
+                        mh8Var2.a(this.f.b());
+                        this.b.setVisibility(8);
+                    }
+                }
+            }
+            r();
+        }
+        if (this.f.b() < 2) {
+            TextView textView3 = this.d;
+            if (textView3 != null) {
+                textView3.setVisibility(8);
+            }
+            IndicatorView indicatorView3 = this.b;
+            if (indicatorView3 != null) {
+                indicatorView3.setVisibility(8);
+            }
+            s();
+        }
+    }
+
+    public void r() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            if (this.h) {
+                this.o.removeMessages(1);
+                this.o.sendEmptyMessageDelayed(1, this.m);
+                return;
+            }
+            this.o.removeMessages(1);
+        }
+    }
+
+    public void s() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
+            this.o.removeMessages(1);
+        }
     }
 }

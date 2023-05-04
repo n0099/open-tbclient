@@ -105,16 +105,16 @@ public class cf {
                     if (i != 2) {
                         if (i != 3) {
                             if (i == 4 && StringUtils.isNull(str)) {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b1a);
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b2f);
                             }
                         } else if (StringUtils.isNull(str)) {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b13);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b28);
                         }
                     } else if (StringUtils.isNull(str)) {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b19);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b2e);
                     }
                 } else if (StringUtils.isNull(str)) {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b17);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b2c);
                 }
                 this.a.i(i, str, address);
             }
@@ -161,19 +161,19 @@ public class cf {
                         if (i != 3) {
                             if (i != 4) {
                                 if (i == 6) {
-                                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b1a);
+                                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b2f);
                                 }
                             } else {
-                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b1a);
+                                str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b2f);
                             }
                         } else {
-                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b13);
+                            str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b28);
                         }
                     } else {
-                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b19);
+                        str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b2e);
                     }
                 } else {
-                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b17);
+                    str = BdBaseApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b2c);
                 }
                 cf cfVar = this.a;
                 cfVar.i(cfVar.g, str, null);

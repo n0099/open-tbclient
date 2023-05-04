@@ -1,43 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r18 implements CustomMessageTask.CustomRunnable<String> {
+public class r18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public r18() {
+    public static short b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            switch (i) {
+                case -100000306:
+                    return (short) 6;
+                case -100000303:
+                    return (short) 2;
+                case 3160010:
+                    return (short) 5;
+                case 3160011:
+                    return (short) 4;
+                default:
+                    return (short) 9;
             }
         }
+        return invokeI.shortValue;
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<String> run(CustomMessage<String> customMessage) {
-        InterceptResult invokeL;
+    /* JADX WARN: Code restructure failed: missing block: B:19:0x002d, code lost:
+        if (android.text.TextUtils.isEmpty(r5) != false) goto L19;
+     */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            int e = gg.e(customMessage.getData(), 0);
-            if (kz7.w().p(String.valueOf(e))) {
-                return new CustomResponsedMessage<>(2001151, String.valueOf(e));
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65536, null, i, str)) == null) {
+            short b = b(i);
+            int i2 = R.string.message_text_error_because_network;
+            if (b != 2) {
+                if (b != 9) {
+                    if (b != 4) {
+                        if (b != 5) {
+                            if (b == 6) {
+                                i2 = R.string.message_text_error_because_refuse;
+                            }
+                            i2 = -1;
+                        } else {
+                            i2 = R.string.message_text_error_because_refuse_stranger;
+                        }
+                    } else {
+                        i2 = R.string.message_text_error_because_refuse_friend;
+                    }
+                }
             }
-            return null;
+            if (i2 != -1) {
+                return TbadkCoreApplication.getInst().getResources().getString(i2);
+            }
+            return str;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (String) invokeIL.objValue;
     }
 }

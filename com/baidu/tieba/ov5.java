@@ -1,107 +1,120 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Typeface;
-import android.view.ViewGroup;
-import com.baidu.spswitch.utils.BDEmotionPanelManager;
-import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tieba.az5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public class ov5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context A;
-    public String B;
-    public String C;
-    public String D;
-    public int E;
-    public int F;
-    public int G;
-    public int H;
-    public int I;
-    public int J;
-    public int K;
-    public int L;
-    public int M;
-    public int N;
-    public int O;
-    public int P;
-    public float Q;
-    public boolean R;
-    public boolean S;
-    public boolean T;
-    public WheelView.DividerType U;
-    public uv5 a;
-    public tv5 b;
-    public pv5 c;
-    public boolean[] d;
-    public Calendar e;
-    public Calendar f;
-    public Calendar g;
-    public int h;
-    public int i;
-    public boolean j;
-    public boolean k;
-    public String l;
-    public String m;
-    public String n;
-    public String o;
-    public String p;
-    public String q;
-    public int r;
-    public int s;
-    public int t;
-    public int u;
-    public int v;
-    public int w;
-    public int x;
-    public ViewGroup y;
-    public int z;
+    public az5 a;
+    public ev5 b;
+    public TbPageContext c;
 
-    public ov5(int i) {
+    /* loaded from: classes5.dex */
+    public class a implements az5.i {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ov5 a;
+
+        public a(ov5 ov5Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ov5Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = ov5Var;
+        }
+
+        @Override // com.baidu.tieba.az5.i
+        public void a(JSONArray jSONArray) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, jSONArray) == null) {
+                String JsonArrayToString = StringHelper.JsonArrayToString(jSONArray);
+                if (this.a.b != null) {
+                    this.a.b.g(JsonArrayToString);
+                    this.a.b.e();
+                }
+            }
+        }
+    }
+
+    public ov5(TbPageContext tbPageContext, ev5 ev5Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i)};
+            Object[] objArr = {tbPageContext, ev5Var};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new boolean[]{true, true, true, false, false, false};
-        this.j = false;
-        this.k = false;
-        this.z = 17;
-        this.E = -16417281;
-        this.F = -16417281;
-        this.G = -16777216;
-        this.H = -1;
-        this.I = BDEmotionPanelManager.COLOR_EMOTION_TYPE_LAYOUT;
-        this.J = 17;
-        this.K = 18;
-        this.L = 18;
-        this.M = -5723992;
-        this.N = -14013910;
-        this.O = -2763307;
-        this.P = -1;
-        this.Q = 1.6f;
-        this.S = true;
-        this.T = false;
-        Typeface typeface = Typeface.MONOSPACE;
-        this.U = WheelView.DividerType.FILL;
-        if (i == 1) {
-            this.x = R.layout.pickerview_options;
-        } else {
-            this.x = R.layout.pickerview_time;
+        this.b = ev5Var;
+        this.c = tbPageContext;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            az5 az5Var = this.a;
+            if (az5Var != null) {
+                az5Var.w();
+                this.a.x();
+                this.a = null;
+            }
+            this.b = null;
+            this.c = null;
+        }
+    }
+
+    public void c(int i) {
+        ev5 ev5Var;
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (ev5Var = this.b) != null && ev5Var.b() != null && this.c != null) {
+            zy5 zy5Var = new zy5(this.b.b().f(), this.b.b().e(), this.b.b().d());
+            zy5Var.i(this.b.b().b(), this.b.b().c());
+            zy5Var.h(this.b.b().a());
+            zy5Var.j(this.b.b().j());
+            UserData i2 = this.b.b().i();
+            TbPageContext tbPageContext = this.c;
+            this.a = new az5(tbPageContext, tbPageContext.getPageActivity().getWindow().getDecorView(), zy5Var, i2);
+            yy4 yy4Var = new yy4();
+            yy4Var.j(this.b.b().h());
+            this.a.H(new String[]{this.c.getString(R.string.delete_thread_reason_1), this.c.getString(R.string.delete_thread_reason_2), this.c.getString(R.string.delete_thread_reason_3), this.c.getString(R.string.delete_thread_reason_4), this.c.getString(R.string.delete_thread_reason_5)});
+            this.a.G(yy4Var);
+            this.a.I(new a(this));
+            if (i != 2 && i != 1) {
+                if (i == 3) {
+                    str = "6";
+                } else {
+                    str = "0";
+                }
+            } else {
+                str = "5";
+            }
+            this.a.J(str);
         }
     }
 }

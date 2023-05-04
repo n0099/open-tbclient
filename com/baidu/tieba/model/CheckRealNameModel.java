@@ -7,10 +7,10 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.il9;
 import com.baidu.tieba.model.message.CheckRealNameHttpResponseMessage;
 import com.baidu.tieba.model.message.CheckRealNameRequestNetMessage;
 import com.baidu.tieba.model.message.CheckRealNameSocketResponseMessage;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -115,11 +115,11 @@ public class CheckRealNameModel extends BdBaseModel {
             }
         }
         this.b = new a(this, CmdConfigHttp.CMD_CHECK_REAL_NAME, 309456);
-        T();
+        Y();
         registerListener(this.b);
     }
 
-    public void R(String str) {
+    public void W(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
@@ -128,14 +128,14 @@ public class CheckRealNameModel extends BdBaseModel {
         }
     }
 
-    public void U(b bVar) {
+    public void Z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, bVar) == null) {
             this.a = bVar;
         }
     }
 
-    public void S(String str, Object obj) {
+    public void X(String str, Object obj) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, obj) == null) {
             CheckRealNameRequestNetMessage checkRealNameRequestNetMessage = new CheckRealNameRequestNetMessage();
@@ -145,11 +145,11 @@ public class CheckRealNameModel extends BdBaseModel {
         }
     }
 
-    public final void T() {
+    public final void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            il9.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
-            il9.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
+            xo9.h(309456, CheckRealNameSocketResponseMessage.class, false, false);
+            xo9.c(309456, CmdConfigHttp.CMD_CHECK_REAL_NAME, TbConfig.URL_CHECK_REAL_NAME, CheckRealNameHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

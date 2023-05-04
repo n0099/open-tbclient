@@ -10,7 +10,7 @@ public class d34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public long duration;
+    public int state;
 
     public d34() {
         Interceptable interceptable = $ic;

@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
@@ -12,113 +10,51 @@ public class bo8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(String str) {
+    public static void a(String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65536, null, str) == null) && !StringUtils.isNull(str)) {
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+        if (interceptable == null || interceptable.invokeLLL(65536, null, str, str2, str3) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14870");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", str);
+            statisticItem.addParam("obj_id", str2);
+            statisticItem.addParam("fid", str3);
             TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void b(String str, Object obj) {
+    public static void c(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, str, obj) == null) && (obj instanceof MarkData)) {
-            MarkData markData = (MarkData) obj;
-            if (StringUtils.isNull(str)) {
-                return;
-            }
-            StatisticItem statisticItem = new StatisticItem(str);
-            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-            statisticItem.param("tid", markData.getId());
-            statisticItem.param("fname", markData.getForumName());
-            char c = 65535;
-            switch (str.hashCode()) {
-                case -1413831834:
-                    if (str.equals("c14062")) {
-                        c = 0;
-                        break;
-                    }
-                    break;
-                case -1413831833:
-                    if (str.equals("c14063")) {
-                        c = 1;
-                        break;
-                    }
-                    break;
-                case -1413831832:
-                    if (str.equals("c14064")) {
-                        c = 2;
-                        break;
-                    }
-                    break;
-                case -1413831831:
-                    if (str.equals("c14065")) {
-                        c = 3;
-                        break;
-                    }
-                    break;
-                case -1413831828:
-                    if (str.equals("c14068")) {
-                        c = 5;
-                        break;
-                    }
-                    break;
-                case -1413831827:
-                    if (str.equals("c14069")) {
-                        c = 4;
-                        break;
-                    }
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2 && c != 3) {
-                        if (c == 4) {
-                            d(markData, statisticItem);
-                            statisticItem.param("obj_source", "1");
-                        }
-                    } else {
-                        statisticItem.param("obj_id", markData.getUesrId());
-                    }
-                } else {
-                    d(markData, statisticItem);
-                    statisticItem.param("obj_id", markData.getUesrId());
-                }
-            } else {
-                d(markData, statisticItem);
-            }
+        if (interceptable == null || interceptable.invokeILL(65538, null, i, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14871");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", str2);
             TiebaStatic.log(statisticItem);
         }
     }
 
-    public static void c(String str, boolean z, MarkData markData) {
+    public static void d(int i, String str, String str2) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(65538, null, new Object[]{str, Boolean.valueOf(z), markData}) != null) || markData == null || StringUtils.isNull(str)) {
-            return;
+        if (interceptable == null || interceptable.invokeILL(65539, null, i, str, str2) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14872");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", str2);
+            TiebaStatic.log(statisticItem);
         }
-        StatisticItem statisticItem = new StatisticItem(str);
-        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-        statisticItem.param("tid", markData.getId());
-        statisticItem.param("fname", markData.getForumName());
-        if (z) {
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "1");
-        } else {
-            statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, "2");
-        }
-        TiebaStatic.log(statisticItem);
     }
 
-    public static void d(MarkData markData, StatisticItem statisticItem) {
+    public static void b(int i, String str, long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, markData, statisticItem) == null) {
-            if (markData.is_deleted()) {
-                statisticItem.param("obj_param1", "3");
-            } else if (markData.isRedTipShow() && !StringUtils.isNull(markData.getmState()) && markData.getNewCounts() > 0) {
-                statisticItem.param("obj_param1", "1");
-            } else {
-                statisticItem.param("obj_param1", "2");
-            }
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)}) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14873");
+            statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.addParam("obj_source", i);
+            statisticItem.addParam("fid", str);
+            statisticItem.addParam("obj_locate", j);
+            TiebaStatic.log(statisticItem);
         }
     }
 }

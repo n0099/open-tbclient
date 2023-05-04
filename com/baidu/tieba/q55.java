@@ -1,142 +1,233 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.graphics.drawable.GradientDrawable;
-import android.os.Build;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
+import android.content.Context;
+import android.graphics.drawable.AnimationDrawable;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.PullViewHelper;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class q55 extends TBSpecificationButtonConfig {
+public class q55 extends p55 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean u;
+    public boolean A;
+    public boolean B;
+    public boolean C;
+    public CustomMessageListener D;
+    public CustomMessageListener E;
 
-    public q55() {
+    /* loaded from: classes6.dex */
+    public class a extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q55 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public a(q55 q55Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q55Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q55Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                q55 q55Var = this.a;
+                if (q55Var.B) {
+                    q55Var.H(TbadkCoreApplication.getInst().getSkinType());
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ q55 a;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public b(q55 q55Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {q55Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = q55Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
+                this.a.h.setBackgroundColor(PullViewHelper.getInstance().getPullViewBackgroundColor(TbadkCoreApplication.getInst().getSkinType()));
+            }
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public q55(TbPageContext<?> tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = true;
-        this.b = R.color.CAM_X0101;
-        this.d = R.color.CAM_X0302;
-        this.u = false;
-        this.n = this.o;
-        this.m = this.l;
+        this.B = true;
+        this.C = false;
+        this.D = new a(this, 2016203);
+        this.E = new b(this, 2016204);
+        X(tbPageContext);
     }
 
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    public Drawable a(float f) {
-        InterceptResult invokeF;
+    @Override // com.baidu.tieba.p55
+    public void H(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048576, this, f)) == null) {
-            return s(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void q(@ColorRes int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-            this.d = R.color.CAM_X0904;
-            this.u = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            super.H(i);
+            if (this.h != null && this.i != null) {
+                this.A = false;
+                if (!M()) {
+                    AnimationDrawable animationDrawable = PullViewHelper.getInstance().getAnimationDrawable(i);
+                    this.n = animationDrawable;
+                    if (animationDrawable != null) {
+                        this.A = true;
+                    } else {
+                        this.n = new AnimationDrawable();
+                    }
+                    if (!this.A) {
+                        this.n = PullViewHelper.getInstance().getDefaultAnimationDrawable(i);
+                    }
+                    this.n.setOneShot(false);
+                    this.i.setBackgroundDrawable(this.n);
+                }
+                if (this.C) {
+                    this.h.setBackgroundColor(0);
+                }
             }
         }
     }
 
-    public void r(@ColorRes int i) {
+    public final void X(TbPageContext<?> tbPageContext) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.b = R.color.CAM_X0101;
-            this.d = i;
-            this.u = false;
-            TBSpecificationButtonConfig.a aVar = this.t;
-            if (aVar != null) {
-                aVar.c();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext) == null) {
+            this.D.setTag(tbPageContext.getUniqueId());
+            this.E.setTag(tbPageContext.getUniqueId());
+            tbPageContext.registerListener(this.D);
+            tbPageContext.registerListener(this.E);
+        }
+    }
+
+    public void Z(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            this.C = z;
+        }
+    }
+
+    public void a0(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            CustomMessageListener customMessageListener = this.D;
+            if (customMessageListener != null) {
+                customMessageListener.setTag(bdUniqueId);
+            }
+            CustomMessageListener customMessageListener2 = this.E;
+            if (customMessageListener2 != null) {
+                customMessageListener2.setTag(bdUniqueId);
+            }
+            MessageManager.getInstance().registerListener(this.D);
+            MessageManager.getInstance().registerListener(this.E);
+        }
+    }
+
+    @Override // com.baidu.tieba.p55, com.baidu.tieba.xm
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.i.setBackgroundDrawable(null);
+            super.o(z);
+            this.B = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.p55, com.baidu.tieba.xm
+    public void w(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            super.w(z);
+            this.B = false;
+            if (!this.A) {
+                int skinType = TbadkCoreApplication.getInst().getSkinType();
+                int i = this.p;
+                if (i != Integer.MIN_VALUE) {
+                    skinType = i;
+                }
+                H(skinType);
             }
         }
     }
 
-    public final Drawable s(float f) {
-        InterceptResult invokeF;
+    public void Y() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048580, this, f)) == null) {
-            if (this.u) {
-                return t(f);
-            }
-            return u(f);
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public final Drawable u(float f) {
-        InterceptResult invokeF;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048582, this, f)) == null) {
-            GradientDrawable gradientDrawable = new GradientDrawable();
-            gradientDrawable.setColor(SkinManager.getColor(this.r, this.d));
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    @Override // com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig
-    @Deprecated
-    public void i(int i, int i2, TBSpecificationButtonConfig.IconType iconType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, iconType) == null) {
-            v(i, iconType);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            MessageManager.getInstance().unRegisterListener(this.D);
+            MessageManager.getInstance().unRegisterListener(this.E);
         }
     }
 
-    public final Drawable t(float f) {
-        InterceptResult invokeF;
-        GradientDrawable gradientDrawable;
+    @Override // com.baidu.tieba.p55, com.baidu.tieba.xm
+    public void x() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeF = interceptable.invokeF(1048581, this, f)) == null) {
-            int color = SkinManager.getColor(this.r, this.d);
-            int[] iArr = {fk9.c(color), color};
-            if (Build.VERSION.SDK_INT >= 16) {
-                gradientDrawable = new GradientDrawable();
-                gradientDrawable.setOrientation(this.s);
-                gradientDrawable.setColors(iArr);
-            } else {
-                gradientDrawable = new GradientDrawable(this.s, iArr);
-            }
-            gradientDrawable.setGradientType(0);
-            gradientDrawable.setShape(0);
-            gradientDrawable.setCornerRadius(f);
-            return gradientDrawable;
-        }
-        return (Drawable) invokeF.objValue;
-    }
-
-    public void v(@DrawableRes int i, TBSpecificationButtonConfig.IconType iconType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048583, this, i, iconType) == null) {
-            this.e[0] = i;
-            this.f = iconType;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.x();
+            this.B = false;
         }
     }
 }

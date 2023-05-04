@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import com.baidu.android.common.others.lang.StringUtil;
 import com.xiaomi.push.service.XMPushService;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ge extends XMPushService.j {
     public final /* synthetic */ gc a;
 

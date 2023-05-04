@@ -1,65 +1,71 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import tv.athena.revenue.payui.view.AbsViewEventHandler;
-import tv.athena.revenue.payui.view.dialog.CancelType;
 /* loaded from: classes5.dex */
-public class n8b implements yab {
+public abstract class n8b<E> extends p8b<E> {
     public static /* synthetic */ Interceptable $ic;
+    public static final long g;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public AbsViewEventHandler b;
-    public o7b c;
-    public pab d;
+    public volatile long consumerIndex;
 
-    @Override // com.baidu.tieba.yab
-    public boolean b(DialogInterface dialogInterface, CancelType cancelType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dialogInterface, cancelType)) == null) {
-            return false;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947957745, "Lcom/baidu/tieba/n8b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947957745, "Lcom/baidu/tieba/n8b;");
+                return;
+            }
         }
-        return invokeLL.booleanValue;
+        g = i9b.a(n8b.class, "consumerIndex");
     }
 
-    public n8b(int i, int i2, Activity activity, AbsViewEventHandler absViewEventHandler, o7b o7bVar, pab pabVar) {
+    public final long k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.consumerIndex;
+        }
+        return invokeV.longValue;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public n8b(int i) {
+        super(i);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), activity, absViewEventHandler, o7bVar, pabVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = activity;
-        this.b = absViewEventHandler;
-        this.c = o7bVar;
-        this.d = pabVar;
     }
 
-    @Override // com.baidu.tieba.yab
-    public void a(CancelType cancelType) {
+    public final boolean j(long j, long j2) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cancelType) == null) {
-            if (cancelType == CancelType.BUTTOM_AREA_CLICK) {
-                this.d.a();
-            }
-            RLog.info("PayWayDialogListener", "PaySplitOrderDialog notifyCancelType clickArea:" + cancelType);
-            this.c.d(cancelType, this.b);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
+            return i9b.a.c(this, g, j, j2);
         }
+        return invokeCommon.booleanValue;
     }
 }

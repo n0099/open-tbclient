@@ -7,7 +7,7 @@ import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.atomData.SelectForumActivityConfig;
 import com.baidu.tbadk.core.data.BaijiahaoData;
 import com.baidu.tbadk.core.data.OriginalThreadInfo;
-import com.baidu.tieba.e47;
+import com.baidu.tieba.u57;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,7 +16,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class ForumSearchActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public e47 a;
+    public u57 a;
 
     public ForumSearchActivity() {
         Interceptable interceptable = $ic;
@@ -46,9 +46,9 @@ public class ForumSearchActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
             super.onCreate(bundle);
-            e47 e47Var = new e47(getPageContext());
-            this.a = e47Var;
-            setContentView(e47Var.o().b);
+            u57 u57Var = new u57(getPageContext());
+            this.a = u57Var;
+            setContentView(u57Var.o().b);
             Intent intent = getIntent();
             if (intent != null) {
                 this.a.y(intent.getIntExtra(SelectForumActivityConfig.EXTRA_KEY_FROM, 0));

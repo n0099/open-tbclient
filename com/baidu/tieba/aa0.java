@@ -1,31 +1,27 @@
 package com.baidu.tieba;
 
-import com.baidu.live.business.model.data.LiveRoomEntity;
-import com.baidu.live.business.model.data.LiveSearchResultInfo;
-import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
-import com.baidu.live.feed.search.model.data.SearchResultBean;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes3.dex */
-public interface aa0 {
-    void E0();
+public class aa0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static volatile z90 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void Z0(List<String> list);
-
-    void h0();
-
-    void i0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
-
-    void k(int i);
-
-    void m();
-
-    void q(ba0 ba0Var);
-
-    void showToast(String str);
-
-    void t(List<String> list);
-
-    void u(SearchResultBean searchResultBean);
-
-    void z0(List<? extends LiveRoomEntity> list);
+    public static synchronized z90 a() {
+        InterceptResult invokeV;
+        z90 z90Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            synchronized (aa0.class) {
+                if (a == null) {
+                    a = new z90();
+                }
+                z90Var = a;
+            }
+            return z90Var;
+        }
+        return (z90) invokeV.objValue;
+    }
 }

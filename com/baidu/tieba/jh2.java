@@ -1,81 +1,63 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.ih2;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.ZeusWebViewPreloadClass;
-import com.facebook.common.internal.Sets;
-import java.util.HashMap;
-import java.util.HashSet;
-import java.util.Map;
-import java.util.Set;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jh2 {
+public class jh2 extends eh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> a;
-    public static final Set<String> b;
-    public static final Set<String> c;
-    public static final Map<String, ih2> d;
-    public static boolean e;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947883221, "Lcom/baidu/tieba/jh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947883221, "Lcom/baidu/tieba/jh2;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jh2(@NonNull dh2 dh2Var) {
+        super(dh2Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {dh2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((dh2) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = Sets.newHashSet(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-        b = new HashSet(a);
-        c = new HashSet(b);
-        d = new HashMap();
-        e = false;
     }
 
-    public static ih2 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.eh2
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            c();
-            return d.get(str);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            d();
+            h();
+            g();
         }
-        return (ih2) invokeL.objValue;
     }
 
-    public static ih2 b() {
-        InterceptResult invokeV;
+    public final void g() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            ih2.b bVar = new ih2.b();
-            bVar.d(ZeusWebViewPreloadClass.ZEUS_FILE_DIR);
-            bVar.e(cr2.w0().a());
-            bVar.b(cr2.w0().d());
-            return bVar.a();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            gi2.f(0).f().c();
+            gi2.f(0).e().f();
+            oj2.i(0, true);
+            bo4.M(hj2.a);
         }
-        return (ih2) invokeV.objValue;
     }
 
-    public static void c() {
+    public final void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            if (!e) {
-                for (String str : c) {
-                    if (ZeusWebViewPreloadClass.ZEUS_FILE_DIR.equals(str)) {
-                        d.put(str, b());
-                    }
-                }
-            }
-            e = true;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            hh3.b(0);
+            fh3.b(0);
+            fh3.v(true, 0);
+            bo4.L(ch3.d(0));
         }
     }
 }

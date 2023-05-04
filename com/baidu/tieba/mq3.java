@@ -1,214 +1,226 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.telephony.TelephonyManager;
+import android.net.wifi.WifiManager;
 import android.text.TextUtils;
-import android.util.Base64;
-import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.swan.apps.impl.nalib.encrypt.EncryptConstant;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.tieba.de3;
-import com.baidu.tieba.kq3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.db.TableDefine;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.ar.constants.HttpConstants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tbadk.core.util.ApiReplaceUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mq3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public a b;
+    public c c;
+    public b d;
+    public JSONObject e;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947981274, "Lcom/baidu/tieba/mq3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public String a;
+        public String b;
+        public int c;
+        public int d;
+        public String e;
+        public String f;
+        public int g;
+        public int h;
+        public String i;
+
+        public a() {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947981274, "Lcom/baidu/tieba/mq3;");
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+
+        public b() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public double b;
+        public double c;
+
+        public c() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public mq3(@NonNull Context context, @NonNull JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fo1.a;
-    }
-
-    @Nullable
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                Cipher cipher = Cipher.getInstance("AES/CBC/PKCS5Padding");
-                cipher.init(1, new SecretKeySpec((EncryptConstant.getPartRecommendAesKey() + "rtad@mic").getBytes(), "AES"), new IvParameterSpec((EncryptConstant.getPartRecommendAesIv() + "21248000").getBytes()));
-                return Base64.encodeToString(cipher.doFinal(str.getBytes(IMAudioTransRequest.CHARSET)), 2);
-            } catch (Exception e) {
-                e.printStackTrace();
-                JSONObject jSONObject = new JSONObject();
-                try {
-                    jSONObject.put("info", "encrypt request param fail with exception : " + e.getMessage());
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                }
-                f(jSONObject.toString());
-                return null;
-            }
+        a aVar = new a();
+        c cVar = new c();
+        b bVar = new b();
+        String g0 = x73.g0();
+        String str = "";
+        this.a = TextUtils.isEmpty(g0) ? "" : g0;
+        this.b = aVar;
+        this.c = cVar;
+        this.d = bVar;
+        this.e = jSONObject;
+        String r = rl3.r();
+        aVar.a = "0".equals(r) ? "" : r;
+        String a2 = a();
+        aVar.b = "0".equals(a2) ? "" : a2;
+        aVar.c = 2;
+        aVar.d = oq3.e(context) ? 3 : 2;
+        String i3 = t42.i();
+        aVar.e = "NUL".equals(i3) ? "" : i3;
+        String g = t42.g();
+        aVar.f = "NUL".equals(g) ? "" : g;
+        aVar.g = ol3.n(context);
+        aVar.h = ol3.o(context);
+        String b2 = b();
+        if (!TextUtils.isEmpty(b2) && !Config.DEF_MAC_ID.equals(b2)) {
+            str = b2;
         }
-        return (String) invokeL.objValue;
+        aVar.i = str;
+        bVar.a = oq3.c();
+        bVar.b = oq3.d(context);
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void b(kq3 kq3Var, lq3 lq3Var) {
-        String str;
-        char c;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65538, null, kq3Var, lq3Var) == null) && kq3Var != null && lq3Var != null) {
-            if (TextUtils.isEmpty(lq3Var.a)) {
-                str = "unknown";
-            } else {
-                str = lq3Var.a;
-            }
-            int i = 0;
-            switch (str.hashCode()) {
-                case -1395470197:
-                    if (str.equals("bd09ll")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3017163:
-                    if (str.equals("bd09")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 98175376:
-                    if (str.equals("gcj02")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 113079775:
-                    if (str.equals("wgs84")) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        if (c != 3) {
-                            i = -1;
-                        } else {
-                            i = 3;
-                        }
-                    } else {
-                        i = 2;
-                    }
-                } else {
-                    i = 1;
-                }
-            }
-            kq3.c cVar = kq3Var.c;
-            cVar.a = i;
-            cVar.b = lq3Var.b;
-            cVar.c = lq3Var.c;
-        }
-    }
-
-    public static int c() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            String e = SwanAppNetworkUtils.e();
-            if ("wifi".equals(e)) {
-                return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            String a2 = ct3.b.a(AppRuntime.getAppContext());
+            if (TextUtils.isEmpty(a2)) {
+                return "0";
             }
-            if ("2g".equals(e)) {
-                return 2;
-            }
-            if ("3g".equals(e)) {
-                return 3;
-            }
-            if ("4g".equals(e)) {
-                return 4;
-            }
-            if ("5g".equals(e)) {
-                return 5;
-            }
-            return 0;
+            return a2;
         }
-        return invokeV.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static int d(Context context) {
-        InterceptResult invokeL;
-        TelephonyManager telephonyManager;
-        String simOperator;
+    public String d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
-            if (context == null || (telephonyManager = (TelephonyManager) context.getSystemService("phone")) == null || (simOperator = telephonyManager.getSimOperator()) == null) {
-                return 0;
-            }
-            if (!"46000".equals(simOperator) && !"46002".equals(simOperator) && !"46007".equals(simOperator)) {
-                if ("46001".equals(simOperator)) {
-                    return 3;
-                }
-                if (!"46003".equals(simOperator)) {
-                    return 0;
-                }
-                return 2;
-            }
-            return 1;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return c().toString();
         }
-        return invokeL.intValue;
+        return (String) invokeV.objValue;
     }
 
-    public static void f(String str) {
+    public String b() {
+        String str;
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            try {
+                str = ApiReplaceUtil.getMacAddress(((WifiManager) AppRuntime.getAppContext().getApplicationContext().getSystemService("wifi")).getConnectionInfo());
+            } catch (Exception unused) {
+                str = null;
+            }
+            if (TextUtils.isEmpty(str)) {
+                return "";
+            }
+            return str;
         }
-        if (a) {
-            Log.d("recommend", "reportInfoWhenResponseIsNull: " + str);
-        }
-        de3.b bVar = new de3.b(10003);
-        bVar.i(str);
-        bVar.h(v73.g0());
-        bVar.m();
+        return (String) invokeV.objValue;
     }
 
-    public static boolean e(@NonNull Context context) {
-        InterceptResult invokeL;
+    @NonNull
+    public JSONObject c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, context)) == null) {
-            if ((context.getResources().getConfiguration().screenLayout & 15) >= 3) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONObject jSONObject3 = new JSONObject();
+            JSONObject jSONObject4 = new JSONObject();
+            try {
+                jSONObject.put("app_id", this.a);
+                jSONObject2.put("deviceid", this.b.a);
+                jSONObject2.put("androidid", this.b.b);
+                jSONObject2.put("os_type", this.b.c);
+                jSONObject2.put(HttpConstants.DEVICE_TYPE, this.b.d);
+                jSONObject2.put("device_vendor", this.b.e);
+                jSONObject2.put("device_model", this.b.f);
+                jSONObject2.put("screen_height", this.b.g);
+                jSONObject2.put("screen_width", this.b.h);
+                jSONObject2.put("mac", this.b.i);
+                jSONObject.put(Config.DEVICE_PART, jSONObject2);
+                jSONObject3.put("coord_type", this.c.a);
+                jSONObject3.put("latitude", this.c.b);
+                jSONObject3.put("longitude", this.c.c);
+                jSONObject.put(TableDefine.DB_TABLE_USERINFO, jSONObject3);
+                jSONObject4.put("network", this.d.a);
+                jSONObject4.put("operator", this.d.b);
+                jSONObject.put("network", jSONObject4);
+                jSONObject.put("data", this.e);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            return false;
+            return jSONObject;
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -3,7 +3,7 @@ package com.xiaomi.push;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import com.xiaomi.push.ci;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ck implements Runnable {
     public final /* synthetic */ Context a;
 

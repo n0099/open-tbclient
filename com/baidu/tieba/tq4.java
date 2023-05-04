@@ -1,23 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.os.Build;
+import android.text.TextUtils;
+import android.webkit.CookieManager;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.HttpMessage;
+import com.baidu.adp.framework.task.HttpMessageTask;
+import com.baidu.tbadk.BdToken.NewUserGetMoneyResMsg;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class tq4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
-    public ArrayList<xq4> c;
-    public String d;
 
     public tq4() {
         Interceptable interceptable = $ic;
@@ -29,68 +31,37 @@ public class tq4 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        MessageManager messageManager = MessageManager.getInstance();
+        TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_NEW_USER_GET_MONEY, TbConfig.NEW_USER_GET_MONEY_URL);
+        tbHttpMessageTask.setMethod(HttpMessageTask.HTTP_METHOD.GET);
+        tbHttpMessageTask.setResponsedClass(NewUserGetMoneyResMsg.class);
+        tbHttpMessageTask.setIsNeedTbs(true);
+        messageManager.registerTask(tbHttpMessageTask);
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public long b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public ArrayList<xq4> c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public void e(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, str) != null) || hi.isEmpty(str)) {
-            return;
-        }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            this.a = jSONObject.optLong("start_date", 0L) * 1000;
-            this.b = jSONObject.optLong("end_date", 0L) * 1000;
-            this.d = jSONObject.optString("ahead_url", "");
-            this.c = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("time");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    JSONArray optJSONArray2 = optJSONArray.optJSONArray(i);
-                    xq4 xq4Var = new xq4();
-                    xq4Var.c(optJSONArray2);
-                    this.c.add(xq4Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_NEW_USER_GET_MONEY);
+            if (fc9.b()) {
+                httpMessage.addParam("brand", Build.BRAND);
+            } else {
+                httpMessage.addParam(HttpRequest.NEED_DECRYPT, fc9.c());
+                String g = fc9.g("brand");
+                if (!TextUtils.isEmpty(g)) {
+                    httpMessage.addParam(g, fc9.e());
                 }
             }
-        } catch (Exception e) {
-            BdLog.e(e);
+            httpMessage.addParam("cuid", TbadkCoreApplication.getInst().getCuid());
+            httpMessage.addParam("client_version", TbConfig.getVersion());
+            httpMessage.addParam("client_type", "Android");
+            httpMessage.addParam("shoubai_cuid", TbadkCoreApplication.getInst().getCuidGalaxy2());
+            httpMessage.addParam("ua", ps5.b());
+            httpMessage.addHeader("Cookie", CookieManager.getInstance().getCookie("tieba.baidu.com"));
+            MessageManager.getInstance().sendMessage(httpMessage);
         }
     }
 }

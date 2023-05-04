@@ -1,35 +1,33 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.text.TextUtils;
-import androidx.annotation.NonNull;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.swan.apps.view.narootview.SwanAppInlineFullScreenContainer;
+import com.baidu.tieba.g72;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xo1 extends c43 {
+public class xo1 implements nw3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final ViewGroup.LayoutParams c;
     public transient /* synthetic */ FieldHolder $fh;
-    public wv3 c;
-    public DownloadParams.SwanAppDownloadType d;
+    public f72 a;
+    public FrameLayout b;
 
-    @Override // com.baidu.tieba.a43
-    public long a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return 0L;
-        }
-        return invokeV.longValue;
-    }
-
-    @Override // com.baidu.tieba.a43
-    public boolean c() {
+    @Override // com.baidu.tieba.nw3
+    public boolean b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -38,42 +36,141 @@ public class xo1 extends c43 {
         return invokeV.booleanValue;
     }
 
-    public xo1(wv3 wv3Var, @NonNull DownloadParams.SwanAppDownloadType swanAppDownloadType) {
+    @Override // com.baidu.tieba.nw3
+    public boolean c(View view2) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2)) == null) {
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public boolean f(View view2, hv3 hv3Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, view2, hv3Var)) == null) {
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948306991, "Lcom/baidu/tieba/xo1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948306991, "Lcom/baidu/tieba/xo1;");
+                return;
+            }
+        }
+        c = new FrameLayout.LayoutParams(-1, -1);
+    }
+
+    public xo1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wv3Var, swanAppDownloadType};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = wv3Var;
-        this.d = swanAppDownloadType;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.c43, com.baidu.tieba.a43
-    public void onEvent(@NonNull y33 y33Var) {
-        Bundle a;
+    @Override // com.baidu.tieba.nw3
+    public void a(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, y33Var) == null) && (a = y33Var.a()) != null && this.c != null) {
-            int i = a.getInt("state", DownloadState.NOT_START.value());
-            int i2 = a.getInt("progress", 0);
-            this.c.c(DownloadState.convert(i), i2);
-            this.c.a(i2);
-            String string = a.getString("packageName", "");
-            if (!TextUtils.isEmpty(string)) {
-                this.c.d(string);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, jSONObject) == null) {
+            g72 V = kt2.U().V();
+            Context appContext = AppRuntime.getAppContext();
+            if (V == null) {
+                if (appContext != null) {
+                    p73.f(appContext, R.string.obfuscated_res_0x7f0f01a6).G();
+                    return;
+                }
+                return;
             }
-            if (this.d == DownloadParams.SwanAppDownloadType.TYPE_START_DOWNLOAD) {
-                this.c.f(true);
-            }
+            xx2 d = xx2.d(str, str);
+            d.h(jSONObject.toString());
+            g72.b i = V.i("adLanding");
+            i.n(g72.g, g72.i);
+            i.k("adLanding", d).b();
         }
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public boolean d(View view2, hv3 hv3Var) {
+        InterceptResult invokeLL;
+        g72 V;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, view2, hv3Var)) == null) {
+            kt2 U = kt2.U();
+            SwanAppActivity activity = U.getActivity();
+            if (activity == null || activity.isFinishing() || (V = U.V()) == null) {
+                return false;
+            }
+            f72 o = V.o();
+            this.a = o;
+            if (o.J3()) {
+                int t = ol3.t();
+                if (view2 instanceof ViewGroup) {
+                    ViewGroup viewGroup = (ViewGroup) view2;
+                    for (int i = 0; i < viewGroup.getChildCount(); i++) {
+                        View childAt = viewGroup.getChildAt(i);
+                        if (childAt.getTop() < t) {
+                            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) childAt.getLayoutParams();
+                            layoutParams.topMargin = childAt.getTop() + t;
+                            childAt.setLayoutParams(layoutParams);
+                        }
+                    }
+                }
+            }
+            SwanAppInlineFullScreenContainer swanAppInlineFullScreenContainer = new SwanAppInlineFullScreenContainer(activity);
+            this.b = swanAppInlineFullScreenContainer;
+            swanAppInlineFullScreenContainer.addView(view2, c);
+            e73 d = o.d();
+            if (d == null) {
+                return false;
+            }
+            d.m(true);
+            ol3.b(activity);
+            d.n(this.b);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.nw3
+    public boolean removeView(View view2) {
+        InterceptResult invokeL;
+        e73 d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, view2)) == null) {
+            this.b.removeAllViews();
+            f72 f72Var = this.a;
+            if (f72Var == null || (d = f72Var.d()) == null) {
+                return false;
+            }
+            d.m(false);
+            d.g();
+            return true;
+        }
+        return invokeL.booleanValue;
     }
 }

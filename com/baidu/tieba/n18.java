@@ -1,66 +1,108 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.message.SaveDraftMessage;
-import com.baidu.tieba.im.pushNotify.ChatSetting;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.BroadcastInfo;
+import tbclient.GetForumBroadcastList.DataRes;
+import tbclient.Page;
 /* loaded from: classes5.dex */
-public abstract class n18 implements CustomMessageTask.CustomRunnable<SaveDraftMessage.a> {
+public class n18 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u08 a;
-    public int b;
+    public List<o18> a;
+    public Page b;
+    public boolean c;
+    public boolean d;
 
-    public n18(u08 u08Var, int i) {
+    public n18() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {u08Var, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = u08Var;
-        this.b = i;
+        this.a = new ArrayList();
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<SaveDraftMessage.a> customMessage) {
-        InterceptResult invokeL;
-        String str;
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            CustomResponsedMessage<?> customResponsedMessage = new CustomResponsedMessage<>(this.b);
-            if (customMessage == null || !(customMessage instanceof SaveDraftMessage)) {
-                return null;
-            }
-            SaveDraftMessage.a data = customMessage.getData();
-            if (TbadkCoreApplication.getCurrentAccountObj() != null) {
-                str = TbadkCoreApplication.getCurrentAccountObj().getID();
-            } else {
-                str = "";
-            }
-            ChatSetting a = this.a.a(str, data.b);
-            if (a == null) {
-                return null;
-            }
-            a.setDraft(data.a);
-            this.a.h(a);
-            return customResponsedMessage;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.c;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public List<o18> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void d(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        Page page = dataRes.page;
+        this.b = page;
+        if (page != null) {
+            boolean z = true;
+            if (page.has_more.intValue() != 1) {
+                z = false;
+            }
+            this.c = z;
+        }
+        List<BroadcastInfo> list = dataRes.bcast_infos;
+        if (list != null) {
+            for (int i = 0; i < list.size(); i++) {
+                o18 o18Var = new o18();
+                o18Var.l(list.get(i));
+                this.a.add(o18Var);
+            }
+        }
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void f() {
+        List<o18> list;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (list = this.a) != null && list.size() > 0) {
+            for (o18 o18Var : this.a) {
+                if (o18Var != null) {
+                    h18.w().A(o18Var.e().forum_id.longValue(), o18Var.b() * 100, o18Var.i());
+                }
+            }
+        }
     }
 }

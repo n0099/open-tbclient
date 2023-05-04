@@ -1,26 +1,23 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.Map;
 /* loaded from: classes3.dex */
-public class ci2 extends vh2 {
+public class ci2 extends xh2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String c;
-    public final String d;
+    public final xz1 c;
 
-    public ci2(@Nullable String str, @Nullable String str2) {
+    public ci2(@NonNull String str, @NonNull xz1 xz1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {str, xz1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,27 +27,17 @@ public class ci2 extends vh2 {
                 return;
             }
         }
-        this.c = str;
-        this.d = str2;
-        this.a = "firstMeaningfulPainted";
+        this.a = str;
+        this.c = xz1Var;
     }
 
-    @Override // com.baidu.tieba.vh2
+    @Override // com.baidu.tieba.xh2
     public void m(Map<String, Object> map) {
-        String str;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
-            String str2 = "";
-            if (TextUtils.isEmpty(this.c)) {
-                str = "";
-            } else {
-                str = this.c;
-            }
-            map.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
-            if (!TextUtils.isEmpty(this.d)) {
-                str2 = this.d;
-            }
-            map.put(PrefetchEvent.EVENT_KEY_PAGE_URL, str2);
+            map.put("status", Integer.valueOf(this.c.b));
+            map.put("data", this.c.d);
+            map.put("message", this.c.c);
         }
     }
 }

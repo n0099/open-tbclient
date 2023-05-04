@@ -7,9 +7,9 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.n16;
-import com.baidu.tieba.r16;
-import com.baidu.tieba.y06;
+import com.baidu.tieba.o26;
+import com.baidu.tieba.s26;
+import com.baidu.tieba.z16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -45,22 +45,22 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         this.errno = -1;
     }
 
-    private n16 searchTask(String str) {
+    private o26 searchTask(String str) {
         InterceptResult invokeL;
         BdAsyncTask<?, ?, ?> searchTask;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof n16)) {
+            if (TextUtils.isEmpty(str) || (searchTask = BdAsyncTask.searchTask(str)) == null || !(searchTask instanceof o26)) {
                 return null;
             }
             try {
-                return (n16) searchTask;
+                return (o26) searchTask;
             } catch (Exception e) {
                 BdLog.e(e.getMessage());
                 return null;
             }
         }
-        return (n16) invokeL.objValue;
+        return (o26) invokeL.objValue;
     }
 
     private void dealVideoAd() {
@@ -68,23 +68,23 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         if ((interceptable != null && interceptable.invokeV(65537, this) != null) || !FileHelper.checkSD()) {
             return;
         }
-        y06 b = y06.b(r16.f());
+        z16 b = z16.b(s26.f());
         if (!this.adInfo.shouldDownloadVideo()) {
             AdInfo adInfo = this.adInfo;
             adInfo.videoLocalPath = b.d;
-            r16.i(adInfo);
+            s26.i(adInfo);
         } else if (BdNetTypeUtil.isNetWorkAvailable() && BdNetTypeUtil.isWifiNet()) {
-            n16 searchTask = searchTask(this.adInfo.adVideoUrl);
+            o26 searchTask = searchTask(this.adInfo.adVideoUrl);
             if (searchTask != null && searchTask.getStatus() != BdAsyncTask.BdAsyncTaskStatus.FINISHED) {
                 return;
             }
-            r16.i(this.adInfo);
-            n16 n16Var = new n16();
-            n16Var.c(this.adInfo);
-            n16Var.setKey(this.adInfo.adVideoUrl);
-            n16Var.execute(new Void[0]);
+            s26.i(this.adInfo);
+            o26 o26Var = new o26();
+            o26Var.c(this.adInfo);
+            o26Var.setKey(this.adInfo.adVideoUrl);
+            o26Var.execute(new Void[0]);
         } else {
-            r16.i(this.adInfo);
+            s26.i(this.adInfo);
         }
     }
 
@@ -110,7 +110,7 @@ public class SplashHttpResponse extends JsonHttpResponsedMessage {
         }
         AdInfo adInfo2 = this.adInfo;
         adInfo2.videoLocalPath = "";
-        r16.i(adInfo2);
+        s26.i(adInfo2);
     }
 
     public int getErrno() {

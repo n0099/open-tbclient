@@ -1,195 +1,142 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.view.Window;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.WebPManager;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.view.RoundRelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.widget.ad.VipAdFreeGuideLayout;
+import com.baidu.tieba.ad.AbsDataRecorder;
+import com.baidu.tieba.recapp.lego.view.AdCardBaseView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class gf9 extends ff9 {
+public class gf9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context M;
-    public sj9 N;
-    public RoundRelativeLayout O;
-    public TbImageView P;
-    public TextView Q;
-    public TextView R;
-    public RoundRelativeLayout S;
-    public TbImageView T;
-    public TextView U;
-    public TextView V;
-    public ImageView W;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gf9(Context context, boolean z, int i, sj9 sj9Var) {
-        super(context, z, i);
+    public static boolean a(String str, int i, int i2) {
+        InterceptResult invokeLII;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Boolean.valueOf(z), Integer.valueOf(i), sj9Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(65536, null, str, i, i2)) == null) {
+            if (i == 2) {
+                if ("frs_new_tab".equals(str) && zz5.k().s(AbsDataRecorder.Scene.FRS_NEW)) {
+                    return true;
+                }
+                if ("frs_hot_tab".equals(str) && zz5.k().s(AbsDataRecorder.Scene.FRS_HOT)) {
+                    return true;
+                }
+                return false;
+            } else if (i == 3) {
+                if (zz5.k().r(i2, AbsDataRecorder.Scene.PB)) {
+                    return true;
+                }
+                return false;
+            } else if (i == 1 && "INDEX".equals(str) && zz5.k().s(AbsDataRecorder.Scene.RECOMMEND)) {
+                return true;
+            } else {
+                return false;
             }
         }
-        this.M = context;
-        this.N = sj9Var;
-        C0();
-        i0(2);
+        return invokeLII.booleanValue;
     }
 
-    public final Bitmap B0(View view2) {
-        InterceptResult invokeL;
+    public static void b(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, view2)) == null) {
-            if (view2 == null) {
-                return null;
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            if (i != 2 && i != 1) {
+                if (i == 3) {
+                    if (zz5.k().m() && i2 == 1) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(false);
+                        if (adCardBaseView.getPbBottomView() != null) {
+                            adCardBaseView.getPbBottomView().setVisibility(8);
+                            return;
+                        }
+                        return;
+                    }
+                    if (vipAdFreeGuideLayout != null) {
+                        vipAdFreeGuideLayout.setBottomCornerRound(false);
+                        vipAdFreeGuideLayout.setAllCornerRound(true);
+                    }
+                    if (adCardBaseView.getPbBottomView() != null) {
+                        adCardBaseView.getPbBottomView().setVisibility(0);
+                    }
+                }
+            } else if (vipAdFreeGuideLayout != null) {
+                vipAdFreeGuideLayout.setBottomCornerRound(true);
             }
-            Bitmap createBitmap = Bitmap.createBitmap(view2.getWidth(), view2.getHeight(), Bitmap.Config.ARGB_4444);
-            view2.draw(new Canvas(createBitmap));
-            return createBitmap;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ff9
-    public void l0(Window window) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, window) == null) {
-            window.setLayout(-1, -1);
         }
     }
 
-    public final void C0() {
+    public static void c(VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.O = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f09213a);
-            this.P = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f092139);
-            this.S = (RoundRelativeLayout) this.b.findViewById(R.id.obfuscated_res_0x7f091415);
-            this.T = (TbImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09213d);
-            this.Q = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09213c);
-            this.R = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09213b);
-            this.U = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925fe);
-            this.V = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0925fd);
-            this.W = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f09106f);
-            E0();
-            this.O.setRoundLayoutRadius(p25.B(R.string.J_X06));
-            this.S.setRoundLayoutRadius(p25.B(R.string.J_X04));
+        if (interceptable == null || interceptable.invokeLLLI(65538, null, vipAdFreeGuideLayout, str, str2, i) == null) {
+            if (i == 2) {
+                if ("frs_new_tab".equals(str2)) {
+                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_NEW, str);
+                } else if ("frs_hot_tab".equals(str2)) {
+                    vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.FRS_HOT, str);
+                }
+            } else if (i == 3) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.PB, str);
+            } else if (i == 1) {
+                vipAdFreeGuideLayout.setInfo(AbsDataRecorder.Scene.RECOMMEND, str);
+            }
         }
     }
 
-    @Override // com.baidu.tieba.ff9
-    public View D() {
-        InterceptResult invokeV;
+    public static void d(AdCardBaseView adCardBaseView, VipAdFreeGuideLayout vipAdFreeGuideLayout, String str, String str2, int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return LayoutInflater.from(TbadkCoreApplication.getInst().getContext()).inflate(R.layout.obfuscated_res_0x7f0d086b, (ViewGroup) null);
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public final void D0(TbImageView tbImageView) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, tbImageView) != null) || tbImageView == null) {
+        if ((interceptable != null && interceptable.invokeCommon(65539, null, new Object[]{adCardBaseView, vipAdFreeGuideLayout, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) != null) || vipAdFreeGuideLayout == null) {
             return;
         }
-        if (this.N.b() == 1) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080aee);
-        } else if (this.N.b() == 2) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080c67);
-        } else if (this.N.b() == 3) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080aef);
-        } else if (this.N.b() == 4) {
-            SkinManager.setImageResource(tbImageView, R.drawable.obfuscated_res_0x7f080af2);
-        } else {
-            tbImageView.N(this.N.c(), 10, false);
-        }
+        vipAdFreeGuideLayout.setVisibility(0);
+        b(adCardBaseView, vipAdFreeGuideLayout, str2, i, i2);
+        vipAdFreeGuideLayout.f();
+        c(vipAdFreeGuideLayout, str, str2, i);
     }
 
-    public final void E0() {
+    public static void e(AdvertAppInfo advertAppInfo, lh8<?> lh8Var, String str, String str2, int i, int i2) {
+        AdCardBaseView adCardBaseView;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            int l = (ii.l(TbadkCoreApplication.getInst()) * 879) / 1076;
-            int i = (l * 1342) / 879;
-            ViewGroup.LayoutParams layoutParams = this.O.getLayoutParams();
-            if (layoutParams != null) {
-                layoutParams.width = l;
-                layoutParams.height = i;
+        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{advertAppInfo, lh8Var, str, str2, Integer.valueOf(i), Integer.valueOf(i2)}) == null) {
+            VipAdFreeGuideLayout vipAdFreeGuideLayout = null;
+            if (lh8Var instanceof AdCardBaseView) {
+                adCardBaseView = (AdCardBaseView) lh8Var;
+            } else {
+                adCardBaseView = null;
             }
-            this.O.setLayoutParams(layoutParams);
-            int i2 = (l * 416) / 879;
-            ViewGroup.LayoutParams layoutParams2 = this.P.getLayoutParams();
-            if (layoutParams2 != null) {
-                layoutParams2.width = i2;
-                layoutParams2.height = i2;
+            if (adCardBaseView != null) {
+                vipAdFreeGuideLayout = adCardBaseView.getVipAdFreeGuideLayout();
             }
-            this.P.setLayoutParams(layoutParams2);
-        }
-    }
-
-    @Override // com.baidu.tieba.ff9
-    public ShareItem G(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
-            ShareItem shareItem = this.z.get(1);
-            if (shareItem == null) {
-                shareItem = new ShareItem();
+            VipAdFreeGuideLayout vipAdFreeGuideLayout2 = vipAdFreeGuideLayout;
+            if (vipAdFreeGuideLayout2 != null) {
+                if (i == 1) {
+                    i3 = zz5.k().j(advertAppInfo.a);
+                } else {
+                    i3 = advertAppInfo.s;
+                }
+                if (i3 == 1) {
+                    vipAdFreeGuideLayout2.setVisibility(8);
+                } else if (i3 == 2) {
+                    d(adCardBaseView, vipAdFreeGuideLayout2, str, str2, i, i2);
+                } else if (a(str2, i, i2)) {
+                    d(adCardBaseView, vipAdFreeGuideLayout2, str, str2, i, i2);
+                    zz5.k().c();
+                    if (i == 1) {
+                        zz5.k().p(advertAppInfo.a, 2);
+                    } else {
+                        advertAppInfo.s = 2;
+                    }
+                } else {
+                    vipAdFreeGuideLayout2.setVisibility(8);
+                    if (i == 1) {
+                        zz5.k().p(advertAppInfo.a, 1);
+                    } else {
+                        advertAppInfo.s = 1;
+                    }
+                }
             }
-            shareItem.r0 = false;
-            shareItem.q0 = false;
-            shareItem.w = "";
-            shareItem.k0 = 1;
-            shareItem.j(B0(this.O));
-            shareItem.h();
-            this.z.put(1, shareItem);
-            return super.G(i);
-        }
-        return (ShareItem) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.ff9
-    public void p0() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.b.setBackgroundColor(SkinManager.getColor(R.color.CAM_X0202));
-            if (this.N != null) {
-                D0(this.P);
-                this.T.setImageBitmap(this.N.a());
-                this.Q.setText(this.N.d());
-            }
-            WebPManager.setPureDrawable(this.W, R.drawable.obfuscated_res_0x7f080a3d, R.color.CAM_X0101, null);
-            r25.d(this.U).w(R.color.CAM_X0101);
-            r25.d(this.V).w(R.color.CAM_X0101);
-            r25 d = r25.d(this.Q);
-            d.C(R.string.F_X02);
-            d.w(R.color.CAM_X0102);
-            r25.d(this.R).w(R.color.CAM_X0103);
-            super.p0();
         }
     }
 }

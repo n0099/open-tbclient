@@ -1,32 +1,72 @@
 package com.baidu.tieba.browser.webview.lifecycle;
 
 import android.webkit.WebView;
+import androidx.annotation.NonNull;
 import androidx.lifecycle.Lifecycle;
 import androidx.lifecycle.OnLifecycleEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.tieba.browser.lifecycle.WebViewLifeCycle;
-import com.baidu.tieba.of6;
-import com.baidu.tieba.pf6;
-import com.baidu.tieba.ve6;
-import com.baidu.tieba.ye6;
+import com.baidu.tieba.ed6;
+import com.baidu.tieba.gh6;
+import com.baidu.tieba.kg6;
+import com.baidu.tieba.yg6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
 public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WebView a;
-    public final ve6 b;
+    public final ed6<String> a;
+    public final ed6<WebView> b;
 
-    public SimpleWebViewLifeCycle(WebView webView, ve6 ve6Var) {
+    /* loaded from: classes3.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1764221099, "Lcom/baidu/tieba/browser/webview/lifecycle/SimpleWebViewLifeCycle$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(1764221099, "Lcom/baidu/tieba/browser/webview/lifecycle/SimpleWebViewLifeCycle$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[Lifecycle.Event.values().length];
+            a = iArr;
+            try {
+                iArr[Lifecycle.Event.ON_RESUME.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[Lifecycle.Event.ON_PAUSE.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[Lifecycle.Event.ON_DESTROY.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+        }
+    }
+
+    public SimpleWebViewLifeCycle(@NonNull ed6<WebView> ed6Var, @NonNull ed6<String> ed6Var2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {webView, ve6Var};
+            Object[] objArr = {ed6Var, ed6Var2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -36,48 +76,59 @@ public class SimpleWebViewLifeCycle implements WebViewLifeCycle {
                 return;
             }
         }
-        this.a = webView;
-        this.b = ve6Var;
+        this.b = ed6Var;
+        this.a = ed6Var2;
     }
 
-    public void b(WebView webView) {
+    public void b(Lifecycle.Event event) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
-            this.a = webView;
+        if (interceptable == null || interceptable.invokeL(1048576, this, event) == null) {
+            WebView call = this.b.call();
+            if (call instanceof gh6) {
+                int i = a.a[event.ordinal()];
+                if (i != 1) {
+                    if (i != 2) {
+                        if (i == 3) {
+                            kg6.c("lt-log", "WebView::onDestroy");
+                            ((yg6) ServiceManager.getService(yg6.a)).b(this.a.call(), call);
+                            return;
+                        }
+                        return;
+                    }
+                    kg6.c("lt-log", "WebView::onPause");
+                    call.onPause();
+                    return;
+                }
+                kg6.c("lt-log", "WebView::onResume");
+                call.onResume();
+            }
         }
     }
 
+    @Override // com.baidu.tieba.browser.lifecycle.WebViewLifeCycle
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            ve6 ve6Var = this.b;
-            if (ve6Var != null) {
-                ve6Var.b(this.a);
-            }
-            if (this.a instanceof pf6) {
-                ((of6) ServiceManager.getService(of6.a)).a(this.a);
-                ye6.c("lt-log", "WebView::onDestroy");
-            }
-            this.a = null;
+            b(Lifecycle.Event.ON_DESTROY);
         }
     }
 
+    @Override // com.baidu.tieba.browser.lifecycle.WebViewLifeCycle
     @OnLifecycleEvent(Lifecycle.Event.ON_PAUSE)
     public void onPause() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.a != null) {
-            ye6.c("lt-log", "WebView::onPause");
-            this.a.onPause();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            b(Lifecycle.Event.ON_PAUSE);
         }
     }
 
+    @Override // com.baidu.tieba.browser.lifecycle.WebViewLifeCycle
     @OnLifecycleEvent(Lifecycle.Event.ON_RESUME)
     public void onResume() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a != null) {
-            ye6.c("lt-log", "WebView::onResume");
-            this.a.onResume();
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            b(Lifecycle.Event.ON_RESUME);
         }
     }
 }

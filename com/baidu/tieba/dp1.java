@@ -1,11 +1,7 @@
 package com.baidu.tieba;
 
-import java.io.File;
+import com.baidu.tieba.m03;
 /* loaded from: classes4.dex */
 public interface dp1 {
-    File a(String str, String str2);
-
-    File b();
-
-    String c();
+    void a(String str, m03.k kVar);
 }

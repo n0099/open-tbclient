@@ -1,99 +1,111 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class za5 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = -1;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static za5 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-238293539, "Lcom/baidu/tieba/za5$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-238293539, "Lcom/baidu/tieba/za5$b;");
-                    return;
-                }
-            }
-            a = new za5(null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948353243, "Lcom/baidu/tieba/za5;")) == null) {
+            return;
         }
-    }
-
-    public za5() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948353243, "Lcom/baidu/tieba/za5;");
         }
     }
 
-    public static za5 e() {
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                return 3;
+            }
+            return f55.m().n("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), 3);
+        }
+        return invokeV.intValue;
+    }
+
+    public static int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
+            if (TbSingleton.getInstance().getSharePanelConfData() != null && TbSingleton.getInstance().getSharePanelConfData().c()) {
+                int a2 = a();
+                if (a2 != 2) {
+                    if (a2 == 3) {
+                        return R.drawable.icon_mask_share_wechat40_svg;
+                    }
+                    if (a2 != 4) {
+                        if (a2 != 6) {
+                            if (a2 != 8) {
+                                return R.drawable.icon_mask_share_wechat40_svg;
+                            }
+                            return R.drawable.icon_mask_share_qq40_svg;
+                        }
+                        return R.drawable.icon_mask_share_weibo40_svg;
+                    }
+                    return R.drawable.icon_mask_share_qqzone40_svg;
+                }
+                return R.drawable.icon_mask_share_circle40_svg;
+            }
+            return -1;
         }
-        return (za5) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public void b() {
+    public static long c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            c("kLCSError=1");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            long j = a;
+            if (j >= 0) {
+                return j;
+            }
+            if (!hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                a = f55.m().o("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), 0L);
+            }
+            return a;
+        }
+        return invokeV.longValue;
+    }
+
+    public static void d(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TRACKBALL, null, i) == null) && i > 0 && !hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            f55.m().z("key_shared_record_prefix_" + TbadkCoreApplication.getCurrentAccount(), i);
+            f55.m().H("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount());
+            a = 0L;
         }
     }
 
-    public /* synthetic */ za5(a aVar) {
-        this();
-    }
-
-    public void a(int i) {
+    public static void e(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
-            c("kNetStatus=" + i);
+        if ((interceptable == null || interceptable.invokeJ(65541, null, j) == null) && !hi.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+            f55.m().A("key_shared_to_tb_friend_prefix_" + TbadkCoreApplication.getCurrentAccount(), j);
+            a = j;
         }
     }
 
-    public final void c(String str) {
+    public static void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            ea.a("IpReconnLogHelper", 0, 0, null, ov4.b, str);
-        }
-    }
-
-    public void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            c("kNewIpResult=" + str);
+        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
+            a = -1L;
         }
     }
 }

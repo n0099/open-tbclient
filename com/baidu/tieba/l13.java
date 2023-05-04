@@ -3,8 +3,10 @@ package com.baidu.tieba;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.appcompat.widget.TooltipCompatHandler;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,44 +14,43 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class l13 implements zs2 {
+public class l13 implements bt2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<String> c;
-    public CopyOnWriteArrayList<k13> d;
-    public boolean e;
-    public r23 f;
+    public long c;
+    public ConcurrentHashMap<String, JSONObject> d;
+    public ConcurrentHashMap<String, Integer> e;
+    public t23 f;
 
     /* loaded from: classes5.dex */
-    public class a implements r23 {
+    public class a implements t23 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ l13 c;
 
-        @Override // com.baidu.tieba.r23
+        @Override // com.baidu.tieba.t23
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.r23
+        @Override // com.baidu.tieba.t23
         public void c(@NonNull Runnable runnable, @NonNull String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, runnable, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.r23
+        @Override // com.baidu.tieba.t23
         public String getName() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "GlobalJsBridge" : (String) invokeV.objValue;
+            return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "LaunchApiCache" : (String) invokeV.objValue;
         }
 
         public a(l13 l13Var) {
@@ -70,41 +71,28 @@ public class l13 implements zs2 {
             this.c = l13Var;
         }
 
-        @Override // com.baidu.tieba.r23
-        public void e(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048580, this, str) != null) {
-                return;
-            }
-            this.c.e = true;
-        }
-
-        @Override // com.baidu.tieba.r23
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) {
-                return;
-            }
-            this.c.e = false;
-        }
-
-        @Override // com.baidu.tieba.r23
+        @Override // com.baidu.tieba.t23
         public void d(boolean z) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-                this.c.e = false;
-                if (this.c.d.isEmpty()) {
-                    return;
-                }
-                long currentTimeMillis = System.currentTimeMillis();
-                Iterator<k13> it = this.c.d.iterator();
-                while (it.hasNext()) {
-                    it.next().a();
-                }
-                if (zs2.a) {
-                    long currentTimeMillis2 = System.currentTimeMillis();
-                    Log.d("SwanPerformance", "pending api dispatch cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms, listener count = " + this.c.d.size());
-                }
+            if (interceptable != null && interceptable.invokeZ(1048579, this, z) != null) {
+                return;
+            }
+            this.c.g();
+        }
+
+        @Override // com.baidu.tieba.t23
+        public void e(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                this.c.c = System.currentTimeMillis();
+            }
+        }
+
+        @Override // com.baidu.tieba.t23
+        public void b() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                this.c.g();
             }
         }
     }
@@ -145,51 +133,90 @@ public class l13 implements zs2 {
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new CopyOnWriteArrayList<>();
-        this.e = false;
+        this.c = -1L;
+        this.d = new ConcurrentHashMap<>(10);
+        this.e = new ConcurrentHashMap<>(10);
         this.f = new a(this);
-        this.c.clear();
-        List<String> list = this.c;
-        list.add(UnitedSchemeEntity.UNITED_SCHEME + "swanAPI/openStatisticEvent?");
     }
 
     public /* synthetic */ l13(a aVar) {
         this();
     }
 
-    public void d(k13 k13Var) {
+    public void h(String str, JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k13Var) != null) || k13Var == null) {
+        if ((interceptable != null && interceptable.invokeLL(1048580, this, str, jSONObject) != null) || TextUtils.isEmpty(str) || !e()) {
             return;
         }
-        this.d.add(k13Var);
-        p23.g().i(this.f, 4000);
+        this.d.put(str, jSONObject);
     }
 
     public static l13 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
             return b.a;
         }
         return (l13) invokeV.objValue;
     }
 
-    public boolean b(String str) {
+    public boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c == -1 || System.currentTimeMillis() - this.c > TooltipCompatHandler.LONG_CLICK_HIDE_TIMEOUT_MS) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            r23.g().i(this.f, 2500);
+        }
+    }
+
+    public JSONObject d(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (TextUtils.isEmpty(str) || !this.e) {
-                return false;
+            if (TextUtils.isEmpty(str) || !e()) {
+                return null;
             }
-            for (String str2 : this.c) {
-                if (str.startsWith(str2)) {
-                    return true;
+            JSONObject jSONObject = this.d.get(str);
+            if (bt2.a && jSONObject != null) {
+                Integer num = this.e.get(str);
+                if (num == null) {
+                    num = 0;
                 }
+                this.e.put(str, Integer.valueOf(num.intValue() + 1));
             }
-            return false;
+            return jSONObject;
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeL.objValue;
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = -1L;
+            if (bt2.a) {
+                StringBuilder sb = new StringBuilder();
+                sb.append("adopt cache api = [ ");
+                for (Map.Entry<String, Integer> entry : this.e.entrySet()) {
+                    sb.append((Object) entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append(" ");
+                }
+                sb.append(PreferencesUtil.RIGHT_MOUNT);
+                Log.d("SwanPerformance", sb.toString());
+            }
+            this.e.clear();
+            this.d.clear();
+        }
     }
 }

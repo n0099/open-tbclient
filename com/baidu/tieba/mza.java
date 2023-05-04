@@ -1,100 +1,148 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.content.Intent;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.SoftReference;
+import java.io.Closeable;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.Reader;
+import java.io.StringWriter;
+import java.io.UnsupportedEncodingException;
+import java.io.Writer;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes5.dex */
 public final class mza {
     public static /* synthetic */ Interceptable $ic;
-    public static SoftReference<mza> d;
     public transient /* synthetic */ FieldHolder $fh;
-    public nza a;
-    public String b;
-    public Context c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947991349, "Lcom/baidu/tieba/mza;")) == null) {
+    public static void a(Closeable closeable) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(65536, null, closeable) == null) || closeable == null) {
             return;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947991349, "Lcom/baidu/tieba/mza;");
+        try {
+            closeable.close();
+        } catch (IOException unused) {
+            Log.e("Utils", "Exception when closing the 'Closeable'.");
         }
     }
 
-    public mza(Context context, String str) {
+    public static void b(Reader reader, Writer writer) throws IOException {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65537, null, reader, writer) == null) {
+            c(reader, writer, new char[4096]);
+        }
+    }
+
+    public static void c(Reader reader, Writer writer, char[] cArr) throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable != null && interceptable.invokeLLL(65538, null, reader, writer, cArr) != null) {
+            return;
+        }
+        while (true) {
+            int read = reader.read(cArr);
+            if (-1 == read) {
                 return;
             }
+            writer.write(cArr, 0, read);
         }
-        rza.b();
-        this.a = new nza(context, str);
-        this.b = str;
-        this.c = context;
     }
 
-    public static mza b(Context context, String str) {
-        InterceptResult invokeLL;
-        mza mzaVar;
-        mza mzaVar2;
+    public static Map<String, String> d(Map<String, String> map) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, str)) == null) {
-            if (context != null && str != null) {
-                SoftReference<mza> softReference = d;
-                if (softReference == null) {
-                    mzaVar = null;
-                } else {
-                    mzaVar = softReference.get();
-                }
-                if (mzaVar == null || !str.equals(mzaVar.b)) {
-                    synchronized (mza.class) {
-                        mzaVar2 = new mza(context, str);
-                        d = new SoftReference<>(mzaVar2);
-                    }
-                    return mzaVar2;
-                }
-                return mzaVar;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, map)) == null) {
+            HashMap hashMap = new HashMap();
+            for (Map.Entry<String, String> entry : map.entrySet()) {
+                hashMap.put(e(entry.getKey()), entry.getValue());
             }
-            throw new IllegalArgumentException("YYOpenSDK createInstance failed, Make sure context or appid is not null!");
+            return hashMap;
         }
-        return (mza) invokeLL.objValue;
+        return (Map) invokeL.objValue;
     }
 
-    public final void a(Activity activity, kza kzaVar) {
+    public static String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, activity, kzaVar) == null) {
-            this.a.c(activity, "123", kzaVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            int i = 0;
+            if (str.length() > 0) {
+                while (str.charAt(i) == '/') {
+                    i++;
+                }
+            }
+            return "/" + str.substring(i);
         }
+        return (String) invokeL.objValue;
     }
 
-    public final void c(int i, int i2, Intent intent, kza kzaVar) {
+    public static dza f(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), intent, kzaVar}) == null) {
-            this.a.d(i, i2, intent, kzaVar);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
+            if (str != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 2155) {
+                    if (hashCode != 2177) {
+                        if (hashCode != 2627) {
+                            if (hashCode == 2644 && str.equals("SG")) {
+                                c = 3;
+                            }
+                        } else if (str.equals("RU")) {
+                            c = 2;
+                        }
+                    } else if (str.equals("DE")) {
+                        c = 1;
+                    }
+                } else if (str.equals("CN")) {
+                    c = 0;
+                }
+                if (c == 0) {
+                    return dza.c;
+                }
+                if (c == 1) {
+                    return dza.d;
+                }
+                if (c == 2) {
+                    return dza.e;
+                }
+                if (c == 3) {
+                    return dza.f;
+                }
+            }
+            if (str2 != null) {
+                if (str2.contains("connect-drcn")) {
+                    return dza.c;
+                }
+                if (str2.contains("connect-dre")) {
+                    return dza.d;
+                }
+                if (str2.contains("connect-drru")) {
+                    return dza.e;
+                }
+                if (str2.contains("connect-dra")) {
+                    return dza.f;
+                }
+            }
+            return dza.b;
         }
+        return (dza) invokeLL.objValue;
+    }
+
+    public static String g(InputStream inputStream, String str) throws UnsupportedEncodingException, IOException {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, inputStream, str)) == null) {
+            StringWriter stringWriter = new StringWriter();
+            b(new InputStreamReader(inputStream, str), stringWriter);
+            return stringWriter.toString();
+        }
+        return (String) invokeLL.objValue;
     }
 }

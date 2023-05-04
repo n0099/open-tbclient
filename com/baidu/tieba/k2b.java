@@ -1,61 +1,39 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.graphics.Path;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import rx.internal.operators.OnSubscribeAmb$Selection;
 /* loaded from: classes5.dex */
-public final class k2b<T> extends t1b<T> {
+public final class k2b {
     public static /* synthetic */ Interceptable $ic;
+    public static final Path a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final t1b<? super T> e;
-    public final OnSubscribeAmb$Selection<T> f;
-    public boolean g;
 
-    public final boolean g() {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947862606, "Lcom/baidu/tieba/k2b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947862606, "Lcom/baidu/tieba/k2b;");
+                return;
+            }
+        }
+        a = new Path();
+    }
+
+    public static final Path a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.g) {
-                return true;
-            }
-            if (this.f.get() == this) {
-                this.g = true;
-                return true;
-            } else if (this.f.compareAndSet(null, this)) {
-                this.f.unsubscribeOthers(this);
-                this.g = true;
-                return true;
-            } else {
-                this.f.unsubscribeLosers();
-                return false;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return a;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.o1b
-    public void onCompleted() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && g()) {
-            this.e.onCompleted();
-        }
-    }
-
-    @Override // com.baidu.tieba.o1b
-    public void onError(Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) && g()) {
-            this.e.onError(th);
-        }
-    }
-
-    @Override // com.baidu.tieba.o1b
-    public void onNext(T t) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, t) == null) && g()) {
-            this.e.onNext(t);
-        }
+        return (Path) invokeV.objValue;
     }
 }

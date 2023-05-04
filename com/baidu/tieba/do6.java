@@ -1,148 +1,113 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.data.ItemData;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ApkDetail;
-import tbclient.ManageInfo;
+import java.util.List;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public class do6 implements in {
+public final class do6 {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
-    public ItemData a;
+    public final List<ym6> a;
     public int b;
     public int c;
     public boolean d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947711326, "Lcom/baidu/tieba/do6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947711326, "Lcom/baidu/tieba/do6;");
-                return;
-            }
-        }
-        e = BdUniqueId.gen();
-    }
-
-    public do6() {
+    public do6(List<ym6> data, long j, long j2, int i, int i2, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.b = 0;
-        this.c = 0;
-        this.d = true;
+        Intrinsics.checkNotNullParameter(data, "data");
+        this.a = data;
+        this.b = i;
+        this.c = i2;
+        this.d = z;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    /* renamed from: a */
-    public do6 clone() {
+    /* JADX WARN: Illegal instructions before constructor call */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public /* synthetic */ do6(List list, long j, long j2, int i, int i2, boolean z, int i3, DefaultConstructorMarker defaultConstructorMarker) {
+        this(list, j, j2, i, i2, r9);
+        boolean z2;
+        if ((i3 & 32) != 0) {
+            z2 = false;
+        } else {
+            z2 = z;
+        }
+    }
+
+    public final List<ym6> a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            do6 do6Var = new do6();
-            do6Var.a = this.a;
-            do6Var.b = this.b;
-            do6Var.c = this.c;
-            do6Var.d = this.d;
-            return do6Var;
+            return this.a;
         }
-        return (do6) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.in
-    public BdUniqueId getType() {
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final int d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return e;
+            return this.b;
         }
-        return (BdUniqueId) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static do6 b(nb5 nb5Var) {
-        InterceptResult invokeL;
+    public final void e(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, nb5Var)) == null) {
-            do6 do6Var = new do6();
-            do6Var.a = nb5Var.b;
-            do6Var.b = nb5Var.d;
-            do6Var.c = nb5Var.e;
-            return do6Var;
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
+            this.c = i;
         }
-        return (do6) invokeL.objValue;
     }
 
-    public static do6 c(ManageInfo manageInfo) {
-        InterceptResult invokeL;
+    public final void f(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, manageInfo)) == null) {
-            do6 do6Var = new do6();
-            ItemData itemData = new ItemData();
-            do6Var.a = itemData;
-            itemData.parseProto(manageInfo.item);
-            do6Var.b = manageInfo.item_source.intValue();
-            return do6Var;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.d = z;
         }
-        return (do6) invokeL.objValue;
     }
 
-    public boolean d(do6 do6Var) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        boolean z3;
-        ItemData itemData;
-        ApkDetail apkDetail;
-        ApkDetail apkDetail2;
-        ItemData itemData2;
+    public final void g(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, do6Var)) == null) {
-            if (this.b == do6Var.b && this.c == do6Var.c) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ItemData itemData3 = this.a;
-            if (itemData3 != null && (itemData2 = do6Var.a) != null) {
-                z2 = itemData3.pkgName.equals(itemData2.pkgName);
-            } else {
-                z2 = false;
-            }
-            ItemData itemData4 = this.a;
-            if (itemData4 != null && (itemData = do6Var.a) != null && (apkDetail = itemData4.apkDetail) != null && (apkDetail2 = itemData.apkDetail) != null) {
-                z3 = apkDetail.version_code.equals(apkDetail2.version_code);
-            } else {
-                z3 = false;
-            }
-            if (z && z2 && z3) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
+            this.b = i;
         }
-        return invokeL.booleanValue;
     }
 }

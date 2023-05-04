@@ -1,135 +1,192 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.util.Log;
+import android.annotation.SuppressLint;
+import android.os.Handler;
+import android.os.Message;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class t52 extends s93 {
+public class t52 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public r52 c;
+    public final String a;
+    public int b;
+    public Map<String, Object> c;
+    public b d;
+    public BufferedWriter e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t52(s83 s83Var) {
-        super(s83Var, "/swanAPI/perfCat");
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes6.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    @SuppressLint({"HandlerLeak"})
+    /* loaded from: classes6.dex */
+    public class b extends Handler {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ t52 a;
+
+        public b(t52 t52Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {t52Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = t52Var;
+        }
+
+        public /* synthetic */ b(t52 t52Var, a aVar) {
+            this(t52Var);
+        }
+
+        @Override // android.os.Handler
+        public void handleMessage(Message message) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, message) == null) && this.a.c != null) {
+                this.a.c.put("timestamp", Long.valueOf(System.currentTimeMillis()));
+                JSONObject jSONObject = new JSONObject();
+                for (Map.Entry entry : this.a.c.entrySet()) {
+                    try {
+                        jSONObject.putOpt((String) entry.getKey(), entry.getValue());
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                }
+                this.a.e(jSONObject.toString());
+                x42.i("PropertyLogcat", jSONObject.toString());
+                if (this.a.d != null) {
+                    this.a.d.sendEmptyMessageDelayed(100, this.a.b);
+                }
+            }
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948132120, "Lcom/baidu/tieba/t52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948132120, "Lcom/baidu/tieba/t52;");
                 return;
             }
         }
+        boolean z = ho1.a;
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("SwanAppPropertyLogAction", "handle entity: " + unitedSchemeEntity.toString());
-                return false;
-            }
-            return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return ff3.n(x73.g0(), this.a, "log");
         }
-        return invokeLLLL.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean i(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, String str, v73 v73Var) {
-        InterceptResult invokeLLLLL;
+    public t52() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, unitedSchemeEntity, callbackHandler, str, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("SwanAppPropertyLogAction", "handleSubAction subAction: " + str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            if (!s93.b) {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(403));
-                return false;
+        }
+        this.a = "performance_" + System.currentTimeMillis();
+        this.b = 3000;
+    }
+
+    public String i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c != null) {
+                u52.g().i();
+                this.c = null;
+                x42.i("PropertyLogcat", "Stop monitor logcat");
             }
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -322942229) {
-                if (hashCode != 227833272) {
-                    if (hashCode == 977180790 && str.equals("/swanAPI/perfCat/on")) {
-                        c = 0;
-                    }
-                } else if (str.equals("/swanAPI/perfCat/off")) {
-                    c = 1;
-                }
-            } else if (str.equals("/swanAPI/perfCat/duration")) {
-                c = 2;
+            bo4.d(this.e);
+            this.e = null;
+            return ff3.I(f(), x73.g0());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void e(String str) {
+        BufferedWriter bufferedWriter;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && (bufferedWriter = this.e) != null) {
+            try {
+                bufferedWriter.write(str);
+                this.e.write(10);
+                x42.i("PropertyLogcat", "Export logcat success");
+            } catch (IOException e) {
+                x42.d("PropertyLogcat", "Logcat write fail", e);
             }
-            if (c != 0) {
-                if (c != 1) {
-                    if (c != 2) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(201));
-                        return false;
-                    }
-                    if (optParamsAsJo == null) {
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(202));
-                    } else {
-                        if (this.c != null) {
-                            this.c.g(optParamsAsJo.optInt("duration"));
-                        }
-                        UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                    }
-                    return true;
-                }
-                JSONObject jSONObject = new JSONObject();
-                r52 r52Var = this.c;
-                if (r52Var == null) {
-                    v42.c("SwanAppPropertyLogAction", "Property log never start");
-                } else {
-                    String i = r52Var.i();
-                    this.c = null;
-                    it2.U().C();
-                    try {
-                        jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, it2.U().C());
-                        jSONObject.put("path", i);
-                    } catch (JSONException e) {
-                        if (s93.b) {
-                            e.printStackTrace();
-                        }
-                    }
-                    if (s93.b) {
-                        Log.d("SwanAppPropertyLogAction", "Video dispatch Params : " + jSONObject.toString());
-                    }
-                    v42.i("SwanAppPropertyLogAction", "Stop property log");
-                }
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject, 0));
-                return true;
-            }
+        }
+    }
+
+    public void g(int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) && i >= 1000) {
+            this.b = i;
+        }
+    }
+
+    public void h() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             if (this.c == null) {
-                this.c = new r52();
+                this.c = u52.g().h();
+                x42.i("PropertyLogcat", "Start monitor logcat");
             }
-            this.c.h();
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            v42.i("SwanAppPropertyLogAction", " Start property log：");
-            return true;
+            if (this.d == null) {
+                this.d = new b(this, null);
+            }
+            if (this.e == null) {
+                File file = new File(f());
+                try {
+                    if (!file.exists()) {
+                        file.createNewFile();
+                    }
+                    this.e = new BufferedWriter(new FileWriter(file, true));
+                } catch (IOException e) {
+                    x42.d("PropertyLogcat", "Create log file fail", e);
+                }
+            }
+            this.d.removeMessages(100);
+            this.d.sendEmptyMessage(100);
         }
-        return invokeLLLLL.booleanValue;
     }
 }

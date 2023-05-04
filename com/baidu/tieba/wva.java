@@ -1,27 +1,63 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.UnsupportedEncodingException;
-import java.security.GeneralSecurityException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import javax.crypto.SecretKey;
-/* loaded from: classes6.dex */
-public class wva implements xva {
+import java.util.concurrent.atomic.AtomicBoolean;
+/* loaded from: classes7.dex */
+public abstract class wva {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SecretKey a;
+    public AtomicBoolean a;
+    public long b;
+    public Runnable c;
 
-    public wva(String str, String str2, String str3, String str4) throws InvalidKeySpecException, NoSuchAlgorithmException, IllegalArgumentException {
+    public abstract void b();
+
+    /* loaded from: classes7.dex */
+    public class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wva a;
+
+        public a(wva wvaVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wvaVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wvaVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.b();
+                if (this.a.a.get()) {
+                    awa.a().postDelayed(this.a.c, this.a.b);
+                }
+            }
+        }
+    }
+
+    public wva(long j) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3, str4};
+            Object[] objArr = {Long.valueOf(j)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -31,26 +67,27 @@ public class wva implements xva {
                 return;
             }
         }
-        if (str == null || str2 == null || str3 == null || str4 == null) {
-            return;
-        }
-        this.a = zva.a(pva.b(str), pva.b(str2), pva.b(str3), pva.b(str4), 5000);
+        this.a = new AtomicBoolean(false);
+        this.c = new a(this);
+        this.b = 0 == j ? 300L : j;
     }
 
-    @Override // com.baidu.tieba.xva
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (this.a == null) {
-                return str;
-            }
-            try {
-                return new String(zva.b(this.a, pva.b(str)), "UTF-8");
-            } catch (UnsupportedEncodingException | IllegalArgumentException | GeneralSecurityException unused) {
-                return str2;
-            }
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || this.a.get()) {
+            return;
         }
-        return (String) invokeLL.objValue;
+        this.a.set(true);
+        awa.a().removeCallbacks(this.c);
+        awa.a().postDelayed(this.c, yva.e().i());
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || !this.a.get()) {
+            return;
+        }
+        this.a.set(false);
+        awa.a().removeCallbacks(this.c);
     }
 }

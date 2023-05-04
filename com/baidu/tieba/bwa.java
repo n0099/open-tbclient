@@ -1,106 +1,147 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
-import java.util.HashMap;
-import java.util.Map;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
+import java.text.SimpleDateFormat;
+import java.util.Locale;
 /* loaded from: classes3.dex */
-public class bwa extends awa {
+public class bwa {
     public static /* synthetic */ Interceptable $ic;
+    public static final Object a;
+    public static final SimpleDateFormat b;
+    public static final SimpleDateFormat c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, String> c;
-    public final Object d;
-    public xva e;
-    public boolean f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public bwa(Context context, String str) {
-        super(context, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = new HashMap();
-        this.d = new Object();
-        this.f = true;
-        try {
-            String a = a("/AD91D45E3E72DB6989DDCB13287E75061FABCB933D886E6C6ABEF0939B577138");
-            String a2 = a("/B314B3BF013DF5AC4134E880AF3D2B7C9FFBE8F0305EAC1C898145E2BCF1F21C");
-            String a3 = a("/C767BD8FDF53E53D059BE95B09E2A71056F5F180AECC62836B287ACA5793421B");
-            String a4 = a("/DCB3E6D4C2CF80F30D89CDBC412C964DA8381BB84668769391FBCC3E329AD0FD");
-            if (a == null || a2 == null || a3 == null || a4 == null) {
-                this.f = false;
-            } else {
-                this.e = new wva(a, a2, a3, a4);
-            }
-        } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
-            Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");
-            this.e = null;
-        }
-    }
+    /* loaded from: classes3.dex */
+    public static class a implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    private String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? super.a(str, null) : (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.awa, com.baidu.tieba.uva
-    public String a(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
-            if (!this.f) {
-                String a = a(str);
-                return a != null ? a : str2;
-            } else if (this.e == null) {
-                Log.e("SecurityResourcesReader", "KEY is null return def directly");
-                return str2;
-            } else {
-                synchronized (this.d) {
-                    String str3 = this.c.get(str);
-                    if (str3 != null) {
-                        return str3;
-                    }
-                    String a2 = a(str);
-                    if (a2 == null) {
-                        return str2;
-                    }
-                    String a3 = this.e.a(a2, str2);
-                    this.c.put(str, a3);
-                    return a3;
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
-        return (String) invokeLL.objValue;
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                File[] f = yva.f();
+                if (f != null && f.length > 0) {
+                    synchronized (bwa.a) {
+                        for (File file : f) {
+                            if (currentTimeMillis - file.lastModified() > 172800000) {
+                                file.delete();
+                            }
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "SecurityResourcesReader{mKey=, encrypt=" + this.f + '}';
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947660765, "Lcom/baidu/tieba/bwa;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947660765, "Lcom/baidu/tieba/bwa;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        a = new Object();
+        b = new SimpleDateFormat("yyyy-MM-dd_HH-mm-ss.SSS", Locale.US);
+        c = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.US);
+    }
+
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            awa.b().post(new a());
+        }
+    }
+
+    public static String c(String str) {
+        InterceptResult invokeL;
+        String d;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
+            synchronized (a) {
+                d = d("looper", str);
+            }
+            return d;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static String d(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            String str3 = "";
+            BufferedWriter bufferedWriter = null;
+            try {
+                File c2 = yva.c();
+                long currentTimeMillis = System.currentTimeMillis();
+                str3 = c2.getAbsolutePath() + "/" + str + "-" + b.format(Long.valueOf(currentTimeMillis)) + ".log";
+                BufferedWriter bufferedWriter2 = new BufferedWriter(new OutputStreamWriter(new FileOutputStream(str3, true), "UTF-8"));
+                try {
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("**********************");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(c.format(Long.valueOf(currentTimeMillis)) + "(write log time)");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.write(str2);
+                    bufferedWriter2.write("\r\n");
+                    bufferedWriter2.flush();
+                    bufferedWriter2.close();
+                } catch (Throwable th) {
+                    th = th;
+                    bufferedWriter = bufferedWriter2;
+                    try {
+                        Log.e("LogWriter", "save: ", th);
+                        return str3;
+                    } finally {
+                        if (bufferedWriter != null) {
+                            try {
+                                bufferedWriter.close();
+                            } catch (Exception e) {
+                                Log.e("LogWriter", "save: ", e);
+                            }
+                        }
+                    }
+                }
+            } catch (Throwable th2) {
+                th = th2;
+            }
+            return str3;
+        }
+        return (String) invokeLL.objValue;
     }
 }

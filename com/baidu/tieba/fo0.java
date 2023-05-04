@@ -9,22 +9,24 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
-public final class fo0 implements hi0 {
+public final class fo0 implements ji0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final NestedEvent a;
-    public final boolean b;
+    public final int b;
+    public final int c;
+    public final int d;
 
-    public fo0(NestedEvent type, boolean z) {
+    public fo0(NestedEvent type, float f, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {type, Boolean.valueOf(z)};
+            Object[] objArr = {type, Float.valueOf(f), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -32,34 +34,54 @@ public final class fo0 implements hi0 {
         }
         Intrinsics.checkNotNullParameter(type, "type");
         this.a = type;
-        this.b = z;
+        this.b = i;
+        this.c = i2;
+        this.d = i3;
     }
 
-    @Override // com.baidu.tieba.hi0
+    @Override // com.baidu.tieba.ji0
     public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             String simpleName = fo0.class.getSimpleName();
-            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedScrollUpEvent::class.java.simpleName");
+            Intrinsics.checkNotNullExpressionValue(simpleName, "NestedMoveViewEvent::class.java.simpleName");
             return simpleName;
         }
         return (String) invokeV.objValue;
     }
 
-    public final boolean b() {
+    public final int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.d;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.b;
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
     }
 
     public final NestedEvent getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.a;
         }
         return (NestedEvent) invokeV.objValue;

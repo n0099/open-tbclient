@@ -1,90 +1,60 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.util.Log;
+import android.content.Intent;
+import android.content.IntentFilter;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.tieba.oh3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public abstract class qh3 extends s93 {
+public class qh3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qh3(s83 s83Var, String str) {
-        super(s83Var, str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var, str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
+    /* loaded from: classes6.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public boolean b;
 
-    public boolean j(Context context, v73 v73Var, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, v73Var, unitedSchemeEntity)) == null) {
-            if (v73Var == null) {
-                v42.c("battery", "none swanApp");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal swanApp");
-                if (s93.b) {
-                    Log.d("SwanAppAction", "getBatteryInfo --- illegal swanApp");
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
-                return false;
-            } else if (context == null) {
-                v42.c("battery", "none context");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "illegal context");
-                if (s93.b) {
-                    Log.d("SwanAppAction", "getBatteryInfo --- illegal context");
-                }
-                return false;
-            } else {
-                return true;
             }
         }
-        return invokeLLL.booleanValue;
     }
 
     @Nullable
-    public JSONObject k(@NonNull oh3.a aVar) {
+    public static a a(@NonNull Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                int i = 100;
-                if (aVar.a <= 100) {
-                    i = aVar.a;
-                }
-                jSONObject.put("level", String.valueOf(i));
-                jSONObject.put("isCharging", aVar.b);
-                return jSONObject;
-            } catch (JSONException unused) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            Intent registerReceiver = context.registerReceiver(null, new IntentFilter("android.intent.action.BATTERY_CHANGED"));
+            if (registerReceiver == null) {
                 return null;
             }
+            a aVar = new a();
+            aVar.a = registerReceiver.getIntExtra("level", -1);
+            boolean z = false;
+            if (registerReceiver.getIntExtra("plugged", 0) != 0) {
+                z = true;
+            }
+            aVar.b = z;
+            return aVar;
         }
-        return (JSONObject) invokeL.objValue;
+        return (a) invokeL.objValue;
     }
 }

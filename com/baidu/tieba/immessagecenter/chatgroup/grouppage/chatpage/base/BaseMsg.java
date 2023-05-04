@@ -15,11 +15,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.util.DataExt;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq5;
-import com.baidu.tieba.i58;
+import com.baidu.tieba.h78;
 import com.baidu.tieba.in;
-import com.baidu.tieba.uv4;
-import com.baidu.tieba.wq5;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.or5;
+import com.baidu.tieba.vq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -33,7 +33,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Objects;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseMsg extends OrmObject implements Serializable, in, Cloneable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final Comparator<BaseMsg> CHAT_MSG_COMPARATOR;
@@ -46,30 +46,30 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
     public static final int STATUS_JUST_CREATED = 0;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public List<AtUserInfo> atUserInfoList;
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public CommonMsgField commonMsgField;
     @Nullable
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public Boolean isLeft;
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public boolean isShowLocateColor;
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public boolean isSysMsg;
-    @cq5(serialize = false)
-    public i58 itemEventCallback;
+    @vq5(serialize = false)
+    public h78 itemEventCallback;
     public int itemStatus;
     @Nullable
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public BaseMsg preTimestampMsg;
     @Nullable
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public ReMsgInfo reMsgInfo;
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public ChatMsg sdkMsg;
     @Nullable
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public TaskInfo taskInfo;
 
     public abstract int getMsgType();
@@ -105,7 +105,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
         return (Action) invokeV.objValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class a implements Comparator<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -143,7 +143,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class b extends DiffUtil.ItemCallback<BaseMsg> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -239,7 +239,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            wq5.b(this.commonMsgField);
+            or5.b(this.commonMsgField);
             return this.commonMsgField;
         }
         return (CommonMsgField) invokeV.objValue;
@@ -256,14 +256,14 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
     }
 
     @NonNull
-    public <T extends BaseMsg> i58<T> getItemEventCallback() {
+    public <T extends BaseMsg> h78<T> getItemEventCallback() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            wq5.b(this.itemEventCallback);
+            or5.b(this.itemEventCallback);
             return this.itemEventCallback;
         }
-        return (i58) invokeV.objValue;
+        return (h78) invokeV.objValue;
     }
 
     public int getItemStatus() {
@@ -290,7 +290,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03d2), getCommonMsgField().getUserName());
+            return String.format(TbadkApplication.getInst().getString(R.string.obfuscated_res_0x7f0f03d9), getCommonMsgField().getUserName());
         }
         return (CharSequence) invokeV.objValue;
     }
@@ -300,7 +300,7 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            wq5.b(this.sdkMsg);
+            or5.b(this.sdkMsg);
             return this.sdkMsg;
         }
         return (ChatMsg) invokeV.objValue;
@@ -384,10 +384,10 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
         }
     }
 
-    public void setItemEventCallback(@NonNull i58 i58Var) {
+    public void setItemEventCallback(@NonNull h78 h78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048603, this, i58Var) == null) {
-            this.itemEventCallback = i58Var;
+        if (interceptable == null || interceptable.invokeL(1048603, this, h78Var) == null) {
+            this.itemEventCallback = h78Var;
         }
     }
 
@@ -539,8 +539,8 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
             if (this.isLeft == null) {
-                uv4 t = uv4.t();
-                wq5.d(t.C());
+                kw4 t = kw4.t();
+                or5.d(t.C());
                 if (t.j() != this.commonMsgField.getUserId()) {
                     z = true;
                 } else {
@@ -562,8 +562,8 @@ public abstract class BaseMsg extends OrmObject implements Serializable, in, Clo
             }
             if (obj != null && getClass() == obj.getClass()) {
                 BaseMsg baseMsg = (BaseMsg) obj;
-                wq5.b(this.commonMsgField);
-                wq5.b(baseMsg.commonMsgField);
+                or5.b(this.commonMsgField);
+                or5.b(baseMsg.commonMsgField);
                 return Objects.equals(this.commonMsgField, baseMsg.commonMsgField);
             }
             return false;

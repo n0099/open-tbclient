@@ -13,9 +13,9 @@ import com.baidu.tbadk.widget.falling.FallingEventType;
 import com.baidu.tbadk.widget.falling.FallingView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.immessagecenter.slice.Slice;
-import com.baidu.tieba.s78;
-import com.baidu.tieba.w58;
-import com.baidu.tieba.zs5;
+import com.baidu.tieba.ut5;
+import com.baidu.tieba.v98;
+import com.baidu.tieba.x78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,13 +29,13 @@ public class FallingSlice extends Slice {
     public final TbPageContext<?> j;
     public c k;
     @Nullable
-    public w58 l;
+    public x78 l;
     public long m;
     public boolean n;
-    public final zs5 o;
+    public final ut5 o;
 
     /* loaded from: classes5.dex */
-    public class a implements zs5 {
+    public class a implements ut5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FallingSlice a;
@@ -58,7 +58,7 @@ public class FallingSlice extends Slice {
             this.a = fallingSlice;
         }
 
-        @Override // com.baidu.tieba.zs5
+        @Override // com.baidu.tieba.ut5
         public void a(FallingEventType fallingEventType, @Nullable Object obj) {
             String str;
             Interceptable interceptable = $ic;
@@ -69,7 +69,7 @@ public class FallingSlice extends Slice {
                     str = "";
                 }
                 if (fallingEventType == FallingEventType.CLICK) {
-                    s78.f("c15184", str, this.a.m, this.a.n);
+                    v98.f("c15184", str, this.a.m, this.a.n);
                 }
             }
         }
@@ -143,7 +143,7 @@ public class FallingSlice extends Slice {
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
                 c cVar = new c();
                 cVar.a = view2;
-                cVar.b = (ChatFallingView) view2.findViewById(R.id.obfuscated_res_0x7f091cda);
+                cVar.b = (ChatFallingView) view2.findViewById(R.id.obfuscated_res_0x7f091cea);
                 return cVar;
             }
             return (c) invokeL.objValue;
@@ -171,36 +171,36 @@ public class FallingSlice extends Slice {
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
     @Nullable
-    public View I(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
+    public View N(@NonNull LayoutInflater layoutInflater, @NonNull ViewGroup viewGroup, @Nullable Bundle bundle) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutInflater, viewGroup, bundle)) == null) {
-            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0835, viewGroup, false);
+            return layoutInflater.inflate(R.layout.obfuscated_res_0x7f0d0841, viewGroup, false);
         }
         return (View) invokeLLL.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice
-    public void P(@Nullable View view2, @Nullable Bundle bundle) {
+    public void U(@Nullable View view2, @Nullable Bundle bundle) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, bundle) == null) {
-            super.P(view2, bundle);
+            super.U(view2, bundle);
             if (view2 != null) {
                 this.k = c.a(view2);
             }
             this.k.b.setEventCallback(this.o);
-            W();
+            b0();
         }
     }
 
-    public final void W() {
+    public final void b0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             this.k.b.setAnimationListener(new b(this));
         }
     }
 
-    public void Y() {
+    public void d0() {
         ChatFallingView chatFallingView;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (chatFallingView = this.k.b) != null) {
@@ -209,24 +209,24 @@ public class FallingSlice extends Slice {
     }
 
     @Override // com.baidu.tieba.immessagecenter.slice.Slice, com.baidu.tieba.immessagecenter.slice.ability.LifecycleAbility
-    public void l() {
+    public void onDestroy() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            super.l();
-            Y();
+            super.onDestroy();
+            d0();
         }
     }
 
-    public void X(@NonNull FallingData fallingData, long j, boolean z, @Nullable w58 w58Var) {
+    public void c0(@NonNull FallingData fallingData, long j, boolean z, @Nullable x78 x78Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), w58Var}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{fallingData, Long.valueOf(j), Boolean.valueOf(z), x78Var}) == null) {
             this.m = j;
             this.n = z;
-            this.l = w58Var;
+            this.l = x78Var;
             ChatFallingView chatFallingView = this.k.b;
             if (chatFallingView != null) {
                 chatFallingView.x(fallingData, this.j, false);
-                s78.f("c15183", fallingData.getAffect(), this.m, z);
+                v98.f("c15183", fallingData.getAffect(), this.m, z);
             }
         }
     }

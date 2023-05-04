@@ -22,23 +22,23 @@ import com.baidu.nadcore.stats.request.ClogBuilder;
 import com.baidu.nadcore.widget.uiwidget.ExpandIconView;
 import com.baidu.platform.comapi.map.MapBundleKey;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b41;
-import com.baidu.tieba.l61;
-import com.baidu.tieba.m61;
+import com.baidu.tieba.a71;
+import com.baidu.tieba.d41;
 import com.baidu.tieba.n61;
-import com.baidu.tieba.ol0;
+import com.baidu.tieba.o61;
 import com.baidu.tieba.p61;
+import com.baidu.tieba.ql0;
 import com.baidu.tieba.r61;
-import com.baidu.tieba.ra1;
-import com.baidu.tieba.x61;
-import com.baidu.tieba.y61;
+import com.baidu.tieba.t61;
+import com.baidu.tieba.ta1;
+import com.baidu.tieba.z61;
 /* loaded from: classes2.dex */
 public class PanelScrollView extends FrameLayout implements View.OnTouchListener, View.OnLayoutChangeListener {
-    public static final int A = b41.c.a(ra1.a(), 18.0f);
+    public static final int A = d41.c.a(ta1.a(), 18.0f);
     public int a;
     public int b;
     public int c;
-    public r61 d;
+    public t61 d;
     public int e;
     public int f;
     public int g;
@@ -47,9 +47,9 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
     public ObjectAnimator j;
     public int k;
     public int l;
-    public l61 m;
-    public n61 n;
-    public p61 o;
+    public n61 m;
+    public p61 n;
+    public r61 o;
     public GestureDetector p;
     public d q;
     public c r;
@@ -179,7 +179,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         FrameLayout.LayoutParams webViewLayoutParams = getWebViewLayoutParams();
         if (webViewLayoutParams != null) {
             if (webViewLayoutParams.topMargin == 0) {
-                this.n.e();
+                this.n.d();
             } else {
                 this.n.v();
             }
@@ -265,13 +265,13 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         this.q = dVar;
     }
 
-    public void setPanelData(r61 r61Var) {
-        this.d = r61Var;
-        String g = r61Var.g();
+    public void setPanelData(t61 t61Var) {
+        this.d = t61Var;
+        String g = t61Var.g();
         if (!TextUtils.isEmpty(g)) {
             this.m.g(g);
         }
-        this.m.k(r61Var.u());
+        this.m.k(t61Var.u());
     }
 
     public final void w(int i) {
@@ -319,12 +319,12 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         l();
     }
 
-    public void k(@NonNull n61 n61Var, p61 p61Var) {
-        this.n = n61Var;
-        this.o = p61Var;
-        n61Var.o(this);
+    public void k(@NonNull p61 p61Var, r61 r61Var) {
+        this.n = p61Var;
+        this.o = r61Var;
+        p61Var.o(this);
         this.n.p(this.m);
-        this.n.u(p61Var);
+        this.n.u(r61Var);
     }
 
     public final void u(int i, int i2) {
@@ -357,7 +357,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
     }
 
     public final void l() {
-        this.m = new l61();
+        this.m = new n61();
         setClipChildren(false);
         setLayerType(2, null);
         setOnTouchListener(this);
@@ -374,16 +374,16 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         this.n.t(i, z);
         if (!z) {
             if (i == 1) {
-                ol0.a().a(new m61(4, this.d.a()));
-                r61 r61Var = this.d;
-                if (r61Var != null) {
-                    x61.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", r61Var.c());
+                ql0.a().a(new o61(4, this.d.a()));
+                t61 t61Var = this.d;
+                if (t61Var != null) {
+                    z61.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", "down", t61Var.c());
                 }
             } else if (i == 2) {
-                ol0.a().a(new m61(3, this.d.a()));
-                r61 r61Var2 = this.d;
-                if (r61Var2 != null) {
-                    x61.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, r61Var2.c());
+                ql0.a().a(new o61(3, this.d.a()));
+                t61 t61Var2 = this.d;
+                if (t61Var2 != null) {
+                    z61.a(ClogBuilder.LogType.DAZZLE_TRANS_SLIDING_COUNT, "", MapBundleKey.OfflineMapKey.OFFLINE_UPDATE, t61Var2.c());
                 }
             }
         }
@@ -397,14 +397,14 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         FrameLayout.LayoutParams webViewLayoutParams = getWebViewLayoutParams();
         if (webViewLayoutParams != null) {
             if (webViewLayoutParams.topMargin == 0) {
-                y61.d(activity.getWindow(), 17170443);
+                a71.d(activity.getWindow(), 17170443);
                 if (Build.VERSION.SDK_INT >= 23) {
                     activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() | 8192);
                     return;
                 }
                 return;
             }
-            y61.d(activity.getWindow(), this.h);
+            a71.d(activity.getWindow(), this.h);
             if (Build.VERSION.SDK_INT >= 23) {
                 activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & (-8193));
             }
@@ -486,12 +486,12 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                     if (System.currentTimeMillis() - this.x < ViewConfiguration.getLongPressTimeout()) {
                         if (this.m.d()) {
                             this.n.a();
-                            x61.a(ClogBuilder.LogType.FREE_CLICK, "", "top_area", this.d.c());
+                            z61.a(ClogBuilder.LogType.FREE_CLICK, "", "top_area", this.d.c());
                             return true;
                         }
-                        p61 p61Var = this.o;
-                        if (p61Var != null) {
-                            p61Var.a(0);
+                        r61 r61Var = this.o;
+                        if (r61Var != null) {
+                            r61Var.a(0);
                         }
                     }
                     return true;
@@ -505,8 +505,8 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                                 return false;
                             }
                         } else if (this.y && this.z.getYVelocity() < -800.0f && !this.m.c()) {
-                            r61 r61Var = this.d;
-                            if (r61Var != null && r61Var.n()) {
+                            t61 t61Var = this.d;
+                            if (t61Var != null && t61Var.n()) {
                                 this.y = false;
                                 return false;
                             }
@@ -536,7 +536,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                         if (i5 > i6 / 2 && i5 < i6) {
                             this.i = false;
                             u(160, i6 - i5);
-                            setExpandIconView(this.g - b41.c.a(getContext(), 17.0f));
+                            setExpandIconView(this.g - d41.c.a(getContext(), 17.0f));
                         }
                         int i7 = this.g;
                         if (i5 > i7 + ((this.e - i7) / 4)) {
@@ -546,7 +546,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                         if (i5 > i8 && i5 < ((this.e - i8) / 4) + i8) {
                             this.i = true;
                             u(160, i5 - i8);
-                            setExpandIconView(this.g - b41.c.a(getContext(), 17.0f));
+                            setExpandIconView(this.g - d41.c.a(getContext(), 17.0f));
                         }
                     }
                 }
@@ -566,20 +566,20 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         return false;
     }
 
-    public void s() {
+    public void r() {
         this.n.c(this);
         if (!(getContext() instanceof Activity)) {
             return;
         }
         Activity activity = (Activity) getContext();
-        y61.d(activity.getWindow(), this.h);
+        a71.d(activity.getWindow(), this.h);
         if (Build.VERSION.SDK_INT >= 23) {
             activity.getWindow().getDecorView().setSystemUiVisibility(activity.getWindow().getDecorView().getSystemUiVisibility() & (-8193));
         }
     }
 
     public final void t() {
-        this.f = b41.c.a(ra1.a(), 100.0f);
+        this.f = d41.c.a(ta1.a(), 100.0f);
         if (this.d.d() == 0) {
             if (this.d.e() < 0.0d || this.d.e() > 1.0d) {
                 this.d.z(0.7d);
@@ -589,10 +589,10 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
             if (this.d.e() <= 0.0d) {
                 this.d.z(1.95d);
             }
-            this.g = (int) (b41.c.e(ra1.a()) / this.d.e());
+            this.g = (int) (d41.c.e(ta1.a()) / this.d.e());
         }
         this.n.k((this.e - this.g) + A);
-        this.n.g(this.g);
+        this.n.f(this.g);
         this.m.m(this.e);
         this.m.l(this.g);
         this.n.s(this);
@@ -601,16 +601,16 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
             this.s = expandIconView;
             expandIconView.setFraction(0.0f, false);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);
-            layoutParams.height = b41.c.a(getContext(), 24.0f);
-            layoutParams.width = b41.c.a(getContext(), 24.0f);
+            layoutParams.height = d41.c.a(getContext(), 24.0f);
+            layoutParams.width = d41.c.a(getContext(), 24.0f);
             layoutParams.gravity = 1;
-            layoutParams.topMargin = this.g - b41.c.a(getContext(), 17.0f);
+            layoutParams.topMargin = this.g - d41.c.a(getContext(), 17.0f);
             addView(this.s, layoutParams);
         }
     }
 
     public final boolean v(boolean z, int i) {
-        r61 r61Var;
+        t61 t61Var;
         if (this.m.a()) {
             return false;
         }
@@ -623,7 +623,7 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
         if (webViewLayoutParams == null) {
             return false;
         }
-        if (i < 0 && webViewLayoutParams.topMargin + i < this.g && (r61Var = this.d) != null && r61Var.n()) {
+        if (i < 0 && webViewLayoutParams.topMargin + i < this.g && (t61Var = this.d) != null && t61Var.n()) {
             return false;
         }
         if (this.c == 0 && this.b == 2 && this.a == 2) {
@@ -641,12 +641,12 @@ public class PanelScrollView extends FrameLayout implements View.OnTouchListener
                 if (!this.n.j()) {
                     return false;
                 }
-                this.n.g(webViewLayoutParams.topMargin + i);
+                this.n.f(webViewLayoutParams.topMargin + i);
                 if (layoutParams != null) {
                     setExpandIconView(layoutParams.topMargin + i);
                 }
             } else {
-                this.n.g(webViewLayoutParams.topMargin + i);
+                this.n.f(webViewLayoutParams.topMargin + i);
                 if (layoutParams != null) {
                     setExpandIconView(layoutParams.topMargin + i);
                 }

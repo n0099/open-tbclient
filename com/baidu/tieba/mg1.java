@@ -1,77 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mg1 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile mg1 f;
     public transient /* synthetic */ FieldHolder $fh;
-    public HandlerThread a;
-    public Handler b;
-    public int c;
-    public int d;
-    public Runnable e;
+    public String a;
+    public long b;
+    public String c;
+    public String d;
+    public JSONObject e;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ mg1 a;
-
-        public a(mg1 mg1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {mg1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = mg1Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                wg1.g("开始重试");
-                if (ng1.n()) {
-                    wg1.g("重试成功");
-                    this.a.c = 0;
-                    this.a.a.quitSafely();
-                    this.a.b.removeCallbacks(this);
-                    return;
-                }
-                mg1.c(this.a);
-                if (this.a.c < 3) {
-                    wg1.g("重试失败继续重试");
-                    this.a.b.postDelayed(this, this.a.d);
-                    return;
-                }
-                this.a.c = 0;
-                wg1.g("重试三次结束重试");
-                this.a.a.quitSafely();
-                this.a.b.removeCallbacks(this);
-            }
-        }
-    }
-
-    public mg1() {
+    public mg1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -81,42 +35,74 @@ public class mg1 {
                 return;
             }
         }
-        this.d = 10000;
-        this.e = new a(this);
+        this.e = new JSONObject();
+        this.a = str;
+        this.b = System.currentTimeMillis();
+        this.c = ah1.c();
     }
 
-    public static mg1 g() {
+    public mg1 a(String str, Object obj) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, obj)) == null) {
+            try {
+                this.e.put(str, obj);
+            } catch (JSONException unused) {
+            }
+            return this;
+        }
+        return (mg1) invokeLL.objValue;
+    }
+
+    public mg1 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            this.d = str;
+            return this;
+        }
+        return (mg1) invokeL.objValue;
+    }
+
+    public mg1 c(JSONObject jSONObject) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
+            this.e = jSONObject;
+            return this;
+        }
+        return (mg1) invokeL.objValue;
+    }
+
+    public JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            if (f == null) {
-                synchronized (mg1.class) {
-                    if (f == null) {
-                        f = new mg1();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(this.a)) {
+                yg1.d("statistics action can not null");
+                return null;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("a", this.a);
+                jSONObject.put("t", this.b);
+                jSONObject.put(Config.EXCEPTION_CRASH_TYPE, this.c);
+                if (this.e != null) {
+                    jSONObject.put("cn", this.e);
+                } else if (!TextUtils.isEmpty(this.d)) {
+                    try {
+                        jSONObject.put("cn", new JSONObject(this.d));
+                    } catch (JSONException unused) {
+                        jSONObject.put("cn", this.d);
                     }
                 }
+            } catch (JSONException e) {
+                if (yg1.d) {
+                    e.printStackTrace();
+                }
             }
-            return f;
+            return jSONObject;
         }
-        return (mg1) invokeV.objValue;
-    }
-
-    public static /* synthetic */ int c(mg1 mg1Var) {
-        int i = mg1Var.c;
-        mg1Var.c = i + 1;
-        return i;
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            wg1.g("触发重试");
-            HandlerThread handlerThread = new HandlerThread("StatisticsReload");
-            this.a = handlerThread;
-            handlerThread.start();
-            Handler handler = new Handler(this.a.getLooper());
-            this.b = handler;
-            handler.postDelayed(this.e, this.d);
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

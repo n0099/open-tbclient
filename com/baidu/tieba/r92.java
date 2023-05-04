@@ -1,21 +1,48 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface r92 {
-    void D(je2 je2Var);
+public class r92 implements nf2 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    String a();
+    public r92() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 
-    void attachActivity(Activity activity);
+    @Override // com.baidu.tieba.nf2
+    public String getUserAgent() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return wj3.a();
+        }
+        return (String) invokeV.objValue;
+    }
 
-    void b(j62 j62Var);
-
-    void destroy();
-
-    t62 f();
-
-    void loadUrl(String str);
-
-    void p(int i);
+    @Override // com.baidu.tieba.nf2
+    public ff2 a(String str, cg2 cg2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, str, cg2Var, v8ThreadDelegatePolicy)) == null) {
+            return new q92(str, cg2Var, v8ThreadDelegatePolicy);
+        }
+        return (ff2) invokeLLL.objValue;
+    }
 }

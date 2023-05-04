@@ -1,110 +1,33 @@
 package com.baidu.tieba;
 
+import android.graphics.Color;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import com.baidu.tbadk.core.data.SmallTailInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.ColorInt;
+import androidx.annotation.ColorRes;
+import androidx.annotation.Nullable;
+import androidx.core.content.ContextCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
 public class z31 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public String b;
 
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static final z31 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-280894669, "Lcom/baidu/tieba/z31$b;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-280894669, "Lcom/baidu/tieba/z31$b;");
-                    return;
-                }
-            }
-            a = new z31(null);
-        }
-    }
-
-    public z31() {
+    @ColorInt
+    public static int a(@Nullable String str, @ColorRes int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return ContextCompat.getColor(li0.b(), i);
+            }
+            try {
+                return Color.parseColor(str);
+            } catch (IllegalArgumentException unused) {
+                return ContextCompat.getColor(li0.b(), i);
             }
         }
-        this.a = false;
-        this.b = "";
-    }
-
-    @NonNull
-    public static z31 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b.a;
-        }
-        return (z31) invokeV.objValue;
-    }
-
-    public /* synthetic */ z31(a aVar) {
-        this();
-    }
-
-    public String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.a) {
-                StringBuilder sb = new StringBuilder();
-                if (b41.b(ji0.b())) {
-                    sb.append("BDOS/1.0");
-                    sb.append(" ");
-                    sb.append("(");
-                    sb.append("HarmonyOS");
-                    sb.append(" ");
-                    String a2 = b41.a();
-                    if (TextUtils.isEmpty(a2)) {
-                        a2 = "0.0";
-                    }
-                    sb.append(a2);
-                    sb.append(SmallTailInfo.EMOTION_SUFFIX);
-                }
-                String sb2 = sb.toString();
-                this.b = sb2;
-                if (!TextUtils.isEmpty(sb2)) {
-                    this.b = u41.a(this.b);
-                }
-                this.a = true;
-            }
-            return this.b;
-        }
-        return (String) invokeV.objValue;
+        return invokeLI.intValue;
     }
 }

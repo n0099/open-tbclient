@@ -44,7 +44,7 @@ public final class c {
         boolean a = m.oF().a(ksScene, "loadFullScreenVideoAd");
         ksScene.setAdStyle(3);
         KsAdLoadManager.ab();
-        KsAdLoadManager.a(new a.C0598a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.fullscreen.c.1
+        KsAdLoadManager.a(new a.C0601a().c(new com.kwad.components.core.k.kwai.b(ksScene)).ax(a).a(new com.kwad.components.core.k.c() { // from class: com.kwad.components.ad.fullscreen.c.1
             @Override // com.kwad.components.core.k.c, com.kwad.components.core.k.b
             public final void a(@NonNull AdResultData adResultData, boolean z) {
                 List<AdTemplate> a2 = c.a(ksScene, adResultData.getAdTemplateList());

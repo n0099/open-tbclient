@@ -3,7 +3,7 @@ package com.baidu.tbadk.coreExtra.data;
 import android.text.TextUtils;
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.f55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -40,7 +40,7 @@ public class WhiteListData extends LinkedList<String> {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
             WhiteListData whiteListData = new WhiteListData();
-            String s = q45.m().s("key_white_list", null);
+            String s = f55.m().s("key_white_list", null);
             if (!TextUtils.isEmpty(s)) {
                 whiteListData.parserJson(s);
             }
@@ -70,7 +70,7 @@ public class WhiteListData extends LinkedList<String> {
     private void save(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65539, this, str) == null) {
-            q45.m().B("key_white_list", str);
+            f55.m().B("key_white_list", str);
         }
     }
 

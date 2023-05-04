@@ -1,17 +1,7 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.util.MaskView;
-import com.baidu.tieba.o05;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -19,66 +9,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+import tbclient.UniversalLabel;
 /* loaded from: classes5.dex */
-public class k05 implements n05 {
+public final class k05 {
     public static /* synthetic */ Interceptable $ic;
-    public static final int q;
-    public static final int r;
+    public static final a h;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public o05 b;
-    public View c;
-    public EMTextView d;
-    public View e;
-    public ImageView f;
-    public Drawable g;
-    public String h;
-    public int i;
-    public int j;
-    public int k;
-    public o05.e l;
-    public boolean m;
-    public boolean n;
-    public boolean o;
-    public final View.OnClickListener p;
-
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k05 a;
-
-        public a(k05 k05Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k05Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k05Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                if (this.a.l != null) {
-                    this.a.l.onClick();
-                }
-                if (this.a.b != null && this.a.b.d() != null) {
-                    this.a.b.d().M0(this.a.b, this.a.a, this.a.d);
-                }
-            }
-        }
-    }
+    public final String a;
+    public final String b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final String f;
+    public final int g;
 
     static {
         InterceptResult invokeClinit;
@@ -93,31 +40,132 @@ public class k05 implements n05 {
                 return;
             }
         }
-        q = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds251);
-        r = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds231);
+        h = new a(null);
     }
 
-    @Override // com.baidu.tieba.n05
-    public void a() {
+    @JvmStatic
+    public static final k05 g(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            SkinManager.setBackgroundResource(this.d, this.j);
-            SkinManager.setViewTextColorSelector(this.d, this.i);
-            SkinManager.setBackgroundColor(this.e, R.color.CAM_X0204);
-            MaskView.d(this.d, this.n);
-            ImageView imageView = this.f;
-            if (imageView != null) {
-                imageView.setImageDrawable(this.g);
+        return (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) ? h.a(jSONObject) : (k05) invokeL.objValue;
+    }
+
+    @JvmStatic
+    public static final k05 h(UniversalLabel universalLabel) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65539, null, universalLabel)) == null) ? h.b(universalLabel) : (k05) invokeL.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
             }
+            if (obj instanceof k05) {
+                k05 k05Var = (k05) obj;
+                return Intrinsics.areEqual(this.a, k05Var.a) && Intrinsics.areEqual(this.b, k05Var.b) && Intrinsics.areEqual(this.c, k05Var.c) && Intrinsics.areEqual(this.d, k05Var.d) && Intrinsics.areEqual(this.e, k05Var.e) && Intrinsics.areEqual(this.f, k05Var.f) && this.g == k05Var.g;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) ? (((((((((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31) + this.d.hashCode()) * 31) + this.e.hashCode()) * 31) + this.f.hashCode()) * 31) + this.g : invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "UniversalLabelInfo(labelId=" + this.a + ", labelText=" + this.b + ", textColor=" + this.c + ", textColorBlack=" + this.d + ", backgroundColor=" + this.e + ", backgroundColorBlack=" + this.f + ", roundRadius=" + this.g + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @JvmStatic
+        public final k05 a(JSONObject label) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, label)) == null) {
+                Intrinsics.checkNotNullParameter(label, "label");
+                String optString = label.optString("label_id");
+                Intrinsics.checkNotNullExpressionValue(optString, "label.optString(\"label_id\")");
+                String optString2 = label.optString("label_text");
+                Intrinsics.checkNotNullExpressionValue(optString2, "label.optString(\"label_text\")");
+                String optString3 = label.optString("text_color'");
+                Intrinsics.checkNotNullExpressionValue(optString3, "label.optString(\"text_color'\")");
+                String optString4 = label.optString("text_color_black");
+                Intrinsics.checkNotNullExpressionValue(optString4, "label.optString(\"text_color_black\")");
+                String optString5 = label.optString("background_color");
+                Intrinsics.checkNotNullExpressionValue(optString5, "label.optString(\"background_color\")");
+                String optString6 = label.optString("background_color_black");
+                Intrinsics.checkNotNullExpressionValue(optString6, "label.optString(\"background_color_black\")");
+                return new k05(optString, optString2, optString3, optString4, optString5, optString6, label.optInt("round_radius"));
+            }
+            return (k05) invokeL.objValue;
+        }
+
+        @JvmStatic
+        public final k05 b(UniversalLabel label) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, label)) == null) {
+                Intrinsics.checkNotNullParameter(label, "label");
+                String str = label.label_id;
+                Intrinsics.checkNotNullExpressionValue(str, "label.label_id");
+                String str2 = label.label_text;
+                Intrinsics.checkNotNullExpressionValue(str2, "label.label_text");
+                String str3 = label.text_color;
+                Intrinsics.checkNotNullExpressionValue(str3, "label.text_color");
+                String str4 = label.text_color_black;
+                Intrinsics.checkNotNullExpressionValue(str4, "label.text_color_black");
+                String str5 = label.background_color;
+                Intrinsics.checkNotNullExpressionValue(str5, "label.background_color");
+                String str6 = label.background_color_black;
+                Intrinsics.checkNotNullExpressionValue(str6, "label.background_color_black");
+                Integer num = label.round_radius;
+                Intrinsics.checkNotNullExpressionValue(num, "label.round_radius");
+                return new k05(str, str2, str3, str4, str5, str6, num.intValue());
+            }
+            return (k05) invokeL.objValue;
         }
     }
 
-    public k05(int i, String str, o05 o05Var) {
+    public k05(String labelId, String labelText, String textColor, String textColorBlack, String backgroundColor, String backgroundColorBlack, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {Integer.valueOf(i), str, o05Var};
+            Object[] objArr = {labelId, labelText, textColor, textColorBlack, backgroundColor, backgroundColorBlack, Integer.valueOf(i)};
             interceptable.invokeUnInit(65537, newInitContext);
             int i2 = newInitContext.flag;
             if ((i2 & 1) != 0) {
@@ -127,223 +175,72 @@ public class k05 implements n05 {
                 return;
             }
         }
-        this.i = R.color.CAM_X0105;
-        this.j = R.color.CAM_X0204;
-        this.k = 17;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = new a(this);
-        this.a = i;
-        this.h = str;
-        this.b = o05Var;
-        j();
-        i();
+        Intrinsics.checkNotNullParameter(labelId, "labelId");
+        Intrinsics.checkNotNullParameter(labelText, "labelText");
+        Intrinsics.checkNotNullParameter(textColor, "textColor");
+        Intrinsics.checkNotNullParameter(textColorBlack, "textColorBlack");
+        Intrinsics.checkNotNullParameter(backgroundColor, "backgroundColor");
+        Intrinsics.checkNotNullParameter(backgroundColorBlack, "backgroundColorBlack");
+        this.a = labelId;
+        this.b = labelText;
+        this.c = textColor;
+        this.d = textColorBlack;
+        this.e = backgroundColor;
+        this.f = backgroundColorBlack;
+        this.g = i;
     }
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public k05(o05 o05Var) {
-        this(null, o05Var);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {o05Var};
-            interceptable.invokeUnInit(65538, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((String) objArr2[0], (o05) objArr2[1]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65538, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public k05(String str, o05 o05Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, o05Var};
-            interceptable.invokeUnInit(65539, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65539, newInitContext);
-                return;
-            }
-        }
-        this.i = R.color.CAM_X0105;
-        this.j = R.color.CAM_X0204;
-        this.k = 17;
-        this.m = false;
-        this.n = false;
-        this.o = false;
-        this.p = new a(this);
-        this.h = str;
-        this.b = o05Var;
-        this.a = hashCode();
-        j();
-        i();
-    }
-
-    public void k(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.o = z;
-        }
-    }
-
-    public void l(Drawable drawable) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, drawable) == null) {
-            this.g = drawable;
-        }
-    }
-
-    public void m(o05.e eVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, eVar) == null) {
-            this.l = eVar;
-            i();
-        }
-    }
-
-    public void n(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, str) == null) {
-            this.h = str;
-            this.d.setText(str);
-        }
-    }
-
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
-            this.j = i;
-            SkinManager.setBackgroundResource(this.d, i);
-        }
-    }
-
-    public void q(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.i = i;
-            SkinManager.setViewTextColor(this.d, i);
-        }
-    }
-
-    public void r(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048591, this, z) == null) {
-            this.n = z;
-            MaskView.d(this.d, z);
-        }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            h();
-        }
-    }
-
-    public int f() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.h;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.n05
-    public View getView() {
+    public final String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.f;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.g;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.c;
         }
-        return (View) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void i() {
-        EMTextView eMTextView;
+    public final String f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (eMTextView = this.d) != null) {
-            eMTextView.setOnClickListener(this.p);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.d;
         }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            r25.d(this.d).C(R.string.F_X02);
-        }
-    }
-
-    public final void h() {
-        o05 o05Var;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (o05Var = this.b) != null && o05Var.getContext() != null) {
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.popup_dialog_view_horizal_item, this.b.f(), false);
-            this.c = inflate;
-            ViewGroup.LayoutParams layoutParams = inflate.getLayoutParams();
-            if (this.o) {
-                i = r;
-            } else {
-                i = q;
-            }
-            layoutParams.width = i;
-            Object tag = this.d.getTag();
-            EMTextView eMTextView = (EMTextView) this.c.findViewById(R.id.item_view);
-            this.d = eMTextView;
-            eMTextView.setText(this.h);
-            this.d.setGravity(this.k);
-            this.d.setTag(tag);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0908c3);
-            this.e = findViewById;
-            findViewById.setVisibility(8);
-            ImageView imageView = (ImageView) this.c.findViewById(R.id.item_image);
-            this.f = imageView;
-            imageView.setImageDrawable(this.g);
-            a();
-            this.c.setOnClickListener(this.p);
-        }
-    }
-
-    public final void j() {
-        o05 o05Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (o05Var = this.b) != null && o05Var.getContext() != null) {
-            View inflate = LayoutInflater.from(this.b.getContext()).inflate(R.layout.popup_dialog_view_item, this.b.f(), false);
-            this.c = inflate;
-            EMTextView eMTextView = (EMTextView) inflate.findViewById(R.id.item_view);
-            this.d = eMTextView;
-            eMTextView.setText(this.h);
-            this.d.setGravity(this.k);
-            View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f0908c3);
-            this.e = findViewById;
-            if (this.m) {
-                findViewById.setVisibility(0);
-            } else {
-                findViewById.setVisibility(8);
-            }
-            a();
-        }
+        return (String) invokeV.objValue;
     }
 }

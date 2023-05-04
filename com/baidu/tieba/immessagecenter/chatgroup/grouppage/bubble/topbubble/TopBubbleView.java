@@ -5,87 +5,45 @@ import android.util.AttributeSet;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.GroupChatFragment;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.r68;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class TopBubbleView extends FrameLayout {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public b a;
+    public a a;
 
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ GroupChatFragment a;
-        public final /* synthetic */ TopBubbleData b;
-        public final /* synthetic */ TopBubbleView c;
-
-        public a(TopBubbleView topBubbleView, GroupChatFragment groupChatFragment, TopBubbleData topBubbleData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {topBubbleView, groupChatFragment, topBubbleData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = topBubbleView;
-            this.a = groupChatFragment;
-            this.b = topBubbleData;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                this.a.c2();
-                TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this.a.getContext(), null, this.b.getJumpTo(), true);
-                tbWebViewActivityConfig.setPageTranslucent(TbWebViewActivityConfig.PAGE_TYPE_BLACK_TRANSLUCENT);
-                MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
-                TiebaStatic.log(new StatisticItem("c15201"));
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public static class b {
+    /* loaded from: classes5.dex */
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public View a;
-        public LinearLayout b;
+        public RelativeLayout b;
         public LinearLayout c;
         public TextView d;
         public TextView e;
         public ConstraintLayout f;
-        public TbImageView g;
+        public ImageView g;
+        public ImageView h;
 
-        public b() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -99,21 +57,22 @@ public class TopBubbleView extends FrameLayout {
             }
         }
 
-        public static b a(@NonNull View view2) {
+        public static a a(@NonNull View view2) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, view2)) == null) {
-                b bVar = new b();
-                bVar.a = view2;
-                bVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f090682);
-                bVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904f0);
-                bVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ef);
-                bVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904ed);
-                bVar.g = (TbImageView) view2.findViewById(R.id.obfuscated_res_0x7f0904ee);
-                bVar.b = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f090683);
-                return bVar;
+                a aVar = new a();
+                aVar.a = view2;
+                aVar.f = (ConstraintLayout) view2.findViewById(R.id.obfuscated_res_0x7f090685);
+                aVar.c = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f0904f3);
+                aVar.d = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904f2);
+                aVar.e = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0904f0);
+                aVar.g = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0904f1);
+                aVar.b = (RelativeLayout) view2.findViewById(R.id.obfuscated_res_0x7f090686);
+                aVar.h = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f092045);
+                return aVar;
             }
-            return (b) invokeL.objValue;
+            return (a) invokeL.objValue;
         }
     }
 
@@ -185,48 +144,90 @@ public class TopBubbleView extends FrameLayout {
     public void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, context) == null) {
-            this.a = b.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0906, this));
+            this.a = a.a(LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0912, this));
             b();
+        }
+    }
+
+    public void setIconVisibility(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            if (z) {
+                this.a.g.setVisibility(0);
+            } else {
+                this.a.g.setVisibility(8);
+            }
         }
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            r25 d = r25.d(this.a.d);
+            g35 d = g35.d(this.a.d);
             d.w(R.color.CAM_X0101);
             d.C(R.string.F_X01);
             d.B(R.dimen.T_X10);
-            r25 d2 = r25.d(this.a.e);
+            g35 d2 = g35.d(this.a.e);
             d2.C(R.string.F_X01);
             d2.w(R.color.CAM_X0107);
             d2.B(R.dimen.T_X08);
-            r25 d3 = r25.d(this.a.f);
+            g35 d3 = g35.d(this.a.f);
             d3.m(R.dimen.L_X02);
             d3.o(R.string.J_X05);
             d3.f(R.color.CAM_X0207);
-            r25 d4 = r25.d(this.a.c);
+            g35 d4 = g35.d(this.a.c);
             d4.o(R.string.J_X04);
-            d4.f(R.color.CAM_X0304);
+            d4.f(R.color.CAM_X0303);
             SkinManager.setViewTextColor(this.a.d, (int) R.color.CAM_X0101);
             SkinManager.setViewTextColor(this.a.e, (int) R.color.CAM_X0107);
-            SkinManager.setImageResource(this.a.g, R.drawable.obfuscated_res_0x7f08046e);
             SkinManager.setViewTextColor(this.a.c, (int) R.color.CAM_X0304);
-            SkinManager.setBackgroundResource(this.a.b, R.drawable.pic_mask_chat_notice_bg);
+            SkinManager.setImageResource(this.a.h, R.drawable.top_bubble_excellent_bg);
         }
     }
 
-    public void c(@NonNull TopBubbleData topBubbleData, GroupChatFragment groupChatFragment) {
+    public void c(@NonNull TopBubbleData topBubbleData, boolean z, boolean z2) {
+        int i;
+        String str;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, topBubbleData, groupChatFragment) == null) && topBubbleData != null) {
-            groupChatFragment.B2(0);
-            this.a.b.setVisibility(0);
-            if ("notice".equals(topBubbleData.getTopBubbleType())) {
-                this.a.d.setText(R.string.obfuscated_res_0x7f0f03c9);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{topBubbleData, Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
+            setIconVisibility(true);
+            TextView textView = this.a.d;
+            if (z) {
+                i = R.string.obfuscated_res_0x7f0f03c8;
+            } else {
+                i = R.string.obfuscated_res_0x7f0f03c7;
             }
-            this.a.e.setText(topBubbleData.getContent());
-            TiebaStatic.log(new StatisticItem("c15200"));
-            this.a.f.setOnClickListener(new a(this, groupChatFragment, topBubbleData));
+            textView.setText(i);
+            if (z) {
+                if (z2) {
+                    this.a.g.setVisibility(0);
+                    this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f08046e);
+                } else {
+                    this.a.g.setVisibility(8);
+                }
+            } else if (!r68.a(topBubbleData.getVersionKey())) {
+                this.a.g.setVisibility(0);
+                this.a.g.setBackgroundResource(R.drawable.obfuscated_res_0x7f080510);
+            } else {
+                this.a.g.setVisibility(8);
+            }
+            TextView textView2 = this.a.e;
+            if (z) {
+                str = topBubbleData.getContent();
+            } else {
+                str = topBubbleData.getUserName() + "：" + topBubbleData.getContent();
+            }
+            textView2.setText(str);
+            if (z) {
+                TiebaStatic.log(new StatisticItem("c15200"));
+            }
+        }
+    }
+
+    public void setExcellentRead() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a.g.getVisibility() == 0) {
+            this.a.g.setVisibility(8);
         }
     }
 }

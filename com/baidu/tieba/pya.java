@@ -1,114 +1,60 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.opensource.svgaplayer.entities.SVGAVideoShapeEntity;
-import com.opensource.svgaplayer.proto.FrameEntity;
-import com.opensource.svgaplayer.proto.SpriteEntity;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.collections.CollectionsKt__CollectionsKt;
-import kotlin.collections.CollectionsKt__IterablesKt;
-import kotlin.collections.CollectionsKt___CollectionsKt;
-import kotlin.jvm.internal.Intrinsics;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.hihonor.push.framework.aidl.IMessageEntity;
+import com.hihonor.push.framework.aidl.entity.PushTokenResult;
+import com.hihonor.push.sdk.common.data.ApiException;
+import com.hihonor.push.sdk.internal.HonorPushErrorEnum;
 /* loaded from: classes6.dex */
-public final class pya {
+public class pya extends sya<PushTokenResult> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final List<qya> b;
 
-    public pya(SpriteEntity spriteEntity) {
-        List<qya> emptyList;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public pya(String str, IMessageEntity iMessageEntity) {
+        super(str, iMessageEntity);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {spriteEntity};
+            Object[] objArr = {str, iMessageEntity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (IMessageEntity) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = spriteEntity.imageKey;
-        List<FrameEntity> list = spriteEntity.frames;
-        if (list != null) {
-            emptyList = new ArrayList<>(CollectionsKt__IterablesKt.collectionSizeOrDefault(list, 10));
-            qya qyaVar = null;
-            for (FrameEntity it : list) {
-                Intrinsics.checkExpressionValueIsNotNull(it, "it");
-                qya qyaVar2 = new qya(it);
-                if ((!qyaVar2.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) qyaVar2.d())).e() && qyaVar != null) {
-                    qyaVar2.f(qyaVar.d());
-                }
-                emptyList.add(qyaVar2);
-                qyaVar = qyaVar2;
-            }
-        } else {
-            emptyList = CollectionsKt__CollectionsKt.emptyList();
-        }
-        this.b = emptyList;
     }
 
-    public pya(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.sya
+    public void a(ApiException apiException, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, apiException, obj) == null) {
+            if (apiException == null) {
+                apiException = HonorPushErrorEnum.ERROR_UNKNOWN.toApiException();
             }
-        }
-        this.a = jSONObject.optString("imageKey");
-        ArrayList arrayList = new ArrayList();
-        JSONArray optJSONArray = jSONObject.optJSONArray("frames");
-        if (optJSONArray != null) {
-            int length = optJSONArray.length();
-            for (int i3 = 0; i3 < length; i3++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                if (optJSONObject != null) {
-                    qya qyaVar = new qya(optJSONObject);
-                    if ((!qyaVar.d().isEmpty()) && ((SVGAVideoShapeEntity) CollectionsKt___CollectionsKt.first((List<? extends Object>) qyaVar.d())).e() && arrayList.size() > 0) {
-                        qyaVar.f(((qya) CollectionsKt___CollectionsKt.last((List<? extends Object>) arrayList)).d());
+            if (apiException.getErrorCode() == HonorPushErrorEnum.SUCCESS.getErrorCode()) {
+                if (obj instanceof PushTokenResult) {
+                    PushTokenResult pushTokenResult = (PushTokenResult) obj;
+                    try {
+                        uxa.b.b(wxa.e.a(), pushTokenResult.getPushToken());
+                    } catch (Exception unused) {
                     }
-                    arrayList.add(qyaVar);
+                    this.e.b(pushTokenResult);
+                    return;
                 }
+                apiException = HonorPushErrorEnum.ERROR_INTERNAL_ERROR.toApiException();
             }
+            String str = "task execute failed. error:" + apiException.getErrorCode();
+            this.e.a(apiException);
         }
-        this.b = CollectionsKt___CollectionsKt.toList(arrayList);
-    }
-
-    public final List<qya> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public final String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
     }
 }

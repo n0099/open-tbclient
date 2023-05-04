@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
+import android.content.pm.PackageInfo;
+import com.baidu.nps.utils.ContextHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes4.dex */
 public class ge1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public long b;
 
-    public ge1() {
+    public static PackageInfo a(String str, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
+            if (!new File(str).exists()) {
+                return null;
             }
+            return ContextHolder.getApplicationContext().getPackageManager().getPackageArchiveInfo(str, i);
         }
-        this.a = -1L;
-        this.b = -1L;
+        return (PackageInfo) invokeLI.objValue;
     }
 }

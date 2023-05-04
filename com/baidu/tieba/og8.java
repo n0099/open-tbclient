@@ -1,535 +1,344 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.location.Address;
-import android.location.Geocoder;
-import android.location.Location;
-import android.location.LocationListener;
-import android.location.LocationManager;
-import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.Message;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
-import com.baidu.adp.lib.util.BdLog;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.AbsListView;
+import android.widget.FrameLayout;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.PermissionUtil;
-import com.baidu.tieba.cf;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.lego.card.model.ICardInfo;
+import com.baidu.tieba.lego.card.view.BaseLegoCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Locale;
 /* loaded from: classes5.dex */
-public class og8 implements df {
+public class og8 extends zm {
     public static /* synthetic */ Interceptable $ic;
-    public static og8 n;
     public transient /* synthetic */ FieldHolder $fh;
-    public f a;
-    public Context b;
-    public cf.d c;
-    public LocationManager d;
-    public Address e;
-    public long f;
-    public Handler g;
-    public int h;
-    public boolean i;
-    public Runnable j;
-    public Runnable k;
-    public final LocationListener l;
-    public final LocationListener m;
+    public TbPageContext i;
+    public List<ICardInfo> j;
+    public int k;
+    public boolean l;
+    public NoDataView m;
+    public FrameLayout n;
+    public NoDataViewFactory.e o;
+    public NoDataViewFactory.d p;
+    public NoDataViewFactory.c q;
+    public FrameLayout.LayoutParams r;
+    public String s;
+    public boolean t;
 
-    /* loaded from: classes5.dex */
-    public class a implements LocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ og8 a;
-
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String str, int i, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
-            }
-        }
-
-        public a(og8 og8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = og8Var;
-        }
-
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-                if (this.a.g.hasMessages(0)) {
-                    this.a.g.removeMessages(0);
-                }
-                this.a.g.removeCallbacks(this.a.k);
-                this.a.g.removeCallbacks(this.a.j);
-                if (this.a.a != null) {
-                    return;
-                }
-                this.a.a = new f(this.a, null);
-                this.a.a.setSelfExecute(true);
-                this.a.a.execute(location);
-            }
-        }
+    @Override // com.baidu.tieba.zm, android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) ? i : invokeI.longValue;
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements LocationListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ og8 a;
-
-        @Override // android.location.LocationListener
-        public void onProviderDisabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onProviderEnabled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            }
-        }
-
-        @Override // android.location.LocationListener
-        public void onStatusChanged(String str, int i, Bundle bundle) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048579, this, str, i, bundle) == null) {
-            }
-        }
-
-        public b(og8 og8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = og8Var;
-        }
-
-        @Override // android.location.LocationListener
-        public void onLocationChanged(Location location) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, location) == null) {
-                if (this.a.g.hasMessages(0)) {
-                    this.a.g.removeMessages(0);
-                }
-                this.a.g.removeCallbacks(this.a.k);
-                this.a.g.removeCallbacks(this.a.j);
-                if (this.a.a != null) {
-                    return;
-                }
-                this.a.a = new f(this.a, null);
-                this.a.a.setSelfExecute(true);
-                this.a.a.execute(location);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class c implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ og8 a;
-
-        public c(og8 og8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = og8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && PermissionUtil.checkLocationForGoogle(this.a.b)) {
-                try {
-                    this.a.d.requestLocationUpdates("network", 10000L, 100.0f, this.a.l);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ og8 a;
-
-        public d(og8 og8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = og8Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.d != null && PermissionUtil.checkLocationForGoogle(this.a.b)) {
-                try {
-                    this.a.d.requestLocationUpdates("gps", 10000L, 100.0f, this.a.m);
-                } catch (Exception e) {
-                    BdLog.e(e.getMessage());
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Handler.Callback {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ og8 a;
-
-        public e(og8 og8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = og8Var;
-        }
-
-        @Override // android.os.Handler.Callback
-        public boolean handleMessage(Message message) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, message)) == null) {
-                if (message.what == 0) {
-                    this.a.c();
-                    this.a.c.a(this.a.h, "", null, this.a.f, this.a.i);
-                    return false;
-                }
-                return false;
-            }
-            return invokeL.booleanValue;
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f extends BdAsyncTask<Location, Void, Address> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ og8 a;
-
-        public f(og8 og8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {og8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = og8Var;
-        }
-
-        public /* synthetic */ f(og8 og8Var, a aVar) {
-            this(og8Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: b */
-        public Address doInBackground(Location... locationArr) {
-            InterceptResult invokeL;
-            List<Address> list;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, locationArr)) == null) {
-                Geocoder geocoder = new Geocoder(this.a.b, Locale.getDefault());
-                if (locationArr != null && locationArr.length >= 1) {
-                    Location location = locationArr[0];
-                    try {
-                        list = geocoder.getFromLocation(location.getLatitude(), location.getLongitude(), 1);
-                    } catch (IOException | IllegalArgumentException unused) {
-                        list = null;
-                    }
-                    if (list != null && list.size() > 0) {
-                        Address address = list.get(0);
-                        StringBuffer stringBuffer = new StringBuffer();
-                        if (address.getSubLocality() == null || address.getThoroughfare() == null) {
-                            stringBuffer.append(address.getLocality());
-                        }
-                        stringBuffer.append(address.getSubLocality());
-                        stringBuffer.append(address.getThoroughfare());
-                        address.setAddressLine(0, stringBuffer.toString());
-                        return address;
-                    }
-                }
-                return null;
-            }
-            return (Address) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        /* renamed from: c */
-        public void onPostExecute(Address address) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, address) == null) {
-                super.onPostExecute(address);
-                this.a.a = null;
-                if (address != null) {
-                    this.a.c();
-                    this.a.f = System.currentTimeMillis();
-                    this.a.e = address;
-                    this.a.c.a(0, "", this.a.e, this.a.f, this.a.i);
-                    nc9.e().i(String.valueOf(address.getLatitude()));
-                    nc9.e().j(String.valueOf(address.getLongitude()));
-                    nc9.e().k(System.currentTimeMillis());
-                }
-            }
-        }
-
-        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-        public void onPreCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-                super.onPreCancel();
-                this.a.a = null;
-            }
-        }
-    }
-
-    public og8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public og8(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity());
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.c = null;
-        this.e = null;
-        this.f = 0L;
-        this.g = null;
-        this.i = false;
-        this.j = null;
-        this.k = null;
-        this.l = new a(this);
-        this.m = new b(this);
+        this.k = 0;
+        this.l = true;
+        this.i = tbPageContext;
     }
 
-    public static og8 t() {
+    public final void D(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            if (this.t) {
+                int u = u(i - 1);
+                int u2 = u(i - 2);
+                B(u);
+                B(u2);
+                return;
+            }
+            int u3 = u(i + 1);
+            int u4 = u(i + 2);
+            B(u3);
+            B(u4);
+        }
+    }
+
+    public final ICardInfo x(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
+            for (ICardInfo iCardInfo : this.j) {
+                int adapterCount = iCardInfo.getAdapterCount();
+                if (i < adapterCount) {
+                    return iCardInfo.getAdapterItem(i);
+                }
+                i -= adapterCount;
+            }
+            return null;
+        }
+        return (ICardInfo) invokeI.objValue;
+    }
+
+    public boolean A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            if (n == null) {
-                synchronized (og8.class) {
-                    if (n == null) {
-                        n = new og8();
-                    }
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            List<ICardInfo> list = this.j;
+            if (list != null && list.size() == 0) {
+                return true;
             }
-            return n;
+            return false;
         }
-        return (og8) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void u() {
+    @Override // com.baidu.tieba.zm, android.widget.Adapter, com.baidu.tieba.jn
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.g = new Handler(Looper.getMainLooper(), new e(this));
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            if (this.k == 0 && this.l) {
+                return 1;
+            }
+            return this.k;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.df
-    public void a(boolean z) {
-        LocationManager locationManager;
+    @Override // com.baidu.tieba.zm, android.widget.BaseAdapter, android.widget.Adapter
+    public int getViewTypeCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && this.c != null && (locationManager = this.d) != null) {
-            try {
-                try {
-                    locationManager.removeUpdates(this.l);
-                    this.h = 4;
-                    this.i = z;
-                } catch (Exception e2) {
-                    BdLog.e(e2.getMessage());
-                    c();
-                    this.h = 5;
-                }
-                if (PermissionUtil.checkLocationForGoogle(this.b) && (this.d.isProviderEnabled("gps") || this.d.isProviderEnabled("network"))) {
-                    if (PermissionUtil.checkLocationForGoogle(this.b) && this.d.isProviderEnabled("gps")) {
-                        this.g.post(this.k);
-                    } else {
-                        this.h = 1;
-                    }
-                    if (!z) {
-                        if (PermissionUtil.checkLocationForGoogle(this.b) && this.d.isProviderEnabled("network")) {
-                            this.g.post(this.j);
-                        } else {
-                            this.h = 2;
-                        }
-                    }
-                    return;
-                }
-                this.h = 3;
-                this.g.sendMessageDelayed(this.g.obtainMessage(0), cf.n().o());
-            } finally {
-                Handler handler = this.g;
-                handler.sendMessageDelayed(handler.obtainMessage(0), cf.n().o());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return sg8.a.size() + 1;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.zm, android.widget.BaseAdapter, android.widget.Adapter
+    public boolean isEmpty() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            if (this.k == 0) {
+                return true;
             }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void v() {
+        FrameLayout frameLayout;
+        NoDataView noDataView;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && (frameLayout = this.n) != null && (noDataView = this.m) != null) {
+            frameLayout.removeView(noDataView);
+            this.m = null;
         }
     }
 
-    @Override // com.baidu.tieba.df
-    public void b(cf.d dVar) {
+    public final int w() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            Context context = TbadkCoreApplication.getInst().getContext();
-            this.b = context;
-            this.c = dVar;
-            try {
-                this.d = (LocationManager) context.getSystemService("location");
-            } catch (Exception e2) {
-                BdLog.e(e2.getMessage());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048594, this)) == null) {
+            List<ICardInfo> list = this.j;
+            int i = 0;
+            if (list == null) {
+                return 0;
             }
-            this.j = new c(this);
-            this.k = new d(this);
-            u();
+            for (ICardInfo iCardInfo : list) {
+                i += iCardInfo.getAdapterCount();
+            }
+            return i;
         }
+        return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.df
-    public void c() {
+    public final void B(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (this.g.hasMessages(0)) {
-                this.g.removeMessages(0);
-            }
-            this.g.removeCallbacks(this.k);
-            this.g.removeCallbacks(this.j);
-            LocationManager locationManager = this.d;
-            if (locationManager != null) {
-                try {
-                    locationManager.removeUpdates(this.l);
-                    this.d.removeUpdates(this.m);
-                } catch (Throwable th) {
-                    BdLog.detailException(th);
-                }
-            }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.cancel();
-                this.a = null;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            ICardInfo iCardInfo = this.j.get(i);
+            if (iCardInfo instanceof yg8) {
+                ((yg8) iCardInfo).doLoad(iCardInfo, this.i);
             }
         }
     }
 
-    @Override // com.baidu.tieba.df
-    public void destroy() {
+    public void C(List<ICardInfo> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (this.g.hasMessages(0)) {
-                this.g.removeMessages(0);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            List<ICardInfo> list2 = this.j;
+            if (list2 == null) {
+                this.j = new ArrayList();
+            } else {
+                list2.clear();
             }
-            this.g.removeCallbacks(this.k);
-            this.g.removeCallbacks(this.j);
-            LocationManager locationManager = this.d;
-            if (locationManager != null) {
-                try {
-                    locationManager.removeUpdates(this.l);
-                    this.d.removeUpdates(this.m);
-                } catch (Exception e2) {
-                    BdLog.detailException(e2);
+            if (list != null) {
+                this.j.addAll(list);
+            }
+            this.k = w();
+            notifyDataSetChanged();
+        }
+    }
+
+    public void E(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.s = str;
+        }
+    }
+
+    public void G(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.l = z;
+        }
+    }
+
+    public void H(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.t = z;
+        }
+    }
+
+    @Override // com.baidu.tieba.zm, android.widget.BaseAdapter, android.widget.Adapter
+    public int getItemViewType(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+            ICardInfo x = x(i);
+            if (x != null) {
+                return sg8.a.get(x.getAdapterType());
+            }
+            return 0;
+        }
+        return invokeI.intValue;
+    }
+
+    public final int u(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048592, this, i)) == null) {
+            if (i < 0) {
+                i = 0;
+            }
+            if (i >= this.j.size()) {
+                return this.j.size() - 1;
+            }
+            return i;
+        }
+        return invokeI.intValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.zm, android.widget.Adapter, com.baidu.tieba.jn
+    /* renamed from: z */
+    public ICardInfo getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+            return x(i);
+        }
+        return (ICardInfo) invokeI.objValue;
+    }
+
+    public void F(NoDataViewFactory.d dVar, NoDataViewFactory.e eVar, NoDataViewFactory.c cVar, FrameLayout.LayoutParams layoutParams) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(1048581, this, dVar, eVar, cVar, layoutParams) == null) {
+            this.p = dVar;
+            this.o = eVar;
+            this.q = cVar;
+            this.r = layoutParams;
+            NoDataView noDataView = this.m;
+            if (noDataView != null) {
+                noDataView.setTextOption(eVar);
+                this.m.setImgOption(dVar);
+                this.m.setButtonOption(cVar);
+                if (layoutParams != null) {
+                    this.m.setLayoutParams(layoutParams);
                 }
             }
-            f fVar = this.a;
-            if (fVar != null) {
-                fVar.cancel();
-                this.a = null;
-            }
         }
+    }
+
+    @Override // com.baidu.tieba.zm, android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048588, this, i, view2, viewGroup)) == null) {
+            if (this.l && A()) {
+                return t();
+            }
+            v();
+            D(i);
+            ICardInfo x = x(i);
+            BaseLegoCardView y = y(view2, x);
+            if (y != null) {
+                y.a = this.s;
+                y.update(x);
+            }
+            return y;
+        }
+        return (View) invokeILL.objValue;
+    }
+
+    public View t() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            if (this.n == null) {
+                this.n = new FrameLayout(this.i.getPageActivity());
+            }
+            if (this.m == null) {
+                this.m = NoDataViewFactory.a(this.i.getPageActivity(), this.n, this.p, this.o, this.q);
+            }
+            this.m.setVisibility(0);
+            FrameLayout.LayoutParams layoutParams = this.r;
+            if (layoutParams != null) {
+                this.m.setLayoutParams(layoutParams);
+            }
+            this.n.setLayoutParams(new AbsListView.LayoutParams(-1, -1));
+            this.m.f(this.i, TbadkCoreApplication.getInst().getSkinType());
+            return this.n;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    public BaseLegoCardView y(View view2, ICardInfo iCardInfo) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048596, this, view2, iCardInfo)) == null) {
+            if (iCardInfo == null) {
+                return null;
+            }
+            if (view2 instanceof BaseLegoCardView) {
+                return (BaseLegoCardView) view2;
+            }
+            return (BaseLegoCardView) qg8.h().a(this.i, iCardInfo, 0);
+        }
+        return (BaseLegoCardView) invokeLL.objValue;
     }
 }

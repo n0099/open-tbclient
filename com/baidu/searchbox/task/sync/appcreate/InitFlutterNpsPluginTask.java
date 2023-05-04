@@ -9,7 +9,7 @@ import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.FixNpsAnrSwitch;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.sm5;
+import com.baidu.tieba.ln5;
 /* loaded from: classes2.dex */
 public class InitFlutterNpsPluginTask extends LaunchTask {
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
@@ -34,12 +34,12 @@ public class InitFlutterNpsPluginTask extends LaunchTask {
     }
 
     public void initFlutterPlugin() {
-        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new sm5() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
-            @Override // com.baidu.tieba.sm5
+        MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921674, new ln5() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2
+            @Override // com.baidu.tieba.ln5
             public void onFail() {
             }
 
-            @Override // com.baidu.tieba.sm5
+            @Override // com.baidu.tieba.ln5
             public void onSuccess() {
                 jg.a().postDelayed(new Runnable() { // from class: com.baidu.searchbox.task.sync.appcreate.InitFlutterNpsPluginTask.2.1
                     @Override // java.lang.Runnable

@@ -1,23 +1,76 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public interface iha {
+public final class iha {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes4.dex */
-    public interface a {
-        void onCompletion();
+    public static class a extends bha {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-        boolean onError(int i, int i2, Object obj);
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
 
-        boolean onInfo(int i, int i2, Object obj);
+        @Override // com.baidu.tieba.bha
+        public final void a() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (eha.a(com.baidu.ubs.analytics.d.a.b)) {
+                    for (File file : iha.a(com.baidu.ubs.analytics.d.a.b)) {
+                        if (lga.c(lga.a(file, "http://absample.baidu.com/appabapp/appapi/sdkerrorlog"), null)) {
+                            eha.b(file.getPath());
+                        }
+                    }
+                }
+                if (eha.a(com.baidu.ubs.analytics.d.a.c)) {
+                    for (File file2 : iha.a(com.baidu.ubs.analytics.d.a.c)) {
+                        if (!file2.getName().equals(zga.e()) && lga.c(lga.a(file2, "http://absample.baidu.com/appabapp/appapi/sdklog"), null)) {
+                            eha.b(file2.getPath());
+                        }
+                    }
+                }
+            }
+        }
     }
 
-    void release();
+    public static /* synthetic */ List a(String str) {
+        ArrayList arrayList = new ArrayList();
+        File[] listFiles = new File(str).listFiles();
+        if (listFiles != null) {
+            for (int i = 0; i < listFiles.length; i++) {
+                String name = listFiles[i].getName();
+                if (name.endsWith("txt") || name.endsWith("log")) {
+                    arrayList.add(listFiles[i]);
+                }
+            }
+        }
+        return arrayList;
+    }
 
-    void setListener(a aVar);
-
-    void setSource(ArrayList<String> arrayList);
-
-    void start();
+    public static void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
+            aha.a(new a());
+        }
+    }
 }

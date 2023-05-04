@@ -88,7 +88,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
                 } else {
                     PollingModel pollingModel = this.a.e;
                     if (pollingModel != null) {
-                        pollingModel.x0(this.a.b);
+                        pollingModel.C0(this.a.b);
                     }
                 }
                 jg.a().postDelayed(this, this.a.c);
@@ -113,7 +113,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         this.f = new b(this);
     }
 
-    public final PollingLifecycleHelper j(a loopCallback) {
+    public final PollingLifecycleHelper l(a loopCallback) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, loopCallback)) == null) {
@@ -124,7 +124,7 @@ public final class PollingLifecycleHelper implements DefaultLifecycleObserver {
         return (PollingLifecycleHelper) invokeL.objValue;
     }
 
-    public final PollingLifecycleHelper k(long j) {
+    public final PollingLifecycleHelper m(long j) {
         InterceptResult invokeJ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {

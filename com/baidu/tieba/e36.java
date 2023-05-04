@@ -1,17 +1,36 @@
 package com.baidu.tieba;
 
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
 import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.performance.speed.SpeedRuntimeProvider;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Singleton
 @Service
 /* loaded from: classes4.dex */
-public class e36 extends fr1 {
+public class e36 extends dq1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    @Override // com.baidu.tieba.hs1
+    @Nullable
+    public String A() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? SpeedRuntimeProvider.MAIN_ACTIVITY_NAME : (String) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.hs1
+    public String l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? "flFqXclepWs7RdugAszy9eERL7G5dS0I" : (String) invokeV.objValue;
+    }
 
     public e36() {
         Interceptable interceptable = $ic;
@@ -27,11 +46,13 @@ public class e36 extends fr1 {
         }
     }
 
-    @Override // com.baidu.tieba.fr1
-    public void c(boolean z) {
+    @Override // com.baidu.tieba.hs1
+    public boolean N() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            d36.c(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return isDebug();
         }
+        return invokeV.booleanValue;
     }
 }

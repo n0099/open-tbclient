@@ -1,67 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.searchbox.PerfSampleManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+import com.baidu.ubc.UBCManager;
+@Service
 /* loaded from: classes4.dex */
-public class fj9 extends vi9 {
-    public static /* synthetic */ Interceptable $ic;
+public class fj9 implements PerfSampleManager.IPerfSampleCallback {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "2301";
+    public static String b = "1";
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<hj9> c;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947766196, "Lcom/baidu/tieba/fj9;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947766196, "Lcom/baidu/tieba/fj9;");
+        }
+    }
 
     public fj9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.c = new ArrayList<>();
     }
 
-    public ArrayList<hj9> h() {
+    @Override // com.baidu.searchbox.PerfSampleManager.IPerfSampleCallback
+    public String getSampleFlag() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.vi9
-    public void d(JSONObject jSONObject) throws Exception {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            ArrayList<hj9> arrayList = new ArrayList<>();
-            JSONArray optJSONArray = jSONObject.optJSONArray("forum_dir");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    hj9 hj9Var = new hj9();
-                    hj9Var.a(optJSONArray.getJSONObject(i));
-                    arrayList.add(hj9Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
+            if (uBCManager != null) {
+                if (b.equals(uBCManager.getUploadType(a))) {
+                    return a;
                 }
+                return "";
             }
-            i(arrayList);
+            return "";
         }
-    }
-
-    public void i(ArrayList<hj9> arrayList) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, arrayList) == null) {
-            this.c = arrayList;
-            g(null);
-        }
+        return (String) invokeV.objValue;
     }
 }

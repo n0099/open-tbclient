@@ -1,115 +1,219 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Context;
+import android.graphics.drawable.Drawable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
 public class fe4 {
     public static /* synthetic */ Interceptable $ic;
-    public static SparseArray<de4> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public String d;
+    public Drawable e;
+    public boolean f;
+    public boolean g;
+    public int h;
+    public int i;
+    public long j;
+    public ce4 k;
+    public je4 l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947761236, "Lcom/baidu/tieba/fe4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947761236, "Lcom/baidu/tieba/fe4;");
+    public fe4(int i, int i2, int i3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i4 = newInitContext.flag;
+            if ((i4 & 1) != 0) {
+                int i5 = i4 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        SparseArray<de4> sparseArray = new SparseArray<>();
-        a = sparseArray;
-        sparseArray.put(5, new de4(5, R.string.obfuscated_res_0x7f0f00fe, R.drawable.obfuscated_res_0x7f0800f6, true));
-        a.put(35, new de4(35, R.string.obfuscated_res_0x7f0f00f1, R.drawable.obfuscated_res_0x7f0800d6, true));
-        a.put(39, new de4(39, R.string.obfuscated_res_0x7f0f00f8, R.drawable.obfuscated_res_0x7f0800f9, true));
-        a.put(4, new de4(4, R.string.obfuscated_res_0x7f0f00ff, R.drawable.obfuscated_res_0x7f0800fc, true));
-        a.put(37, new de4(37, R.string.obfuscated_res_0x7f0f00f3, R.drawable.obfuscated_res_0x7f0800d9, true));
-        a.put(38, new de4(38, R.string.obfuscated_res_0x7f0f00fc, R.drawable.obfuscated_res_0x7f0800d5, true));
-        a.put(42, new de4(42, R.string.obfuscated_res_0x7f0f00f4, R.drawable.obfuscated_res_0x7f0800f9, true));
-        a.put(49, new de4(49, R.string.obfuscated_res_0x7f0f1339, R.drawable.obfuscated_res_0x7f0811e9, true));
-        a.put(50, new de4(50, R.string.obfuscated_res_0x7f0f13bd, R.drawable.obfuscated_res_0x7f0811e8, true));
-        a.put(43, new de4(43, R.string.obfuscated_res_0x7f0f00f2, R.drawable.obfuscated_res_0x7f0800da, true));
-        a.put(9, new de4(9, R.string.obfuscated_res_0x7f0f00fd, R.drawable.obfuscated_res_0x7f0800e6, true));
-        a.put(46, new de4(46, R.string.obfuscated_res_0x7f0f00f5, R.drawable.obfuscated_res_0x7f0800eb, true));
-        a.put(47, new de4(47, R.string.obfuscated_res_0x7f0f00f6, R.drawable.obfuscated_res_0x7f0800ee, true));
+        this.b = -1;
+        this.c = -1;
+        this.f = true;
+        this.g = true;
+        this.h = 0;
+        this.i = 0;
+        this.j = 0L;
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.g = z;
     }
 
-    public static de4 a(int i) {
-        InterceptResult invokeI;
+    public static fe4 k(fe4 fe4Var) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            return de4.k(a.get(i));
-        }
-        return (de4) invokeI.objValue;
-    }
-
-    public static List<de4> b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            ArrayList arrayList = new ArrayList();
-            if (i != 0) {
-                if (i != 12) {
-                    if (i != 13) {
-                        switch (i) {
-                            case 16:
-                                arrayList.add(de4.k(a.get(5)));
-                                break;
-                            case 17:
-                            case 18:
-                                arrayList.add(de4.k(a.get(38)));
-                                arrayList.add(de4.k(a.get(4)));
-                                arrayList.add(de4.k(a.get(39)));
-                                arrayList.add(de4.k(a.get(35)));
-                                arrayList.add(de4.k(a.get(5)));
-                                arrayList.add(de4.k(a.get(49)));
-                                break;
-                            case 19:
-                                arrayList.add(de4.l(a.get(38), false));
-                                arrayList.add(de4.l(a.get(4), false));
-                                arrayList.add(de4.k(a.get(39)));
-                                arrayList.add(de4.l(a.get(35), false));
-                                arrayList.add(de4.k(a.get(5)));
-                                arrayList.add(de4.l(a.get(49), false));
-                                break;
-                            case 20:
-                                arrayList.add(de4.k(a.get(38)));
-                                arrayList.add(de4.k(a.get(4)));
-                                arrayList.add(de4.k(a.get(39)));
-                                arrayList.add(de4.k(a.get(35)));
-                                arrayList.add(de4.k(a.get(5)));
-                                arrayList.add(de4.k(a.get(49)));
-                                break;
-                        }
-                    } else {
-                        arrayList.add(de4.k(a.get(43)));
-                    }
-                }
-                arrayList.add(de4.k(a.get(38)));
-                arrayList.add(de4.k(a.get(4)));
-                arrayList.add(de4.k(a.get(39)));
-                arrayList.add(de4.k(a.get(35)));
-                arrayList.add(de4.k(a.get(5)));
-                arrayList.add(de4.k(a.get(49)));
-            } else {
-                arrayList.add(de4.k(a.get(38)));
-                arrayList.add(de4.k(a.get(5)));
-                arrayList.add(de4.k(a.get(4)));
-                arrayList.add(de4.k(a.get(35)));
-                arrayList.add(de4.k(a.get(42)));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, fe4Var)) == null) {
+            if (fe4Var == null) {
+                return null;
             }
-            return arrayList;
+            return new fe4(fe4Var.a, fe4Var.b, fe4Var.c, fe4Var.g);
         }
-        return (List) invokeI.objValue;
+        return (fe4) invokeL.objValue;
+    }
+
+    public Drawable a(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, context)) == null) {
+            Drawable drawable = this.e;
+            if (drawable != null) {
+                return drawable;
+            }
+            if (this.c <= 0) {
+                return null;
+            }
+            return context.getResources().getDrawable(this.c);
+        }
+        return (Drawable) invokeL.objValue;
+    }
+
+    public String h(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, context)) == null) {
+            String str = this.d;
+            if (str != null) {
+                return str;
+            }
+            if (this.b <= 0) {
+                return null;
+            }
+            return context.getResources().getString(this.b);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void m(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void n(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeJ(1048587, this, j) == null) {
+            this.j = j;
+        }
+    }
+
+    public void o(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.i = i;
+        }
+    }
+
+    public void p(ce4 ce4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, ce4Var) == null) {
+            this.k = ce4Var;
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+            this.b = i;
+        }
+    }
+
+    public static fe4 l(fe4 fe4Var, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, fe4Var, z)) == null) {
+            if (fe4Var == null) {
+                return null;
+            }
+            return new fe4(fe4Var.a, fe4Var.b, fe4Var.c, z);
+        }
+        return (fe4) invokeLZ.objValue;
+    }
+
+    public int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.h;
+        }
+        return invokeV.intValue;
+    }
+
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public je4 d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.l;
+        }
+        return (je4) invokeV.objValue;
+    }
+
+    public long e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.j;
+        }
+        return invokeV.longValue;
+    }
+
+    public int f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.i;
+        }
+        return invokeV.intValue;
+    }
+
+    public ce4 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.k;
+        }
+        return (ce4) invokeV.objValue;
+    }
+
+    public boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return this.g;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
     }
 }

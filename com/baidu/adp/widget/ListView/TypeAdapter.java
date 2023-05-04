@@ -92,10 +92,24 @@ public class TypeAdapter extends BaseAdapter implements nn<in> {
         this.c = new ArrayList();
     }
 
-    public List<in> b() {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            SparseArray<vm<in, ViewHolder>> sparseArray = this.a;
+            if (sparseArray != null) {
+                sparseArray.clear();
+            }
+            SparseArray<Integer> sparseArray2 = this.b;
+            if (sparseArray2 != null) {
+                sparseArray2.clear();
+            }
+        }
+    }
+
+    public List<in> c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.c;
         }
         return (List) invokeV.objValue;
@@ -169,11 +183,11 @@ public class TypeAdapter extends BaseAdapter implements nn<in> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // android.widget.Adapter, com.baidu.tieba.jn
-    /* renamed from: c */
+    /* renamed from: d */
     public in getItem(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
             List<in> list = this.c;
             if (list != null) {
                 int size = list.size();
@@ -187,9 +201,9 @@ public class TypeAdapter extends BaseAdapter implements nn<in> {
         return (in) invokeI.objValue;
     }
 
-    public void f(List<? extends in> list) {
+    public void i(List<? extends in> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, list) == null) {
+        if (interceptable == null || interceptable.invokeL(1048590, this, list) == null) {
             List<in> list2 = this.c;
             if (list2 == null) {
                 this.c = new ArrayList();
@@ -204,14 +218,14 @@ public class TypeAdapter extends BaseAdapter implements nn<in> {
     @Override // com.baidu.tieba.nn
     public void notifyItemChanged(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048591, this, i) == null) {
             notifyDataSetChanged();
         }
     }
 
-    public void d(ViewGroup viewGroup, View view2, int i, long j) {
+    public void e(ViewGroup viewGroup, View view2, int i, long j) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || this.a == null) {
+        if ((interceptable != null && interceptable.invokeCommon(1048580, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)}) != null) || this.a == null) {
             return;
         }
         in item = getItem(i);
@@ -225,10 +239,10 @@ public class TypeAdapter extends BaseAdapter implements nn<in> {
         }
     }
 
-    public boolean e(ViewGroup viewGroup, View view2, int i, long j) {
+    public boolean f(ViewGroup viewGroup, View view2, int i, long j) {
         InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048580, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{viewGroup, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
             if (this.a == null) {
                 return false;
             }
@@ -315,7 +329,7 @@ public class TypeAdapter extends BaseAdapter implements nn<in> {
     @Override // com.baidu.tieba.nn
     public void notifyItemChanged(int i, @Nullable Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048591, this, i, obj) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048592, this, i, obj) == null) {
             notifyDataSetChanged();
         }
     }

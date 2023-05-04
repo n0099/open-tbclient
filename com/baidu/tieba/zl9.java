@@ -1,35 +1,67 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.data.AdvertAppInfo;
+import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.App;
+import java.util.ArrayList;
 /* loaded from: classes7.dex */
-public class zl9 extends am9 {
+public class zl9 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AdvertAppInfo a1;
-    public boolean b1;
-    public String c1;
-    public String d1;
-    public String e1;
-    public long f1;
-    public int g1;
-    public boolean h1;
-    public int i1;
-    public int j1;
+    public gm9 a;
+    public int b;
+    public a c;
+    public Context d;
 
-    public zl9() {
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) ? i : invokeI.longValue;
+    }
+
+    /* loaded from: classes7.dex */
+    public class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public ImageView a;
+        public TextView b;
+
+        public a(zl9 zl9Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zl9Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+    }
+
+    public zl9(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,134 +71,119 @@ public class zl9 extends am9 {
                 return;
             }
         }
-        this.b1 = false;
+        this.b = 0;
+        this.d = context;
     }
 
-    public AdvertAppInfo getAdvertAppInfo() {
+    public void d(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+            this.b = i;
+            notifyDataSetChanged();
+        }
+    }
+
+    public void e(gm9 gm9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, gm9Var) == null) {
+            this.a = gm9Var;
+        }
+    }
+
+    @Override // android.widget.Adapter
+    public Object getItem(int i) {
+        InterceptResult invokeI;
+        ArrayList<gm9> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048582, this, i)) == null) {
+            gm9 gm9Var = this.a;
+            if (gm9Var != null && (arrayList = gm9Var.e) != null) {
+                return arrayList.get(i);
+            }
+            return null;
+        }
+        return invokeI.objValue;
+    }
+
+    public final View a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a1;
+            View inflate = LayoutInflater.from(this.d).inflate(R.layout.obfuscated_res_0x7f0d02d4, (ViewGroup) null);
+            a aVar = new a(this);
+            this.c = aVar;
+            aVar.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09168d);
+            this.c.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f091694);
+            inflate.setTag(this.c);
+            return inflate;
         }
-        return (AdvertAppInfo) invokeV.objValue;
+        return (View) invokeV.objValue;
     }
 
-    public int getPosition() {
+    public final void b(a aVar, gm9 gm9Var, View view2, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLLLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar, gm9Var, view2, i) == null) && aVar != null && gm9Var != null) {
+            aVar.b.setText("");
+            if (i == 0) {
+                TextView textView = aVar.b;
+                textView.setText(this.d.getString(R.string.obfuscated_res_0x7f0f0270) + gm9Var.b);
+            } else {
+                aVar.b.setText(gm9Var.b);
+            }
+            if (i != this.b) {
+                aVar.a.setVisibility(4);
+                SkinManager.setViewTextColor(aVar.b, R.color.common_color_10200, 1);
+                return;
+            }
+            aVar.a.setVisibility(0);
+            SkinManager.setViewTextColor(aVar.b, R.color.common_color_10013, 1);
+        }
+    }
+
+    public gm9 c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a1;
-            if (advertAppInfo == null) {
-                return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (gm9) invokeV.objValue;
+    }
+
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
+        ArrayList<gm9> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            gm9 gm9Var = this.a;
+            if (gm9Var != null && (arrayList = gm9Var.e) != null) {
+                return arrayList.size();
             }
-            return gg.e(advertAppInfo.f, 0);
+            return 0;
         }
         return invokeV.intValue;
     }
 
-    public String q1() {
-        InterceptResult invokeV;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a1;
-            if (advertAppInfo == null) {
-                return "";
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, view2, viewGroup)) == null) {
+            if (view2 == null) {
+                view2 = a();
             }
-            return advertAppInfo.g;
+            gm9 gm9Var = this.a;
+            if (gm9Var == null) {
+                return view2;
+            }
+            gm9 gm9Var2 = gm9Var.e.get(i);
+            a aVar = (a) view2.getTag();
+            this.c = aVar;
+            if (gm9Var2 != null) {
+                b(aVar, gm9Var2, view2, i);
+            }
+            return view2;
         }
-        return (String) invokeV.objValue;
-    }
-
-    public String r1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a1;
-            if (advertAppInfo == null) {
-                return "";
-            }
-            return advertAppInfo.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String s1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            if (this.b1) {
-                return "PB_BANNER";
-            }
-            if (this.h1) {
-                return "VIDEO_PB";
-            }
-            return "PB";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public AdvertAppInfo.ILegoAdvert t1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a1;
-            if (advertAppInfo == null) {
-                return null;
-            }
-            return advertAppInfo.h;
-        }
-        return (AdvertAppInfo.ILegoAdvert) invokeV.objValue;
-    }
-
-    public boolean u1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            AdvertAppInfo advertAppInfo = this.a1;
-            if (advertAppInfo != null && advertAppInfo.i() == 0) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.am9, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
-        AdvertAppInfo advertAppInfo;
-        AdvertAppInfo.ILegoAdvert iLegoAdvert;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!sv4.c().g() && (advertAppInfo = this.a1) != null && (iLegoAdvert = advertAppInfo.h) != null && !iLegoAdvert.isNoPicAd()) {
-                return AdvertAppInfo.x;
-            }
-            if (UbsABTestHelper.isPbPageBannerFunAdSdkTest() && this.b1) {
-                return AdvertAppInfo.x;
-            }
-            AdvertAppInfo advertAppInfo2 = this.a1;
-            if (advertAppInfo2 != null && advertAppInfo2.h != null) {
-                int i = advertAppInfo2.c;
-                if (i != 1001 && i != -1001) {
-                    if (t1() != null) {
-                        return AdvertAppInfo.z;
-                    }
-                    return null;
-                }
-                return AdvertAppInfo.x;
-            }
-            return AdvertAppInfo.x;
-        }
-        return (BdUniqueId) invokeV.objValue;
-    }
-
-    public void v1(App app) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, app) == null) {
-            AdvertAppInfo advertAppInfo = new AdvertAppInfo();
-            this.a1 = advertAppInfo;
-            advertAppInfo.l(app);
-            this.a1.j = s1();
-        }
+        return (View) invokeILL.objValue;
     }
 }

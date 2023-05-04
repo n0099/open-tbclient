@@ -1,60 +1,218 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.z07;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import kotlin.jvm.internal.DefaultConstructorMarker;
+import kotlin.jvm.internal.Intrinsics;
+import tbclient.FeedContentColor;
+import tbclient.FeedContentEmoji;
+import tbclient.FeedContentIcon;
+import tbclient.FeedContentResource;
+import tbclient.FeedContentText;
+import tbclient.FeedKV;
 /* loaded from: classes3.dex */
-public class a17 extends mz6<TextView, String> {
+public final class a17 {
     public static /* synthetic */ Interceptable $ic;
+    public static final a a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public a17(String str) {
-        super(str);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947562402, "Lcom/baidu/tieba/a17;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947562402, "Lcom/baidu/tieba/a17;");
                 return;
             }
         }
+        a = new a(null);
     }
 
-    @Override // com.baidu.tieba.mz6, com.baidu.tieba.b07
-    @NonNull
-    public View a(@NonNull ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, viewGroup)) == null) {
-            View a = super.a(viewGroup);
-            a.setPadding(100, 100, 100, 100);
-            return a;
+    /* loaded from: classes3.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
+            this();
         }
-        return (View) invokeL.objValue;
-    }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.b07
-    /* renamed from: e */
-    public void b(@NonNull TextView textView, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, textView, str) == null) {
-            textView.setText(str);
+        public final String a(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                if (i == 0 || i == 1) {
+                    return "common_text";
+                }
+                if (i != 2) {
+                    if (i != 3) {
+                        if (i != 4) {
+                            if (i != 5) {
+                                return null;
+                            }
+                            return "text_with_bg";
+                        }
+                        return "tie_plus";
+                    }
+                    return "emoji";
+                }
+                return "common_icon";
+            }
+            return (String) invokeI.objValue;
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public final String b(hy6 hy6Var) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hy6Var)) == null) {
+                String str = hy6Var.a().get("rich_text_type");
+                if (str != null) {
+                    int hashCode = str.hashCode();
+                    if (hashCode != 3123) {
+                        if (hashCode != 3242771) {
+                            if (hashCode != 110546223) {
+                                if (hashCode == 1386396779 && str.equals("video_topic")) {
+                                    return "rich_text_video_topic_click";
+                                }
+                            } else if (str.equals("topic")) {
+                                return "rich_text_topic_click";
+                            }
+                        } else if (str.equals("item")) {
+                            return "rich_text_item_click";
+                        }
+                    } else if (str.equals("at")) {
+                        return "rich_text_at_click";
+                    }
+                }
+                return "rich_text_common_stat";
+            }
+            return (String) invokeL.objValue;
+        }
+
+        public final jz6 c(FeedContentResource content, hy6 outerBusinessInfo, dz6 logInfo, Map<String, ? extends v17> statStrategyMap) {
+            InterceptResult invokeLLLL;
+            String str;
+            String str2;
+            oy6 oy6Var;
+            oy6 oy6Var2;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, content, outerBusinessInfo, logInfo, statStrategyMap)) == null) {
+                Intrinsics.checkNotNullParameter(content, "content");
+                Intrinsics.checkNotNullParameter(outerBusinessInfo, "outerBusinessInfo");
+                Intrinsics.checkNotNullParameter(logInfo, "logInfo");
+                Intrinsics.checkNotNullParameter(statStrategyMap, "statStrategyMap");
+                lz6 lz6Var = null;
+                mz6 mz6Var = new mz6("", null, null);
+                FeedContentText feedContentText = content.text_info;
+                if (feedContentText != null) {
+                    FeedContentColor feedContentColor = feedContentText.color;
+                    if (feedContentColor != null) {
+                        Integer num = feedContentColor.type;
+                        Intrinsics.checkNotNullExpressionValue(num, "it.type");
+                        oy6Var = new oy6(num.intValue(), feedContentColor.day, feedContentColor.night);
+                    } else {
+                        oy6Var = null;
+                    }
+                    FeedContentColor feedContentColor2 = content.text_info.bg_color;
+                    if (feedContentColor2 != null) {
+                        Integer num2 = feedContentColor2.type;
+                        Intrinsics.checkNotNullExpressionValue(num2, "it.type");
+                        oy6Var2 = new oy6(num2.intValue(), feedContentColor2.day, feedContentColor2.night);
+                    } else {
+                        oy6Var2 = null;
+                    }
+                    String str3 = content.text_info.text;
+                    Intrinsics.checkNotNullExpressionValue(str3, "content.text_info.text");
+                    mz6Var = new mz6(str3, oy6Var, oy6Var2);
+                }
+                mz6 mz6Var2 = mz6Var;
+                yy6 yy6Var = new yy6(null, null, 0, 0, 15, null);
+                FeedContentIcon feedContentIcon = content.icon_info;
+                if (feedContentIcon != null) {
+                    String str4 = feedContentIcon.day_url;
+                    Intrinsics.checkNotNullExpressionValue(str4, "iconInfo.day_url");
+                    String str5 = feedContentIcon.night_url;
+                    Intrinsics.checkNotNullExpressionValue(str5, "iconInfo.night_url");
+                    Integer num3 = feedContentIcon.width;
+                    Intrinsics.checkNotNullExpressionValue(num3, "iconInfo.width");
+                    int intValue = num3.intValue();
+                    Integer num4 = feedContentIcon.height;
+                    Intrinsics.checkNotNullExpressionValue(num4, "iconInfo.height");
+                    yy6Var = new yy6(str4, str5, intValue, num4.intValue());
+                }
+                yy6 yy6Var2 = yy6Var;
+                FeedContentEmoji feedContentEmoji = content.emoji_info;
+                if (feedContentEmoji != null) {
+                    str = feedContentEmoji.name;
+                } else {
+                    str = null;
+                }
+                if (str == null) {
+                    str2 = "";
+                } else {
+                    str2 = str;
+                }
+                hy6 hy6Var = new hy6();
+                z07.a aVar = z07.a;
+                List<FeedKV> list = content.business_info;
+                Intrinsics.checkNotNullExpressionValue(list, "content.business_info");
+                hy6Var.b(aVar.a(list));
+                hy6 hy6Var2 = new hy6();
+                hy6Var2.a().putAll(hy6Var.a());
+                hy6Var2.a().putAll(outerBusinessInfo.a());
+                dz6 dz6Var = new dz6();
+                z07.a aVar2 = z07.a;
+                List<FeedKV> list2 = content.log_info;
+                Intrinsics.checkNotNullExpressionValue(list2, "content.log_info");
+                dz6Var.b(aVar2.a(list2));
+                String b = b(hy6Var2);
+                if (Intrinsics.areEqual("rich_text_common_stat", b)) {
+                    String str6 = dz6Var.a().get("key");
+                    if (str6 != null) {
+                        lz6Var = new lz6(str6, new HashMap(), dz6Var.a());
+                    }
+                } else {
+                    v17 v17Var = statStrategyMap.get(b);
+                    if (v17Var != null) {
+                        lz6Var = new lz6(v17Var.getKey(), v17Var.a(hy6Var2), logInfo.a());
+                    }
+                }
+                Integer num5 = content.type;
+                Intrinsics.checkNotNullExpressionValue(num5, "content.type");
+                int intValue2 = num5.intValue();
+                String str7 = content.schema;
+                Intrinsics.checkNotNullExpressionValue(str7, "content.schema");
+                return new jz6(intValue2, mz6Var2, yy6Var2, str2, hy6Var2, str7, lz6Var);
+            }
+            return (jz6) invokeLLLL.objValue;
         }
     }
 }

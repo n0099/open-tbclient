@@ -1,91 +1,29 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
+import android.content.Context;
+import android.view.View;
+import android.widget.FrameLayout;
 /* loaded from: classes5.dex */
-public class op1 implements hr1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface op1 {
+    boolean a(View view2, dy2 dy2Var);
 
-    /* loaded from: classes5.dex */
-    public static class a extends ProviderDelegation {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
+    boolean b();
 
-        /* renamed from: com.baidu.tieba.op1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class C0365a implements pm3<Bundle> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
+    boolean c(View view2, dy2 dy2Var);
 
-            public C0365a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
+    boolean d(View view2);
 
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.pm3
-            /* renamed from: a */
-            public Bundle create() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    Bundle bundle = new Bundle();
-                    bundle.putString("baidu_cookie", op1.b());
-                    return bundle;
-                }
-                return (Bundle) invokeV.objValue;
-            }
-        }
+    void e(wm3 wm3Var);
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
+    void f(wm3 wm3Var);
 
-        @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-        public Bundle execCall(Bundle bundle) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-                return (Bundle) mm3.b(new C0365a(this));
-            }
-            return (Bundle) invokeL.objValue;
-        }
-    }
+    void g(boolean z);
 
-    public static String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return CookieManager.getInstance().getCookie(".baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
+    Context getContext();
+
+    FrameLayout getRootView();
+
+    boolean h();
+
+    boolean removeView(View view2);
 }

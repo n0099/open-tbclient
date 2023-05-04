@@ -1,75 +1,77 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.swan.apps.api.SwanApi$$ModulesProvider;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-@Singleton
-@Service
+import java.net.URLEncoder;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class v26 implements lt3 {
+public class v26 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public v26() {
+    public static String a(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65536, null, str, str2, str3, num)) == null) {
+            if (StringUtils.isNull(str)) {
+                return null;
             }
+            StringBuilder sb = new StringBuilder();
+            sb.append("tiebaclient://");
+            if (num.intValue() > 0) {
+                sb.append("swangame/");
+            } else {
+                sb.append("swan/");
+            }
+            sb.append(str);
+            if (!TextUtils.isEmpty(str2)) {
+                if (!str2.startsWith("/")) {
+                    sb.append("/");
+                }
+                sb.append(str2);
+            } else {
+                sb.append("/");
+            }
+            if (!TextUtils.isEmpty(Uri.parse(sb.toString()).getQuery())) {
+                sb.append("&");
+            } else {
+                if (!sb.toString().endsWith("/")) {
+                    sb.append("/");
+                }
+                sb.append("?");
+            }
+            sb.append("_baiduboxapp=");
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("from", str3);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+            sb.append(URLEncoder.encode(jSONObject.toString()));
+            sb.append("&callback=_bdbox_js_275&upgrade=0");
+            return sb.toString();
         }
+        return (String) invokeLLLL.objValue;
     }
 
-    @Override // com.baidu.tieba.nt3
-    public void a(s83 s83Var) {
+    public static final boolean b(String str, String str2, String str3, Integer num) {
+        InterceptResult invokeLLLL;
+        String a;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, s83Var) == null) && s83Var != null) {
-            s83Var.b(new x26(s83Var));
-            s83Var.b(new q26(s83Var));
-            s83Var.b(new lp3(s83Var));
-            s83Var.b(new np3(s83Var));
-            s83Var.b(new pp3(s83Var));
-            s83Var.b(new ja3(s83Var));
-            s83Var.b(new ka3(s83Var));
-            s83Var.b(new kc3(s83Var));
-            s83Var.b(new qp3(s83Var));
-            s83Var.b(new nu1(s83Var));
-            s83Var.b(new u26(s83Var));
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(65537, null, str, str2, str3, num)) == null) {
+            if (TextUtils.isEmpty(str) || (a = a(str, str2, str3, num)) == null || !a.startsWith("tiebaclient://")) {
+                return false;
+            }
+            MessageManager.getInstance().sendMessage(new CustomMessage(2921361, a));
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.nt3
-    @Nullable
-    public Map<String, Object> b(@NonNull wv1 wv1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, wv1Var)) == null) {
-            return SwanApi$$ModulesProvider.getV8ApiModules(wv1Var);
-        }
-        return (Map) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.nt3
-    @Nullable
-    public Map<String, Object> c(@NonNull wv1 wv1Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, wv1Var)) == null) {
-            return SwanApi$$ModulesProvider.getWebviewApiModules(wv1Var);
-        }
-        return (Map) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

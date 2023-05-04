@@ -1,69 +1,88 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.renderscript.Allocation;
-import android.renderscript.Element;
-import android.renderscript.RenderScript;
-import android.renderscript.ScriptIntrinsicYuvToRGB;
-import android.renderscript.Type;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
 public class yha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RenderScript a;
-    public ScriptIntrinsicYuvToRGB b;
-    public Type.Builder c;
-    public Type.Builder d;
-    public Allocation e;
-    public Allocation f;
+    public List<aia> a;
+    public wha b;
+    public String c;
 
-    public yha(Context context) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public yha(List<aia> list) {
+        this(list, 0);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {list};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((List) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        RenderScript create = RenderScript.create(context);
-        this.a = create;
-        this.b = ScriptIntrinsicYuvToRGB.create(create, Element.U8_4(create));
     }
 
-    public Bitmap a(byte[] bArr, int i, int i2) {
-        InterceptResult invokeLII;
+    public yha(List<aia> list, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bArr, i, i2)) == null) {
-            if (this.c == null) {
-                RenderScript renderScript = this.a;
-                Type.Builder x = new Type.Builder(renderScript, Element.U8(renderScript)).setX(bArr.length);
-                this.c = x;
-                this.e = Allocation.createTyped(this.a, x.create(), 1);
-                RenderScript renderScript2 = this.a;
-                Type.Builder y = new Type.Builder(renderScript2, Element.RGBA_8888(renderScript2)).setX(i).setY(i2);
-                this.d = y;
-                this.f = Allocation.createTyped(this.a, y.create(), 1);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {list, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            this.e.copyFrom(bArr);
-            this.b.setInput(this.e);
-            this.b.forEach(this.f);
-            Bitmap createBitmap = Bitmap.createBitmap(i, i2, Bitmap.Config.ARGB_8888);
-            this.f.copyTo(createBitmap);
-            return createBitmap;
         }
-        return (Bitmap) invokeLII.objValue;
+        this.a = list;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.c : (String) invokeV.objValue;
+    }
+
+    public wha b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? this.b : (wha) invokeV.objValue;
+    }
+
+    public List<aia> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this.a : (List) invokeV.objValue;
+    }
+
+    public void d(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
+            this.c = str;
+        }
+    }
+
+    public void e(wha whaVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, whaVar) == null) {
+            this.b = whaVar;
+        }
     }
 }

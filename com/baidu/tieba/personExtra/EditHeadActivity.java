@@ -48,8 +48,8 @@ import com.baidu.tbadk.img.ImageUploadResult;
 import com.baidu.tbadk.widget.DragImageView;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.t45;
-import com.baidu.tieba.tf5;
+import com.baidu.tieba.j55;
+import com.baidu.tieba.mg5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -83,7 +83,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
     public View j;
     public Button k;
     public Button l;
-    public t45 m;
+    public j55 m;
     public k n;
     public j o;
     public RadioButton p;
@@ -120,7 +120,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         public final /* synthetic */ EditHeadActivity a;
 
         /* loaded from: classes5.dex */
-        public class a implements tf5.d {
+        public class a implements mg5.d {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ g a;
@@ -143,7 +143,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                 this.a = gVar;
             }
 
-            @Override // com.baidu.tieba.tf5.d
+            @Override // com.baidu.tieba.mg5.d
             public void a(String str, ImageUploadResult imageUploadResult) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeLL(1048576, this, str, imageUploadResult) == null) {
@@ -151,7 +151,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     Intent intent = this.a.a.getIntent();
                     if (imageUploadResult != null) {
                         if (imageUploadResult.error_code != 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f160b, false);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f1624, false);
                         } else {
                             PhotoUrlData photoUrlData = new PhotoUrlData();
                             photoUrlData.setPicId(String.valueOf(imageUploadResult.picId));
@@ -248,13 +248,13 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
                     this.a.b2();
                     return;
                 }
-                tf5 tf5Var = new tf5(FileHelper.getFileDireciory(str), "head");
-                tf5Var.j();
-                tf5Var.l(new a(this));
-                tf5Var.n(this.a.z);
-                tf5Var.g(false);
+                mg5 mg5Var = new mg5(FileHelper.getFileDireciory(str), "head");
+                mg5Var.j();
+                mg5Var.l(new a(this));
+                mg5Var.n(this.a.z);
+                mg5Var.g(false);
                 EditHeadActivity editHeadActivity = this.a;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f160d));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1626));
             }
         }
     }
@@ -871,7 +871,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
                 EditHeadActivity editHeadActivity = this.b;
-                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1608));
+                editHeadActivity.showLoadingDialog(editHeadActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1621));
             }
         }
 
@@ -1096,22 +1096,22 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.D = (NavigationBar) findViewById(R.id.navigation_bar);
-            t45 t45Var = new t45(getPageContext());
-            this.m = t45Var;
-            t45Var.e(new a(this));
+            j55 j55Var = new j55(getPageContext());
+            this.m = j55Var;
+            j55Var.e(new a(this));
             this.m.h(false);
-            this.d = (EditHeadsImageTopLayerView) findViewById(R.id.obfuscated_res_0x7f09100f);
+            this.d = (EditHeadsImageTopLayerView) findViewById(R.id.obfuscated_res_0x7f09101e);
             if (EditHeadActivityConfig.FROM_FLUTTER_IMAGEPICKER.equals(this.b)) {
                 float f2 = this.a;
                 if (f2 != 1.0f) {
                     this.d.setmCutHeightScale(f2);
                 }
             }
-            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091bf9);
-            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091bfa);
+            this.e = (ImageView) findViewById(R.id.obfuscated_res_0x7f091c09);
+            this.f = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f091c0a);
             int[] s = ii.s(getPageContext().getPageActivity());
             this.f.setY((int) (((s[1] - s[0]) * 0.4d) + s[0] + getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f0702fd)));
-            EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.obfuscated_res_0x7f090fed);
+            EditHeadsImageView editHeadsImageView = (EditHeadsImageView) findViewById(R.id.obfuscated_res_0x7f090ffc);
             this.c = editHeadsImageView;
             editHeadsImageView.setCutImageHeightScale(this.a);
             Bitmap bitmap = this.g;
@@ -1121,7 +1121,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.c.setOnSizeChangedListener(new b(this));
             this.c.setOnImageScrollListener(new c(this));
             this.i = this.D.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON, new d(this));
-            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092080);
+            Button button = (Button) findViewById(R.id.obfuscated_res_0x7f092094);
             this.l = button;
             button.setOnClickListener(new e(this));
             Button button2 = (Button) findViewById(R.id.hide_button);
@@ -1132,17 +1132,17 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             this.j = addCustomView;
             addCustomView.setOnClickListener(new g(this));
             this.j.setEnabled(false);
-            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091f5d);
+            TextView textView = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f091f70);
             this.E = textView;
-            textView.setText(R.string.obfuscated_res_0x7f0f0530);
+            textView.setText(R.string.obfuscated_res_0x7f0f053d);
             if (!EditHeadActivityConfig.FROM_ALA_LIVE_COVER_CUT.equals(this.b)) {
-                this.u = this.D.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0312));
+                this.u = this.D.setTitleText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0310));
             }
             if ("from_photo_live".equals(this.b)) {
-                this.u.setText(R.string.obfuscated_res_0x7f0f03f8);
+                this.u.setText(R.string.obfuscated_res_0x7f0f0400);
             }
             this.s = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f0903b9);
-            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e35);
+            this.r = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e48);
             this.p = (RadioButton) findViewById(R.id.beautify_btn);
             this.q = (RadioButton) findViewById(R.id.rotate_btn);
             h hVar = new h(this);
@@ -1281,7 +1281,7 @@ public class EditHeadActivity extends BaseActivity<EditHeadActivity> {
             super.onCreate(bundle);
             setSwipeBackEnabled(false);
             TbadkCoreApplication.getInst().addRemoteActivity(this);
-            setContentView(R.layout.obfuscated_res_0x7f0d0260);
+            setContentView(R.layout.obfuscated_res_0x7f0d0263);
             Intent intent = getIntent();
             this.h = intent.getIntExtra(EditHeadActivityConfig.EDITTYPE, 0);
             this.A = intent.getIntExtra("request", 0);

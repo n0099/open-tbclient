@@ -1,125 +1,65 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
 public final class iv1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static Boolean a = null;
-    public static String b = "8893";
-    public static String c = "80";
-    public static String d = "81";
-    public static String e = "82";
-    public static String f = "show";
-    public static String g = "fail";
-    public static String h = "success";
-    public static String i = "login";
+    public static /* synthetic */ Interceptable $ic;
+    public static final iv1 a;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947866853, "Lcom/baidu/tieba/iv1;")) == null) {
-            return;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947866853, "Lcom/baidu/tieba/iv1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947866853, "Lcom/baidu/tieba/iv1;");
+                return;
+            }
         }
-        Interceptable interceptable = invokeClinit.interceptor;
+        iv1 iv1Var = new iv1();
+        a = iv1Var;
+        Intrinsics.checkNotNullExpressionValue(iv1Var.getClass().getSimpleName(), "SwanAppAllianceLoginBdus…ager.javaClass.simpleName");
+    }
+
+    public iv1() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947866853, "Lcom/baidu/tieba/iv1;");
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
     }
 
-    public static final String a() {
+    public final String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return e;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return pl3.l(new i62().getCookie(".baidu.com"), "OPENBDUSS");
         }
         return (String) invokeV.objValue;
     }
 
-    public static final String b() {
-        InterceptResult invokeV;
+    public final void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return f;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return h;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final Boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return a;
-        }
-        return (Boolean) invokeV.objValue;
-    }
-
-    public static final void j(Boolean bool) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, bool) == null) {
-            a = bool;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            fv1.b(er2.c(), "");
         }
     }
 }

@@ -1,44 +1,58 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.memberCenter.tail.privilegetool.PrivilegeDeskView;
+import android.app.Activity;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class qm8 extends bd5 {
+public class qm8 implements ThirdPartAliRechargeService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public qm8(Context context) {
-        super(context, null, 18, 0);
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
+    public void aliSign(@NonNull Activity activity, @NonNull String str, @Nullable ThirdPartAliRechargeService.ThirdPartAliSignCallback thirdPartAliSignCallback) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity, str, thirdPartAliSignCallback) == null) {
+        }
+    }
+
+    public qm8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (String) objArr2[1], ((Integer) objArr2[2]).intValue(), ((Integer) objArr2[3]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = TbadkCoreApplication.getInst().getResources().getString(R.string.obfuscated_res_0x7f0f0b74);
-        this.m = new PrivilegeDeskView(context);
-        this.o = true;
-        this.i = false;
-        this.j = true;
-        this.d = R.drawable.icon_pure_post_vip24;
-        this.e = R.drawable.icon_pure_post_vip24_selection;
-        this.n = 6;
-        this.p = new int[]{1};
+    }
+
+    @Override // com.baidu.searchbox.live.interfaces.service.yy.ThirdPartAliRechargeService
+    public String aliRecharge(Activity activity, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(1048576, this, activity, str, z)) == null) {
+            ls4 ls4Var = new ls4();
+            ls4Var.a = activity;
+            ls4Var.b = str;
+            ls4Var.c = z;
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921539, String.class, ls4Var);
+            if (runTask == null) {
+                return "";
+            }
+            return (String) runTask.getData();
+        }
+        return (String) invokeLLZ.objValue;
     }
 }

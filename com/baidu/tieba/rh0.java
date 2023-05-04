@@ -1,131 +1,170 @@
 package com.baidu.tieba;
 
 import android.content.Context;
+import android.graphics.Point;
+import android.os.Build;
 import android.text.TextUtils;
+import android.util.DisplayMetrics;
+import android.view.Display;
+import android.view.View;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.nadcore.clickinfo.NadTouchInfoModel;
+import com.baidu.tieba.d41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.LinkedHashMap;
-import java.util.List;
-import java.util.Map;
+import com.facebook.cache.disk.DefaultDiskStorage;
+import java.lang.ref.WeakReference;
 /* loaded from: classes6.dex */
-public class rh0 {
+public final class rh0 implements oh0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final List<th0> d;
-    public static final List<vh0> e;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Map<String, th0> a;
-    public final Map<String, vh0> b;
-    public final ArrayList<String> c;
+    public final NadTouchInfoModel a;
+    public WeakReference<qh0> b;
+    public WeakReference<View> c;
+    public final Context d;
+    public final int e;
+    public final int f;
+    public final int g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948121487, "Lcom/baidu/tieba/rh0;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948121487, "Lcom/baidu/tieba/rh0;");
-                return;
-            }
-        }
-        ci0 ci0Var = new ci0();
-        d = ci0Var.a.getList();
-        e = ci0Var.b.getList();
-    }
-
-    public rh0() {
+    public rh0(@NonNull ph0 ph0Var, @NonNull View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {ph0Var, view2};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new HashMap();
-        this.b = Collections.synchronizedMap(new LinkedHashMap());
-        this.c = new ArrayList<>();
-        synchronized (rh0.class) {
-            if (d != null && this.a.isEmpty()) {
-                for (th0 th0Var : d) {
-                    if (th0Var != null) {
-                        if (y01.b(this.a, th0Var.a()) == null) {
-                            y01.e(this.a, th0Var.a(), th0Var);
-                        }
-                        if (!TextUtils.isEmpty(th0Var.a())) {
-                            w01.b(this.c, th0Var.a());
-                        }
-                    }
-                }
+        this.d = li0.b();
+        this.c = new WeakReference<>(view2);
+        this.b = new WeakReference<>(ph0Var.g0());
+        DisplayMetrics displayMetrics = this.d.getResources().getDisplayMetrics();
+        this.e = displayMetrics.widthPixels;
+        this.f = displayMetrics.heightPixels;
+        this.g = displayMetrics.densityDpi;
+        this.a = new NadTouchInfoModel(-1);
+        e();
+    }
+
+    @NonNull
+    public static oh0 b(@Nullable oh0 oh0Var, @NonNull ph0 ph0Var, @NonNull View view2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, oh0Var, ph0Var, view2)) == null) {
+            if (oh0Var == null) {
+                return new rh0(ph0Var, view2);
             }
-            if (e != null && this.b.isEmpty()) {
-                for (vh0 vh0Var : e) {
-                    this.b.put(vh0Var.b(), vh0Var);
-                }
+            rh0 rh0Var = (rh0) oh0Var;
+            if (rh0Var.c.get() == null) {
+                rh0Var.c = new WeakReference<>(view2);
             }
+            if (rh0Var.b.get() == null) {
+                rh0Var.b = new WeakReference<>(ph0Var.g0());
+            }
+            return rh0Var;
+        }
+        return (oh0) invokeLLL.objValue;
+    }
+
+    @Override // com.baidu.tieba.oh0
+    public String a() {
+        InterceptResult invokeV;
+        int i;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            qh0 qh0Var = this.b.get();
+            if (qh0Var == null) {
+                return "";
+            }
+            int[] b = qh0Var.b();
+            int[] iArr = new int[2];
+            View view2 = this.c.get();
+            if (view2 != null) {
+                view2.getLocationOnScreen(iArr);
+            }
+            int i2 = iArr[1];
+            if (view2 != null) {
+                i = view2.getHeight() + i2;
+            } else {
+                i = 0;
+            }
+            Point d = d();
+            int i3 = this.e;
+            int i4 = this.f;
+            if (d != null) {
+                i3 = d.x;
+                i4 = d.y;
+            }
+            String[] strArr = new String[9];
+            strArr[0] = DefaultDiskStorage.DEFAULT_DISK_STORAGE_VERSION_PREFIX;
+            if (d41.c.j()) {
+                str = "1";
+            } else {
+                str = "0";
+            }
+            strArr[1] = str;
+            strArr[2] = String.valueOf(b[0]);
+            strArr[3] = String.valueOf(b[1]);
+            strArr[4] = String.valueOf(i2);
+            strArr[5] = String.valueOf(i);
+            strArr[6] = String.valueOf(i3);
+            strArr[7] = String.valueOf(i4);
+            strArr[8] = String.valueOf(this.g);
+            String join = TextUtils.join(",", strArr);
+            c();
+            return join;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final void c() {
+        View view2;
+        qh0 qh0Var;
+        o31 o31Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && j31.a && (view2 = this.c.get()) != null && (qh0Var = this.b.get()) != null && (o31Var = (o31) i31.a().a(o31.class)) != null) {
+            int[] iArr = qh0Var.b;
+            o31Var.a(view2, iArr[0], iArr[1]);
         }
     }
 
-    public boolean a(@NonNull Context context, @NonNull xh0 xh0Var, @Nullable Map<String, Object> map, @Nullable bi0 bi0Var) {
-        InterceptResult invokeLLLL;
+    public final Point d() {
+        InterceptResult invokeV;
+        Display display;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, xh0Var, map, bi0Var)) == null) {
-            if (b(context, xh0Var, map, bi0Var)) {
-                gi0.b(bi0Var, xh0Var, 0, true);
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            View view2 = this.c.get();
+            if (view2 == null || Build.VERSION.SDK_INT < 17 || (display = view2.getDisplay()) == null) {
+                return null;
             }
-            th0 th0Var = null;
-            if (gi0.f(xh0Var.a())) {
-                th0Var = (th0) y01.b(this.a, xh0Var.a());
-            }
-            if (gi0.g(xh0Var.c()) && th0Var != null) {
-                xh0Var.f();
-                return th0Var.b(context, xh0Var, map, bi0Var);
-            }
-            return yh0.a().a(context, xh0Var.b(), map, bi0Var);
+            Point point = new Point();
+            display.getRealSize(point);
+            return point;
         }
-        return invokeLLLL.booleanValue;
+        return (Point) invokeV.objValue;
     }
 
-    public boolean b(Context context, xh0 xh0Var, @Nullable Map<String, Object> map, @Nullable bi0 bi0Var) {
-        InterceptResult invokeLLLL;
-        String a;
+    public final void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, xh0Var, map, bi0Var)) == null) {
-            if (this.b.isEmpty()) {
-                return false;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            NadTouchInfoModel nadTouchInfoModel = this.a;
+            if (nadTouchInfoModel.b) {
+                return;
             }
-            vh0 vh0Var = null;
-            try {
-                for (Map.Entry<String, vh0> entry : this.b.entrySet()) {
-                    String a2 = xh0Var.a();
-                    if (entry == null || ((vh0Var = entry.getValue()) != null && (a = vh0Var.a()) != null && TextUtils.equals(a2, a))) {
-                        if (vh0Var != null && vh0Var.d(context, xh0Var, map, bi0Var)) {
-                            return true;
-                        }
-                    }
-                }
-            } catch (Exception unused) {
-            }
-            return false;
+            nadTouchInfoModel.a = this.g;
+            nadTouchInfoModel.b = true;
         }
-        return invokeLLLL.booleanValue;
     }
 }

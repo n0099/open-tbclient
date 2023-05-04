@@ -11,7 +11,7 @@ public class il4 {
     public static void a(Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65536, null, activity) == null) {
-            activity.invalidateOptionsMenu();
+            activity.finishAfterTransition();
         }
     }
 }

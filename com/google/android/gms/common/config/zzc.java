@@ -1,7 +1,7 @@
 package com.google.android.gms.common.config;
 
 import com.google.android.gms.common.internal.Preconditions;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzc extends GservicesValue<Integer> {
     public zzc(String str, Integer num) {
         super(str, num);

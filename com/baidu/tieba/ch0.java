@@ -1,41 +1,18 @@
 package com.baidu.tieba;
 
-import com.baidu.nadcore.utils.LruCache;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.app.Application;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Service
 /* loaded from: classes3.dex */
-public class ch0 {
+public final class ch0 implements sm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, String> a;
-
-    /* loaded from: classes3.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final ch0 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-890448351, "Lcom/baidu/tieba/ch0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-890448351, "Lcom/baidu/tieba/ch0$a;");
-                    return;
-                }
-            }
-            a = new ch0();
-        }
-    }
 
     public ch0() {
         Interceptable interceptable = $ic;
@@ -47,27 +24,30 @@ public class ch0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = new LruCache<>(8);
     }
 
-    public static ch0 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.sm0
+    public void a(@NonNull Application application) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a.a;
+        if (interceptable == null || interceptable.invokeL(1048576, this, application) == null) {
+            ah0.a().b(bh0.e());
+            application.registerActivityLifecycleCallbacks(ah0.a());
+            bh0.e().b(new wg0());
+            bh0.e().h(new xg0());
+            xm0.c(bh0.e());
         }
-        return (ch0) invokeV.objValue;
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.sm0
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            return this.a.get(str);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || !o41.b()) {
+            return;
         }
-        return (String) invokeL.objValue;
+        bh0.e().b(new yg0());
+        fm0.b().request().a(false);
+        vm0.a().request();
     }
 }

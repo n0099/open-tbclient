@@ -1,16 +1,18 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.swan.apps.core.container.NgWebView;
+import java.util.concurrent.ExecutorService;
+import org.json.JSONArray;
 /* loaded from: classes5.dex */
 public interface ot1 {
-    void a(NgWebView ngWebView);
+    ExecutorService d();
 
-    void b(NgWebView ngWebView, String str);
+    void e(String str, int i, JSONArray jSONArray);
 
-    void c(NgWebView ngWebView, int i, int i2, int i3, int i4, String str, boolean z);
+    void f(String str, int i);
 
-    void d(String str, Context context);
+    void g(String str, String str2, int i, String str3, int i2);
 
-    void e(String str, Context context);
+    void i(String str, int i, String str2);
+
+    void n(String str, String str2, int i, String str3, long j, int i2);
 }

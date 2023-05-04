@@ -1,11 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ad3;
-import com.baidu.tieba.z23;
+import android.graphics.Bitmap;
+import android.graphics.Point;
+import android.widget.ImageView;
+import com.baidu.mapapi.map.MapViewLayoutParams;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.tieba.uk3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -16,24 +16,19 @@ public class wc4 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes6.dex */
-    public interface c {
-        void onFail();
-
-        void onSuccess();
-    }
-
-    /* loaded from: classes6.dex */
-    public static class a implements om3<yc3<ad3.e>> {
+    public static class a implements uk3.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
+        public final /* synthetic */ pu2 a;
+        public final /* synthetic */ hd4 b;
+        public final /* synthetic */ dd4 c;
 
-        public a(c cVar) {
+        public a(pu2 pu2Var, hd4 hd4Var, dd4 dd4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
+                Object[] objArr = {pu2Var, hd4Var, dd4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -43,90 +38,57 @@ public class wc4 {
                     return;
                 }
             }
-            this.a = cVar;
+            this.a = pu2Var;
+            this.b = hd4Var;
+            this.c = dd4Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
+        @Override // com.baidu.tieba.uk3.b
+        public void a(String str, Bitmap bitmap) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (tc3.h(yc3Var)) {
-                    wc4.c(this.a);
-                } else {
-                    this.a.onFail();
+            if (interceptable == null || interceptable.invokeLL(1048576, this, str, bitmap) == null) {
+                if (bitmap == null) {
+                    x42.o("map", " icon is null ");
                 }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b implements z23.a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c a;
-
-        public b(c cVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = cVar;
-        }
-
-        @Override // com.baidu.tieba.z23.a
-        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
-                if (i != 0) {
-                    this.a.onFail();
-                    return;
-                }
-                for (int i2 : iArr) {
-                    if (i2 == -1) {
-                        this.a.onFail();
-                        return;
+                if (bitmap != null) {
+                    int i = this.a.d.c;
+                    if (i == -1) {
+                        i = bitmap.getWidth();
                     }
+                    int i2 = this.a.d.d;
+                    if (i2 == -1) {
+                        i2 = bitmap.getHeight();
+                    }
+                    MapViewLayoutParams.Builder builder = new MapViewLayoutParams.Builder();
+                    builder.layoutMode(MapViewLayoutParams.ELayoutMode.absoluteMode);
+                    builder.width(i);
+                    builder.height(i2);
+                    builder.align(1, 8);
+                    uu2 uu2Var = this.a.d;
+                    builder.point(new Point(uu2Var.a, uu2Var.b));
+                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                    imageView.setImageBitmap(bitmap);
+                    imageView.setScaleType(ImageView.ScaleType.FIT_XY);
+                    this.b.l.addView(imageView, builder.build());
+                    imageView.setOnClickListener(this.c);
+                    imageView.setClickable(this.a.c);
+                    fd4 fd4Var = new fd4();
+                    fd4Var.a = this.a;
+                    fd4Var.b = imageView;
+                    this.b.o.add(fd4Var);
                 }
-                this.a.onSuccess();
             }
         }
     }
 
-    public static void b(Context context, c cVar) {
+    public static void a(hd4 hd4Var, pu2 pu2Var, dd4 dd4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
-            if (!(context instanceof Activity)) {
-                cVar.onFail();
-                return;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, hd4Var, pu2Var, dd4Var) == null) {
+            x42.i("map", "createControl start");
+            if (pu2Var != null && pu2Var.isValid()) {
+                uk3.e(pu2Var.b, new a(pu2Var, hd4Var, dd4Var));
             }
-            v73 M = v73.M();
-            if (M != null) {
-                M.e0().g((Activity) context, "mapp_location", new a(cVar));
-            }
-        }
-    }
-
-    public static void c(c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
-            v73 b0 = v73.b0();
-            if (pl3.M() && b0 != null) {
-                cVar.onSuccess();
-            } else {
-                b0.w().A(0, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, new b(cVar));
-            }
+            x42.i("map", "createControl end");
         }
     }
 }

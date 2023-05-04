@@ -1,59 +1,49 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes3.dex */
-public class cm0 extends rj1<im0> {
+public class cm0 implements lm0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public dm0 b;
+    public int c;
+    public long d;
+    public AtomicBoolean e;
 
     /* loaded from: classes3.dex */
-    public class a implements im0 {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a(cm0 cm0Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {cm0Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes3.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final cm0 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-885830715, "Lcom/baidu/tieba/cm0$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-885830715, "Lcom/baidu/tieba/cm0$b;");
+                    return;
                 }
             }
-        }
-
-        @Override // com.baidu.tieba.im0
-        @NonNull
-        public hm0 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return xl0.d();
-            }
-            return (hm0) invokeV.objValue;
-        }
-
-        @Override // com.baidu.tieba.im0
-        @NonNull
-        public jm0 request() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                return am0.c();
-            }
-            return (jm0) invokeV.objValue;
+            a = new cm0(null);
         }
     }
 
@@ -67,19 +57,72 @@ public class cm0 extends rj1<im0> {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.c = -1;
+        this.d = 0L;
+        this.e = new AtomicBoolean(false);
+    }
+
+    public static cm0 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (cm0) invokeV.objValue;
+    }
+
+    public void b() {
+        dm0 dm0Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            int i = this.c + 1;
+            this.c = i;
+            if (i <= 2 && (dm0Var = this.b) != null) {
+                dm0Var.e();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rj1
-    /* renamed from: a */
-    public im0 createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.e.set(false);
         }
-        return (im0) invokeV.objValue;
+    }
+
+    public /* synthetic */ cm0(a aVar) {
+        this();
+    }
+
+    @Override // com.baidu.tieba.lm0
+    public void a(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.e.get()) {
+            return;
+        }
+        dm0 dm0Var = this.b;
+        if (dm0Var != null) {
+            dm0Var.d();
+            this.b = null;
+            this.c = -1;
+        }
+        if (z) {
+            if (this.d == 0 || System.currentTimeMillis() - this.d <= 300000) {
+                return;
+            }
+            if (this.e.compareAndSet(false, true)) {
+                this.b = new dm0(60, this.c + 1, true);
+            }
+        } else {
+            if (this.e.compareAndSet(false, true)) {
+                this.b = new dm0(60, this.c + 1, false);
+            }
+            zl0.d().f();
+        }
+        b();
+        this.d = System.currentTimeMillis();
     }
 }

@@ -17,7 +17,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public abstract class BaseSysMsg extends BaseMsg {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
@@ -25,6 +25,8 @@ public abstract class BaseSysMsg extends BaseMsg {
     public Ext ext;
     @SerializedName("msg_conf")
     public MsgConf msgConf;
+    @SerializedName("obj_msg_info")
+    public a objMsgInfo;
     @SerializedName("chatroom_id")
     public long roomId;
     @SerializedName("msg_type")
@@ -37,7 +39,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public CharSequence getThumbnailText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "" : (CharSequence) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) ? "" : (CharSequence) invokeV.objValue;
     }
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg, com.baidu.tieba.in
@@ -46,7 +48,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public boolean isConvertToNormalMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -55,7 +57,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public boolean isIgnore() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -64,13 +66,13 @@ public abstract class BaseSysMsg extends BaseMsg {
     public boolean isNoUISysMsg() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ChatRoomInfo extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -156,7 +158,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class Ext extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -187,7 +189,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class MsgConf extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -284,7 +286,7 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class User extends OrmObject implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -360,6 +362,48 @@ public abstract class BaseSysMsg extends BaseMsg {
         }
     }
 
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        @SerializedName("msg_id")
+        public long a;
+        @SerializedName("msg_key")
+        public String b;
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        public long a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.a;
+            }
+            return invokeV.longValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+    }
+
     public BaseSysMsg() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
@@ -394,10 +438,20 @@ public abstract class BaseSysMsg extends BaseMsg {
         return (MsgConf) invokeV.objValue;
     }
 
-    public long getRoomId() {
+    @Nullable
+    public a getObjMsgInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.objMsgInfo;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public long getRoomId() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.roomId;
         }
         return invokeV.longValue;
@@ -406,7 +460,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public int getSysMsgType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.sysMsgType;
         }
         return invokeV.intValue;
@@ -415,7 +469,7 @@ public abstract class BaseSysMsg extends BaseMsg {
     public User getUserFrom() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.userFrom;
         }
         return (User) invokeV.objValue;
@@ -423,7 +477,7 @@ public abstract class BaseSysMsg extends BaseMsg {
 
     public void setSysMsgType(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
             this.sysMsgType = i;
         }
     }

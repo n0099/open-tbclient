@@ -1,8 +1,8 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.n62;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -10,15 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
 /* loaded from: classes5.dex */
-public final class m62 {
+public class m62 implements n62.b {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile m62 d;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public HashMap<String, Long> b;
 
     static {
         InterceptResult invokeClinit;
@@ -33,7 +29,7 @@ public final class m62 {
                 return;
             }
         }
-        c = fo1.a;
+        a = ho1.a;
     }
 
     public m62() {
@@ -46,64 +42,31 @@ public final class m62 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = false;
-        this.b = new HashMap<>();
     }
 
-    public static m62 a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n62.b
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (m62.class) {
-                    if (d == null) {
-                        d = new m62();
-                    }
-                }
-            }
-            return d;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && a) {
+            Log.d("SimplePreDownloadCallback", "pre download success");
         }
-        return (m62) invokeV.objValue;
     }
 
-    public boolean b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.n62.b
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download has invalid app id");
         }
-        return invokeV.booleanValue;
     }
 
-    public boolean c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.n62.b
+    public void b(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return false;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            HashMap<String, Long> hashMap = this.b;
-            if (hashMap != null && hashMap.containsKey(str) && currentTimeMillis - this.b.get(str).longValue() <= 18000000) {
-                if (c) {
-                    Log.d("SilentUpdateManager", "id = " + str + " 的小程序已在5小时内被标记为无需更新，不走MaxAge逻辑");
-                    return true;
-                }
-                return true;
-            }
-            if (c) {
-                HashMap<String, Long> hashMap2 = this.b;
-                if (hashMap2 != null && hashMap2.containsKey(str)) {
-                    Log.d("SilentUpdateManager", "上次检查更新距现在超过5小时，状态失效。 当前时间戳：" + currentTimeMillis + "， 上次检查时间戳： " + this.b.get(str) + " ，id = " + str);
-                } else {
-                    Log.d("SilentUpdateManager", "小程序未被标记未无更新， id = " + str);
-                }
-            }
-            return false;
+        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && a) {
+            Log.w("SimplePreDownloadCallback", "pre download fail error code - " + i);
         }
-        return invokeL.booleanValue;
     }
 }

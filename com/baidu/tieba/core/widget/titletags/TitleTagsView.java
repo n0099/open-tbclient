@@ -12,9 +12,9 @@ import com.baidu.bdtask.ctrl.model.TaskProcess;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hu9;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.zk6;
+import com.baidu.tieba.cy9;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.rm6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -200,7 +200,7 @@ public final class TitleTagsView extends LinearLayout {
     public final void i() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            r25.d(getTitleView()).w(R.color.CAM_X0105);
+            g35.d(getTitleView()).w(R.color.CAM_X0105);
         }
     }
 
@@ -231,10 +231,10 @@ public final class TitleTagsView extends LinearLayout {
 
     public final void d(ThemeColorInfo themeColorInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, themeColorInfo) == null) && !TextUtils.isEmpty(hu9.f(themeColorInfo))) {
+        if ((interceptable == null || interceptable.invokeL(1048579, this, themeColorInfo) == null) && !TextUtils.isEmpty(cy9.h(themeColorInfo))) {
             TbImageView tbImageView = new TbImageView(getContext());
             tbImageView.setScaleType(ImageView.ScaleType.FIT_XY);
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(hu9.h(themeColorInfo), hu9.g(themeColorInfo));
+            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(cy9.j(themeColorInfo), cy9.i(themeColorInfo));
             layoutParams.leftMargin = UtilHelper.getDimenPixelSize(R.dimen.M_W_X002);
             getTagViewList().add(tbImageView);
             addView(tbImageView, layoutParams);
@@ -249,7 +249,7 @@ public final class TitleTagsView extends LinearLayout {
         }
     }
 
-    public final void c(zk6 titleTags) {
+    public final void c(rm6 titleTags) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, titleTags) == null) {
             Intrinsics.checkNotNullParameter(titleTags, "titleTags");
@@ -263,7 +263,7 @@ public final class TitleTagsView extends LinearLayout {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
-            r25 d = r25.d(getTitleView());
+            g35 d = g35.d(getTitleView());
             if (z) {
                 i = R.string.F_X02;
             } else {
@@ -295,11 +295,11 @@ public final class TitleTagsView extends LinearLayout {
             while (it.hasNext()) {
                 ThemeColorInfo info = it.next();
                 Intrinsics.checkNotNullExpressionValue(info, "info");
-                String f = hu9.f(info);
-                if (!TextUtils.isEmpty(f)) {
+                String h = cy9.h(info);
+                if (!TextUtils.isEmpty(h)) {
                     TbImageView tbImageView = getTagViewList().get(i);
                     Intrinsics.checkNotNullExpressionValue(tbImageView, "tagViewList[i]");
-                    tbImageView.N(f, 10, false);
+                    tbImageView.N(h, 10, false);
                     i++;
                 }
             }

@@ -13,17 +13,17 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.CustomViewPager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.db7;
-import com.baidu.tieba.fb7;
+import com.baidu.tieba.dd7;
 import com.baidu.tieba.frs.game.strategy.data.LabelDataList;
 import com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView;
 import com.baidu.tieba.frs.game.strategy.view.FoldedGridView;
 import com.baidu.tieba.frs.game.strategy.view.FrsGameStrategyItemListView;
-import com.baidu.tieba.gb7;
-import com.baidu.tieba.hb7;
 import com.baidu.tieba.in;
-import com.baidu.tieba.nb7;
-import com.baidu.tieba.xa7;
+import com.baidu.tieba.nc7;
+import com.baidu.tieba.tc7;
+import com.baidu.tieba.vc7;
+import com.baidu.tieba.wc7;
+import com.baidu.tieba.xc7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -36,22 +36,22 @@ public class ScrollLabelTabHost extends RelativeLayout {
     public transient /* synthetic */ FieldHolder $fh;
     public ScrollHorizontalTabView a;
     public FoldedGridView b;
-    public gb7 c;
+    public wc7 c;
     public CustomViewPager d;
     public FrsGameTabPagerAdapter e;
     public View f;
     public View g;
-    public List<hb7> h;
+    public List<xc7> h;
     public int i;
     public int j;
     public boolean k;
-    public nb7 l;
-    public db7 m;
-    public db7 n;
-    public fb7 o;
+    public dd7 l;
+    public tc7 m;
+    public tc7 n;
+    public vc7 o;
 
     /* loaded from: classes4.dex */
-    public class a implements db7 {
+    public class a implements tc7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ScrollLabelTabHost a;
@@ -74,8 +74,8 @@ public class ScrollLabelTabHost extends RelativeLayout {
             this.a = scrollLabelTabHost;
         }
 
-        @Override // com.baidu.tieba.db7
-        public hb7 a(int i) {
+        @Override // com.baidu.tieba.tc7
+        public xc7 a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -84,10 +84,10 @@ public class ScrollLabelTabHost extends RelativeLayout {
                 }
                 return null;
             }
-            return (hb7) invokeI.objValue;
+            return (xc7) invokeI.objValue;
         }
 
-        @Override // com.baidu.tieba.db7
+        @Override // com.baidu.tieba.tc7
         public void b(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) && this.a.m != null) {
@@ -95,7 +95,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.db7
+        @Override // com.baidu.tieba.tc7
         public void c(int i, int i2) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) && this.a.m != null) {
@@ -103,7 +103,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
             }
         }
 
-        @Override // com.baidu.tieba.db7
+        @Override // com.baidu.tieba.tc7
         public boolean d(int i, int i2) {
             InterceptResult invokeII;
             Interceptable interceptable = $ic;
@@ -116,7 +116,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
             return invokeII.booleanValue;
         }
 
-        @Override // com.baidu.tieba.db7
+        @Override // com.baidu.tieba.tc7
         public String w() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -131,7 +131,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements fb7 {
+    public class b implements vc7 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ScrollLabelTabHost a;
@@ -154,14 +154,14 @@ public class ScrollLabelTabHost extends RelativeLayout {
             this.a = scrollLabelTabHost;
         }
 
-        @Override // com.baidu.tieba.fb7
-        public hb7 a(int i) {
+        @Override // com.baidu.tieba.vc7
+        public xc7 a(int i) {
             InterceptResult invokeI;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-                return (hb7) ListUtils.getItem(this.a.h, i);
+                return (xc7) ListUtils.getItem(this.a.h, i);
             }
-            return (hb7) invokeI.objValue;
+            return (xc7) invokeI.objValue;
         }
     }
 
@@ -172,10 +172,10 @@ public class ScrollLabelTabHost extends RelativeLayout {
         public final /* synthetic */ ScrollLabelTabHost a;
 
         @Override // com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.f
-        public boolean a(int i, hb7 hb7Var) {
+        public boolean a(int i, xc7 xc7Var) {
             InterceptResult invokeIL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, hb7Var)) == null) {
+            if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, xc7Var)) == null) {
                 return true;
             }
             return invokeIL.booleanValue;
@@ -200,21 +200,21 @@ public class ScrollLabelTabHost extends RelativeLayout {
         }
 
         @Override // com.baidu.tieba.frs.game.strategy.tab.ScrollHorizontalTabView.f
-        public void b(int i, hb7 hb7Var) {
-            xa7 xa7Var;
+        public void b(int i, xc7 xc7Var) {
+            nc7 nc7Var;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hb7Var) != null) || hb7Var == null) {
+            if ((interceptable != null && interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, xc7Var) != null) || xc7Var == null) {
                 return;
             }
-            this.a.i = hb7Var.a;
-            Object obj = hb7Var.c;
+            this.a.i = xc7Var.a;
+            Object obj = xc7Var.c;
             if (obj instanceof LabelDataList) {
                 LabelDataList labelDataList = (LabelDataList) obj;
-                if (!labelDataList.isEmpty() && (xa7Var = labelDataList.get(0)) != null) {
-                    this.a.j = xa7Var.a;
+                if (!labelDataList.isEmpty() && (nc7Var = labelDataList.get(0)) != null) {
+                    this.a.j = nc7Var.a;
                 }
             }
-            if (this.a.o(hb7Var)) {
+            if (this.a.o(xc7Var)) {
                 this.a.b.setVisibility(0);
             } else {
                 this.a.b.setVisibility(8);
@@ -249,8 +249,8 @@ public class ScrollLabelTabHost extends RelativeLayout {
         @Override // com.baidu.tieba.frs.game.strategy.view.FoldedGridView.a
         public void a(int i, Object obj) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) && (obj instanceof xa7)) {
-                this.a.j = ((xa7) obj).a;
+            if ((interceptable == null || interceptable.invokeIL(1048576, this, i, obj) == null) && (obj instanceof nc7)) {
+                this.a.j = ((nc7) obj).a;
                 FrsGameStrategyItemListView b = this.a.e.b();
                 b.o(this.a.i, this.a.j);
                 if (this.a.n != null && !this.a.n.d(this.a.i, this.a.j)) {
@@ -351,12 +351,12 @@ public class ScrollLabelTabHost extends RelativeLayout {
         }
     }
 
-    public boolean o(hb7 hb7Var) {
+    public boolean o(xc7 xc7Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, hb7Var)) == null) {
-            if (hb7Var != null) {
-                Object obj = hb7Var.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, xc7Var)) == null) {
+            if (xc7Var != null) {
+                Object obj = xc7Var.c;
                 if (obj instanceof LabelDataList) {
                     LabelDataList labelDataList = (LabelDataList) obj;
                     if (labelDataList.isEmpty()) {
@@ -371,10 +371,10 @@ public class ScrollLabelTabHost extends RelativeLayout {
         return invokeL.booleanValue;
     }
 
-    public void setDelegateFrsGameTabDataLoadListener(db7 db7Var) {
+    public void setDelegateFrsGameTabDataLoadListener(tc7 tc7Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, db7Var) == null) {
-            this.m = db7Var;
+        if (interceptable == null || interceptable.invokeL(1048585, this, tc7Var) == null) {
+            this.m = tc7Var;
         }
     }
 
@@ -406,15 +406,15 @@ public class ScrollLabelTabHost extends RelativeLayout {
     public void n() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            nb7 nb7Var = this.l;
-            if (nb7Var != null) {
-                nb7Var.g();
+            dd7 dd7Var = this.l;
+            if (dd7Var != null) {
+                dd7Var.g();
             }
             this.e.f();
         }
     }
 
-    public void j(int i, int i2, List<in> list, List<hb7> list2, boolean z, boolean z2, int i3) {
+    public void j(int i, int i2, List<in> list, List<xc7> list2, boolean z, boolean z2, int i3) {
         FrsGameStrategyItemListView c2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), list, list2, Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i3)}) == null) && (c2 = this.e.c(i, i2)) != null) {
@@ -428,25 +428,25 @@ public class ScrollLabelTabHost extends RelativeLayout {
     public final void l(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d032e, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0331, this);
             this.e = new FrsGameTabPagerAdapter(context, this.n, this.o);
-            CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f090c36);
+            CustomViewPager customViewPager = (CustomViewPager) findViewById(R.id.obfuscated_res_0x7f090c3e);
             this.d = customViewPager;
             customViewPager.setAdapter(this.e);
-            ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) findViewById(R.id.obfuscated_res_0x7f090c3b);
+            ScrollHorizontalTabView scrollHorizontalTabView = (ScrollHorizontalTabView) findViewById(R.id.obfuscated_res_0x7f090c43);
             this.a = scrollHorizontalTabView;
             scrollHorizontalTabView.setViewPager(this.d);
             this.a.setScrollTabPageListener(new c(this));
-            this.c = new gb7(getContext());
-            FoldedGridView foldedGridView = (FoldedGridView) findViewById(R.id.obfuscated_res_0x7f090c29);
+            this.c = new wc7(getContext());
+            FoldedGridView foldedGridView = (FoldedGridView) findViewById(R.id.obfuscated_res_0x7f090c31);
             this.b = foldedGridView;
             foldedGridView.setArrowResouceId(R.drawable.icon_arrow_gray_down, R.drawable.icon_arrow_gray_up);
             this.b.setNumColumns(5);
             this.b.setFoldAdapter(this.c);
             this.b.setExpandedBottomShadeResourceId(R.drawable.shape_frs_game_lable_bottom_shade);
             this.b.setFoldGridViewOnItemClickListener(new d(this));
-            this.f = findViewById(R.id.obfuscated_res_0x7f090c3a);
-            this.g = findViewById(R.id.obfuscated_res_0x7f090c27);
+            this.f = findViewById(R.id.obfuscated_res_0x7f090c42);
+            this.g = findViewById(R.id.obfuscated_res_0x7f090c2f);
         }
     }
 
@@ -461,11 +461,11 @@ public class ScrollLabelTabHost extends RelativeLayout {
     public void q(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            nb7 nb7Var = this.l;
-            if (nb7Var != null && nb7Var.f()) {
+            dd7 dd7Var = this.l;
+            if (dd7Var != null && dd7Var.f()) {
                 this.l.g();
             }
-            this.l = new nb7(getContext());
+            this.l = new dd7(getContext());
             RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, getResources().getDimensionPixelSize(R.dimen.obfuscated_res_0x7f070253));
             layoutParams.addRule(10);
             TextView e = this.l.e();
@@ -479,7 +479,7 @@ public class ScrollLabelTabHost extends RelativeLayout {
         }
     }
 
-    public void setTabData(List<hb7> list, boolean z) {
+    public void setTabData(List<xc7> list, boolean z) {
         int size;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048587, this, list, z) != null) || ListUtils.isEmpty(list)) {

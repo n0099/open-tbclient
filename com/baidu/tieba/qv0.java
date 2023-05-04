@@ -1,24 +1,32 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import com.baidu.nadcore.player.helper.BdVideoGesture;
+import androidx.annotation.NonNull;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes6.dex */
 public interface qv0 {
-    void b();
+    void a(jy0 jy0Var);
 
-    void c(int i, int i2);
+    void b(jy0 jy0Var);
 
-    void f(float f);
+    @Autowired
+    /* loaded from: classes6.dex */
+    public static final class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
 
-    int getCurrentPosition();
-
-    void i(float f);
-
-    void l(int i, float f);
-
-    void m(BdVideoGesture.VideoPluginGesture videoPluginGesture);
-
-    Activity o();
-
-    boolean p();
+        @NonNull
+        @Inject(force = false)
+        public static qv0 a() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+                return iw0.a();
+            }
+            return (qv0) invokeV.objValue;
+        }
+    }
 }

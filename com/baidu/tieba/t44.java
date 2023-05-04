@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.Base64;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
@@ -25,18 +26,30 @@ public class t44 implements k54 {
     }
 
     @Override // com.baidu.tieba.k54
-    public void a(j84 j84Var, i84 i84Var) {
+    public byte[] a(String str, byte[] bArr) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, j84Var, i84Var) == null) && i84Var != null) {
-            i84Var.a(j84Var, "Method 'shareVideo' is not implemented.");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, bArr)) == null) {
+            if (str != null && bArr != null) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 76158) {
+                    if (hashCode == 1952093519 && str.equals("BASE64")) {
+                        c = 1;
+                    }
+                } else if (str.equals("MD5")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        return bArr;
+                    }
+                    return Base64.encode(bArr, 2);
+                }
+                return do4.d(bArr, false).getBytes();
+            }
+            return bArr;
         }
-    }
-
-    @Override // com.baidu.tieba.k54
-    public void b(a84 a84Var, z74 z74Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, a84Var, z74Var) == null) && z74Var != null) {
-            z74Var.a(a84Var, "Method 'clipVideo' is not implemented.");
-        }
+        return (byte[]) invokeLL.objValue;
     }
 }

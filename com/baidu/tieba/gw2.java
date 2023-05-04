@@ -1,9 +1,12 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.browser.sailor.feature.upload.BdUploadHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,18 +14,14 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import com.sina.weibo.sdk.utils.ResourceManager;
+import java.io.InputStream;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gw2 {
+public class gw2 implements ew2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public String b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public String g;
 
     static {
         InterceptResult invokeClinit;
@@ -37,7 +36,7 @@ public class gw2 {
                 return;
             }
         }
-        boolean z = fo1.a;
+        a = ho1.a;
     }
 
     public gw2() {
@@ -50,167 +49,74 @@ public class gw2 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
-        this.a = 60000;
-        this.b = "aac";
-        this.c = 1;
-        this.d = 8000;
-        this.e = 16000;
-        this.f = 1;
     }
 
-    public static gw2 a(JSONObject jSONObject, gw2 gw2Var) {
+    @Override // com.baidu.tieba.ew2
+    @SuppressLint({"BDThrowableCheck"})
+    public Bitmap decode(Context context, Uri uri) throws Exception {
         InterceptResult invokeLL;
+        Bitmap bitmap;
+        Resources resourcesForApplication;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, gw2Var)) == null) {
-            if (jSONObject != null && jSONObject.length() > 0) {
-                gw2Var = new gw2();
-                gw2Var.a = jSONObject.optInt("duration", 60000);
-                String optString = jSONObject.optString("format");
-                gw2Var.b = optString;
-                if (TextUtils.isEmpty(optString)) {
-                    gw2Var.b = "aac";
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, context, uri)) == null) {
+            String uri2 = uri.toString();
+            BitmapFactory.Options options = new BitmapFactory.Options();
+            options.inPreferredConfig = Bitmap.Config.RGB_565;
+            if (uri2.startsWith("android.resource://")) {
+                String authority = uri.getAuthority();
+                if (context.getPackageName().equals(authority)) {
+                    resourcesForApplication = context.getResources();
+                } else {
+                    resourcesForApplication = context.getPackageManager().getResourcesForApplication(authority);
                 }
-                gw2Var.c = jSONObject.optInt("numberOfChannels", 1);
-                gw2Var.d = jSONObject.optInt("sampleRate", 8000);
-                int optInt = jSONObject.optInt("encodeBitRate");
-                gw2Var.e = optInt;
-                if (optInt == 0) {
-                    int i = gw2Var.d;
-                    if (i != 8000) {
-                        if (i != 16000) {
-                            if (i == 44100) {
-                                gw2Var.e = 64000;
-                            }
-                        } else {
-                            gw2Var.e = 24000;
+                List<String> pathSegments = uri.getPathSegments();
+                int size = pathSegments.size();
+                int i = 0;
+                if (size == 2 && pathSegments.get(0).equals(ResourceManager.DRAWABLE)) {
+                    i = resourcesForApplication.getIdentifier(pathSegments.get(1), ResourceManager.DRAWABLE, authority);
+                } else if (size == 1 && TextUtils.isDigitsOnly(pathSegments.get(0))) {
+                    try {
+                        i = Integer.parseInt(pathSegments.get(0));
+                    } catch (NumberFormatException e) {
+                        e.printStackTrace();
+                    }
+                }
+                bitmap = BitmapFactory.decodeResource(context.getResources(), i, options);
+            } else {
+                InputStream inputStream = null;
+                if (uri2.startsWith("file:///android_asset/")) {
+                    bitmap = BitmapFactory.decodeStream(context.getAssets().open(uri2.substring(22)), null, options);
+                } else if (uri2.startsWith("file://")) {
+                    bitmap = BitmapFactory.decodeFile(uri2.substring(7), options);
+                } else {
+                    try {
+                        InputStream openInputStream = context.getContentResolver().openInputStream(uri);
+                        try {
+                            Bitmap decodeStream = BitmapFactory.decodeStream(openInputStream, null, options);
+                            bo4.d(openInputStream);
+                            bitmap = decodeStream;
+                        } catch (Throwable th) {
+                            th = th;
+                            inputStream = openInputStream;
+                            bo4.d(inputStream);
+                            throw th;
                         }
-                    } else {
-                        gw2Var.e = 16000;
+                    } catch (Throwable th2) {
+                        th = th2;
                     }
                 }
-                gw2Var.f = b(jSONObject.optString("audioSource", "auto"));
-                gw2Var.g = jSONObject.optString("cb");
             }
-            return gw2Var;
-        }
-        return (gw2) invokeLL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static int b(String str) {
-        InterceptResult invokeL;
-        char c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            switch (str.hashCode()) {
-                case -401509030:
-                    if (str.equals(BdUploadHandler.MEDIA_SOURCE_VALUE_CAMCORDER)) {
-                        c = 2;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 108103:
-                    if (str.equals("mic")) {
-                        c = 1;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 3005871:
-                    if (str.equals("auto")) {
-                        c = 0;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1059882026:
-                    if (str.equals("voice_recognition")) {
-                        c = 4;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                case 1611170697:
-                    if (str.equals("voice_communication")) {
-                        c = 3;
-                        break;
-                    }
-                    c = 65535;
-                    break;
-                default:
-                    c = 65535;
-                    break;
+            if (bitmap == null) {
+                if (!a) {
+                    x42.k("SkiaImageDecoder", "bitmap is null");
+                } else {
+                    throw new RuntimeException("Skia image region decoder returned null bitmap - image format may not be supported");
+                }
             }
-            if (c != 0 && c != 1) {
-                if (c != 2) {
-                    if (c != 3) {
-                        if (c != 4) {
-                            return -1;
-                        }
-                        return 6;
-                    }
-                    return 7;
-                }
-                return 5;
-            }
-            return 1;
+            return bitmap;
         }
-        return invokeL.intValue;
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:47:0x0086, code lost:
-        r2 = false;
-     */
-    /* JADX WARN: Removed duplicated region for block: B:49:0x0089  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public JSONObject c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.a;
-            if (i <= 600000 && i >= 0) {
-                int i2 = this.c;
-                boolean z = true;
-                if (i2 != 1 && i2 != 2) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error channels");
-                }
-                if (!TextUtils.equals(this.b, "aac") && !TextUtils.equals(this.b, "pcm")) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error format");
-                }
-                int i3 = this.d;
-                if (i3 != 8000 && i3 != 16000 && i3 != 44100) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error sampleRate");
-                }
-                if (!TextUtils.equals(this.b, "pcm")) {
-                    if ((r3 = this.d) != 8000) {
-                        if (z) {
-                            return UnitedSchemeUtility.wrapCallbackParams(202, "error bitRate");
-                        }
-                    } else if (z) {
-                    }
-                }
-                if (this.f < 0) {
-                    return UnitedSchemeUtility.wrapCallbackParams(202, "error audioSource");
-                }
-                return null;
-            }
-            return UnitedSchemeUtility.wrapCallbackParams(202, "error duration");
-        }
-        return (JSONObject) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return "recordTime : " + this.a + "; channel : " + this.c + "; audioFormat : " + this.b + "; sampleRate : " + this.d + "; bitRate : " + this.e + "; callbacks : " + this.g;
-        }
-        return (String) invokeV.objValue;
+        return (Bitmap) invokeLL.objValue;
     }
 }

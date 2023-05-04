@@ -1,14 +1,14 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
+import android.media.AudioRecord;
+import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
-import android.widget.FrameLayout;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
-import com.baidu.tieba.bs2;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,35 +16,42 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.google.android.exoplayer2.source.hls.DefaultHlsExtractorFactory;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.Calendar;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONException;
+import org.json.JSONObject;
+import rx.schedulers.Schedulers;
 /* loaded from: classes5.dex */
-public class nw2 implements tu2 {
+public class nw2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean h;
+    public static final boolean q;
+    @SuppressLint({"StaticFieldLeak"})
+    public static volatile nw2 r;
     public transient /* synthetic */ FieldHolder $fh;
-    public bs2 a;
+    public AudioRecord a;
     public String b;
-    public pw2 c;
-    public boolean d;
+    public int c;
+    public int d;
     public Context e;
-    public boolean f;
-    public ow2 g;
-
-    @Override // com.baidu.tieba.tu2
-    public Object i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this : invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tu2
-    public void j(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-        }
-    }
+    public String f;
+    public Timer g;
+    public mw2 h;
+    public long i;
+    public long j;
+    public iw2 k;
+    public jw2 l;
+    public boolean m;
+    public TelephonyManager n;
+    public lw2 o;
+    public boolean p;
 
     /* loaded from: classes5.dex */
-    public class a implements bs2.a {
+    public class a implements mw2 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nw2 a;
@@ -67,17 +74,22 @@ public class nw2 implements tu2 {
             this.a = nw2Var;
         }
 
-        @Override // com.baidu.tieba.bs2.a
-        public void b(bs2 bs2Var) {
+        @Override // com.baidu.tieba.mw2
+        public void a() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bs2Var) == null) && this.a.g != null) {
-                this.a.g.b(bs2Var);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (nw2.q) {
+                    Log.d("AudioRecorderManager", "record --- timeOut");
+                }
+                x42.i("recorder", "time out");
+                this.a.F();
+                this.a.z();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class b implements bs2.b {
+    public class b implements x5b<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nw2 a;
@@ -100,22 +112,21 @@ public class nw2 implements tu2 {
             this.a = nw2Var;
         }
 
-        @Override // com.baidu.tieba.bs2.b
-        public boolean f(bs2 bs2Var, int i, int i2) {
-            InterceptResult invokeLII;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.x5b
+        public void call(Boolean bool) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, bs2Var, i, i2)) == null) {
-                if (this.a.g != null && this.a.g.f(bs2Var, i, i2)) {
-                    return true;
-                }
-                return false;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, bool) != null) || bool.booleanValue()) {
+                return;
             }
-            return invokeLII.booleanValue;
+            this.a.f();
+            x42.c("recorder", "record error");
+            this.a.z();
         }
     }
 
     /* loaded from: classes5.dex */
-    public class c implements bs2.d {
+    public class c implements b6b<String, Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nw2 a;
@@ -138,27 +149,31 @@ public class nw2 implements tu2 {
             this.a = nw2Var;
         }
 
-        @Override // com.baidu.tieba.bs2.d
-        public void e(bs2 bs2Var) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.b6b
+        public Boolean call(String str) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bs2Var) == null) && this.a.g != null) {
-                this.a.g.e(bs2Var);
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+                return Boolean.valueOf(this.a.C());
             }
+            return (Boolean) invokeL.objValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements bs2.e {
+    public class d extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nw2 a;
+        public final /* synthetic */ mw2 a;
+        public final /* synthetic */ nw2 b;
 
-        public d(nw2 nw2Var) {
+        public d(nw2 nw2Var, mw2 mw2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nw2Var};
+                Object[] objArr = {nw2Var, mw2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -168,20 +183,25 @@ public class nw2 implements tu2 {
                     return;
                 }
             }
-            this.a = nw2Var;
+            this.b = nw2Var;
+            this.a = mw2Var;
         }
 
-        @Override // com.baidu.tieba.bs2.e
-        public void a(bs2 bs2Var) {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bs2Var) == null) && this.a.g != null) {
-                this.a.g.a(bs2Var);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                mw2 mw2Var = this.a;
+                if (mw2Var != null) {
+                    mw2Var.a();
+                }
+                this.b.G();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements bs2.f {
+    public class e extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ nw2 a;
@@ -204,44 +224,14 @@ public class nw2 implements tu2 {
             this.a = nw2Var;
         }
 
-        @Override // com.baidu.tieba.bs2.f
-        public void d(bs2 bs2Var) {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bs2Var) == null) && this.a.g != null) {
-                this.a.g.d(bs2Var);
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class f implements bs2.c {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nw2 a;
-
-        public f(nw2 nw2Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {nw2Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                if (this.a.h != null) {
+                    this.a.h.a();
                 }
-            }
-            this.a = nw2Var;
-        }
-
-        @Override // com.baidu.tieba.bs2.c
-        public void c(bs2 bs2Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, bs2Var) == null) && this.a.g != null) {
-                this.a.g.c(bs2Var);
+                this.a.G();
             }
         }
     }
@@ -259,162 +249,13 @@ public class nw2 implements tu2 {
                 return;
             }
         }
-        h = fo1.a;
+        q = ho1.a;
     }
 
-    @Override // com.baidu.tieba.tu2
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.c.c;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.tu2
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.b;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void d() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !TextUtils.isEmpty(this.b)) {
-            uu2.a(this);
-        }
-    }
-
-    public int e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return h().getCurrentPosition();
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.tu2
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            pw2 pw2Var = this.c;
-            if (pw2Var != null) {
-                return pw2Var.z;
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public pw2 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.c;
-        }
-        return (pw2) invokeV.objValue;
-    }
-
-    public void l() {
-        bs2 bs2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (bs2Var = this.a) != null) {
-            bs2Var.f();
-        }
-    }
-
-    public boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            bs2 bs2Var = this.a;
-            if (bs2Var != null && bs2Var.isEnd()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            bs2 bs2Var = this.a;
-            if (bs2Var != null && bs2Var.isPlaying()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tu2
-    public boolean onBackPressed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            v42.i("video", "onBackPressed");
-            bs2 bs2Var = this.a;
-            if (bs2Var != null && bs2Var.onBackPressed()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.tu2
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            v42.i("video", MissionEvent.MESSAGE_DESTROY);
-            bs2 bs2Var = this.a;
-            if (bs2Var != null) {
-                bs2Var.stop();
-                this.a = null;
-            }
-            uu2.k(this);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || !B()) {
-            return;
-        }
-        h().pause();
-    }
-
-    public void s() {
-        bs2 bs2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && B() && !n() && this.f && (bs2Var = this.a) != null) {
-            bs2Var.resume();
-        }
-    }
-
-    public void y() {
-        bs2 bs2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && B() && (bs2Var = this.a) != null) {
-            bs2Var.seekTo(0);
-            this.a.pause();
-        }
-    }
-
-    public nw2(Context context, @NonNull pw2 pw2Var) {
+    public nw2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, pw2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -424,157 +265,570 @@ public class nw2 implements tu2 {
                 return;
             }
         }
-        this.f = true;
-        this.e = context;
-        this.c = pw2Var;
-        this.b = pw2Var.j;
-        h();
-        d();
+        this.d = -1;
+        this.k = new iw2();
+        this.p = false;
     }
 
-    public void A(pw2 pw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, pw2Var) == null) {
-            if (h) {
-                Log.e("SwanAppVideoPlayer", "update 接口");
-            }
-            bs2 bs2Var = this.a;
-            if (bs2Var != null) {
-                bs2Var.h(pw2Var, true);
-            }
-            this.c = pw2Var;
-        }
-    }
-
-    public void o(pw2 pw2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, pw2Var) == null) {
-            v42.i("video", "Open Player " + pw2Var.j);
-            bs2 bs2Var = this.a;
-            if (bs2Var != null) {
-                bs2Var.o(pw2Var);
-            }
-            this.c = pw2Var;
-        }
-    }
-
-    public int q(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
-            bs2 bs2Var = this.a;
-            if (bs2Var != null) {
-                return bs2Var.q(str);
-            }
-            return 1001;
-        }
-        return invokeL.intValue;
-    }
-
-    public void r(String str) {
-        bs2 bs2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && (bs2Var = this.a) != null) {
-            bs2Var.i(str);
-        }
-    }
-
-    public void t(int i) {
-        bs2 bs2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && B() && (bs2Var = this.a) != null) {
-            bs2Var.seekTo(i);
-        }
-    }
-
-    public void v(ow2 ow2Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048600, this, ow2Var) == null) {
-            this.g = ow2Var;
-        }
-    }
-
-    public void w(boolean z) {
-        bs2 bs2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048601, this, z) == null) && (bs2Var = this.a) != null) {
-            bs2Var.d(z);
-        }
-    }
-
-    public void x(FrameLayout frameLayout) {
-        bs2 bs2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048602, this, frameLayout) == null) && (bs2Var = this.a) != null) {
-            bs2Var.a(frameLayout);
-        }
-    }
-
-    public void z(pw2 pw2Var) {
-        bs2 bs2Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048604, this, pw2Var) == null) && (bs2Var = this.a) != null) {
-            bs2Var.n(pw2Var);
-        }
-    }
-
-    public final boolean B() {
+    public static nw2 k() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pw2 pw2Var = this.c;
-            if (pw2Var != null && !TextUtils.isEmpty(pw2Var.y) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c.b)) {
-                return true;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (r == null) {
+                synchronized (nw2.class) {
+                    if (r == null) {
+                        r = new nw2();
+                    }
+                }
             }
-            return false;
+            return r;
+        }
+        return (nw2) invokeV.objValue;
+    }
+
+    public static void x() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65544, null) != null) || r == null) {
+            return;
+        }
+        r.z();
+        r.H();
+        r.o();
+    }
+
+    public static void y() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65545, null) == null) {
+            x();
+            r = null;
+        }
+    }
+
+    public void A() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "resume record");
+            }
+            D(false);
+            B();
+        }
+    }
+
+    public boolean C() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            byte[] bArr = new byte[this.c];
+            iw2 iw2Var = this.k;
+            ow2 ow2Var = new ow2(iw2Var.b, iw2Var.c, iw2Var.d, iw2Var.e);
+            if (this.a == null) {
+                return false;
+            }
+            return v(bArr, ow2Var);
         }
         return invokeV.booleanValue;
     }
 
-    public bs2 h() {
+    public void G() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "stop timer");
+            }
+            x42.i("recorder", "stop timer");
+            this.h = null;
+            Timer timer = this.g;
+            if (timer != null) {
+                timer.cancel();
+                this.g = null;
+            }
+        }
+    }
+
+    public final void H() {
+        TelephonyManager telephonyManager;
+        lw2 lw2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (telephonyManager = this.n) != null && (lw2Var = this.o) != null) {
+            telephonyManager.listen(lw2Var, 0);
+            this.n = null;
+            this.o = null;
+        }
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
+            g(2002, "error execute");
+        }
+    }
+
+    public jw2 i() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            if (this.a == null) {
-                v42.i("video", "create player");
-                bs2 C0 = cr2.C0();
-                C0.e(this.e, this.c);
-                this.a = C0;
-                C0.g(new a(this));
-                this.a.p(new b(this));
-                this.a.m(new c(this));
-                this.a.j(new d(this));
-                this.a.k(new e(this));
-                this.a.r(new f(this));
-            }
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.l;
         }
-        return (bs2) invokeV.objValue;
+        return (jw2) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.tu2
-    public void k(boolean z) {
+    public iw2 j() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
-            this.f = z;
-            if (z) {
-                if (this.d) {
-                    h().resume();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.k;
+        }
+        return (iw2) invokeV.objValue;
+    }
+
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
+            int i = this.d;
+            if (i == 0 || i == 1) {
+                if (!this.p) {
+                    this.p = true;
+                    e(jw2.i, "recorderInterruptionBegin");
                 }
-                h().b();
-            } else if (this.a != null) {
-                this.d = h().isPlaying();
-                h().pause();
-                h().c();
+                t();
             }
         }
     }
 
-    public void u(boolean z, int i) {
-        bs2 bs2Var;
+    public void o() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (bs2Var = this.a) != null) {
-            bs2Var.l(z, i);
+        if ((interceptable == null || interceptable.invokeV(1048593, this) == null) && this.p) {
+            this.p = false;
+            e(jw2.j, "recorderInterruptionEnd");
         }
+    }
+
+    public final void w() {
+        Context context;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048600, this) != null) || (context = this.e) == null) {
+            return;
+        }
+        this.n = (TelephonyManager) context.getSystemService("phone");
+        lw2 lw2Var = new lw2();
+        this.o = lw2Var;
+        this.n.listen(lw2Var, 32);
+    }
+
+    public final void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048601, this) == null) {
+            G();
+            this.e = null;
+            this.d = -1;
+            AudioRecord audioRecord = this.a;
+            if (audioRecord != null) {
+                audioRecord.release();
+                this.a = null;
+            }
+        }
+    }
+
+    public static void r(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(65543, null, z) != null) || r == null) {
+            return;
+        }
+        r.s(z);
+    }
+
+    public boolean q(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            if (!this.m) {
+                return false;
+            }
+            if (!TextUtils.equals(str, "/swanAPI/recorder/start") && !TextUtils.equals(str, "/swanAPI/recorder/resume")) {
+                return false;
+            }
+            return true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void s(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048596, this, z) == null) {
+            if (z && this.d == 1) {
+                t();
+            }
+            this.m = z;
+        }
+    }
+
+    public void B() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "resume timer");
+            }
+            x42.i("recorder", "resume timer");
+            mw2 mw2Var = this.h;
+            if (mw2Var != null) {
+                if (this.j <= 0) {
+                    mw2Var.a();
+                    return;
+                }
+                Timer timer = new Timer();
+                this.g = timer;
+                timer.schedule(new e(this), this.j);
+                this.i = System.currentTimeMillis();
+            }
+        }
+    }
+
+    public void F() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "stop record");
+            }
+            AudioRecord audioRecord = this.a;
+            if (audioRecord == null) {
+                f();
+                x42.c("recorder", "none audioRecord");
+                z();
+                return;
+            }
+            try {
+                audioRecord.stop();
+                G();
+                this.d = 3;
+                h();
+                H();
+            } catch (IllegalStateException e2) {
+                f();
+                x42.d("recorder", "stop error", e2);
+                z();
+            }
+        }
+    }
+
+    public void t() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048597, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "pause record");
+            }
+            AudioRecord audioRecord = this.a;
+            if (audioRecord == null) {
+                f();
+                x42.c("recorder", "none audio record");
+                z();
+                return;
+            }
+            try {
+                audioRecord.stop();
+                this.d = 2;
+                u();
+                e(jw2.e, "recorderPause");
+            } catch (IllegalStateException e2) {
+                f();
+                x42.d("recorder", "pause error", e2);
+                z();
+            }
+        }
+    }
+
+    public void u() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048598, this) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "pause timer, lastTime:" + this.j);
+            }
+            x42.i("recorder", "pause timer, lastTime:" + this.j);
+            Timer timer = this.g;
+            if (timer != null) {
+                timer.cancel();
+                this.g = null;
+            }
+            this.j = this.k.a - (System.currentTimeMillis() - this.i);
+        }
+    }
+
+    public void D(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
+            if (this.e == null) {
+                f();
+                x42.c("recorder", "start error, context is null");
+                z();
+            } else if (this.d != -1 && !TextUtils.isEmpty(this.b)) {
+                if (z) {
+                    String str = null;
+                    int i = this.d;
+                    if (i == 1) {
+                        str = "start fail: recorder is recording";
+                    } else if (i != 0 && i != 3) {
+                        str = "start fail: recorder is paused";
+                    }
+                    if (str != null) {
+                        g(2003, str);
+                        x42.c("recorder", str);
+                        return;
+                    }
+                }
+                if (q) {
+                    Log.d("AudioRecorderManager", "start record");
+                }
+                try {
+                    this.a.startRecording();
+                    if (this.a.getRecordingState() != 3) {
+                        f();
+                        x42.c("recorder", "start error, no real permission");
+                        z();
+                        return;
+                    }
+                    if (z) {
+                        E(new a(this));
+                        e(jw2.d, "recorderStart");
+                    } else {
+                        e(jw2.f, "recorderResume");
+                    }
+                    j5b.h("").A(Schedulers.io()).j(new c(this)).m(t5b.b()).y(new b(this));
+                } catch (IllegalStateException e2) {
+                    f();
+                    x42.d("recorder", "can't start", e2);
+                    z();
+                }
+            } else {
+                f();
+                x42.c("recorder", "start error, wrong state");
+                z();
+            }
+        }
+    }
+
+    public void E(mw2 mw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, mw2Var) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "start timer:" + this.k.a);
+            }
+            x42.i("recorder", "start timer, totalTime:" + this.k.a);
+            this.h = mw2Var;
+            Timer timer = new Timer();
+            this.g = timer;
+            timer.schedule(new d(this, mw2Var), this.k.a);
+            this.i = System.currentTimeMillis();
+        }
+    }
+
+    public final void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, str2) == null) {
+            if (q) {
+                Log.d("AudioRecorderManager", "dispatchCallback: " + str + " " + str2);
+            }
+            if (this.l != null && !TextUtils.isEmpty(str)) {
+                this.l.b(str);
+                return;
+            }
+            kt2.U().u(new yh2(str2));
+        }
+    }
+
+    public final void g(int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048586, this, i, str) == null) {
+            if (this.l != null && !TextUtils.isEmpty(jw2.h)) {
+                this.l.d(i, str);
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, i);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str);
+                HashMap hashMap = new HashMap();
+                hashMap.put("data", jSONObject.toString());
+                kt2.U().u(new yh2("recorderError", hashMap));
+            } catch (JSONException e2) {
+                x42.d("recorder", "json error", e2);
+                z();
+            }
+        }
+    }
+
+    public final void h() {
+        long j;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
+            String J = ff3.J(this.b, this.f);
+            long j2 = -1;
+            if (!TextUtils.isEmpty(this.b)) {
+                j2 = bo4.u(this.b);
+                j = new File(this.b).length();
+            } else {
+                j = -1;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                if (!TextUtils.isEmpty(J)) {
+                    jSONObject.put("tempFilePath", J);
+                }
+                if (j2 >= 0) {
+                    jSONObject.put("duration", j2);
+                }
+                if (j >= 0) {
+                    jSONObject.put("fileSize", j);
+                }
+                if (this.l != null && !TextUtils.isEmpty(jw2.g)) {
+                    this.l.c(jw2.g, jSONObject);
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put("data", jSONObject.toString());
+                kt2.U().u(new yh2("recorderStop", hashMap));
+            } catch (JSONException e2) {
+                f();
+                x42.d("recorder", "json error", e2);
+                z();
+            }
+        }
+    }
+
+    public void l(String str, iw2 iw2Var, Context context, jw2 jw2Var, String str2) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLLL(1048590, this, str, iw2Var, context, jw2Var, str2) == null) {
+            int i2 = this.d;
+            if (i2 != -1 && i2 != 3) {
+                x42.c("recorder", "wrong state, can't init");
+                return;
+            }
+            this.k = iw2Var;
+            m(str);
+            this.l = jw2Var;
+            int minBufferSize = AudioRecord.getMinBufferSize(iw2Var.d, iw2Var.c, 2);
+            this.c = minBufferSize;
+            if (minBufferSize <= 0) {
+                f();
+                x42.c("recorder", "wrong buffer size");
+                z();
+                return;
+            }
+            if (iw2Var.c == 1) {
+                i = 16;
+            } else {
+                i = 12;
+            }
+            this.a = new AudioRecord(iw2Var.f, iw2Var.d, i, 2, this.c);
+            this.d = 0;
+            this.e = context;
+            this.f = str2;
+            w();
+        }
+    }
+
+    public final void m(String str) {
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, str) == null) {
+            if (TextUtils.equals(this.k.b, "mp3")) {
+                str2 = ".mp3";
+            } else if (TextUtils.equals(this.k.b, "pcm")) {
+                str2 = ".pcm";
+            } else {
+                str2 = DefaultHlsExtractorFactory.AAC_FILE_EXTENSION;
+            }
+            this.b = str + File.separator + "AUDIO_" + Calendar.getInstance().getTimeInMillis() + str2;
+        }
+    }
+
+    public boolean p(String str) {
+        InterceptResult invokeL;
+        int i;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+            if (TextUtils.equals(str, "/swanAPI/recorder/pause")) {
+                if (this.d != 1) {
+                    str2 = "pause fail: recorder is not recording";
+                }
+                str2 = null;
+            } else if (TextUtils.equals(str, "/swanAPI/recorder/resume")) {
+                if (this.d != 2) {
+                    str2 = "resume fail: recorder is not paused";
+                }
+                str2 = null;
+            } else {
+                if (TextUtils.equals(str, "/swanAPI/recorder/stop") && (i = this.d) != 2 && i != 1) {
+                    str2 = "stop fail: recorder is not started";
+                }
+                str2 = null;
+            }
+            if (str2 == null) {
+                return true;
+            }
+            g(2003, str2);
+            x42.c("recorder", str2);
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final boolean v(byte[] bArr, ow2 ow2Var) {
+        InterceptResult invokeLL;
+        FileOutputStream fileOutputStream;
+        byte[] f;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048599, this, bArr, ow2Var)) == null) {
+            FileOutputStream fileOutputStream2 = null;
+            try {
+                try {
+                    File file = new File(this.b);
+                    if (this.d == 0) {
+                        if (file.exists()) {
+                            file.delete();
+                        }
+                        bo4.h(file);
+                    }
+                    fileOutputStream = new FileOutputStream(file, true);
+                } catch (Exception e2) {
+                    e = e2;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                this.d = 1;
+                while (this.d == 1) {
+                    if (this.a.read(bArr, 0, this.c) >= 0) {
+                        if (TextUtils.equals(this.k.b, "pcm")) {
+                            f = bArr;
+                        } else {
+                            f = ow2Var.f(bArr);
+                        }
+                        if (f != null && f.length > 0) {
+                            fileOutputStream.write(f);
+                        }
+                    }
+                }
+                bo4.d(fileOutputStream);
+                return true;
+            } catch (Exception e3) {
+                e = e3;
+                fileOutputStream2 = fileOutputStream;
+                x42.d("recorder", "save record error", e);
+                if (this.d == 1) {
+                    this.d = 3;
+                }
+                bo4.d(fileOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                fileOutputStream2 = fileOutputStream;
+                bo4.d(fileOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

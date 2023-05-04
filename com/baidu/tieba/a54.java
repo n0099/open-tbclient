@@ -2,19 +2,15 @@ package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
-import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import okhttp3.Callback;
-import okhttp3.Request;
-@Singleton
+import java.net.MalformedURLException;
 @Service
 /* loaded from: classes3.dex */
-public class a54 implements ip1 {
+public class a54 implements ep1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,21 +28,41 @@ public class a54 implements ip1 {
         }
     }
 
-    @Override // com.baidu.tieba.ip1
-    public HttpManager a() {
+    @Override // com.baidu.tieba.ep1
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c64.b();
+            return t14.g();
         }
-        return (HttpManager) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.ip1
-    public void call(HttpManager httpManager, Request request, Callback callback) {
+    @Override // com.baidu.tieba.ep1
+    public boolean b() {
+        InterceptResult invokeV;
+        d72 m;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, httpManager, request, callback) == null) && httpManager != null && (httpManager instanceof c64)) {
-            ((c64) httpManager).call(request, callback);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (x73.M() != null && x73.M().w0()) {
+                g72 V = kt2.U().V();
+                if (V == null || (m = V.m()) == null || !(m instanceof u34)) {
+                    return true;
+                }
+                return ((u34) m).G3();
+            }
+            return false;
         }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.ep1
+    public String c(String str) throws MalformedURLException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            return t14.d(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

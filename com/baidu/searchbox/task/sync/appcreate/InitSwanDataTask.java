@@ -11,7 +11,7 @@ public class InitSwanDataTask extends LaunchTask {
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask
     public int getProcess() {
-        return -1;
+        return 1;
     }
 
     @Override // com.baidu.searchbox.performance.speed.task.LaunchTask

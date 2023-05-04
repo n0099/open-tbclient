@@ -1,73 +1,10 @@
 package com.baidu.tieba;
 
-import androidx.recyclerview.widget.RecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tieba.qz6;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
+import android.content.Context;
+import android.text.SpannableString;
+import android.text.style.ClickableSpan;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
-public final class i07 implements qz6.c {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public final f07 a;
-
-    public i07(f07 statStrategy) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {statStrategy};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        Intrinsics.checkNotNullParameter(statStrategy, "statStrategy");
-        this.a = statStrategy;
-    }
-
-    @Override // com.baidu.tieba.qz6.c
-    public void a(c07<?> data, b07<?, ?> template, int i) {
-        Map<String, String> a;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLI(1048576, this, data, template, i) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            Intrinsics.checkNotNullParameter(template, "template");
-            nz6 nz6Var = (nz6) data;
-            StatisticItem statisticItem = new StatisticItem(this.a.getKey());
-            rw6 rw6Var = new rw6();
-            rw6 rw6Var2 = nz6Var.b;
-            if (rw6Var2 != null) {
-                rw6Var = rw6Var2;
-            }
-            for (Map.Entry<String, String> entry : this.a.a(rw6Var).entrySet()) {
-                statisticItem.param(entry.getKey(), entry.getValue());
-            }
-            nx6 nx6Var = nz6Var.a;
-            if (nx6Var != null && (a = nx6Var.a()) != null) {
-                for (Map.Entry<String, String> entry2 : a.entrySet()) {
-                    statisticItem.param(entry2.getKey(), entry2.getValue());
-                }
-            }
-            rg6.b().a(statisticItem);
-        }
-    }
-
-    @Override // com.baidu.tieba.qz6.c
-    public void b(RecyclerView rv) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, rv) == null) {
-            Intrinsics.checkNotNullParameter(rv, "rv");
-            rg6.b().c();
-        }
-    }
+public interface i07 {
+    SpannableString b(Context context, @NonNull jz6 jz6Var, ClickableSpan clickableSpan);
 }

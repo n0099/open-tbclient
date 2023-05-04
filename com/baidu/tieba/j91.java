@@ -1,82 +1,33 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import com.baidu.tieba.u91;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.os.Handler;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ca1;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
 public class j91 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile int a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947838023, "Lcom/baidu/tieba/j91;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947838023, "Lcom/baidu/tieba/j91;");
-        }
-    }
+    public boolean a;
+    public Handler b;
 
     /* loaded from: classes5.dex */
-    public static class a implements u91.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ u91.b a;
+        public final /* synthetic */ ca1.a a;
+        public final /* synthetic */ j91 b;
 
-        /* renamed from: com.baidu.tieba.j91$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public class RunnableC0308a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ a a;
-
-            public RunnableC0308a(a aVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = aVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                u91.b bVar;
-                Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (bVar = this.a.a) != null) {
-                    bVar.a();
-                }
-            }
-        }
-
-        public a(u91.b bVar) {
+        public a(j91 j91Var, ca1.a aVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {bVar};
+                Object[] objArr = {j91Var, aVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -86,44 +37,63 @@ public class j91 {
                     return;
                 }
             }
-            this.a = bVar;
+            this.b = j91Var;
+            this.a = aVar;
         }
 
-        @Override // com.baidu.tieba.u91.b
-        public void a() {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                int unused = j91.a = 3;
-                yi0.b(new RunnableC0308a(this));
+                this.b.c(this.a.a);
             }
         }
     }
 
-    public static int b(Context context, u91.b bVar) {
-        InterceptResult invokeLL;
+    public j91() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, context, bVar)) == null) {
-            if (3 != a && 4 != a) {
-                int a2 = o91.j().a(context, new a(bVar));
-                if (3 != a2 && 1 != a2 && 2 != a2) {
-                    if (a2 == 0 || 4 == a2) {
-                        try {
-                            f91.a.c(context, o91.i(), 0);
-                            if (bVar != null) {
-                                bVar.a();
-                            }
-                            a = 3;
-                        } catch (Throwable unused) {
-                            a = 4;
-                        }
-                    }
-                    return a;
-                }
-                a = a2;
-                return a;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return a;
         }
-        return invokeLL.intValue;
+        this.a = false;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            Handler handler = this.b;
+            if (handler != null) {
+                handler.removeCallbacksAndMessages(null);
+                this.b = null;
+            }
+            this.a = false;
+        }
+    }
+
+    public void b(ca1.a aVar) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) && !this.a && aVar != null && aVar.a()) {
+            if (this.b == null) {
+                this.b = new Handler();
+            }
+            this.b.postDelayed(new a(this, aVar), (long) (aVar.c * 1000.0d));
+        }
+    }
+
+    public final void c(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) != null) || this.a || TextUtils.isEmpty(str)) {
+            return;
+        }
+        p11.b(str);
+        this.a = true;
     }
 }

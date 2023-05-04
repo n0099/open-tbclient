@@ -21,12 +21,12 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
-/* loaded from: classes4.dex */
+/* loaded from: classes5.dex */
 public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static class ViewHolder extends BaseViewHolder {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -87,12 +87,12 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: U */
-    public ViewHolder G(@NonNull ViewGroup viewGroup) {
+    /* renamed from: X */
+    public ViewHolder J(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, viewGroup)) == null) {
-            return T(viewGroup.getContext());
+            return W(viewGroup.getContext());
         }
         return (ViewHolder) invokeL.objValue;
     }
@@ -100,23 +100,23 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
     @NonNull
-    /* renamed from: V */
-    public ViewHolder I(@NonNull ViewGroup viewGroup) {
+    /* renamed from: Y */
+    public ViewHolder M(@NonNull ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, viewGroup)) == null) {
-            return T(viewGroup.getContext());
+            return W(viewGroup.getContext());
         }
         return (ViewHolder) invokeL.objValue;
     }
 
-    public final ViewHolder T(Context context) {
+    public final ViewHolder W(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, context)) == null) {
             ChatShareCard chatShareCard = new ChatShareCard(context);
             chatShareCard.setLayoutParams(new LinearLayout.LayoutParams(UtilHelper.getDimenPixelSize(R.dimen.tbds666), -1));
-            chatShareCard.setId(R.id.obfuscated_res_0x7f090e39);
+            chatShareCard.setId(R.id.obfuscated_res_0x7f090e44);
             chatShareCard.setCurrentCardType((short) 32);
             return new ViewHolder(chatShareCard);
         }
@@ -125,8 +125,8 @@ public class ShareThreadAdapter extends BaseChatAdapter<ShareThreadSysMsg, ViewH
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseChatAdapter
-    /* renamed from: W */
-    public void O(int i, @NonNull ViewGroup viewGroup, @NonNull ShareThreadSysMsg shareThreadSysMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
+    /* renamed from: Z */
+    public void R(int i, @NonNull ViewGroup viewGroup, @NonNull ShareThreadSysMsg shareThreadSysMsg, @NonNull ViewHolder viewHolder, @NonNull List<Object> list, int i2) {
         int i3;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Integer.valueOf(i), viewGroup, shareThreadSysMsg, viewHolder, list, Integer.valueOf(i2)}) == null) {

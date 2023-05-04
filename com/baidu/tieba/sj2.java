@@ -1,15 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.v8engine.V8JavascriptField;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
+import com.baidu.swan.apps.favordata.SwanFavorDataManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class sj2 {
-    public static /* synthetic */ Interceptable $ic = null;
-    @V8JavascriptField
-    public static final String USER_DATA_PATH = "bdfile://usr";
+public class sj2 extends x33 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
     public sj2() {
@@ -23,6 +23,14 @@ public class sj2 {
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
             }
+        }
+    }
+
+    @Override // com.baidu.tieba.x33
+    public void b(@NonNull Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            SwanFavorDataManager.h().m(bundle.getString("appKey"), bundle.getBoolean("isFavor"));
         }
     }
 }

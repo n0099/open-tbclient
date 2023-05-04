@@ -1,34 +1,31 @@
 package com.baidu.tieba;
 
-import android.annotation.TargetApi;
-import android.media.MediaCodec;
-import android.media.MediaFormat;
-import android.media.MediaMuxer;
+import android.app.Application;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.nio.ByteBuffer;
-@TargetApi(18)
 /* loaded from: classes4.dex */
 public class ev9 {
     public static /* synthetic */ Interceptable $ic;
+    public static ev9 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MediaMuxer a;
-    public int b;
-    public boolean c;
-    public volatile boolean d;
-    public volatile boolean e;
+    public a a;
+    public boolean b;
 
-    public ev9(String str) throws IOException {
+    /* loaded from: classes4.dex */
+    public interface a {
+        void a(Application application);
+    }
+
+    public ev9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,99 +35,57 @@ public class ev9 {
                 return;
             }
         }
-        this.b = 2;
-        this.c = false;
-        this.a = new MediaMuxer(str, 0);
+        this.b = false;
+        this.a = c();
     }
 
-    public synchronized int a(MediaFormat mediaFormat) {
-        InterceptResult invokeL;
-        int addTrack;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
-            synchronized (this) {
-                if (!this.c) {
-                    addTrack = this.a.addTrack(mediaFormat);
-                } else {
-                    throw new IllegalStateException("muxer already started");
-                }
-            }
-            return addTrack;
-        }
-        return invokeL.intValue;
-    }
-
-    public synchronized boolean b() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            synchronized (this) {
-                z = this.c;
-            }
-            return z;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.e = true;
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.d = true;
-        }
-    }
-
-    public synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            synchronized (this) {
-                if (this.b > 0) {
-                    try {
-                        this.a.stop();
-                        this.a.release();
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    this.c = false;
-                }
-            }
-        }
-    }
-
-    public synchronized boolean e() {
+    public static ev9 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            synchronized (this) {
-                if (this.e && this.d) {
-                    if (this.b > 0 && this.e && this.d) {
-                        this.a.start();
-                        this.c = true;
-                        notifyAll();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (c == null) {
+                synchronized (ev9.class) {
+                    if (c == null) {
+                        c = new ev9();
                     }
-                    return this.c;
                 }
+            }
+            return c;
+        }
+        return (ev9) invokeV.objValue;
+    }
+
+    public final boolean a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (f55.m().n("pref_key_jpush_sdk_enable", 0) != 1) {
                 return false;
             }
+            return true;
         }
         return invokeV.booleanValue;
     }
 
-    public synchronized void g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+    public final a c() {
+        InterceptResult invokeV;
+        CustomResponsedMessage runTask;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo) == null) {
-            synchronized (this) {
-                if (this.c) {
-                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (a() && (runTask = MessageManager.getInstance().runTask(2156672, a.class)) != null) {
+                return (a) runTask.getData();
             }
+            return null;
+        }
+        return (a) invokeV.objValue;
+    }
+
+    public void d(Application application) {
+        a aVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, application) == null) && !this.b && (aVar = this.a) != null) {
+            aVar.a(application);
+            this.b = true;
         }
     }
 }

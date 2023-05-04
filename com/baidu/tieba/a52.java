@@ -1,86 +1,152 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
 /* loaded from: classes3.dex */
-public class a52 implements x42 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = "";
+public class a52 {
+    public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
+    public static String b;
+    public static String c;
+    public static z42 d;
+    public static int e;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947566091, "Lcom/baidu/tieba/a52;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947566091, "Lcom/baidu/tieba/a52;");
-        }
-    }
-
-    public a52() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947566091, "Lcom/baidu/tieba/a52;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947566091, "Lcom/baidu/tieba/a52;");
+                return;
             }
         }
+        a = ho1.a;
+        b = "";
+        c = "";
+        e = 0;
+    }
+
+    public static String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static boolean e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (e == 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (e == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + b;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
     }
 
     public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
+            if (d != null) {
+                return d.c() + File.separator + c;
+            }
+            return "";
         }
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.x42
-    public String c() {
-        InterceptResult invokeV;
+    public static void g(Bundle bundle) {
+        z42 z42Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return z42.b().getPath();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.x42
-    public void a(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
-            a = uk3.i(bundle, "adb_debug_path");
-            y42.i(uk3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
-            y42.j(uk3.i(bundle, "slavePreload"));
+        if ((interceptable == null || interceptable.invokeL(65543, null, bundle) == null) && (z42Var = d) != null) {
+            z42Var.b(bundle);
         }
     }
 
-    @Override // com.baidu.tieba.x42
-    public void b(Bundle bundle) {
+    public static void i(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
-            bundle.putString("adb_debug_path", a);
-            bundle.putString("slavePreload", y42.c());
-            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, y42.a());
+        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
+            b = str;
+        }
+    }
+
+    public static void j(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
+            c = str;
+        }
+    }
+
+    public static void h(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65544, null, bundle) == null) {
+            String i = wk3.i(bundle, "extraWSUrl");
+            String i2 = wk3.i(bundle, "adb_debug_path");
+            if (!TextUtils.isEmpty(i)) {
+                d = new s52();
+                e = 1;
+            } else if (!TextUtils.isEmpty(i2)) {
+                d = new c52();
+                e = 2;
+            } else {
+                if (a) {
+                    Log.d("UserDebugParams", "not debug mode");
+                }
+                e = 0;
+                d = null;
+                return;
+            }
+            d.a(bundle);
         }
     }
 }

@@ -44,10 +44,10 @@ public final class a implements b {
 
     /* renamed from: com.kwad.components.core.playable.a$a  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public static class C0603a implements ag.b {
+    public static class C0606a implements ag.b {
         public final WeakReference<a> Hw;
 
-        public C0603a(a aVar) {
+        public C0606a(a aVar) {
             this.Hw = new WeakReference<>(aVar);
         }
 
@@ -78,7 +78,7 @@ public final class a implements b {
     }
 
     private void a(com.kwad.sdk.core.webview.b bVar, com.kwad.components.core.webview.a aVar, c cVar) {
-        aVar.a(new ag(bVar, cVar, new C0603a(this)));
+        aVar.a(new ag(bVar, cVar, new C0606a(this)));
         aVar.a(new x(new x.b() { // from class: com.kwad.components.core.playable.a.3
             @Override // com.kwad.components.core.webview.jshandler.x.b
             public final void a(x.a aVar2) {
@@ -110,7 +110,7 @@ public final class a implements b {
             u.b bVar = new u.b();
             bVar.gJ = i;
             bVar.gL = this.mRootContainer.getTouchCoords();
-            com.kwad.components.core.c.a.a.a(new a.C0593a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
+            com.kwad.components.core.c.a.a.a(new a.C0596a(this.mContext).L(this.mAdTemplate).b(this.mApkDownloadHelper).aj(false).a(bVar).al(true));
         }
     }
 

@@ -2,8 +2,8 @@ package com.baidu.tieba.ad.incentivevideo.net;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.rz5;
-import com.baidu.tieba.xz5;
+import com.baidu.tieba.s06;
+import com.baidu.tieba.y06;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -14,7 +14,7 @@ import org.json.JSONObject;
 public class GetIncentiveVideoTaskResMsg extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public xz5 mAdIncentiveVideoTaskData;
+    public y06 mAdIncentiveVideoTaskData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public GetIncentiveVideoTaskResMsg(int i) {
@@ -44,21 +44,21 @@ public class GetIncentiveVideoTaskResMsg extends JsonHttpResponsedMessage {
             int statusCode = getStatusCode();
             int error = getError();
             if (statusCode == 200 && error == 0 && jSONObject != null && (optJSONObject = jSONObject.optJSONObject("data")) != null) {
-                this.mAdIncentiveVideoTaskData = new xz5();
+                this.mAdIncentiveVideoTaskData = new y06();
                 String optString = optJSONObject.optString("request_key");
                 this.mAdIncentiveVideoTaskData.f(optString);
                 this.mAdIncentiveVideoTaskData.g(optJSONObject.optString("scheme"));
-                rz5.i().u(optString);
+                s06.i().u(optString);
             }
         }
     }
 
-    public xz5 getAdIncentiveVideoTaskData() {
+    public y06 getAdIncentiveVideoTaskData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mAdIncentiveVideoTaskData;
         }
-        return (xz5) invokeV.objValue;
+        return (y06) invokeV.objValue;
     }
 }

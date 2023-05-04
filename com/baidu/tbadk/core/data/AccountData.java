@@ -543,4 +543,13 @@ public class AccountData implements Serializable {
             this.mVipInfo = userVipInfoData;
         }
     }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+            return "mID=" + this.mID + " mAccount=" + this.mAccount + " BDUSS=" + this.BDUSS + " mTbs=" + this.mTbs + " mDisplayName=" + this.mDisplayName + " nameShow=" + this.nameShow + " portrait=" + this.portrait;
+        }
+        return (String) invokeV.objValue;
+    }
 }

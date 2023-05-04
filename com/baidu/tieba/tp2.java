@@ -1,6 +1,5 @@
 package com.baidu.tieba;
 
-import android.view.Surface;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,17 +8,18 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class tp2 extends pl2<gq2> {
+public class tp2 extends rl2<iq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setSurface" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setDataSource" : (String) invokeV.objValue;
     }
 
     public tp2() {
@@ -37,16 +37,25 @@ public class tp2 extends pl2<gq2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gq2 gq2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
         Object obj;
+        boolean z;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gq2Var) != null) || (obj = command.obj) == null) {
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) != null) || (obj = command.obj) == null) {
             return;
         }
-        gq2Var.setSurface((Surface) obj);
-        String str = command.what;
-        d(gq2Var, str, "Surface:" + command.obj.hashCode(), false);
+        ArrayList arrayList = (ArrayList) obj;
+        if (command.arg1 != 0) {
+            z = true;
+        } else {
+            z = false;
+        }
+        String str = (String) arrayList.get(0);
+        String f = tg3.l().f(str, (String) arrayList.get(1));
+        command.ret = iq2Var.O(str, f, (String) arrayList.get(2), z) ? 1 : 0;
+        String str2 = command.what;
+        d(iq2Var, str2, "DataSource: " + str + " ;UserAgent: " + ((String) arrayList.get(2)) + " ;Cookies: " + f + ";hideUrlLog: " + z, true);
     }
 }

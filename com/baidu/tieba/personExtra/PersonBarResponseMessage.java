@@ -2,7 +2,7 @@ package com.baidu.tieba.personExtra;
 
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
-import com.baidu.tieba.u39;
+import com.baidu.tieba.n69;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -13,7 +13,7 @@ import org.json.JSONObject;
 public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public u39 data;
+    public n69 data;
     public int errCode;
     public String resultString;
 
@@ -36,7 +36,7 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
             }
         }
         this.errCode = 0;
-        this.data = new u39();
+        this.data = new n69();
     }
 
     @Override // com.baidu.tbadk.message.http.JsonHttpResponsedMessage
@@ -62,13 +62,13 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         return invokeV.intValue;
     }
 
-    public u39 getPersonBarData() {
+    public n69 getPersonBarData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.data;
         }
-        return (u39) invokeV.objValue;
+        return (n69) invokeV.objValue;
     }
 
     public String getResultString() {
@@ -87,10 +87,10 @@ public class PersonBarResponseMessage extends JsonHttpResponsedMessage {
         }
     }
 
-    public void setPersonBarData(u39 u39Var) {
+    public void setPersonBarData(n69 n69Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, u39Var) == null) {
-            this.data = u39Var;
+        if (interceptable == null || interceptable.invokeL(1048581, this, n69Var) == null) {
+            this.data = n69Var;
         }
     }
 

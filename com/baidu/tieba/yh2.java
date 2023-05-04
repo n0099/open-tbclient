@@ -1,45 +1,50 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public final class yh2 {
+public class yh2 extends xh2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
+    public final Map<String, String> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948330086, "Lcom/baidu/tieba/yh2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948330086, "Lcom/baidu/tieba/yh2;");
-                return;
-            }
-        }
-        c = fo1.a;
-    }
-
-    public yh2(String str, String str2) {
+    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
+    public yh2(@NonNull String str) {
+        this(str, null);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2};
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                this((String) objArr2[0], (Map) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+    }
+
+    public yh2(@NonNull String str, @Nullable Map<String, String> map) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, map};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -49,25 +54,38 @@ public final class yh2 {
                 return;
             }
         }
+        HashMap hashMap = new HashMap();
+        this.c = hashMap;
         this.a = str;
-        this.b = str2;
+        if (map != null) {
+            hashMap.putAll(map);
+        }
     }
 
-    public static yh2 a(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.xh2
+    public void m(Map<String, Object> map) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            try {
-                JSONObject jSONObject = new JSONObject(str);
-                return new yh2(jSONObject.optString("webviewid"), jSONObject.optString("message"));
-            } catch (JSONException e) {
-                if (c) {
-                    Log.e("SwanAppNativeMessage", "createEvent failed. " + Log.getStackTraceString(e));
-                    return null;
-                }
-                return null;
+        if (interceptable == null || interceptable.invokeL(1048576, this, map) == null) {
+            for (Map.Entry<String, String> entry : this.c.entrySet()) {
+                map.put(entry.getKey(), entry.getValue());
             }
         }
-        return (yh2) invokeL.objValue;
+    }
+
+    public JSONObject s() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                n(jSONObject);
+            } catch (JSONException e) {
+                if (xh2.b) {
+                    e.printStackTrace();
+                }
+            }
+            return jSONObject;
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

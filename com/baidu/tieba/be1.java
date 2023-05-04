@@ -1,44 +1,16 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import android.app.Activity;
 /* loaded from: classes3.dex */
-public class be1 {
-    public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface be1 {
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947641979, "Lcom/baidu/tieba/be1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947641979, "Lcom/baidu/tieba/be1;");
-        }
+    /* loaded from: classes3.dex */
+    public interface a {
     }
 
-    public static boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
+    void a(String str);
 
-    public static void b(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65538, null, z) == null) {
-            a = z;
-        }
-    }
+    String b(Activity activity, String str, a aVar);
+
+    void c(String str, String str2, int i);
 }

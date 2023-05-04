@@ -1,11 +1,29 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.apps.inlinewidget.rtcroom.model.RtcStatus;
+import android.view.Surface;
+import androidx.annotation.NonNull;
 /* loaded from: classes4.dex */
-public interface ho2 extends sl2 {
-    RtcStatus a();
+public interface ho2 extends jo2 {
 
-    void onRelease();
+    /* loaded from: classes4.dex */
+    public interface a {
+    }
 
-    boolean q();
+    void W(long j);
+
+    int getVideoHeight();
+
+    int getVideoWidth();
+
+    void m(String str);
+
+    void o(@NonNull a aVar);
+
+    void onSurfaceChanged(int i, int i2);
+
+    void s(int i, int i2, int i3, int i4);
+
+    void setSurface(Surface surface);
+
+    void z(int i);
 }

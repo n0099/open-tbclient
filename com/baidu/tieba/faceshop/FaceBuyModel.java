@@ -238,7 +238,7 @@ public class FaceBuyModel extends BdBaseModel {
         this.b = null;
     }
 
-    public void X(String str) {
+    public void c0(String str) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && this.a == null) {
             c cVar = new c(this, null);
@@ -248,9 +248,9 @@ public class FaceBuyModel extends BdBaseModel {
         }
     }
 
-    public void Y(String str) {
+    public void d0(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) && this.b == null) {
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) && this.b == null) {
             b bVar = new b(this, null);
             this.b = bVar;
             bVar.setPriority(3);
@@ -262,7 +262,7 @@ public class FaceBuyModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             c cVar = this.a;
             if (cVar != null) {
                 cVar.cancel();

@@ -1,39 +1,82 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import androidx.recyclerview.widget.RecyclerView;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import kotlin.jvm.JvmStatic;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public class b78 {
+public final class b78 {
     public static /* synthetic */ Interceptable $ic;
+    public static final b78 a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static x78 a(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65536, null, context, recyclerView, i)) == null) {
-            return new x78(context, recyclerView, new z68(), new a78(), i, 1);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947597990, "Lcom/baidu/tieba/b78;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947597990, "Lcom/baidu/tieba/b78;");
+                return;
+            }
         }
-        return (x78) invokeLLI.objValue;
+        a = new b78();
     }
 
-    public static x78 b(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
+    public b78() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65537, null, context, recyclerView, i)) == null) {
-            return new x78(context, recyclerView, new z68(), new a78(), i, 2);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (x78) invokeLLI.objValue;
     }
 
-    public static w78 c(Context context, RecyclerView recyclerView, int i) {
-        InterceptResult invokeLLI;
+    @JvmStatic
+    public static final long a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65538, null, context, recyclerView, i)) == null) {
-            return new w78(context, recyclerView, new z68(), new a78(), i, 1);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return kw4.t().j();
         }
-        return (w78) invokeLLI.objValue;
+        return invokeV.longValue;
+    }
+
+    @JvmStatic
+    public static final boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65539, null, j)) == null) {
+            if (j == a()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeJ.booleanValue;
+    }
+
+    @JvmStatic
+    public static final boolean c(String uk) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, uk)) == null) {
+            Intrinsics.checkNotNullParameter(uk, "uk");
+            return b(e78.a(uk));
+        }
+        return invokeL.booleanValue;
     }
 }

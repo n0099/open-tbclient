@@ -1,86 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
 import com.baidu.pyramid.runtime.service.ServiceReference;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
-import java.util.List;
-import okhttp3.Dns;
 /* loaded from: classes4.dex */
-public interface fr0 extends Dns {
-    public static final ServiceReference d = new ServiceReference("nad.core", "httpdns");
+public interface fr0 {
+    public static final fr0 a;
+
+    or0 a(boolean z);
 
     /* loaded from: classes4.dex */
     public static class a implements fr0 {
         public static /* synthetic */ Interceptable $ic;
-        public static final fr0 a;
-        public static fr0 b;
         public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-795325688, "Lcom/baidu/tieba/fr0$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-795325688, "Lcom/baidu/tieba/fr0$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
 
         public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
+                interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
+                    interceptable.invokeInitBody(65536, newInitContext);
                 }
             }
         }
 
-        public static fr0 a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.tieba.fr0
+        public or0 a(boolean z) {
+            InterceptResult invokeZ;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-                if (b == null) {
-                    synchronized (a.class) {
-                        if (b == null) {
-                            b = (fr0) ServiceManager.getService(fr0.d);
-                        }
-                        if (b == null) {
-                            b = a;
-                        }
-                    }
-                }
-                return b;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                return or0.c;
             }
-            return (fr0) invokeV.objValue;
+            return (or0) invokeZ.objValue;
         }
+    }
 
-        @Override // okhttp3.Dns
-        public List<InetAddress> lookup(String str) throws UnknownHostException {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-                return Dns.SYSTEM.lookup(str);
-            }
-            return (List) invokeL.objValue;
-        }
+    static {
+        new ServiceReference("nad.core", "http");
+        a = new a();
     }
 }

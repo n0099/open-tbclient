@@ -1,25 +1,23 @@
 package com.baidu.tieba;
 
-import android.content.ComponentName;
-import android.content.ServiceConnection;
-import android.os.IBinder;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.ata;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.fun.ad.sdk.ChannelNativeAds;
 /* loaded from: classes3.dex */
-public final class bta implements ServiceConnection {
+public class bta implements ata.e {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ zsa a;
+    public final /* synthetic */ ChannelNativeAds.GdtADStatusChangeListener a;
 
-    public bta(zsa zsaVar) {
+    public bta(cta ctaVar, ChannelNativeAds.GdtADStatusChangeListener gdtADStatusChangeListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {zsaVar};
+            Object[] objArr = {ctaVar, gdtADStatusChangeListener};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,24 +27,14 @@ public final class bta implements ServiceConnection {
                 return;
             }
         }
-        this.a = zsaVar;
+        this.a = gdtADStatusChangeListener;
     }
 
-    @Override // android.content.ServiceConnection
-    public final void onServiceDisconnected(ComponentName componentName) {
+    @Override // com.baidu.tieba.ata.e
+    public void onADStatusChanged() {
         Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) != null) {
-            return;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.a.onADStatusChanged();
         }
-        this.a.q();
-    }
-
-    @Override // android.content.ServiceConnection
-    public final void onServiceConnected(ComponentName componentName, IBinder iBinder) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeLL(1048576, this, componentName, iBinder) != null) {
-            return;
-        }
-        this.a.f(iBinder);
     }
 }

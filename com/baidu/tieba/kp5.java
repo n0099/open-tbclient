@@ -1,100 +1,80 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.text.TextUtils;
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.coreExtra.data.ABTestExtraData;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.view.NoDataView;
+import com.baidu.tbadk.core.view.NoDataViewFactory;
+import com.baidu.tieba.rp5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class kp5 {
+public class kp5 extends ch5 {
     public static /* synthetic */ Interceptable $ic;
-    public static kp5 c;
     public transient /* synthetic */ FieldHolder $fh;
-    public j75 a;
-    public ABTestExtraData b;
+    public NoDataView a;
 
-    public kp5() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public kp5(Context context) {
+        super(new NoDataView(context));
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((View) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = (NoDataView) getView();
     }
 
-    public static kp5 d() {
-        InterceptResult invokeV;
+    public void a(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (c == null) {
-                synchronized (kp5.class) {
-                    if (c == null) {
-                        c = new kp5();
-                    }
-                }
-            }
-            return c;
-        }
-        return (kp5) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (this.b == null) {
-                ABTestExtraData aBTestExtraData = new ABTestExtraData();
-                this.b = aBTestExtraData;
-                aBTestExtraData.parserABTestExtraFormSharedPref();
-            }
-            return this.b.getABTestResult();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final void a(j75 j75Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, j75Var) == null) {
-            if (j75Var != null && this.a != null && j75Var.a() == this.a.a()) {
-                z = false;
-            } else {
-                z = true;
-            }
-            this.a = j75Var;
-            if (z) {
-                b("zan_or_cai_smallflow");
-            }
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a.f(g9.a(getView().getContext()), i);
         }
     }
 
-    public final void b(String str) {
+    public void b(rp5.a aVar) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2156670, str));
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) != null) || aVar == null) {
+            return;
         }
-    }
-
-    public void e(j75 j75Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, j75Var) == null) {
-            a(j75Var);
+        this.a.setVisibility(0);
+        NoDataViewFactory.d.a aVar2 = new NoDataViewFactory.d.a();
+        aVar2.i(NoDataViewFactory.ImgType.LOCAL);
+        aVar2.h(aVar.c);
+        aVar2.j(aVar.g);
+        this.a.setImgOption(aVar2.f());
+        if (aVar.b && !TextUtils.isEmpty(aVar.a)) {
+            str = aVar.a;
+        } else {
+            str = aVar.d;
         }
-    }
-
-    public void f(ABTestExtraData aBTestExtraData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, aBTestExtraData) == null) {
-            this.b = aBTestExtraData;
+        NoDataViewFactory.e.a aVar3 = new NoDataViewFactory.e.a();
+        aVar3.g(str);
+        this.a.setTextOption(aVar3.f());
+        if (aVar.f && !TextUtils.isEmpty(aVar.e)) {
+            String str2 = aVar.e;
+            View.OnClickListener onClickListener = aVar.h;
+            NoDataViewFactory.c.a aVar4 = new NoDataViewFactory.c.a();
+            aVar4.f(new NoDataViewFactory.b(str2, onClickListener));
+            this.a.setButtonOption(aVar4.e());
+        } else {
+            this.a.setButtonOption(null);
         }
+        a(TbadkCoreApplication.getInst().getSkinType());
     }
 }

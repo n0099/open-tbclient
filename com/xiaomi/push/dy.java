@@ -4,7 +4,7 @@ import android.content.Context;
 import android.text.TextUtils;
 import com.baidu.ar.pose.PoseAR;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class dy {
     public static void a(Context context, String str, int i, String str2) {
         aj.a(context).a(new dz(context, str, i, str2));

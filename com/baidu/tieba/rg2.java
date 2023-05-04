@@ -1,20 +1,13 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.process.ipc.delegate.DelegateUtils;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class rg2 extends ProviderDelegation {
+public class rg2 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
@@ -32,59 +25,40 @@ public class rg2 extends ProviderDelegation {
                 return;
             }
         }
-        cr2.g0().getSwitch("swan_recovery_enable", true);
-        a = true;
+        a = ho1.a;
     }
 
-    public rg2() {
+    public static String a(int i, String str) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
+            return "frame_type_" + i + "_" + str;
         }
+        return (String) invokeIL.objValue;
     }
 
-    public static void c(bh2 bh2Var) {
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, bh2Var) != null) || !a || bh2Var == null) {
-            return;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            long j = lg3.a().getLong(a(i, "launch_time"), 0L);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + j);
+            }
+            return j;
         }
-        if (ProcessUtils.isMainProcess()) {
-            sg2.a(bh2Var).b();
-            ah2.b().a(bh2Var.a);
-            return;
-        }
-        Bundle bundle = new Bundle();
-        bundle.putInt("recovery_level", bh2Var.a);
-        bundle.putStringArrayList("recovery_app_list", bh2Var.b);
-        DelegateUtils.callOnMainWithContentProvider(AppRuntime.getAppContext(), rg2.class, bundle);
+        return invokeI.longValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public static void c(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            if (!a) {
-                return null;
+        if (interceptable == null || interceptable.invokeI(65539, null, i) == null) {
+            String a2 = a(i, "launch_time");
+            long currentTimeMillis = System.currentTimeMillis();
+            lg3.a().putLong(a2, currentTimeMillis);
+            if (a) {
+                Log.d("LaunchRecorder", "frame_type : " + i + " , launch time : " + currentTimeMillis);
             }
-            int i = bundle.getInt("recovery_level", -1);
-            ArrayList<String> stringArrayList = bundle.getStringArrayList("recovery_app_list");
-            bh2 bh2Var = new bh2();
-            bh2Var.a = i;
-            if (stringArrayList != null) {
-                bh2Var.b = stringArrayList;
-            }
-            sg2.a(bh2Var).b();
-            ah2.b().a(bh2Var.a);
-            return null;
         }
-        return (Bundle) invokeL.objValue;
     }
 }

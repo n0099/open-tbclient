@@ -252,26 +252,26 @@ public final class UnitedSchemeUtility {
                             if (i != 302) {
                                 switch (i) {
                                     case 401:
-                                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15e8);
+                                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1601);
                                     case 402:
-                                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15e5);
+                                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15fe);
                                     case 403:
-                                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15e6);
+                                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15ff);
                                     default:
-                                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15ed);
+                                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1606);
                                 }
                             }
-                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15e7);
+                            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1600);
                         }
-                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15e9);
+                        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1602);
                     }
-                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15ec);
+                    return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1605);
                 }
-                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15ed);
+                return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1606);
             }
-            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15ea);
+            return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1603);
         }
-        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f15eb);
+        return SchemeConfig.getAppContext().getString(R.string.obfuscated_res_0x7f0f1604);
     }
 
     public static HashMap<String, String> getParams(String str) {

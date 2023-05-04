@@ -1,44 +1,132 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import androidx.annotation.NonNull;
-import androidx.annotation.StyleRes;
+import android.text.TextUtils;
+import android.util.Log;
+import android.widget.TextView;
+import androidx.annotation.ColorInt;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class tb1 extends Dialog {
+public class tb1 extends rb1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @ColorInt
+    public int p;
+    public CharSequence q;
+    public int r;
+    public float s;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tb1(@NonNull Context context, @StyleRes int i) {
-        super(context, i);
+    @Override // com.baidu.tieba.rb1
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? R.layout.nad_bubble_tip_d20 : invokeV.intValue;
+    }
+
+    public tb1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.p = -1;
+        this.r = -1;
+        this.s = -1.0f;
     }
 
-    @Override // android.app.Dialog
-    public void show() {
+    public int B() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.show();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            int i = this.p;
+            if (i != -1) {
+                return i;
+            }
+            return ta1.a().getResources().getColor(R.color.NAD_UC28);
         }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.rb1
+    public boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            if (!TextUtils.isEmpty(this.q) && super.h()) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.rb1
+    public void n() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            super.n();
+            this.q = null;
+        }
+    }
+
+    public void C(CharSequence charSequence, int i, int i2, float f) {
+        TextView textView;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f)}) != null) || (textView = this.e) == null) {
+            return;
+        }
+        if (charSequence != null) {
+            textView.setText(charSequence);
+        }
+        this.e.setTextColor(i);
+        if (i2 >= 0 && f > 0.0f) {
+            this.e.setTextSize(i2, f);
+        }
+    }
+
+    public void D(CharSequence charSequence) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, charSequence) == null) {
+            if (TextUtils.isEmpty(charSequence)) {
+                Log.d("BubbleTextManager", "str is empty !!!, will show nothing !!!");
+            }
+            this.q = charSequence;
+        }
+    }
+
+    public void E(@ColorInt int i, @ColorInt int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
+            this.p = i;
+        }
+    }
+
+    @Override // com.baidu.tieba.rb1
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            if (!super.g()) {
+                return false;
+            }
+            int B = B();
+            TextView textView = (TextView) this.b.findViewById(R.id.bubble_text);
+            this.e = textView;
+            textView.setTextColor(B);
+            this.e.setVisibility(0);
+            return true;
+        }
+        return invokeV.booleanValue;
     }
 }

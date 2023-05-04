@@ -1,136 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.atomData.PersonListActivityConfig;
-import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
+import tbclient.LinkThreadContent;
+import tbclient.LinkThreadInfo;
 /* loaded from: classes6.dex */
 public class ty4 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int g = 1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<UserData> a;
-    public ArrayList<UserData> b;
-    public my4 c;
-    public int d;
+    public String a;
+    public String b;
+    public String c;
+    public String d;
     public int e;
     public boolean f;
-    public String g;
-    public int h;
-    public String i;
-    public int j;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948197530, "Lcom/baidu/tieba/ty4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948197530, "Lcom/baidu/tieba/ty4;");
+        }
+    }
 
     public ty4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
-        this.c = new my4();
+        this.e = 0;
+        this.f = false;
     }
 
-    public ArrayList<UserData> a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            return this.c;
         }
-        return (ArrayList) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public ArrayList<UserData> b() {
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+            return this.d;
         }
-        return (ArrayList) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    public int c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void g(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048582, this, jSONObject) != null) || jSONObject == null) {
             return;
         }
-        try {
-            boolean z = true;
-            if (jSONObject.optJSONObject("page") != null) {
-                JSONArray optJSONArray = jSONObject.optJSONArray("user_list");
-                JSONArray optJSONArray2 = jSONObject.optJSONArray("common_user_list");
-                if (optJSONArray != null) {
-                    for (int i = 0; i < optJSONArray.length(); i++) {
-                        UserData userData = new UserData();
-                        userData.parserJson(optJSONArray.getJSONObject(i));
-                        this.a.add(userData);
+        this.a = jSONObject.optString("link_url");
+        JSONArray optJSONArray = jSONObject.optJSONArray("link_content");
+        if (optJSONArray != null && optJSONArray.length() > 0) {
+            try {
+                JSONObject jSONObject2 = optJSONArray.getJSONObject(0);
+                if (jSONObject2 != null) {
+                    this.b = jSONObject2.optString("link_title");
+                    this.c = jSONObject2.optString("link_abstract");
+                    this.d = jSONObject2.optString("link_head_small_pic");
+                    this.e = jSONObject2.optInt("link_type");
+                    if (hi.isEmpty(this.b) && hi.isEmpty(this.c)) {
+                        this.f = true;
                     }
+                } else {
+                    this.f = true;
                 }
-                if (optJSONArray2 != null) {
-                    for (int i2 = 0; i2 < optJSONArray2.length(); i2++) {
-                        UserData userData2 = new UserData();
-                        userData2.parserJson(optJSONArray2.getJSONObject(i2));
-                        userData2.mAttentionType = 1;
-                        this.b.add(userData2);
-                    }
-                }
-                this.c.i(jSONObject.optJSONObject("page"));
-                if (this.c != null) {
-                    this.d = this.c.a();
-                    this.e = this.c.f();
-                    if (this.c.b() != 1) {
-                        z = false;
-                    }
-                    this.f = z;
-                }
-                jSONObject.optInt("tafriendnum", 0);
-                jSONObject.optInt("commonfriendnum", 0);
-            } else {
-                JSONArray optJSONArray3 = jSONObject.optJSONArray("follow_list");
-                JSONArray optJSONArray4 = jSONObject.optJSONArray("common_follow_list");
-                if (optJSONArray3 != null) {
-                    for (int i3 = 0; i3 < optJSONArray3.length(); i3++) {
-                        UserData userData3 = new UserData();
-                        userData3.parserJson(optJSONArray3.getJSONObject(i3));
-                        this.a.add(userData3);
-                    }
-                }
-                if (optJSONArray4 != null) {
-                    for (int i4 = 0; i4 < optJSONArray4.length(); i4++) {
-                        UserData userData4 = new UserData();
-                        userData4.parserJson(optJSONArray4.getJSONObject(i4));
-                        userData4.mAttentionType = 1;
-                        userData4.setHave_attention(1);
-                        this.b.add(userData4);
-                    }
-                }
-                this.d = jSONObject.optInt("pn");
-                this.e = jSONObject.optInt(PersonListActivityConfig.TOTLEFOLLOWNUM, 0);
-                if (jSONObject.optInt("has_more", 0) != 1) {
-                    z = false;
-                }
-                this.f = z;
-                this.j = jSONObject.optInt("follow_list_switch", 0);
+                return;
+            } catch (JSONException unused) {
+                this.f = true;
+                return;
             }
-            this.i = jSONObject.optString("tips_text");
-            this.h = jSONObject.optInt("type", 0);
-            this.g = jSONObject.optString("block_text");
-        } catch (Exception e) {
-            BdLog.detailException(e);
         }
+        this.f = true;
+    }
+
+    public void h(LinkThreadInfo linkThreadInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048583, this, linkThreadInfo) != null) || linkThreadInfo == null) {
+            return;
+        }
+        this.a = linkThreadInfo.link_url;
+        LinkThreadContent linkThreadContent = (LinkThreadContent) ListUtils.getItem(linkThreadInfo.link_content, 0);
+        if (linkThreadContent != null) {
+            this.b = linkThreadContent.link_title;
+            this.c = linkThreadContent.link_abstract;
+            this.d = linkThreadContent.link_head_small_pic;
+            this.e = linkThreadContent.link_type.intValue();
+            if (hi.isEmpty(this.b) && hi.isEmpty(this.c)) {
+                this.f = true;
+                return;
+            }
+            return;
+        }
+        this.f = true;
     }
 }

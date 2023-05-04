@@ -4,7 +4,7 @@ import androidx.core.view.InputDeviceCompat;
 import com.baidu.tbadk.abtest.UbsABTestHelper;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tieba.R;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.f55;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -95,7 +95,7 @@ public class FrsTabTestHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return q45.m().n(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT);
+            return f55.m().n(generateFrsNewAreaTabSortKey(), HAVE_NOT_RECORD_SORT);
         }
         return invokeV.intValue;
     }
@@ -104,7 +104,7 @@ public class FrsTabTestHelper {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return q45.m().s(generateUserLastAccessKey(), HOT_TAB_NAME);
+            return f55.m().s(generateUserLastAccessKey(), HOT_TAB_NAME);
         }
         return (String) invokeV.objValue;
     }
@@ -112,7 +112,7 @@ public class FrsTabTestHelper {
     public static void storeFrsNewAreaTabSort(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            q45.m().z(generateFrsNewAreaTabSortKey(), i);
+            f55.m().z(generateFrsNewAreaTabSortKey(), i);
         }
     }
 
@@ -120,7 +120,7 @@ public class FrsTabTestHelper {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(65544, null, str) == null) {
             if (HOT_TAB_NAME.equals(str) || NEW_AREA_TAB_NAME.equals(str)) {
-                q45.m().B(generateUserLastAccessKey(), str);
+                f55.m().B(generateUserLastAccessKey(), str);
             }
         }
     }

@@ -1,120 +1,106 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.util.Log;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes7.dex */
-public final class xza {
+public class xza extends wza {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final Map<String, String> c;
+    public final Object d;
+    public tza e;
+    public boolean f;
 
-    public static int b(int i, int i2) {
-        InterceptResult invokeII;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public xza(Context context, String str) {
+        super(context, str);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeII = interceptable.invokeII(65537, null, i, i2)) == null) {
-            int i3 = 1 << (i2 - 1);
-            while ((i & i3) != 0) {
-                i3 >>= 1;
-            }
-            return (i & (i3 - 1)) + i3;
-        }
-        return invokeII.intValue;
-    }
-
-    public static void a(int[] iArr, int i, int i2, int[] iArr2, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), iArr2, Integer.valueOf(i3)}) == null) {
-            int[] iArr3 = new int[i3];
-            int[] iArr4 = new int[16];
-            int[] iArr5 = new int[16];
-            int i4 = 0;
-            for (int i5 = 0; i5 < i3; i5++) {
-                int i6 = iArr2[i5];
-                iArr4[i6] = iArr4[i6] + 1;
-            }
-            iArr5[1] = 0;
-            int i7 = 1;
-            while (i7 < 15) {
-                int i8 = i7 + 1;
-                iArr5[i8] = iArr5[i7] + iArr4[i7];
-                i7 = i8;
-            }
-            for (int i9 = 0; i9 < i3; i9++) {
-                if (iArr2[i9] != 0) {
-                    int i10 = iArr2[i9];
-                    int i11 = iArr5[i10];
-                    iArr5[i10] = i11 + 1;
-                    iArr3[i11] = i9;
-                }
-            }
-            int i12 = 1 << i2;
-            if (iArr5[15] == 1) {
-                for (int i13 = 0; i13 < i12; i13++) {
-                    iArr[i + i13] = iArr3[0];
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, str};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (String) objArr2[1]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            int i14 = 2;
-            int i15 = 0;
-            int i16 = 1;
-            int i17 = 2;
-            while (i16 <= i2) {
-                while (iArr4[i16] > 0) {
-                    d(iArr, i + i4, i17, i12, iArr3[i15] | (i16 << 16));
-                    i4 = b(i4, i16);
-                    iArr4[i16] = iArr4[i16] - 1;
-                    i15++;
-                }
-                i16++;
-                i17 <<= 1;
+        }
+        this.c = new HashMap();
+        this.d = new Object();
+        this.f = true;
+        try {
+            String a = a("/AD91D45E3E72DB6989DDCB13287E75061FABCB933D886E6C6ABEF0939B577138");
+            String a2 = a("/B314B3BF013DF5AC4134E880AF3D2B7C9FFBE8F0305EAC1C898145E2BCF1F21C");
+            String a3 = a("/C767BD8FDF53E53D059BE95B09E2A71056F5F180AECC62836B287ACA5793421B");
+            String a4 = a("/DCB3E6D4C2CF80F30D89CDBC412C964DA8381BB84668769391FBCC3E329AD0FD");
+            if (a == null || a2 == null || a3 == null || a4 == null) {
+                this.f = false;
+            } else {
+                this.e = new sza(a, a2, a3, a4);
             }
-            int i18 = i12 - 1;
-            int i19 = -1;
-            int i20 = i2 + 1;
-            int i21 = i;
-            while (i20 <= 15) {
-                while (iArr4[i20] > 0) {
-                    int i22 = i4 & i18;
-                    if (i22 != i19) {
-                        i21 += i12;
-                        int c = c(iArr4, i20, i2);
-                        iArr[i + i22] = ((c + i2) << 16) | ((i21 - i) - i22);
-                        i12 = 1 << c;
-                        i19 = i22;
+        } catch (IllegalArgumentException | NoSuchAlgorithmException | InvalidKeySpecException unused) {
+            Log.e("SecurityResourcesReader", "Exception when reading the 'K&I' for 'Config'.");
+            this.e = null;
+        }
+    }
+
+    private String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(65537, this, str)) == null) ? super.a(str, null) : (String) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.wza, com.baidu.tieba.qza
+    public String a(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            if (!this.f) {
+                String a = a(str);
+                return a != null ? a : str2;
+            } else if (this.e == null) {
+                Log.e("SecurityResourcesReader", "KEY is null return def directly");
+                return str2;
+            } else {
+                synchronized (this.d) {
+                    String str3 = this.c.get(str);
+                    if (str3 != null) {
+                        return str3;
                     }
-                    d(iArr, (i4 >> i2) + i21, i14, i12, ((i20 - i2) << 16) | iArr3[i15]);
-                    i4 = b(i4, i20);
-                    iArr4[i20] = iArr4[i20] - 1;
-                    i15++;
+                    String a2 = a(str);
+                    if (a2 == null) {
+                        return str2;
+                    }
+                    String a3 = this.e.a(a2, str2);
+                    this.c.put(str, a3);
+                    return a3;
                 }
-                i20++;
-                i14 <<= 1;
             }
         }
+        return (String) invokeLL.objValue;
     }
 
-    public static int c(int[] iArr, int i, int i2) {
-        InterceptResult invokeLII;
-        int i3;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(65538, null, iArr, i, i2)) == null) {
-            int i4 = 1 << (i - i2);
-            while (i < 15 && (i3 = i4 - iArr[i]) > 0) {
-                i++;
-                i4 = i3 << 1;
-            }
-            return i - i2;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return "SecurityResourcesReader{mKey=, encrypt=" + this.f + '}';
         }
-        return invokeLII.intValue;
-    }
-
-    public static void d(int[] iArr, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{iArr, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-            do {
-                i3 -= i2;
-                iArr[i + i3] = i4;
-            } while (i3 > 0);
-        }
+        return (String) invokeV.objValue;
     }
 }

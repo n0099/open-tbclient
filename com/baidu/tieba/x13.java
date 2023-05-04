@@ -1,72 +1,55 @@
 package com.baidu.tieba;
 
-import android.util.Log;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class x13 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static final boolean b;
-    public static final boolean c;
+    public static String a;
+    public static long b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948247471, "Lcom/baidu/tieba/x13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948247471, "Lcom/baidu/tieba/x13;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948247471, "Lcom/baidu/tieba/x13;")) == null) {
+            return;
         }
-        a = fo1.a;
-        b = c("swan_perf_stat_rectify", 0);
-        c = c("swan_perf_stat_overlay_rectify", 0);
-        if (a) {
-            Log.d("SwanRectifyAbSwitcher", "670 data rectify on - " + b);
-            Log.d("SwanRectifyAbSwitcher", "670 data overlay rectify on - " + c);
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948247471, "Lcom/baidu/tieba/x13;");
         }
     }
 
-    public static boolean a() {
+    public static long a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return c;
+            return b;
         }
-        return invokeV.booleanValue;
+        return invokeV.longValue;
     }
 
-    public static boolean b() {
+    public static String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
+            return a;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean c(String str, int i) {
-        InterceptResult invokeLI;
+    public static void update(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, str, i)) == null) {
-            cr2.g0().getSwitch(str, i);
-            if (a) {
-                Log.d("SwanRectifyAbSwitcher", str + " - " + i);
-            }
-            if (i == 1) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a = str;
+            b = System.currentTimeMillis();
         }
-        return invokeLI.booleanValue;
     }
 }

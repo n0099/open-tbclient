@@ -11,7 +11,7 @@ public interface zb1 {
 
     void d(AdBaseModel adBaseModel);
 
-    void e(AdBaseModel adBaseModel, String str);
+    void e(AdBaseModel adBaseModel);
 
-    void f(AdBaseModel adBaseModel);
+    void f(AdBaseModel adBaseModel, float f);
 }

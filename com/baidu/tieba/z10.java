@@ -1,146 +1,24 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Bundle;
+import android.os.Looper;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.h20;
-import com.baidu.tieba.s40;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ExecutorService;
+import java.util.List;
 /* loaded from: classes7.dex */
-public abstract class z10 {
+public final class z10 {
     public static /* synthetic */ Interceptable $ic;
+    public static z10 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
-    public b b;
 
-    /* loaded from: classes7.dex */
-    public static class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public s40.a a;
-        public h20.a b;
-        public Context c;
-        public ExecutorService d;
-        public ExecutorService e;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public interface c<T> {
-        void a(int i, Exception exc, Bundle bundle);
-
-        void onResult(T t, Bundle bundle);
-    }
-
-    /* loaded from: classes7.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public String a;
-        public int b;
-        public Exception c;
-
-        public d() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public d(int i, String str, Exception exc) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), str, exc};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.b = i;
-            this.a = str;
-            this.c = exc;
-        }
-
-        public static d a(int i, Exception exc) {
-            InterceptResult invokeIL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeIL = interceptable.invokeIL(65538, null, i, exc)) == null) {
-                d dVar = new d();
-                dVar.b = i;
-                dVar.c = exc;
-                return dVar;
-            }
-            return (d) invokeIL.objValue;
-        }
-
-        public static d c(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-                d dVar = new d();
-                dVar.b = 0;
-                dVar.a = str;
-                return dVar;
-            }
-            return (d) invokeL.objValue;
-        }
-
-        public boolean b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? this.b == 0 : invokeV.booleanValue;
-        }
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "0.8.36" : (String) invokeV.objValue;
     }
 
     public z10() {
@@ -157,28 +35,47 @@ public abstract class z10 {
         }
     }
 
-    public abstract void a(String str, Bundle bundle, c<String> cVar);
-
-    public void b(a aVar) {
+    public static z10 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
-            this.a = aVar;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (a == null) {
+                synchronized (z10.class) {
+                    if (a == null) {
+                        a = new z10();
+                    }
+                }
+            }
+            return a;
+        }
+        return (z10) invokeV.objValue;
+    }
+
+    public void c(Context context, a20<r40> a20Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, a20Var) == null) {
+            d(context, a20Var, Looper.getMainLooper());
         }
     }
 
-    public void c(b bVar) {
+    public void e(Context context, a20<List<s40>> a20Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.b = bVar;
-            f(bVar);
+        if (interceptable == null || interceptable.invokeLL(1048579, this, context, a20Var) == null) {
+            f(context, a20Var, Looper.getMainLooper());
         }
     }
 
-    public abstract void d();
+    public void d(Context context, a20<r40> a20Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_SEND_USER_MSG, this, context, a20Var, looper) == null) {
+            y10.f(context).l(a20Var, looper);
+        }
+    }
 
-    public abstract boolean e(String str);
-
-    public abstract void f(b bVar);
-
-    public abstract d g(String str, Bundle bundle);
+    public void f(Context context, a20<List<s40>> a20Var, Looper looper) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048580, this, context, a20Var, looper) == null) {
+            y10.f(context).p(a20Var, looper);
+        }
+    }
 }

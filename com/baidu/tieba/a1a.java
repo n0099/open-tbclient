@@ -1,94 +1,98 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.text.TextUtils;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import java.util.HashSet;
+import java.util.Set;
 /* loaded from: classes3.dex */
 public class a1a {
     public static /* synthetic */ Interceptable $ic;
+    public static Set<String> a;
+    public static Set<String> b;
+    public static Set<String> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return pu9.d;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947563704, "Lcom/baidu/tieba/a1a;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947563704, "Lcom/baidu/tieba/a1a;");
+                return;
+            }
         }
-        return (String) invokeV.objValue;
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
     }
 
-    public static String b() {
-        InterceptResult invokeV;
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return pu9.c;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            b.add(str);
         }
-        return (String) invokeV.objValue;
     }
 
-    public static String c(String str, Bitmap bitmap, String str2) {
-        InterceptResult invokeLLL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, str, bitmap, str2)) == null) {
-            String str3 = "";
-            FileOutputStream fileOutputStream = null;
-            try {
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-            try {
-                try {
-                } catch (Exception e2) {
-                    e = e2;
-                }
-                if (TextUtils.isEmpty(str)) {
-                    return "";
-                }
-                File file = new File(str);
-                if (!file.exists()) {
-                    file.mkdirs();
-                }
-                File file2 = new File(file, str2);
-                if (!file2.exists()) {
-                    file2.createNewFile();
-                }
-                FileOutputStream fileOutputStream2 = new FileOutputStream(file2);
-                try {
-                    bitmap.compress(Bitmap.CompressFormat.JPEG, 100, fileOutputStream2);
-                    fileOutputStream2.flush();
-                    str3 = file2.getAbsolutePath();
-                    fileOutputStream2.close();
-                } catch (Exception e3) {
-                    e = e3;
-                    fileOutputStream = fileOutputStream2;
-                    e.printStackTrace();
-                    if (fileOutputStream != null) {
-                        fileOutputStream.close();
-                    }
-                    return str3;
-                } catch (Throwable th) {
-                    th = th;
-                    fileOutputStream = fileOutputStream2;
-                    if (fileOutputStream != null) {
-                        try {
-                            fileOutputStream.close();
-                        } catch (IOException e4) {
-                            e4.printStackTrace();
-                        }
-                    }
-                    throw th;
-                }
-                return str3;
-            } catch (Throwable th2) {
-                th = th2;
-            }
-        } else {
-            return (String) invokeLLL.objValue;
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            c.add(str);
+        }
+    }
+
+    public static void c(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
+            a.add(str);
+        }
+    }
+
+    public static void e(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65541, null, str) != null) || b.size() == 0) {
+            return;
+        }
+        d(str, b);
+        b.clear();
+    }
+
+    public static void f(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65542, null, str) != null) || c.size() == 0) {
+            return;
+        }
+        d(str, c);
+        c.clear();
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || a.size() == 0) {
+            return;
+        }
+        d(str, a);
+        a.clear();
+    }
+
+    public static void d(String str, Set<String> set) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, set) == null) {
+            StatisticItem statisticItem = new StatisticItem("c14295");
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("obj_locate", str);
+            statisticItem.param("obj_type", set.size());
+            TiebaStatic.log(statisticItem);
         }
     }
 }

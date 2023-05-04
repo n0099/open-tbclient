@@ -1,45 +1,92 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import com.baidu.live.framework.usersecurity.LiveUserSecurityDeviceInfoManagerKt;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.JvmStatic;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes4.dex */
 public final class ib0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final boolean c;
+    public final String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947847602, "Lcom/baidu/tieba/ib0;")) == null) {
-            return;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (this != obj) {
+                if (obj instanceof ib0) {
+                    ib0 ib0Var = (ib0) obj;
+                    return Intrinsics.areEqual(this.a, ib0Var.a) && this.b == ib0Var.b && this.c == ib0Var.c && Intrinsics.areEqual(this.d, ib0Var.d);
+                }
+                return false;
+            }
+            return true;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947847602, "Lcom/baidu/tieba/ib0;");
-        }
+        return invokeL.booleanValue;
     }
 
-    @JvmStatic
-    public static final String a() {
+    /* JADX DEBUG: Multi-variable search result rejected for r2v2, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (LiveUserSecurityDeviceInfoManagerKt.d()) {
-                return LiveUserSecurityDeviceInfoManagerKt.b(null, 1, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            String str = this.a;
+            int hashCode = (((str != null ? str.hashCode() : 0) * 31) + this.b) * 31;
+            boolean z = this.c;
+            int i = z;
+            if (z != 0) {
+                i = 1;
             }
-            String str = Build.MANUFACTURER;
-            Intrinsics.checkExpressionValueIsNotNull(str, "Build.MANUFACTURER");
-            return str;
+            int i2 = (hashCode + i) * 31;
+            String str2 = this.d;
+            return i2 + (str2 != null ? str2.hashCode() : 0);
+        }
+        return invokeV.intValue;
+    }
+
+    public ib0(String str, int i, boolean z, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, Integer.valueOf(i), Boolean.valueOf(z), str2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = str;
+        this.b = i;
+        this.c = z;
+        this.d = str2;
+    }
+
+    public final int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return "YYPluginBundleInfo { packageName=" + this.a + " versionCode=" + this.b + " needUpdate=" + this.c + " ext=" + this.d + " }";
         }
         return (String) invokeV.objValue;
     }

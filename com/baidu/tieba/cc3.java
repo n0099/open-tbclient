@@ -1,91 +1,40 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.text.TextUtils;
-import android.util.Log;
+import android.util.Pair;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.dc3;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public final class cc3 {
+public class cc3 extends wy1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static bc3 b;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.aw1
+    public String j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "HideCaptureScreenShareDialogApi" : (String) invokeV.objValue;
+    }
+
     /* loaded from: classes3.dex */
-    public static class b implements om3<Boolean> {
+    public class a implements qm3<Boolean> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc3.d a;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ cc3 c;
 
-        /* loaded from: classes3.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ b a;
-
-            public a(b bVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = bVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Bitmap decodeFile;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    if (ck3.a()) {
-                        decodeFile = tk3.e(this.a.a.b);
-                    } else {
-                        decodeFile = BitmapFactory.decodeFile(this.a.a.a);
-                    }
-                    File k = tk3.k("screenshot.jpg");
-                    if (decodeFile != null) {
-                        tk3.o(decodeFile, k.getAbsolutePath(), 20);
-                    }
-                    String h = it2.U().G().h(k.getAbsolutePath());
-                    if (!k.exists()) {
-                        h = "";
-                    }
-                    cc3.f(h);
-                    if (cc3.a) {
-                        Log.d("SwanAppScreenshot", "saveScreenshot:" + TextUtils.isEmpty(h) + ",path:" + k.getAbsolutePath());
-                    }
-                }
-            }
-        }
-
-        public b(dc3.d dVar) {
+        public a(cc3 cc3Var, boolean z, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dVar};
+                Object[] objArr = {cc3Var, Boolean.valueOf(z), str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -95,132 +44,61 @@ public final class cc3 {
                     return;
                 }
             }
-            this.a = dVar;
+            this.c = cc3Var;
+            this.a = z;
+            this.b = str;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
+        @Override // com.baidu.tieba.qm3
         /* renamed from: b */
         public void a(Boolean bool) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bool) == null) {
                 if (bool.booleanValue()) {
-                    pk3.k(new a(this), "dispatchCaptureScreenEvent");
-                } else {
-                    cc3.f("");
+                    bc3.e(this.a);
+                    this.c.d(this.b, new xz1(0));
+                    return;
                 }
+                this.c.d(this.b, new xz1(10005, "system deny"));
             }
         }
     }
 
-    /* loaded from: classes3.dex */
-    public static class a implements bc3 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.bc3
-        public void a(dc3.d dVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dVar) == null) {
-                cc3.e(dVar);
-                if (!zb3.c()) {
-                    cc3.i(dVar);
-                }
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947669910, "Lcom/baidu/tieba/cc3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947669910, "Lcom/baidu/tieba/cc3;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cc3(@NonNull yv1 yv1Var) {
+        super(yv1Var);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {yv1Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((yv1) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fo1.a;
     }
 
-    public static void h() {
+    public xz1 x(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65544, null) == null) {
-            zb3.d();
-        }
-    }
-
-    public static void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65546, null) == null) {
-            if (a) {
-                Log.d("SwanAppScreenshot", "unRegisterScreenshotEvent.");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            q("#hideCaptureScreenShareDialog", false);
+            Pair<xz1, JSONObject> s = s(str);
+            xz1 xz1Var = (xz1) s.first;
+            if (!xz1Var.isSuccess()) {
+                return xz1Var;
             }
-            bc3 bc3Var = b;
-            if (bc3Var != null) {
-                dc3.u(bc3Var);
-                b = null;
-            }
+            JSONObject jSONObject = (JSONObject) s.second;
+            bc3.b(new a(this, jSONObject.optBoolean("hide"), jSONObject.optString("cb")));
+            return new xz1(0);
         }
-    }
-
-    public static void e(dc3.d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, dVar) == null) {
-            zb3.b(new b(dVar));
-        }
-    }
-
-    public static void i(dc3.d dVar) {
-        SwanAppActivity activity;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65545, null, dVar) != null) || (activity = it2.U().getActivity()) == null) {
-            return;
-        }
-        cr2.f0().b(activity, dVar.a, dVar.b);
-    }
-
-    public static void f(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65542, null, str) == null) {
-            HashMap hashMap = new HashMap();
-            JSONObject jSONObject = new JSONObject();
-            if (!TextUtils.isEmpty(str)) {
-                vk3.f(jSONObject, "imagePath", str);
-            }
-            hashMap.put("data", jSONObject.toString());
-            it2.U().u(new wh2("onUserCaptureScreen", hashMap));
-        }
-    }
-
-    public static void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65543, null) == null) {
-            dc3.s(cr2.c());
-            if (a) {
-                Log.d("SwanAppScreenshot", "registerScreenshotEvent.");
-            }
-            if (b == null) {
-                b = new a();
-            }
-            dc3.r(b);
-        }
+        return (xz1) invokeL.objValue;
     }
 }

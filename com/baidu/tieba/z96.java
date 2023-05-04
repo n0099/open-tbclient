@@ -1,22 +1,18 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.account.contants.LoginConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class z96 {
+public class z96 extends qx4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public int b;
-    public List<y96> c;
 
     public z96() {
         Interceptable interceptable = $ic;
@@ -28,48 +24,24 @@ public class z96 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.c = new ArrayList();
     }
 
-    public List<y96> a() {
+    public String a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new ArrayList();
-            }
-            return this.c;
-        }
-        return (List) invokeV.objValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.a;
         }
         return (String) invokeV.objValue;
     }
 
-    public void c(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.qx4
+    public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
-            this.a = jSONObject.optString("mark_type_name");
-            this.b = jSONObject.optInt("mark_type_wear");
-            JSONArray optJSONArray = jSONObject.optJSONArray("mark_list");
-            if (optJSONArray != null) {
-                for (int i = 0; i < optJSONArray.length(); i++) {
-                    y96 y96Var = new y96();
-                    y96Var.n(optJSONArray.optJSONObject(i));
-                    y96Var.o(this.a);
-                    y96Var.p(this.b);
-                    this.c.add(y96Var);
-                }
-            }
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && jSONObject != null) {
+            this.a = jSONObject.optString(LoginConstants.QQ_LOGIN, "");
         }
     }
 }

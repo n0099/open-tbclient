@@ -14,7 +14,7 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public com.kwad.sdk.core.webview.kwai.c kr;
     public int ku;
     public int kv;
-    public InterfaceC0548b kx;
+    public InterfaceC0551b kx;
     public c kw = new c(this, (byte) 0);
     @Nullable
     public Runnable ky = null;
@@ -28,7 +28,7 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
 
     /* renamed from: com.kwad.components.ad.f.kwai.kwai.b$b  reason: collision with other inner class name */
     /* loaded from: classes8.dex */
-    public interface InterfaceC0548b {
+    public interface InterfaceC0551b {
         void C(int i);
     }
 
@@ -80,9 +80,9 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
     public void I(int i) {
         com.kwad.sdk.core.e.b.d("RegisterTimer", "updateTimer: " + i + ", mCallBackFunction: " + this.kr);
         if (i >= 0 && this.kr != null) {
-            InterfaceC0548b interfaceC0548b = this.kx;
-            if (interfaceC0548b != null && i == 0) {
-                interfaceC0548b.C(this.ku);
+            InterfaceC0551b interfaceC0551b = this.kx;
+            if (interfaceC0551b != null && i == 0) {
+                interfaceC0551b.C(this.ku);
             }
             a aVar = new a();
             aVar.kB = i;
@@ -110,8 +110,8 @@ public final class b implements com.kwad.sdk.core.webview.kwai.a {
         return null;
     }
 
-    public final void a(InterfaceC0548b interfaceC0548b) {
-        this.kx = interfaceC0548b;
+    public final void a(InterfaceC0551b interfaceC0551b) {
+        this.kx = interfaceC0551b;
     }
 
     @Override // com.kwad.sdk.core.webview.kwai.a

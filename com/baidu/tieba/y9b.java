@@ -1,26 +1,54 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tv.athena.revenue.api.pay.params.PayFlowType;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y9b {
+public final class y9b extends x9b {
     public static /* synthetic */ Interceptable $ic;
+    public static final y9b a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static PayFlowType a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65536, null, i)) == null) {
-            if (i == PayFlowType.DIOALOG_PAY_FLOW.getTypeId()) {
-                return PayFlowType.DIOALOG_PAY_FLOW;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948286407, "Lcom/baidu/tieba/y9b;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            if (i == PayFlowType.WALLET_PAY_FLOW.getTypeId()) {
-                return PayFlowType.WALLET_PAY_FLOW;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948286407, "Lcom/baidu/tieba/y9b;");
+                return;
             }
-            return null;
         }
-        return (PayFlowType) invokeI.objValue;
+        a = new y9b();
+    }
+
+    public y9b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public static x9b e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
+        }
+        return (x9b) invokeV.objValue;
     }
 }

@@ -18,8 +18,8 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.widget.ForeDrawableImageView;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.gc9;
-import com.baidu.tieba.hc9;
+import com.baidu.tieba.df9;
+import com.baidu.tieba.ef9;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.recapp.lego.model.AdCard;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -35,12 +35,12 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
     public TbPageContext<?> a;
     public Context b;
     public VideoInfo c;
-    public gc9 d;
+    public df9 d;
     public int e;
     public int f;
     public int g;
     public int h;
-    public hc9 i;
+    public ef9 i;
     public AdvertAppInfo j;
     public AdvertAppInfo k;
     public int l;
@@ -55,7 +55,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
     public View.OnClickListener u;
     public boolean v;
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public View getVideoContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -91,11 +91,11 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
             return;
         }
         this.b = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09a6, (ViewGroup) this, true);
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d09b2, (ViewGroup) this, true);
         if (inflate != null) {
-            this.o = (ForeDrawableImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0928b4);
-            this.n = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0928b5);
-            this.p = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0928b3);
+            this.o = (ForeDrawableImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0928d0);
+            this.n = (TBLottieAnimationView) inflate.findViewById(R.id.obfuscated_res_0x7f0928d1);
+            this.p = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0928cf);
         }
     }
 
@@ -147,7 +147,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         b(context);
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public void autoPlay(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
@@ -269,13 +269,13 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
     }
 
     @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView
-    public void setVideoTailFrameData(hc9 hc9Var) {
+    public void setVideoTailFrameData(ef9 ef9Var) {
         DistributeVideoView distributeVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, hc9Var) == null) {
-            this.i = hc9Var;
+        if (interceptable == null || interceptable.invokeL(1048596, this, ef9Var) == null) {
+            this.i = ef9Var;
             if (this.v && (distributeVideoView = this.t) != null) {
-                distributeVideoView.setVideoTailFrameData(hc9Var);
+                distributeVideoView.setVideoTailFrameData(ef9Var);
             }
         }
     }
@@ -316,7 +316,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         this.v = true;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public boolean canPlay() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -333,7 +333,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public long getCurrentPosition() {
         InterceptResult invokeV;
         DistributeVideoView distributeVideoView;
@@ -347,7 +347,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         return invokeV.longValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public int getPlayStatus() {
         InterceptResult invokeV;
         DistributeVideoView distributeVideoView;
@@ -361,7 +361,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public String getPlayUrl() {
         InterceptResult invokeV;
         DistributeVideoView distributeVideoView;
@@ -379,7 +379,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public boolean isPlayStarted() {
         InterceptResult invokeV;
         DistributeVideoView distributeVideoView;
@@ -393,7 +393,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public boolean isPlaying() {
         InterceptResult invokeV;
         DistributeVideoView distributeVideoView;
@@ -421,7 +421,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public void release() {
         DistributeVideoView distributeVideoView;
         Interceptable interceptable = $ic;
@@ -430,7 +430,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         }
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public void startPlay() {
         DistributeVideoView distributeVideoView;
         Interceptable interceptable = $ic;
@@ -442,7 +442,7 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
         }
     }
 
-    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.ta9
+    @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView, com.baidu.tieba.pd9
     public void stopPlay() {
         DistributeVideoView distributeVideoView;
         Interceptable interceptable = $ic;
@@ -452,17 +452,17 @@ public class DistributeVideoWrapper extends RelativeLayout implements IHomeAdVid
     }
 
     @Override // com.baidu.tieba.recapp.view.IHomeAdVideoView
-    public void setData(VideoInfo videoInfo, gc9 gc9Var, int i, int i2, int i3, int i4) {
+    public void setData(VideoInfo videoInfo, df9 df9Var, int i, int i2, int i3, int i4) {
         DistributeVideoView distributeVideoView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{videoInfo, gc9Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048589, this, new Object[]{videoInfo, df9Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
             if (videoInfo == null) {
                 setVisibility(8);
             } else if (this.v && (distributeVideoView = this.t) != null) {
-                distributeVideoView.setData(videoInfo, gc9Var, i, i2, i3, i4);
+                distributeVideoView.setData(videoInfo, df9Var, i, i2, i3, i4);
             } else {
                 this.c = videoInfo;
-                this.d = gc9Var;
+                this.d = df9Var;
                 this.e = i;
                 this.f = i2;
                 this.g = i3;

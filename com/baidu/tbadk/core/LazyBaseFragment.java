@@ -29,9 +29,9 @@ public abstract class LazyBaseFragment extends BaseFragment {
     public Bundle e;
     public final CustomMessageListener f;
 
-    public abstract int F1();
+    public abstract int G1();
 
-    public abstract void H1(View view2, Bundle bundle);
+    public abstract void I1(View view2, Bundle bundle);
 
     /* loaded from: classes3.dex */
     public class a extends CustomMessageListener {
@@ -68,7 +68,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.G1();
+                    this.a.a.H1();
                 }
             }
         }
@@ -103,7 +103,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 if (lazyBaseFragment.d == null) {
                     lazyBaseFragment.c = true;
                 } else if (qb.b().c()) {
-                    this.a.G1();
+                    this.a.H1();
                 } else {
                     this.a.a.post(new RunnableC0194a(this));
                 }
@@ -141,13 +141,13 @@ public abstract class LazyBaseFragment extends BaseFragment {
         }
     }
 
-    public synchronized void G1() {
+    public synchronized void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             synchronized (this) {
                 if (!this.b && this.d != null) {
                     this.b = true;
-                    H1(this.d.inflate(), this.e);
+                    I1(this.d.inflate(), this.e);
                 }
             }
         }
@@ -159,7 +159,7 @@ public abstract class LazyBaseFragment extends BaseFragment {
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             super.onPrimary();
             if (isPrimary() && !this.b && getView() != null) {
-                G1();
+                H1();
             }
         }
     }
@@ -174,15 +174,15 @@ public abstract class LazyBaseFragment extends BaseFragment {
                 View inflate = layoutInflater.inflate(R.layout.maintab_lazyinit_layout, viewGroup, false);
                 ViewStub viewStub = (ViewStub) inflate.findViewById(R.id.main_view_stub);
                 this.d = viewStub;
-                viewStub.setLayoutResource(F1());
+                viewStub.setLayoutResource(G1());
                 if (this.c) {
-                    G1();
+                    H1();
                     return inflate;
                 }
                 return inflate;
             }
-            View inflate2 = layoutInflater.inflate(F1(), viewGroup, false);
-            H1(inflate2, bundle);
+            View inflate2 = layoutInflater.inflate(G1(), viewGroup, false);
+            I1(inflate2, bundle);
             return inflate2;
         }
         return (View) invokeLLL.objValue;

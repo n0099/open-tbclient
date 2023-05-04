@@ -1,33 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.pms.model.PMSAppInfo;
-import com.baidu.tieba.pi4;
+import com.baidu.pyramid.annotation.Autowired;
+import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+@Autowired
 /* loaded from: classes4.dex */
-public abstract class if4<T> extends jf4<T> {
+public class if4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract void l(PMSAppInfo pMSAppInfo);
-
-    public abstract void o(pi4.a aVar, PMSAppInfo pMSAppInfo, pg4 pg4Var);
-
-    public abstract void p(PMSAppInfo pMSAppInfo, PMSAppInfo pMSAppInfo2);
-
-    public if4() {
+    @Inject
+    public static ik4 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            return hr2.a();
         }
+        return (ik4) invokeV.objValue;
+    }
+
+    @Inject
+    public static gf4 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return mr2.a();
+        }
+        return (gf4) invokeV.objValue;
+    }
+
+    @Inject
+    public static pg4 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return or2.a();
+        }
+        return (pg4) invokeV.objValue;
     }
 }

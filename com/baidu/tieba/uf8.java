@@ -1,28 +1,43 @@
 package com.baidu.tieba;
 
+import android.os.Handler;
+import android.os.Looper;
 import android.text.TextUtils;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.lego.model.LegoPageModel;
+import com.baidu.appsearchlib.Info;
+import com.baidu.clientupdate.ClientUpdater;
+import com.baidu.clientupdate.IClientUpdaterCallback;
+import com.baidu.clientupdate.appinfo.ClientUpdateInfo;
+import com.baidu.clientupdate.appinfo.RuleInfo;
+import com.baidu.nps.utils.Constant;
+import com.baidu.searchbox.logsystem.exceptionhandler.impl.ExceptionHandlerImpl;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.VersionData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
+import com.yy.mobile.framework.revenuesdk.statistics.hiido.eventtype.PayUVEventType;
 import java.io.IOException;
-import tbclient.Lego.DataRes;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class uf8 implements sf8 {
+public class uf8 extends BdAsyncTask<String, Integer, ClientUpdateInfo> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LegoPageModel a;
-    public tf8 b;
-    public LegoPageModel.b c;
+    public ClientUpdater a;
+    public IClientUpdaterCallback b;
+    public volatile ClientUpdateInfo c;
+    public String d;
+    public boolean e;
+    public Handler f;
+    public Runnable g;
 
     /* loaded from: classes6.dex */
-    public class a implements LegoPageModel.b {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ uf8 a;
@@ -45,45 +60,59 @@ public class uf8 implements sf8 {
             this.a = uf8Var;
         }
 
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void a(long j, String str, DataRes dataRes, boolean z) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z)}) == null) && this.a.b != null) {
-                this.a.b.c(j, str, dataRes, z);
-            }
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void b(long j, String str, int i, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), str, Integer.valueOf(i), str2}) == null) && this.a.b != null) {
-                this.a.b.b(j, str, str2, i);
-            }
-        }
-
-        @Override // com.baidu.tieba.lego.model.LegoPageModel.b
-        public void c(long j, String str, DataRes dataRes, boolean z, int i) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), str, dataRes, Boolean.valueOf(z), Integer.valueOf(i)}) == null) && this.a.b != null) {
-                this.a.b.a(true, dataRes, !z, j, str, i);
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.c != null && "1".equals(this.a.c.mStatus) && TbConfig.COULD_UPDATE) {
+                VersionData versionData = new VersionData();
+                versionData.setForceUpdate(Integer.parseInt(this.a.c.mIsForceUpdate));
+                versionData.setStrategy(0);
+                versionData.setNewVersion(this.a.c.mVername);
+                versionData.setNewVersionCode(Integer.parseInt(this.a.c.mVercode));
+                versionData.setNewFile(this.a.c.mPackageName + this.a.c.mVername + Constant.FILE.SUFFIX.BUNDLE_SUFFIX);
+                versionData.setHasNewVer(Integer.parseInt(this.a.c.mStatus));
+                versionData.setNewVersionDesc(this.a.c.mChangelog);
+                versionData.setUrl(this.a.c.mDownurl);
+                versionData.setSize(this.a.c.mSize);
+                versionData.setPatch(this.a.c.mPatchDownUrl);
+                versionData.setPatchSize(this.a.c.mPatchSize);
+                versionData.setTiebaIconUrl(this.a.c.mIconUrl);
+                versionData.setApkMD5RSA(this.a.c.mSignMd5);
+                if (TbSingleton.getInstance().isSplashShowing()) {
+                    zw9.c().d(new bx9(versionData, this.a.c, this.a.d, this.a.e));
+                    return;
+                }
+                ax9.c(versionData, this.a.c, this.a.d, this.a.e);
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends dr5<DataRes> {
+    public class b implements IClientUpdaterCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ me a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ String c;
+        public final /* synthetic */ uf8 a;
 
-        public b(uf8 uf8Var, me meVar, long j, String str) {
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onError(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) {
+            }
+        }
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onException(JSONObject jSONObject) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) {
+            }
+        }
+
+        public b(uf8 uf8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {uf8Var, meVar, Long.valueOf(j), str};
+                Object[] objArr = {uf8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -93,88 +122,37 @@ public class uf8 implements sf8 {
                     return;
                 }
             }
-            this.a = meVar;
-            this.b = j;
-            this.c = str;
+            this.a = uf8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.dr5
-        /* renamed from: a */
-        public DataRes doInBackground() {
-            InterceptResult invokeV;
-            String str;
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onFetched(JSONObject jSONObject) {
+            JSONObject optJSONObject;
+            JSONObject optJSONObject2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                me meVar = this.a;
-                StringBuilder sb = new StringBuilder();
-                sb.append(this.b);
-                sb.append("_");
-                if (TextUtils.isEmpty(this.c)) {
-                    str = "";
-                } else {
-                    str = this.c;
-                }
-                sb.append(str);
-                byte[] bArr = (byte[]) meVar.get(sb.toString());
-                if (bArr != null && bArr.length != 0) {
-                    try {
-                        return (DataRes) new Wire(new Class[0]).parseFrom(bArr, DataRes.class);
-                    } catch (IOException unused) {
-                    }
-                }
-                return null;
-            }
-            return (DataRes) invokeV.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c implements gq5<DataRes> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ long a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ uf8 c;
-
-        public c(uf8 uf8Var, long j, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {uf8Var, Long.valueOf(j), str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = uf8Var;
-            this.a = j;
-            this.b = str;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.gq5
-        /* renamed from: a */
-        public void onReturnDataInUI(DataRes dataRes) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dataRes) != null) {
+            if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("rule")) == null || (optJSONObject2 = optJSONObject.optJSONObject(ExceptionHandlerImpl.KEY_CUSTOM)) == null) {
                 return;
             }
-            this.c.f(this.a, this.b, dataRes);
+            this.a.d = optJSONObject2.optString("apk_MD5_RSA");
+        }
+
+        @Override // com.baidu.clientupdate.IClientUpdaterCallback
+        public void onCompleted(ClientUpdateInfo clientUpdateInfo, RuleInfo ruleInfo) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, clientUpdateInfo, ruleInfo) != null) || clientUpdateInfo == null || TextUtils.isEmpty(this.a.d)) {
+                return;
+            }
+            this.a.c = clientUpdateInfo;
+            this.a.f.post(this.a.g);
         }
     }
 
-    public uf8(TbPageContext tbPageContext, BdUniqueId bdUniqueId) {
+    public uf8(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -184,47 +162,64 @@ public class uf8 implements sf8 {
                 return;
             }
         }
-        this.c = new a(this);
-        LegoPageModel legoPageModel = new LegoPageModel(tbPageContext, bdUniqueId);
-        this.a = legoPageModel;
-        legoPageModel.S(this.c);
+        this.g = new a(this);
+        this.e = z;
+        ClientUpdater clientUpdater = ClientUpdater.getInstance(TbadkCoreApplication.getInst());
+        this.a = clientUpdater;
+        clientUpdater.setUseCFG(false);
+        this.a.setUseRSA(false);
+        this.a.setFileProvider("com.baidu.tieba.fileprovider");
+        this.b = new b(this);
+        this.f = new Handler(Looper.getMainLooper());
     }
 
-    @Override // com.baidu.tieba.sf8
-    public void b(tf8 tf8Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    /* renamed from: i */
+    public ClientUpdateInfo doInBackground(String... strArr) throws IOException {
+        InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tf8Var) == null) {
-            this.b = tf8Var;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, strArr)) == null) {
+            this.a.setOsName(Info.PASSWORD);
+            this.a.setTypeId("0");
+            this.a.setFrom("tieba");
+            this.a.addParamValue("versionType", String.valueOf(TbConfig.getVersionType()));
+            this.a.addParamValue("tieba_versionname", TbConfig.getVersion());
+            ClientUpdater clientUpdater = this.a;
+            String str2 = "64";
+            if (xh.a()) {
+                str = "64";
+            } else {
+                str = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
+            }
+            clientUpdater.addParamValue("running_abi", str);
+            ClientUpdater clientUpdater2 = this.a;
+            if (!xh.b()) {
+                str2 = PayUVEventType.PAY_SPLIT_ORDER_CLOSE_BTN_CLICK;
+            }
+            clientUpdater2.addParamValue("support_abi", str2);
+            this.a.checkUpdate(this.b);
+            return null;
+        }
+        return (ClientUpdateInfo) invokeL.objValue;
+    }
+
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void cancel() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            super.cancel();
+            this.f.removeCallbacks(this.g);
         }
     }
 
-    @Override // com.baidu.tieba.sf8
-    public void a(long j, String str) {
+    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+    public void onPreExecute() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJL(1048576, this, j, str) == null) {
-            c05.d();
-            hr5.b(new b(this, c05.b("tb.lego_update"), j, str), new c(this, j, str));
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            super.onPreExecute();
+            this.f.removeCallbacks(this.g);
         }
-    }
-
-    @Override // com.baidu.tieba.sf8
-    public void c(int i, long j, String str, int i2, String str2) {
-        LegoPageModel legoPageModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), Long.valueOf(j), str, Integer.valueOf(i2), str2}) == null) && (legoPageModel = this.a) != null) {
-            legoPageModel.R(i, j, str, i2, str2);
-        }
-    }
-
-    public final void f(long j, String str, DataRes dataRes) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeCommon(1048579, this, new Object[]{Long.valueOf(j), str, dataRes}) != null) || j < 0) {
-            return;
-        }
-        tf8 tf8Var = this.b;
-        if (tf8Var != null) {
-            tf8Var.a(false, dataRes, false, j, str, 1);
-        }
-        this.a.R(2, j, str, 1, "");
     }
 }

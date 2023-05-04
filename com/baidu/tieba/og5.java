@@ -1,15 +1,23 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.LinearLayout;
+import com.baidu.tbadk.core.atomData.EmotionDetailActivityConfig;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class og5 implements mg5 {
+public class og5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public String e;
+    public String f;
+    public String g;
 
     public og5() {
         Interceptable interceptable = $ic;
@@ -25,19 +33,23 @@ public class og5 implements mg5 {
         }
     }
 
-    @Override // com.baidu.tieba.mg5
-    public void a(View view2, View view3, boolean z) {
+    public static og5 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048576, this, view2, view3, z) == null) {
-            LinearLayout linearLayout = (LinearLayout) view2;
-            if (z) {
-                linearLayout.addView(view3, 0);
-            } else {
-                linearLayout.addView(view3);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
+            try {
+                og5 og5Var = new og5();
+                og5Var.a = jSONObject.optString(EmotionDetailActivityConfig.EMOTION_PIC_ID_KEY);
+                og5Var.b = jSONObject.optInt("width");
+                og5Var.c = jSONObject.optInt("height");
+                og5Var.d = jSONObject.optString("pic_url");
+                og5Var.e = jSONObject.optString("thumbnail");
+                og5Var.g = jSONObject.optString("origin_url");
+                return og5Var;
+            } catch (Exception unused) {
+                return null;
             }
-            LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) view3.getLayoutParams();
-            layoutParams.gravity = 1;
-            view3.setLayoutParams(layoutParams);
         }
+        return (og5) invokeL.objValue;
     }
 }

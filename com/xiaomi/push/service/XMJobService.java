@@ -11,7 +11,7 @@ import android.os.Handler;
 import android.os.IBinder;
 import android.os.Message;
 import com.xiaomi.push.et;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class XMJobService extends Service {
     public static Service a;
 
@@ -19,7 +19,7 @@ public class XMJobService extends Service {
     public IBinder f840a = null;
 
     @TargetApi(21)
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a extends JobService {
         public Binder a;
 
@@ -27,11 +27,11 @@ public class XMJobService extends Service {
         public Handler f841a;
 
         /* renamed from: com.xiaomi.push.service.XMJobService$a$a  reason: collision with other inner class name */
-        /* loaded from: classes8.dex */
-        public static class HandlerC0736a extends Handler {
+        /* loaded from: classes9.dex */
+        public static class HandlerC0739a extends Handler {
             public JobService a;
 
-            public HandlerC0736a(JobService jobService) {
+            public HandlerC0739a(JobService jobService) {
                 super(jobService.getMainLooper());
                 this.a = jobService;
             }
@@ -64,7 +64,7 @@ public class XMJobService extends Service {
             intent.setPackage(getPackageName());
             startService(intent);
             if (this.f841a == null) {
-                this.f841a = new HandlerC0736a(this);
+                this.f841a = new HandlerC0739a(this);
             }
             Handler handler = this.f841a;
             handler.sendMessage(Message.obtain(handler, 1, jobParameters));

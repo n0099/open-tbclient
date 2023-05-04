@@ -1,53 +1,82 @@
 package com.baidu.tieba;
 
-import android.graphics.Color;
 import android.text.TextUtils;
-import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.CriusAttrConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class iu2 {
+public class iu2 extends ju2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int[] A;
+    public ArrayList<qu2> z;
 
-    public static int a(String str, int i) {
-        InterceptResult invokeLI;
-        long parseLong;
+    public iu2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, str, i)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                v42.o("map", "color string is empty, use default " + Integer.toHexString(i));
-                return i;
-            }
-            try {
-                if (str.charAt(0) == '#') {
-                    String substring = str.substring(1);
-                    if (substring.length() != 6 && substring.length() != 8) {
-                        throw new IllegalArgumentException("char count not right");
-                    }
-                    if (substring.length() == 6) {
-                        parseLong = Long.parseLong(substring, 16) | (-16777216);
-                    } else {
-                        parseLong = Long.parseLong(substring.substring(6) + substring.substring(0, 6), 16);
-                    }
-                    return (int) parseLong;
-                }
-                return Color.parseColor(str);
-            } catch (IllegalArgumentException unused) {
-                v42.o("map", "parse color error, use default " + Integer.toHexString(i));
-                return i;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return invokeLI.intValue;
+        this.A = new int[]{0, 0, 0, 0};
     }
 
-    public static float b(double d) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.ju2, com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public void a(JSONObject jSONObject) throws JSONException {
+        JSONArray jSONArray;
+        JSONArray jSONArray2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            return (float) (d * ml3.l(AppRuntime.getAppContext()));
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
         }
-        return invokeCommon.floatValue;
+        super.a(jSONObject);
+        if (jSONObject.has("points") && (jSONArray2 = jSONObject.getJSONArray("points")) != null && jSONArray2.length() > 0) {
+            int length = jSONArray2.length();
+            this.z = new ArrayList<>(length);
+            for (int i = 0; i < length; i++) {
+                JSONObject jSONObject2 = jSONArray2.getJSONObject(i);
+                if (jSONObject2 != null) {
+                    qu2 qu2Var = new qu2();
+                    qu2Var.a(jSONObject2);
+                    if (qu2Var.isValid()) {
+                        this.z.add(qu2Var);
+                    }
+                }
+            }
+        }
+        if (jSONObject.has(CriusAttrConstants.PADDING) && (jSONArray = jSONObject.getJSONArray(CriusAttrConstants.PADDING)) != null && jSONArray.length() > 0) {
+            int min = Math.min(jSONArray.length(), 4);
+            for (int i2 = 0; i2 < min; i2++) {
+                this.A[i2] = ol3.g(jSONArray.optInt(i2));
+            }
+        }
+    }
+
+    @Override // com.baidu.tieba.n32, com.baidu.tieba.wx2
+    public boolean isValid() {
+        InterceptResult invokeV;
+        ArrayList<qu2> arrayList;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!TextUtils.isEmpty(this.c) && !TextUtils.isEmpty(this.b) && (arrayList = this.z) != null && arrayList.size() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
     }
 }

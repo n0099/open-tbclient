@@ -7,7 +7,7 @@ import com.xiaomi.clientreport.data.EventClientReport;
 import com.xiaomi.clientreport.data.PerfClientReport;
 import com.xiaomi.clientreport.manager.ClientReportClient;
 import com.xiaomi.mipush.sdk.MiPushMessage;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class en {
     public static volatile en a;
 

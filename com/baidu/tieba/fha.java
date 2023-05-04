@@ -1,38 +1,92 @@
 package com.baidu.tieba;
 
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.ByteBuffer;
+import com.meizu.cloud.pushsdk.constants.PushConstants;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class fha {
+public final class fha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static double a(ByteBuffer byteBuffer, int i) {
-        InterceptResult invokeLI;
+    public static String a(com.baidu.ubs.analytics.b bVar) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65536, null, byteBuffer, i)) == null) {
-            if (byteBuffer == null || i == 0) {
-                return 0.0d;
-            }
-            byteBuffer.position(i);
-            byteBuffer.flip();
-            byte[] bArr = new byte[i];
-            byteBuffer.get(bArr);
-            byteBuffer.position(i);
-            byteBuffer.flip();
-            double d = 0.0d;
-            for (int i2 = 0; i2 < i; i2 += 2) {
-                int i3 = (bArr[i2] & 255) + ((bArr[i2 + 1] & 255) << 8);
-                if (i3 >= 32768) {
-                    i3 = 65535 - i3;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bVar)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            JSONObject jSONObject2 = new JSONObject();
+            JSONArray jSONArray = new JSONArray();
+            JSONArray jSONArray2 = new JSONArray();
+            JSONArray jSONArray3 = new JSONArray();
+            JSONArray jSONArray4 = new JSONArray();
+            try {
+                jSONObject2.put("cuid", bVar.n().l());
+                jSONObject2.put("imei", bVar.n().getImei());
+                jSONObject2.put("osVersion", bVar.n().getOsVersion());
+                jSONObject2.put("brandName", bVar.n().r());
+                jSONObject2.put("deviceType", bVar.n().s());
+                jSONObject2.put("mac", bVar.n().t());
+                jSONObject2.put(com.heytap.mcssdk.constant.b.C, bVar.n().u());
+                jSONObject2.put("testEnable", bVar.n().v());
+                jSONObject2.put("appVersion", bVar.n().w());
+                jSONObject2.put("appVersionName", bVar.n().w());
+                jSONObject2.put("screenWidth", bVar.n().y());
+                jSONObject2.put("screenHeight", bVar.n().z());
+                jSONObject2.put("screenDensity", bVar.n().A());
+                jSONObject2.put("netType", bVar.n().x());
+                jSONObject2.put("appName", bVar.n().C());
+                jSONObject2.put("expInfo", bVar.n().B());
+                jSONObject2.put("phone", bVar.n().getPhone());
+                for (com.baidu.ubs.analytics.a.n nVar : bVar.o()) {
+                    JSONObject jSONObject3 = new JSONObject();
+                    jSONObject3.put("startTime", nVar.N());
+                    jSONObject3.put("endTime", nVar.O());
+                    jSONObject3.put("keepTime", nVar.P());
+                    jSONObject3.put("sessionId", nVar.I());
+                    jSONArray.put(jSONObject3);
                 }
-                d += i3 * i3;
+                for (com.baidu.ubs.analytics.a.l lVar : bVar.p()) {
+                    JSONObject jSONObject4 = new JSONObject();
+                    jSONObject4.put("pagerName", lVar.E());
+                    jSONObject4.put("sessionId", lVar.I());
+                    jSONObject4.put("endTime", lVar.O());
+                    jSONObject4.put("startTime", lVar.N());
+                    jSONObject4.put("path", lVar.getPath());
+                    jSONArray2.put(jSONObject4);
+                }
+                for (com.baidu.ubs.analytics.a.a aVar : bVar.getEvents()) {
+                    JSONObject jSONObject5 = new JSONObject();
+                    jSONObject5.put("type", aVar.G());
+                    jSONObject5.put("sessionId", aVar.I());
+                    jSONObject5.put("ext", aVar.H());
+                    jSONObject5.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, aVar.F());
+                    jSONObject5.put("page", aVar.E());
+                    jSONObject5.put("from", aVar.D());
+                    jSONArray3.put(jSONObject5);
+                }
+                for (com.baidu.ubs.analytics.a.i iVar : bVar.q()) {
+                    JSONObject jSONObject6 = new JSONObject();
+                    jSONObject6.put("url", iVar.getUrl());
+                    jSONObject6.put("sessionId", iVar.I());
+                    jSONObject6.put("method", iVar.getType());
+                    jSONObject6.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, iVar.F());
+                    jSONObject6.put(PushConstants.PARAMS, iVar.M());
+                    jSONArray4.put(jSONObject6);
+                }
+                jSONObject.put("deviceinfo", jSONObject2);
+                jSONObject.put("sessions", jSONArray);
+                jSONObject.put("events", jSONArray3);
+                jSONObject.put("pagers", jSONArray2);
+                jSONObject.put("nets", jSONArray4);
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            double d2 = (d / i) / 2.0d;
-            return Math.abs(d2 > 0.0d ? Math.log10(d2) * 10.0d : 0.0d);
+            return jSONObject.toString();
         }
-        return invokeLI.doubleValue;
+        return (String) invokeL.objValue;
     }
 }

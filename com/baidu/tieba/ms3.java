@@ -1,5 +1,6 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -7,29 +8,22 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.lang.reflect.Method;
 /* loaded from: classes5.dex */
 public class ms3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
-    public int g;
-    public boolean h;
-    public ls3 i;
-    public ls3 j;
-    public ls3 k;
-    public ls3 l;
+    public Method b;
+    public Object c;
 
-    public ms3() {
+    public ms3(Class<?> cls) {
+        int intValue;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {cls};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,44 +33,60 @@ public class ms3 {
                 return;
             }
         }
-        this.a = -1;
-        this.b = -1;
-        this.c = -1;
-        this.d = -1;
-        this.e = -1;
-        this.f = -1;
-        this.g = -1;
+        this.a = 4099;
+        if (cls == null) {
+            return;
+        }
+        try {
+            Object k = bc4.k(cls, "getInstance", new Object[0]);
+            this.c = k;
+            if (k != null) {
+                Object h = bc4.h(k, "UNIPERF_EVENT_APP_START");
+                if (h == null) {
+                    intValue = this.a;
+                } else {
+                    intValue = ((Integer) h).intValue();
+                }
+                this.a = intValue;
+            }
+            Method i3 = bc4.i(cls, "uniPerfEvent", Integer.TYPE, String.class, int[].class);
+            this.b = i3;
+            if (i3 != null) {
+                i3.setAccessible(true);
+            }
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static ms3 b(@NonNull Context context) {
+        Class<?> cls;
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            try {
+                cls = bc4.b("android.iawareperf.UniPerf", true);
+            } catch (Throwable unused) {
+                cls = null;
+            }
+            return new ms3(cls);
+        }
+        return (ms3) invokeL.objValue;
     }
 
     public int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (!this.h) {
-                return b(this.l);
-            }
-            ls3 ls3Var = this.k;
-            if (ls3Var != null) {
-                return ls3Var.c;
-            }
-            ls3 ls3Var2 = this.i;
-            if (ls3Var2 != null) {
-                return ls3Var2.c;
-            }
-            ls3 ls3Var3 = this.j;
-            if (ls3Var3 != null) {
-                return ls3Var3.c;
-            }
-            return -1;
+            return this.a;
         }
         return invokeV.intValue;
     }
 
-    public boolean d() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (this.g != -1) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.c != null && this.b != null) {
                 return true;
             }
             return false;
@@ -84,63 +94,23 @@ public class ms3 {
         return invokeV.booleanValue;
     }
 
-    public final int b(ls3 ls3Var) {
-        InterceptResult invokeL;
+    public int d(int i, String str, int... iArr) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ls3Var)) == null) {
-            if (ls3Var != null) {
-                return ls3Var.c;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(Constants.METHOD_SEND_USER_MSG, this, i, str, iArr)) == null) {
+            if (!c()) {
+                return -1;
             }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public final int c(ls3 ls3Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ls3Var)) == null) {
-            if (ls3Var != null) {
-                return ls3Var.b;
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    @NonNull
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
             try {
-                jSONObject.put("cores", this.a);
-                jSONObject.put("is_biglittle", this.h);
-                if (this.h) {
-                    jSONObject.put("little_freq_min", c(this.j));
-                    jSONObject.put("little_freq_max", b(this.j));
-                    jSONObject.put("big_freq_min", c(this.i));
-                    jSONObject.put("big_freq_max", b(this.i));
-                    jSONObject.put("little_cores", this.b);
-                    jSONObject.put("big_cores", this.d);
-                    jSONObject.put("little_index", this.c);
-                    jSONObject.put("big_index", this.e);
-                    if (this.g != -1) {
-                        jSONObject.put("super_freq_min", c(this.k));
-                        jSONObject.put("super_freq_max", b(this.k));
-                        jSONObject.put("super_cores", this.f);
-                        jSONObject.put("super_index", this.g);
-                    }
-                } else {
-                    jSONObject.put("freq_min", c(this.l));
-                    jSONObject.put("freq_max", b(this.l));
+                Object invoke = this.b.invoke(this.c, Integer.valueOf(i), str, iArr);
+                if (invoke == null) {
+                    return -1;
                 }
-                return jSONObject.toString();
-            } catch (JSONException unused) {
-                return "";
+                return ((Integer) invoke).intValue();
+            } catch (Throwable unused) {
+                return -1;
             }
         }
-        return (String) invokeV.objValue;
+        return invokeILL.intValue;
     }
 }

@@ -10,7 +10,7 @@ import androidx.core.view.InputDeviceCompat;
 import androidx.recyclerview.widget.LinearSmoothScroller;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.x66;
+import com.baidu.tieba.y76;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,9 +21,9 @@ public class PagerSnapHelper extends SnapHelper {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    public x66 c;
+    public y76 c;
     @Nullable
-    public x66 d;
+    public y76 d;
 
     /* loaded from: classes3.dex */
     public class a extends LinearSmoothScroller {
@@ -102,16 +102,16 @@ public class PagerSnapHelper extends SnapHelper {
         }
     }
 
-    public final int a(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, x66 x66Var) {
+    public final int a(@NonNull RecyclerView.LayoutManager layoutManager, @NonNull View view2, y76 y76Var) {
         InterceptResult invokeLLL;
         int e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutManager, view2, x66Var)) == null) {
-            int d = x66Var.d(view2) + (x66Var.c(view2) / 2);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, layoutManager, view2, y76Var)) == null) {
+            int d = y76Var.d(view2) + (y76Var.c(view2) / 2);
             if (layoutManager.getClipToPadding()) {
-                e = x66Var.f() + (x66Var.g() / 2);
+                e = y76Var.f() + (y76Var.g() / 2);
             } else {
-                e = x66Var.e() / 2;
+                e = y76Var.e() / 2;
             }
             return d - e;
         }
@@ -119,25 +119,25 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @Nullable
-    public final View b(RecyclerView.LayoutManager layoutManager, x66 x66Var) {
+    public final View b(RecyclerView.LayoutManager layoutManager, y76 y76Var) {
         InterceptResult invokeLL;
         int e;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutManager, x66Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, layoutManager, y76Var)) == null) {
             int childCount = layoutManager.getChildCount();
             View view2 = null;
             if (childCount == 0) {
                 return null;
             }
             if (layoutManager.getClipToPadding()) {
-                e = x66Var.f() + (x66Var.g() / 2);
+                e = y76Var.f() + (y76Var.g() / 2);
             } else {
-                e = x66Var.e() / 2;
+                e = y76Var.e() / 2;
             }
             int i = Integer.MAX_VALUE;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = layoutManager.getChildAt(i2);
-                int abs = Math.abs((x66Var.d(childAt) + (x66Var.c(childAt) / 2)) - e);
+                int abs = Math.abs((y76Var.d(childAt) + (y76Var.c(childAt) / 2)) - e);
                 if (abs < i) {
                     view2 = childAt;
                     i = abs;
@@ -149,10 +149,10 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @Nullable
-    public final View c(RecyclerView.LayoutManager layoutManager, x66 x66Var) {
+    public final View c(RecyclerView.LayoutManager layoutManager, y76 y76Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, layoutManager, x66Var)) == null) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, layoutManager, y76Var)) == null) {
             int childCount = layoutManager.getChildCount();
             View view2 = null;
             if (childCount == 0) {
@@ -161,7 +161,7 @@ public class PagerSnapHelper extends SnapHelper {
             int i = Integer.MAX_VALUE;
             for (int i2 = 0; i2 < childCount; i2++) {
                 View childAt = layoutManager.getChildAt(i2);
-                int d = x66Var.d(childAt);
+                int d = y76Var.d(childAt);
                 if (d < i) {
                     view2 = childAt;
                     i = d;
@@ -208,31 +208,31 @@ public class PagerSnapHelper extends SnapHelper {
     }
 
     @NonNull
-    public final x66 d(@NonNull RecyclerView.LayoutManager layoutManager) {
+    public final y76 d(@NonNull RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, layoutManager)) == null) {
-            x66 x66Var = this.d;
-            if (x66Var == null || x66Var.a != layoutManager) {
-                this.d = x66.a(layoutManager);
+            y76 y76Var = this.d;
+            if (y76Var == null || y76Var.a != layoutManager) {
+                this.d = y76.a(layoutManager);
             }
             return this.d;
         }
-        return (x66) invokeL.objValue;
+        return (y76) invokeL.objValue;
     }
 
     @NonNull
-    public final x66 e(@NonNull RecyclerView.LayoutManager layoutManager) {
+    public final y76 e(@NonNull RecyclerView.LayoutManager layoutManager) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, layoutManager)) == null) {
-            x66 x66Var = this.c;
-            if (x66Var == null || x66Var.a != layoutManager) {
-                this.c = x66.b(layoutManager);
+            y76 y76Var = this.c;
+            if (y76Var == null || y76Var.a != layoutManager) {
+                this.c = y76.b(layoutManager);
             }
             return this.c;
         }
-        return (x66) invokeL.objValue;
+        return (y76) invokeL.objValue;
     }
 
     @Override // com.baidu.tieba.ala.alasquare.widget.banner.SnapHelper

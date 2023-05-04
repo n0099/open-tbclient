@@ -17,16 +17,16 @@ import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.switchs.UploadLogButtonSwitch;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ae9;
-import com.baidu.tieba.de9;
-import com.baidu.tieba.ie9;
-import com.baidu.tieba.je9;
-import com.baidu.tieba.jt4;
-import com.baidu.tieba.od8;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.ch9;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.hh9;
+import com.baidu.tieba.ih9;
+import com.baidu.tieba.oa5;
+import com.baidu.tieba.pt4;
 import com.baidu.tieba.setting.model.AboutModel;
-import com.baidu.tieba.x95;
+import com.baidu.tieba.wf8;
 import com.baidu.tieba.z8;
+import com.baidu.tieba.zg9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -36,16 +36,16 @@ import java.util.Date;
 public class AboutActivity extends BaseActivity<AboutActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ae9 a;
+    public zg9 a;
     public AboutModel b;
     public c c;
     public String d;
-    public ie9 e;
-    public je9 f;
+    public hh9 e;
+    public ih9 f;
     public int g;
 
     /* loaded from: classes6.dex */
-    public class a implements de9 {
+    public class a implements ch9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AboutActivity a;
@@ -68,7 +68,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             this.a = aboutActivity;
         }
 
-        @Override // com.baidu.tieba.de9
+        @Override // com.baidu.tieba.ch9
         public void a(int i) {
             String str;
             String fileDireciory;
@@ -81,8 +81,8 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 2) {
                     this.a.sendMessage(new CustomMessage(2015001, new GuildActivityConfig(this.a.getPageContext().getPageActivity()).createNormalCfg(GuildActivityConfig.FROM_ABOUT_PAGE, false)));
                 } else if (i == 3) {
-                    q45.m().w(SettingTextFunctionIntroView.h, true);
-                    jt4.x(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.function_intro), this.a.d, true, false, false);
+                    f55.m().w(SettingTextFunctionIntroView.h, true);
+                    pt4.x(this.a.getPageContext().getPageActivity(), this.a.getPageContext().getString(R.string.function_intro), this.a.d, true, false, false);
                 } else if (i == 4) {
                     if (TbConfig.getDebugSwitch()) {
                         str = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + TbConfig.FATAL_ERROR_DEBUG_FILE;
@@ -99,7 +99,7 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
                 } else if (i == 5) {
                     if (this.a.e == null) {
                         AboutActivity aboutActivity = this.a;
-                        aboutActivity.e = new ie9(aboutActivity.getActivity());
+                        aboutActivity.e = new hh9(aboutActivity.getActivity());
                         this.a.e.create(this.a.getPageContext());
                     }
                     this.a.e.show();
@@ -208,17 +208,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
     public final void H1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            od8.b().a(true);
+            wf8.b().a(true);
             AboutModel aboutModel = this.b;
             if (aboutModel == null) {
                 this.b = new AboutModel(this, new b(this));
             } else {
                 aboutModel.cancelLoadData();
             }
-            this.b.U();
-            ae9 ae9Var = this.a;
-            if (ae9Var != null) {
-                ae9Var.R();
+            this.b.Z();
+            zg9 zg9Var = this.a;
+            if (zg9Var != null) {
+                zg9Var.R();
             }
         }
     }
@@ -233,17 +233,17 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
             if (aboutModel != null) {
                 aboutModel.cancelLoadData();
             }
-            ae9 ae9Var = this.a;
-            if (ae9Var != null) {
-                ae9Var.S();
+            zg9 zg9Var = this.a;
+            if (zg9Var != null) {
+                zg9Var.S();
             }
-            ie9 ie9Var = this.e;
-            if (ie9Var != null) {
-                ie9Var.dismiss();
+            hh9 hh9Var = this.e;
+            if (hh9Var != null) {
+                hh9Var.dismiss();
             }
-            je9 je9Var = this.f;
-            if (je9Var != null) {
-                je9Var.i();
+            ih9 ih9Var = this.f;
+            if (ih9Var != null) {
+                ih9Var.i();
                 this.f = null;
             }
         }
@@ -254,9 +254,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
             super.onChangeSkinType(i);
-            ae9 ae9Var = this.a;
-            if (ae9Var != null) {
-                ae9Var.Y(i);
+            zg9 zg9Var = this.a;
+            if (zg9Var != null) {
+                zg9Var.Y(i);
             }
         }
     }
@@ -266,48 +266,48 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            this.f = new je9(this);
-            ae9 ae9Var = new ae9(this, new a(this));
-            this.a = ae9Var;
-            ae9Var.W();
+            this.f = new ih9();
+            zg9 zg9Var = new zg9(this, new a(this));
+            this.a = zg9Var;
+            zg9Var.W();
             J1();
         }
     }
 
     public final void I1(Object obj) {
-        x95 x95Var;
+        oa5 oa5Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj) == null) {
-            ae9 ae9Var = this.a;
-            if (ae9Var != null) {
-                ae9Var.S();
+            zg9 zg9Var = this.a;
+            if (zg9Var != null) {
+                zg9Var.S();
             }
             if (obj != null) {
-                x95Var = (x95) obj;
+                oa5Var = (oa5) obj;
             } else {
-                x95Var = null;
+                oa5Var = null;
             }
-            if (x95Var != null) {
-                TbadkCoreApplication.getInst().setVersionData(x95Var.u());
+            if (oa5Var != null) {
+                TbadkCoreApplication.getInst().setVersionData(oa5Var.u());
                 TbadkCoreApplication.getInst().refreshNewVersion(false);
-                if (x95Var.u().hasNewVer() && TbConfig.COULD_UPDATE) {
-                    if (x95Var.u().forceUpdate()) {
-                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), x95Var.u(), x95Var.j())));
+                if (oa5Var.u().hasNewVer() && TbConfig.COULD_UPDATE) {
+                    if (oa5Var.u().forceUpdate()) {
+                        sendMessage(new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), oa5Var.u(), oa5Var.j())));
                     } else {
                         Long valueOf = Long.valueOf(new Date().getTime());
-                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), x95Var.u(), x95Var.j()));
+                        CustomMessage customMessage = new CustomMessage(2002001, new UpdateDialogConfig(TbadkCoreApplication.getInst().getApp(), oa5Var.u(), oa5Var.j()));
                         TbadkCoreApplication.getInst().setUpdateNotifyTime(valueOf.longValue());
                         sendMessage(customMessage);
                     }
                 }
-                ae9 ae9Var2 = this.a;
-                if (ae9Var2 != null) {
-                    ae9Var2.W();
+                zg9 zg9Var2 = this.a;
+                if (zg9Var2 != null) {
+                    zg9Var2.W();
                     return;
                 }
                 return;
             }
-            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0d1b));
+            showToast(getResources().getString(R.string.obfuscated_res_0x7f0f0d30));
         }
     }
 
@@ -341,9 +341,9 @@ public class AboutActivity extends BaseActivity<AboutActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
             super.onResume();
-            ae9 ae9Var = this.a;
-            if (ae9Var != null) {
-                ae9Var.W();
+            zg9 zg9Var = this.a;
+            if (zg9Var != null) {
+                zg9Var.W();
             }
         }
     }

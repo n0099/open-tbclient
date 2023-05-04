@@ -1,13 +1,11 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mapapi.map.BaiduMap;
-import com.baidu.mapapi.map.MapStatusUpdateFactory;
-import com.baidu.mapapi.map.UiSettings;
-import com.baidu.mapapi.model.LatLng;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.wc4;
+import com.baidu.tieba.b33;
+import com.baidu.tieba.cd3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -18,17 +16,24 @@ public class yc4 {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes7.dex */
-    public static class a implements wc4.c {
+    public interface c {
+        void onFail();
+
+        void onSuccess();
+    }
+
+    /* loaded from: classes7.dex */
+    public static class a implements qm3<ad3<cd3.e>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dc4 a;
+        public final /* synthetic */ c a;
 
-        public a(dc4 dc4Var) {
+        public a(c cVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {dc4Var};
+                Object[] objArr = {cVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -38,83 +43,90 @@ public class yc4 {
                     return;
                 }
             }
-            this.a = dc4Var;
+            this.a = cVar;
         }
 
-        @Override // com.baidu.tieba.wc4.c
-        public void onFail() {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qm3
+        /* renamed from: b */
+        public void a(ad3<cd3.e> ad3Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                v42.i("map", "location permission fail");
-            }
-        }
-
-        @Override // com.baidu.tieba.wc4.c
-        public void onSuccess() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.a.p(true);
-                v42.i("map", "location permission success");
-            }
-        }
-    }
-
-    public static void a(Context context, fd4 fd4Var, hu2 hu2Var, dc4 dc4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65536, null, context, fd4Var, hu2Var, dc4Var) == null) {
-            b(context, fd4Var, hu2Var, dc4Var, false);
-        }
-    }
-
-    public static void b(Context context, fd4 fd4Var, hu2 hu2Var, dc4 dc4Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{context, fd4Var, hu2Var, dc4Var, Boolean.valueOf(z)}) == null) {
-            if (fd4Var != null && hu2Var != null && hu2Var.isValid()) {
-                BaiduMap map = fd4Var.l.getMap();
-                bd4 bd4Var = new bd4(fd4Var);
-                map.setOnMapClickListener(bd4Var);
-                map.setOnMarkerClickListener(bd4Var);
-                map.setOnMapLoadedCallback(bd4Var);
-                map.setOnMapRenderCallbadk(bd4Var);
-                map.setOnMapStatusChangeListener(bd4Var);
-                map.setOnMyLocationClickListener(bd4Var);
-                UiSettings uiSettings = map.getUiSettings();
-                uiSettings.setScrollGesturesEnabled(hu2Var.t);
-                uiSettings.setRotateGesturesEnabled(hu2Var.u);
-                uiSettings.setZoomGesturesEnabled(hu2Var.s);
-                fd4Var.l.showZoomControls(false);
-                fd4Var.l.showScaleControl(false);
-                map.setBuildingsEnabled(hu2Var.x);
-                uiSettings.setOverlookingGesturesEnabled(hu2Var.w);
-                ou2 ou2Var = hu2Var.j;
-                if (ou2Var != null && ou2Var.isValid()) {
-                    v42.i("map", "initMapView coordinate is " + hu2Var.j);
-                    ou2 ou2Var2 = hu2Var.j;
-                    map.setMapStatus(MapStatusUpdateFactory.newLatLng(new LatLng(ou2Var2.a, ou2Var2.b)));
-                }
-                map.animateMapStatus(MapStatusUpdateFactory.zoomTo((float) hu2Var.k));
-                v42.i("map", "initMapView scale is " + hu2Var.k);
-                boolean z2 = hu2Var.r;
-                fd4Var.k = z2;
-                if (z2) {
-                    c(context, dc4Var);
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ad3Var) == null) {
+                if (vc3.h(ad3Var)) {
+                    yc4.c(this.a);
                 } else {
-                    dc4Var.p(false);
-                    map.setMyLocationEnabled(false);
+                    this.a.onFail();
                 }
-                uiSettings.setCompassEnabled(hu2Var.v);
-                zc4.e(AppRuntime.getAppContext(), hu2Var, fd4Var);
-                zc4.d(hu2Var, fd4Var, bd4Var);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public static class b implements b33.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ c a;
+
+        public b(c cVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cVar;
+        }
+
+        @Override // com.baidu.tieba.b33.a
+        public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, strArr, iArr) == null) {
+                if (i != 0) {
+                    this.a.onFail();
+                    return;
+                }
+                for (int i2 : iArr) {
+                    if (i2 == -1) {
+                        this.a.onFail();
+                        return;
+                    }
+                }
+                this.a.onSuccess();
+            }
+        }
+    }
+
+    public static void b(Context context, c cVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65537, null, context, cVar) == null) {
+            if (!(context instanceof Activity)) {
+                cVar.onFail();
                 return;
             }
-            v42.c("map", "initMapView model is invalid");
+            x73 M = x73.M();
+            if (M != null) {
+                M.e0().g((Activity) context, "mapp_location", new a(cVar));
+            }
         }
     }
 
-    public static void c(Context context, dc4 dc4Var) {
+    public static void c(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, context, dc4Var) == null) {
-            wc4.b(context, new a(dc4Var));
+        if (interceptable == null || interceptable.invokeL(65538, null, cVar) == null) {
+            x73 b0 = x73.b0();
+            if (rl3.M() && b0 != null) {
+                cVar.onSuccess();
+            } else {
+                b0.w().A(0, new String[]{com.kuaishou.weapon.p0.h.g, com.kuaishou.weapon.p0.h.h}, new b(cVar));
+            }
         }
     }
 }

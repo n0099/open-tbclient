@@ -11,7 +11,7 @@ import android.widget.TextView;
 import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tieba.R;
-import com.baidu.tieba.dna;
+import com.baidu.tieba.zqa;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -110,18 +110,18 @@ public class g0 extends LinearLayout {
             if (interactionType == 2 || interactionType == 3) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07d2;
+                i = R.string.obfuscated_res_0x7f0f07e1;
             } else if (interactionType == 4) {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07d4;
+                i = R.string.obfuscated_res_0x7f0f07e3;
             } else if (interactionType != 5) {
                 this.e.setVisibility(8);
                 return;
             } else {
                 this.e.setVisibility(0);
                 button = this.e;
-                i = R.string.obfuscated_res_0x7f0f07d3;
+                i = R.string.obfuscated_res_0x7f0f07e2;
             }
             button.setText(i);
         }
@@ -149,10 +149,10 @@ public class g0 extends LinearLayout {
         return (List) invokeV.objValue;
     }
 
-    public dna getDownloadListener() {
+    public zqa getDownloadListener() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new dna(this.e) : (dna) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? new zqa(this.e) : (zqa) invokeV.objValue;
     }
 
     @Override // android.view.View

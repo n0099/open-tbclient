@@ -1,23 +1,99 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import androidx.annotation.CallSuper;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.shrinkhead.LogicField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
+import tbclient.ThemeElement;
 /* loaded from: classes3.dex */
-public class ah7 implements n15 {
+public abstract class ah7 implements ch7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment a;
+    public Context b;
+    public View c;
 
-    @Override // com.baidu.tieba.n15
-    public String name() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ch7
+    @Nullable
+    @CallSuper
+    public <T> T a(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsUpgrade" : (String) invokeV.objValue;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
+            return null;
+        }
+        return (T) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.ch7
+    public void b(@NonNull ThemeElement themeElement) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ih7
+    public void d(int i, @NonNull String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ch7
+    public void f(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ih7
+    public void i(long j, long j2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048582, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)}) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ih7
+    public void j(@Nullable String str, @NonNull String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ih7
+    public void k(@NonNull LogicField logicField, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(InputDeviceCompat.SOURCE_TOUCHPAD, this, logicField, i) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.ch7
+    public int l(@NonNull LogicField logicField) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, logicField)) == null) {
+            return 8;
+        }
+        return invokeL.intValue;
+    }
+
+    public abstract void m();
+
+    @Override // com.baidu.tieba.ih7
+    public void onChangeSkinType(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+        }
     }
 
     public ah7() {
@@ -30,17 +106,40 @@ public class ah7 implements n15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        un9.b();
+    }
+
+    @Override // com.baidu.tieba.ch7
+    @NonNull
+    public gh7 e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.w1().j0();
+        }
+        return (gh7) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ih7
+    public void onDestory() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && this.a != null) {
+            this.a = null;
         }
     }
 
-    @Override // com.baidu.tieba.n15
-    public Class<? extends l15> a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.ch7
+    public void c(@NonNull FrsFragment frsFragment, @NonNull View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return zg7.class;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, frsFragment, view2) != null) || this.c != null) {
+            return;
         }
-        return (Class) invokeV.objValue;
+        this.a = frsFragment;
+        this.b = view2.getContext();
+        this.c = view2;
+        m();
     }
 }

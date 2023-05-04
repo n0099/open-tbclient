@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.il9;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -118,7 +118,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         registerTask();
     }
 
-    public void T(String str) {
+    public void Y(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
             FreeGiftChanceRequest freeGiftChanceRequest = new FreeGiftChanceRequest();
@@ -127,7 +127,7 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
         }
     }
 
-    public void U(b bVar) {
+    public void Z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) == null) {
             this.b = bVar;
@@ -144,8 +144,8 @@ public class FreeGiftChanceModel extends BdBaseModel<GiftTabActivity> {
     public final void registerTask() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            il9.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
-            il9.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
+            xo9.h(309060, FreeGiftChanceSocketResponseMessage.class, false, false);
+            xo9.c(309060, CmdConfigHttp.CMD_USER_FREE_CHANCE, TbConfig.GET_USER_FREE_CHANCE, FreeGiftChanceHttpResponseMessage.class, false, false, false, false);
         }
     }
 }

@@ -1,45 +1,66 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import androidx.annotation.UiThread;
-import com.baidu.searchbox.unitedscheme.TypedCallbackHandler;
-import com.baidu.swan.apps.core.SwanAppWebViewManager;
-import com.baidu.tieba.cu1;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import androidx.annotation.Nullable;
+import com.baidu.swan.apps.core.container.PullToRefreshBaseWebView;
+import com.baidu.tieba.eu1;
 /* loaded from: classes4.dex */
-public interface du1<T extends cu1> extends TypedCallbackHandler {
-    @UiThread
-    void N();
+public interface du1<T extends eu1> extends fu1<T>, mt1 {
+    void C(int i);
 
-    void U(i92 i92Var);
+    boolean I();
 
-    String a();
+    boolean J();
 
-    void attachActivity(Activity activity);
+    void K(oe2 oe2Var);
 
-    void b(j62 j62Var);
+    ou1 M();
 
-    String b0();
+    void O(FrameLayout frameLayout, m83 m83Var);
 
-    SwanAppWebViewManager.d d();
+    int Q();
 
-    void destroy();
+    void R(String str);
 
-    void e0();
+    void T();
 
-    String getUserAgent();
+    boolean W(vb3 vb3Var);
 
-    void loadUrl(String str);
+    boolean X(vb3 vb3Var);
 
-    void onJSLoaded();
+    void Y(l92 l92Var);
 
-    void onPause();
+    void Z(m92 m92Var);
 
-    void onResume();
+    boolean c();
 
-    @UiThread
-    void q();
+    @Nullable
+    n42 c0();
 
-    T r();
+    int f0();
 
-    void t(i92 i92Var);
+    void h(xx2 xx2Var);
+
+    PullToRefreshBaseWebView h0();
+
+    boolean i0();
+
+    void j(ViewGroup viewGroup, View view2);
+
+    @Nullable
+    String j0();
+
+    gu1 k();
+
+    String m();
+
+    boolean r(int i);
+
+    void x(String str);
+
+    boolean y(vb3 vb3Var);
+
+    void z(FrameLayout frameLayout, m83 m83Var);
 }

@@ -200,6 +200,7 @@ public class CmdConfigHttp {
     public static final int CMD_GIFT_LIST_BY_CATEGORY = 1003046;
     public static final int CMD_GIFT_PALCE_ORDER = 1003053;
     public static final int CMD_GRAFFITI_LIST = 1003082;
+    public static final int CMD_GROUP_CHAT_EXCELLENT_MESSAGE = 1003568;
     public static final int CMD_GUIDE_INTERESTED_FORUM = 1003457;
     public static final int CMD_GUIDE_INTEREST_COMMIT = 1003458;
     public static final int CMD_HISTORY_SWAN = 1003434;
@@ -263,6 +264,7 @@ public class CmdConfigHttp {
     public static final int CMD_PERSON_CENTER_DYNAMIC_TAB = 1003446;
     public static final int CMD_PERSON_POLYMERIC = 1003181;
     public static final int CMD_PLAY_DURATION_STATISTICS = 1003359;
+    public static final int CMD_POST_CALL_ROBOT_ROUTER = 1003565;
     public static final int CMD_POST_SEARCH = 1003016;
     public static final int CMD_POST_VIDEO_MARK_RED_ICON = 1003500;
     public static final int CMD_PROFESSION_PERMISSION = 1003427;
@@ -276,6 +278,8 @@ public class CmdConfigHttp {
     public static final int CMD_REMOVE_FANS = 1003396;
     public static final int CMD_REPORT_HOME_PIC_CLICK = 1003072;
     public static final int CMD_REQUEST_CHAT_ROOM_UPDATE = 1003564;
+    public static final int CMD_REQUEST_CREATE_MEME = 1003566;
+    public static final int CMD_REQUEST_QUERY_MEME = 1003567;
     public static final int CMD_REQUEST_SPRITE_LOOP = 1003562;
     public static final int CMD_REQUEST_SPRITE_QUESTION_REPLY = 1003563;
     public static final int CMD_SAFE_URL_QUERY = 1003433;

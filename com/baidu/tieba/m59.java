@@ -1,94 +1,75 @@
 package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.ArrayList;
-import java.util.List;
-import org.json.JSONArray;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m59 {
+public class m59 extends BaseCardInfo implements in {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
+    public vc5 a;
 
-    public static void a(String str, List<in> list) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, str, list) != null) || StringUtils.isNull(str)) {
-            return;
-        }
-        if (list == null) {
-            list = new ArrayList<>();
-        }
-        JSONArray jSONArray = new JSONArray();
-        int size = list.size();
-        for (int i = 0; i < size; i++) {
-            in inVar = list.get(i);
-            if (inVar instanceof dc5) {
-                dc5 dc5Var = (dc5) inVar;
-                if (!dc5Var.c()) {
-                    jSONArray.put(dc5Var.a());
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947923800, "Lcom/baidu/tieba/m59;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947923800, "Lcom/baidu/tieba/m59;");
+                return;
             }
         }
-        jSONArray.put(str);
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-        httpMessage.addParam("pic_list", jSONArray.toString());
-        MessageManager.getInstance().sendMessage(httpMessage);
+        b = BdUniqueId.gen();
     }
 
-    public static String c(TbPageContext tbPageContext, String str) {
-        InterceptResult invokeLL;
+    public m59() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, tbPageContext, str)) == null) {
-            if (tbPageContext != null && !StringUtils.isNull(str)) {
-                if (tbPageContext.getResources().getDisplayMetrics().densityDpi > 240.0f) {
-                    return "http://tb.himg.baidu.com/sys/portraith/item/" + str;
-                }
-                return "http://tb.himg.baidu.com/sys/portraitl/item/" + str;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
-            return null;
         }
-        return (String) invokeLL.objValue;
     }
 
-    public static void d(dc5 dc5Var, BdUniqueId bdUniqueId) {
+    public vc5 c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, dc5Var, bdUniqueId) != null) || dc5Var == null || StringUtils.isNull(dc5Var.a()) || !ListUtils.isEmpty(MessageManager.getInstance().findMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT, bdUniqueId))) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHANGE_PORTRAIT);
-        httpMessage.addParam("pic_url", dc5Var.a());
-        httpMessage.setTag(bdUniqueId);
-        MessageManager.getInstance().sendMessage(httpMessage);
+        return (vc5) invokeV.objValue;
     }
 
-    public static void b(dc5 dc5Var, List<in> list) {
-        dc5 dc5Var2;
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65537, null, dc5Var, list) == null) && dc5Var != null && !ListUtils.isEmpty(list) && !StringUtils.isNull(dc5Var.a())) {
-            JSONArray jSONArray = new JSONArray();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                in inVar = list.get(i);
-                if ((inVar instanceof dc5) && (dc5Var2 = (dc5) inVar) != dc5Var && !dc5Var2.c()) {
-                    jSONArray.put(dc5Var2.a());
-                }
-            }
-            HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SET_USER_PICS);
-            httpMessage.addParam("pic_list", jSONArray.toString());
-            if (jSONArray.length() <= 0) {
-                httpMessage.addParam("truncat", 1);
-            } else {
-                httpMessage.addParam("truncat", 0);
-            }
-            MessageManager.getInstance().sendMessage(httpMessage);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void d(vc5 vc5Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc5Var) == null) {
+            this.a = vc5Var;
         }
     }
 }

@@ -1,25 +1,30 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.SocketResponsedMessage;
+import android.content.Context;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.addresslist.relationship.ResponseGetAddressListMessage;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Map;
+@Service
 /* loaded from: classes4.dex */
-public class d06 extends xa {
+public class d06 extends vh0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    @Override // com.baidu.tieba.vh0
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "commonVideo" : (String) invokeV.objValue;
+    }
+
     public d06() {
-        super(304001);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -27,45 +32,20 @@ public class d06 extends xa {
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
     }
 
-    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.ResponsedMessage] */
-    /* JADX DEBUG: Return type fixed from 'com.baidu.adp.framework.message.ResponsedMessage' to match base method */
-    @Override // com.baidu.tieba.ua
-    public /* bridge */ /* synthetic */ SocketResponsedMessage a(SocketResponsedMessage socketResponsedMessage) {
-        SocketResponsedMessage socketResponsedMessage2 = socketResponsedMessage;
-        c(socketResponsedMessage2);
-        return socketResponsedMessage2;
-    }
-
-    public SocketResponsedMessage c(SocketResponsedMessage socketResponsedMessage) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.vh0
+    public boolean b(@NonNull Context context, @NonNull zh0 zh0Var, @Nullable Map<String, Object> map, @Nullable di0 di0Var) {
+        InterceptResult invokeLLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, socketResponsedMessage)) == null) {
-            if (socketResponsedMessage != null && socketResponsedMessage.getCmd() == 304001 && !socketResponsedMessage.hasError() && (socketResponsedMessage instanceof ResponseGetAddressListMessage)) {
-                l06 addressListData = ((ResponseGetAddressListMessage) socketResponsedMessage).getAddressListData();
-                this.a = TbadkCoreApplication.getInst().appResponseToCmd(2002006);
-                if (addressListData != null) {
-                    for (p06 p06Var : addressListData.a()) {
-                        List<aa5> a = p06Var.a();
-                        ArrayList arrayList = new ArrayList();
-                        for (aa5 aa5Var : a) {
-                            if (!this.a && aa5Var.h() == 1) {
-                                arrayList.add(aa5Var);
-                            }
-                        }
-                        a.removeAll(arrayList);
-                    }
-                }
-            }
-            return socketResponsedMessage;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, zh0Var, map, di0Var)) == null) {
+            super.b(context, zh0Var, map, di0Var);
+            return be9.d(context, zh0Var.d());
         }
-        return (SocketResponsedMessage) invokeL.objValue;
+        return invokeLLLL.booleanValue;
     }
 }

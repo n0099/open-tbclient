@@ -1,136 +1,163 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.os.Build;
+import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import androidx.constraintlayout.motion.widget.Key;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.bdtask.model.ui.TaskUIData;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tieba.fi3;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.UUID;
+import java.util.Arrays;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gi3 extends s93 {
+public class gi3 extends u93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947794840, "Lcom/baidu/tieba/gi3;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes4.dex */
+    public class a implements fi3.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ UnitedSchemeEntity a;
+        public final /* synthetic */ CallbackHandler b;
+        public final /* synthetic */ py1 c;
+        public final /* synthetic */ gi3 d;
+
+        public a(gi3 gi3Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, py1 py1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gi3Var, unitedSchemeEntity, callbackHandler, py1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947794840, "Lcom/baidu/tieba/gi3;");
-                return;
+            this.d = gi3Var;
+            this.a = unitedSchemeEntity;
+            this.b = callbackHandler;
+            this.c = py1Var;
+        }
+
+        @Override // com.baidu.tieba.fi3.b
+        public void a(float[] fArr) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, fArr) == null) && fArr != null && fArr.length == 3) {
+                this.d.k(this.a, this.b, this.c, fArr);
             }
         }
-        c = fo1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gi3(s83 s83Var) {
-        super(s83Var, "/swanAPI/getSystemRiskInfo");
+    public gi3(u83 u83Var) {
+        super(u83Var, "/swanAPI/startDeviceMotion");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            Object[] objArr = {u83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 Object[] objArr2 = newInitContext.callArgs;
                 super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
-        String h;
-        String a;
-        String O;
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            sr1 h0 = cr2.h0();
-            JSONObject jSONObject = new JSONObject();
-            if (context == null) {
-                try {
-                    context = cr2.c();
-                } catch (JSONException e) {
-                    e.printStackTrace();
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (x73Var == null) {
+                x42.c("StartDeviceMotionAction", "none swanApp");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal swanApp");
+                return false;
+            } else if (context == null) {
+                x42.c("StartDeviceMotionAction", "none context");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal context");
+                return false;
+            } else {
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    x42.c("StartDeviceMotionAction", "none params");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
                 }
+                String optString = optParamsAsJo.optString("cb");
+                if (TextUtils.isEmpty(optString)) {
+                    x42.c("StartDeviceMotionAction", "cb is empty");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                String optString2 = optParamsAsJo.optString("interval");
+                if (TaskUIData.key.equals(optString2)) {
+                    i = 2;
+                } else if ("game".equals(optString2)) {
+                    i = 1;
+                } else {
+                    i = 3;
+                }
+                x42.i("StartDeviceMotionAction", "startSensor===");
+                py1 py1Var = new py1("deviceMotionChange", optParamsAsJo, optString);
+                if (!fi3.h().l(i, new a(this, unitedSchemeEntity, callbackHandler, py1Var))) {
+                    x42.c("StartDeviceMotionAction", "start system sensor fail");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "start system sensor fail");
+                    return false;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                py1Var.a(unitedSchemeEntity, callbackHandler);
+                return true;
             }
-            String str = "";
-            if (h0 == null) {
-                h = "";
-            } else {
-                h = h0.h(context);
-            }
-            jSONObject.put(DpStatConstants.KEY_USER_ID, h);
-            if (h0 == null) {
-                a = "";
-            } else {
-                a = cr2.G0().a(context);
-            }
-            jSONObject.put("zid", a);
-            jSONObject.put("idfa", "");
-            jSONObject.put("imei", pl3.r());
-            if (v73Var == null) {
-                O = "";
-            } else {
-                O = v73Var.O();
-            }
-            jSONObject.put("appkey", O);
-            jSONObject.put("os", "android");
-            jSONObject.put("osVersion", Build.VERSION.RELEASE);
-            jSONObject.put("hostName", context.getPackageName());
-            jSONObject.put("hostVersion", pl3.D());
-            jSONObject.put("model", Build.MODEL);
-            jSONObject.put("uuid", ho4.b(context).a());
-            jSONObject.put("timestamp", String.valueOf(System.currentTimeMillis() / 1000));
-            if (h0 != null) {
-                str = h0.i(context);
-            }
-            jSONObject.put("cuid", str);
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", jSONObject.toString());
-            }
-            String b = qo4.b(UUID.randomUUID().toString().getBytes(), false);
-            String a2 = nk3.a(b, jSONObject.toString(), "AES/CTR/NoPadding", "4c6579b50ff05adb");
-            String d = nk3.d("MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQCjP7b5s3ozPgXpS7d9k2dGaie8KLNmCbhybWPxVjLTmN4Jj3c7GnwdzyIQOix7t95Kipd75AXcnP2c4vUnmXPpZwh6ejNAmiGLkLE7fobPCZKfI3aTweSKxIav3QPHMaZrra1aiGtnZ+rTHXD3chBpNCGbuAEUqN+psHjvnHO72QIDAQAB", b, "RSA/ECB/PKCS1Padding");
-            if (c) {
-                Log.d("GetSystemRiskInfoAction", "aesKey=" + b + ", aesValue=" + a2 + ", rsaKey=" + d);
-            }
-            JSONObject jSONObject2 = new JSONObject();
-            JSONObject jSONObject3 = new JSONObject();
-            try {
-                jSONObject3.put("key", d);
-                jSONObject3.put("value", a2);
-                jSONObject2.put("content", jSONObject3);
-            } catch (JSONException e2) {
-                e2.printStackTrace();
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(jSONObject2, 0));
-            return true;
         }
         return invokeLLLL.booleanValue;
+    }
+
+    public final void k(UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, py1 py1Var, float[] fArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, unitedSchemeEntity, callbackHandler, py1Var, fArr) == null) {
+            JSONObject jSONObject = new JSONObject();
+            double[] dArr = new double[3];
+            double d = fArr[0] - 1.5707963267948966d;
+            if (d < 0.0d) {
+                d += 6.283185307179586d;
+            }
+            dArr[0] = Math.toDegrees(d);
+            dArr[1] = Math.toDegrees(-fArr[2]);
+            dArr[2] = Math.toDegrees(-fArr[1]);
+            if (u93.b) {
+                Log.i("SwanAppAction", "deviceMotionChange: " + Arrays.toString(dArr));
+            }
+            try {
+                jSONObject.put(Key.ALPHA, (float) dArr[0]);
+                jSONObject.put("beta", (float) dArr[1]);
+                jSONObject.put("gamma", (float) dArr[2]);
+                py1Var.c(unitedSchemeEntity, callbackHandler, jSONObject);
+            } catch (JSONException e) {
+                x42.c("StartDeviceMotionAction", "handle orientation,json error，" + e.toString());
+                py1Var.e(unitedSchemeEntity, callbackHandler, "Json error");
+            }
+        }
     }
 }

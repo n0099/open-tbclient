@@ -1,9 +1,9 @@
 package com.baidu.tieba;
 
 import android.media.MediaCodec;
-import android.media.MediaCrypto;
 import android.media.MediaFormat;
-import android.view.Surface;
+import android.media.MediaMuxer;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -12,11 +12,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.nio.ByteBuffer;
 /* loaded from: classes5.dex */
-public class kd0 extends fd0 {
-    public static /* synthetic */ Interceptable $ic;
+public class kd0 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String d = "kd0";
     public transient /* synthetic */ FieldHolder $fh;
-    public Surface l;
+    public MediaMuxer a;
+    public volatile boolean b;
+    public ld0 c;
 
     static {
         InterceptResult invokeClinit;
@@ -43,72 +47,123 @@ public class kd0 extends fd0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        this.b = false;
     }
 
-    public Surface k() {
+    public boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.l;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
         }
-        return (Surface) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fd0
-    public void j() {
+    public void d() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            if (this.h == 0) {
-                this.h = this.e.presentationTimeUs;
-                fd0.j = 0L;
-            }
-            MediaCodec.BufferInfo bufferInfo = this.e;
-            long j = bufferInfo.presentationTimeUs - this.h;
-            bufferInfo.presentationTimeUs = j;
-            fd0.j = j;
-            ad0.x().V(fd0.j / 1000);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && !this.b) {
+            this.a.release();
+            this.a = null;
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:15:0x0060  */
-    /* JADX WARN: Removed duplicated region for block: B:22:? A[RETURN, SYNTHETIC] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public void l(hd0 hd0Var, id0 id0Var) {
-        gd0 gd0Var;
+    public synchronized void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, hd0Var, id0Var) == null) {
-            boolean z = true;
-            if (hd0Var != null && id0Var != null) {
-                this.c = id0Var;
-                MediaFormat createVideoFormat = MediaFormat.createVideoFormat(hd0Var.j(), hd0Var.n(), hd0Var.l());
-                createVideoFormat.setInteger("color-format", 2130708361);
-                createVideoFormat.setInteger("bitrate", hd0Var.i());
-                createVideoFormat.setInteger("frame-rate", hd0Var.k());
-                createVideoFormat.setInteger("i-frame-interval", hd0Var.m());
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            synchronized (this) {
+                boolean z = true;
                 try {
-                    MediaCodec createEncoderByType = MediaCodec.createEncoderByType(hd0Var.j());
-                    this.d = createEncoderByType;
-                    createEncoderByType.configure(createVideoFormat, (Surface) null, (MediaCrypto) null, 1);
-                    this.l = this.d.createInputSurface();
-                    this.g = true;
+                    this.a.start();
+                    this.b = true;
+                } catch (Exception unused) {
+                    Log.e(d, "startMuxer error!!!");
+                    z = false;
+                }
+                if (this.c != null) {
+                    this.c.a(z);
+                }
+            }
+        }
+    }
+
+    public synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            synchronized (this) {
+                boolean z = false;
+                try {
+                    this.a.stop();
+                    this.b = false;
+                    z = true;
+                } catch (Exception unused) {
+                    Log.e(d, "stopMuxer error!!!");
+                }
+                if (this.c != null) {
+                    this.c.b(z);
+                }
+            }
+        }
+    }
+
+    public synchronized int a(MediaFormat mediaFormat) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, mediaFormat)) == null) {
+            synchronized (this) {
+                try {
+                    int addTrack = this.a.addTrack(mediaFormat);
+                    if (addTrack >= 0) {
+                        return addTrack;
+                    }
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
-                gd0Var = this.f;
-                if (gd0Var == null) {
-                    gd0Var.b(z);
-                    return;
-                }
-                return;
-            }
-            z = false;
-            gd0Var = this.f;
-            if (gd0Var == null) {
+                Log.e(d, "addMuxerTrack error!!!");
+                return -1;
             }
         }
+        return invokeL.intValue;
+    }
+
+    public boolean b(String str, int i, ld0 ld0Var) {
+        InterceptResult invokeLIL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, i, ld0Var)) == null) {
+            if (!nd0.a(str)) {
+                nd0.b(str);
+            }
+            try {
+                this.a = new MediaMuxer(str, i);
+                this.c = ld0Var;
+                this.b = false;
+                return true;
+            } catch (Exception e) {
+                Log.e(d, "initMovieMuxer init error!!!");
+                e.printStackTrace();
+                return false;
+            }
+        }
+        return invokeLIL.booleanValue;
+    }
+
+    public boolean g(int i, ByteBuffer byteBuffer, MediaCodec.BufferInfo bufferInfo) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048582, this, i, byteBuffer, bufferInfo)) == null) {
+            if (i != -1) {
+                try {
+                    this.a.writeSampleData(i, byteBuffer, bufferInfo);
+                    return true;
+                } catch (Exception unused) {
+                    Log.e(d, "startMuxer error!!!");
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeILL.booleanValue;
     }
 }

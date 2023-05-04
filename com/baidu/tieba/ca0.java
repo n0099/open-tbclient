@@ -1,25 +1,31 @@
 package com.baidu.tieba;
 
-import android.os.Build;
-import android.widget.EditText;
-import android.widget.TextView;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import java.lang.reflect.Field;
+import com.baidu.live.business.model.data.LiveRoomEntity;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.LiveSearchSuggestion;
+import com.baidu.live.feed.search.model.data.SearchResultBean;
+import java.util.List;
 /* loaded from: classes3.dex */
-public class ca0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface ca0 {
+    void A0(List<? extends LiveRoomEntity> list);
 
-    public static void a(EditText editText, int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLI(65536, null, editText, i) == null) && Build.VERSION.SDK_INT < 29) {
-            try {
-                Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
-                declaredField.setAccessible(true);
-                declaredField.set(editText, Integer.valueOf(i));
-            } catch (Exception unused) {
-            }
-        }
-    }
+    void F0();
+
+    void a1(List<String> list);
+
+    void i0();
+
+    void j0(List<? extends LiveSearchResultInfo> list, List<? extends LiveSearchSuggestion> list2);
+
+    void k(int i);
+
+    void l();
+
+    void p(da0 da0Var);
+
+    void showToast(String str);
+
+    void t(List<String> list);
+
+    void u(SearchResultBean searchResultBean);
 }

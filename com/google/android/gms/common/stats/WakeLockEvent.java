@@ -12,7 +12,7 @@ import javax.annotation.Nullable;
 @KeepForSdk
 @SafeParcelable.Class(creator = "WakeLockEventCreator")
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class WakeLockEvent extends StatsEvent {
     @NonNull
     public static final Parcelable.Creator<WakeLockEvent> CREATOR = new zza();

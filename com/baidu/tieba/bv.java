@@ -198,7 +198,7 @@ public class bv {
         layoutParams.height = -2;
         layoutParams.width = -2;
         layoutParams.format = -3;
-        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100425;
+        layoutParams.windowAnimations = R.style.obfuscated_res_0x7f100426;
         layoutParams.type = 2005;
         layoutParams.setTitle("Toast");
         WindowManager.LayoutParams layoutParams2 = this.f;

@@ -1,55 +1,43 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
 import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.template.model.LoadType;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.gy;
+import com.baidu.tieba.ry;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class po5 {
+public class po5 extends go5<f05, ThreadCardViewHolder<f05>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public BdTypeRecyclerView b;
-    public final List<in> c;
-    public CustomMessageListener d;
-    public CustomMessageListener e;
 
     /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
+    public class a implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ po5 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(po5 po5Var, int i) {
-            super(i);
+        public a(po5 po5Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {po5Var, Integer.valueOf(i)};
+                Object[] objArr = {po5Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -58,205 +46,83 @@ public class po5 {
             this.a = po5Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // com.baidu.tieba.sn
+        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                po5 po5Var = this.a;
-                po5Var.c(po5Var.b, customResponsedMessage);
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (inVar instanceof f05) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                f05 f05Var = (f05) inVar;
+                f05Var.objType = 1;
+                ThreadCardUtils.jumpToPB((ax4) f05Var, view2.getContext(), this.a.C(), false);
+                ((ThreadCardViewHolder) view2.getTag()).a().p(new ry.a(1));
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ po5 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(po5 po5Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {po5Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = po5Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                po5 po5Var = this.a;
-                po5Var.c(po5Var.b, customResponsedMessage);
-            }
-        }
-    }
-
-    public po5(BdTypeRecyclerView bdTypeRecyclerView) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public po5(TbPageContext<?> tbPageContext) {
+        super(tbPageContext, ThreadData.TYPE_MULTI_LINK);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {bdTypeRecyclerView};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.c = new ArrayList();
-        this.d = new a(this, 2016488);
-        this.e = new b(this, 2016553);
-        this.b = bdTypeRecyclerView;
     }
 
-    public final void c(BdTypeRecyclerView bdTypeRecyclerView, CustomResponsedMessage<?> customResponsedMessage) {
-        pz4 pz4Var;
+    @Override // com.baidu.tieba.go5
+    public void M(on onVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, onVar) == null) {
+            this.d = onVar;
+        }
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: O */
+    public ThreadCardViewHolder<f05> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
+            gy.b bVar = new gy.b(this.c.getPageActivity(), false);
+            bVar.h(new vx(this.c.getPageActivity()));
+            gy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.d);
+            k.s(C());
+            ThreadCardViewHolder<f05> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.mPageId);
+            setOnAdapterItemClickListener(new a(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: P */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f05 f05Var, ThreadCardViewHolder<f05> threadCardViewHolder) {
+        InterceptResult invokeCommon;
         ThreadData threadData;
-        ThreadData threadData2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, bdTypeRecyclerView, customResponsedMessage) == null) && bdTypeRecyclerView != null && customResponsedMessage != null && (customResponsedMessage.getData() instanceof JSONObject)) {
-            JSONObject jSONObject = (JSONObject) customResponsedMessage.getData();
-            String optString = jSONObject.optString("tid");
-            if (StringUtils.isNull(optString)) {
-                String optString2 = jSONObject.optString("liveid");
-                if (bdTypeRecyclerView != null && !TextUtils.isEmpty(optString2)) {
-                    int i = 0;
-                    while (true) {
-                        if (i >= bdTypeRecyclerView.getCount()) {
-                            break;
-                        }
-                        in item = bdTypeRecyclerView.getItem(i);
-                        if (item instanceof kw4) {
-                            kw4 kw4Var = (kw4) item;
-                            if (kw4Var.getThreadData() != null && kw4Var.getThreadData().getThreadAlaInfo() != null && optString2.equals(String.valueOf(kw4Var.getThreadData().getThreadAlaInfo().live_id))) {
-                                optString = kw4Var.getThreadData().getTid();
-                                break;
-                            }
-                        }
-                        i++;
-                    }
-                }
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f05Var, threadCardViewHolder})) == null) {
+            if (f05Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = f05Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(f05Var);
+                threadCardViewHolder.a().onChangeSkinType(this.c, TbadkCoreApplication.getInst().getSkinType());
+                return threadCardViewHolder.getView();
             }
-            if (StringUtils.isNull(optString)) {
-                return;
-            }
-            Iterator<in> it = this.c.iterator();
-            while (it.hasNext()) {
-                in next = it.next();
-                if ((next instanceof kw4) && (threadData2 = ((kw4) next).getThreadData()) != null && !TextUtils.isEmpty(threadData2.getTid()) && optString.equals(threadData2.getTid())) {
-                    it.remove();
-                }
-            }
-            List<in> data = bdTypeRecyclerView.getData();
-            if (ListUtils.isEmpty(data)) {
-                return;
-            }
-            Iterator<in> it2 = data.iterator();
-            int i2 = -1;
-            int i3 = -1;
-            int i4 = -1;
-            int i5 = 0;
-            while (it2.hasNext()) {
-                in next2 = it2.next();
-                if ((next2 instanceof pz4) && (threadData = (pz4Var = (pz4) next2).t) != null) {
-                    if (i2 >= 0) {
-                        if (pz4Var.position != i2) {
-                            break;
-                        }
-                        it2.remove();
-                        i4 = i5;
-                    } else if (StringHelper.equals(optString, threadData.getTid())) {
-                        i2 = pz4Var.position;
-                        it2.remove();
-                        i3 = i5;
-                    }
-                }
-                i5++;
-            }
-            if (i3 < i4) {
-                bdTypeRecyclerView.removeItemList(i3, i4);
-            }
+            return null;
         }
-    }
-
-    public go5 d(LoadType loadType, ho5 ho5Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, loadType, ho5Var)) == null) {
-            if (ho5Var == null) {
-                go5 go5Var = new go5();
-                go5Var.a = null;
-                return go5Var;
-            }
-            List<ThreadData> f = ho5Var.f();
-            List<kw4> e = ho5Var.e();
-            ho5Var.h(f);
-            zo5.b("response threadList =  " + ListUtils.getCount(f));
-            if (!ListUtils.isEmpty(f)) {
-                if (loadType == LoadType.REFRESH) {
-                    this.c.clear();
-                    this.c.addAll(f);
-                } else if (loadType == LoadType.PREPEND) {
-                    this.c.addAll(0, f);
-                } else {
-                    this.c.addAll(f);
-                }
-            }
-            ArrayList arrayList = new ArrayList(ListUtils.getCount(this.c) + ListUtils.getCount(e));
-            arrayList.addAll(this.c);
-            zo5.b("dataList = " + ListUtils.getCount(arrayList));
-            zo5.b("floorList = " + ListUtils.getCount(e));
-            if (!ListUtils.isEmpty(e)) {
-                for (kw4 kw4Var : e) {
-                    ap5.b(arrayList, kw4Var);
-                }
-            }
-            List<in> d = ho5Var.d(arrayList);
-            if (d == null) {
-                d = ap5.a(arrayList);
-            }
-            int count = ListUtils.getCount(d);
-            int count2 = ListUtils.getCount(f);
-            zo5.b("addThreadCount=" + count2 + ",resultThreadList=" + count);
-            go5 go5Var2 = new go5();
-            go5Var2.a = d;
-            ho5Var.g(go5Var2);
-            return go5Var2;
-        }
-        return (go5) invokeLL.objValue;
-    }
-
-    public void e(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bdUniqueId) == null) {
-            if (this.a != bdUniqueId) {
-                this.d.setTag(bdUniqueId);
-                this.e.setTag(bdUniqueId);
-                MessageManager.getInstance().unRegisterListener(this.d);
-                MessageManager.getInstance().unRegisterListener(this.e);
-                MessageManager.getInstance().registerListener(this.d);
-                MessageManager.getInstance().registerListener(this.e);
-            }
-            this.a = bdUniqueId;
-        }
+        return (View) invokeCommon.objValue;
     }
 }

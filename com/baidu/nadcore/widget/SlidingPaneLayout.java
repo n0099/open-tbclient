@@ -25,7 +25,7 @@ import androidx.core.view.AccessibilityDelegateCompat;
 import androidx.core.view.MotionEventCompat;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.accessibility.AccessibilityNodeInfoCompat;
-import com.baidu.tieba.db1;
+import com.baidu.tieba.fb1;
 import java.util.ArrayList;
 /* loaded from: classes2.dex */
 public abstract class SlidingPaneLayout extends ViewGroup {
@@ -47,7 +47,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     public float o;
     public float p;
     public e q;
-    public final db1 r;
+    public final fb1 r;
     public double s;
     public double t;
     public boolean u;
@@ -199,18 +199,18 @@ public abstract class SlidingPaneLayout extends ViewGroup {
     }
 
     /* loaded from: classes2.dex */
-    public class d extends db1.c {
+    public class d extends fb1.c {
         public int a;
 
         public d() {
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public int d(View view2) {
             return SlidingPaneLayout.this.k;
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public void g(int i, int i2) {
             if (!SlidingPaneLayout.this.f) {
                 SlidingPaneLayout.this.r();
@@ -218,12 +218,12 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             SlidingPaneLayout.this.r.c(SlidingPaneLayout.this.h, i2);
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public void j(View view2, int i) {
             SlidingPaneLayout.this.G();
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public boolean n(View view2, int i) {
             if (SlidingPaneLayout.this.l) {
                 return false;
@@ -234,18 +234,18 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             return ((LayoutParams) view2.getLayoutParams()).b;
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public int a(View view2, int i, int i2) {
             int paddingLeft = SlidingPaneLayout.this.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) SlidingPaneLayout.this.h.getLayoutParams())).leftMargin;
             return Math.min(Math.max(i, paddingLeft), SlidingPaneLayout.this.k + paddingLeft);
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public boolean f() {
             return SlidingPaneLayout.this.f;
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public void k(int i) {
             if (SlidingPaneLayout.this.r.y() == 0) {
                 if (SlidingPaneLayout.this.i == 0.0f) {
@@ -262,14 +262,14 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             }
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public void l(View view2, int i, int i2, int i3, int i4) {
             this.a = i;
             SlidingPaneLayout.this.C(i);
             SlidingPaneLayout.this.invalidate();
         }
 
-        @Override // com.baidu.tieba.db1.c
+        @Override // com.baidu.tieba.fb1.c
         public void m(View view2, float f, float f2) {
             int i;
             int paddingLeft = SlidingPaneLayout.this.getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) view2.getLayoutParams())).leftMargin;
@@ -621,7 +621,7 @@ public abstract class SlidingPaneLayout extends ViewGroup {
         setWillNotDraw(false);
         ViewCompat.setAccessibilityDelegate(this, new b());
         ViewCompat.setImportantForAccessibility(this, 1);
-        db1 m = db1.m(this, 0.5f, new d());
+        fb1 m = fb1.m(this, 0.5f, new d());
         this.r = m;
         m.H(1);
         this.r.I(f2 * 400.0f);
@@ -694,9 +694,9 @@ public abstract class SlidingPaneLayout extends ViewGroup {
             return false;
         }
         int paddingLeft = (int) (getPaddingLeft() + ((ViewGroup.MarginLayoutParams) ((LayoutParams) this.h.getLayoutParams())).leftMargin + (f2 * this.k));
-        db1 db1Var = this.r;
+        fb1 fb1Var = this.r;
         View view2 = this.h;
-        if (!db1Var.L(view2, paddingLeft, view2.getTop())) {
+        if (!fb1Var.L(view2, paddingLeft, view2.getTop())) {
             return false;
         }
         G();

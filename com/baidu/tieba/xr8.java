@@ -1,77 +1,127 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.Intent;
-import android.view.LayoutInflater;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
-import androidx.annotation.NonNull;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.net.Uri;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.SapiAccount;
-import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.sapi2.utils.enums.SocialType;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tbadk.core.util.SvgManager;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.passaccount.app.LoginDialogActivity;
+import com.baidu.nadcore.exp.ADConfigError;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.util.List;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
 /* loaded from: classes7.dex */
-public class xr8 implements vr8, View.OnClickListener {
+public class xr8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public LoginDialogActivity a;
-    public View b;
-    public View c;
-    public View d;
-    public ImageView e;
-    public TextView f;
-    public TextView g;
-    public View h;
-    public TbImageView i;
-    public TextView j;
-    public TextView k;
-    public TextView l;
-    public View m;
-    public View n;
-    public View o;
-    public View p;
-    public View q;
-    public final ShareStorage.StorageModel r;
-
-    @Override // com.baidu.tieba.vr8
-    public Intent getResultIntent() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return null;
-        }
-        return (Intent) invokeV.objValue;
-    }
 
     /* loaded from: classes7.dex */
-    public class a extends WebAuthListener {
+    public static class a implements ed5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xr8 a;
+        public final /* synthetic */ bs8 a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ cs8 c;
 
-        public a(xr8 xr8Var) {
+        @Override // com.baidu.tieba.ed5
+        public boolean onFileDownloaded(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        @Override // com.baidu.tieba.ed5
+        public boolean onPreDownload(DownloadData downloadData) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
+                return true;
+            }
+            return invokeL.booleanValue;
+        }
+
+        /* renamed from: com.baidu.tieba.xr8$a$a  reason: collision with other inner class name */
+        /* loaded from: classes7.dex */
+        public class C0491a extends BdAsyncTask<Void, Void, Boolean> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ DownloadData a;
+            public final /* synthetic */ a b;
+
+            public C0491a(a aVar, DownloadData downloadData) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, downloadData};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.b = aVar;
+                this.a = downloadData;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public Boolean doInBackground(Void... voidArr) {
+                InterceptResult invokeL;
+                Interceptable interceptable = $ic;
+                if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
+                    FileHelper.deleteFileOrDir(new File(this.b.b));
+                    if (xr8.g(this.a.getPath(), this.b.c)) {
+                        a aVar = this.b;
+                        return Boolean.valueOf(xr8.f(aVar.c, aVar.b));
+                    }
+                    return Boolean.FALSE;
+                }
+                return (Boolean) invokeL.objValue;
+            }
+
+            /* JADX DEBUG: Method merged with bridge method */
+            @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+            public void onPostExecute(Boolean bool) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bool) == null) {
+                    if (bool.booleanValue()) {
+                        a aVar = this.b;
+                        aVar.a.onSuccess(aVar.b);
+                        return;
+                    }
+                    this.b.a.onFail("fail to download");
+                }
+            }
+        }
+
+        public a(bs8 bs8Var, String str, cs8 cs8Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xr8Var};
+                Object[] objArr = {bs8Var, str, cs8Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -81,281 +131,190 @@ public class xr8 implements vr8, View.OnClickListener {
                     return;
                 }
             }
-            this.a = xr8Var;
+            this.a = bs8Var;
+            this.b = str;
+            this.c = cs8Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
+        @Override // com.baidu.tieba.ed5
+        public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                this.a.a.showToast(String.format(this.a.a.getString(R.string.obfuscated_res_0x7f0f121d), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-                this.a.a.P1();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.a.a.Q1();
-                this.a.a.H1(DialogLoginHelper.DIALOG_TYPE_SHARE);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends WebAuthListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ SocialType a;
-        public final /* synthetic */ xr8 b;
-
-        public b(xr8 xr8Var, SocialType socialType) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xr8Var, socialType};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
+                wr8.a("【表情下载】 onFileDownloadFailed = " + str);
+                if (this.a != null) {
+                    String str2 = "faile to download:";
+                    if (downloadData != null && !TextUtils.isEmpty(downloadData.getUrl())) {
+                        str2 = "faile to download:" + downloadData.getUrl();
+                    }
+                    this.a.onFail(str2);
                 }
             }
-            this.b = xr8Var;
-            this.a = socialType;
         }
 
-        @Override // com.baidu.sapi2.shell.listener.WebAuthListener
-        public void beforeSuccess(SapiAccount sapiAccount) {
+        @Override // com.baidu.tieba.ed5
+        public void onFileDownloadSucceed(DownloadData downloadData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, sapiAccount) == null) {
-                this.b.a.S1();
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) == null) {
+                wr8.a("【表情下载】 onFileDownloadSucceed = " + this.b);
+                new C0491a(this, downloadData).execute(new Void[0]);
             }
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
+        @Override // com.baidu.tieba.ed5
+        public void onFileUpdateProgress(DownloadData downloadData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webAuthResult) == null) {
-                this.b.a.closeLoadingDialog();
-                this.b.a.showToast(String.format(this.b.a.getString(R.string.obfuscated_res_0x7f0f14b2), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-                this.b.a.P1();
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048580, this, webAuthResult) == null) {
-                this.b.a.Q1();
-                this.b.a.H1(this.a.name().toLowerCase());
+            if (interceptable == null || interceptable.invokeL(1048579, this, downloadData) == null) {
+                bs8 bs8Var = this.a;
+                if (bs8Var != null) {
+                    bs8Var.onProgress(downloadData.getProcess());
+                }
+                wr8.a("【表情下载】 onFileUpdateProgress = " + downloadData.getProcess());
             }
         }
     }
 
-    public xr8(@NonNull String str) {
+    public static void c(cs8 cs8Var, bs8 bs8Var) {
+        List<ds8> list;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65538, null, cs8Var, bs8Var) == null) {
+            if (cs8Var != null && (list = cs8Var.e) != null && list.size() != 0 && !TextUtils.isEmpty(cs8Var.d)) {
+                wr8.a("【表情下载】 url = " + cs8Var.d);
+                a aVar = new a(bs8Var, yr8.c + cs8Var.a + "/", cs8Var);
+                new File(yr8.c).mkdirs();
+                d(cs8Var, yr8.c, aVar);
                 return;
             }
-        }
-        this.r = (ShareStorage.StorageModel) new Gson().fromJson(str, (Class<Object>) ShareStorage.StorageModel.class);
-    }
-
-    public final void h(SocialType socialType) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, socialType) == null) {
-            PassportSDK.getInstance().loadThirdPartyLogin(new b(this, socialType), socialType);
+            if (bs8Var != null) {
+                bs8Var.onFail("group data null");
+            }
+            wr8.a("【表情下载】 fail = 参数异常");
         }
     }
 
-    @Override // com.baidu.tieba.vr8
-    public void a(LoginDialogActivity loginDialogActivity, ViewGroup viewGroup) {
+    public static void d(cs8 cs8Var, String str, ed5 ed5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, loginDialogActivity, viewGroup) == null) {
-            this.a = loginDialogActivity;
-            View inflate = LayoutInflater.from(loginDialogActivity).inflate(R.layout.obfuscated_res_0x7f0d0821, viewGroup, true);
-            this.b = inflate.findViewById(R.id.obfuscated_res_0x7f09085d);
-            this.c = inflate.findViewById(R.id.obfuscated_res_0x7f090877);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f0906fd);
-            this.e = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f0906fe);
-            this.f = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090884);
-            this.g = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090882);
-            this.h = inflate.findViewById(R.id.obfuscated_res_0x7f0926a2);
-            this.i = (TbImageView) inflate.findViewById(R.id.user_avatar);
-            this.j = (TextView) inflate.findViewById(R.id.user_name);
-            this.k = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0926cc);
-            this.l = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0915b0);
-            this.m = inflate.findViewById(R.id.obfuscated_res_0x7f091cb0);
-            this.n = inflate.findViewById(R.id.obfuscated_res_0x7f092874);
-            this.o = inflate.findViewById(R.id.obfuscated_res_0x7f092877);
-            this.p = inflate.findViewById(R.id.obfuscated_res_0x7f0928ef);
-            this.q = inflate.findViewById(R.id.obfuscated_res_0x7f0916e1);
-            this.b.setOnClickListener(this);
-            this.d.setOnClickListener(this);
-            this.e.setOnClickListener(this);
-            this.c.setOnClickListener(this);
-            this.i.setIsRound(true);
-            this.i.setDefaultBgResource(R.drawable.icon_default_avatar100_bg);
-            this.l.setOnClickListener(this);
-            this.m.setOnClickListener(this);
-            this.n.setOnClickListener(this);
-            this.o.setOnClickListener(this);
-            this.p.setOnClickListener(this);
-            this.q.setOnClickListener(this);
-            d();
+        if (interceptable == null || interceptable.invokeLLL(65539, null, cs8Var, str, ed5Var) == null) {
+            if (cs8Var != null && !TextUtils.isEmpty(cs8Var.d)) {
+                String str2 = cs8Var.a + ".zip";
+                DownloadData downloadData = new DownloadData(cs8Var.a, str2, Uri.encode(cs8Var.d, "-![.:/,%?&=]"), ed5Var);
+                downloadData.setPath(str + str2);
+                fd5.k().l(downloadData);
+            } else if (ed5Var != null) {
+                ed5Var.onFileDownloadFailed(null, 0, ADConfigError.REASON_NULL_DATA);
+            }
         }
     }
 
-    public final void c() {
+    public static String e(String str, String str2, Bitmap bitmap, int i) {
+        InterceptResult invokeLLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.a.O1();
-            this.a.finish();
-        }
-    }
-
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.r != null) {
-            PassportSDK.getInstance().invokeV2ShareLogin(this.a, new a(this), this.r);
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            h(SocialType.QQ_SSO);
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            h(SocialType.WEIXIN);
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            h(SocialType.SINA_WEIBO_SSO);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            h(SocialType.YY);
-        }
-    }
-
-    public final void d() {
-        ShareStorage.StorageModel storageModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || (storageModel = this.r) == null) {
-            return;
-        }
-        this.i.N(storageModel.url, 10, false);
-        this.j.setText(this.r.displayname);
-        this.k.setText(this.a.getResources().getString(R.string.obfuscated_res_0x7f0f121c, this.r.app));
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            this.a.finish();
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) this.a, true);
-            loginActivityConfig.setLoginListener(this.a.L1());
-            loginActivityConfig.setFrom(this.a.getPreExtraPageKey());
-            loginActivityConfig.setFromDialog("share_more");
-            loginActivityConfig.start();
-        }
-    }
-
-    @Override // com.baidu.tieba.vr8
-    public void o(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            r25 d = r25.d(this.c);
-            d.n(1);
-            d.o(R.string.J_X14);
-            d.f(R.color.CAM_X0207);
-            SvgManager.getInstance().setPureDrawableWithDayNightModeAutoChange(this.e, R.drawable.icon_pure_close12_n_svg, R.color.CAM_X0105, SvgManager.SvgResourceStateType.NORMAL_PRESS);
-            r25 d2 = r25.d(this.f);
-            d2.w(R.color.CAM_X0105);
-            d2.B(R.dimen.T_X05);
-            d2.C(R.string.F_X02);
-            r25 d3 = r25.d(this.g);
-            d3.w(R.color.CAM_X0108);
-            d3.B(R.dimen.T_X08);
-            d3.C(R.string.F_X01);
-            r25 d4 = r25.d(this.h);
-            d4.o(R.string.J_X05);
-            d4.f(R.color.CAM_X0204);
-            r25 d5 = r25.d(this.j);
-            d5.w(R.color.CAM_X0105);
-            d5.B(R.dimen.T_X05);
-            d5.C(R.string.F_X02);
-            r25 d6 = r25.d(this.k);
-            d6.w(R.color.CAM_X0108);
-            d6.B(R.dimen.T_X08);
-            d6.C(R.string.F_X01);
-            r25 d7 = r25.d(this.l);
-            d7.w(R.color.CAM_X0101);
-            d7.B(R.dimen.T_X05);
-            d7.C(R.string.F_X01);
-            d7.o(R.string.J_X01);
-            d7.f(R.color.CAM_X0302);
-        }
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, view2) == null) {
-            int id = view2.getId();
-            if (id != R.id.obfuscated_res_0x7f09085d && id != R.id.obfuscated_res_0x7f0906fd && id != R.id.obfuscated_res_0x7f0906fe) {
-                if (id == R.id.obfuscated_res_0x7f0915b0) {
-                    e();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f091cb0) {
-                    g();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f092874) {
-                    i();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f092877) {
-                    j();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f0928ef) {
-                    k();
-                    return;
-                } else if (id == R.id.obfuscated_res_0x7f0916e1) {
-                    f();
-                    return;
-                } else {
-                    return;
+        if (interceptable == null || (invokeLLLI = interceptable.invokeLLLI(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2, bitmap, i)) == null) {
+            if (bitmap != null && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+                File file = new File(str + str2);
+                try {
+                    if ((file.exists() && !file.delete()) || !file.createNewFile()) {
+                        return null;
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file);
+                    bitmap.compress(Bitmap.CompressFormat.PNG, i, fileOutputStream);
+                    fileOutputStream.flush();
+                    fileOutputStream.close();
+                    return file.getPath();
+                } catch (Exception unused) {
                 }
             }
-            c();
+            return null;
+        }
+        return (String) invokeLLLI.objValue;
+    }
+
+    public static boolean f(cs8 cs8Var, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, cs8Var, str)) == null) {
+            File file = new File(str + "panel.png");
+            File file2 = new File(str + "panel_momo.png");
+            if (file.exists() && file2.exists()) {
+                wr8.a("【表情下载】 savePanelImage");
+                return true;
+            }
+            if (!new File(str + cs8Var.c).exists()) {
+                return false;
+            }
+            Bitmap bitmap = null;
+            try {
+                bitmap = BitmapFactory.decodeFile(str + cs8Var.c);
+            } catch (OutOfMemoryError e) {
+                e.printStackTrace();
+            }
+            if (bitmap == null) {
+                return false;
+            }
+            if (!file.exists() && TextUtils.isEmpty(e(str, "panel.png", bitmap, 60))) {
+                return false;
+            }
+            if (!file2.exists() && TextUtils.isEmpty(e(str, "panel_momo.png", bitmap, 60))) {
+                return false;
+            }
+            wr8.a("【表情下载】 savePanelImage = " + cs8Var.c);
+            return true;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean g(String str, cs8 cs8Var) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, str, cs8Var)) == null) {
+            ZipInputStream zipInputStream = null;
+            try {
+                try {
+                    ZipInputStream zipInputStream2 = new ZipInputStream(new BufferedInputStream(new FileInputStream(str)));
+                    while (true) {
+                        try {
+                            ZipEntry nextEntry = zipInputStream2.getNextEntry();
+                            if (nextEntry != null) {
+                                if (!nextEntry.isDirectory()) {
+                                    String str2 = ".emotions/" + cs8Var.a;
+                                    String str3 = TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/" + str2 + "/" + nextEntry.getName();
+                                    FileHelper.saveFileByStream(str3, zipInputStream2);
+                                    wr8.a("【表情下载】 unZipEmotion = " + str3);
+                                }
+                            } else {
+                                zipInputStream2.close();
+                                FileHelper.deleteFile(new File(str));
+                                ji.e(zipInputStream2);
+                                return true;
+                            }
+                        } catch (FileNotFoundException e) {
+                            e = e;
+                            zipInputStream = zipInputStream2;
+                            e.printStackTrace();
+                            ji.e(zipInputStream);
+                            return false;
+                        } catch (IOException e2) {
+                            e = e2;
+                            zipInputStream = zipInputStream2;
+                            e.printStackTrace();
+                            ji.e(zipInputStream);
+                            return false;
+                        } catch (Throwable th) {
+                            th = th;
+                            zipInputStream = zipInputStream2;
+                            ji.e(zipInputStream);
+                            throw th;
+                        }
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                }
+            } catch (FileNotFoundException e3) {
+                e = e3;
+            } catch (IOException e4) {
+                e = e4;
+            }
+        } else {
+            return invokeLL.booleanValue;
         }
     }
 }

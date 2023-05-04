@@ -140,7 +140,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
                     TypeAdapter typeAdapter;
                     Interceptable interceptable2 = $ic;
                     if ((interceptable2 == null || interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)}) == null) && (typeAdapter = this.this$0.mTypeAdapter) != null) {
-                        typeAdapter.d(pLA_AdapterView, view2, i, j);
+                        typeAdapter.e(pLA_AdapterView, view2, i, j);
                     }
                 }
             });
@@ -174,7 +174,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
                     if (interceptable2 == null || (invokeCommon = interceptable2.invokeCommon(1048576, this, new Object[]{pLA_AdapterView, view2, Integer.valueOf(i), Long.valueOf(j)})) == null) {
                         TypeAdapter typeAdapter = this.this$0.mTypeAdapter;
                         if (typeAdapter != null) {
-                            return typeAdapter.e(pLA_AdapterView, view2, i, j);
+                            return typeAdapter.f(pLA_AdapterView, view2, i, j);
                         }
                         return false;
                     }
@@ -188,7 +188,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.mTypeAdapter.b();
+            return this.mTypeAdapter.c();
         }
         return (List) invokeV.objValue;
     }
@@ -216,7 +216,7 @@ public class BdTypeMultiColumnListView extends BdMultiColumnListView {
     public void setData(List<? extends in> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, list) == null) {
-            this.mTypeAdapter.f(list);
+            this.mTypeAdapter.i(list);
         }
     }
 }

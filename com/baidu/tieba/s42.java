@@ -1,99 +1,93 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.os.Build;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.tieba.z63;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.TimeUnit;
+import java.util.zip.CRC32;
 /* loaded from: classes6.dex */
 public class s42 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final long a;
+    public final long b;
+    public final String c;
+    public final Map<String, String> d;
 
-    /* loaded from: classes6.dex */
-    public static class a implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v73 a;
-
-        public a(v73 v73Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v73Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = v73Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                SwanAppActivity w = this.a.w();
-                if (w != null && Build.VERSION.SDK_INT >= 21) {
-                    w.finishAndRemoveTask();
-                }
-                System.exit(0);
+    public s42(long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Long.valueOf(j)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.d = new HashMap();
+        this.b = TimeUnit.MILLISECONDS.toSeconds(j);
+        this.a = TimeUnit.MILLISECONDS.toSeconds(System.currentTimeMillis() - j);
+        this.c = Long.toHexString(a(this.a + "#" + this.b));
+        this.d.put("timestamp", Long.toString(this.a));
+        this.d.put("delta", Long.toString(this.b));
+        this.d.put("rasign", this.c);
     }
 
-    public static boolean a() {
+    public static s42 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new s42(0L);
         }
-        return invokeV.booleanValue;
+        return (s42) invokeV.objValue;
     }
 
-    public static void b(boolean z) {
+    public final long a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65537, null, z) == null) {
-            a = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            CRC32 crc32 = new CRC32();
+            crc32.reset();
+            crc32.update(str.getBytes());
+            return crc32.getValue();
         }
+        return invokeL.longValue;
     }
 
-    public static void d(Context context) {
+    public String c(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, context) == null) {
-            c(context, !a());
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
+            return Long.toHexString(a(j + "#smartapp_formid"));
         }
+        return (String) invokeJ.objValue;
     }
 
-    public static void c(Context context, boolean z) {
-        v73 M;
-        int i;
+    public String d(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (M = v73.M()) != null) {
-            t42.c(z);
-            if (z) {
-                i = R.string.obfuscated_res_0x7f0f01a5;
-            } else {
-                i = R.string.obfuscated_res_0x7f0f0119;
-            }
-            z63.a aVar = new z63.a(context);
-            aVar.V(context.getString(R.string.obfuscated_res_0x7f0f0155));
-            aVar.x(context.getString(i));
-            aVar.n(new dn3());
-            aVar.m(false);
-            aVar.O(R.string.obfuscated_res_0x7f0f011c, new a(M));
-            aVar.X();
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            return Long.toHexString(a(j + "#payid"));
         }
+        return (String) invokeJ.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return super.toString() + " serverTime:" + this.a + " delta:" + this.b + " rasign:" + this.c;
+        }
+        return (String) invokeV.objValue;
     }
 }

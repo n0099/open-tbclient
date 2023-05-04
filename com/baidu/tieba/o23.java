@@ -1,137 +1,261 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.text.TextUtils;
-import android.util.Log;
-import android.util.Pair;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
-import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.webkit.sdk.dumper.ZeusCrashHandler;
-import java.util.ArrayList;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.HashMap;
-import java.util.List;
-import java.util.Locale;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o23 {
+public final class o23 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static List<Pair<String, Pair<String, String>>> b;
+    public static volatile o23 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashMap<String, p23> a;
+    public HashMap<String, p23> b;
+    public HashMap<String, p23> c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947980313, "Lcom/baidu/tieba/o23;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947980313, "Lcom/baidu/tieba/o23;");
+    public o23() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        boolean z = fo1.a;
-        a = z;
-        if (z) {
-            ArrayList arrayList = new ArrayList();
-            b = arrayList;
-            arrayList.add(new Pair("总时长", new Pair("na_pms_start_req", "na_end_update_db")));
-            b.add(new Pair<>("PMS信息获取时长", new Pair("na_pms_start_req", "na_pms_end_req")));
-            b.add(new Pair<>("包下载时长", new Pair("na_pms_start_download", "na_pms_end_download")));
-            b.add(new Pair<>("Icon下载时长", new Pair("na_pms_start_icon", "na_pms_end_icon")));
-            b.add(new Pair<>("签名校验时长", new Pair("na_pms_start_check_sign", "na_pms_end_check_sign")));
-            b.add(new Pair<>("包解压时长", new Pair("na_package_start_unzip", "na_package_end_unzip")));
-            b.add(new Pair<>("包解密时长", new Pair("na_package_start_decrypt", "na_package_end_decrypt")));
-            b.add(new Pair<>("更新数据库时长", new Pair("na_start_update_db", "na_end_update_db")));
-        }
+        c();
     }
 
-    public static void a(String str, String str2, List<UbcFlowEvent> list, String str3) {
+    public static o23 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLLL(65537, null, str, str2, list, str3) == null) && !TextUtils.isEmpty(str) && list != null && list.size() > 0) {
-            be3 c = oe3.c("770");
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (ubcFlowEvent != null) {
-                    ce3.e(c, ubcFlowEvent.a, ubcFlowEvent.j(), ubcFlowEvent.g());
-                }
-            }
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject.put("from", "swan");
-                jSONObject.put("type", str2);
-                jSONObject2.put("appid", str);
-                jSONObject2.put("mobile", lk3.c());
-                jSONObject2.put("net", SwanAppNetworkUtils.f().type);
-                if (TextUtils.isEmpty(str3)) {
-                    str3 = "0";
-                }
-                jSONObject2.put("scene", str3);
-                ne3.a(jSONObject2);
-                jSONObject.put("ext", jSONObject2.toString());
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            ce3.f(c, jSONObject.toString());
-            ce3.c(c);
-            b(str, list, b);
-        }
-    }
-
-    @SuppressLint({"SwanDebugLog", "LogConditional"})
-    public static void b(String str, List<UbcFlowEvent> list, List<Pair<String, Pair<String, String>>> list2) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65538, null, str, list, list2) == null) && a && list != null && list2 != null) {
-            HashMap hashMap = new HashMap();
-            StringBuilder sb = new StringBuilder();
-            sb.append("小程序PMS下载耗时Log：");
-            sb.append("\n");
-            sb.append("小程序ID：");
-            sb.append(str);
-            sb.append("\n");
-            sb.append("小程序ID：");
-            sb.append(str);
-            for (UbcFlowEvent ubcFlowEvent : list) {
-                if (ubcFlowEvent != null) {
-                    sb.append("\n");
-                    sb.append(ubcFlowEvent.g());
-                    sb.append(ZeusCrashHandler.NAME_SEPERATOR);
-                    sb.append(ubcFlowEvent.a);
-                    hashMap.put(ubcFlowEvent.a, Long.valueOf(ubcFlowEvent.g()));
-                }
-            }
-            sb.append("\n");
-            sb.append("耗时计算开始：>>>>>>>>>>>>");
-            for (Pair<String, Pair<String, String>> pair : list2) {
-                if (pair != null) {
-                    String str2 = (String) pair.first;
-                    Object obj = pair.second;
-                    String str3 = (String) ((Pair) obj).first;
-                    String str4 = (String) ((Pair) obj).second;
-                    if (hashMap.get(str3) != null && hashMap.get(str4) != null) {
-                        long longValue = ((Long) hashMap.get(str3)).longValue();
-                        String format = String.format(Locale.CHINA, "%-13d", Long.valueOf(((Long) hashMap.get(str4)).longValue() - longValue));
-                        sb.append("\n");
-                        sb.append("耗时：");
-                        sb.append(format);
-                        sb.append(" >>> ");
-                        sb.append(str2);
-                        sb.append("，计算方式：");
-                        sb.append(str4);
-                        sb.append(" - ");
-                        sb.append(str3);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (d == null) {
+                synchronized (o23.class) {
+                    if (d == null) {
+                        d = new o23();
                     }
                 }
             }
-            Log.i("SwanAppPMS", sb.toString());
+            return d;
+        }
+        return (o23) invokeV.objValue;
+    }
+
+    public static synchronized void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(65538, null) == null) {
+            synchronized (o23.class) {
+                if (d != null) {
+                    d.e();
+                    d = null;
+                }
+            }
+        }
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            if (this.a == null) {
+                this.a = new HashMap<>();
+            }
+            if (this.b == null) {
+                this.b = new HashMap<>();
+            }
+            if (this.c == null) {
+                this.c = new HashMap<>();
+            }
+        }
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            HashMap<String, p23> hashMap = this.a;
+            if (hashMap != null) {
+                hashMap.clear();
+            }
+            HashMap<String, p23> hashMap2 = this.b;
+            if (hashMap2 != null) {
+                hashMap2.clear();
+            }
+            HashMap<String, p23> hashMap3 = this.c;
+            if (hashMap3 != null) {
+                hashMap3.clear();
+            }
+        }
+    }
+
+    public final void a(String str, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLJ(1048576, this, str, j) != null) || TextUtils.isEmpty(str)) {
+            return;
+        }
+        char c = 65535;
+        int hashCode = str.hashCode();
+        if (hashCode != 767526192) {
+            if (hashCode != 1331686101) {
+                if (hashCode == 1390184462 && str.equals("PageUpdateRender")) {
+                    c = 2;
+                }
+            } else if (str.equals("PageInitRender")) {
+                c = 1;
+            }
+        } else if (str.equals("PageSwitchCost")) {
+            c = 0;
+        }
+        if (c != 0) {
+            if (c != 1) {
+                if (c == 2) {
+                    tj3.f.update((sj3<Long>) Long.valueOf(j));
+                    return;
+                }
+                return;
+            }
+            tj3.e.update((sj3<Long>) Long.valueOf(j));
+            return;
+        }
+        tj3.d.update((sj3<Long>) Long.valueOf(j));
+    }
+
+    public void d(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2) && j >= 0) {
+            c();
+            char c = 65535;
+            switch (str2.hashCode()) {
+                case -1880922749:
+                    if (str2.equals("pageUpdateEnd")) {
+                        c = 5;
+                        break;
+                    }
+                    break;
+                case -964566145:
+                    if (str2.equals("pageSwitchStart")) {
+                        c = 0;
+                        break;
+                    }
+                    break;
+                case -410083667:
+                    if (str2.equals("pageInitRenderStart")) {
+                        c = 1;
+                        break;
+                    }
+                    break;
+                case 4028902:
+                    if (str2.equals("pageInitRenderEnd")) {
+                        c = 4;
+                        break;
+                    }
+                    break;
+                case 627578634:
+                    if (str2.equals("pageUpdateStart")) {
+                        c = 2;
+                        break;
+                    }
+                    break;
+                case 1719651128:
+                    if (str2.equals("pageSwitchEnd")) {
+                        c = 3;
+                        break;
+                    }
+                    break;
+            }
+            if (c != 0 && c != 1 && c != 2) {
+                if (c == 3 || c == 4 || c == 5) {
+                    g(str, str2, j);
+                    return;
+                }
+                return;
+            }
+            h(str, str2, j);
+        }
+    }
+
+    public final void g(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            p23 p23Var = null;
+            char c = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != -1880922749) {
+                if (hashCode != 4028902) {
+                    if (hashCode == 1719651128 && str2.equals("pageSwitchEnd")) {
+                        c = 0;
+                    }
+                } else if (str2.equals("pageInitRenderEnd")) {
+                    c = 1;
+                }
+            } else if (str2.equals("pageUpdateEnd")) {
+                c = 2;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2) {
+                        p23Var = this.c.remove(str);
+                    }
+                } else {
+                    p23Var = this.b.remove(str);
+                }
+            } else {
+                p23Var = this.a.remove(str);
+            }
+            if (p23Var == null) {
+                return;
+            }
+            p23Var.b(j);
+            a(p23Var.getType(), p23Var.a());
+        }
+    }
+
+    public final void h(String str, String str2, long j) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048581, this, new Object[]{str, str2, Long.valueOf(j)}) == null) && !TextUtils.isEmpty(str) && !TextUtils.isEmpty(str2)) {
+            p23 p23Var = null;
+            char c = 65535;
+            int hashCode = str2.hashCode();
+            if (hashCode != -964566145) {
+                if (hashCode != -410083667) {
+                    if (hashCode == 627578634 && str2.equals("pageUpdateStart")) {
+                        c = 2;
+                    }
+                } else if (str2.equals("pageInitRenderStart")) {
+                    c = 1;
+                }
+            } else if (str2.equals("pageSwitchStart")) {
+                c = 0;
+            }
+            if (c != 0) {
+                if (c != 1) {
+                    if (c == 2 && (p23Var = this.c.get(str)) == null) {
+                        p23Var = new n23();
+                        this.c.put(str, p23Var);
+                    }
+                } else {
+                    p23Var = this.b.get(str);
+                    if (p23Var == null) {
+                        p23Var = new l23();
+                        this.b.put(str, p23Var);
+                    }
+                }
+            } else {
+                p23Var = this.a.get(str);
+                if (p23Var == null) {
+                    p23Var = new m23();
+                    this.a.put(str, p23Var);
+                }
+            }
+            if (p23Var != null) {
+                p23Var.c(j);
+            }
         }
     }
 }

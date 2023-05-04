@@ -1,42 +1,87 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.MotionEvent;
-import android.view.VelocityTracker;
-import android.view.ViewConfiguration;
-import android.view.ViewGroup;
-import android.view.ViewParent;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
-import androidx.core.view.MotionEventCompat;
-import androidx.core.view.ViewConfigurationCompat;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.widget.tiejia.TiePlusStat;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.TiebaPlusInfo;
 /* loaded from: classes5.dex */
 public class jw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public boolean b;
-    public int c;
-    public float d;
-    public float e;
-    public float f;
-    public int g;
-    public VelocityTracker h;
-    @NonNull
-    public ViewGroup i;
-    public boolean j;
+    public int a;
+    public TiebaPlusInfo b;
+    public TiePlusStat.ThreadType c;
+    public String d;
+    public String e;
+    public TiePlusStat.StatType f;
+    public TiePlusStat.LandingType g;
+    public TiePlusStat.CardBtnType h;
+    public TiePlusStat.RichTextType i;
+    public ThreadData j;
+    public int k;
 
-    public jw5(ViewGroup viewGroup) {
+    @NonNull
+    public jw5 a(@Nullable pp9 pp9Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, pp9Var)) == null) ? this : (jw5) invokeL.objValue;
+    }
+
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public static final /* synthetic */ int[] a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-676042524, "Lcom/baidu/tieba/jw5$a;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-676042524, "Lcom/baidu/tieba/jw5$a;");
+                    return;
+                }
+            }
+            int[] iArr = new int[TiePlusStat.Locate.values().length];
+            a = iArr;
+            try {
+                iArr[TiePlusStat.Locate.HOME.ordinal()] = 1;
+            } catch (NoSuchFieldError unused) {
+            }
+            try {
+                a[TiePlusStat.Locate.FRS.ordinal()] = 2;
+            } catch (NoSuchFieldError unused2) {
+            }
+            try {
+                a[TiePlusStat.Locate.PB.ordinal()] = 3;
+            } catch (NoSuchFieldError unused3) {
+            }
+            try {
+                a[TiePlusStat.Locate.PB_COMMENT.ordinal()] = 4;
+            } catch (NoSuchFieldError unused4) {
+            }
+        }
+    }
+
+    public jw5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {viewGroup};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -46,125 +91,185 @@ public class jw5 {
                 return;
             }
         }
-        this.g = -1;
-        this.j = true;
-        this.i = viewGroup;
-        this.c = ViewConfigurationCompat.getScaledPagingTouchSlop(ViewConfiguration.get(viewGroup.getContext()));
+        this.h = null;
+        this.i = TiePlusStat.RichTextType.LINK;
+        this.k = -1;
     }
 
-    public final void b(MotionEvent motionEvent) {
-        int i;
+    public TiePlusStat.CardBtnType d() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent) == null) {
-            int actionIndex = MotionEventCompat.getActionIndex(motionEvent);
-            if (MotionEventCompat.getPointerId(motionEvent, actionIndex) == this.g) {
-                if (actionIndex == 0) {
-                    i = 1;
-                } else {
-                    i = 0;
-                }
-                this.d = MotionEventCompat.getY(motionEvent, i);
-                this.g = MotionEventCompat.getPointerId(motionEvent, i);
-                VelocityTracker velocityTracker = this.h;
-                if (velocityTracker != null) {
-                    velocityTracker.clear();
-                }
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.h;
         }
+        return (TiePlusStat.CardBtnType) invokeV.objValue;
     }
 
-    @SuppressLint({"LongLogTag"})
-    public boolean a(MotionEvent motionEvent) {
+    @NonNull
+    public String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return String.valueOf(this.j.getDispatchedForumId());
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            or5.d(!TextUtils.isEmpty(this.e));
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiePlusStat.LandingType g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return this.g;
+        }
+        return (TiePlusStat.LandingType) invokeV.objValue;
+    }
+
+    public TiePlusStat.RichTextType h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.i;
+        }
+        return (TiePlusStat.RichTextType) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiePlusStat.StatType j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            or5.b(this.f);
+            return this.f;
+        }
+        return (TiePlusStat.StatType) invokeV.objValue;
+    }
+
+    @NonNull
+    public ThreadData k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.j;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiePlusStat.ThreadType l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
+            return this.c;
+        }
+        return (TiePlusStat.ThreadType) invokeV.objValue;
+    }
+
+    @NonNull
+    public String m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @NonNull
+    public TiebaPlusInfo n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
+            return this.b;
+        }
+        return (TiebaPlusInfo) invokeV.objValue;
+    }
+
+    public int o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @NonNull
+    public static jw5 c(int i, @NonNull TiebaPlusInfo tiebaPlusInfo, @NonNull ThreadData threadData) {
+        InterceptResult invokeILL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(65537, null, i, tiebaPlusInfo, threadData)) == null) {
+            int intValue = tiebaPlusInfo.jump_type.intValue();
+            jw5 jw5Var = new jw5();
+            jw5Var.a = TiePlusStat.a(tiebaPlusInfo, null);
+            jw5Var.g = TiePlusStat.LandingType.create(intValue);
+            jw5Var.i = TiePlusStat.RichTextType.create(i);
+            jw5Var.h = TiePlusStat.CardBtnType.create(i, intValue);
+            jw5Var.b = tiebaPlusInfo;
+            jw5Var.c = TiePlusStat.ThreadType.create(threadData);
+            jw5Var.d = threadData.getTid();
+            jw5Var.e = String.valueOf(threadData.getFid());
+            jw5Var.j = threadData;
+            return jw5Var;
+        }
+        return (jw5) invokeILL.objValue;
+    }
+
+    public jw5 b(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+            this.k = i;
+            return this;
+        }
+        return (jw5) invokeI.objValue;
+    }
+
+    public int i(@NonNull TiePlusStat.Locate locate) {
         InterceptResult invokeL;
-        float f;
-        float f2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, motionEvent)) == null) {
-            int action = motionEvent.getAction() & 255;
-            if (action != 3 && action != 1) {
-                if (action != 0) {
-                    if (this.a) {
-                        return true;
-                    }
-                    if (this.b) {
-                        return false;
-                    }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, locate)) == null) {
+            int i = a.a[locate.ordinal()];
+            if (i != 1 && i != 2) {
+                if (i != 3 && i != 4) {
+                    return -1;
                 }
-                if (action != 0) {
-                    if (action != 2) {
-                        if (action == 6) {
-                            b(motionEvent);
-                        }
-                    } else {
-                        int i = this.g;
-                        if (i != -1) {
-                            int findPointerIndex = MotionEventCompat.findPointerIndex(motionEvent, i);
-                            if (findPointerIndex >= 0 && findPointerIndex < motionEvent.getPointerCount()) {
-                                float y = MotionEventCompat.getY(motionEvent, findPointerIndex) - this.d;
-                                float abs = Math.abs(y);
-                                float abs2 = Math.abs(MotionEventCompat.getX(motionEvent, findPointerIndex) - this.e);
-                                if (this.j) {
-                                    f = 0.5f;
-                                } else {
-                                    f = 3.0f;
-                                }
-                                if (abs > this.c && abs * f > abs2) {
-                                    this.a = true;
-                                    c(true);
-                                    if (y > 0.0f) {
-                                        f2 = this.f + this.c;
-                                    } else {
-                                        f2 = this.f - this.c;
-                                    }
-                                    this.d = f2;
-                                } else if (abs2 > this.c) {
-                                    this.b = true;
-                                }
-                            } else {
-                                this.a = false;
-                            }
-                        }
-                    }
-                } else {
-                    this.e = motionEvent.getX();
-                    float y2 = motionEvent.getY();
-                    this.f = y2;
-                    this.d = y2;
-                    this.g = MotionEventCompat.getPointerId(motionEvent, 0);
-                    this.b = false;
-                    this.a = false;
-                }
-                if (this.h == null) {
-                    this.h = VelocityTracker.obtain();
-                }
-                this.h.addMovement(motionEvent);
-                return this.a;
+                return this.k;
             }
-            this.a = false;
-            this.b = false;
-            this.g = -1;
-            VelocityTracker velocityTracker = this.h;
-            if (velocityTracker != null) {
-                velocityTracker.recycle();
-                this.h = null;
-            }
-            return false;
+            return k().statFloor;
         }
-        return invokeL.booleanValue;
+        return invokeL.intValue;
     }
 
-    public final void c(boolean z) {
-        ViewParent parent;
+    public void p(TiePlusStat.RichTextType richTextType) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (parent = this.i.getParent()) != null) {
-            parent.requestDisallowInterceptTouchEvent(z);
+        if (interceptable == null || interceptable.invokeL(1048590, this, richTextType) == null) {
+            this.i = richTextType;
         }
     }
 
-    public void d(boolean z) {
+    public void q(@NonNull TiePlusStat.StatType statType) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048579, this, z) == null) {
-            this.j = z;
+        if (interceptable == null || interceptable.invokeL(1048591, this, statType) == null) {
+            this.f = statType;
+        }
+    }
+
+    public void r(TiebaPlusInfo tiebaPlusInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048592, this, tiebaPlusInfo) == null) {
+            this.b = tiebaPlusInfo;
         }
     }
 }

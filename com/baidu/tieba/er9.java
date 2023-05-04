@@ -1,39 +1,35 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.AlertDialog;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.LoginDialogData;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tbadk.widget.TbImageView;
-import com.baidu.tieba.t05;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.util.ArrayList;
+import java.util.concurrent.CountDownLatch;
+import java.util.concurrent.LinkedBlockingDeque;
+import java.util.concurrent.ThreadFactory;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes4.dex */
-public class er9 extends w05 {
+public class er9 extends dr9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity f;
-    public final ro9 g;
-    public qb5 h;
+    public volatile gr9 g;
+    public volatile boolean h;
+    public int i;
 
     /* loaded from: classes4.dex */
-    public class a implements DialogInterface.OnDismissListener {
+    public class a implements ThreadFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ er9 a;
+        public int a;
 
         public a(er9 er9Var) {
             Interceptable interceptable = $ic;
@@ -50,201 +46,162 @@ public class er9 extends w05 {
                     return;
                 }
             }
-            this.a = er9Var;
+            this.a = 0;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // java.util.concurrent.ThreadFactory
+        public Thread newThread(Runnable runnable) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, dialogInterface) == null) {
-                a15.r("operateNew");
-                this.a.c();
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
+                Thread thread = new Thread(runnable);
+                thread.setName("VideoUploadThread@" + this.a);
+                this.a = this.a + 1;
+                return thread;
             }
+            return (Thread) invokeL.objValue;
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
+    public class b implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ AlertDialog a;
-        public final /* synthetic */ er9 b;
+        public final /* synthetic */ RandomAccessFile a;
+        public final /* synthetic */ ArrayList b;
+        public final /* synthetic */ int c;
+        public final /* synthetic */ int d;
+        public final /* synthetic */ String e;
+        public final /* synthetic */ int f;
+        public final /* synthetic */ CountDownLatch g;
+        public final /* synthetic */ er9 h;
 
-        public b(er9 er9Var, AlertDialog alertDialog) {
+        public b(er9 er9Var, RandomAccessFile randomAccessFile, ArrayList arrayList, int i, int i2, String str, int i3, CountDownLatch countDownLatch) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {er9Var, alertDialog};
+                Object[] objArr = {er9Var, randomAccessFile, arrayList, Integer.valueOf(i), Integer.valueOf(i2), str, Integer.valueOf(i3), countDownLatch};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
+                int i4 = newInitContext.flag;
+                if ((i4 & 1) != 0) {
+                    int i5 = i4 & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.b = er9Var;
-            this.a = alertDialog;
+            this.h = er9Var;
+            this.a = randomAccessFile;
+            this.b = arrayList;
+            this.c = i;
+            this.d = i2;
+            this.e = str;
+            this.f = i3;
+            this.g = countDownLatch;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            String str;
-            String str2;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && view2 != null && view2.getContext() != null) {
-                this.a.dismiss();
-                LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
-                String b = this.b.h.b();
-                if (TextUtils.isEmpty(b)) {
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                gr9 h = this.h.h(this.a, ((Integer) this.b.get(this.c)).intValue(), this.d, this.e);
+                if (h != null) {
+                    if (h.b != 0) {
+                        this.h.g.b = h.b;
+                        this.h.g.c = h.c;
+                    }
+                    if (!StringUtils.isNull(h.a)) {
+                        this.h.g.a = h.a;
+                    }
+                    synchronized (this.h) {
+                        er9.k(this.h);
+                        this.h.d((int) (((this.h.i * 50.0f) / this.f) + 30.0f));
+                    }
                 }
-                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    str = "skin=dark";
-                } else {
-                    str = "skin=default";
-                }
-                if (b.contains("?")) {
-                    str2 = b + "&customfullscreen=1&nonavigationbar=1&" + str;
-                } else {
-                    str2 = b + "?customfullscreen=1&nonavigationbar=1&" + str;
-                }
-                loginDialogData.setJumpUrl(str2);
-                if (DialogLoginHelper.checkUpIsLogin(loginDialogData)) {
-                    jt4.v(view2.getContext(), null, str2, true);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public class c implements TbImageView.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertBuilder a;
-        public final /* synthetic */ AlertDialog b;
-        public final /* synthetic */ er9 c;
-
-        public c(er9 er9Var, TBAlertBuilder tBAlertBuilder, AlertDialog alertDialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {er9Var, tBAlertBuilder, alertDialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = er9Var;
-            this.a = tBAlertBuilder;
-            this.b = alertDialog;
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void a(String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, str, z) == null) {
-                if (!z) {
-                    this.c.c();
-                } else {
-                    this.a.A(this.b);
-                }
-            }
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-                this.c.c();
+                this.g.countDown();
             }
         }
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public er9(@NonNull MainTabActivity mainTabActivity, @NonNull ro9 ro9Var) {
-        super(mainTabActivity);
+    public er9(String str, int i, int i2, long j, String str2) {
+        super(str, i, i2, j, str2);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ro9Var};
+            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j), str2};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Activity) newInitContext.callArgs[0]);
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], ((Integer) objArr2[1]).intValue(), ((Integer) objArr2[2]).intValue(), ((Long) objArr2[3]).longValue(), (String) objArr2[4]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.g = ro9Var;
-        this.f = mainTabActivity;
+        this.g = new gr9();
     }
 
-    @Override // com.baidu.tieba.t05
-    public void d(@NonNull t05.a aVar) {
+    public static /* synthetic */ int k(er9 er9Var) {
+        int i = er9Var.i;
+        er9Var.i = i + 1;
+        return i;
+    }
+
+    @Override // com.baidu.tieba.dr9
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            boolean z = false;
-            if (a15.i()) {
-                aVar.a(false);
-            } else if (!q45.m().i(h25.d(), true)) {
-                aVar.a(false);
-            } else {
-                qb5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
-                this.h = homeOperateData;
-                if (homeOperateData == null) {
-                    aVar.a(false);
-                } else if (!homeOperateData.c()) {
-                    aVar.a(false);
-                } else {
-                    if (!TextUtils.isEmpty(this.h.a()) && this.h.a().contains("not_show")) {
-                        q45.m().w(h25.d(), false);
-                    } else if (this.g.y() != null && this.g.y().getCurrentTabType() == 2) {
-                        z = true;
-                    }
-                    aVar.a(z);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            this.h = true;
+        }
+    }
+
+    @Override // com.baidu.tieba.dr9
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (!this.h && this.g.b == 0 && StringUtils.isNull(this.g.a)) {
+                return false;
+            }
+            return true;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.dr9
+    public gr9 g(ArrayList<Integer> arrayList, String str, int i) {
+        InterceptResult invokeLLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(Constants.METHOD_SEND_USER_MSG, this, arrayList, str, i)) == null) {
+            int size = arrayList.size();
+            CountDownLatch countDownLatch = new CountDownLatch(size);
+            ThreadPoolExecutor threadPoolExecutor = new ThreadPoolExecutor(3, 3, 2L, TimeUnit.SECONDS, new LinkedBlockingDeque(), new a(this));
+            try {
+                RandomAccessFile randomAccessFile = new RandomAccessFile(new File(this.b), "r");
+                for (int i2 = 0; i2 < size; i2++) {
+                    threadPoolExecutor.execute(new b(this, randomAccessFile, arrayList, i2, i, str, size, countDownLatch));
                 }
+                try {
+                    countDownLatch.await();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
+                threadPoolExecutor.shutdown();
+                try {
+                    randomAccessFile.close();
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                }
+                return this.g;
+            } catch (FileNotFoundException unused) {
+                return this.g;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.w05
-    public void g(TBAlertBuilder tBAlertBuilder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tBAlertBuilder) == null) {
-            q45.m().w(h25.d(), false);
-            int h = TBAlertBuilder.h(TbadkCoreApplication.getInst());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(h, (h * 4) / 3);
-            TbImageView tbImageView = new TbImageView(this.b);
-            tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            tBAlertBuilder.k(tbImageView);
-            tBAlertBuilder.r(true);
-            tBAlertBuilder.v(true);
-            tBAlertBuilder.j(false);
-            tBAlertBuilder.s(new a(this));
-            AlertDialog d = tBAlertBuilder.d();
-            tbImageView.setOnClickListener(new b(this, d));
-            tbImageView.setEvent(new c(this, tBAlertBuilder, d));
-            tbImageView.N(this.h.a(), 10, false);
-        }
-    }
-
-    @Override // com.baidu.tieba.w05
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a15.l("operateNew");
-        }
+        return (gr9) invokeLLI.objValue;
     }
 }

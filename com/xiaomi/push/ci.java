@@ -15,7 +15,7 @@ import java.util.Random;
 import java.util.concurrent.LinkedBlockingQueue;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ci {
     public static volatile ci a;
 
@@ -34,7 +34,7 @@ public class ci {
     /* renamed from: a  reason: collision with other field name */
     public final ArrayList<a> f167a = new ArrayList<>();
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class a implements Runnable {
 
         /* renamed from: a  reason: collision with other field name */
@@ -116,7 +116,7 @@ public class ci {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static abstract class b<T> extends a {
         public int a;
 
@@ -181,7 +181,7 @@ public class ci {
         public abstract void a(Context context, List<T> list);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class c extends a {
         public ArrayList<a> a;
 
@@ -216,7 +216,7 @@ public class ci {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class d extends a {
         public String a;
 
@@ -235,7 +235,7 @@ public class ci {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class e extends a {
         public ContentValues a;
 

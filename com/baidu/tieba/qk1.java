@@ -1,24 +1,11 @@
 package com.baidu.tieba;
+
+import androidx.annotation.Nullable;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public interface qk1 {
+    @Nullable
+    pi1 a();
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a();
-    }
-
-    /* loaded from: classes6.dex */
-    public interface b {
-        void onPrepared();
-    }
-
-    void a();
-
-    void b();
-
-    void c();
-
-    void d();
-
-    void e();
+    JSONObject b();
 }

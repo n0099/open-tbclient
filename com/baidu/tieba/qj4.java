@@ -1,5 +1,7 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -8,84 +10,62 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qj4 extends ej4 {
+public class qj4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public int b;
+    public int c;
+    public int d;
+    public int e;
 
-    public qj4() {
+    public qj4(int i, int i2, int i3, int i4, int i5) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i6 = newInitContext.flag;
+            if ((i6 & 1) != 0) {
+                int i7 = i6 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = i;
+        this.b = i2;
+        this.c = i3;
+        this.d = i5;
+        this.e = i4;
     }
 
-    @Override // com.baidu.tieba.ej4
-    public JSONObject d() {
+    @NonNull
+    public static qj4 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("version", tj4.b().d());
-                jSONObject.put("tipmsgs", jSONObject2);
-                JSONObject jSONObject3 = new JSONObject();
-                dk4.b();
-                jSONObject3.put("version", dk4.c());
-                jSONObject.put("web_degrade_strategy", jSONObject3);
-                JSONObject jSONObject4 = new JSONObject();
-                jSONObject4.put("version", zj4.a().b());
-                jSONObject.put("pkg_preload", jSONObject4);
-                JSONObject jSONObject5 = new JSONObject();
-                jSONObject5.put("version", pj4.b().c());
-                jSONObject.put("pkg_clean_strategy", jSONObject5);
-                JSONObject jSONObject6 = new JSONObject();
-                jSONObject6.put("version", sj4.a().b());
-                jSONObject.put("getpkg_retry_switch", jSONObject6);
-                JSONObject jSONObject7 = new JSONObject();
-                jSONObject7.put("version", fk4.d());
-                jSONObject.put("update_expire_time", jSONObject7);
-                JSONObject jSONObject8 = new JSONObject();
-                jSONObject8.put("version", xj4.f().h());
-                jSONObject.put("page_tips", jSONObject8);
-                if (bk4.a) {
-                    JSONObject jSONObject9 = new JSONObject();
-                    jSONObject9.put("version", bk4.b);
-                    jSONObject.put("heartbeat", jSONObject9);
-                }
-                JSONObject jSONObject10 = new JSONObject();
-                jSONObject10.put("version", uj4.a().b());
-                jSONObject.put("local_debug", jSONObject10);
-                JSONObject jSONObject11 = new JSONObject();
-                jSONObject11.put("version", gf4.a().a());
-                jSONObject.put(gf4.a().c(), jSONObject11);
-                if (ck4.b()) {
-                    JSONObject jSONObject12 = new JSONObject();
-                    jSONObject12.put("version", ck4.a());
-                    jSONObject.put("api_description", jSONObject12);
-                }
-                JSONObject jSONObject13 = new JSONObject();
-                jSONObject13.put("version", ek4.b().c());
-                jSONObject.put("tts", jSONObject13);
-                new JSONObject().put("version", vj4.a().c());
-                jSONObject.put("no_history_apps", jSONObject13);
-                JSONObject jSONObject14 = new JSONObject();
-                jSONObject14.put("version", hk4.d());
-                jSONObject.put("app_inner_preload", jSONObject14);
-                JSONObject jSONObject15 = new JSONObject();
-                jSONObject15.put("version", ak4.a().b());
-                jSONObject.put("simple_control_item", jSONObject15);
-            } catch (JSONException unused) {
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new qj4(24, 70, 1440, 720, 30);
         }
-        return (JSONObject) invokeV.objValue;
+        return (qj4) invokeV.objValue;
+    }
+
+    @NonNull
+    public static qj4 b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return a();
+            }
+            try {
+                JSONObject jSONObject = new JSONObject(str);
+                return new qj4(jSONObject.optInt("clean_check_hour", 24), jSONObject.optInt("hold_history_max_count", 70), jSONObject.optInt("history_force_clean_hour", 1440), jSONObject.optInt("force_clean_hour", 720), jSONObject.optInt("hold_max_count", 30));
+            } catch (JSONException unused) {
+                return a();
+            }
+        }
+        return (qj4) invokeL.objValue;
     }
 }

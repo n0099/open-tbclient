@@ -1,31 +1,25 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.TTAdDislike;
-import com.fun.ad.sdk.FunAdInteractionListener;
-import com.fun.ad.sdk.internal.api.utils.LogPrinter;
 /* loaded from: classes5.dex */
-public class joa implements TTAdDislike.DislikeInteractionCallback {
+public class joa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final /* synthetic */ View a;
-    public final /* synthetic */ aoa b;
-    public final /* synthetic */ FunAdInteractionListener c;
-    public final /* synthetic */ String d;
-    public final /* synthetic */ goa e;
+    public boolean a;
+    public float b;
+    public long c;
 
-    public joa(goa goaVar, View view2, aoa aoaVar, FunAdInteractionListener funAdInteractionListener, String str) {
+    public joa(String str, long j, boolean z, float f) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {goaVar, view2, aoaVar, funAdInteractionListener, str};
+            Object[] objArr = {str, Long.valueOf(j), Boolean.valueOf(z), Float.valueOf(f)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -35,42 +29,47 @@ public class joa implements TTAdDislike.DislikeInteractionCallback {
                 return;
             }
         }
-        this.e = goaVar;
-        this.a = view2;
-        this.b = aoaVar;
-        this.c = funAdInteractionListener;
-        this.d = str;
+        this.c = j;
+        this.a = z;
+        this.b = f;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onCancel() {
+    public float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            LogPrinter.e("CSJNativeExpressAd dislike callback onCancel", new Object[0]);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
+        return invokeV.floatValue;
     }
 
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onSelected(int i, String str, boolean z) {
+    public boolean b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Integer.valueOf(i), str, Boolean.valueOf(z)}) == null) {
-            LogPrinter.e("CSJNativeExpressAd dislike callback onSelected position: " + i + ", message: " + str, new Object[0]);
-            View view2 = this.a;
-            if (view2 != null && view2.getParent() != null) {
-                ((ViewGroup) this.a.getParent()).removeView(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public long c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.c;
+        }
+        return invokeV.longValue;
+    }
+
+    public boolean d(boolean z, float f) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Float.valueOf(f)})) == null) {
+            if (z && Math.abs(this.b - f) < 0.001f) {
+                return true;
             }
-            this.e.onAdClose(this.b);
-            FunAdInteractionListener funAdInteractionListener = this.c;
-            if (funAdInteractionListener != null) {
-                funAdInteractionListener.onAdClose(this.d);
-            }
+            return false;
         }
-    }
-
-    @Override // com.bytedance.sdk.openadsdk.TTAdDislike.DislikeInteractionCallback
-    public void onShow() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
+        return invokeCommon.booleanValue;
     }
 }

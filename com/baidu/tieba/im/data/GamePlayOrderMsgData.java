@@ -6,7 +6,7 @@ import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
 import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.e28;
+import com.baidu.tieba.b48;
 import com.baidu.tieba.gg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -700,7 +700,7 @@ public final class GamePlayOrderMsgData extends OrmObject implements Serializabl
                     gamePlayOrderMsgData.setGid(longValue);
                     gamePlayOrderMsgData.setUser_id(msgInfo.userId.longValue());
                     gamePlayOrderMsgData.setLast(z);
-                    gamePlayOrderMsgData.setMid(e28.a(msgInfo.msgId.longValue()));
+                    gamePlayOrderMsgData.setMid(b48.a(msgInfo.msgId.longValue()));
                 }
                 return gamePlayOrderMsgData;
             }

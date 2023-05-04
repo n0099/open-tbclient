@@ -1,8 +1,6 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -10,10 +8,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class i22 extends b12 {
+public class i22 extends d12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Paint.Align a;
+    public n22 a;
 
     public i22() {
         Interceptable interceptable = $ic;
@@ -29,35 +27,20 @@ public class i22 extends b12 {
         }
     }
 
-    @Override // com.baidu.tieba.b12
-    public void a(c12 c12Var, Canvas canvas) {
-        Paint.Align align;
+    @Override // com.baidu.tieba.d12
+    public void a(e12 e12Var, Canvas canvas) {
+        n22 n22Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, c12Var, canvas) == null) && (align = this.a) != null) {
-            c12Var.e.setTextAlign(align);
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, e12Var, canvas) == null) && (n22Var = this.a) != null && n22Var.a()) {
+            e12Var.i = this.a;
         }
     }
 
-    @Override // com.baidu.tieba.b12
+    @Override // com.baidu.tieba.d12
     public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-            try {
-                if (jSONArray.length() > 0) {
-                    String optString = jSONArray.optString(0);
-                    if (TextUtils.equals(optString, "left")) {
-                        this.a = Paint.Align.LEFT;
-                    } else if (TextUtils.equals(optString, "center")) {
-                        this.a = Paint.Align.CENTER;
-                    } else if (TextUtils.equals(optString, "right")) {
-                        this.a = Paint.Align.RIGHT;
-                    }
-                }
-            } catch (Exception e) {
-                if (fo1.a) {
-                    e.printStackTrace();
-                }
-            }
+            this.a = new n22(jSONArray);
         }
     }
 }

@@ -9,8 +9,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.task.TbHttpMessageTask;
+import com.baidu.tieba.as8;
 import com.baidu.tieba.newfaceshop.message.GetCloudFaceGroupMessage;
-import com.baidu.tieba.rp8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -62,15 +62,15 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         public void onMessage(HttpResponsedMessage httpResponsedMessage) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003351 && (httpResponsedMessage instanceof GetCloudFaceGroupMessage)) {
-                rp8 rp8Var = null;
+                as8 as8Var = null;
                 if (httpResponsedMessage.getOrginalMessage() != null) {
                     Object extra = httpResponsedMessage.getOrginalMessage().getExtra();
-                    if (extra instanceof rp8) {
-                        rp8Var = (rp8) extra;
+                    if (extra instanceof as8) {
+                        as8Var = (as8) extra;
                     }
                 }
-                if (rp8Var != null) {
-                    rp8Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
+                if (as8Var != null) {
+                    as8Var.a((GetCloudFaceGroupMessage) httpResponsedMessage);
                 }
             }
         }
@@ -97,11 +97,11 @@ public class NewFaceSyncDownloadModel extends FaceBaseModel {
         registerListener(this.a);
     }
 
-    public void Q(rp8 rp8Var) {
+    public void V(as8 as8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, rp8Var) == null) {
+        if (interceptable == null || interceptable.invokeL(1048576, this, as8Var) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_SYNC_DOWNLOAD_CLOUD_FACE_GROUP);
-            httpMessage.setExtra(rp8Var);
+            httpMessage.setExtra(as8Var);
             sendMessage(httpMessage);
         }
     }

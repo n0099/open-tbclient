@@ -1,10 +1,31 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public interface cr0 {
-    <T> void a(@NonNull rr0 rr0Var, @Nullable jr0<T> jr0Var);
+public class cr0 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    @Nullable
+    public String a;
+    @Nullable
+    public String b;
+    public boolean c;
 
-    void b(@NonNull rr0 rr0Var, @Nullable ir0 ir0Var);
+    public cr0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
 }

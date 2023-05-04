@@ -17,10 +17,10 @@ import com.baidu.tbadk.core.data.VoiceData;
 import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ea8;
-import com.baidu.tieba.eq5;
+import com.baidu.tieba.ic8;
 import com.baidu.tieba.impersonal.databinding.ActivityPersonalChatBinding;
-import com.baidu.tieba.pha;
+import com.baidu.tieba.lla;
+import com.baidu.tieba.xq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -60,14 +60,14 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         c = new a(null);
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.ml5
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.tieba.fm5
     public String getCurrentPageKey() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "a096" : (String) invokeV.objValue;
     }
 
-    public Void r1(VoiceData.VoiceModel voiceModel) {
+    public Void t1(VoiceData.VoiceModel voiceModel) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, voiceModel)) == null) {
@@ -194,7 +194,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             super.onDestroy();
             VoiceManager.setIsUseMediaPlayer(false);
             VoiceManager.setIsNeedBlackScreen(true);
-            x0().onDestory(getPageContext());
+            y0().onDestory(getPageContext());
         }
     }
 
@@ -203,7 +203,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
             super.onPause();
-            x0().onPause();
+            y0().onPause();
         }
     }
 
@@ -212,12 +212,12 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
             super.onResume();
-            x0().onResume(getPageContext());
-            x0().setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
+            y0().onResume(getPageContext());
+            y0().setSpeakerphoneOn(!TbadkCoreApplication.getInst().isHeadsetModeOn());
         }
     }
 
-    public final VoiceManager s1() {
+    public final VoiceManager u1() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
@@ -227,18 +227,18 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager x0() {
+    public VoiceManager y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
-            return s1();
+            return u1();
         }
         return (VoiceManager) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
     public /* bridge */ /* synthetic */ VoiceManager.i d1(VoiceData.VoiceModel voiceModel) {
-        return (VoiceManager.i) r1(voiceModel);
+        return (VoiceManager.i) t1(voiceModel);
     }
 
     @Override // androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
@@ -247,7 +247,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
         if (interceptable == null || interceptable.invokeL(1048590, this, outState) == null) {
             Intrinsics.checkNotNullParameter(outState, "outState");
             super.onSaveInstanceState(outState);
-            x0().onSaveInstanceState(this);
+            y0().onSaveInstanceState(this);
         }
     }
 
@@ -370,7 +370,7 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
             if (bundle == null) {
                 PersonalChatFragment personalChatFragment = new PersonalChatFragment();
                 personalChatFragment.setArguments(getIntent().getExtras());
-                eq5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090684, personalChatFragment);
+                xq5.a(getSupportFragmentManager(), R.id.obfuscated_res_0x7f090687, personalChatFragment);
             }
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
@@ -384,8 +384,8 @@ public final class PersonalChatActivity extends BaseFragmentActivity implements 
                 str = "0";
             }
             boolean z = false;
-            int b = pha.b(str, 0);
-            ea8.b((b == 1 || b == 2) ? true : true);
+            int b = lla.b(str, 0);
+            ic8.b((b == 1 || b == 2) ? true : true);
         }
     }
 

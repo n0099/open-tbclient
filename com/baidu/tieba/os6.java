@@ -1,38 +1,44 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.Canvas;
-import android.graphics.Matrix;
-import android.graphics.Paint;
-import com.baidu.android.common.others.lang.StringUtil;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.tieba.sfa;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tieba.tbadkCore.LikeModel;
+import com.baidu.tieba.zo9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ugc.editvideo.data.MultiMediaData;
-import com.baidu.ugc.editvideo.record.RecordConstants;
 /* loaded from: classes5.dex */
-public abstract class os6 implements rs6 {
+public class os6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public us6 a;
-    public ss6 b;
-    public Thread c;
-    public boolean d;
-
-    public abstract void f();
+    public LikeModel a;
+    public zo9 b;
+    public boolean c;
+    public b d;
+    public a e;
+    public TbPageContext f;
 
     /* loaded from: classes5.dex */
-    public class a implements Runnable {
+    public interface a {
+        void a(String str, long j);
+
+        void b(String str, long j);
+
+        void c(Object obj);
+    }
+
+    /* loaded from: classes5.dex */
+    public class b extends z8 implements zo9.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ os6 a;
+        public a a;
+        public final /* synthetic */ os6 b;
 
-        public a(os6 os6Var) {
+        public b(os6 os6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -47,14 +53,59 @@ public abstract class os6 implements rs6 {
                     return;
                 }
             }
-            this.a = os6Var;
+            this.b = os6Var;
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        public void d(a aVar) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.f();
+            if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+                this.a = aVar;
+            }
+        }
+
+        @Override // com.baidu.tieba.zo9.a
+        public void a(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(1048576, this, str, j) == null) {
+                this.b.c = false;
+                ii.Q(this.b.f.getPageActivity(), this.b.a.getErrorString());
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.b(str, j);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.zo9.a
+        public void b(String str, long j) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+                this.b.c = false;
+                a aVar = this.a;
+                if (aVar != null) {
+                    aVar.a(str, j);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.z8
+        public void c(Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+                this.b.c = false;
+                if (this.b.a.getErrorCode() == 22) {
+                    ii.Q(this.b.f.getPageActivity(), this.b.f.getString(R.string.had_liked_forum));
+                } else if (obj == null) {
+                } else {
+                    if (this.b.a.getErrorCode() != 0) {
+                        ii.Q(this.b.f.getPageActivity(), this.b.a.getErrorString());
+                        return;
+                    }
+                    a aVar = this.a;
+                    if (aVar != null) {
+                        aVar.c(obj);
+                    }
+                }
             }
         }
     }
@@ -69,161 +120,79 @@ public abstract class os6 implements rs6 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.d = false;
     }
 
-    @Override // com.baidu.tieba.rs6
-    public void a(us6 us6Var, ss6 ss6Var) {
+    public void g(a aVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, us6Var, ss6Var) != null) || ss6Var == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, aVar) == null) {
+            this.e = aVar;
+        }
+    }
+
+    public void h(TbPageContext tbPageContext) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, tbPageContext) == null) {
+            this.f = tbPageContext;
+        }
+    }
+
+    public final boolean d(TbPageContext tbPageContext) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, tbPageContext)) == null) {
+            if (!ii.F()) {
+                UtilHelper.showToast(tbPageContext.getPageActivity(), tbPageContext.getString(R.string.obfuscated_res_0x7f0f0d30));
+                return false;
+            } else if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                return false;
+            } else {
+                return true;
+            }
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void e(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2) != null) || this.c || !d(this.f)) {
             return;
         }
-        this.b = ss6Var;
-        if (us6Var == null) {
-            ss6Var.onError(StringUtil.NULL_STRING, "cover config is null !!");
+        if (this.d == null) {
+            b bVar = new b(this);
+            this.d = bVar;
+            bVar.d(this.e);
+        }
+        if (this.a == null) {
+            LikeModel likeModel = new LikeModel(this.f);
+            this.a = likeModel;
+            likeModel.setLoadDataCallBack(this.d);
+        }
+        this.c = true;
+        this.a.n0(str, str2);
+    }
+
+    public void f(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) != null) || this.c || !d(this.f)) {
             return;
         }
-        this.a = us6Var;
-        this.c = new Thread(new a(this));
-        ThreadPool.b().e(this.c);
-    }
-
-    public int[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            us6 us6Var = this.a;
-            int[] iArr = {us6Var.a, us6Var.b};
-            if (!us6Var.g && !us6Var.e) {
-                float f = us6Var.d;
-                if (f != 0.0f) {
-                    sfa.a e = sfa.e(f, RecordConstants.VIDEO_CONSTANT_WIDTH);
-                    iArr[0] = e.b();
-                    iArr[1] = e.a();
-                }
-            } else {
-                sfa.a e2 = e();
-                float f2 = this.a.d;
-                if (f2 != 0.0f) {
-                    sfa.a f3 = sfa.f(f2, e2.b(), e2.a());
-                    iArr[0] = f3.b();
-                    iArr[1] = f3.a();
-                }
-                sfa.a d = sfa.d(iArr[0], iArr[1]);
-                iArr[0] = d.b();
-                iArr[1] = d.a();
-            }
-            return iArr;
+        if (this.d == null) {
+            b bVar = new b(this);
+            this.d = bVar;
+            bVar.d(this.e);
         }
-        return (int[]) invokeV.objValue;
-    }
-
-    public Bitmap c(Bitmap bitmap, float f, MultiMediaData multiMediaData) {
-        InterceptResult invokeCommon;
-        Bitmap bitmap2;
-        int i;
-        int i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{bitmap, Float.valueOf(f), multiMediaData})) == null) {
-            if (multiMediaData != null && ((i2 = 360 - (((int) multiMediaData.angle) % 360)) == 90 || i2 == 270)) {
-                Matrix matrix = new Matrix();
-                matrix.setRotate(i2);
-                bitmap2 = Bitmap.createBitmap(bitmap, 0, 0, bitmap.getWidth(), bitmap.getHeight(), matrix, true);
-            } else {
-                bitmap2 = null;
-            }
-            if (bitmap2 != null) {
-                bitmap = bitmap2;
-            }
-            int width = bitmap.getWidth();
-            int height = bitmap.getHeight();
-            if (bitmap.getHeight() / bitmap.getWidth() > f) {
-                width = (int) (bitmap.getHeight() * f);
-            } else {
-                height = (int) (bitmap.getWidth() * f);
-            }
-            Bitmap createBitmap = Bitmap.createBitmap(width, height, Bitmap.Config.RGB_565);
-            Canvas canvas = new Canvas(createBitmap);
-            canvas.save();
-            int i3 = 0;
-            if (height != bitmap.getHeight()) {
-                i = Math.abs(height - bitmap.getHeight()) / 2;
-            } else {
-                i = 0;
-            }
-            if (width != bitmap.getWidth()) {
-                i3 = Math.abs(width - bitmap.getWidth()) / 2;
-            }
-            canvas.drawBitmap(bitmap, i3, i, (Paint) null);
-            canvas.restore();
-            bitmap.recycle();
-            return createBitmap;
+        if (this.b == null) {
+            zo9 zo9Var = new zo9();
+            this.b = zo9Var;
+            zo9Var.b(this.d);
         }
-        return (Bitmap) invokeCommon.objValue;
-    }
-
-    public String d(int i, int i2, Bitmap bitmap, boolean z) {
-        InterceptResult invokeCommon;
-        String a2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), bitmap, Boolean.valueOf(z)})) == null) {
-            if (i != 0 && i2 != 0) {
-                Bitmap h = mha.h(bitmap, i, i2, z);
-                if (this.d) {
-                    a2 = a1a.b();
-                } else {
-                    a2 = a1a.a();
-                }
-                String c = a1a.c(a2, h, System.currentTimeMillis() + ".jpg");
-                if (h != null) {
-                    h.recycle();
-                    return c;
-                }
-                return c;
-            }
-            return "";
+        long g = gg.g(str2, -1L);
+        if (g == -1) {
+            return;
         }
-        return (String) invokeCommon.objValue;
-    }
-
-    public sfa.a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            MultiMediaData multiMediaData = this.a.c;
-            int i = RecordConstants.VIDEO_CONSTANT_WIDTH;
-            int i2 = RecordConstants.VIDEO_CONSTANT_HEIGHT;
-            if (multiMediaData == null) {
-                return new sfa.a(i, i2);
-            }
-            if (multiMediaData.type == 1) {
-                float f = multiMediaData.angle;
-                float f2 = multiMediaData.rotation;
-                if ((f + f2) % 360.0f != 90.0f && (f + f2) % 360.0f != 270.0f) {
-                    i = multiMediaData.width;
-                    i2 = multiMediaData.height;
-                } else {
-                    i = multiMediaData.height;
-                    i2 = multiMediaData.width;
-                }
-            }
-            return new sfa.a(i, i2);
-        }
-        return (sfa.a) invokeV.objValue;
-    }
-
-    public void g(ts6 ts6Var, Bitmap bitmap) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, ts6Var, bitmap) == null) {
-            if (ts6Var == null) {
-                ts6Var = new ts6();
-            }
-            int[] b = b();
-            ts6Var.a = d(b[0], b[1], bitmap, true);
-            this.b.a(this.a.f, ts6Var);
-        }
+        this.c = true;
+        this.b.c(str, g);
     }
 }

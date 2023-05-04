@@ -1,72 +1,62 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.impersonal.data.VoiceMsgContent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class sc8 {
+public final class sc8 extends oc8<VoiceMsgContent> implements s17<sc8> {
     public static /* synthetic */ Interceptable $ic;
-    public static final sc8 a;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948146721, "Lcom/baidu/tieba/sc8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948146721, "Lcom/baidu/tieba/sc8;");
-                return;
-            }
-        }
-        a = new sc8();
+    public sc8 i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (sc8) invokeV.objValue;
     }
 
-    public sc8() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public sc8(zc8<VoiceMsgContent> data, String templateName) {
+        super(data);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {data, templateName};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super((zc8) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(data, "data");
+        Intrinsics.checkNotNullParameter(templateName, "templateName");
+        this.d = templateName;
     }
 
-    public final List<String> a(String content) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.s17
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, content)) == null) {
-            Intrinsics.checkNotNullParameter(content, "content");
-            ArrayList arrayList = new ArrayList();
-            int codePointCount = content.codePointCount(0, content.length());
-            int i = 1;
-            if (1 <= codePointCount) {
-                while (true) {
-                    String substring = content.substring(content.offsetByCodePoints(0, i - 1), content.offsetByCodePoints(0, i));
-                    Intrinsics.checkNotNullExpressionValue(substring, "this as java.lang.String…ing(startIndex, endIndex)");
-                    arrayList.add(substring);
-                    if (i == codePointCount) {
-                        break;
-                    }
-                    i++;
-                }
-            }
-            return arrayList;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
         }
-        return (List) invokeL.objValue;
+        return (String) invokeV.objValue;
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.s17
+    public /* bridge */ /* synthetic */ sc8 b() {
+        i();
+        return this;
     }
 }

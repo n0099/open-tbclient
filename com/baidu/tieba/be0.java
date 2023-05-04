@@ -1,274 +1,277 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.opengl.EGLContext;
-import android.util.Log;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.ar.DefaultParams;
-import com.baidu.ar.bean.DuMixARConfig;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
 import java.io.File;
-import org.json.JSONObject;
+import java.io.FileInputStream;
+import java.io.InputStreamReader;
+import java.io.RandomAccessFile;
+import java.nio.channels.FileLock;
+import java.util.concurrent.locks.ReentrantLock;
 /* loaded from: classes3.dex */
-public final class be0 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static boolean a = false;
-    public static ce0 b = null;
-    public static ie0 c = null;
-    public static Context d = null;
-    public static byte[] e = null;
-    public static JSONObject f = null;
-    public static JSONObject g = null;
-    public static boolean h = true;
-    public static String i = "live";
+public class be0 {
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public String c;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onProgress(int i, int i2);
-
-        void onResult(boolean z, String str);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947641948, "Lcom/baidu/tieba/be0;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
+    public be0() {
+        Interceptable interceptable = $ic;
         if (interceptable != null) {
-            $ic = interceptable;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947641948, "Lcom/baidu/tieba/be0;");
-        }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.c = "video_session";
+        b(td0.a());
     }
 
-    public static void a(String str) {
+    public be0(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
-            Log.e("DuAr_DuController", "ar->" + str);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = null;
+        this.b = null;
+        this.c = null;
+        this.c = str;
+        b(td0.a());
     }
 
-    public static void j(Context context) {
+    public static void c(String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, context) == null) {
-            k(context, "10000", "2288883fb087c4a37fbaf12bce65916e", "");
-        }
-    }
-
-    public static void p(a aVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65553, null, aVar) == null) {
-            pe0.e().k(aVar);
-        }
-    }
-
-    public static void q(ie0 ie0Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65554, null, ie0Var) == null) {
-            c = ie0Var;
-        }
-    }
-
-    public static void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            i = str;
-        }
-    }
-
-    public static void s(ce0 ce0Var) {
-        File f2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65556, null, ce0Var) == null) {
-            b = ce0Var;
-            if (ce0Var == null && (f2 = pe0.e().f()) != null) {
-                b = new ce0(f2.getAbsolutePath());
+        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
+            File file = new File(str);
+            if (file.exists() && file.isFile()) {
+                file.renameTo(new File(str2));
             }
         }
     }
 
-    public static void t(File file) {
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:34:0x0065 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:78:0x001c */
+    /* JADX DEBUG: Multi-variable search result rejected for r3v2, resolved type: java.nio.channels.FileLock */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Removed duplicated region for block: B:67:0x0089 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Removed duplicated region for block: B:74:0x0093 A[EXC_TOP_SPLITTER, SYNTHETIC] */
+    /* JADX WARN: Type inference failed for: r3v1, types: [java.io.RandomAccessFile, java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v3 */
+    /* JADX WARN: Type inference failed for: r3v4, types: [java.nio.channels.FileLock] */
+    /* JADX WARN: Type inference failed for: r3v5 */
+    /* JADX WARN: Unsupported multi-entry loop pattern (BACK_EDGE: B:50:0x0082 -> B:80:0x0085). Please submit an issue!!! */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public static void d(String str, byte[] bArr, String str2) {
+        RandomAccessFile randomAccessFile;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65557, null, file) != null) || file == null) {
+        if (!(interceptable == null || interceptable.invokeLLL(65539, null, str, bArr, str2) == null) || bArr == null || TextUtils.isEmpty(str)) {
             return;
         }
-        ce0 ce0Var = b;
-        if (ce0Var == null) {
-            ce0Var = new ce0(file.getAbsolutePath());
-        }
-        s(ce0Var);
-    }
-
-    public static void u(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65558, null, z) == null) {
-            h = z;
-            t(pe0.e().f());
-        }
-    }
-
-    public static byte[] b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return e;
-        }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static ie0 c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return c;
-        }
-        return (ie0) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return i;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static synchronized ge0 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            synchronized (be0.class) {
-                if (g != null && g.length() > 0) {
-                    return ge0.b(g);
+        FileLock fileLock = 0;
+        fileLock = 0;
+        try {
+            try {
+                try {
+                    randomAccessFile = new RandomAccessFile(str, "rw");
+                    try {
+                    } catch (Exception e) {
+                        e = e;
+                        vd0.b("DpStatFileWriter", "FileWriter invoke write fail:", e);
+                        if (fileLock != 0) {
+                            try {
+                                fileLock.release();
+                            } catch (Exception e2) {
+                                vd0.b("DpStatFileWriter", "file lock release fail", e2);
+                            }
+                        }
+                        if (randomAccessFile != null) {
+                            randomAccessFile.close();
+                        }
+                        return;
+                    }
+                } catch (Throwable th) {
+                    th = th;
+                    if (0 != 0) {
+                        try {
+                            fileLock.release();
+                        } catch (Exception e3) {
+                            vd0.b("DpStatFileWriter", "file lock release fail", e3);
+                        }
+                    }
+                    if (0 != 0) {
+                        try {
+                            fileLock.close();
+                        } catch (Exception e4) {
+                            vd0.b("DpStatFileWriter", "file close fail", e4);
+                        }
+                    }
+                    throw th;
                 }
-                return null;
+            } catch (Exception e5) {
+                e = e5;
+                randomAccessFile = null;
+            } catch (Throwable th2) {
+                th = th2;
+                if (0 != 0) {
+                }
+                if (0 != 0) {
+                }
+                throw th;
+            }
+        } catch (Exception e6) {
+            vd0.b("DpStatFileWriter", "file close fail", e6);
+        }
+        if (randomAccessFile.length() > Config.FULL_TRACE_LOG_LIMIT) {
+            try {
+                randomAccessFile.close();
+                return;
+            } catch (Exception e7) {
+                vd0.b("DpStatFileWriter", "file close fail", e7);
+                return;
             }
         }
-        return (ge0) invokeV.objValue;
-    }
-
-    public static ce0 g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return b;
+        fileLock = randomAccessFile.getChannel().tryLock();
+        if (fileLock != 0 && fileLock.isValid()) {
+            randomAccessFile.seek(randomAccessFile.length());
+            randomAccessFile.write(bArr);
+            if (!TextUtils.isEmpty(str2)) {
+                randomAccessFile.write(str2.getBytes());
+            }
         }
-        return (ce0) invokeV.objValue;
-    }
-
-    public static Context getContext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return d;
+        if (fileLock != 0) {
+            try {
+                fileLock.release();
+            } catch (Exception e8) {
+                vd0.b("DpStatFileWriter", "file lock release fail", e8);
+            }
         }
-        return (Context) invokeV.objValue;
+        randomAccessFile.close();
     }
 
-    public static int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            return ae0.a0();
-        }
-        return invokeV.intValue;
-    }
-
-    public static String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return ae0.b0();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
-            return a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return pe0.e().h();
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65552, null)) == null) {
-            return h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static DefaultParams d(EGLContext eGLContext) {
+    public static boolean f(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, eGLContext)) == null) {
-            String g2 = ce0.g();
-            if (m()) {
-                a("getDuMixDefaultParams EGLContext: " + eGLContext + ", modelPath: " + g2);
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            File file = new File(str);
+            return file.exists() && file.isFile() && file.delete();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean g(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return false;
             }
-            DefaultParams defaultParams = new DefaultParams();
-            defaultParams.setFaceAlgoModelPath(g2);
-            JSONObject jSONObject = f;
-            if (jSONObject != null && jSONObject.length() > 0) {
-                defaultParams.setGradingConfig(f);
-            }
-            if (eGLContext != null) {
-                defaultParams.setUseTextureIO(true);
-                defaultParams.setShareContext(eGLContext);
-            }
-            JSONObject jSONObject2 = f;
-            if (jSONObject2 != null && jSONObject2.length() > 0) {
-                defaultParams.setGradingConfig(f);
-                if (m()) {
-                    a("getDuMixDefaultParams  " + f.toString());
+            File file = new File(str);
+            return file.exists() && file.isFile();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || TextUtils.isEmpty(this.a) || TextUtils.isEmpty(this.b)) {
+            return;
+        }
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
+            String str = this.a;
+            if (g(str)) {
+                String str2 = this.b;
+                f(str2);
+                if (h(str, str2)) {
+                    f(str);
+                } else {
+                    f(str);
+                    c(str2, str);
                 }
+                f(str2);
             }
-            return defaultParams;
-        }
-        return (DefaultParams) invokeL.objValue;
-    }
-
-    public static void k(Context context, String str, String str2, String str3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(65548, null, context, str, str2, str3) == null) {
-            l(context, str, str2, str3, null);
+        } finally {
+            reentrantLock.unlock();
         }
     }
 
-    @Deprecated
-    public static void l(Context context, String str, String str2, String str3, ce0 ce0Var) {
+    public void b(Context context) {
+        String c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLLL(65549, null, context, str, str2, str3, ce0Var) == null) {
-            if (m()) {
-                a("sdk init with appId:" + str + ", apikey:" + str2 + ", secretKey:" + str3);
-            }
-            d = context.getApplicationContext();
-            DuMixARConfig.setAppId(str);
-            DuMixARConfig.setAPIKey(str2);
-            DuMixARConfig.setSecretKey(str3);
-            me0.d().i(d);
-            s(ce0Var);
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) || context == null || (c = yd0.c(context)) == null) {
+            return;
         }
+        new File(c).mkdirs();
+    }
+
+    public void e(byte[] bArr) {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr) == null) || bArr == null || TextUtils.isEmpty(this.a)) {
+            return;
+        }
+        ReentrantLock reentrantLock = new ReentrantLock(true);
+        reentrantLock.lock();
+        try {
+            try {
+                d(this.a, bArr, "\r\n");
+            } catch (AssertionError unused) {
+                vd0.e("DpStatFileWriter", "write data to file fail");
+            }
+        } finally {
+            reentrantLock.unlock();
+        }
+    }
+
+    public boolean h(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
+            try {
+                FileInputStream fileInputStream = new FileInputStream(str);
+                InputStreamReader inputStreamReader = new InputStreamReader(fileInputStream, "UTF-8");
+                BufferedReader bufferedReader = new BufferedReader(inputStreamReader);
+                this.c.equals("live_show_session");
+                bufferedReader.close();
+                inputStreamReader.close();
+                fileInputStream.close();
+                return true;
+            } catch (Exception e) {
+                e.printStackTrace();
+                vd0.e("DpStatFileWriter", "readAndUploadLogFile failed");
+                return true;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

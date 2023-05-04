@@ -1,71 +1,33 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.leveiconlivepolling.PollingModel;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.im.db.pojo.GroupChatRoomPojo;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import tbclient.ActBtn;
+import tbclient.TPointPost;
+import tbclient.Timgs;
+import tbclient.VideoInfo;
 /* loaded from: classes5.dex */
 public class ip9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MainTabActivity a;
-    public PollingModel b;
-    public List<Map<String, Long>> c;
-    public final Runnable d;
+    public boolean a;
+    public ArrayList<hp9> b;
+    public ArrayList<kp9> c;
 
-    /* loaded from: classes5.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ip9 a;
-
-        public a(ip9 ip9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ip9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ip9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.b != null) {
-                this.a.b.y0(PollingModel.SUBSCRIBE_GROUP_CHAT_LIST, String.valueOf(System.currentTimeMillis()), this.a.c());
-                jg.a().postDelayed(this.a.d, c45.a().c());
-            }
-        }
-    }
-
-    public ip9(MainTabActivity mainTabActivity) {
+    public ip9(TPointPost tPointPost) {
+        boolean z;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity};
+            Object[] objArr = {tPointPost};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -75,49 +37,50 @@ public class ip9 {
                 return;
             }
         }
-        this.c = null;
-        this.d = new a(this);
-        this.a = mainTabActivity;
-        this.b = new PollingModel(mainTabActivity.getPageContext(), this.a.getUniqueId());
+        if (tPointPost != null) {
+            try {
+                String str = tPointPost.position;
+                tPointPost.template_id.longValue();
+                if (tPointPost.is_tuiguang.intValue() == 0) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                this.a = z;
+                tPointPost.template_type.intValue();
+                List<ActBtn> list = tPointPost.act_btn;
+                if (list != null && list.size() > 0) {
+                    this.b = new ArrayList<>();
+                    for (int i3 = 0; i3 != list.size(); i3++) {
+                        this.b.add(new hp9(list.get(i3)));
+                    }
+                }
+                List<Timgs> list2 = tPointPost.t_imgs;
+                if (list2 != null && list2.size() > 0) {
+                    this.c = new ArrayList<>();
+                    for (int i4 = 0; i4 != list2.size(); i4++) {
+                        this.c.add(new kp9(list2.get(i4)));
+                    }
+                }
+                if (tPointPost.detail_info != null) {
+                    new jp9(tPointPost.detail_info);
+                }
+                String str2 = tPointPost.monitor_id;
+                tPointPost.hidden_day.intValue();
+                VideoInfo videoInfo = tPointPost.t_video;
+                String str3 = tPointPost.tag_name;
+            } catch (Exception e) {
+                BdLog.detailException(e);
+            }
+        }
     }
 
-    public final String c() {
+    public kp9 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new ArrayList();
-            }
-            this.c.clear();
-            List<GroupChatRoomPojo> h = bz7.f().h(TbadkCoreApplication.getCurrentAccount());
-            if (ListUtils.isEmpty(h)) {
-                return "";
-            }
-            for (GroupChatRoomPojo groupChatRoomPojo : h) {
-                if (groupChatRoomPojo.R() == 0) {
-                    HashMap hashMap = new HashMap();
-                    hashMap.put("room_id", Long.valueOf(groupChatRoomPojo.getRoomId()));
-                    hashMap.put("msg_id", Long.valueOf(groupChatRoomPojo.getLatestMsgId()));
-                    this.c.add(hashMap);
-                }
-            }
-            if (ListUtils.isEmpty(this.c)) {
-                return "";
-            }
-            String json = DataExt.toJson(this.c);
-            if (TextUtils.isEmpty(json)) {
-                return "";
-            }
-            return json;
+            return (kp9) ListUtils.getItem(this.c, 0);
         }
-        return (String) invokeV.objValue;
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            jg.a().removeCallbacks(this.d);
-            this.a = null;
-        }
+        return (kp9) invokeV.objValue;
     }
 }

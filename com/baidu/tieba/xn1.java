@@ -1,25 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.database.Cursor;
-import android.net.Uri;
+import android.content.ComponentName;
+import android.content.ServiceConnection;
+import android.os.IBinder;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.sso.r.a;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class xn1 {
+public class xn1 implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
+    public vn1 a;
 
-    public xn1(Context context) {
+    public xn1(vn1 vn1Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {vn1Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,50 +30,31 @@ public class xn1 {
                 return;
             }
         }
-        this.a = context;
+        this.a = vn1Var;
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:18:0x0040  */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(int i, String str) {
-        InterceptResult invokeIL;
-        String str2;
-        Uri parse;
-        Cursor query;
-        StringBuilder sb;
-        String str3;
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, str)) == null) {
-            if (i != 0) {
-                if (i == 1) {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/VAID_";
-                } else if (i != 2) {
-                    parse = null;
-                    query = this.a.getContentResolver().query(parse, null, null, null, null);
-                    if (query != null) {
-                        r0 = query.moveToNext() ? query.getString(query.getColumnIndex("value")) : null;
-                        query.close();
-                    }
-                    return r0;
-                } else {
-                    sb = new StringBuilder();
-                    str3 = "content://com.vivo.vms.IdProvider/IdentifierId/AAID_";
-                }
-                sb.append(str3);
-                sb.append(str);
-                str2 = sb.toString();
-            } else {
-                str2 = "content://com.vivo.vms.IdProvider/IdentifierId/OAID";
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            this.a.a = a.AbstractBinderC0178a.a(iBinder);
+            sn1 sn1Var = this.a.e;
+            if (sn1Var != null) {
+                sn1Var.a();
             }
-            parse = Uri.parse(str2);
-            query = this.a.getContentResolver().query(parse, null, null, null, null);
-            if (query != null) {
-            }
-            return r0;
         }
-        return (String) invokeIL.objValue;
+    }
+
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            vn1 vn1Var = this.a;
+            vn1Var.a = null;
+            sn1 sn1Var = vn1Var.e;
+            if (sn1Var != null) {
+                sn1Var.a();
+            }
+        }
     }
 }

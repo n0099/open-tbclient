@@ -1,62 +1,31 @@
 package com.baidu.tieba;
 
-import android.content.ContentValues;
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
 import com.baidu.nadcore.sweetsqlite.Column;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public abstract class f21 {
+public class f21 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public abstract e21 b();
-
-    public f21() {
+    public static void a(Cursor cursor, h21... h21VarArr) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || interceptable.invokeLL(65536, null, cursor, h21VarArr) == null) {
+            int i = 0;
+            for (h21 h21Var : h21VarArr) {
+                for (Column column : h21Var.b().c()) {
+                    e21.h(column, cursor, i);
+                    i++;
+                }
             }
         }
     }
 
-    public ContentValues a() {
-        InterceptResult invokeV;
+    public static void b(h21 h21Var, Cursor cursor) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return c21.b(b().c());
+        if (interceptable == null || interceptable.invokeLL(65537, null, h21Var, cursor) == null) {
+            e21.i(cursor, h21Var.b().c());
         }
-        return (ContentValues) invokeV.objValue;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
-        Column[] c;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(getClass().getName());
-            sb.append("\n");
-            for (Column column : b().c()) {
-                sb.append("|");
-                sb.append(column.field.e);
-                sb.append("| ");
-                sb.append(column.isAssignedValue ? 1 : 0);
-                sb.append(" | ");
-                sb.append(column.stringValue());
-                sb.append("\n");
-            }
-            return sb.toString();
-        }
-        return (String) invokeV.objValue;
     }
 }

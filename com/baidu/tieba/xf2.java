@@ -2,11 +2,8 @@ package com.baidu.tieba;
 
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.smallgame.sdk.permission.PermissionListener;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.ad3;
+import com.baidu.searchbox.http.HttpManager;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -14,28 +11,36 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import okhttp3.Call;
+import okhttp3.Callback;
+import okhttp3.Request;
+import okhttp3.Response;
 /* loaded from: classes7.dex */
-public class xf2 implements PermissionProxy {
+public class xf2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
+    public HttpManager a;
+    public String b;
+    public String c;
+    public vf2 d;
 
     /* loaded from: classes7.dex */
-    public class a implements om3<yc3<ad3.e>> {
+    public class a implements Callback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ PermissionListener c;
-        public final /* synthetic */ xf2 d;
+        public final /* synthetic */ xf2 a;
 
-        public a(xf2 xf2Var, String str, String str2, PermissionListener permissionListener) {
+        public a(xf2 xf2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xf2Var, str, str2, permissionListener};
+                Object[] objArr = {xf2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -45,66 +50,148 @@ public class xf2 implements PermissionProxy {
                     return;
                 }
             }
-            this.d = xf2Var;
-            this.a = str;
-            this.b = str2;
-            this.c = permissionListener;
+            this.a = xf2Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
+        @Override // okhttp3.Callback
+        public void onFailure(Call call, IOException iOException) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (tc3.h(yc3Var)) {
-                    this.d.b(this.a, this.b, this.c);
-                } else {
-                    this.c.onPermissionResult(this.a, 2);
+            if (interceptable == null || interceptable.invokeLL(1048576, this, call, iOException) == null) {
+                if (xf2.e) {
+                    Log.e("ImageDownloader", this.a.b + " load failed");
+                    iOException.printStackTrace();
+                }
+                if (this.a.d != null) {
+                    this.a.d.fail(-1, this.a.b);
                 }
             }
         }
-    }
 
-    /* loaded from: classes7.dex */
-    public class b implements y23 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ PermissionListener a;
-        public final /* synthetic */ String b;
-
-        public b(xf2 xf2Var, PermissionListener permissionListener, String str) {
+        @Override // okhttp3.Callback
+        public void onResponse(Call call, Response response) {
+            FileOutputStream fileOutputStream;
+            File file;
+            InputStream byteStream;
+            String c;
             Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xf2Var, permissionListener, str};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, call, response) == null) {
+                if (TextUtils.isEmpty(this.a.c)) {
+                    if (ho1.a) {
+                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口未实现，直接返回");
+                        return;
+                    }
                     return;
                 }
-            }
-            this.a = permissionListener;
-            this.b = str;
-        }
-
-        @Override // com.baidu.tieba.y23
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.onPermissionResult(this.b, 0);
-            }
-        }
-
-        @Override // com.baidu.tieba.y23
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                this.a.onPermissionResult(this.b, 1);
+                byte[] bArr = new byte[2048];
+                InputStream inputStream = null;
+                try {
+                    byteStream = response.body().byteStream();
+                    try {
+                        try {
+                            c = fr2.f().c(this.a.b);
+                        } catch (Exception e) {
+                            e = e;
+                            file = null;
+                            fileOutputStream = null;
+                        }
+                    } catch (Throwable th) {
+                        th = th;
+                        fileOutputStream = null;
+                    }
+                } catch (Exception e2) {
+                    e = e2;
+                    file = null;
+                    fileOutputStream = null;
+                } catch (Throwable th2) {
+                    th = th2;
+                    fileOutputStream = null;
+                }
+                if (TextUtils.isEmpty(c)) {
+                    if (ho1.a) {
+                        Log.e("SwanGameRuntime", "非手百环境依赖注入接口convertSrc()未实现，直接返回");
+                    }
+                    bo4.d(byteStream);
+                    bo4.d(null);
+                    bo4.d(response);
+                    return;
+                }
+                String str = this.a.c + c.substring(0, c.lastIndexOf("/"));
+                File file2 = new File(str);
+                if (!file2.exists() || !file2.isDirectory()) {
+                    file2.mkdirs();
+                }
+                String substring = c.substring(c.lastIndexOf("/") + 1);
+                file = new File(str, substring + ".bddownload");
+                try {
+                    fileOutputStream = new FileOutputStream(file);
+                    while (true) {
+                        try {
+                            int read = byteStream.read(bArr);
+                            if (read == -1) {
+                                break;
+                            }
+                            fileOutputStream.write(bArr, 0, read);
+                        } catch (Exception e3) {
+                            e = e3;
+                            inputStream = byteStream;
+                            try {
+                                if (xf2.e) {
+                                    Log.e("ImageDownloader", this.a.b + " load failed", e);
+                                }
+                                if (file != null) {
+                                    file.delete();
+                                }
+                                if (this.a.d != null) {
+                                    this.a.d.fail(-1, this.a.b);
+                                }
+                                bo4.d(inputStream);
+                                bo4.d(fileOutputStream);
+                                bo4.d(response);
+                            } catch (Throwable th3) {
+                                th = th3;
+                                bo4.d(inputStream);
+                                bo4.d(fileOutputStream);
+                                bo4.d(response);
+                                throw th;
+                            }
+                        } catch (Throwable th4) {
+                            th = th4;
+                            inputStream = byteStream;
+                            bo4.d(inputStream);
+                            bo4.d(fileOutputStream);
+                            bo4.d(response);
+                            throw th;
+                        }
+                    }
+                    fileOutputStream.flush();
+                    File file3 = new File(str, substring);
+                    if (file3.exists() && !file3.isDirectory()) {
+                        file3.delete();
+                    }
+                    String absolutePath = file3.getAbsolutePath();
+                    if (file.renameTo(file3)) {
+                        if (xf2.e) {
+                            Log.e("ImageDownloader", this.a.b + " load rename success path = " + absolutePath);
+                        }
+                        if (this.a.d != null) {
+                            this.a.d.a(this.a.b, absolutePath);
+                        }
+                    } else {
+                        if (xf2.e) {
+                            Log.e("ImageDownloader", this.a.b + " load rename error path = " + absolutePath);
+                        }
+                        file.delete();
+                        if (this.a.d != null) {
+                            this.a.d.fail(-1, absolutePath);
+                        }
+                    }
+                    bo4.d(byteStream);
+                } catch (Exception e4) {
+                    e = e4;
+                    fileOutputStream = null;
+                }
+                bo4.d(fileOutputStream);
+                bo4.d(response);
             }
         }
     }
@@ -122,79 +209,36 @@ public class xf2 implements PermissionProxy {
                 return;
             }
         }
-        a = fo1.a;
+        e = ho1.a;
     }
 
-    public xf2() {
+    public void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            fr2.l().call(this.a, new Request.Builder().url(this.b).build(), new a(this));
+        }
+    }
+
+    public xf2(HttpManager httpManager, String str, String str2, vf2 vf2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {httpManager, str, str2, vf2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public final void b(@NonNull String str, @NonNull String str2, @NonNull PermissionListener permissionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(1048576, this, str, str2, permissionListener) == null) {
-            b bVar = new b(this, permissionListener, str);
-            x23.e(str2, new String[]{str2}, 2, u73.K().w(), bVar);
-        }
-    }
-
-    public final String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (str == null) {
-                return null;
-            }
-            char c = 65535;
-            int hashCode = str.hashCode();
-            if (hashCode != -1785599184) {
-                if (hashCode == -1352756132 && str.equals(PermissionProxy.SCOPE_ID_RECORD)) {
-                    c = 1;
-                }
-            } else if (str.equals(PermissionProxy.SCOPE_ID_CAMERA)) {
-                c = 0;
-            }
-            if (c != 0) {
-                if (c != 1) {
-                    return null;
-                }
-                return PermissionRequest.RESOURCE_AUDIO_CAPTURE;
-            }
-            return PermissionRequest.RESOURCE_VIDEO_CAPTURE;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    @Override // com.baidu.smallgame.sdk.permission.PermissionProxy
-    public void requestPermission(String str, PermissionListener permissionListener) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, permissionListener) == null) {
-            if (a) {
-                Log.d("V8PermissionDelegate", "requestPermission : " + str);
-            }
-            if (permissionListener == null) {
-                if (a) {
-                    Log.e("V8PermissionDelegate", "PermissionListener can not be null.");
-                    return;
-                }
                 return;
             }
-            String c = c(str);
-            v73 M = v73.M();
-            if (!TextUtils.isEmpty(c) && M != null && M.w() != null) {
-                M.e0().g(M.w(), str, new a(this, str, c, permissionListener));
-            } else {
-                permissionListener.onPermissionResult(str, 2);
-            }
         }
+        this.b = "";
+        this.c = "";
+        this.a = httpManager;
+        this.c = str;
+        this.b = str2;
+        this.d = vf2Var;
     }
 }

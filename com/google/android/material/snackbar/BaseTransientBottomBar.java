@@ -389,7 +389,7 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
             z = false;
         }
         USE_OFFSET_API = z;
-        SNACKBAR_STYLE_ATTR = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040649};
+        SNACKBAR_STYLE_ATTR = new int[]{com.baidu.tieba.R.attr.obfuscated_res_0x7f040652};
         TAG = BaseTransientBottomBar.class.getSimpleName();
         handler = new Handler(Looper.getMainLooper(), new Handler.Callback() { // from class: com.google.android.material.snackbar.BaseTransientBottomBar.1
             @Override // android.os.Handler.Callback
@@ -815,9 +815,9 @@ public abstract class BaseTransientBottomBar<B extends BaseTransientBottomBar<B>
     @LayoutRes
     public int getSnackbarBaseLayoutResId() {
         if (hasSnackbarStyleAttr()) {
-            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d05fb;
+            return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d0604;
         }
-        return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d022b;
+        return com.baidu.tieba.R.layout.obfuscated_res_0x7f0d022e;
     }
 
     @NonNull

@@ -1,84 +1,68 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import android.util.Log;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
+import androidx.collection.ArraySet;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.tq2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class zg2 extends ProviderDelegation {
+public class zg2 implements wg2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948358916, "Lcom/baidu/tieba/zg2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948358916, "Lcom/baidu/tieba/zg2;");
-                return;
-            }
-        }
-        a = fo1.a;
-    }
+    public final String[] a;
 
     public zg2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new String[]{ff3.w(), ff3.y(), cc2.c()};
     }
 
-    public static int c(int i) {
-        InterceptResult invokeI;
+    @Override // com.baidu.tieba.wg2
+    public ArraySet<String> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return ah2.b().c(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArraySet<String> arraySet = new ArraySet<>();
+            for (String str : this.a) {
+                String K = bo4.K(str);
+                if (!TextUtils.isEmpty(K)) {
+                    arraySet.add(K);
+                }
             }
-            Bundle bundle = new Bundle();
-            bundle.putInt("level", i);
-            k43 c = i43.c(zg2.class, bundle);
-            int i2 = 0;
-            if (c.a()) {
-                i2 = c.a.getInt("count", 0);
+            if (ho1.a) {
+                b(arraySet);
             }
-            if (a) {
-                Log.d("RecoveryCountDelegation", "GetRecoveryCount level=" + i + ";count=" + i2);
-            }
-            return i2;
+            x42.k("SwanSdcardFileCollector", "recovery renameAllFiles:" + arraySet.toString());
+            return arraySet;
         }
-        return invokeI.intValue;
+        return (ArraySet) invokeV.objValue;
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    public final void b(ArraySet<String> arraySet) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            int i = bundle.getInt("level", -1);
-            Bundle bundle2 = new Bundle();
-            bundle2.putInt("count", ah2.b().c(i));
-            return bundle2;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, arraySet) != null) || arraySet == null) {
+            return;
         }
-        return (Bundle) invokeL.objValue;
+        String[] strArr = {oi2.b().getAbsolutePath(), eh3.c().getAbsolutePath(), tq2.b.d(), mk3.b(), wq2.k(), u13.b()};
+        for (int i = 0; i < 6; i++) {
+            String K = bo4.K(strArr[i]);
+            if (!TextUtils.isEmpty(K)) {
+                arraySet.add(K);
+            }
+        }
     }
 }

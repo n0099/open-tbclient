@@ -14,7 +14,7 @@ import javax.annotation.Nullable;
 @ShowFirstParty
 @KeepForSdk
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class IOUtils {
     @KeepForSdk
     public static void closeQuietly(@Nullable ParcelFileDescriptor parcelFileDescriptor) {

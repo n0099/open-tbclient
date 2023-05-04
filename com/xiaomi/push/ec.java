@@ -5,7 +5,7 @@ import android.content.Intent;
 import android.text.TextUtils;
 import com.baidu.android.common.others.lang.StringUtil;
 import java.util.HashMap;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public final class ec {
     public static volatile ec a;
 

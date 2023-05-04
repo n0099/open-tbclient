@@ -3,7 +3,7 @@ package com.huawei.hms.push.task;
 import android.content.Intent;
 import android.os.Bundle;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.nwa;
+import com.baidu.tieba.j0b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -84,19 +84,19 @@ public class SendUpStreamTask extends TaskApiCall<PushClient, BaseVoidTask> {
 
     /* JADX DEBUG: Method merged with bridge method */
     @Override // com.huawei.hms.common.internal.TaskApiCall
-    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, nwa<BaseVoidTask> nwaVar) {
+    public void doExecute(PushClient pushClient, ResponseErrorCode responseErrorCode, String str, j0b<BaseVoidTask> j0bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushClient, responseErrorCode, str, nwaVar) == null) {
+        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, pushClient, responseErrorCode, str, j0bVar) == null) {
             if (responseErrorCode.getErrorCode() == 0) {
                 HMSLog.i("SendUpStreamTask", "send up stream task,Operate succeed");
-                nwaVar.setResult(null);
+                j0bVar.setResult(null);
             } else {
                 HMSLog.e("SendUpStreamTask", "send up stream task,Operate failed with ret=" + responseErrorCode.getErrorCode());
                 ErrorEnum fromCode = ErrorEnum.fromCode(responseErrorCode.getErrorCode());
                 if (fromCode != ErrorEnum.ERROR_UNKNOWN) {
-                    nwaVar.c(fromCode.toApiException());
+                    j0bVar.c(fromCode.toApiException());
                 } else {
-                    nwaVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
+                    j0bVar.c(new ApiException(new Status(responseErrorCode.getErrorCode(), responseErrorCode.getErrorReason())));
                 }
             }
             a(pushClient, responseErrorCode);

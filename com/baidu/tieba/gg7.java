@@ -1,46 +1,85 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.util.PriorityOrganizer;
+import com.baidu.tieba.frs.FrsActivity;
+import com.baidu.tieba.frs.FrsFragment;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Service
 /* loaded from: classes4.dex */
-public class gg7 implements n15 {
+public class gg7 extends PriorityOrganizer.Task {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public FrsFragment m;
+    public FrsActivity n;
 
-    @Override // com.baidu.tieba.n15
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "frsGroupChatGuide" : (String) invokeV.objValue;
-    }
-
-    public gg7() {
+    public gg7(FrsActivity frsActivity, FrsFragment frsFragment) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {frsActivity, frsFragment};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.n = frsActivity;
+        this.m = frsFragment;
     }
 
-    @Override // com.baidu.tieba.n15
-    public Class<? extends l15> a() {
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean u() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return fg7.class;
+            FrsFragment frsFragment = this.m;
+            if (frsFragment != null && !frsFragment.H3() && TbSingleton.getInstance().getFrsResponseData() != null) {
+                return true;
+            }
+            return false;
         }
-        return (Class) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public void z() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            t();
+        }
+    }
+
+    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
+    public boolean w() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            boolean z = false;
+            if (r15.j()) {
+                return false;
+            }
+            eo9 frsResponseData = TbSingleton.getInstance().getFrsResponseData();
+            if (frsResponseData != null && frsResponseData.getBusinessPromot() != null && !StringUtils.isNull(frsResponseData.getBusinessPromot().q()) && frsResponseData.getForum() != null) {
+                z = true;
+            }
+            if (z) {
+                boolean j = bk7.j(frsResponseData.getBusinessPromot(), frsResponseData.getForum().getId());
+                this.m.K4(j);
+                this.m.O4(j);
+                return j;
+            }
+            return z;
+        }
+        return invokeV.booleanValue;
     }
 }

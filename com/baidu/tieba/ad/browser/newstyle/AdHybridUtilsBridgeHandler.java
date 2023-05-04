@@ -5,10 +5,10 @@ import com.baidu.adp.lib.util.BdNetTypeUtil;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.dialog.BdToast;
 import com.baidu.tbadk.core.hybrid.NamedBridgeHandler;
-import com.baidu.tieba.bj0;
+import com.baidu.tieba.dj0;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.u35;
-import com.baidu.tieba.w35;
+import com.baidu.tieba.j45;
+import com.baidu.tieba.l45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -30,18 +30,18 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public AdHybridUtilsBridgeHandler(u35 u35Var) {
-        super(u35Var);
+    public AdHybridUtilsBridgeHandler(j45 j45Var) {
+        super(j45Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {u35Var};
+            Object[] objArr = {j45Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((u35) newInitContext.callArgs[0]);
+                super((j45) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
@@ -49,15 +49,15 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         }
     }
 
-    @w35(isAsync = false, value = "showDeviceInfo")
+    @l45(isAsync = false, value = "showDeviceInfo")
     private JSONObject showDeviceInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, this)) == null) {
             JSONObject jSONObject = new JSONObject();
             String cuid = TbadkCoreApplication.getInst().getCuid();
-            String h = bj0.c().h(false);
-            String e = bj0.c().e(false);
+            String h = dj0.c().h(false);
+            String e = dj0.c().e(false);
             int l = ii.l(getContext());
             int j = ii.j(getContext());
             String str = String.valueOf(l) + "," + String.valueOf(j);
@@ -80,7 +80,7 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @w35(isAsync = false, value = "showNetStatus")
+    @l45(isAsync = false, value = "showNetStatus")
     private JSONObject showNetStatus() {
         InterceptResult invokeV;
         int i;
@@ -114,7 +114,7 @@ public class AdHybridUtilsBridgeHandler extends NamedBridgeHandler {
         return (JSONObject) invokeV.objValue;
     }
 
-    @w35(isAsync = false, value = "showToast")
+    @l45(isAsync = false, value = "showToast")
     private void showToast(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(65539, this, jSONObject) != null) || jSONObject == null) {

@@ -29,9 +29,9 @@ import com.baidu.tbadk.core.util.GreyUtil;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.i15;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r05;
-import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -60,7 +60,7 @@ public class TBAlertBuilder {
     public View.OnClickListener q;
     public boolean r;
     public LinearLayout s;
-    public r05 t;
+    public i15 t;
 
     /* loaded from: classes3.dex */
     public class a implements Runnable {
@@ -187,7 +187,7 @@ public class TBAlertBuilder {
         this.k = ScrollingMovementMethod.getInstance();
         this.b = activity;
         this.a = new AlertDialog.Builder(activity);
-        this.t = new r05();
+        this.t = new i15();
     }
 
     public static void e(@NonNull Dialog dialog) {
@@ -385,7 +385,7 @@ public class TBAlertBuilder {
         int i2;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) {
-            r25 d = r25.d(view2);
+            g35 d = g35.d(view2);
             if (this.e == null) {
                 i = 0;
             } else {
@@ -516,7 +516,7 @@ public class TBAlertBuilder {
                 TextView b2 = this.t.b(this.b, this.j);
                 b2.setText(this.h);
                 b2.setGravity(this.i);
-                b2.setId(R.id.obfuscated_res_0x7f090842);
+                b2.setId(R.id.obfuscated_res_0x7f090845);
                 b2.setPadding(UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0, UtilHelper.getDimenPixelSize(R.dimen.M_W_X013), 0);
                 b2.setMaxHeight(UtilHelper.getDimenPixelSize(R.dimen.tbds868));
                 b2.setMovementMethod(this.k);
@@ -524,7 +524,7 @@ public class TBAlertBuilder {
                 View view3 = new View(this.b);
                 view3.setVisibility(4);
                 RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, UtilHelper.getDimenPixelSize(R.dimen.tbds104));
-                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090842);
+                layoutParams.addRule(8, R.id.obfuscated_res_0x7f090845);
                 SkinManager.setBackgroundColorToTransparent(view3, R.color.CAM_X0205, GradientDrawable.Orientation.BOTTOM_TOP);
                 relativeLayout.addView(view3, layoutParams);
                 this.s.addView(relativeLayout);

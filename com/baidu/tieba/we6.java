@@ -1,22 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: OnWebScrollChangeListener.java */
+import android.webkit.WebResourceRequest;
+import android.webkit.WebResourceResponse;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class we6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static void a(xe6 xe6Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{xe6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-        }
-    }
-
-    public static void b(xe6 xe6Var, int i, int i2, int i3, int i4) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{xe6Var, Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
-        }
-    }
+public interface we6 {
+    WebResourceResponse a(String str, WebResourceRequest webResourceRequest);
 }

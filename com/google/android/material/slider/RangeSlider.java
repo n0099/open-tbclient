@@ -168,7 +168,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
     }
 
     public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet) {
-        this(context, attributeSet, R.attr.obfuscated_res_0x7f040645);
+        this(context, attributeSet, R.attr.obfuscated_res_0x7f04064e);
     }
 
     @Override // com.google.android.material.slider.BaseSlider, android.view.View, android.view.KeyEvent.Callback
@@ -183,7 +183,7 @@ public class RangeSlider extends BaseSlider<RangeSlider, OnChangeListener, OnSli
 
     public RangeSlider(@NonNull Context context, @Nullable AttributeSet attributeSet, int i) {
         super(context, attributeSet, i);
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f04077e});
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, new int[]{R.attr.obfuscated_res_0x7f040787});
         if (obtainStyledAttributes.hasValue(0)) {
             setValues(convertToFloat(obtainStyledAttributes.getResources().obtainTypedArray(obtainStyledAttributes.getResourceId(0, 0))));
         }

@@ -6,11 +6,11 @@ import android.util.AttributeSet;
 import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.TextView;
-import com.baidu.tieba.fo1;
+import com.baidu.tieba.ho1;
 @SuppressLint({"AppCompatCustomView"})
 /* loaded from: classes3.dex */
 public class SelectorTextView extends TextView {
-    public static final boolean b = fo1.a;
+    public static final boolean b = ho1.a;
     public boolean a;
 
     public SelectorTextView(Context context) {

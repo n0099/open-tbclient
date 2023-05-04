@@ -1,22 +1,22 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import com.baidu.swan.game.ad.downloader.model.DownloadParams;
-import com.baidu.swan.game.ad.downloader.model.DownloadState;
+import android.net.Uri;
+import androidx.annotation.NonNull;
+import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
+import com.baidu.tieba.sv3;
 /* loaded from: classes3.dex */
-public interface bw3<VIEW extends View> {
-    void a(String str);
+public interface bw3 {
+    void a(DownloadInfo downloadInfo);
 
-    void b(DownloadState downloadState);
+    void b(DownloadInfo downloadInfo);
 
-    bw3 c(Context context, DownloadParams downloadParams, wv3 wv3Var);
+    void c(DownloadInfo downloadInfo);
 
-    void d(int i);
+    void d(DownloadInfo downloadInfo);
 
-    void e(Object obj);
+    void destroy();
 
-    void f();
+    void f(@NonNull String str, @NonNull Uri uri, @NonNull sv3.d<Boolean> dVar);
 
-    VIEW getRealView();
+    DownloadInfo g(String str);
 }

@@ -1,73 +1,20 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
-import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
-import androidx.appcompat.app.AlertDialog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.LoginDialogData;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
-import com.baidu.tbadk.widget.TbImageView;
+import android.util.ArrayMap;
+import androidx.annotation.NonNull;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final class t15 extends k15 {
+public class t15 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes6.dex */
-    public static final class a implements TbImageView.f {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ TBAlertBuilder a;
-        public final /* synthetic */ AlertDialog b;
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void onCancel() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public a(TBAlertBuilder tBAlertBuilder, AlertDialog alertDialog) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tBAlertBuilder, alertDialog};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tBAlertBuilder;
-            this.b = alertDialog;
-        }
-
-        @Override // com.baidu.tbadk.widget.TbImageView.f
-        public void a(String key, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLZ(1048576, this, key, z) == null) {
-                Intrinsics.checkNotNullParameter(key, "key");
-                if (!z) {
-                    return;
-                }
-                this.a.A(this.b);
-            }
-        }
-    }
+    public final Map<String, String> a;
 
     public t15() {
         Interceptable interceptable = $ic;
@@ -79,90 +26,47 @@ public final class t15 extends k15 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = new ArrayMap();
     }
 
-    @Override // com.baidu.tieba.k15
-    public void c() {
+    @NonNull
+    public static t15 b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            a15.r("operateNew");
-        }
-    }
-
-    @Override // com.baidu.tieba.k15
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            a15.l("operateNew");
-        }
-    }
-
-    public static final void f(AlertDialog dialog, qb5 qb5Var, View view2) {
-        String str;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65537, null, dialog, qb5Var, view2) == null) {
-            Intrinsics.checkNotNullParameter(dialog, "$dialog");
-            if (view2 != null && view2.getContext() != null) {
-                dialog.dismiss();
-                LoginDialogData loginDialogData = new LoginDialogData(view2.getContext(), LoginDialogData.HOME_OPERATE_DIALOG);
-                String b = qb5Var.b();
-                Intrinsics.checkNotNullExpressionValue(b, "operateData.getHomeOperateUrl()");
-                if (TextUtils.isEmpty(b)) {
-                    return;
-                }
-                if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                    str = "skin=dark";
-                } else {
-                    str = "skin=default";
-                }
-                if (StringsKt__StringsKt.contains$default((CharSequence) b, (CharSequence) "?", false, 2, (Object) null)) {
-                    str2 = b + "&customfullscreen=1&nonavigationbar=1&" + str;
-                } else {
-                    str2 = b + "?customfullscreen=1&nonavigationbar=1&" + str;
-                }
-                loginDialogData.setJumpUrl(str2);
-                if (DialogLoginHelper.checkUpIsLogin(loginDialogData)) {
-                    jt4.v(view2.getContext(), null, str2, true);
-                }
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.k15
-    public void b(TBAlertBuilder builder) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
-            Intrinsics.checkNotNullParameter(builder, "builder");
-            final qb5 homeOperateData = TbSingleton.getInstance().getHomeOperateData();
-            q45.m().w(h25.a.a(), false);
-            int h = TBAlertBuilder.h(TbadkCoreApplication.getInst());
-            LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(h, (h * 4) / 3);
-            TbImageView tbImageView = new TbImageView(getActivity());
-            tbImageView.setLayoutParams(layoutParams);
-            tbImageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
-            builder.k(tbImageView);
-            builder.r(true);
-            builder.v(true);
-            builder.j(false);
-            final AlertDialog d = builder.d();
-            Intrinsics.checkNotNullExpressionValue(d, "builder.create()");
-            tbImageView.setOnClickListener(new View.OnClickListener() { // from class: com.baidu.tieba.d15
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.view.View.OnClickListener
-                public final void onClick(View view2) {
-                    Interceptable interceptable2 = $ic;
-                    if (interceptable2 == null || interceptable2.invokeL(1048576, this, view2) == null) {
-                        t15.f(AlertDialog.this, homeOperateData, view2);
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            t15 t15Var = new t15();
+            if (!str2.startsWith("http") && !str2.startsWith("https")) {
+                if (str2.startsWith("dialoginternal://")) {
+                    Uri parse = Uri.parse(str2);
+                    for (String str3 : parse.getQueryParameterNames()) {
+                        String queryParameter = parse.getQueryParameter(str3);
+                        if (!TextUtils.isEmpty(str3) && !TextUtils.isEmpty(queryParameter)) {
+                            t15Var.a.put(str3, queryParameter);
+                        }
                     }
+                    t15Var.a.put("yun_dialogClass", parse.getAuthority());
+                    t15Var.a.put("yun_dialogName", str);
+                    t15Var.a.put("yun_dialogUrl", str2);
                 }
-            });
-            tbImageView.setEvent(new a(builder, d));
-            tbImageView.N(homeOperateData.a(), 10, false);
+            } else {
+                t15Var.a.put("yun_dialogClass", "WebViewYunDialog");
+                t15Var.a.put("yun_dialogName", str);
+                t15Var.a.put("yun_dialogUrl", str2);
+            }
+            return t15Var;
         }
+        return (t15) invokeLL.objValue;
+    }
+
+    public String a(@NonNull String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+            return this.a.get(str);
+        }
+        return (String) invokeL.objValue;
     }
 }

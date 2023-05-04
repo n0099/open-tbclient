@@ -21,14 +21,14 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.tbselector.utils.SelectorHelper;
 import com.baidu.tbadk.core.view.HeadImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b29;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.im.message.chat.ChatMessage;
 import com.baidu.tieba.im.widget.sharecard.ChatShareChatroomCard;
-import com.baidu.tieba.iz8;
-import com.baidu.tieba.nx7;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.vz7;
+import com.baidu.tieba.jz7;
+import com.baidu.tieba.s18;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -37,7 +37,7 @@ import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class MsgrightView extends nx7 {
+public class MsgrightView extends jz7 {
     public static /* synthetic */ Interceptable $ic = null;
     public static final String Q = "com.baidu.tieba.im.chat.MsgrightView";
     public transient /* synthetic */ FieldHolder $fh;
@@ -50,7 +50,7 @@ public class MsgrightView extends nx7 {
     public TextView M;
     public CenterTextView N;
     public RelativeLayout O;
-    public iz8 P;
+    public b29 P;
 
     static {
         InterceptResult invokeClinit;
@@ -102,7 +102,7 @@ public class MsgrightView extends nx7 {
     }
 
     /* loaded from: classes4.dex */
-    public class b implements vz7.c {
+    public class b implements s18.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ChatMessage a;
@@ -127,14 +127,14 @@ public class MsgrightView extends nx7 {
             this.a = chatMessage;
         }
 
-        @Override // com.baidu.tieba.vz7.c
+        @Override // com.baidu.tieba.s18.c
         public void a(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
                 if (str.contains(TbConfig.URL_UEG_REPORT)) {
-                    iz8 iz8Var = this.b.P;
-                    if (iz8Var != null) {
-                        iz8Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
+                    b29 b29Var = this.b.P;
+                    if (b29Var != null) {
+                        b29Var.c(String.valueOf(this.a.getUserInfo().getUserId()));
                         return;
                     }
                     return;
@@ -182,13 +182,13 @@ public class MsgrightView extends nx7 {
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, iz8 iz8Var) {
+    public MsgrightView(TbPageContext<MsglistActivity<?>> tbPageContext, b29 b29Var) {
         super(tbPageContext, R.layout.msg_msgright_view);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, iz8Var};
+            Object[] objArr = {tbPageContext, b29Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -201,19 +201,19 @@ public class MsgrightView extends nx7 {
             }
         }
         this.P = null;
-        this.P = iz8Var;
+        this.P = b29Var;
         G();
         this.I = (TextView) u(R.id.img_msgitem_progressbar);
-        this.G = (ProgressBar) u(R.id.obfuscated_res_0x7f091c37);
+        this.G = (ProgressBar) u(R.id.obfuscated_res_0x7f091c47);
         this.H = (ImageView) u(R.id.btn_msgitem_resend);
         this.J = (HeadImageView) u(R.id.img_msgitem_photo);
         this.N = (CenterTextView) u(R.id.tv_msgerror);
         this.O = (RelativeLayout) u(R.id.rl_errmsg);
         this.K = (FrameLayout) u(R.id.message_text_container);
-        r25 d = r25.d(this.O);
+        g35 d = g35.d(this.O);
         d.o(R.string.J_X05);
         d.f(R.color.CAM_X0603);
-        r25 d2 = r25.d(this.N);
+        g35 d2 = g35.d(this.N);
         d2.B(R.dimen.T_X09);
         d2.C(R.string.F_X01);
         d2.w(R.color.CAM_X0101);
@@ -228,7 +228,7 @@ public class MsgrightView extends nx7 {
         this.n.setIsLeft(false);
     }
 
-    @Override // com.baidu.tieba.nx7
+    @Override // com.baidu.tieba.jz7
     public void I() {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.D == TbadkCoreApplication.getInst().getSkinType()) {
@@ -248,7 +248,7 @@ public class MsgrightView extends nx7 {
         }
     }
 
-    @Override // com.baidu.tieba.nx7
+    @Override // com.baidu.tieba.jz7
     public void K(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, chatMessage) == null) {
@@ -281,8 +281,8 @@ public class MsgrightView extends nx7 {
             }
             try {
                 d0(chatMessage);
-                j0(chatMessage);
-                this.J.setDefaultResource(R.drawable.obfuscated_res_0x7f080f98);
+                i0(chatMessage);
+                this.J.setDefaultResource(R.drawable.obfuscated_res_0x7f080fc9);
                 if (chatMessage.getUserInfo() != null) {
                     this.J.setUserId(chatMessage.getUserInfo().getUserId());
                     if (TbadkCoreApplication.isLogin()) {
@@ -368,7 +368,7 @@ public class MsgrightView extends nx7 {
                                 this.N.setText(R.string.message_text_error_because_network);
                                 break;
                             } else {
-                                vz7 f = vz7.f(TbadkCoreApplication.getInst().getContext());
+                                s18 f = s18.f(TbadkCoreApplication.getInst().getContext());
                                 if (f.i(chatMessage.getLocalData().getErrorString())) {
                                     f.g(chatMessage.getLocalData().getErrorString());
                                     f.h(this.N);
@@ -444,7 +444,7 @@ public class MsgrightView extends nx7 {
         }
     }
 
-    @Override // com.baidu.tieba.nx7
+    @Override // com.baidu.tieba.jz7
     public void V(View view2, ChatMessage chatMessage) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, view2, chatMessage) == null) {

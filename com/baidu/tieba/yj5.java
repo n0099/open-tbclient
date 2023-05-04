@@ -1,57 +1,18 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.pyramid.runtime.service.ServiceNotFoundException;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import android.content.Intent;
+import com.baidu.tbadk.mutiprocess.DataType;
+import com.baidu.tbadk.mutiprocess.ParcelableEvent;
+import com.baidu.tbadk.mutiprocess.SerializableEvent;
+import com.baidu.tbadk.mutiprocess.StickyEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yj5 extends rj1<rl> {
+public class yj5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    /* loaded from: classes7.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-    }
-
-    /* loaded from: classes7.dex */
-    public static final class b implements rl {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public /* synthetic */ b(a aVar) {
-            this();
-        }
-
-        @Override // com.baidu.tieba.rl
-        public void a(@NonNull String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                SoLoaderEvent soLoaderEvent = new SoLoaderEvent();
-                soLoaderEvent.name = str;
-                cj5.i(soLoaderEvent);
-            }
-        }
-    }
 
     public yj5() {
         Interceptable interceptable = $ic;
@@ -67,15 +28,19 @@ public class yj5 extends rj1<rl> {
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rj1
-    /* renamed from: a */
-    public rl createService() throws ServiceNotFoundException {
-        InterceptResult invokeV;
+    public void a(Intent intent, oj5 oj5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new b(null);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, intent, oj5Var) == null) {
+            if (oj5Var instanceof StickyEvent) {
+                intent.putExtra("value_type", DataType.ORM.ordinal());
+                intent.putExtra("value", (StickyEvent) oj5Var);
+            } else if (oj5Var instanceof ParcelableEvent) {
+                intent.putExtra("value_type", DataType.PARCELABLE.ordinal());
+                intent.putExtra("value", (ParcelableEvent) oj5Var);
+            } else if (oj5Var instanceof SerializableEvent) {
+                intent.putExtra("value_type", DataType.SERIALIZABLE.ordinal());
+                intent.putExtra("value", (SerializableEvent) oj5Var);
+            }
         }
-        return (rl) invokeV.objValue;
     }
 }

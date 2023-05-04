@@ -1,25 +1,27 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.ubc.Flow;
+import com.baidu.searchbox.pms.constants.PmsConstant;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class be3 {
+public class be3 implements ae3<JSONObject> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Object a;
-    public final Flow b;
+    public JSONArray b;
 
-    public be3(Object obj, Flow flow) {
+    public be3() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {obj, flow};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,25 +31,61 @@ public class be3 {
                 return;
             }
         }
-        this.a = obj;
-        this.b = flow;
+        this.b = new JSONArray();
     }
 
-    public Flow a() {
-        InterceptResult invokeV;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b = new JSONArray();
         }
-        return (Flow) invokeV.objValue;
     }
 
-    public Object b() {
+    public JSONObject d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("launchLog", this.b);
+            } catch (JSONException e) {
+                if (ae3.a) {
+                    Log.e("LaunchTraceCollector", Log.getStackTraceString(e));
+                }
+            }
+            return jSONObject;
         }
-        return invokeV.objValue;
+        return (JSONObject) invokeV.objValue;
+    }
+
+    public void a(String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, str, str2) == null) {
+            if (TextUtils.isEmpty(str)) {
+                if (ae3.a) {
+                    Log.d("LaunchTraceCollector", "event is empty");
+                    return;
+                }
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("actionId", str);
+                jSONObject.put(PmsConstant.Statistic.Key.REV_TIMESTAMP, String.valueOf(System.currentTimeMillis()));
+                jSONObject.put("info", str2);
+                b(jSONObject);
+            } catch (JSONException e) {
+                if (ae3.a) {
+                    Log.w("LaunchTraceCollector", Log.getStackTraceString(e));
+                }
+            }
+        }
+    }
+
+    public void b(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) == null) && jSONObject != null) {
+            this.b.put(jSONObject);
+        }
     }
 }

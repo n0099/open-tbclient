@@ -1,187 +1,107 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Iterator;
-import java.util.Set;
-import org.json.JSONObject;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class ci6 {
     public static /* synthetic */ Interceptable $ic;
+    public static ci6 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Uri a;
-    public String b;
-    public Bundle c;
+    public List<StatisticItem> a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947675769, "Lcom/baidu/tieba/ci6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947675769, "Lcom/baidu/tieba/ci6;");
-        }
-    }
-
-    public ci6(String str) {
+    public ci6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        g(str);
     }
 
-    public String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            return c(str, null);
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public Bundle a() {
+    public static ci6 b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.c == null) {
-                this.c = new Bundle();
-            }
-            return this.c;
-        }
-        return (Bundle) invokeV.objValue;
-    }
-
-    public Uri d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    public String c(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            Bundle bundle = this.c;
-            if (bundle != null) {
-                return bundle.getString(str, str2);
-            }
-            return str2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public final boolean e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            try {
-                this.a.getScheme();
-                this.a.getHost();
-                String path = this.a.getPath();
-                this.b = path;
-                if (!TextUtils.isEmpty(path) && this.b.endsWith("/")) {
-                    this.b = this.b.substring(0, this.b.length() - 1);
-                }
-                Set<String> queryParameterNames = this.a.getQueryParameterNames();
-                if (queryParameterNames == null || queryParameterNames.isEmpty()) {
-                    return true;
-                }
-                if (this.c == null) {
-                    this.c = new Bundle();
-                }
-                for (String str : queryParameterNames) {
-                    String queryParameter = this.a.getQueryParameter(str);
-                    this.c.putString(str, queryParameter);
-                    if (TextUtils.equals(str, "params") && !TextUtils.isEmpty(queryParameter)) {
-                        try {
-                            JSONObject jSONObject = new JSONObject(queryParameter);
-                            Iterator<String> keys = jSONObject.keys();
-                            while (keys.hasNext()) {
-                                String next = keys.next();
-                                this.c.putString(next, jSONObject.optString(next, ""));
-                            }
-                        } catch (Exception e) {
-                            if (BdLog.isDebugMode()) {
-                                BdLog.e("builder parseUri e = " + e.toString());
-                            }
-                        }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (b == null) {
+                synchronized (ci6.class) {
+                    if (b == null) {
+                        b = new ci6();
                     }
                 }
-                return true;
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder parseUri te = " + th.toString());
-                }
-                return false;
             }
+            return b;
         }
-        return invokeV.booleanValue;
+        return (ci6) invokeV.objValue;
     }
 
-    public ci6 f(Uri uri) {
-        InterceptResult invokeL;
+    public void a(StatisticItem statisticItem) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, uri)) == null) {
-            this.a = uri;
-            if (uri != null) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.i("builder uri = " + uri);
-                }
-                e();
-            } else if (BdLog.isDebugMode()) {
-                BdLog.i("builder uri = null");
-            }
-            return this;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, statisticItem) != null) || statisticItem == null) {
+            return;
         }
-        return (ci6) invokeL.objValue;
+        if (this.a == null) {
+            this.a = new ArrayList();
+        }
+        this.a.add(statisticItem);
     }
 
-    public ci6 g(String str) {
-        InterceptResult invokeL;
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            Uri uri = null;
-            try {
-                if (!TextUtils.isEmpty(str)) {
-                    uri = Uri.parse(str);
-                }
-            } catch (Throwable th) {
-                if (BdLog.isDebugMode()) {
-                    BdLog.e("builder uri e = " + th.toString());
-                }
-            }
-            f(uri);
-            return this;
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
         }
-        return (ci6) invokeL.objValue;
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
+    }
+
+    public void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        int i = -1;
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null && i != statisticItem.getPosition()) {
+                i = statisticItem.getPosition();
+                statisticItem.delete(TiebaStatic.Params.OBJ_PARAM2);
+                statisticItem.param(TiebaStatic.Params.OBJ_PARAM2, z ? 1 : 0);
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
+    }
+
+    public void e(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeZ(1048579, this, z) != null) || ListUtils.getCount(this.a) == 0) {
+            return;
+        }
+        for (StatisticItem statisticItem : this.a) {
+            if (statisticItem != null) {
+                if (statisticItem.getKey() != null && !statisticItem.getKey().equals("c13756") && !statisticItem.getKey().equals("c13750") && !statisticItem.getKey().equals("c13751")) {
+                    statisticItem.param("obj_type", z ? 1 : 0);
+                }
+                TiebaStatic.log(statisticItem);
+            }
+        }
+        this.a.clear();
     }
 }

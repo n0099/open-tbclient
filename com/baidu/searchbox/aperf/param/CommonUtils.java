@@ -15,7 +15,7 @@ import com.baidu.android.util.devices.StorageUtils;
 import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.searchbox.aperf.param.util.CpuInfoUtils;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.b10;
+import com.baidu.tieba.d10;
 import com.yy.hiidostatis.defs.obj.ParamableElem;
 import java.io.BufferedReader;
 import java.io.File;
@@ -91,7 +91,7 @@ public class CommonUtils {
     }
 
     public static String getNetwork() {
-        return new b10().a();
+        return new d10().a();
     }
 
     public static String getOSVersion() {

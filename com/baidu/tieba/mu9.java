@@ -1,68 +1,52 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public abstract class mu9<T> extends lu9<T> {
+public class mu9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final rs9 a;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mu9(String str, T t, String str2) {
-        super(str, t, str2);
+    public mu9(MainTabActivity mainTabActivity) {
+        super(2921725);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, t, str2};
+            Object[] objArr = {mainTabActivity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((String) objArr2[0], objArr2[1], (String) objArr2[2]);
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = mainTabActivity.e;
     }
 
-    @Override // com.baidu.tieba.lu9
-    public long e(String str, long j) {
-        InterceptResult invokeLJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        rs9 rs9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048576, this, str, j)) == null) {
-            return q45.m().o(str, j);
-        }
-        return invokeLJ.longValue;
-    }
-
-    @Override // com.baidu.tieba.lu9
-    public void g(String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
-            q45.m().A(str, j);
-        }
-    }
-
-    public int l(String str, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i)) == null) {
-            return q45.m().n(str, i);
-        }
-        return invokeLI.intValue;
-    }
-
-    public void m(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(1048579, this, str, i) == null) {
-            q45.m().z(str, i);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (rs9Var = this.a) != null && rs9Var.f() != null && (customResponsedMessage.getData() instanceof Boolean)) {
+            if (((Boolean) customResponsedMessage.getData()).booleanValue()) {
+                Runnable runnable = this.a.f().c;
+                jg.a().removeCallbacks(runnable);
+                jg.a().post(runnable);
+                return;
+            }
+            jg.a().removeCallbacks(this.a.f().c);
         }
     }
 }

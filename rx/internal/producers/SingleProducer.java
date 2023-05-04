@@ -1,39 +1,39 @@
 package rx.internal.producers;
 
-import com.baidu.tieba.p1b;
-import com.baidu.tieba.t1b;
-import com.baidu.tieba.z1b;
+import com.baidu.tieba.l5b;
+import com.baidu.tieba.p5b;
+import com.baidu.tieba.v5b;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes9.dex */
-public final class SingleProducer<T> extends AtomicBoolean implements p1b {
+public final class SingleProducer<T> extends AtomicBoolean implements l5b {
     public static final long serialVersionUID = -3353584923995471404L;
-    public final t1b<? super T> child;
+    public final p5b<? super T> child;
     public final T value;
 
-    public SingleProducer(t1b<? super T> t1bVar, T t) {
-        this.child = t1bVar;
+    public SingleProducer(p5b<? super T> p5bVar, T t) {
+        this.child = p5bVar;
         this.value = t;
     }
 
-    @Override // com.baidu.tieba.p1b
+    @Override // com.baidu.tieba.l5b
     public void request(long j) {
         int i = (j > 0L ? 1 : (j == 0L ? 0 : -1));
         if (i >= 0) {
             if (i != 0 && compareAndSet(false, true)) {
-                t1b<? super T> t1bVar = this.child;
-                if (t1bVar.isUnsubscribed()) {
+                p5b<? super T> p5bVar = this.child;
+                if (p5bVar.isUnsubscribed()) {
                     return;
                 }
                 Object obj = (T) this.value;
                 try {
-                    t1bVar.onNext(obj);
-                    if (t1bVar.isUnsubscribed()) {
+                    p5bVar.onNext(obj);
+                    if (p5bVar.isUnsubscribed()) {
                         return;
                     }
-                    t1bVar.onCompleted();
+                    p5bVar.onCompleted();
                     return;
                 } catch (Throwable th) {
-                    z1b.g(th, t1bVar, obj);
+                    v5b.g(th, p5bVar, obj);
                     return;
                 }
             }

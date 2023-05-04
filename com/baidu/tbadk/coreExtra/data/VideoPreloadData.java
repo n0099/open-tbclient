@@ -2,7 +2,7 @@ package com.baidu.tbadk.coreExtra.data;
 
 import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ax4;
+import com.baidu.tieba.qx4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,7 +11,7 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.Serializable;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class VideoPreloadData extends ax4 implements Serializable {
+public class VideoPreloadData extends qx4 implements Serializable {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int isWifi;
@@ -63,7 +63,7 @@ public class VideoPreloadData extends ax4 implements Serializable {
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.ax4
+    @Override // com.baidu.tieba.qx4
     public void parserJson(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null) {

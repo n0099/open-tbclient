@@ -8,8 +8,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.a9;
+import com.baidu.tieba.iw4;
 import com.baidu.tieba.setting.more.MoreActivity;
-import com.baidu.tieba.sv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -65,7 +65,7 @@ public class GetImageWatermarkTypeModel extends BdBaseModel<MoreActivity> {
             }
             GetImageWatermarkTypeResMsg getImageWatermarkTypeResMsg = (GetImageWatermarkTypeResMsg) httpResponsedMessage;
             if (getImageWatermarkTypeResMsg.mMaskType > -1) {
-                sv4.c().i(getImageWatermarkTypeResMsg.mMaskType);
+                iw4.c().i(getImageWatermarkTypeResMsg.mMaskType);
             }
         }
     }

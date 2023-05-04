@@ -7,7 +7,7 @@ import com.google.android.gms.common.annotation.KeepForSdk;
 import java.util.List;
 @KeepForSdk
 @Deprecated
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class WakeLockTracker {
     public static WakeLockTracker zza = new WakeLockTracker();
 

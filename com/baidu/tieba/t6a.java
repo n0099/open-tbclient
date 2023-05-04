@@ -1,7 +1,20 @@
 package com.baidu.tieba;
 
-import java.util.List;
+import android.webkit.WebView;
+import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 /* loaded from: classes6.dex */
 public interface t6a {
-    void e(List<String> list);
+    void a(boolean z);
+
+    boolean b(WebView webView, String str);
+
+    void c(NewWriteModel.d dVar);
+
+    void d();
+
+    void e(boolean z, String str);
+
+    void onDestroy();
+
+    void onPageFinished(WebView webView, String str);
 }

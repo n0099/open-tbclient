@@ -1,18 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.ala.data.SdkLiveInfoData;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes4.dex */
-public class f46 {
+public class f46 extends hr1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<SdkLiveInfoData> a;
 
     public f46() {
         Interceptable interceptable = $ic;
@@ -28,19 +27,11 @@ public class f46 {
         }
     }
 
-    public void a(JSONObject jSONObject, String str) {
-        JSONArray optJSONArray;
+    @Override // com.baidu.tieba.hr1
+    public void c(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048576, this, jSONObject, str) == null) && jSONObject != null && (optJSONArray = jSONObject.optJSONArray("live_list")) != null && optJSONArray.length() > 0) {
-            this.a = new ArrayList<>(optJSONArray.length());
-            for (int i = 0; i < optJSONArray.length(); i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    SdkLiveInfoData sdkLiveInfoData = new SdkLiveInfoData();
-                    sdkLiveInfoData.fromJson(optJSONObject, str);
-                    this.a.add(sdkLiveInfoData);
-                }
-            }
+        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+            e46.c(z);
         }
     }
 }

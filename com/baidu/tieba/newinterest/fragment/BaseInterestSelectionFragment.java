@@ -7,28 +7,28 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ar8;
-import com.baidu.tieba.hr8;
-import com.baidu.tieba.rq8;
+import com.baidu.tieba.at8;
+import com.baidu.tieba.jt8;
+import com.baidu.tieba.qt8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes5.dex */
-public abstract class BaseInterestSelectionFragment extends BaseFragment implements rq8.a {
+public abstract class BaseInterestSelectionFragment extends BaseFragment implements at8.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public a a;
     public TBSpecificationBtn b;
-    public rq8 c;
+    public at8 c;
     public View d;
     public int e;
     public String[] f;
 
     /* loaded from: classes5.dex */
     public interface a {
-        void a(List<ar8> list);
+        void a(List<jt8> list);
     }
 
     public BaseInterestSelectionFragment() {
@@ -45,14 +45,14 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         }
     }
 
-    public void E1() {
+    public void F1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.c.c(this);
         }
     }
 
-    public void F1() {
+    public void G1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             hideLoadingView(this.d);
@@ -65,13 +65,13 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onResume();
             if (getFragmentManager().getFragments().size() == 1) {
-                hr8.c(1, this.e);
+                qt8.c(1, this.e);
             }
         }
     }
 
-    @Override // com.baidu.tieba.rq8.a
-    public void B1(int i) {
+    @Override // com.baidu.tieba.at8.a
+    public void C1(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             if (i > 0 && !this.b.isEnabled()) {
@@ -79,7 +79,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
                 this.b.setText(getString(R.string.next_step));
             } else if (i == 0) {
                 this.b.setEnabled(false);
-                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11cd));
+                this.b.setText(getResources().getString(R.string.obfuscated_res_0x7f0f11e6));
             }
         }
     }
@@ -97,7 +97,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         }
     }
 
-    public void G1(String str) {
+    public void H1(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
             hideLoadingView(this.d);
@@ -105,7 +105,7 @@ public abstract class BaseInterestSelectionFragment extends BaseFragment impleme
         }
     }
 
-    public void H1(a aVar) {
+    public void I1(a aVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, aVar) == null) {
             this.a = aVar;

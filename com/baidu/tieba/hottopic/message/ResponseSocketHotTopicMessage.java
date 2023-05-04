@@ -3,7 +3,7 @@ package com.baidu.tieba.hottopic.message;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.jw7;
+import com.baidu.tieba.ey7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import tbclient.Hottopic.HottopicResIdl;
 public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jw7 topicData;
+    public ey7 topicData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseSocketHotTopicMessage() {
@@ -63,10 +63,10 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
                 if (extra instanceof Integer) {
                     num = (Integer) extra;
                 }
-                jw7 jw7Var = new jw7();
-                this.topicData = jw7Var;
+                ey7 ey7Var = new ey7();
+                this.topicData = ey7Var;
                 if (num != null) {
-                    jw7Var.p = num.intValue();
+                    ey7Var.p = num.intValue();
                 }
                 this.topicData.h(hottopicResIdl.data);
             }
@@ -75,12 +75,12 @@ public class ResponseSocketHotTopicMessage extends SocketResponsedMessage {
         return invokeIL.objValue;
     }
 
-    public jw7 getHotTopicData() {
+    public ey7 getHotTopicData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.topicData;
         }
-        return (jw7) invokeV.objValue;
+        return (ey7) invokeV.objValue;
     }
 }

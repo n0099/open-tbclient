@@ -1,256 +1,57 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.graphics.Bitmap;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.danmu.cache.CacheManager;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.Unit;
-import kotlin.jvm.internal.DefaultConstructorMarker;
+import java.util.HashMap;
+import java.util.Map;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class cl6 {
+public final class cl6 implements v17 {
     public static /* synthetic */ Interceptable $ic;
-    public static final a f;
-    public static final cl6 g;
     public transient /* synthetic */ FieldHolder $fh;
-    public final dl6 a;
-    public boolean b;
-    public int c;
-    public CacheManager d;
-    public int e;
 
-    /* loaded from: classes3.dex */
-    public static final class a {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public /* synthetic */ a(DefaultConstructorMarker defaultConstructorMarker) {
-            this();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final cl6 a() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return cl6.g;
-            }
-            return (cl6) invokeV.objValue;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947678652, "Lcom/baidu/tieba/cl6;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947678652, "Lcom/baidu/tieba/cl6;");
-                return;
-            }
-        }
-        f = new a(null);
-        g = new cl6();
+    @Override // com.baidu.tieba.v17
+    public String getKey() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "c13692" : (String) invokeV.objValue;
     }
 
     public cl6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new dl6();
-    }
-
-    public final void d() {
-        CacheManager cacheManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            synchronized (this) {
-                int i = this.c - 1;
-                this.c = i;
-                if (i <= 0 && this.b && (cacheManager = this.d) != null) {
-                    cacheManager.l(this);
-                }
-                Unit unit = Unit.INSTANCE;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            synchronized (this) {
-                if (this.c <= 0) {
-                    m();
-                } else {
-                    this.b = true;
-                }
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                this.a.b();
-                Unit unit = Unit.INSTANCE;
-            }
-        }
-    }
-
-    public final int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.a.e();
-        }
-        return invokeV.intValue;
-    }
-
-    public final int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.a.f();
-        }
-        return invokeV.intValue;
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            synchronized (this) {
-                this.c++;
-            }
-        }
-    }
-
-    public static /* synthetic */ cl6 c(cl6 cl6Var, int i, int i2, int i3, boolean z, int i4, int i5, Object obj) {
-        int i6;
-        if ((i5 & 16) != 0) {
-            i6 = 32;
-        } else {
-            i6 = i4;
-        }
-        cl6Var.b(i, i2, i3, z, i6);
-        return cl6Var;
-    }
-
-    public final cl6 b(int i, int i2, int i3, boolean z, int i4) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Boolean.valueOf(z), Integer.valueOf(i4)})) == null) {
-            synchronized (this) {
-                this.a.a(i, i2, i3, z, i4);
-                this.e = h(this.a.c());
-            }
-            return this;
-        }
-        return (cl6) invokeCommon.objValue;
-    }
-
-    public final dl6 g() {
-        InterceptResult invokeV;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            dl6 dl6Var = this.a;
-            if (!Intrinsics.areEqual(dl6Var.c(), om6.b()) && !dl6Var.c().isRecycled()) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (!z) {
-                return null;
-            }
-            return dl6Var;
-        }
-        return (dl6) invokeV.objValue;
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public final int h(Bitmap bitmap) {
+    @Override // com.baidu.tieba.v17
+    public Map<String, String> a(hy6 businessInfo) {
         InterceptResult invokeL;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bitmap)) == null) {
-            if (bitmap == null) {
-                return 0;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, businessInfo)) == null) {
+            Intrinsics.checkNotNullParameter(businessInfo, "businessInfo");
+            HashMap hashMap = new HashMap();
+            if (gg.e(businessInfo.a().get("is_video_work"), 0) == 1) {
+                str = "1";
+            } else {
+                str = "0";
             }
-            if (Build.VERSION.SDK_INT >= 19) {
-                return bitmap.getAllocationByteCount();
-            }
-            return bitmap.getRowBytes() * bitmap.getHeight();
+            hashMap.put("obj_source", str);
+            hashMap.put("obj_locate", "3");
+            return hashMap;
         }
-        return invokeL.intValue;
-    }
-
-    public final void n(CacheManager cacheManager) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048587, this, cacheManager) == null) {
-            this.d = cacheManager;
-        }
-    }
-
-    public final void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            synchronized (this) {
-                if (!Intrinsics.areEqual(Thread.currentThread().getName(), "AkDanmaku-Cache")) {
-                    BdLog.e("DanmakuEngineDrawingCache recycle called must on cache thread but now on " + Thread.currentThread().getName());
-                }
-                if (this.c > 0) {
-                    return;
-                }
-                this.b = false;
-                this.a.g();
-                this.e = 0;
-                Unit unit = Unit.INSTANCE;
-            }
-        }
+        return (Map) invokeL.objValue;
     }
 }

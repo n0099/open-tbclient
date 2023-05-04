@@ -1,35 +1,18 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import android.util.ArrayMap;
-import android.util.Log;
-import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.annotation.UiThread;
-import com.baidu.android.common.others.lang.StringUtil;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.component.container.view.SwanAppComponentContainerView;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 /* loaded from: classes5.dex */
-public final class k42 {
+public class k42 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean d;
     public transient /* synthetic */ FieldHolder $fh;
-    @NonNull
-    public zm3 a;
-    @NonNull
-    public ArrayMap<String, k32> b;
-    @NonNull
-    public ArrayMap<String, List<k32>> c;
 
     static {
         InterceptResult invokeClinit;
@@ -44,299 +27,108 @@ public final class k42 {
                 return;
             }
         }
-        d = fo1.a;
-    }
-
-    public k42(@NonNull zm3 zm3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {zm3Var};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = zm3Var;
-        this.b = new ArrayMap<>();
-        this.c = new ArrayMap<>();
+        boolean z = ho1.a;
     }
 
     @Nullable
-    public SwanAppComponentContainerView a(String str) {
+    public static <C extends m32> C a(n32 n32Var) {
         InterceptResult invokeL;
+        C c;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, n32Var)) == null) {
+            if (n32Var == null) {
+                q42.a("Component-Finder", "find a null component: null model");
+                return null;
+            }
+            String d = n32Var.d();
+            String str = n32Var.c;
             if (TextUtils.isEmpty(str)) {
+                x42.c("Component-Finder", "find a null " + d + " : slaveId is empty");
                 return null;
             }
-            k32 k32Var = this.b.get(str);
-            if (k32Var == null) {
-                v42.c("Component-Container", "getContainerView : get a null  component#" + str);
+            n42 d2 = d(str);
+            if (d2 == null) {
+                x42.c("Component-Finder", "find a null " + d + " : null component context");
                 return null;
             }
-            return k32Var.m();
-        }
-        return (SwanAppComponentContainerView) invokeL.objValue;
-    }
-
-    @UiThread
-    public boolean b(k32 k32Var) {
-        InterceptResult invokeL;
-        boolean b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, k32Var)) == null) {
-            if (k32Var == null) {
-                o42.a("Component-Container", "insert component with a null component");
-                return false;
-            }
-            l32 n = k32Var.n();
-            String str = n.a;
-            String str2 = n.b;
-            String o = k32Var.o();
-            SwanAppComponentContainerView m = k32Var.m();
-            if (m == null) {
-                o42.a("Component-Container", "insert " + o + " with a null container view");
-                return false;
-            }
-            if (this.b.containsKey(str2)) {
-                v42.o("Component-Container", o + " repeat insert: " + str2);
-            }
+            String str2 = n32Var.b;
             if (TextUtils.isEmpty(str2)) {
-                o42.a("Component-Container", "insert " + o + " with a empty component id");
-                return false;
-            }
-            by2 by2Var = n.h;
-            if (by2Var == null) {
-                o42.a("Component-Container", "insert " + o + " with a null position");
-                return false;
-            }
-            if (!by2Var.h()) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("insert ");
-                sb.append(o);
-                sb.append(" with a invalid position: ");
-                Object obj = n.h;
-                if (obj == null) {
-                    obj = StringUtil.NULL_STRING;
-                }
-                sb.append(obj);
-                o42.a("Component-Container", sb.toString());
-                n.h = new by2();
-            }
-            if (!j42.c(n)) {
-                if (TextUtils.isEmpty(n.d)) {
-                    b = this.a.c(m, n.h);
+                x42.o("Component-Finder", "find " + d + " with a empty componentId");
+                List<m32> list = d2.a().c.get(n32Var.a);
+                if (list == null) {
+                    x42.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are null ");
+                    return null;
+                } else if (list.size() <= 0) {
+                    x42.c("Component-Finder", "find a null " + d + " with a empty componentId: fallbackComponents are empty ");
+                    return null;
                 } else {
-                    SwanAppComponentContainerView a = a(n.d);
-                    if (a == null) {
-                        v42.c("Component-Container", "insert " + o + " to parent with a null parent container view");
-                        return false;
-                    }
-                    if (a.indexOfChild(m) >= 0) {
-                        o42.a("Component-Container", o + " repeat insert view!");
-                        a.removeView(m);
-                    }
-                    a.addView(m, n.b());
-                    b = true;
+                    x42.o("Component-Finder", "find " + d + " with a empty componentId: fina a fallback component");
+                    c = (C) list.get(0);
                 }
             } else {
-                b = j42.b(this, n, m);
-                if (!b) {
-                    o42.a("Component-Container", o + " insertComponentForScroll fail");
-                }
+                c = (C) d2.a().b.get(str2);
             }
-            if (b) {
-                this.b.put(n.b, k32Var);
-                if (k32Var.s(2)) {
-                    v42.o("Component-Container", o + " insert with FLAG_CAN_NO_COMPONENT_ID");
-                    List<k32> list = this.c.get(str);
-                    if (list == null) {
-                        list = new ArrayList<>();
-                        this.c.put(str, list);
-                    }
-                    list.add(k32Var);
-                }
+            if (c == null) {
+                x42.c("Component-Finder", "find a null " + d + " : not exist");
+                return null;
             }
-            return b;
+            return c;
         }
-        return invokeL.booleanValue;
+        return (C) invokeL.objValue;
     }
 
-    public void c() {
-        k32 value;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            if (d) {
-                Log.d("Component-Container", "container destroy");
-            }
-            for (Map.Entry<String, k32> entry : this.b.entrySet()) {
-                if (entry != null && (value = entry.getValue()) != null) {
-                    value.y();
-                }
-            }
-            this.b.clear();
-            this.c.clear();
-        }
-    }
-
-    public final boolean d(@NonNull k32 k32Var, @NonNull SwanAppComponentContainerView swanAppComponentContainerView, @NonNull l32 l32Var) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, k32Var, swanAppComponentContainerView, l32Var)) == null) {
-            String o = k32Var.o();
-            if (d) {
-                Log.d("Component-Container", o + " perform position update");
-            }
-            by2 by2Var = l32Var.h;
-            if (by2Var != null && by2Var.h()) {
-                if (j42.c(l32Var) && !j42.e(this, l32Var, swanAppComponentContainerView)) {
-                    o42.a("Component-Container", o + " performPositionUpdateForScroll fail");
-                }
-                String str = l32Var.d;
-                if (TextUtils.isEmpty(str)) {
-                    return this.a.a(swanAppComponentContainerView, l32Var.h);
-                }
-                SwanAppComponentContainerView a = a(str);
-                if (a == null) {
-                    v42.c("Component-Container", "update " + o + " to parent with a null parent container view");
-                    return false;
-                } else if (swanAppComponentContainerView.getParent() == a) {
-                    a.updateViewLayout(swanAppComponentContainerView, l32Var.b());
-                    return true;
-                } else {
-                    o42.a("Component-Container", "update " + o + " to parent with a illegal parent view");
-                    return false;
-                }
-            }
-            StringBuilder sb = new StringBuilder();
-            sb.append("insert ");
-            sb.append(o);
-            sb.append(" with a invalid position: ");
-            Object obj = l32Var.h;
-            if (obj == null) {
-                obj = StringUtil.NULL_STRING;
-            }
-            sb.append(obj);
-            o42.a("Component-Container", sb.toString());
-            return false;
-        }
-        return invokeLLL.booleanValue;
-    }
-
-    @UiThread
-    public boolean e(k32 k32Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, k32Var)) == null) {
-            boolean z = false;
-            if (k32Var == null) {
-                o42.a("Component-Container", "remove component with a null component");
-                return false;
-            }
-            l32 n = k32Var.n();
-            String str = n.a;
-            String str2 = n.b;
-            String o = k32Var.o();
-            SwanAppComponentContainerView m = k32Var.m();
-            if (m == null) {
-                o42.a("Component-Container", "remove " + o + " with a null container view");
-                return false;
-            } else if (TextUtils.isEmpty(str2)) {
-                o42.a("Component-Container", "remove " + o + " with a empty component id");
-                return false;
-            } else {
-                if (!j42.c(n)) {
-                    if (TextUtils.isEmpty(n.d)) {
-                        z = this.a.removeView(m);
-                    } else {
-                        SwanAppComponentContainerView a = a(n.d);
-                        if (a == null) {
-                            v42.c("Component-Container", "remove " + o + " to parent with a null parent container view");
-                        } else if (a == m.getParent()) {
-                            a.removeView(m);
-                            z = true;
-                        } else {
-                            o42.a("Component-Container", "remove " + o + " to parent with a illegal parent view");
-                        }
-                    }
-                } else {
-                    z = j42.g(this, n, m);
-                    if (!z) {
-                        o42.a("Component-Container", o + " removeComponentForScroll fail");
-                    }
-                }
-                if (z || k32Var.s(1)) {
-                    this.b.remove(str2);
-                    if (k32Var.s(2)) {
-                        v42.o("Component-Container", o + " remove with FLAG_CAN_NO_COMPONENT_ID");
-                        List<k32> list = this.c.get(str);
-                        if (list != null) {
-                            list.remove(k32Var);
-                        }
-                    }
-                }
-                return z;
-            }
-        }
-        return invokeL.booleanValue;
-    }
-
-    @UiThread
-    public boolean f(k32 k32Var, @NonNull n42 n42Var) {
+    @Nullable
+    public static <C extends m32> C b(@Nullable String str, @Nullable String str2) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, k32Var, n42Var)) == null) {
-            if (k32Var == null) {
-                o42.a("Component-Container", "update component with a null component");
-                return false;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            if (TextUtils.isEmpty(str) || TextUtils.isEmpty(str2)) {
+                return null;
             }
-            l32 n = k32Var.n();
-            String o = k32Var.o();
-            SwanAppComponentContainerView m = k32Var.m();
-            if (m == null) {
-                o42.a("Component-Container", "update " + o + " with a null container view");
-                return false;
+            n42 d = d(str);
+            if (d == null) {
+                x42.c("Component-Finder", "find a null " + str2 + " : null component context");
+                return null;
             }
-            if (!this.b.containsKey(n.b)) {
-                v42.c("Component-Container", "don't insert" + o);
+            C c = (C) d.a().b.get(str2);
+            if (c == null) {
+                x42.c("Component-Finder", "find a null " + str2 + " : not exist");
+                return null;
             }
-            if (k32Var instanceof c42) {
-                if (n42Var.a(7)) {
-                    boolean d2 = j42.d(this, k32Var, n, m, n42Var);
-                    if (!d2) {
-                        o42.a("Component-Container", o + " perform scroll type update fail");
-                    }
-                    return d2;
-                } else if (n42Var.a(8)) {
-                    j42.f(this, k32Var, n, m, n42Var);
-                }
-            }
-            if (n42Var.a(3) && !d(k32Var, m, n)) {
-                v42.c("Component-Container", o + " perform position update fail");
-                return false;
-            } else if (k32Var instanceof i32) {
-                i32 i32Var = (i32) k32Var;
-                if (i32Var.J()) {
-                    if (d) {
-                        Log.d("Component-Container", o + "perform position update with animation");
-                    }
-                    if (!i32Var.M()) {
-                        v42.c("Component-Container", o + " perform position update with animation fail");
-                        return false;
-                    }
-                    return true;
-                }
-                return true;
-            } else {
-                return true;
-            }
+            return c;
         }
-        return invokeLL.booleanValue;
+        return (C) invokeLL.objValue;
+    }
+
+    @Nullable
+    public static n42 c(n32 n32Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, n32Var)) == null) {
+            if (n32Var == null) {
+                q42.a("Component-Finder", "find component context with a null model");
+                return null;
+            }
+            return d(n32Var.c);
+        }
+        return (n42) invokeL.objValue;
+    }
+
+    @Nullable
+    public static n42 d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                x42.c("Component-Finder", "find component context with a null slave id");
+                return null;
+            }
+            fu1 A = kt2.U().A(str);
+            if (!(A instanceof du1)) {
+                return null;
+            }
+            return ((du1) A).c0();
+        }
+        return (n42) invokeL.objValue;
     }
 }

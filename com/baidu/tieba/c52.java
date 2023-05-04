@@ -1,119 +1,86 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.rq2;
+import android.os.Bundle;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class c52 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static final String b;
-    public static final String c;
+public class c52 implements z42 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947625673, "Lcom/baidu/tieba/c52;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947625673, "Lcom/baidu/tieba/c52;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947625673, "Lcom/baidu/tieba/c52;")) == null) {
+            return;
         }
-        a = "__localDebug__" + File.separator + "master.js";
-        b = "__localDebug__" + File.separator + "main.js";
-        c = "__localDebug__" + File.separator + "slave.js";
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947625673, "Lcom/baidu/tieba/c52;");
+        }
     }
 
-    public static rq2.g a(ss2 ss2Var) {
-        InterceptResult invokeL;
+    public c52() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, ss2Var)) == null) {
-            File d = d();
-            e52.e().f("unzipstart");
-            rq2.M(b(), d, ss2Var);
-            e52.e().f("unzipend");
-            rq2.g gVar = new rq2.g();
-            File file = new File(d, "app.json");
-            SwanAppConfigData b2 = h83.b(d.getAbsolutePath());
-            gVar.a = d.getPath() + File.separator;
-            gVar.b = b2;
-            v42.k("LocalDebugBundleHelper", "configFile path: " + file.getPath() + " exist: " + file.exists() + " info.mAppBundlePath path: " + gVar.a);
-            return gVar;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
         }
-        return (rq2.g) invokeL.objValue;
     }
 
-    public static File b() {
+    public static String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return new File(c(), "local_debug.swan");
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug_zip");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static File d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            File file = new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug");
-            if (!file.exists()) {
-                file.mkdirs();
-            }
-            return file;
-        }
-        return (File) invokeV.objValue;
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            return d() + File.separator + a;
+            return a;
         }
         return (String) invokeV.objValue;
     }
 
-    public static String f() {
+    @Override // com.baidu.tieba.z42
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            return d() + File.separator + c;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b52.b().getPath();
         }
         return (String) invokeV.objValue;
     }
 
-    public static boolean g() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.z42
+    public void a(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return new File(AppRuntime.getAppContext().getFilesDir(), "swan_local_debug").exists();
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            a = wk3.i(bundle, "adb_debug_path");
+            a52.i(wk3.i(bundle, PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD));
+            a52.j(wk3.i(bundle, "slavePreload"));
         }
-        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.z42
+    public void b(Bundle bundle) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+            bundle.putString("adb_debug_path", a);
+            bundle.putString("slavePreload", a52.c());
+            bundle.putString(PrefetchEvent.EVENT_DATA_DEBUG_PRELOAD, a52.a());
+        }
     }
 }

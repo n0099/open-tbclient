@@ -14,11 +14,11 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.httpNet.ICDNIPDirectConnect;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.switchs.UseHttpdnsSdkSwitch;
+import com.baidu.tieba.ar5;
 import com.baidu.tieba.eh;
 import com.baidu.tieba.fg;
 import com.baidu.tieba.hf;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.hq5;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jf;
 import com.baidu.tieba.og;
@@ -108,7 +108,7 @@ public class ImageLogger {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return TbImageMemoryCache.s().I();
+            return TbImageMemoryCache.v().N();
         }
         return (String) invokeV.objValue;
     }
@@ -221,7 +221,7 @@ public class ImageLogger {
         if ((interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{str, Boolean.valueOf(z), str2, bool, jfVar, str3, Long.valueOf(j), Boolean.valueOf(z2), Integer.valueOf(i)}) == null) && ii.F() && jfVar != null) {
             String str9 = "";
             String str10 = "";
-            boolean a = hq5.a(str2);
+            boolean a = ar5.a(str2);
             if (ICDNIPDirectConnect.getInstance() != null) {
                 if (!ICDNIPDirectConnect.getInstance().isAlreadyInit) {
                     ICDNIPDirectConnect.getInstance().init();

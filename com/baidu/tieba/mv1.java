@@ -1,157 +1,41 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.swan.apps.alliance.login.SwanAppAllianceLoginHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.view.SwanAppSimpleH5Widget;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import java.util.Map;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsJVMKt;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public final class mv1 extends s93 {
+public class mv1 extends SwanAppSimpleH5Widget {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static final class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public static final a a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-591197756, "Lcom/baidu/tieba/mv1$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-591197756, "Lcom/baidu/tieba/mv1$a;");
-                    return;
-                }
-            }
-            a = new a();
-        }
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public final void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                j72.b3();
-            }
-        }
+    @Override // com.baidu.swan.apps.core.slave.SwanAppWebViewWidget, com.baidu.swan.apps.core.SwanAppWebViewManager, com.baidu.tieba.fu1
+    public String b0() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "swan_app_alliance_login_widget" : (String) invokeV.objValue;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public mv1(s83 s83Var) {
-        super(s83Var, "/swanAPI/setTplBdussSync");
+    public mv1(Context context) {
+        super(context);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
+                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity entity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, entity, callbackHandler, v73Var)) == null) {
-            Intrinsics.checkNotNullParameter(entity, "entity");
-            JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(entity);
-            SwanAppAllianceLoginHelper.d.l(true);
-            if (optParamsAsJo == null) {
-                ho1 d = SwanAppAllianceLoginHelper.d.d();
-                if (d != null) {
-                    d.onResult(-1);
-                }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "empty joParams");
-                SwanAppAllianceLoginHelper.d.a(iv1.d(), iv1.a());
-                return false;
-            }
-            int optInt = optParamsAsJo.optInt("errno");
-            JSONObject optJSONObject = optParamsAsJo.optJSONObject("data");
-            pl3.a0(a.a);
-            if (optInt != 0) {
-                ho1 d2 = SwanAppAllianceLoginHelper.d.d();
-                if (d2 != null) {
-                    d2.onResult(-1);
-                }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "error number is " + optInt);
-                SwanAppAllianceLoginHelper.d.a(iv1.d(), iv1.a());
-                return false;
-            } else if (optJSONObject != null) {
-                Map<String, String> c = eo4.c(CookieManager.getInstance().getCookie(".baidu.com"));
-                Intrinsics.checkNotNullExpressionValue(c, "SwanAppUrlUtils.parseCookie(cookieString)");
-                String str = c.get("OPENBDUSS");
-                if (str != null && !StringsKt__StringsJVMKt.isBlank(str)) {
-                    z = false;
-                } else {
-                    z = true;
-                }
-                if (!z) {
-                    jv1.b.c(optInt, optJSONObject);
-                    dv1.b(context, str);
-                    SwanAppAllianceLoginHelper.d.j(true);
-                    ho1 d3 = SwanAppAllianceLoginHelper.d.d();
-                    if (d3 != null) {
-                        d3.onResult(0);
-                    }
-                    UnitedSchemeUtility.callCallback(callbackHandler, entity, 0);
-                    SwanAppAllianceLoginHelper.d.a(iv1.f(), iv1.c());
-                    return true;
-                }
-                ho1 d4 = SwanAppAllianceLoginHelper.d.d();
-                if (d4 != null) {
-                    d4.onResult(-1);
-                }
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "bduss is null");
-                SwanAppAllianceLoginHelper.d.a(iv1.d(), iv1.a());
-                return false;
-            } else {
-                entity.result = UnitedSchemeUtility.wrapCallbackParams(201, "json data is null");
-                SwanAppAllianceLoginHelper.d.a(iv1.d(), iv1.a());
-                return false;
-            }
-        }
-        return invokeLLLL.booleanValue;
     }
 }

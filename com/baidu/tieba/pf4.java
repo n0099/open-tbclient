@@ -1,7 +1,7 @@
 package com.baidu.tieba;
-
-import com.baidu.swan.pms.model.PMSAppInfo;
 /* loaded from: classes5.dex */
-public interface pf4 {
-    void a(PMSAppInfo pMSAppInfo);
+public interface pf4 extends qf4 {
+    void b();
+
+    void n(String str, String str2);
 }

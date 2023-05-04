@@ -50,7 +50,7 @@ public final class d {
         com.kwai.sodler.kwai.a.a(context, bVar, new b.c() { // from class: com.kwad.sdk.collector.d.1
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0656b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0659b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar) {
                 super.a((AnonymousClass1) cVar);
                 a aVar2 = a.this;
@@ -61,7 +61,7 @@ public final class d {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0656b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0659b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar, PluginError pluginError) {
                 super.a((AnonymousClass1) cVar, pluginError);
                 if (a.this != null) {
@@ -71,7 +71,7 @@ public final class d {
 
             /* JADX DEBUG: Method merged with bridge method */
             /* JADX INFO: Access modifiers changed from: private */
-            @Override // com.kwai.sodler.lib.ext.b.C0656b, com.kwai.sodler.lib.ext.b
+            @Override // com.kwai.sodler.lib.ext.b.C0659b, com.kwai.sodler.lib.ext.b
             public void a(com.kwai.sodler.lib.b.c cVar, com.kwai.sodler.lib.h hVar) {
                 super.a((AnonymousClass1) cVar, (com.kwai.sodler.lib.b.c) hVar);
                 d.a(a.this);

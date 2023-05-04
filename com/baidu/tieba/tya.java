@@ -1,52 +1,70 @@
 package com.baidu.tieba;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.ServiceConnection;
+import android.os.Bundle;
+import android.os.IBinder;
+import android.os.Message;
+import android.os.Messenger;
+import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public final class tya {
+public class tya implements ServiceConnection {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final double a;
-    public final double b;
+    public Messenger a;
+    public Bundle b;
+    public Context c;
 
-    public tya(double d, double d2, double d3, double d4) {
+    public tya() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Double.valueOf(d), Double.valueOf(d2), Double.valueOf(d3), Double.valueOf(d4)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = d3;
-        this.b = d4;
     }
 
-    public final double a() {
-        InterceptResult invokeV;
+    @Override // android.content.ServiceConnection
+    public void onServiceConnected(ComponentName componentName, IBinder iBinder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+            Log.i("MessengerSrvConnection", "onServiceConnected");
+            this.a = new Messenger(iBinder);
+            Message obtain = Message.obtain();
+            obtain.setData(this.b);
+            try {
+                this.a.send(obtain);
+            } catch (Exception e) {
+                String str = "message sending failed. " + e.getMessage();
+            }
+            Log.i("MessengerSrvConnection", "start unbind service.");
+            try {
+                this.c.unbindService(this);
+                Log.i("MessengerSrvConnection", "unbind service end.");
+            } catch (Exception unused) {
+            }
         }
-        return invokeV.doubleValue;
     }
 
-    public final double b() {
-        InterceptResult invokeV;
+    @Override // android.content.ServiceConnection
+    public void onServiceDisconnected(ComponentName componentName) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+            Log.i("MessengerSrvConnection", "onServiceDisconnected");
+            this.a = null;
+            this.b = null;
+            this.c = null;
         }
-        return invokeV.doubleValue;
     }
 }

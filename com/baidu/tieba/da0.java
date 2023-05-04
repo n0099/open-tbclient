@@ -1,56 +1,48 @@
 package com.baidu.tieba;
 
-import android.text.InputFilter;
-import android.text.Spanned;
+import android.content.Context;
+import com.baidu.live.business.model.data.LiveSearchResultInfo;
+import com.baidu.live.feed.search.model.data.RequestSearchData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class da0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface da0 {
+    void a(Context context, String str);
+
+    void b(Context context);
+
+    void c();
+
+    void d();
+
+    void e(Context context);
+
+    void f(Context context, int i);
+
+    void g(String str, String str2, RequestSearchData requestSearchData);
+
+    void h();
+
+    void i(String str);
+
+    void j(LiveSearchResultInfo liveSearchResultInfo, Context context, int i);
+
+    void onDetach();
 
     /* loaded from: classes4.dex */
-    public static class a implements InputFilter {
+    public static final class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        public static /* synthetic */ void a(da0 da0Var, String str, String str2, RequestSearchData requestSearchData, int i, Object obj) {
+            if (obj == null) {
+                if ((i & 4) != 0) {
+                    requestSearchData = new RequestSearchData();
                 }
+                da0Var.g(str, str2, requestSearchData);
+                return;
             }
+            throw new UnsupportedOperationException("Super calls with default arguments not supported in this target, function: searchWord");
         }
-
-        @Override // android.text.InputFilter
-        public CharSequence filter(CharSequence charSequence, int i, int i2, Spanned spanned, int i3, int i4) {
-            InterceptResult invokeCommon;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{charSequence, Integer.valueOf(i), Integer.valueOf(i2), spanned, Integer.valueOf(i3), Integer.valueOf(i4)})) == null) {
-                if (" ".contentEquals(charSequence)) {
-                    return "";
-                }
-                return charSequence;
-            }
-            return (CharSequence) invokeCommon.objValue;
-        }
-    }
-
-    public static InputFilter a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new a();
-        }
-        return (InputFilter) invokeV.objValue;
     }
 }

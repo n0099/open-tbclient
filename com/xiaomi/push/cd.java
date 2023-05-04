@@ -5,7 +5,7 @@ import android.database.Cursor;
 import com.xiaomi.push.ci;
 import java.util.ArrayList;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class cd extends ci.b<Long> {
     public long a;
 

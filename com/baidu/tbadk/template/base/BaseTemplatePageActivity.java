@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.view.ViewGroup;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.BaseActivity;
-import com.baidu.tieba.jn5;
+import com.baidu.tieba.co5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -13,12 +13,12 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public abstract class BaseTemplatePageActivity extends BaseActivity {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public jn5 a;
+    public co5 a;
     public ViewGroup b;
 
-    public abstract jn5 x1();
+    public abstract co5 x1();
 
-    public abstract int z1();
+    public abstract int y1();
 
     public BaseTemplatePageActivity() {
         Interceptable interceptable = $ic;
@@ -39,9 +39,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             super.onDestroy();
-            jn5 jn5Var = this.a;
-            if (jn5Var != null) {
-                jn5Var.i();
+            co5 co5Var = this.a;
+            if (co5Var != null) {
+                co5Var.i();
             }
         }
     }
@@ -51,9 +51,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             super.onPause();
-            jn5 jn5Var = this.a;
-            if (jn5Var != null) {
-                jn5Var.j();
+            co5 co5Var = this.a;
+            if (co5Var != null) {
+                co5Var.j();
             }
         }
     }
@@ -63,9 +63,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             super.onResume();
-            jn5 jn5Var = this.a;
-            if (jn5Var != null) {
-                jn5Var.k();
+            co5 co5Var = this.a;
+            if (co5Var != null) {
+                co5Var.k();
             }
         }
     }
@@ -75,9 +75,9 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             super.onChangeSkinType(i);
-            jn5 jn5Var = this.a;
-            if (jn5Var != null) {
-                jn5Var.h(i);
+            co5 co5Var = this.a;
+            if (co5Var != null) {
+                co5Var.h(i);
             }
         }
     }
@@ -87,7 +87,7 @@ public abstract class BaseTemplatePageActivity extends BaseActivity {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
             super.onCreate(bundle);
-            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(z1(), (ViewGroup) null);
+            ViewGroup viewGroup = (ViewGroup) getLayoutInflater().inflate(y1(), (ViewGroup) null);
             this.b = viewGroup;
             setContentView(viewGroup);
             this.a = x1();

@@ -1,13 +1,14 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
+import com.baidu.searchbox.live.interfaces.like.ILiveLikeView;
+import com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class kl8 {
+public class kl8 implements LiveLikeProxyService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -25,11 +26,13 @@ public class kl8 {
         }
     }
 
-    public void a(JSONObject jSONObject) {
+    @Override // com.baidu.searchbox.live.interfaces.like.LiveLikeProxyService
+    public ILiveLikeView buildLikeViewInstance() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
-            jSONObject.optString("error_code");
-            jSONObject.optString(GameCodeGetResponseMsg.PARAM_ERROR_MSG);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ll8();
         }
+        return (ILiveLikeView) invokeV.objValue;
     }
 }

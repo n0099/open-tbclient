@@ -1,88 +1,97 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tieba.ala.alasquare.livetab.view.LiveTabAlaRecommendViewHolder;
+import com.baidu.tieba.card.ala.secondfloor.AlaRecommendLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class r66 extends zf6<l66> {
+public class r66 extends vm<s66, LiveTabAlaRecommendViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public s66 i;
-    public s66 j;
-
-    @Override // com.baidu.tieba.zf6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0104 : invokeV.intValue;
-    }
-
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
-        }
-    }
+    public TbPageContext a;
+    public AlaRecommendLayout b;
+    public int c;
+    public String d;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public r66(TbPageContext<?> tbPageContext, boolean z) {
-        super(tbPageContext);
+    public r66(TbPageContext tbPageContext, int i, String str) {
+        super(tbPageContext.getPageActivity(), s66.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, Boolean.valueOf(z)};
+            Object[] objArr = {tbPageContext, Integer.valueOf(i), str};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = new s66(g(), z);
-        this.j = new s66(g(), z);
-        ViewGroup viewGroup = (ViewGroup) h();
-        View view2 = new View(getContext());
-        viewGroup.addView(this.i.g());
-        viewGroup.addView(view2, new LinearLayout.LayoutParams(g().getResources().getDimensionPixelSize(R.dimen.tbds4), -1));
-        viewGroup.addView(this.j.g());
+        this.d = "0";
+        this.a = tbPageContext;
+        this.c = i;
+        this.d = str;
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf6
-    /* renamed from: r */
-    public void l(l66 l66Var) {
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public LiveTabAlaRecommendViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, l66Var) == null) && l66Var != null) {
-            this.i.h(l66Var.a);
-            this.j.h(l66Var.b);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            AlaRecommendLayout alaRecommendLayout = new AlaRecommendLayout(this.a.getPageActivity());
+            this.b = alaRecommendLayout;
+            alaRecommendLayout.setPadding(UtilHelper.getDimenPixelSize(R.dimen.tbds34), UtilHelper.getDimenPixelSize(R.dimen.tbds21), UtilHelper.getDimenPixelSize(R.dimen.tbds34), this.b.getPaddingBottom());
+            this.b.setFid(this.d);
+            TiebaStatic.log(mi6.e("c13620", this.c, this.d));
+            return new LiveTabAlaRecommendViewHolder(this.b);
         }
+        return (LiveTabAlaRecommendViewHolder) invokeL.objValue;
     }
 
-    public void s(t66 t66Var) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, s66 s66Var, LiveTabAlaRecommendViewHolder liveTabAlaRecommendViewHolder) {
+        InterceptResult invokeCommon;
+        AlaRecommendLayout alaRecommendLayout;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, t66Var) == null) {
-            this.i.j(t66Var);
-            this.j.j(t66Var);
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, s66Var, liveTabAlaRecommendViewHolder})) == null) {
+            if (liveTabAlaRecommendViewHolder != null && (alaRecommendLayout = liveTabAlaRecommendViewHolder.a) != null && s66Var != null) {
+                g35 d = g35.d(alaRecommendLayout.findViewById(R.id.ala_recommend_list_container));
+                d.o(R.string.J_X06);
+                d.f(R.color.CAM_X0201);
+                ni6 ni6Var = s66Var.a;
+                if (ni6Var != null && !ListUtils.isEmpty(ni6Var.c())) {
+                    liveTabAlaRecommendViewHolder.a.setData(s66Var.a);
+                    liveTabAlaRecommendViewHolder.a.d(TbadkCoreApplication.getInst().getSkinType());
+                    liveTabAlaRecommendViewHolder.a.setVisibility(0);
+                } else {
+                    liveTabAlaRecommendViewHolder.a.setVisibility(8);
+                }
+                return liveTabAlaRecommendViewHolder.getView();
+            }
+            return null;
         }
-    }
-
-    @Override // com.baidu.tieba.zf6
-    public void m(TbPageContext<?> tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.i(tbPageContext, i);
-            this.j.i(tbPageContext, i);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

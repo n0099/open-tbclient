@@ -4,15 +4,17 @@ import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.Hottopic.JoinUser;
-import tbclient.Hottopic.UserInfo;
+import tbclient.NewHottopic.TimeLineInfo;
 /* loaded from: classes5.dex */
 public class mw7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<pw7> a;
+    public long a;
+    public long b;
+    public String c;
+    public String d;
+    public String e;
+    public int f;
 
     public mw7() {
         Interceptable interceptable = $ic;
@@ -28,18 +30,20 @@ public class mw7 {
         }
     }
 
-    public void a(JoinUser joinUser) {
+    public void a(TimeLineInfo timeLineInfo) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, joinUser) == null) {
-            joinUser.join_user_num.longValue();
-            this.a = new ArrayList();
-            for (UserInfo userInfo : joinUser.join_user) {
-                if (userInfo != null) {
-                    pw7 pw7Var = new pw7();
-                    pw7Var.a(userInfo);
-                    this.a.add(pw7Var);
-                }
-            }
+        if ((interceptable != null && interceptable.invokeL(1048576, this, timeLineInfo) != null) || timeLineInfo == null) {
+            return;
         }
+        this.b = timeLineInfo.tid.longValue();
+        this.c = timeLineInfo.title;
+        if (hi.isEmpty(timeLineInfo.small_title)) {
+            str = timeLineInfo.show_time;
+        } else {
+            str = timeLineInfo.small_title;
+        }
+        this.d = str;
+        this.e = timeLineInfo.bg_color;
     }
 }

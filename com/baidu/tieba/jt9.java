@@ -1,74 +1,46 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.task.HttpMessageTask;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class jt9 {
+public class jt9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
 
-    public static byte[] a(List<String> list) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jt9(MainTabActivity mainTabActivity, gs9 gs9Var) {
+        super(2016311);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (list == null) {
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, gs9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            StringBuilder sb = new StringBuilder();
-            int size = list.size();
-            for (int i = 0; i < size; i++) {
-                sb.append(list.get(i));
-                sb.append("\n");
-            }
-            return sb.toString().getBytes();
         }
-        return (byte[]) invokeL.objValue;
+        this.a = mainTabActivity;
     }
 
-    public static byte[] b(JSONObject jSONObject) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            return jSONObject.toString().getBytes();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof String) && !"advertevent://ignore".equals((String) customResponsedMessage.getData())) {
+            TbSingleton.getInstance().mIsSplashClick = true;
         }
-        return (byte[]) invokeL.objValue;
-    }
-
-    public static boolean c(byte[] bArr, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, str)) == null) {
-            if (bArr == null) {
-                return false;
-            }
-            kf kfVar = new kf();
-            kfVar.b().s(str);
-            kfVar.b().q(HttpMessageTask.HTTP_METHOD.POST);
-            kfVar.b().c("", bArr);
-            new hf(kfVar).m(3, -1, -1);
-            int i = kfVar.c().b;
-            byte[] bArr2 = kfVar.c().i;
-            if (bArr2 == null || i != 200) {
-                return false;
-            }
-            try {
-                if (new JSONObject(new String(bArr2, IMAudioTransRequest.CHARSET)).optJSONObject("error").optInt("errno") != 0) {
-                    return false;
-                }
-                return true;
-            } catch (Exception e) {
-                e.printStackTrace();
-                return false;
-            }
-        }
-        return invokeLL.booleanValue;
     }
 }

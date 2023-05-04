@@ -1,44 +1,54 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
 import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
+import android.graphics.Matrix;
+import android.os.Build;
 import android.text.TextUtils;
-import androidx.annotation.Nullable;
+import android.util.Log;
+import androidx.core.content.ContextCompat;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.smallgame.sdk.permission.PermissionProxy;
-import com.baidu.tieba.ad3;
+import com.baidu.swan.apps.camera.view.CameraPreview;
+import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.PermissionRequest;
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.util.HashMap;
+import java.util.Timer;
+import java.util.TimerTask;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g02 extends f02 {
+public class g02 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    @Nullable
-    public t1b c;
+    public Timer a;
+    public p02 b;
 
     /* loaded from: classes4.dex */
-    public class a implements om3<yc3<ad3.e>> {
+    public class a extends TimerTask {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallbackHandler a;
-        public final /* synthetic */ UnitedSchemeEntity b;
-        public final /* synthetic */ Context c;
-        public final /* synthetic */ p02 d;
-        public final /* synthetic */ g02 e;
+        public final /* synthetic */ p02 a;
+        public final /* synthetic */ g02 b;
 
-        public a(g02 g02Var, CallbackHandler callbackHandler, UnitedSchemeEntity unitedSchemeEntity, Context context, p02 p02Var) {
+        public a(g02 g02Var, p02 p02Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {g02Var, callbackHandler, unitedSchemeEntity, context, p02Var};
+                Object[] objArr = {g02Var, p02Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -48,200 +58,253 @@ public class g02 extends f02 {
                     return;
                 }
             }
-            this.e = g02Var;
-            this.a = callbackHandler;
-            this.b = unitedSchemeEntity;
-            this.c = context;
-            this.d = p02Var;
+            this.b = g02Var;
+            this.a = p02Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(yc3<ad3.e> yc3Var) {
+        @Override // java.util.TimerTask, java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, yc3Var) == null) {
-                if (tc3.h(yc3Var)) {
-                    this.e.q(this.c, this.b, this.a, this.d);
-                    return;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                p02 p02Var = this.a;
+                if (p02Var != null) {
+                    p02Var.a();
                 }
-                tc3.p(yc3Var, this.a, this.b);
-                if (this.e.c != null) {
-                    this.e.c.onError(new Throwable());
-                } else {
-                    v42.c("SwanAppCameraManager", "camera authorize failure with a null subscriber ");
-                }
-                v42.c("SwanAppCameraManager", "camera authorize failure");
+                this.b.j();
             }
         }
     }
 
     /* loaded from: classes4.dex */
-    public class b implements y23 {
+    public static class b {
         public static /* synthetic */ Interceptable $ic;
+        public static final g02 a;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Context a;
-        public final /* synthetic */ p02 b;
-        public final /* synthetic */ UnitedSchemeEntity c;
-        public final /* synthetic */ CallbackHandler d;
-        public final /* synthetic */ g02 e;
 
-        public b(g02 g02Var, Context context, p02 p02Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {g02Var, context, p02Var, unitedSchemeEntity, callbackHandler};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-827589310, "Lcom/baidu/tieba/g02$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-827589310, "Lcom/baidu/tieba/g02$b;");
                     return;
                 }
             }
-            this.e = g02Var;
-            this.a = context;
-            this.b = p02Var;
-            this.c = unitedSchemeEntity;
-            this.d = callbackHandler;
+            a = new g02(null);
         }
+    }
 
-        @Override // com.baidu.tieba.y23
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, str) != null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947740032, "Lcom/baidu/tieba/g02;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947740032, "Lcom/baidu/tieba/g02;");
                 return;
             }
-            this.e.k(this.c, this.d, this.e.p(this.a, this.b));
-            v42.c("SwanAppCameraManager", str + "");
         }
-
-        @Override // com.baidu.tieba.y23
-        public void b(int i, String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-                UnitedSchemeUtility.callCallback(this.d, this.c, 10005);
-                if (this.e.c != null) {
-                    this.e.c.onError(new Throwable());
-                } else {
-                    v42.c("SwanAppCameraManager", "handleAuthorized end, failure with a null subscriber ");
-                }
-                v42.c("SwanAppCameraManager", str + "");
-            }
-        }
+        c = ho1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g02(s83 s83Var) {
-        super(s83Var, "/swanAPI/camera/insert");
+    public g02() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((s83) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public l32 r(UnitedSchemeEntity unitedSchemeEntity) {
+    public static g02 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            return b.a;
+        }
+        return (g02) invokeV.objValue;
+    }
+
+    public void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            p02 p02Var = this.b;
+            if (p02Var != null) {
+                p02Var.cancel();
+            }
+            j();
+        }
+    }
+
+    public void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            try {
+                CameraPreview.r();
+            } catch (Exception e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+            this.b = null;
+            Timer timer = this.a;
+            if (timer != null) {
+                timer.cancel();
+            }
+        }
+    }
+
+    public /* synthetic */ g02(a aVar) {
+        this();
+    }
+
+    public boolean c(Context context) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, unitedSchemeEntity)) == null) {
-            return new p02(l(unitedSchemeEntity));
-        }
-        return (l32) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (!(context instanceof Activity)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                v42.c("SwanAppCameraManager", "handle action, but context is not Activity");
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_VIDEO_CAPTURE) == 0) {
+                return true;
             }
-            p02 p02Var = (p02) r(unitedSchemeEntity);
-            t1b w = new u32(context, p02Var).w();
-            this.c = w;
-            if (w == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                v42.c("SwanAppCameraManager", "camera component insert delayed fail");
-                return false;
-            }
-            v73Var.e0().g(context, PermissionProxy.SCOPE_ID_CAMERA, new a(this, callbackHandler, unitedSchemeEntity, context, p02Var));
-            return true;
-        }
-        return invokeLLLL.booleanValue;
-    }
-
-    public final boolean p(Context context, p02 p02Var) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, p02Var)) == null) {
-            v42.i("SwanAppCameraManager", "handle insert camera instruction start");
-            boolean z2 = true;
-            if (context != null && p02Var != null) {
-                String str = p02Var.b;
-                by2 by2Var = p02Var.h;
-                if (!TextUtils.isEmpty(str) && by2Var != null && by2Var.h()) {
-                    t1b t1bVar = this.c;
-                    if (t1bVar == null) {
-                        o42.a("SwanAppCameraManager", "executionInstruction with a null subscriber");
-                        return false;
-                    }
-                    t1bVar.onCompleted();
-                    v42.i("SwanAppCameraManager", "handle insert camera instruction end");
-                    return true;
-                }
-                StringBuilder sb = new StringBuilder();
-                sb.append("cameraId = ");
-                sb.append(str);
-                sb.append(" ; position = ");
-                if (by2Var != null) {
-                    z2 = false;
-                }
-                sb.append(z2);
-                v42.c("SwanAppCameraManager", sb.toString());
-                return false;
-            }
-            StringBuilder sb2 = new StringBuilder();
-            sb2.append("Context is null ? = ");
-            if (context == null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            sb2.append(z);
-            sb2.append(" ; model is null ? = ");
-            if (p02Var != null) {
-                z2 = false;
-            }
-            sb2.append(z2);
-            v42.c("SwanAppCameraManager", sb2.toString());
             return false;
         }
-        return invokeLL.booleanValue;
+        return invokeL.booleanValue;
     }
 
-    public final void q(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, p02 p02Var) {
+    public boolean d(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, context, unitedSchemeEntity, callbackHandler, p02Var) == null) {
-            v42.i("SwanAppCameraManager", "handleAuthorized start");
-            x23.e(PermissionRequest.RESOURCE_VIDEO_CAPTURE, new String[]{PermissionRequest.RESOURCE_VIDEO_CAPTURE}, 1, context, new b(this, context, p02Var, unitedSchemeEntity, callbackHandler));
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, context)) == null) {
+            if (Build.VERSION.SDK_INT < 23 || ContextCompat.checkSelfPermission(context, PermissionRequest.RESOURCE_AUDIO_CAPTURE) == 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048581, this, z) == null) && z) {
+            a();
+        }
+    }
+
+    public void e(String str, String str2, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(1048579, this, str, str2, z) == null) {
+            String str3 = "error";
+            if (ml3.f("1.13.0")) {
+                HashMap hashMap = new HashMap();
+                hashMap.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+                hashMap.put("cameraId", str2);
+                if (!z) {
+                    str3 = "stop";
+                }
+                hashMap.put("eType", str3);
+                kt2.U().u(new yh2("camera", hashMap));
+                return;
+            }
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put(PrefetchEvent.EVENT_DATA_WEBVIEW_ID, str);
+                jSONObject.put("cameraId", str2);
+                if (!z) {
+                    str3 = "stop";
+                }
+                jSONObject.put("eType", str3);
+            } catch (JSONException e) {
+                if (c) {
+                    e.printStackTrace();
+                }
+            }
+            en3.d(str, str2, "camera", jSONObject.optString("eType"), jSONObject);
+        }
+    }
+
+    public boolean h(byte[] bArr, String str, int i, int i2, boolean z) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048582, this, new Object[]{bArr, str, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            if (bArr == null || bArr.length == 0 || TextUtils.isEmpty(str)) {
+                return false;
+            }
+            try {
+                File file = new File(str);
+                if (file.exists()) {
+                    boolean delete = file.delete();
+                    if (c) {
+                        Log.d("SwanAppCameraManager", "delete = " + delete);
+                    }
+                }
+                if (file.getParentFile() != null) {
+                    boolean mkdirs = file.getParentFile().mkdirs();
+                    if (c) {
+                        Log.d("SwanAppCameraManager", "mkdirs = " + mkdirs);
+                    }
+                }
+                boolean createNewFile = file.createNewFile();
+                if (c) {
+                    Log.d("SwanAppCameraManager", "createNewFile = " + createNewFile);
+                }
+                Bitmap decodeByteArray = BitmapFactory.decodeByteArray(bArr, 0, bArr.length);
+                if (i2 != 0 || z) {
+                    Matrix matrix = new Matrix();
+                    matrix.reset();
+                    if (i2 != 0) {
+                        matrix.postRotate(i2);
+                    }
+                    if (z) {
+                        matrix.postScale(-1.0f, 1.0f);
+                    }
+                    decodeByteArray = Bitmap.createBitmap(decodeByteArray, 0, 0, decodeByteArray.getWidth(), decodeByteArray.getHeight(), matrix, true);
+                }
+                BufferedOutputStream bufferedOutputStream = new BufferedOutputStream(new FileOutputStream(file));
+                decodeByteArray.compress(Bitmap.CompressFormat.JPEG, i, bufferedOutputStream);
+                bufferedOutputStream.flush();
+                bo4.d(bufferedOutputStream);
+                return true;
+            } catch (Exception e) {
+                if (!c) {
+                    return false;
+                }
+                e.printStackTrace();
+                return false;
+            } catch (OutOfMemoryError e2) {
+                if (!c) {
+                    return false;
+                }
+                e2.printStackTrace();
+                return false;
+            }
+        }
+        return invokeCommon.booleanValue;
+    }
+
+    public void i(int i, p02 p02Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeIL(1048583, this, i, p02Var) == null) {
+            this.b = p02Var;
+            Timer timer = new Timer();
+            this.a = timer;
+            timer.schedule(new a(this, p02Var), i);
         }
     }
 }

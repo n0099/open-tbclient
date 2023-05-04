@@ -2,6 +2,8 @@ package com.baidu.tieba;
 
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -9,12 +11,17 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.Hottopic.HotThread;
+import tbclient.ThreadInfo;
 /* loaded from: classes5.dex */
-public class lw7 implements in {
+public class lw7 extends BaseCardInfo {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId a;
+    public static final BdUniqueId f;
     public transient /* synthetic */ FieldHolder $fh;
+    public boolean a;
+    public int b;
+    public long c;
+    public String d;
+    public ThreadData e;
 
     static {
         InterceptResult invokeClinit;
@@ -29,7 +36,7 @@ public class lw7 implements in {
                 return;
             }
         }
-        a = BdUniqueId.gen();
+        f = BdUniqueId.gen();
     }
 
     public lw7() {
@@ -46,21 +53,24 @@ public class lw7 implements in {
         }
     }
 
-    @Override // com.baidu.tieba.in
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
     public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return a;
+            return f;
         }
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public void a(HotThread hotThread) {
+    public void c(ThreadInfo threadInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, hotThread) != null) || hotThread == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, threadInfo) != null) || threadInfo == null) {
             return;
         }
-        String str = hotThread.hot_title;
+        ThreadData threadData = new ThreadData();
+        this.e = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.e.parser_title();
     }
 }

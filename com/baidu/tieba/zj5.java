@@ -1,16 +1,15 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.base.BdBaseApplication;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.mutiprocess.soloader.SoLoaderEvent;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.mutiprocess.agree.AgreeEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class zj5 implements wi5<SoLoaderEvent> {
+public class zj5 implements pj5<AgreeEvent> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -29,20 +28,23 @@ public class zj5 implements wi5<SoLoaderEvent> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.wi5
+    @Override // com.baidu.tieba.pj5
     /* renamed from: a */
-    public boolean onEvent(SoLoaderEvent soLoaderEvent) {
+    public boolean onEvent(AgreeEvent agreeEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, soLoaderEvent)) == null) {
-            if (soLoaderEvent != null && !StringUtils.isNull(soLoaderEvent.name)) {
-                if (cm.a(BdBaseApplication.getInst().getContext(), am.a(soLoaderEvent.name))) {
-                    ConcurrentHashMap<String, String> resHashMap = BdBaseApplication.getInst().getResHashMap();
-                    String str = soLoaderEvent.name;
-                    resHashMap.put(str, am.a(str));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, agreeEvent)) == null) {
+            if (agreeEvent != null && agreeEvent.agreeData != null) {
+                fp9 fp9Var = new fp9();
+                fp9Var.b = agreeEvent.agreeData;
+                String str = agreeEvent.agreeExtra;
+                if (AgreeEvent.IS_THREAD.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016528, fp9Var));
+                    return true;
+                } else if (AgreeEvent.IS_POST.equals(str)) {
+                    MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016530, fp9Var));
                     return true;
                 }
-                return true;
             }
             return false;
         }

@@ -1,30 +1,25 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.searchbox.unitedscheme.SchemeCollecter;
-import com.baidu.tieba.ik3;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gm3 extends ik3.a {
+public class gm3 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String b;
 
     static {
         InterceptResult invokeClinit;
@@ -39,132 +34,70 @@ public class gm3 extends ik3.a {
                 return;
             }
         }
-        c = fo1.a;
+        a = ho1.a;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gm3(boolean z) {
-        super(z);
-        String str;
+    public static List<JSONObject> a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Boolean.valueOf(z)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Boolean) newInitContext.callArgs[0]).booleanValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            String schemesDes = SchemeCollecter.getSchemesDes(str, 0);
+            ArrayList arrayList = new ArrayList();
+            try {
+                JSONObject jSONObject = new JSONObject(schemesDes);
+                arrayList.add(jSONObject);
+                int i = jSONObject.getInt("totalSlices");
+                for (int i2 = 1; i2 < i; i2++) {
+                    arrayList.add(new JSONObject(SchemeCollecter.getSchemesDes(str, i2)));
+                }
+                return arrayList;
+            } catch (JSONException e) {
+                if (a) {
+                    Log.e("SwanAppCompat", "getDescriptions", e);
+                    return null;
+                }
+                return null;
             }
         }
-        if (z) {
-            str = "swan_js_native_v8_ab.txt";
-        } else {
-            str = "swan_js_native_webview_ab.txt";
-        }
-        this.b = rq2.g().getPath() + File.separator + "js_native" + File.separator + str;
-    }
-
-    public boolean a(int i) {
-        InterceptResult invokeI;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            String str = rq2.g().getPath() + File.separator + "js_native" + File.separator;
-            if ((i & 1) != 0) {
-                z = zn4.M(str + "swan_js_native_v8_ab.txt");
-            } else {
-                z = true;
-            }
-            if ((i & 2) != 0) {
-                return z & zn4.M(str + "swan_js_native_webview_ab.txt");
-            }
-            return z;
-        }
-        return invokeI.booleanValue;
+        return (List) invokeL.objValue;
     }
 
     @Nullable
-    public final List<String> b(boolean z, String str) {
-        InterceptResult invokeZL;
-        String str2;
-        String str3;
+    public static List<JSONObject> b(@NonNull String str, @NonNull String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZL = interceptable.invokeZL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z, str)) == null) {
-            if (z) {
-                str2 = SchemeCollecter.CLASSIFY_SWAN_V8;
-            } else {
-                str2 = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-            }
-            if (z) {
-                str3 = "swan/v8_ab";
-            } else {
-                str3 = "swan/webview_ab";
-            }
-            List<JSONObject> b = em3.b(str2, str3);
-            if (b != null) {
-                File file = new File(str);
-                ArrayList arrayList = new ArrayList();
-                for (JSONObject jSONObject : b) {
-                    if (jSONObject != null) {
-                        arrayList.add(jSONObject.toString());
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, str2)) == null) {
+            List<JSONObject> a2 = a(str);
+            if (a2 != null && !a2.isEmpty()) {
+                for (JSONObject jSONObject : a2) {
+                    JSONArray optJSONArray = jSONObject.optJSONArray("descriptions");
+                    if (optJSONArray != null) {
+                        for (int i = 0; i < optJSONArray.length(); i++) {
+                            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+                            if (optJSONObject != null) {
+                                Iterator<ms2> it = ls2.b().iterator();
+                                while (true) {
+                                    if (it.hasNext()) {
+                                        ms2 next = it.next();
+                                        String optString = optJSONObject.optString("name");
+                                        if (next.a(str, optString)) {
+                                            try {
+                                                optJSONArray.put(i, next.c(optString, optJSONObject));
+                                                break;
+                                            } catch (JSONException e) {
+                                                e.printStackTrace();
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
                     }
                 }
-                if (file.exists()) {
-                    zn4.L(file);
-                }
-                zn4.h(file);
-                zn4.P(arrayList, file);
-                return arrayList;
+                return a2;
             }
             return null;
         }
-        return (List) invokeZL.objValue;
-    }
-
-    public boolean c(@NonNull JSONArray jSONArray) {
-        InterceptResult invokeL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONArray)) == null) {
-            if (jSONArray.length() > 0 && zn4.v(this.b)) {
-                if (this.a) {
-                    str = SchemeCollecter.CLASSIFY_SWAN_V8;
-                } else {
-                    str = SchemeCollecter.CLASSIFY_SWAN_WEBVIEW;
-                }
-                return fm3.a(jSONArray, new File(this.b), SchemeCollecter.getSchemesDesListSize(str));
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public List<String> d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            if (c) {
-                Log.i("SwanAppCompat", "FileDescriptionsManager obtain desc...");
-            }
-            if (!ck4.b() && !TextUtils.equals(ck4.a(), "0")) {
-                File file = new File(this.b);
-                if (file.exists()) {
-                    zn4.L(file);
-                }
-            }
-            if (zn4.v(this.b)) {
-                if (c) {
-                    Log.d("SwanAppCompat", "start create cache");
-                }
-                return zn4.F(new File(this.b));
-            }
-            return b(this.a, this.b);
-        }
-        return (List) invokeV.objValue;
+        return (List) invokeLL.objValue;
     }
 }

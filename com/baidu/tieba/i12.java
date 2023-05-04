@@ -1,6 +1,10 @@
 package com.baidu.tieba;
 
 import android.graphics.Canvas;
+import android.graphics.Paint;
+import android.graphics.PorterDuff;
+import android.graphics.PorterDuffXfermode;
+import android.graphics.Rect;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -8,16 +12,12 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONArray;
 /* loaded from: classes4.dex */
-public class i12 extends b12 {
+public class i12 extends d12 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-
-    @Override // com.baidu.tieba.b12
-    public void b(JSONArray jSONArray) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
-        }
-    }
+    public Rect a;
+    public Paint b;
+    public PorterDuffXfermode c;
 
     public i12() {
         Interceptable interceptable = $ic;
@@ -29,15 +29,37 @@ public class i12 extends b12 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.b = new Paint();
+        this.c = new PorterDuffXfermode(PorterDuff.Mode.CLEAR);
+    }
+
+    @Override // com.baidu.tieba.d12
+    public void a(e12 e12Var, Canvas canvas) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, e12Var, canvas) == null) && this.a != null) {
+            this.b.setXfermode(this.c);
+            canvas.drawRect(this.a, this.b);
         }
     }
 
-    @Override // com.baidu.tieba.b12
-    public void a(c12 c12Var, Canvas canvas) {
+    @Override // com.baidu.tieba.d12
+    public void b(JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, c12Var, canvas) == null) {
-            c12Var.f.close();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONArray) == null) {
+            try {
+                if (jSONArray.length() == 4) {
+                    int g = ol3.g((float) jSONArray.optDouble(0));
+                    int g2 = ol3.g((float) jSONArray.optDouble(1));
+                    this.a = new Rect(g, g2, ol3.g((float) jSONArray.optDouble(2)) + g, ol3.g((float) jSONArray.optDouble(3)) + g2);
+                }
+            } catch (Exception e) {
+                if (ho1.a) {
+                    e.printStackTrace();
+                }
+            }
         }
     }
 }

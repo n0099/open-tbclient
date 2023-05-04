@@ -9,7 +9,7 @@ import android.os.Process;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.d9a;
+import com.baidu.tieba.zca;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -55,9 +55,9 @@ public class CronetUrlRequestContext extends TurbonetEngine {
     public ProxyConfig l;
     public TurbonetEngine.TCPNetworkQualityStatus m;
     @GuardedBy("mDataTrafficMonitorLock")
-    public final d9a<DataTrafficListener> n;
+    public final zca<DataTrafficListener> n;
     @GuardedBy("mNetworkQualityLock")
-    public final d9a<NetworkQualityListener> o;
+    public final zca<NetworkQualityListener> o;
 
     public static native void nativeApplyBaiduConfigDictionary(long j, String str);
 
@@ -543,8 +543,8 @@ public class CronetUrlRequestContext extends TurbonetEngine {
         this.l = ProxyConfig.b;
         TurbonetEngine.QUICConnectStatus qUICConnectStatus = TurbonetEngine.QUICConnectStatus.UNKNOWN;
         this.m = TurbonetEngine.TCPNetworkQualityStatus.UNKNOWN;
-        this.n = new d9a<>();
-        this.o = new d9a<>();
+        this.n = new zca<>();
+        this.o = new zca<>();
         this.g = builder.f();
         try {
             this.e = (PowerManager) builder.getContext().getSystemService("power");

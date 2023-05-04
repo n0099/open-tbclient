@@ -1,35 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.sl2;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
+import java.io.File;
 /* loaded from: classes5.dex */
-public abstract class pl2<W extends sl2> {
+public class pl2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static File a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
+    public static String j;
+    public static String k;
+    public static String l;
+    public static String m;
     public transient /* synthetic */ FieldHolder $fh;
-
-    public abstract void a(@NonNull ZeusPlugin.Command command, @NonNull W w);
-
-    @NonNull
-    public abstract String b();
-
-    public void c(@NonNull ZeusPlugin.Command command) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, command) == null) {
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
@@ -44,35 +38,31 @@ public abstract class pl2<W extends sl2> {
                 return;
             }
         }
-        a = fo1.a;
+        a = tq2.g();
+        b = "swan_core";
+        c = "extension_core";
+        d = AppRuntime.getAppContext().getCacheDir() + File.separator + "cloneSwanApp";
+        e = "cloneFolder_";
+        f = d + File.separator + e;
+        g = "clone_pkg_folder";
+        h = "clone_core_folder";
+        i = "clone_dynamic_lib_folder";
+        j = "clone_sp_folder";
+        k = "clone_db_folder";
+        l = "cloneZip.zip";
+        m = "clone_zipFiles";
     }
 
-    public pl2() {
+    public static File a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            File file = new File(ff3.w());
+            if (!bo4.l(file)) {
+                return null;
             }
+            return file;
         }
-    }
-
-    public void d(@NonNull W w, @Nullable String str, @Nullable String str2, boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{w, str, str2, Boolean.valueOf(z)}) == null) && a) {
-            String str3 = ("【" + w.j0() + "-" + w.hashCode() + "】\t") + "【" + str + "】";
-            if (!TextUtils.isEmpty(str2)) {
-                str3 = str3 + "\t【" + str2 + "】";
-            }
-            if (z) {
-                v42.i("【InlineCommand】", str3);
-            } else {
-                Log.v("【InlineCommand】", str3);
-            }
-        }
+        return (File) invokeV.objValue;
     }
 }

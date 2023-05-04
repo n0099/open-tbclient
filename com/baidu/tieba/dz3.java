@@ -1,7 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.IntentFilter;
-import com.baidu.swan.gamecenter.appmanager.download.AppDownloadNetworkStateReceiver;
+import android.text.TextUtils;
+import android.util.Log;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,10 +13,10 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class dz3 extends b04 {
+public class dz3 extends d04 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
-    public AppDownloadNetworkStateReceiver c;
 
     static {
         InterceptResult invokeClinit;
@@ -29,12 +31,12 @@ public class dz3 extends b04 {
                 return;
             }
         }
-        boolean z = fo1.a;
+        c = ho1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public dz3() {
-        super("resumeAllDownloadWhileWifi");
+        super("openApp");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -50,24 +52,34 @@ public class dz3 extends b04 {
         }
     }
 
-    @Override // com.baidu.tieba.b04
-    public vz1 a(JSONObject jSONObject, zk2 zk2Var) {
+    @Override // com.baidu.tieba.d04
+    public xz1 a(@NonNull JSONObject jSONObject, @NonNull bl2 bl2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
-            if (jSONObject == null) {
-                zk2Var.onFail(202, "params may be error");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
+            if (c) {
+                Log.d("GameCenterOpenAppAction", "handle: " + jSONObject);
+            }
+            String optString = jSONObject.optString("packageName");
+            if (TextUtils.isEmpty(optString)) {
+                bl2Var.onFail(31010, "package name is empty");
                 return null;
             }
-            if (this.c == null) {
-                this.c = new AppDownloadNetworkStateReceiver();
+            yz3.a(optString, "openApp", null, null, null);
+            if (!mz3.h(AppRuntime.getAppContext(), optString)) {
+                bl2Var.onFail(31011, "app is not installed");
+                yz3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31011), null);
+                return null;
             }
-            IntentFilter intentFilter = new IntentFilter();
-            intentFilter.addAction("android.net.conn.CONNECTIVITY_CHANGE");
-            cr2.c().registerReceiver(this.c, intentFilter);
-            zk2Var.a(null);
+            if (mz3.l(AppRuntime.getAppContext(), optString)) {
+                bl2Var.a(null);
+                yz3.a(optString, "openApp", "success", null, null);
+            } else {
+                bl2Var.onFail(31019, "open app fail");
+                yz3.a(optString, "openApp", com.baidu.pass.biometrics.face.liveness.b.a.g0, String.valueOf(31019), null);
+            }
             return null;
         }
-        return (vz1) invokeLL.objValue;
+        return (xz1) invokeLL.objValue;
     }
 }

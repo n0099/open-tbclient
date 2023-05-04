@@ -1,95 +1,120 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.view.View;
+import android.net.Uri;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
-/* loaded from: classes6.dex */
+/* loaded from: classes7.dex */
 public class ws5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<WeakReference<View>> a;
-    public View b;
+    public WebView a;
+    public String b;
+    public int c;
+    public long d;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public ws5(View view2) {
-        this(view2, -1);
+    /* loaded from: classes7.dex */
+    public interface b {
+        void a();
+    }
+
+    /* loaded from: classes7.dex */
+    public class a extends WebViewClient {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ b a;
+        public final /* synthetic */ ws5 b;
+
+        public a(ws5 ws5Var, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ws5Var, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = ws5Var;
+            this.a = bVar;
+        }
+
+        @Override // android.webkit.WebViewClient
+        public boolean shouldOverrideUrlLoading(WebView webView, String str) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, webView, str)) == null) {
+                if (str.startsWith("http://notify/ready")) {
+                    this.b.c = 2;
+                    b bVar = this.a;
+                    if (bVar != null) {
+                        bVar.a();
+                        return true;
+                    }
+                    return true;
+                }
+                return false;
+            }
+            return invokeLL.booleanValue;
+        }
+    }
+
+    public ws5() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                this((View) objArr2[0], ((Integer) objArr2[1]).intValue());
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.c = 0;
+        this.d = 0L;
+        this.d = System.currentTimeMillis();
     }
 
-    public <T extends View> T b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            WeakReference<View> weakReference = this.a.get(i);
-            if (weakReference == null) {
-                T t = (T) this.b.findViewById(i);
-                if (t != null) {
-                    this.a.put(i, new WeakReference<>(t));
-                    return t;
-                }
-                return t;
-            }
-            return (T) weakReference.get();
-        }
-        return (T) invokeI.objValue;
-    }
-
-    public ws5(View view2, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {view2, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.b = view2;
-        this.a = new SparseArray<>();
-    }
-
-    public View a() {
+    public boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+            if (this.c == 2) {
+                return true;
+            }
+            return false;
         }
-        return (View) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public ws5 c(View.OnClickListener onClickListener) {
-        InterceptResult invokeL;
+    public void b(b bVar) {
+        WebView webView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener)) == null) {
-            this.b.setOnClickListener(onClickListener);
-            return this;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bVar) != null) || (webView = this.a) == null) {
+            return;
         }
-        return (ws5) invokeL.objValue;
+        webView.setWebViewClient(new a(this, bVar));
+        StringBuilder sb = new StringBuilder();
+        sb.append(this.b);
+        if (hi.isEmpty(Uri.parse(this.b).getQuery())) {
+            sb.append("?");
+        } else {
+            sb.append("&");
+        }
+        sb.append("page_lifecycle_type=preheat_enabled");
+        this.a.loadUrl(sb.toString());
+        this.c = 1;
     }
 }

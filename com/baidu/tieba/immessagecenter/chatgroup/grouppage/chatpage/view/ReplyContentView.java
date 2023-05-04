@@ -9,11 +9,11 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.et6;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.ReMsgInfo;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.view.ReplyContentView;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.uu6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -119,11 +119,11 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void a(ReMsgInfo reMsgInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, reMsgInfo) == null) {
-            et6.d(getContext(), reMsgInfo.getContent(), this.c, new et6.i() { // from class: com.baidu.tieba.u58
+            uu6.d(getContext(), reMsgInfo.getContent(), this.c, new uu6.i() { // from class: com.baidu.tieba.v78
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                @Override // com.baidu.tieba.et6.i
+                @Override // com.baidu.tieba.uu6.i
                 public final void a(SpannableStringBuilder spannableStringBuilder) {
                     Interceptable interceptable2 = $ic;
                     if (interceptable2 == null || interceptable2.invokeL(1048576, this, spannableStringBuilder) == null) {
@@ -158,7 +158,7 @@ public final class ReplyContentView extends AppCompatTextView {
     public final void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            r25 d = r25.d(this);
+            g35 d = g35.d(this);
             d.w(this.g);
             d.B(R.dimen.T_X07);
             d.o(R.string.J_X05);

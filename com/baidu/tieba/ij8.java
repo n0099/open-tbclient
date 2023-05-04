@@ -1,14 +1,12 @@
 package com.baidu.tieba;
 
-import com.baidu.searchbox.live.interfaces.net.INetWork;
-import com.baidu.searchbox.live.interfaces.service.NetworkAgentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.HotForum.ForumInfo;
 /* loaded from: classes4.dex */
-public class ij8 implements NetworkAgentService {
+public class ij8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -26,13 +24,15 @@ public class ij8 implements NetworkAgentService {
         }
     }
 
-    @Override // com.baidu.searchbox.live.interfaces.service.NetworkAgentService
-    public INetWork buildNetworkInstance() {
-        InterceptResult invokeV;
+    public void a(ForumInfo forumInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new jj8();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, forumInfo) == null) && forumInfo != null) {
+            String str = forumInfo.avatar;
+            forumInfo.forum_id.longValue();
+            String str2 = forumInfo.forum_name;
+            forumInfo.time_out.longValue();
+            forumInfo.member_count.longValue();
+            forumInfo.thread_count.longValue();
         }
-        return (INetWork) invokeV.objValue;
     }
 }

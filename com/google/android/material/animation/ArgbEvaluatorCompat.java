@@ -2,7 +2,7 @@ package com.google.android.material.animation;
 
 import android.animation.TypeEvaluator;
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ArgbEvaluatorCompat implements TypeEvaluator<Integer> {
     public static final ArgbEvaluatorCompat instance = new ArgbEvaluatorCompat();
 

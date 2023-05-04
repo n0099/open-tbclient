@@ -8,9 +8,9 @@ import android.widget.TextView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.i55;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.y55;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -104,35 +104,35 @@ public class BreatheTipView extends FrameLayout {
             layoutParams2.leftMargin = g;
             layoutParams2.rightMargin = g;
             addView(this.b, layoutParams2);
-            r25 d = r25.d(this.a);
+            g35 d = g35.d(this.a);
             d.B(R.dimen.T_X08);
             d.C(R.string.F_X02);
-            r25 d2 = r25.d(this.b);
+            g35 d2 = g35.d(this.b);
             d2.B(R.dimen.T_X09);
             d2.C(R.string.F_X01);
         }
     }
 
-    public void setData(i55 i55Var) {
+    public void setData(y55 y55Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i55Var) == null) {
-            int i = i55Var.g;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, y55Var) == null) {
+            int i = y55Var.g;
             int i2 = -2;
             if (i < 0) {
                 i = -2;
             }
-            int i3 = i55Var.h;
+            int i3 = y55Var.h;
             if (i3 >= 0) {
                 i2 = i3;
             }
             setLayoutParams(new LinearLayout.LayoutParams(i, i2));
-            this.a.setText(i55Var.a);
-            SkinManager.setViewTextColor(this.a, i55Var.c);
-            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = i55Var.f;
-            this.b.setText(i55Var.b);
-            SkinManager.setViewTextColor(this.b, i55Var.d);
-            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = i55Var.f + ii.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
-            SkinManager.setBackgroundResource(this, i55Var.e);
+            this.a.setText(y55Var.a);
+            SkinManager.setViewTextColor(this.a, y55Var.c);
+            ((FrameLayout.LayoutParams) this.a.getLayoutParams()).topMargin = y55Var.f;
+            this.b.setText(y55Var.b);
+            SkinManager.setViewTextColor(this.b, y55Var.d);
+            ((FrameLayout.LayoutParams) this.b.getLayoutParams()).topMargin = y55Var.f + ii.g(getContext(), R.dimen.M_H_X002) + ((int) this.a.getTextSize());
+            SkinManager.setBackgroundResource(this, y55Var.e);
         }
     }
 }

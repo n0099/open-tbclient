@@ -1,5 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface g81 {
-    void cancel();
+    void a(String str, boolean z, boolean z2);
 }

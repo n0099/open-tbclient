@@ -1,116 +1,113 @@
 package com.baidu.tieba;
 
-import android.view.View;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.PassportSDK;
-import com.baidu.sapi2.share.ShareStorage;
-import com.baidu.sapi2.shell.listener.WebAuthListener;
-import com.baidu.sapi2.shell.result.WebAuthResult;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.DialogLoginHelper;
+import com.baidu.tbadk.core.data.MediaData;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.gson.Gson;
+import java.util.Iterator;
+import tbclient.ThreadInfo;
+import tbclient.VideoInfo;
 /* loaded from: classes6.dex */
-public class tr8 extends or8 {
+public class tr8 implements in {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ShareStorage.StorageModel i;
+    public String a;
+    public int b;
+    public int c;
+    public String d;
+    public int e;
+    public int f;
+    public boolean g;
+    public ThreadData h;
 
-    /* loaded from: classes6.dex */
-    public class a extends WebAuthListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ tr8 a;
-
-        public a(tr8 tr8Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {tr8Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = tr8Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onFailure(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webAuthResult) == null) {
-                BaseActivity baseActivity = this.a.b;
-                baseActivity.showToast(String.format(baseActivity.getString(R.string.obfuscated_res_0x7f0f121d), Integer.valueOf(webAuthResult.getResultCode()), webAuthResult.getResultMsg()));
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.sapi2.callback.SapiCallback
-        public void onSuccess(WebAuthResult webAuthResult) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048579, this, webAuthResult) == null) {
-                this.a.f();
-                DialogLoginHelper.addLoginDialogSuccessLog(DialogLoginHelper.getOneKeyLoginActivityLocate(), DialogLoginHelper.FULL_SCREEN_TYPE_SHARE, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public tr8(TbPageContext tbPageContext, pr8 pr8Var) {
-        super(tbPageContext, pr8Var, DialogLoginHelper.FULL_SCREEN_TYPE_SHARE);
+    public tr8(ThreadInfo threadInfo, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, pr8Var};
+            Object[] objArr = {threadInfo, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (pr8) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        b(threadInfo);
+        this.g = z;
     }
 
-    @Override // com.baidu.tieba.or8
-    public void j(qr8 qr8Var) {
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, qr8Var) != null) || qr8Var == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.f;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return sr8.a;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public final void b(ThreadInfo threadInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadInfo) != null) || threadInfo == null) {
             return;
         }
-        this.e = qr8Var;
-        this.i = (ShareStorage.StorageModel) new Gson().fromJson(qr8Var.d, (Class<Object>) ShareStorage.StorageModel.class);
-    }
-
-    @Override // com.baidu.tieba.or8
-    public void n(View view2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2) == null) {
-            super.n(view2);
-            if (view2.getId() == R.id.obfuscated_res_0x7f0915b0) {
-                r();
+        ThreadData threadData = new ThreadData();
+        this.h = threadData;
+        threadData.parserProtobuf(threadInfo);
+        this.a = threadInfo.title;
+        this.b = threadInfo.reply_num.intValue();
+        this.c = threadInfo.agree_num.intValue();
+        if (!ListUtils.isEmpty(this.h.getMedias())) {
+            Iterator<MediaData> it = this.h.getMedias().iterator();
+            while (it.hasNext()) {
+                MediaData next = it.next();
+                if (next != null && next.getType() == 3) {
+                    String picUrl = next.getPicUrl();
+                    this.d = picUrl;
+                    if (StringUtils.isNull(picUrl)) {
+                        this.d = next.getSmallUrl();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getThumbnails_url();
+                    }
+                    if (StringUtils.isNull(this.d)) {
+                        this.d = next.getSrc_pic();
+                    }
+                    if (!StringUtils.isNull(this.d)) {
+                        break;
+                    }
+                }
             }
+        }
+        VideoInfo videoInfo = threadInfo.video_info;
+        if (videoInfo != null) {
+            this.e = videoInfo.video_duration.intValue();
         }
     }
 
-    public void r() {
+    public void c(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && this.i != null) {
-            PassportSDK.getInstance().invokeV2ShareLogin(this.b, new a(this), this.i);
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            this.f = i;
         }
     }
 }

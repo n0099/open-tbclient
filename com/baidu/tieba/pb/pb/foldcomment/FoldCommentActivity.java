@@ -42,7 +42,7 @@ import com.baidu.tbadk.core.atomData.LoginActivityConfig;
 import com.baidu.tbadk.core.atomData.MemberPayActivityConfig;
 import com.baidu.tbadk.core.atomData.PbFullScreenEditorActivityConfig;
 import com.baidu.tbadk.core.atomData.SubPbActivityConfig;
-import com.baidu.tbadk.core.atomData.TbWebViewActivityConfig;
+import com.baidu.tbadk.core.atomData.WebViewActivityConfig;
 import com.baidu.tbadk.core.data.AntiData;
 import com.baidu.tbadk.core.data.LoginDialogData;
 import com.baidu.tbadk.core.data.MetaData;
@@ -85,78 +85,79 @@ import com.baidu.tbadk.widget.richText.TbRichTextMemeInfo;
 import com.baidu.tbadk.widget.richText.TbRichTextView;
 import com.baidu.tbadk.widget.tiejia.TiebaPlusRecommendCard;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ad5;
-import com.baidu.tieba.am9;
-import com.baidu.tieba.at4;
-import com.baidu.tieba.b95;
-import com.baidu.tieba.bd5;
-import com.baidu.tieba.c09;
-import com.baidu.tieba.cd5;
-import com.baidu.tieba.cv5;
-import com.baidu.tieba.d05;
-import com.baidu.tieba.fv5;
+import com.baidu.tieba.b15;
+import com.baidu.tieba.b29;
+import com.baidu.tieba.b55;
+import com.baidu.tieba.cb5;
+import com.baidu.tieba.cd9;
+import com.baidu.tieba.ct4;
+import com.baidu.tieba.cw5;
+import com.baidu.tieba.d15;
+import com.baidu.tieba.dt5;
+import com.baidu.tieba.e15;
+import com.baidu.tieba.em5;
+import com.baidu.tieba.f15;
+import com.baidu.tieba.fp9;
+import com.baidu.tieba.fw5;
 import com.baidu.tieba.fx8;
-import com.baidu.tieba.ga9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.gl5;
+import com.baidu.tieba.gw8;
+import com.baidu.tieba.gx4;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.ht8;
-import com.baidu.tieba.hv8;
+import com.baidu.tieba.hx9;
+import com.baidu.tieba.ib5;
+import com.baidu.tieba.if5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.is5;
-import com.baidu.tieba.it8;
-import com.baidu.tieba.ix8;
-import com.baidu.tieba.iz8;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.ix9;
+import com.baidu.tieba.jd5;
+import com.baidu.tieba.jf5;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.jy8;
-import com.baidu.tieba.k05;
-import com.baidu.tieba.ku8;
-import com.baidu.tieba.kx8;
-import com.baidu.tieba.la5;
-import com.baidu.tieba.ll5;
-import com.baidu.tieba.lx8;
-import com.baidu.tieba.ly8;
-import com.baidu.tieba.m05;
-import com.baidu.tieba.m45;
-import com.baidu.tieba.mt9;
-import com.baidu.tieba.n05;
-import com.baidu.tieba.nt9;
-import com.baidu.tieba.nu8;
-import com.baidu.tieba.o05;
+import com.baidu.tieba.jz8;
+import com.baidu.tieba.kb5;
+import com.baidu.tieba.mf5;
+import com.baidu.tieba.n19;
+import com.baidu.tieba.of5;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
 import com.baidu.tieba.pb.pb.main.AbsPbActivity;
 import com.baidu.tieba.pb.pb.main.PbFragment;
 import com.baidu.tieba.pb.pb.main.PbModel;
 import com.baidu.tieba.pb.pb.sub.NewSubPbActivity;
-import com.baidu.tieba.pe5;
-import com.baidu.tieba.qc5;
-import com.baidu.tieba.qe5;
-import com.baidu.tieba.ql9;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.ra5;
+import com.baidu.tieba.pp9;
+import com.baidu.tieba.pt4;
+import com.baidu.tieba.qf5;
+import com.baidu.tieba.qv8;
+import com.baidu.tieba.rv8;
+import com.baidu.tieba.rx8;
+import com.baidu.tieba.s95;
 import com.baidu.tieba.share.AddExperiencedModel;
-import com.baidu.tieba.sv4;
-import com.baidu.tieba.ta5;
 import com.baidu.tieba.tbadkCore.data.AgreeData;
 import com.baidu.tieba.tbadkCore.model.ForumManageModel;
 import com.baidu.tieba.tbadkCore.util.AntiHelper;
 import com.baidu.tieba.tbadkCore.writeModel.NewWriteModel;
 import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
-import com.baidu.tieba.te5;
+import com.baidu.tieba.td5;
 import com.baidu.tieba.tm;
+import com.baidu.tieba.tz8;
+import com.baidu.tieba.u05;
+import com.baidu.tieba.ud5;
 import com.baidu.tieba.usermute.UserMuteAddAndDelCustomMessage;
 import com.baidu.tieba.usermute.UserMuteCheckCustomMessage;
-import com.baidu.tieba.ve5;
+import com.baidu.tieba.uw8;
+import com.baidu.tieba.v29;
+import com.baidu.tieba.vd5;
 import com.baidu.tieba.view.DefaultNavigationBarCoverTip;
 import com.baidu.tieba.view.festivalview.FestivalTipView;
-import com.baidu.tieba.vu8;
-import com.baidu.tieba.wt8;
-import com.baidu.tieba.ww8;
-import com.baidu.tieba.xe5;
+import com.baidu.tieba.wz8;
+import com.baidu.tieba.x09;
 import com.baidu.tieba.xf;
+import com.baidu.tieba.xw8;
 import com.baidu.tieba.yf;
+import com.baidu.tieba.yz8;
+import com.baidu.tieba.z09;
 import com.baidu.tieba.z8;
-import com.baidu.tieba.zy8;
+import com.baidu.tieba.zl5;
+import com.baidu.tieba.zz8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -170,7 +171,7 @@ import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import org.json.JSONArray;
 /* loaded from: classes5.dex */
-public class FoldCommentActivity extends BaseFragmentActivity implements VoiceManager.j, vu8<NewSubPbActivity>, TbRichTextView.u, d05.e, fv5 {
+public class FoldCommentActivity extends BaseFragmentActivity implements VoiceManager.j, fx8<NewSubPbActivity>, TbRichTextView.u, u05.e, fw5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BdUniqueId A;
@@ -178,48 +179,48 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     public int C;
     public final TbRichTextView.a0 D;
     public boolean E;
-    public ku8 F;
+    public uw8 F;
     public final View.OnLongClickListener G;
-    public kx8 H;
+    public yz8 H;
     public tm I;
     public String J;
-    public am9 K;
-    public o05.f L;
+    public pp9 K;
+    public f15.f L;
     public final z8 M;
-    public qe5 N;
+    public jf5 N;
     public CustomMessageListener O;
     public NewWriteModel.d P;
     public View.OnClickListener Q;
-    public pe5 R;
-    public final at4.a S;
+    public if5 R;
+    public final ct4.a S;
     public PbModel a;
-    public iz8 b;
-    public hv8 c;
-    public jy8 d;
-    public ly8 e;
+    public b29 b;
+    public rx8 c;
+    public x09 d;
+    public z09 e;
     public boolean f;
     public boolean g;
-    public m05 h;
-    public o05 i;
+    public d15 h;
+    public f15 i;
     public PermissionJudgePolicy j;
     public BdUniqueId k;
-    public m45 l;
-    public ql9 m;
+    public b55 l;
+    public fp9 m;
     public ForumManageModel n;
-    public nt9 o;
-    public ve5 p;
-    public te5 q;
+    public ix9 o;
+    public of5 p;
+    public mf5 q;
     public boolean r;
-    public ix8 s;
+    public wz8 s;
     public VoiceManager t;
     public ReplyPrivacyCheckController u;
     public ShareSuccessReplyToServerModel v;
     public int[] w;
     public int x;
-    public at4 y;
+    public ct4 y;
     public xf<ImageView> z;
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public xf<LinearLayout> A() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -229,50 +230,50 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return (xf) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fv5
-    public xf<TiebaPlusRecommendCard> D1() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return null;
-        }
-        return (xf) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public int E() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return 0;
         }
         return invokeV.intValue;
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
+    public xf<TiebaPlusRecommendCard> E1() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return null;
+        }
+        return (xf) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.fw5
     public void I(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048589, this, context, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public void K(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048593, this, context, str) == null) {
         }
     }
 
-    public boolean M2(View view2) {
+    public boolean O2(View view2) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048596, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048599, this, view2)) == null) {
             return false;
         }
         return invokeL.booleanValue;
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public xf<RelativeLayout> S() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -282,7 +283,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return (xf) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public xf<FestivalTipView> U() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -292,7 +293,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return (xf) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public xf<View> X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -302,7 +303,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return (xf) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public xf<TextView> X0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -312,14 +313,14 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return (xf) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public void Y(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048615, this, context, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public void Z(Context context, String str, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLZ(1048617, this, context, str, z) == null) {
@@ -336,55 +337,55 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return (VoiceManager.i) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public void f0(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLLL(1048628, this, context, str, str2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public void g1(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048630, this, context, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public ListView getListView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048633, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048632, this)) == null) {
             return null;
         }
         return (ListView) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.fv5
-    public void j0(Context context, String str) {
+    @Override // com.baidu.tieba.fw5
+    public void k0(Context context, String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048638, this, context, str) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.fv5
-    public xf<ItemCardView> o0() {
+    @Override // com.baidu.tbadk.core.BaseFragmentActivity
+    public void onChangeSkinType(int i2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048648, this, i2) == null) {
+        }
+    }
+
+    @Override // com.baidu.tieba.fw5
+    public xf<ItemCardView> p0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048646, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048654, this)) == null) {
             return null;
         }
         return (xf) invokeV.objValue;
     }
 
-    @Override // com.baidu.tbadk.core.BaseFragmentActivity
-    public void onChangeSkinType(int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048649, this, i2) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public xf<GifView> x() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -401,7 +402,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         public final /* synthetic */ FoldCommentActivity a;
 
         /* loaded from: classes5.dex */
-        public class a implements d05.e {
+        public class a implements u05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
@@ -421,17 +422,17 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 }
             }
 
-            @Override // com.baidu.tieba.d05.e
-            public void onClick(d05 d05Var) {
+            @Override // com.baidu.tieba.u05.e
+            public void onClick(u05 u05Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                    d05Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                    u05Var.dismiss();
                 }
             }
         }
 
         /* loaded from: classes5.dex */
-        public class b implements d05.e {
+        public class b implements u05.e {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ h a;
@@ -454,11 +455,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 this.a = hVar;
             }
 
-            @Override // com.baidu.tieba.d05.e
-            public void onClick(d05 d05Var) {
+            @Override // com.baidu.tieba.u05.e
+            public void onClick(u05 u05Var) {
                 Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                    d05Var.dismiss();
+                if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                    u05Var.dismiss();
                     this.a.a.sendMessage(new CustomMessage(2002001, new MemberPayActivityConfig(this.a.a.getActivity(), 0, 26, 2)));
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW_OPEN_CLICK).param("obj_locate", 1).param("obj_type", 2));
                 }
@@ -484,28 +485,28 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
 
         @Override // com.baidu.tieba.tbadkCore.writeModel.NewWriteModel.d
-        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, b95 b95Var, WriteData writeData, AntiData antiData) {
+        public void callback(boolean z, PostWriteCallBackData postWriteCallBackData, s95 s95Var, WriteData writeData, AntiData antiData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, b95Var, writeData, antiData}) == null) {
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), postWriteCallBackData, s95Var, writeData, antiData}) == null) {
                 if (!hi.isEmpty(TbadkCoreApplication.getInst().getTaskId())) {
                     StatisticItem statisticItem = new StatisticItem("c13268");
                     statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
-                    if (this.a.a != null && this.a.a.u1() != null) {
-                        statisticItem.param("fid", this.a.a.u1().l());
+                    if (this.a.a != null && this.a.a.z1() != null) {
+                        statisticItem.param("fid", this.a.a.z1().l());
                     }
                     if (this.a.a != null) {
-                        statisticItem.param("tid", this.a.a.N1());
+                        statisticItem.param("tid", this.a.a.S1());
                     }
                     statisticItem.param("obj_source", TbadkCoreApplication.getInst().getTaskId());
                     TiebaStatic.log(statisticItem);
                 }
                 if (z) {
-                    ix8 ix8Var = this.a.s;
-                    if (ix8Var != null) {
-                        ix8Var.d();
+                    wz8 wz8Var = this.a.s;
+                    if (wz8Var != null) {
+                        wz8Var.d();
                     }
                     if (postWriteCallBackData != null && postWriteCallBackData.getIconStampData() != null) {
-                        ta5.c(this.a.getPageContext(), postWriteCallBackData, 2);
+                        kb5.c(this.a.getPageContext(), postWriteCallBackData, 2);
                         return;
                     }
                     return;
@@ -529,15 +530,15 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         DefaultNavigationBarCoverTip.t(this.a.getActivity(), postWriteCallBackData.getErrorString(), null).v();
                     }
                 } else if (postWriteCallBackData != null && postWriteCallBackData.isErrorShowApplyMemberDialog()) {
-                    d05 d05Var = new d05(this.a.getActivity());
+                    u05 u05Var = new u05(this.a.getActivity());
                     if (hi.isEmpty(postWriteCallBackData.getErrorString())) {
-                        d05Var.setMessage(this.a.getActivity().getString(R.string.open_member_and_add_more_links));
+                        u05Var.setMessage(this.a.getActivity().getString(R.string.open_member_and_add_more_links));
                     } else {
-                        d05Var.setMessage(postWriteCallBackData.getErrorString());
+                        u05Var.setMessage(postWriteCallBackData.getErrorString());
                     }
-                    d05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new a(this));
-                    d05Var.setPositiveButton(R.string.open_now, new b(this));
-                    d05Var.create(this.a.getPageContext()).show();
+                    u05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new a(this));
+                    u05Var.setPositiveButton(R.string.open_now, new b(this));
+                    u05Var.create(this.a.getPageContext()).show();
                     TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.WRITE_MORE_LINK_DIALOG_SHOW).param("obj_locate", 1).param("obj_type", 2));
                 }
                 if (postWriteCallBackData != null && postWriteCallBackData.isSensitiveError()) {
@@ -596,7 +597,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             public void run() {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    nu8.a(this.b.a.getPageContext(), this.a).show();
+                    xw8.a(this.b.a.getPageContext(), this.a).show();
                 }
             }
         }
@@ -676,9 +677,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                ix8 ix8Var;
+                wz8 wz8Var;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && (ix8Var = this.a.c.s) != null && ix8Var.g() != null) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && (wz8Var = this.a.c.s) != null && wz8Var.g() != null) {
                     if (!this.a.c.s.g().e()) {
                         this.a.c.s.b(false);
                     }
@@ -727,11 +728,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 foldCommentActivity.c.v().smoothScrollBy((foldCommentActivity.w[1] + foldCommentActivity.x) - i2, 50);
                 if (this.c.c.x() != null) {
                     this.c.q.b().setVisibility(8);
-                    this.c.c.x().t(this.a, this.b, this.c.c.y(), (this.c.a == null || this.c.a.u1() == null || this.c.a.u1().M() == null || !this.c.a.u1().M().isBjh()) ? false : false);
-                    xe5 f = this.c.c.x().f();
-                    if (f != null && this.c.a != null && this.c.a.u1() != null) {
-                        f.H(this.c.a.u1().c());
-                        f.d0(this.c.a.u1().M());
+                    this.c.c.x().t(this.a, this.b, this.c.c.y(), (this.c.a == null || this.c.a.z1() == null || this.c.a.z1().M() == null || !this.c.a.z1().M().isBjh()) ? false : false);
+                    qf5 f = this.c.c.x().f();
+                    if (f != null && this.c.a != null && this.c.a.z1() != null) {
+                        f.H(this.c.a.z1().c());
+                        f.d0(this.c.a.z1().M());
                     }
                     if (this.c.s.f() == null && this.c.c.x().f().u() != null) {
                         this.c.c.x().f().u().g(new a(this));
@@ -793,9 +794,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
 
             @Override // android.text.TextWatcher
             public void afterTextChanged(Editable editable) {
-                ix8 ix8Var;
+                wz8 wz8Var;
                 Interceptable interceptable = $ic;
-                if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && (ix8Var = this.a.c.s) != null && ix8Var.g() != null) {
+                if ((interceptable == null || interceptable.invokeL(1048576, this, editable) == null) && (wz8Var = this.a.c.s) != null && wz8Var.g() != null) {
                     if (!this.a.c.s.g().e()) {
                         this.a.c.s.b(false);
                     }
@@ -844,11 +845,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 foldCommentActivity.c.v().smoothScrollBy((foldCommentActivity.w[1] + foldCommentActivity.x) - i2, 50);
                 if (this.c.c.x() != null) {
                     this.c.q.b().setVisibility(8);
-                    this.c.c.x().t(this.a, this.b, this.c.c.y(), (this.c.a == null || this.c.a.u1() == null || this.c.a.u1().M() == null || !this.c.a.u1().M().isBjh()) ? false : false);
-                    xe5 f = this.c.c.x().f();
-                    if (f != null && this.c.a != null && this.c.a.u1() != null) {
-                        f.H(this.c.a.u1().c());
-                        f.d0(this.c.a.u1().M());
+                    this.c.c.x().t(this.a, this.b, this.c.c.y(), (this.c.a == null || this.c.a.z1() == null || this.c.a.z1().M() == null || !this.c.a.z1().M().isBjh()) ? false : false);
+                    qf5 f = this.c.c.x().f();
+                    if (f != null && this.c.a != null && this.c.a.z1() != null) {
+                        f.H(this.c.a.z1().c());
+                        f.d0(this.c.a.z1().M());
                     }
                     if (this.c.s.f() == null && this.c.c.x().f().u() != null) {
                         this.c.c.x().f().u().g(new a(this));
@@ -863,7 +864,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     /* loaded from: classes5.dex */
-    public class a implements d05.e {
+    public class a implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
@@ -886,11 +887,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                d05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                u05Var.dismiss();
             }
         }
     }
@@ -934,9 +935,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         }
                         return;
                     }
-                    this.a.a.Y1();
+                    this.a.a.d2();
                     ForumManageModel.b bVar = (ForumManageModel.b) obj;
-                    this.a.s2(bVar, (bVar.e != 1002 || bVar.f) ? true : true);
+                    this.a.u2(bVar, (bVar.e != 1002 || bVar.f) ? true : true);
                     return;
                 }
                 this.a.c.u(this.a.n.getLoadDataMode(), false, null, false);
@@ -945,7 +946,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     /* loaded from: classes5.dex */
-    public class c implements d05.e {
+    public class c implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
@@ -968,17 +969,17 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) && d05Var != null) {
-                d05Var.dismiss();
+            if ((interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) && u05Var != null) {
+                u05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class d implements d05.e {
+    public class d implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ UserMuteAddAndDelCustomMessage a;
@@ -1003,19 +1004,19 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = userMuteAddAndDelCustomMessage;
         }
 
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
                 this.b.c.c0();
                 MessageManager.getInstance().sendMessage(this.a);
-                d05Var.dismiss();
+                u05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class e implements d05.e {
+    public class e implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
@@ -1038,17 +1039,17 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                d05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                u05Var.dismiss();
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class f implements qe5 {
+    public class f implements jf5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
@@ -1071,7 +1072,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.qe5
+        @Override // com.baidu.tieba.jf5
         public void a() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
@@ -1168,9 +1169,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.h
-        public void b(ht8 ht8Var) {
+        public void b(qv8 qv8Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ht8Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, qv8Var) == null) {
             }
         }
 
@@ -1193,36 +1194,36 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
 
         @Override // com.baidu.tieba.pb.pb.main.PbModel.h
-        public void c(boolean z, int i, int i2, int i3, ht8 ht8Var, String str, int i4) {
+        public void c(boolean z, int i, int i2, int i3, qv8 qv8Var, String str, int i4) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), ht8Var, str, Integer.valueOf(i4)}) != null) || this.a.c == null) {
+            if ((interceptable != null && interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), qv8Var, str, Integer.valueOf(i4)}) != null) || this.a.c == null) {
                 return;
             }
             this.a.c.T();
             if (z) {
                 this.a.c.D();
-                if (ht8Var != null) {
+                if (qv8Var != null) {
                     FoldCommentActivity foldCommentActivity = this.a;
                     boolean z2 = true;
-                    if (ht8Var.r() != 1) {
+                    if (qv8Var.r() != 1) {
                         z2 = false;
                     }
                     foldCommentActivity.f = z2;
                     String str2 = null;
-                    if (this.a.a != null && this.a.a.d2()) {
+                    if (this.a.a != null && this.a.a.i2()) {
                         str2 = this.a.getPageContext().getString(R.string.pb_reply_hint_from_smart_frs);
                     } else if (this.a.c != null) {
                         str2 = this.a.c.y();
                     }
                     if (!StringUtils.isNull(str2)) {
-                        this.a.q.c0(TbSingleton.getInstance().getAdVertiComment(ht8Var.o0(), ht8Var.p0(), str2));
+                        this.a.q.c0(TbSingleton.getInstance().getAdVertiComment(qv8Var.o0(), qv8Var.p0(), str2));
                     }
-                    this.a.c.R(ht8Var, this.a.f);
+                    this.a.c.R(qv8Var, this.a.f);
                     return;
                 }
                 return;
             }
-            this.a.U2(i, str);
+            this.a.W2(i, str);
         }
     }
 
@@ -1242,7 +1243,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             }
             if ((view2 instanceof TbListTextView) && (view2.getParent() instanceof TbRichTextView)) {
                 StatisticItem statisticItem2 = new StatisticItem("c13398");
-                statisticItem2.param("tid", this.a.a.N1());
+                statisticItem2.param("tid", this.a.a.S1());
                 statisticItem2.param("fid", this.a.a.getForumId());
                 statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem2.param("obj_locate", 1);
@@ -1250,90 +1251,90 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 TbRichTextView tbRichTextView = (TbRichTextView) view2.getParent();
                 if (tbRichTextView.getTag() instanceof SparseArray) {
                     Object obj = ((SparseArray) tbRichTextView.getTag()).get(R.id.tag_clip_board);
-                    if (obj instanceof am9) {
-                        am9 am9Var = (am9) obj;
-                        if (this.a.a == null || this.a.a.u1() == null || am9Var.q() == null || am9Var.E() == 1 || !this.a.checkUpIsLogin()) {
+                    if (obj instanceof pp9) {
+                        pp9 pp9Var = (pp9) obj;
+                        if (this.a.a == null || this.a.a.z1() == null || pp9Var.p() == null || pp9Var.D() == 1 || !this.a.checkUpIsLogin()) {
                             return;
                         }
                         if (this.a.c.x() != null) {
                             this.a.c.x().g();
                         }
-                        wt8 wt8Var = new wt8();
-                        wt8Var.v(this.a.a.u1().k());
-                        wt8Var.z(this.a.a.u1().M());
-                        wt8Var.x(am9Var);
-                        this.a.c.w().m0(wt8Var);
-                        this.a.c.w().setPostId(am9Var.O());
-                        this.a.Q2(view2, am9Var.q().getUserId(), "", am9Var);
+                        gw8 gw8Var = new gw8();
+                        gw8Var.v(this.a.a.z1().k());
+                        gw8Var.z(this.a.a.z1().M());
+                        gw8Var.x(pp9Var);
+                        this.a.c.w().r0(gw8Var);
+                        this.a.c.w().setPostId(pp9Var.N());
+                        this.a.S2(view2, pp9Var.p().getUserId(), "", pp9Var);
                         TiebaStatic.log("c11743");
-                        c09.b(this.a.a.u1(), am9Var, am9Var.d0, 8, 1);
+                        v29.b(this.a.a.z1(), pp9Var, pp9Var.d0, 8, 1);
                         if (this.a.q != null) {
                             this.a.c.V(this.a.q.y());
                         }
                     }
                 }
-            } else if (view2.getId() != R.id.obfuscated_res_0x7f09199a && view2.getId() != R.id.obfuscated_res_0x7f0919f2) {
-                if (view2.getId() != R.id.sub_pb_more && view2.getId() != R.id.obfuscated_res_0x7f09216a && view2.getId() != R.id.obfuscated_res_0x7f091998 && view2.getId() != R.id.obfuscated_res_0x7f091827) {
-                    if (view2.getId() != R.id.obfuscated_res_0x7f0919f8 && view2.getId() != R.id.obfuscated_res_0x7f091bcd && view2.getId() != R.id.obfuscated_res_0x7f091992) {
-                        if ((view2.getId() == R.id.obfuscated_res_0x7f090831 || view2.getId() == R.id.obfuscated_res_0x7f090b07) && (sparseArray = (SparseArray) view2.getTag()) != null && (sparseArray.get(R.id.tag_load_sub_data) instanceof am9)) {
-                            am9 am9Var2 = (am9) sparseArray.get(R.id.tag_load_sub_data);
+            } else if (view2.getId() != R.id.obfuscated_res_0x7f0919a7 && view2.getId() != R.id.obfuscated_res_0x7f0919ff) {
+                if (view2.getId() != R.id.sub_pb_more && view2.getId() != R.id.obfuscated_res_0x7f09217e && view2.getId() != R.id.obfuscated_res_0x7f0919a5 && view2.getId() != R.id.obfuscated_res_0x7f091835) {
+                    if (view2.getId() != R.id.obfuscated_res_0x7f091a05 && view2.getId() != R.id.obfuscated_res_0x7f091bdd && view2.getId() != R.id.obfuscated_res_0x7f09199f) {
+                        if ((view2.getId() == R.id.obfuscated_res_0x7f090834 || view2.getId() == R.id.obfuscated_res_0x7f090b0f) && (sparseArray = (SparseArray) view2.getTag()) != null && (sparseArray.get(R.id.tag_load_sub_data) instanceof pp9)) {
+                            pp9 pp9Var2 = (pp9) sparseArray.get(R.id.tag_load_sub_data);
                             View view3 = (View) sparseArray.get(R.id.tag_load_sub_view);
-                            if (am9Var2 == null || view3 == null) {
+                            if (pp9Var2 == null || view3 == null) {
                                 return;
                             }
-                            ImageView imageView = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090832);
-                            EMTextView eMTextView = (EMTextView) view3.findViewById(R.id.obfuscated_res_0x7f090833);
-                            View findViewById = view3.findViewById(R.id.obfuscated_res_0x7f090b07);
-                            am9Var2.X0(!am9Var2.w0());
-                            SkinManager.setBackgroundColor(findViewById, am9Var2.w0() ? R.color.CAM_X0201 : R.color.transparent);
-                            SkinManager.setViewTextColor(eMTextView, am9Var2.w0() ? R.color.CAM_X0304 : R.color.CAM_X0107);
-                            WebPManager.setPureDrawable(imageView, am9Var2.w0() ? R.drawable.icon_pure_pb_del_select : R.drawable.icon_pure_pb_del_normal, am9Var2.w0() ? R.color.CAM_X0304 : R.color.CAM_X0107, null);
+                            ImageView imageView = (ImageView) view3.findViewById(R.id.obfuscated_res_0x7f090835);
+                            EMTextView eMTextView = (EMTextView) view3.findViewById(R.id.obfuscated_res_0x7f090836);
+                            View findViewById = view3.findViewById(R.id.obfuscated_res_0x7f090b0f);
+                            pp9Var2.Y0(!pp9Var2.x0());
+                            SkinManager.setBackgroundColor(findViewById, pp9Var2.x0() ? R.color.CAM_X0201 : R.color.transparent);
+                            SkinManager.setViewTextColor(eMTextView, pp9Var2.x0() ? R.color.CAM_X0304 : R.color.CAM_X0107);
+                            WebPManager.setPureDrawable(imageView, pp9Var2.x0() ? R.drawable.icon_pure_pb_del_select : R.drawable.icon_pure_pb_del_normal, pp9Var2.x0() ? R.color.CAM_X0304 : R.color.CAM_X0107, null);
                             return;
                         }
                         return;
                     } else if (this.a.a == null) {
                         return;
                     } else {
-                        if (view2.getId() == R.id.obfuscated_res_0x7f0919f8) {
+                        if (view2.getId() == R.id.obfuscated_res_0x7f091a05) {
                             StatisticItem statisticItem3 = new StatisticItem("c13398");
-                            statisticItem3.param("tid", this.a.a.N1());
+                            statisticItem3.param("tid", this.a.a.S1());
                             statisticItem3.param("fid", this.a.a.getForumId());
                             statisticItem3.param("uid", TbadkCoreApplication.getCurrentAccount());
                             statisticItem3.param("obj_locate", 6);
                             TiebaStatic.log(statisticItem3);
                         }
-                        if (view2.getId() == R.id.obfuscated_res_0x7f091bcd) {
+                        if (view2.getId() == R.id.obfuscated_res_0x7f091bdd) {
                             if (!DialogLoginHelper.checkUpIsLogin(new LoginDialogData(this.a.getActivity(), LoginDialogData.PB_REPLY_RESULT_PAGE))) {
                                 return;
                             }
-                        } else if (view2.getId() == R.id.obfuscated_res_0x7f0919f8 && !DialogLoginHelper.checkUpIsLogin(new LoginDialogData(this.a.getActivity(), LoginDialogData.PB_REPLY_RESULT_PAGE))) {
+                        } else if (view2.getId() == R.id.obfuscated_res_0x7f091a05 && !DialogLoginHelper.checkUpIsLogin(new LoginDialogData(this.a.getActivity(), LoginDialogData.PB_REPLY_RESULT_PAGE))) {
                             return;
                         }
                         if (this.a.checkUpIsLogin() && (view2.getTag() instanceof SparseArray)) {
                             SparseArray sparseArray2 = (SparseArray) view2.getTag();
-                            if (sparseArray2.get(R.id.tag_load_sub_data) instanceof am9) {
-                                am9 am9Var3 = (am9) sparseArray2.get(R.id.tag_load_sub_data);
-                                if (view2.getId() == R.id.obfuscated_res_0x7f0919f8 && (statisticItem = am9Var3.e0) != null) {
+                            if (sparseArray2.get(R.id.tag_load_sub_data) instanceof pp9) {
+                                pp9 pp9Var3 = (pp9) sparseArray2.get(R.id.tag_load_sub_data);
+                                if (view2.getId() == R.id.obfuscated_res_0x7f091a05 && (statisticItem = pp9Var3.e0) != null) {
                                     StatisticItem copy = statisticItem.copy();
                                     copy.delete("obj_locate");
                                     copy.param("obj_locate", 8);
                                     TiebaStatic.log(copy);
-                                } else if (view2.getId() == R.id.obfuscated_res_0x7f091bcd || view2.getId() == R.id.obfuscated_res_0x7f091992) {
-                                    TiebaStatic.log(new StatisticItem("c13700").param("tid", this.a.a.O1()).param("fid", this.a.a.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", am9Var3.O()).param("obj_source", 1).param("obj_type", 3));
+                                } else if (view2.getId() == R.id.obfuscated_res_0x7f091bdd || view2.getId() == R.id.obfuscated_res_0x7f09199f) {
+                                    TiebaStatic.log(new StatisticItem("c13700").param("tid", this.a.a.T1()).param("fid", this.a.a.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", pp9Var3.N()).param("obj_source", 1).param("obj_type", 3));
                                 }
-                                if (this.a.a == null || this.a.a.u1() == null || am9Var3.q() == null || am9Var3.E() == 1) {
+                                if (this.a.a == null || this.a.a.z1() == null || pp9Var3.p() == null || pp9Var3.D() == 1) {
                                     return;
                                 }
                                 if (this.a.c.x() != null) {
                                     this.a.c.x().g();
                                 }
-                                wt8 wt8Var2 = new wt8();
-                                wt8Var2.v(this.a.a.u1().k());
-                                wt8Var2.z(this.a.a.u1().M());
-                                wt8Var2.x(am9Var3);
-                                this.a.c.w().m0(wt8Var2);
-                                this.a.c.w().setPostId(am9Var3.O());
-                                this.a.Q2(view2, am9Var3.q().getUserId(), "", am9Var3);
+                                gw8 gw8Var2 = new gw8();
+                                gw8Var2.v(this.a.a.z1().k());
+                                gw8Var2.z(this.a.a.z1().M());
+                                gw8Var2.x(pp9Var3);
+                                this.a.c.w().r0(gw8Var2);
+                                this.a.c.w().setPostId(pp9Var3.N());
+                                this.a.S2(view2, pp9Var3.p().getUserId(), "", pp9Var3);
                                 if (this.a.q != null) {
                                     this.a.c.V(this.a.q.y());
                                     return;
@@ -1345,99 +1346,99 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     }
                 }
-                if (view2.getId() == R.id.obfuscated_res_0x7f091827) {
+                if (view2.getId() == R.id.obfuscated_res_0x7f091835) {
                     StatisticItem statisticItem4 = new StatisticItem("c13398");
-                    statisticItem4.param("tid", this.a.a.N1());
+                    statisticItem4.param("tid", this.a.a.S1());
                     statisticItem4.param("fid", this.a.a.getForumId());
                     statisticItem4.param("uid", TbadkCoreApplication.getCurrentAccount());
                     statisticItem4.param("obj_locate", 4);
                     TiebaStatic.log(statisticItem4);
                 }
-                if (view2.getId() != R.id.obfuscated_res_0x7f091998 || DialogLoginHelper.checkUpIsLogin(new LoginDialogData(this.a.getActivity(), LoginDialogData.PB_MORE_REPLY_RESULT_PAGE))) {
+                if (view2.getId() != R.id.obfuscated_res_0x7f0919a5 || DialogLoginHelper.checkUpIsLogin(new LoginDialogData(this.a.getActivity(), LoginDialogData.PB_MORE_REPLY_RESULT_PAGE))) {
                     if (!this.a.checkUpIsLogin()) {
-                        c09.r("c10517", this.a.a.u1().l(), 3);
-                    } else if (this.a.a == null || this.a.a.u1() == null) {
+                        v29.r("c10517", this.a.a.z1().l(), 3);
+                    } else if (this.a.a == null || this.a.a.z1() == null) {
                     } else {
                         this.a.c.t();
                         SparseArray sparseArray3 = (SparseArray) view2.getTag();
-                        am9 am9Var4 = (am9) sparseArray3.get(R.id.tag_load_sub_data);
-                        am9 am9Var5 = (am9) sparseArray3.get(R.id.tag_load_sub_reply_data);
+                        pp9 pp9Var4 = (pp9) sparseArray3.get(R.id.tag_load_sub_data);
+                        pp9 pp9Var5 = (pp9) sparseArray3.get(R.id.tag_load_sub_reply_data);
                         View view4 = (View) sparseArray3.get(R.id.tag_load_sub_view);
-                        if (am9Var4 == null || view4 == null) {
+                        if (pp9Var4 == null || view4 == null) {
                             return;
                         }
-                        if (am9Var4.I() == 1) {
+                        if (pp9Var4.I() == 1) {
                             TiebaStatic.log(new StatisticItem("c12630"));
                         }
-                        StatisticItem statisticItem5 = am9Var4.e0;
+                        StatisticItem statisticItem5 = pp9Var4.e0;
                         if (statisticItem5 != null) {
                             StatisticItem copy2 = statisticItem5.copy();
                             copy2.delete("obj_locate");
-                            if (view2.getId() == R.id.obfuscated_res_0x7f091827) {
+                            if (view2.getId() == R.id.obfuscated_res_0x7f091835) {
                                 copy2.param("obj_locate", 6);
-                            } else if (view2.getId() == R.id.obfuscated_res_0x7f091998) {
+                            } else if (view2.getId() == R.id.obfuscated_res_0x7f0919a5) {
                                 copy2.param("obj_locate", 8);
                             }
                             TiebaStatic.log(copy2);
                         }
-                        if (view2.getId() == R.id.obfuscated_res_0x7f091998 && this.a.a != null && this.a.a.u1() != null && am9Var4 != null) {
-                            TiebaStatic.log(new StatisticItem("c14443").param("tid", this.a.a.N1()).param("fname", this.a.a.u1().m()).param("fid", this.a.a.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", am9Var4.O()));
+                        if (view2.getId() == R.id.obfuscated_res_0x7f0919a5 && this.a.a != null && this.a.a.z1() != null && pp9Var4 != null) {
+                            TiebaStatic.log(new StatisticItem("c14443").param("tid", this.a.a.S1()).param("fname", this.a.a.z1().m()).param("fid", this.a.a.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", pp9Var4.N()));
                         }
-                        String N1 = this.a.a.N1();
-                        String O = am9Var4.O();
-                        String O2 = am9Var5 != null ? am9Var5.O() : "";
-                        int U = this.a.a.u1() != null ? this.a.a.u1().U() : 0;
+                        String S1 = this.a.a.S1();
+                        String N = pp9Var4.N();
+                        String N2 = pp9Var5 != null ? pp9Var5.N() : "";
+                        int U = this.a.a.z1() != null ? this.a.a.z1().U() : 0;
                         this.a.N();
-                        if (view2.getId() != R.id.obfuscated_res_0x7f091d98) {
-                            if (view2.getId() != R.id.obfuscated_res_0x7f091998 || !this.a.r) {
+                        if (view2.getId() != R.id.obfuscated_res_0x7f091da8) {
+                            if (view2.getId() != R.id.obfuscated_res_0x7f0919a5 || !this.a.r) {
                                 TiebaStatic.log("c11742");
-                                AbsPbActivity.e X2 = this.a.X2(O);
-                                if (am9Var4 == null || this.a.a == null || this.a.a.u1() == null || X2 == null) {
+                                AbsPbActivity.e Z2 = this.a.Z2(N);
+                                if (pp9Var4 == null || this.a.a == null || this.a.a.z1() == null || Z2 == null) {
                                     return;
                                 }
-                                SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(N1, O, "pb", true, this.a.r, null, false, O2, U, am9Var4.h0(), this.a.a.u1().c(), false, am9Var4.q().getIconInfo(), 5).addBigImageData(X2.a, X2.b, X2.g, X2.j);
-                                if (!hi.isEmpty(O2)) {
-                                    addBigImageData.setHighLightPostId(O2);
+                                SubPbActivityConfig addBigImageData = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(S1, N, "pb", true, this.a.r, null, false, N2, U, pp9Var4.h0(), this.a.a.z1().c(), false, pp9Var4.p().getIconInfo(), 5).addBigImageData(Z2.a, Z2.b, Z2.g, Z2.j);
+                                if (!hi.isEmpty(N2)) {
+                                    addBigImageData.setHighLightPostId(N2);
                                     addBigImageData.setKeyIsUseSpid(true);
                                 }
                                 addBigImageData.setKeyFromForumId(this.a.a.getForumId());
-                                addBigImageData.setTiebaPlusData(this.a.a.Z(), this.a.a.V(), this.a.a.W(), this.a.a.U(), this.a.a.a0());
-                                addBigImageData.setBjhData(this.a.a.M0());
-                                addBigImageData.setKeyPageStartFrom(this.a.a.t1());
+                                addBigImageData.setTiebaPlusData(this.a.a.e0(), this.a.a.a0(), this.a.a.b0(), this.a.a.Z(), this.a.a.f0());
+                                addBigImageData.setBjhData(this.a.a.R0());
+                                addBigImageData.setKeyPageStartFrom(this.a.a.y1());
                                 addBigImageData.setFromFrsForumId(this.a.a.getFromForumId());
-                                addBigImageData.setWorksInfoData(this.a.a.S1());
+                                addBigImageData.setWorksInfoData(this.a.a.X1());
                                 addBigImageData.setFromFoldComment(true);
                                 addBigImageData.setFromVideoPageUniqueId((BdUniqueId) this.a.getIntent().getSerializableExtra("key_from_video_page_id"));
                                 this.a.sendMessage(new CustomMessage(2002001, addBigImageData));
                                 return;
                             }
-                            AbsPbActivity.e X22 = this.a.X2(O);
-                            if (this.a.a == null || this.a.a.u1() == null || X22 == null) {
+                            AbsPbActivity.e Z22 = this.a.Z2(N);
+                            if (this.a.a == null || this.a.a.z1() == null || Z22 == null) {
                                 return;
                             }
-                            SubPbActivityConfig addBigImageData2 = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(N1, O, "pb", true, this.a.r, null, true, null, U, am9Var4.h0(), this.a.a.u1().c(), false, am9Var4.q().getIconInfo(), 5).addBigImageData(X22.a, X22.b, X22.g, X22.j);
-                            addBigImageData2.setKeyPageStartFrom(this.a.a.t1());
+                            SubPbActivityConfig addBigImageData2 = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(S1, N, "pb", true, this.a.r, null, true, null, U, pp9Var4.h0(), this.a.a.z1().c(), false, pp9Var4.p().getIconInfo(), 5).addBigImageData(Z22.a, Z22.b, Z22.g, Z22.j);
+                            addBigImageData2.setKeyPageStartFrom(this.a.a.y1());
                             addBigImageData2.setFromFrsForumId(this.a.a.getFromForumId());
-                            addBigImageData2.setWorksInfoData(this.a.a.S1());
+                            addBigImageData2.setWorksInfoData(this.a.a.X1());
                             addBigImageData2.setKeyFromForumId(this.a.a.getForumId());
-                            addBigImageData2.setBjhData(this.a.a.M0());
-                            addBigImageData2.setTiebaPlusData(this.a.a.Z(), this.a.a.V(), this.a.a.W(), this.a.a.U(), this.a.a.a0());
+                            addBigImageData2.setBjhData(this.a.a.R0());
+                            addBigImageData2.setTiebaPlusData(this.a.a.e0(), this.a.a.a0(), this.a.a.b0(), this.a.a.Z(), this.a.a.f0());
                             addBigImageData2.setFromFoldComment(true);
                             addBigImageData2.setFromVideoPageUniqueId((BdUniqueId) this.a.getIntent().getSerializableExtra("key_from_video_page_id"));
                             this.a.sendMessage(new CustomMessage(2002001, addBigImageData2));
                             return;
                         }
-                        AbsPbActivity.e X23 = this.a.X2(O);
-                        if (this.a.a == null || this.a.a.u1() == null || X23 == null) {
+                        AbsPbActivity.e Z23 = this.a.Z2(N);
+                        if (this.a.a == null || this.a.a.z1() == null || Z23 == null) {
                             return;
                         }
-                        SubPbActivityConfig addBigImageData3 = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(N1, O, "pb", true, this.a.r, null, true, null, U, am9Var4.h0(), this.a.a.u1().c(), false, am9Var4.q().getIconInfo(), 5).addBigImageData(X23.a, X23.b, X23.g, X23.j);
-                        addBigImageData3.setKeyPageStartFrom(this.a.a.t1());
+                        SubPbActivityConfig addBigImageData3 = new SubPbActivityConfig(this.a.getPageContext().getPageActivity()).createSubPbActivityConfig(S1, N, "pb", true, this.a.r, null, true, null, U, pp9Var4.h0(), this.a.a.z1().c(), false, pp9Var4.p().getIconInfo(), 5).addBigImageData(Z23.a, Z23.b, Z23.g, Z23.j);
+                        addBigImageData3.setKeyPageStartFrom(this.a.a.y1());
                         addBigImageData3.setFromFrsForumId(this.a.a.getFromForumId());
-                        addBigImageData3.setWorksInfoData(this.a.a.S1());
+                        addBigImageData3.setWorksInfoData(this.a.a.X1());
                         addBigImageData3.setKeyFromForumId(this.a.a.getForumId());
-                        addBigImageData3.setBjhData(this.a.a.M0());
-                        addBigImageData3.setTiebaPlusData(this.a.a.Z(), this.a.a.V(), this.a.a.W(), this.a.a.U(), this.a.a.a0());
+                        addBigImageData3.setBjhData(this.a.a.R0());
+                        addBigImageData3.setTiebaPlusData(this.a.a.e0(), this.a.a.a0(), this.a.a.b0(), this.a.a.Z(), this.a.a.f0());
                         addBigImageData3.setFromFoldComment(true);
                         addBigImageData3.setFromVideoPageUniqueId((BdUniqueId) this.a.getIntent().getSerializableExtra("key_from_video_page_id"));
                         this.a.sendMessage(new CustomMessage(2002001, addBigImageData3));
@@ -1445,17 +1446,17 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 }
             } else {
                 StatisticItem statisticItem6 = new StatisticItem("c13398");
-                statisticItem6.param("tid", this.a.a.N1());
+                statisticItem6.param("tid", this.a.a.S1());
                 statisticItem6.param("fid", this.a.a.getForumId());
                 statisticItem6.param("uid", TbadkCoreApplication.getCurrentAccount());
                 statisticItem6.param("obj_locate", 7);
                 TiebaStatic.log(statisticItem6);
-                if (this.a.a != null && this.a.a.u1() != null && this.a.K != null) {
-                    TiebaStatic.log(new StatisticItem("c14441").param("tid", this.a.a.N1()).param("fname", this.a.a.u1().m()).param("fid", this.a.a.u1().l()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", this.a.K.O()));
+                if (this.a.a != null && this.a.a.z1() != null && this.a.K != null) {
+                    TiebaStatic.log(new StatisticItem("c14441").param("tid", this.a.a.S1()).param("fname", this.a.a.z1().m()).param("fid", this.a.a.z1().l()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("post_id", this.a.K.N()));
                 }
                 FoldCommentActivity foldCommentActivity = this.a;
                 foldCommentActivity.g = false;
-                foldCommentActivity.o2(view2);
+                foldCommentActivity.q2(view2);
             }
         }
 
@@ -1479,7 +1480,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     /* loaded from: classes5.dex */
-    public class o implements pe5 {
+    public class o implements if5 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
@@ -1502,13 +1503,13 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.pe5
+        @Override // com.baidu.tieba.if5
         public boolean a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                ix8 ix8Var = this.a.s;
-                if (ix8Var != null && ix8Var.g() != null && this.a.s.g().d()) {
+                wz8 wz8Var = this.a.s;
+                if (wz8Var != null && wz8Var.g() != null && this.a.s.g().d()) {
                     FoldCommentActivity foldCommentActivity = this.a;
                     foldCommentActivity.showToast(foldCommentActivity.s.g().c());
                     if (this.a.c != null && this.a.c.x() != null && this.a.c.x().f() != null && this.a.c.x().f().y()) {
@@ -1517,14 +1518,14 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     this.a.s.b(true);
                     return true;
                 }
-                return !this.a.l2(ReplyPrivacyCheckController.TYPE_FLOOR);
+                return !this.a.n2(ReplyPrivacyCheckController.TYPE_FLOOR);
             }
             return invokeV.booleanValue;
         }
     }
 
     /* loaded from: classes5.dex */
-    public class p implements at4.a {
+    public class p implements ct4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
@@ -1547,7 +1548,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.at4.a
+        @Override // com.baidu.tieba.ct4.a
         public void a(boolean z, boolean z2, String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Boolean.valueOf(z), Boolean.valueOf(z2), str}) == null) {
@@ -1555,20 +1556,20 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     if (this.a.y != null) {
                         this.a.y.h(z2);
                     }
-                    this.a.a.i3(z2);
-                    if (this.a.a.f1()) {
-                        this.a.R2();
+                    this.a.a.n3(z2);
+                    if (this.a.a.k1()) {
+                        this.a.T2();
                     }
                     if (z2) {
                         if (this.a.y != null) {
-                            if (this.a.y.f() != null && this.a.a != null && this.a.a.u1() != null && this.a.a.u1().M() != null && this.a.a.u1().M().getAuthor() != null) {
+                            if (this.a.y.f() != null && this.a.a != null && this.a.a.z1() != null && this.a.a.z1().M() != null && this.a.a.z1().M().getAuthor() != null) {
                                 MarkData f = this.a.y.f();
-                                MetaData author = this.a.a.u1().M().getAuthor();
+                                MetaData author = this.a.a.z1().M().getAuthor();
                                 if (f != null && author != null) {
                                     if (StringHelper.equals(TbadkCoreApplication.getCurrentAccount(), author.getUserId()) || author.hadConcerned()) {
-                                        this.a.showToast(R.string.obfuscated_res_0x7f0f00d5);
-                                        if (la5.g(this.a.getActivity(), 0)) {
-                                            la5.h(this.a.getPageContext(), 6, 2000L);
+                                        this.a.showToast(R.string.obfuscated_res_0x7f0f00d3);
+                                        if (cb5.g(this.a.getActivity(), 0)) {
+                                            cb5.h(this.a.getPageContext(), 6, 2000L);
                                         }
                                     }
                                 } else {
@@ -1579,7 +1580,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                                 return;
                             }
                         }
-                        this.a.g2();
+                        this.a.i2();
                         return;
                     }
                     FoldCommentActivity foldCommentActivity2 = this.a;
@@ -1660,7 +1661,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 if (imageView instanceof TbImageView) {
                     TbImageView tbImageView = (TbImageView) imageView;
                     tbImageView.setTag(null);
-                    if (sv4.c().g()) {
+                    if (iw4.c().g()) {
                         tbImageView.setAdjustViewBounds(false);
                         tbImageView.setInterceptOnClick(false);
                     } else {
@@ -1701,7 +1702,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
                 ForeDrawableImageView foreDrawableImageView = new ForeDrawableImageView(this.a.getPageContext().getPageActivity());
-                boolean g = sv4.c().g();
+                boolean g = iw4.c().g();
                 foreDrawableImageView.setDefaultBg(SkinManager.getDrawable(R.color.common_color_10220));
                 if (g) {
                     foreDrawableImageView.setAdjustViewBounds(false);
@@ -1750,6 +1751,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             String str3;
             ImageUrlData imageUrlData2;
             int i2;
+            int i3;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, str, Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
                 try {
@@ -1763,8 +1765,8 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     }
                     AbsPbActivity.e eVar = new AbsPbActivity.e();
-                    this.a.V2(str, i, eVar);
-                    if (this.a.a.u1().h0()) {
+                    this.a.X2(str, i, eVar);
+                    if (this.a.a.z1().h0()) {
                         ArrayList<String> arrayList = new ArrayList<>();
                         ConcurrentHashMap<String, ImageUrlData> concurrentHashMap = new ConcurrentHashMap<>();
                         TbRichTextView tbRichTextView = null;
@@ -1773,27 +1775,35 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         } else if ((view2.getParent() instanceof GridImageLayout) && (view2.getParent().getParent() instanceof TbRichTextView)) {
                             tbRichTextView = (TbRichTextView) view2.getParent().getParent();
                         }
-                        int i3 = -1;
-                        if (tbRichTextView != null && tbRichTextView.getRichText() != null && tbRichTextView.getRichText().U() != null) {
-                            ArrayList<TbRichTextImageInfo> U = tbRichTextView.getRichText().U();
-                            int i4 = 0;
-                            int i5 = -1;
-                            while (i4 < U.size()) {
-                                if (U.get(i4) != null) {
-                                    arrayList.add(U.get(i4).getSrc());
-                                    if (i5 == i3 && str != null && (str.equals(U.get(i4).getSrc()) || str.equals(U.get(i4).R()) || str.equals(U.get(i4).Q()) || str.equals(U.get(i4).getBigSrc()) || str.equals(U.get(i4).T()))) {
-                                        i5 = i4;
+                        int i4 = -1;
+                        if (tbRichTextView != null && tbRichTextView.getRichText() != null && tbRichTextView.getRichText().Z() != null) {
+                            ArrayList<TbRichTextImageInfo> Z = tbRichTextView.getRichText().Z();
+                            int i5 = 0;
+                            int i6 = -1;
+                            while (i5 < Z.size()) {
+                                if (Z.get(i5) != null) {
+                                    arrayList.add(Z.get(i5).getSrc());
+                                    if (i6 == i4 && str != null && (str.equals(Z.get(i5).getSrc()) || str.equals(Z.get(i5).W()) || str.equals(Z.get(i5).V()) || str.equals(Z.get(i5).getBigSrc()) || str.equals(Z.get(i5).Y()))) {
+                                        i6 = i5;
                                     }
                                     ImageUrlData imageUrlData3 = new ImageUrlData();
-                                    imageUrlData3.imageUrl = U.get(i4).getSrc();
-                                    imageUrlData3.originalUrl = U.get(i4).getSrc();
-                                    imageUrlData3.isLongPic = U.get(i4).X();
-                                    concurrentHashMap.put(U.get(i4).getSrc(), imageUrlData3);
+                                    String src = Z.get(i5).getSrc();
+                                    imageUrlData3.imageUrl = src;
+                                    imageUrlData3.imageThumbUrl = src;
+                                    if (this.a.f) {
+                                        i3 = 17;
+                                    } else {
+                                        i3 = 18;
+                                    }
+                                    imageUrlData3.urlThumbType = i3;
+                                    imageUrlData3.originalUrl = Z.get(i5).getSrc();
+                                    imageUrlData3.isLongPic = Z.get(i5).c0();
+                                    concurrentHashMap.put(Z.get(i5).getSrc(), imageUrlData3);
                                 }
-                                i4++;
-                                i3 = -1;
+                                i5++;
+                                i4 = -1;
                             }
-                            i2 = i5;
+                            i2 = i6;
                         } else {
                             i2 = -1;
                         }
@@ -1802,15 +1812,15 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         builder.E(i2);
                         builder.F(false);
                         builder.O(eVar.f);
-                        builder.I(this.a.a.F1());
+                        builder.I(this.a.a.K1());
                         builder.y(concurrentHashMap);
                         builder.K(true);
                         builder.N(false);
-                        builder.J(this.a.L2());
+                        builder.J(this.a.N2());
                         if (this.a.a != null) {
                             builder.D(this.a.a.getFromForumId());
-                            if (this.a.a.u1() != null) {
-                                builder.Q(this.a.a.u1().M());
+                            if (this.a.a.z1() != null) {
+                                builder.Q(this.a.a.z1().M());
                             }
                         }
                         ImageViewerConfig x = builder.x(this.a.getPageContext().getPageActivity());
@@ -1832,17 +1842,17 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         builder2.F(eVar.g);
                         builder2.K(true);
                         builder2.M(eVar.a.get(0));
-                        builder2.I(this.a.a.F1());
+                        builder2.I(this.a.a.K1());
                         builder2.y(concurrentHashMap2);
                         builder2.N(false);
-                        builder2.J(this.a.L2());
+                        builder2.J(this.a.N2());
                         builder2.z(eVar.f);
                         builder2.O(eVar.f);
                         builder2.G(false);
                         if (this.a.a != null) {
                             builder2.D(this.a.a.getFromForumId());
-                            if (this.a.a.u1() != null) {
-                                builder2.Q(this.a.a.u1().M());
+                            if (this.a.a.z1() != null) {
+                                builder2.Q(this.a.a.z1().M());
                             }
                         }
                         ImageViewerConfig x2 = builder2.x(this.a.getPageContext().getPageActivity());
@@ -1850,20 +1860,20 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         this.a.sendMessage(new CustomMessage(2010000, x2));
                         MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2004016, Boolean.FALSE));
                     } else {
-                        TbRichText k3 = this.a.k3(str, i);
-                        if (k3 != null && this.a.C >= 0 && this.a.C < k3.S().size()) {
+                        TbRichText m3 = this.a.m3(str, i);
+                        if (m3 != null && this.a.C >= 0 && this.a.C < m3.X().size()) {
                             ArrayList<String> arrayList3 = new ArrayList<>();
-                            String a = it8.a(k3.S().get(this.a.C));
-                            int i6 = 0;
+                            String a = rv8.a(m3.X().get(this.a.C));
+                            int i7 = 0;
                             while (true) {
-                                if (i6 >= eVar.a.size()) {
+                                if (i7 >= eVar.a.size()) {
                                     break;
-                                } else if (eVar.a.get(i6).equals(a)) {
-                                    eVar.j = i6;
+                                } else if (eVar.a.get(i7).equals(a)) {
+                                    eVar.j = i7;
                                     arrayList3.add(a);
                                     break;
                                 } else {
-                                    i6++;
+                                    i7++;
                                 }
                             }
                             ConcurrentHashMap<String, ImageUrlData> concurrentHashMap3 = new ConcurrentHashMap<>();
@@ -1878,16 +1888,16 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             builder3.F(eVar.g);
                             builder3.K(true);
                             builder3.M(eVar.i);
-                            builder3.I(this.a.a.F1());
+                            builder3.I(this.a.a.K1());
                             builder3.y(concurrentHashMap3);
                             builder3.N(false);
-                            builder3.J(this.a.L2());
+                            builder3.J(this.a.N2());
                             builder3.O(eVar.f);
                             builder3.z(eVar.f);
                             if (this.a.a != null) {
                                 builder3.D(this.a.a.getFromForumId());
-                                if (this.a.a.u1() != null) {
-                                    builder3.Q(this.a.a.u1().M());
+                                if (this.a.a.z1() != null) {
+                                    builder3.Q(this.a.a.z1().M());
                                 }
                             }
                             ImageViewerConfig x3 = builder3.x(this.a.getPageContext().getPageActivity());
@@ -1977,7 +1987,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     return;
                 }
                 Object[] objArr = (Object[]) obj;
-                String valueOf = String.valueOf(this.a.a.u1().T().getUserId());
+                String valueOf = String.valueOf(this.a.a.z1().T().getUserId());
                 if (objArr.length <= 1) {
                     str = "";
                 } else {
@@ -1998,18 +2008,18 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 } else {
                     str4 = String.valueOf(objArr[4]);
                 }
-                this.a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.a.getPageContext().getPageActivity(), this.a.a.u1().k().getId(), this.a.a.u1().k().getName(), this.a.a.u1().M().getId(), valueOf, str, str3, str2, str4)));
+                this.a.sendMessage(new CustomMessage(2002001, new ForbidActivityConfig(this.a.getPageContext().getPageActivity(), this.a.a.z1().k().getId(), this.a.a.z1().k().getName(), this.a.a.z1().M().getId(), valueOf, str, str3, str2, str4)));
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class u implements ku8.a {
+    public class u implements uw8.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
 
-        @Override // com.baidu.tieba.ku8.a
+        @Override // com.baidu.tieba.uw8.a
         public boolean a(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -2019,7 +2029,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             return invokeLL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.ku8.a
+        @Override // com.baidu.tieba.uw8.a
         public boolean c(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
@@ -2047,19 +2057,19 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.ku8.a
+        @Override // com.baidu.tieba.uw8.a
         public boolean b(View view2, MotionEvent motionEvent) {
             InterceptResult invokeLL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, motionEvent)) == null) {
                 if (view2 != null) {
-                    if (view2.getId() == R.id.obfuscated_res_0x7f091db6) {
-                        if (this.a.Z2(view2)) {
+                    if (view2.getId() == R.id.obfuscated_res_0x7f091dc6) {
+                        if (this.a.b3(view2)) {
                             return true;
                         }
-                    } else if (view2.getId() == R.id.obfuscated_res_0x7f091997) {
+                    } else if (view2.getId() == R.id.obfuscated_res_0x7f0919a4) {
                         if (view2.getTag(R.id.tag_from) instanceof SparseArray) {
-                            this.a.f3((SparseArray) view2.getTag(R.id.tag_from));
+                            this.a.h3((SparseArray) view2.getTag(R.id.tag_from));
                         }
                     } else if ((view2 instanceof TbRichTextView) || view2.getId() == R.id.pb_post_header_layout) {
                         SparseArray sparseArray = null;
@@ -2069,7 +2079,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         if (sparseArray == null) {
                             return false;
                         }
-                        this.a.f3(sparseArray);
+                        this.a.h3(sparseArray);
                     }
                 }
                 if (this.a.q != null) {
@@ -2113,12 +2123,12 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             if (interceptable != null && (invokeL = interceptable.invokeL(1048576, this, view2)) != null) {
                 return invokeL.booleanValue;
             }
-            return this.a.o2(view2);
+            return this.a.q2(view2);
         }
     }
 
     /* loaded from: classes5.dex */
-    public class w implements o05.d {
+    public class w implements f15.d {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
@@ -2141,24 +2151,24 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.o05.d
+        @Override // com.baidu.tieba.f15.d
         public void a() {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a.i != null) {
-                this.a.i.q(zy8.h(this.a.K));
+                this.a.i.q(n19.h(this.a.K));
                 ArrayList arrayList = new ArrayList();
-                for (n05 n05Var : this.a.i.g()) {
-                    if (n05Var instanceof k05) {
-                        arrayList.add((k05) n05Var);
+                for (e15 e15Var : this.a.i.g()) {
+                    if (e15Var instanceof b15) {
+                        arrayList.add((b15) e15Var);
                     }
                 }
-                zy8.f(arrayList);
+                n19.f(arrayList);
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public class x implements o05.f {
+    public class x implements f15.f {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ FoldCommentActivity a;
@@ -2181,20 +2191,20 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.a = foldCommentActivity;
         }
 
-        @Override // com.baidu.tieba.o05.f
-        public void M0(o05 o05Var, int i, View view2) {
+        @Override // com.baidu.tieba.f15.f
+        public void N0(f15 f15Var, int i, View view2) {
             SparseArray sparseArray;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLIL(1048576, this, o05Var, i, view2) == null) {
+            if (interceptable == null || interceptable.invokeLIL(1048576, this, f15Var, i, view2) == null) {
                 if (this.a.h != null) {
                     this.a.h.dismiss();
                 }
-                this.a.i3(i);
+                this.a.k3(i);
                 int i2 = 4;
                 switch (i) {
                     case -4:
                         View view3 = (View) ((SparseArray) view2.getTag()).get(R.id.pb_dialog_item_share);
-                        this.a.Y2(view3);
+                        this.a.a3(view3);
                         if (view3 != null) {
                             view3.performClick();
                             return;
@@ -2202,7 +2212,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         return;
                     case -3:
                         View view4 = (View) ((SparseArray) view2.getTag()).get(R.id.pb_dialog_item_reply);
-                        this.a.Y2(view4);
+                        this.a.a3(view4);
                         if (view4 != null) {
                             view4.performClick();
                             return;
@@ -2212,7 +2222,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         View view5 = (View) ((SparseArray) view2.getTag()).get(R.id.pb_dialog_item_zan_2);
                         if (view5 != null) {
                             AgreeView agreeView = (AgreeView) view5;
-                            this.a.Y2(view5);
+                            this.a.a3(view5);
                             if (agreeView.getImgDisagree() != null) {
                                 agreeView.getImgDisagree().performClick();
                                 return;
@@ -2225,7 +2235,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         if (view6 == null) {
                             return;
                         }
-                        this.a.Y2(view6);
+                        this.a.a3(view6);
                         AgreeView agreeView2 = (AgreeView) view6;
                         if (agreeView2.getImgAgree() != null) {
                             agreeView2.getImgAgree().performClick();
@@ -2255,7 +2265,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             }
                             if (this.a.H == null) {
                                 FoldCommentActivity foldCommentActivity = this.a;
-                                foldCommentActivity.H = new kx8(foldCommentActivity.getPageContext());
+                                foldCommentActivity.H = new yz8(foldCommentActivity.getPageContext());
                             }
                             this.a.H.b(this.a.J, this.a.I.n());
                             this.a.I = null;
@@ -2264,9 +2274,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         }
                         return;
                     case 3:
-                        am9 am9Var = this.a.K;
-                        if (am9Var != null) {
-                            am9Var.I0();
+                        pp9 pp9Var = this.a.K;
+                        if (pp9Var != null) {
+                            pp9Var.J0();
                             this.a.K = null;
                             return;
                         }
@@ -2276,11 +2286,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         if (!this.a.checkUpIsLogin()) {
                             return;
                         }
-                        this.a.S2(view2);
-                        if (this.a.a.u1().M() != null && this.a.a.u1().M().getAuthor() != null && this.a.a.u1().M().getAuthor().getUserId() != null && this.a.y != null) {
+                        this.a.U2(view2);
+                        if (this.a.a.z1().M() != null && this.a.a.z1().M().getAuthor() != null && this.a.a.z1().M().getAuthor().getUserId() != null && this.a.y != null) {
                             FoldCommentActivity foldCommentActivity2 = this.a;
-                            int E2 = foldCommentActivity2.E2(foldCommentActivity2.a.u1());
-                            ThreadData M = this.a.a.u1().M();
+                            int G2 = foldCommentActivity2.G2(foldCommentActivity2.a.z1());
+                            ThreadData M = this.a.a.z1().M();
                             if (M.isBJHArticleThreadType()) {
                                 i2 = 2;
                             } else if (M.isBJHVideoThreadType()) {
@@ -2292,7 +2302,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                                     i2 = 1;
                                 }
                             }
-                            TiebaStatic.log(new StatisticItem("c12526").param("tid", this.a.a.N1()).param("obj_locate", 2).param("obj_id", this.a.a.u1().M().getAuthor().getUserId()).param("obj_type", !this.a.y.e()).param("obj_source", E2).param("obj_param1", i2));
+                            TiebaStatic.log(new StatisticItem("c12526").param("tid", this.a.a.S1()).param("obj_locate", 2).param("obj_id", this.a.a.z1().M().getAuthor().getUserId()).param("obj_type", !this.a.y.e()).param("obj_source", G2).param("obj_param1", i2));
                             return;
                         }
                         return;
@@ -2304,7 +2314,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         Object tag = view2.getTag();
                         if (tag instanceof String) {
                             TiebaStatic.log(new StatisticItem("c13079"));
-                            this.a.H2((String) tag);
+                            this.a.J2((String) tag);
                             return;
                         } else if (tag instanceof SparseArray) {
                             TiebaStatic.log(new StatisticItem("c11739").param("obj_locate", 4));
@@ -2312,7 +2322,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             if ((sparseArray2.get(R.id.tag_user_mute_visible) instanceof Boolean) && ((Boolean) sparseArray2.get(R.id.tag_user_mute_visible)).booleanValue()) {
                                 sparseArray2.put(R.id.tag_from, 0);
                                 sparseArray2.put(R.id.tag_check_mute_from, 2);
-                                this.a.j2(sparseArray2);
+                                this.a.l2(sparseArray2);
                                 return;
                             }
                             return;
@@ -2331,14 +2341,14 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                                     this.a.c.M(((Integer) sparseArray3.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray3.get(R.id.tag_del_post_id), intValue, booleanValue, null, G);
                                     return;
                                 } else {
-                                    this.a.d3(sparseArray3, intValue, booleanValue);
+                                    this.a.f3(sparseArray3, intValue, booleanValue);
                                     return;
                                 }
                             } else if (!booleanValue || booleanValue2) {
                                 this.a.c.K(((Integer) sparseArray3.get(R.id.tag_del_post_type)).intValue(), (String) sparseArray3.get(R.id.tag_del_post_id), intValue, booleanValue);
                                 return;
                             } else {
-                                this.a.d3(sparseArray3, intValue, booleanValue);
+                                this.a.f3(sparseArray3, intValue, booleanValue);
                                 return;
                             }
                         }
@@ -2359,7 +2369,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             if (booleanValue5) {
                                 sparseArray4.put(R.id.tag_from, 1);
                                 sparseArray4.put(R.id.tag_check_mute_from, 2);
-                                this.a.j2(sparseArray4);
+                                this.a.l2(sparseArray4);
                                 return;
                             }
                             sparseArray4.put(R.id.tag_check_mute_from, 2);
@@ -2375,15 +2385,15 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         if (!this.a.checkUpIsLogin() || (sparseArray = (SparseArray) view2.getTag()) == null) {
                             return;
                         }
-                        am9 am9Var2 = (am9) sparseArray.get(R.id.tag_clip_board);
-                        if (am9Var2.n() == null) {
+                        pp9 pp9Var2 = (pp9) sparseArray.get(R.id.tag_clip_board);
+                        if (pp9Var2.n() == null) {
                             return;
                         }
-                        this.a.m2(am9Var2.n());
+                        this.a.o2(pp9Var2.n());
                         return;
                     case 9:
-                        if (this.a.checkUpIsLogin() && this.a.a != null && this.a.a.u1() != null) {
-                            this.a.c3(mt9.c(view2));
+                        if (this.a.checkUpIsLogin() && this.a.a != null && this.a.a.z1() != null) {
+                            this.a.e3(hx9.c(view2));
                             return;
                         }
                         return;
@@ -2393,7 +2403,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     /* loaded from: classes5.dex */
-    public class y implements d05.e {
+    public class y implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SparseArray a;
@@ -2422,14 +2432,14 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.c = z;
         }
 
-        @Override // com.baidu.tieba.d05.e
-        public void onClick(d05 d05Var) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, d05Var) == null) {
-                if (d05Var != null) {
-                    d05Var.dismiss();
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                if (u05Var != null) {
+                    u05Var.dismiss();
                 }
-                this.d.r2(((Integer) this.a.get(R.id.tag_del_post_type)).intValue(), (String) this.a.get(R.id.tag_del_post_id), this.b, this.c);
+                this.d.t2(((Integer) this.a.get(R.id.tag_del_post_type)).intValue(), (String) this.a.get(R.id.tag_del_post_id), this.b, this.c);
             }
         }
     }
@@ -2455,7 +2465,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         this.C = 0;
         this.D = new r(this);
         this.E = false;
-        this.F = new ku8(new u(this));
+        this.F = new uw8(new u(this));
         this.G = new v(this);
         this.K = null;
         this.L = new x(this);
@@ -2468,54 +2478,66 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         this.S = new p(this);
     }
 
-    public void W2() {
+    public void Y2() {
         PbModel pbModel;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048611, this) != null) || !checkUpIsLogin() || (pbModel = this.a) == null || pbModel.u1() == null || this.a.u1().k() == null || i2()) {
+        if ((interceptable != null && interceptable.invokeV(1048616, this) != null) || !checkUpIsLogin() || (pbModel = this.a) == null || pbModel.z1() == null || this.a.z1().k() == null || k2()) {
             return;
         }
-        if (this.a.u1().h0()) {
+        if (this.a.z1().h0()) {
             this.c.s();
             return;
         }
-        te5 te5Var = this.q;
-        if (te5Var != null && te5Var.b() != null) {
-            this.q.b().C(new qc5(45, 27, null));
+        mf5 mf5Var = this.q;
+        if (mf5Var != null && mf5Var.b() != null) {
+            this.q.b().C(new jd5(45, 27, null));
         }
         this.c.s();
     }
 
-    public final String A2(TbRichTextData tbRichTextData) {
+    public final boolean A2(TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbRichTextData)) == null) {
-            if (tbRichTextData == null || tbRichTextData.Y() == null) {
+            if (tbRichTextData == null || tbRichTextData.d0() == null) {
+                return false;
+            }
+            return tbRichTextData.d0().d0();
+        }
+        return invokeL.booleanValue;
+    }
+
+    public final String C2(TbRichTextData tbRichTextData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, tbRichTextData)) == null) {
+            if (tbRichTextData == null || tbRichTextData.d0() == null) {
                 return null;
             }
-            return tbRichTextData.Y().T();
+            return tbRichTextData.d0().Y();
         }
         return (String) invokeL.objValue;
     }
 
-    public final long B2(TbRichTextData tbRichTextData) {
+    public final long D2(TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, tbRichTextData)) == null) {
-            if (tbRichTextData == null || tbRichTextData.Y() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, tbRichTextData)) == null) {
+            if (tbRichTextData == null || tbRichTextData.d0() == null) {
                 return 0L;
             }
-            return tbRichTextData.Y().getOriginalSize();
+            return tbRichTextData.d0().getOriginalSize();
         }
         return invokeL.longValue;
     }
 
-    @Override // com.baidu.tieba.vu8
+    @Override // com.baidu.tieba.fx8
     public boolean G(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
             PbModel pbModel = this.a;
-            if (pbModel != null && pbModel.n2(str)) {
+            if (pbModel != null && pbModel.s2(str)) {
                 return true;
             }
             return false;
@@ -2523,10 +2545,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return invokeL.booleanValue;
     }
 
-    public final boolean J2(Bundle bundle) {
+    public final boolean L2(Bundle bundle) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048592, this, bundle)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, bundle)) == null) {
             if (bundle != null) {
                 this.r = bundle.getBoolean("is_jump_from_video_tab", false);
             } else {
@@ -2537,52 +2559,52 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return invokeL.booleanValue;
     }
 
-    public final void O2(String str) {
+    public final void Q2(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048599, this, str) == null) {
-            TbWebViewActivityConfig tbWebViewActivityConfig = new TbWebViewActivityConfig(this, "", str, true);
-            tbWebViewActivityConfig.setFixTitle(true);
-            MessageManager.getInstance().sendMessage(new CustomMessage(2002001, tbWebViewActivityConfig));
+        if (interceptable == null || interceptable.invokeL(1048601, this, str) == null) {
+            Bundle bundle = new Bundle();
+            bundle.putBoolean(WebViewActivityConfig.TAG_FIX_TITLE, true);
+            pt4.y(this, "", str, false, true, true, bundle);
         }
     }
 
-    public final void S2(View view2) {
+    public final void U2(View view2) {
         SparseArray sparseArray;
-        am9 am9Var;
+        pp9 pp9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048607, this, view2) == null) {
             try {
                 sparseArray = (SparseArray) view2.getTag();
             } catch (ClassCastException e2) {
                 e2.printStackTrace();
                 sparseArray = null;
             }
-            if (sparseArray == null || (am9Var = (am9) sparseArray.get(R.id.tag_clip_board)) == null) {
+            if (sparseArray == null || (pp9Var = (pp9) sparseArray.get(R.id.tag_clip_board)) == null) {
                 return;
             }
-            T2(am9Var);
+            V2(pp9Var);
         }
     }
 
-    public final void b3(boolean z) {
+    public final void d3(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048620, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048625, this, z) == null) {
             this.q.X(z);
             this.q.a0(z);
             this.q.i0(z);
         }
     }
 
-    public void c3(String str) {
+    public void e3(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048621, this, str) == null) && str != null && this.o != null) {
+        if ((interceptable == null || interceptable.invokeL(1048626, this, str) == null) && str != null && this.o != null) {
             this.o.n(gg.g(str, 0L));
         }
     }
 
-    public void h3(boolean z) {
+    public void j3(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048635, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048637, this, z) == null) {
             CustomMessage customMessage = new CustomMessage(2921596);
             customMessage.setTag(this.A);
             CustomResponsedMessage customResponsedMessage = new CustomResponsedMessage(2921596, Boolean.valueOf(z));
@@ -2591,77 +2613,61 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    @Override // com.baidu.tieba.d05.e
-    public void onClick(d05 d05Var) {
+    @Override // com.baidu.tieba.u05.e
+    public void onClick(u05 u05Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048650, this, d05Var) == null) {
-            q2(d05Var, null);
+        if (interceptable == null || interceptable.invokeL(1048649, this, u05Var) == null) {
+            s2(u05Var, null);
         }
     }
 
-    public final boolean x2(TbRichTextData tbRichTextData) {
+    public final boolean z2(TbRichTextData tbRichTextData) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048665, this, tbRichTextData)) == null) {
-            if (tbRichTextData == null || tbRichTextData.Y() == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048668, this, tbRichTextData)) == null) {
+            if (tbRichTextData == null || tbRichTextData.d0() == null) {
                 return false;
             }
-            return tbRichTextData.Y().X();
+            return tbRichTextData.d0().c0();
         }
         return invokeL.booleanValue;
     }
 
-    public final boolean y2(TbRichTextData tbRichTextData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048667, this, tbRichTextData)) == null) {
-            if (tbRichTextData == null || tbRichTextData.Y() == null) {
-                return false;
-            }
-            return tbRichTextData.Y().Y();
-        }
-        return invokeL.booleanValue;
-    }
-
-    public te5 C2() {
+    public PbModel B2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (PbModel) invokeV.objValue;
+    }
+
+    public mf5 E2() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
             return this.q;
         }
-        return (te5) invokeV.objValue;
+        return (mf5) invokeV.objValue;
     }
 
-    public ly8 D2() {
+    public z09 F2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
             return this.e;
         }
-        return (ly8) invokeV.objValue;
+        return (z09) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vu8
-    public jy8 I0() {
+    @Override // com.baidu.tieba.fx8
+    public x09 J0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
             return this.d;
         }
-        return (jy8) invokeV.objValue;
-    }
-
-    public boolean L2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            PbModel pbModel = this.a;
-            if (pbModel != null) {
-                return pbModel.X0();
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
+        return (x09) invokeV.objValue;
     }
 
     public final void N() {
@@ -2672,27 +2678,40 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final void P2() {
-        PbModel pbModel;
+    public boolean N2() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048600, this) == null) && (pbModel = this.a) != null) {
-            pbModel.u2();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
+            PbModel pbModel = this.a;
+            if (pbModel != null) {
+                return pbModel.c1();
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
     public final void R2() {
+        PbModel pbModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048602, this) == null) {
-            ht8 u1 = this.a.u1();
-            this.a.i3(true);
-            at4 at4Var = this.y;
-            if (at4Var != null) {
-                u1.I0(at4Var.g());
+        if ((interceptable == null || interceptable.invokeV(1048602, this) == null) && (pbModel = this.a) != null) {
+            pbModel.z2();
+        }
+    }
+
+    public final void T2() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048605, this) == null) {
+            qv8 z1 = this.a.z1();
+            this.a.n3(true);
+            ct4 ct4Var = this.y;
+            if (ct4Var != null) {
+                z1.I0(ct4Var.g());
             }
         }
     }
 
-    @Override // com.baidu.tieba.fv5
+    @Override // com.baidu.tieba.fw5
     public xf<ImageView> W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -2705,14 +2724,14 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return (xf) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vu8
+    @Override // com.baidu.tieba.fx8
     public String W0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048610, this)) == null) {
             PbModel pbModel = this.a;
             if (pbModel != null) {
-                return pbModel.T0();
+                return pbModel.Y0();
             }
             return null;
         }
@@ -2731,14 +2750,14 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    @Override // com.baidu.tieba.vu8
+    @Override // com.baidu.tieba.fx8
     public int d0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048623, this)) == null) {
             PbModel pbModel = this.a;
-            if (pbModel != null && pbModel.u1() != null) {
-                return this.a.u1().U();
+            if (pbModel != null && pbModel.z1() != null) {
+                return this.a.z1().U();
             }
             return 0;
         }
@@ -2760,7 +2779,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onDestroy() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048652, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048651, this) == null) {
             super.onDestroy();
             ReplyPrivacyCheckController replyPrivacyCheckController = this.u;
             if (replyPrivacyCheckController != null) {
@@ -2772,10 +2791,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onPause() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048653, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048652, this) == null) {
             super.onPause();
             if (this.r) {
-                h3(false);
+                j3(false);
             }
         }
     }
@@ -2783,21 +2802,21 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, android.app.Activity
     public void onResume() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048654, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048653, this) == null) {
             super.onResume();
             if (this.r) {
-                h3(true);
+                j3(true);
             }
         }
     }
 
-    public AntiData t2() {
+    public AntiData v2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048659, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048661, this)) == null) {
             PbModel pbModel = this.a;
-            if (pbModel != null && pbModel.u1() != null) {
-                return this.a.u1().c();
+            if (pbModel != null && pbModel.z1() != null) {
+                return this.a.z1().c();
             }
             return null;
         }
@@ -2805,51 +2824,42 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     }
 
     @Override // com.baidu.tbadk.core.voice.VoiceManager.j
-    public VoiceManager x0() {
+    public VoiceManager y0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048664, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048665, this)) == null) {
             return this.t;
         }
         return (VoiceManager) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.vu8
-    public boolean y0() {
+    @Override // com.baidu.tieba.fx8
+    public boolean z0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048666, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048667, this)) == null) {
             PbModel pbModel = this.a;
             if (pbModel == null) {
                 return false;
             }
-            return pbModel.m2();
+            return pbModel.r2();
         }
         return invokeV.booleanValue;
     }
 
-    public PbModel z2() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048668, this)) == null) {
-            return this.a;
-        }
-        return (PbModel) invokeV.objValue;
-    }
-
     @Override // com.baidu.tbadk.widget.richText.TbRichTextView.u
-    public void D0(SpannableStringBuilder spannableStringBuilder, TextView textView, TbRichTextView tbRichTextView) {
+    public void E0(SpannableStringBuilder spannableStringBuilder, TextView textView, TbRichTextView tbRichTextView) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048580, this, spannableStringBuilder, textView, tbRichTextView) != null) || spannableStringBuilder == null || textView == null || tbRichTextView == null || spannableStringBuilder.toString().contains("#4%2&@#907$12#@96476)w7we9e~@$%&&")) {
+        if ((interceptable != null && interceptable.invokeLLL(1048582, this, spannableStringBuilder, textView, tbRichTextView) != null) || spannableStringBuilder == null || textView == null || tbRichTextView == null || spannableStringBuilder.toString().contains("#4%2&@#907$12#@96476)w7we9e~@$%&&")) {
             return;
         }
-        Object[] objArr = (cv5[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), cv5.class);
+        Object[] objArr = (cw5[]) spannableStringBuilder.getSpans(0, spannableStringBuilder.length(), cw5.class);
         for (int i2 = 0; i2 < objArr.length; i2++) {
-            if (lx8.c(objArr[i2].d()) && (drawable = SkinManager.getDrawable(R.drawable.icon_pb_wenxue)) != null) {
+            if (zz8.c(objArr[i2].d()) && (drawable = SkinManager.getDrawable(R.drawable.icon_pb_wenxue)) != null) {
                 drawable.setBounds(0, 0, drawable.getIntrinsicWidth(), drawable.getIntrinsicHeight());
                 SpannableStringBuilder spannableStringBuilder2 = new SpannableStringBuilder("#4%2&@#907$12#@96476)w7we9e~@$%&&");
-                spannableStringBuilder2.setSpan(new is5(drawable), 0, 33, 33);
+                spannableStringBuilder2.setSpan(new dt5(drawable), 0, 33, 33);
                 spannableStringBuilder.append((CharSequence) spannableStringBuilder2);
                 spannableStringBuilder.setSpan(objArr[i2], spannableStringBuilder.getSpanStart(objArr[i2]), spannableStringBuilder.length(), 18);
                 SpannableStringBuilder spannableStringBuilder3 = new SpannableStringBuilder("\n\r");
@@ -2860,18 +2870,18 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final int E2(ht8 ht8Var) {
+    public final int G2(qv8 qv8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, ht8Var)) == null) {
-            if (ht8Var != null && ht8Var.M() != null) {
-                if (ht8Var.M().getThreadType() == 0) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, qv8Var)) == null) {
+            if (qv8Var != null && qv8Var.M() != null) {
+                if (qv8Var.M().getThreadType() == 0) {
                     return 1;
                 }
-                if (ht8Var.M().getThreadType() == 54) {
+                if (qv8Var.M().getThreadType() == 54) {
                     return 2;
                 }
-                if (ht8Var.M().getThreadType() == 40) {
+                if (qv8Var.M().getThreadType() == 40) {
                     return 3;
                 }
                 return 4;
@@ -2881,10 +2891,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return invokeL.intValue;
     }
 
-    public final void Y2(View view2) {
+    public final void a3(View view2) {
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048616, this, view2) != null) || view2 == null) {
+        if ((interceptable != null && interceptable.invokeL(1048619, this, view2) != null) || view2 == null) {
             return;
         }
         SparseArray sparseArray = (SparseArray) view2.getTag();
@@ -2900,25 +2910,25 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         view2.setTag(sparseArray);
     }
 
-    public final void f3(SparseArray<Object> sparseArray) {
-        am9 am9Var;
+    public final void h3(SparseArray<Object> sparseArray) {
+        pp9 pp9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048629, this, sparseArray) != null) || !checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.tag_clip_board) instanceof am9) || (am9Var = (am9) sparseArray.get(R.id.tag_clip_board)) == null) {
+        if ((interceptable != null && interceptable.invokeL(1048633, this, sparseArray) != null) || !checkUpIsLogin() || sparseArray == null || !(sparseArray.get(R.id.tag_clip_board) instanceof pp9) || (pp9Var = (pp9) sparseArray.get(R.id.tag_clip_board)) == null) {
             return;
         }
-        g3(am9Var, false);
+        i3(pp9Var, false);
     }
 
-    public final void i3(int i2) {
+    public final void k3(int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048637, this, i2) == null) {
-            TiebaStatic.log(new StatisticItem("c14000").param("tid", this.a.N1()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", String.valueOf(zy8.n(i2))));
+        if (interceptable == null || interceptable.invokeI(1048640, this, i2) == null) {
+            TiebaStatic.log(new StatisticItem("c14000").param("tid", this.a.S1()).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", String.valueOf(n19.n(i2))));
         }
     }
 
-    public void j2(SparseArray<Object> sparseArray) {
+    public void l2(SparseArray<Object> sparseArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048639, this, sparseArray) == null) {
+        if (interceptable == null || interceptable.invokeL(1048641, this, sparseArray) == null) {
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             UserMuteCheckCustomMessage userMuteCheckCustomMessage = new UserMuteCheckCustomMessage(2001429);
             userMuteCheckCustomMessage.userIdF = gg.g(currentAccount, 0L);
@@ -2930,11 +2940,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final void F2(int i2, Intent intent) {
-        cd5 cd5Var;
-        cd5 cd5Var2;
+    public final void H2(int i2, Intent intent) {
+        vd5 vd5Var;
+        vd5 vd5Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048585, this, i2, intent) == null) {
+        if (interceptable == null || interceptable.invokeIL(1048588, this, i2, intent) == null) {
             if (i2 == 0) {
                 this.c.C();
                 this.c.x().g();
@@ -2956,13 +2966,13 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             int editorType = pbEditorData.getEditorType();
             if (editorType != 0) {
                 if (editorType == 1 && this.c.x() != null && this.c.x().f() != null) {
-                    xe5 f2 = this.c.x().f();
-                    f2.d0(this.a.u1().M());
+                    qf5 f2 = this.c.x().f();
+                    f2.d0(this.a.z1().M());
                     f2.C(writeData);
                     f2.e0(pbEditorData.getVoiceModel());
-                    bd5 p2 = f2.b().p(6);
-                    if (p2 != null && (cd5Var2 = p2.m) != null) {
-                        cd5Var2.C(new qc5(52, 0, pbEditorData.getVoiceModel()));
+                    ud5 p2 = f2.b().p(6);
+                    if (p2 != null && (vd5Var2 = p2.m) != null) {
+                        vd5Var2.C(new jd5(52, 0, pbEditorData.getVoiceModel()));
                     }
                     if (i2 == -1) {
                         f2.G();
@@ -2975,9 +2985,9 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             this.q.L();
             this.q.m0(pbEditorData.getVoiceModel());
             this.q.B(writeData);
-            bd5 p3 = this.q.b().p(6);
-            if (p3 != null && (cd5Var = p3.m) != null) {
-                cd5Var.C(new qc5(52, 0, pbEditorData.getVoiceModel()));
+            ud5 p3 = this.q.b().p(6);
+            if (p3 != null && (vd5Var = p3.m) != null) {
+                vd5Var.C(new jd5(52, 0, pbEditorData.getVoiceModel()));
             }
             if (i2 == -1) {
                 this.q.G(null, null);
@@ -2985,53 +2995,53 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final void g3(am9 am9Var, boolean z) {
+    public final void i3(pp9 pp9Var, boolean z) {
         PbModel pbModel;
         int i2;
         ArrayList<IconData> arrayList;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048632, this, am9Var, z) != null) || am9Var == null || (pbModel = this.a) == null || pbModel.u1() == null || am9Var.E() == 1) {
+        if ((interceptable != null && interceptable.invokeLZ(1048635, this, pp9Var, z) != null) || pp9Var == null || (pbModel = this.a) == null || pbModel.z1() == null || pp9Var.D() == 1) {
             return;
         }
-        String N1 = this.a.N1();
-        String O = am9Var.O();
-        if (this.a.u1() != null) {
-            i2 = this.a.u1().U();
+        String S1 = this.a.S1();
+        String N = pp9Var.N();
+        if (this.a.z1() != null) {
+            i2 = this.a.z1().U();
         } else {
             i2 = 0;
         }
-        AbsPbActivity.e X2 = X2(O);
-        if (X2 == null) {
+        AbsPbActivity.e Z2 = Z2(N);
+        if (Z2 == null) {
             return;
         }
         SubPbActivityConfig subPbActivityConfig = new SubPbActivityConfig(this);
         boolean z2 = this.r;
-        SmallTailInfo h0 = am9Var.h0();
-        AntiData c2 = this.a.u1().c();
-        if (am9Var.q() != null) {
-            arrayList = am9Var.q().getIconInfo();
+        SmallTailInfo h0 = pp9Var.h0();
+        AntiData c2 = this.a.z1().c();
+        if (pp9Var.p() != null) {
+            arrayList = pp9Var.p().getIconInfo();
         } else {
             arrayList = null;
         }
-        SubPbActivityConfig addBigImageData = subPbActivityConfig.createSubPbActivityConfig(N1, O, "pb", true, z2, null, false, null, i2, h0, c2, false, arrayList, 5).addBigImageData(X2.a, X2.b, X2.g, X2.j);
-        addBigImageData.setKeyPageStartFrom(this.a.t1());
+        SubPbActivityConfig addBigImageData = subPbActivityConfig.createSubPbActivityConfig(S1, N, "pb", true, z2, null, false, null, i2, h0, c2, false, arrayList, 5).addBigImageData(Z2.a, Z2.b, Z2.g, Z2.j);
+        addBigImageData.setKeyPageStartFrom(this.a.y1());
         addBigImageData.setFromFrsForumId(this.a.getFromForumId());
-        addBigImageData.setWorksInfoData(this.a.S1());
+        addBigImageData.setWorksInfoData(this.a.X1());
         addBigImageData.setKeyFromForumId(this.a.getForumId());
-        addBigImageData.setBjhData(this.a.M0());
+        addBigImageData.setBjhData(this.a.R0());
         addBigImageData.setIsOpenEditor(z);
         addBigImageData.setFromFoldComment(true);
         addBigImageData.setFromVideoPageUniqueId((BdUniqueId) getIntent().getSerializableExtra("key_from_video_page_id"));
         sendMessage(new CustomMessage(2002001, addBigImageData));
     }
 
-    public void p2(SparseArray<Object> sparseArray, JSONArray jSONArray) {
+    public void r2(SparseArray<Object> sparseArray, JSONArray jSONArray) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048655, this, sparseArray, jSONArray) == null) {
-            int intValue = ((Integer) sparseArray.get(fx8.c2)).intValue();
-            if (intValue == fx8.d2) {
-                if (this.n.j0()) {
+        if (interceptable == null || interceptable.invokeLL(1048657, this, sparseArray, jSONArray) == null) {
+            int intValue = ((Integer) sparseArray.get(tz8.e2)).intValue();
+            if (intValue == tz8.f2) {
+                if (this.n.o0()) {
                     return;
                 }
                 String str = (String) sparseArray.get(R.id.tag_del_post_id);
@@ -3044,25 +3054,25 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     z = false;
                 }
                 if (jSONArray != null) {
-                    this.n.l0(StringHelper.JsonArrayToString(jSONArray));
+                    this.n.q0(StringHelper.JsonArrayToString(jSONArray));
                 }
-                this.n.m0(this.a.u1().k().getId(), this.a.u1().k().getName(), this.a.u1().M().getId(), str, intValue3, intValue2, booleanValue, this.a.u1().M().getBaijiahaoData(), z);
+                this.n.r0(this.a.z1().k().getId(), this.a.z1().k().getName(), this.a.z1().M().getId(), str, intValue3, intValue2, booleanValue, this.a.z1().M().getBaijiahaoData(), z);
                 MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2001376, Boolean.TRUE));
-            } else if (intValue == fx8.e2 || intValue == fx8.g2) {
-                if (this.a.P0() != null) {
-                    this.a.P0().b(PbModel.UPGRADE_TO_PHOTO_LIVE);
+            } else if (intValue == tz8.g2 || intValue == tz8.i2) {
+                if (this.a.U0() != null) {
+                    this.a.U0().b(PbModel.UPGRADE_TO_PHOTO_LIVE);
                 }
-                if (intValue == fx8.e2) {
+                if (intValue == tz8.g2) {
                     TiebaStatic.log("c10499");
                 }
             }
         }
     }
 
-    public final void s2(ForumManageModel.b bVar, boolean z) {
+    public final void u2(ForumManageModel.b bVar, boolean z) {
         String string;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLZ(1048658, this, bVar, z) != null) || bVar == null) {
+        if ((interceptable != null && interceptable.invokeLZ(1048660, this, bVar, z) != null) || bVar == null) {
             return;
         }
         if (!TextUtils.isEmpty(bVar.b)) {
@@ -3073,35 +3083,35 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         int i2 = 0;
         if (bVar.c == 1211066) {
             hideProgressBar();
-            d05 d05Var = new d05(getPageContext().getPageActivity());
-            d05Var.setMessage(string);
-            d05Var.setPositiveButton(R.string.dialog_known, new c(this));
-            d05Var.setCancelable(true);
-            d05Var.create(getPageContext());
-            d05Var.show();
+            u05 u05Var = new u05(getPageContext().getPageActivity());
+            u05Var.setMessage(string);
+            u05Var.setPositiveButton(R.string.dialog_known, new c(this));
+            u05Var.setCancelable(true);
+            u05Var.create(getPageContext());
+            u05Var.show();
         } else if (bVar.d != 0) {
             this.c.u(0, bVar.a, bVar.b, z);
         }
         if (bVar.a) {
             int i3 = bVar.d;
             if (i3 == 1) {
-                ArrayList<am9> F = this.a.u1().F();
+                ArrayList<pp9> F = this.a.z1().F();
                 int size = F.size();
                 while (true) {
                     if (i2 >= size) {
                         break;
-                    } else if (bVar.g.equals(F.get(i2).O())) {
+                    } else if (bVar.g.equals(F.get(i2).N())) {
                         F.remove(i2);
                         break;
                     } else {
                         i2++;
                     }
                 }
-                this.a.u1().M().setReply_num(this.a.u1().M().getReply_num() - 1);
+                this.a.z1().M().setReply_num(this.a.z1().M().getReply_num() - 1);
             } else if (i3 == 0) {
-                n2();
+                p2();
             } else if (i3 == 2) {
-                ArrayList<am9> F2 = this.a.u1().F();
+                ArrayList<pp9> F2 = this.a.z1().F();
                 int size2 = F2.size();
                 boolean z2 = false;
                 for (int i4 = 0; i4 < size2 && !z2; i4++) {
@@ -3109,28 +3119,28 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                     while (true) {
                         if (i5 >= F2.get(i4).e0().size()) {
                             break;
-                        } else if (bVar.g.equals(F2.get(i4).e0().get(i5).O())) {
+                        } else if (bVar.g.equals(F2.get(i4).e0().get(i5).N())) {
                             F2.get(i4).e0().remove(i5);
-                            F2.get(i4).i();
+                            F2.get(i4).h();
                             z2 = true;
                             break;
                         } else {
                             i5++;
                         }
                     }
-                    F2.get(i4).k(bVar.g);
+                    F2.get(i4).j(bVar.g);
                 }
             }
         }
     }
 
-    public void G2(boolean z, String str, SparseArray<Object> sparseArray) {
+    public void I2(boolean z, String str, SparseArray<Object> sparseArray) {
         String str2;
         String str3;
         String str4;
         String str5;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{Boolean.valueOf(z), str, sparseArray}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048590, this, new Object[]{Boolean.valueOf(z), str, sparseArray}) == null) {
             String str6 = "";
             if (!(sparseArray.get(R.id.tag_user_mute_mute_username) instanceof String)) {
                 str2 = "";
@@ -3158,7 +3168,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage = new UserMuteAddAndDelCustomMessage(2001430);
             userMuteAddAndDelCustomMessage.setData(z, str, str2, str3, str4, 1, str5, this.k);
             userMuteAddAndDelCustomMessage.setTag(this.k);
-            e3(z, userMuteAddAndDelCustomMessage, str5, str2, str6);
+            g3(z, userMuteAddAndDelCustomMessage, str5, str2, str6);
         }
     }
 
@@ -3166,14 +3176,14 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     public void onActivityResult(int i2, int i3, Intent intent) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(1048648, this, i2, i3, intent) == null) {
+        if (interceptable == null || interceptable.invokeIIL(1048647, this, i2, i3, intent) == null) {
             super.onActivityResult(i2, i3, intent);
             this.q.C(i2, i3, intent);
             if (this.c.x() != null) {
                 this.c.x().k(i2, i3, intent);
             }
             if (i2 == 25035) {
-                F2(i3, intent);
+                H2(i3, intent);
             }
             if (i3 == -1) {
                 if (i2 != 13008) {
@@ -3181,12 +3191,12 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         if (i2 == 24007) {
                             int intExtra = intent.getIntExtra("extra_show_channel", 1);
                             if (intent.getIntExtra("extra_share_status", 2) == 1) {
-                                ga9.g().m(getPageContext());
-                                j3();
+                                cd9.g().m(getPageContext());
+                                l3();
                                 ShareItem shareItem = TbadkCoreApplication.getInst().getShareItem();
                                 ShareSuccessReplyToServerModel shareSuccessReplyToServerModel = this.v;
                                 if (shareSuccessReplyToServerModel != null && shareItem != null && (str = shareItem.x) != null) {
-                                    shareSuccessReplyToServerModel.Q(str, intExtra, new j(this));
+                                    shareSuccessReplyToServerModel.V(str, intExtra, new j(this));
                                     return;
                                 }
                                 return;
@@ -3195,22 +3205,22 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         }
                         return;
                     }
-                    ga9.g().m(getPageContext());
+                    cd9.g().m(getPageContext());
                     return;
                 }
-                ww8.b().k();
+                jz8.b().k();
                 this.mHandler.postDelayed(new i(this), 1000L);
             }
         }
     }
 
-    public final void H2(String str) {
+    public final void J2(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, str) == null) {
+        if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
             PbModel pbModel = this.a;
-            if (pbModel != null && pbModel.u1() != null && this.a.u1().h0()) {
-                String format = String.format(TbConfig.URL_BJH_REPORT, this.a.N1(), str);
-                ThreadData M = this.a.u1().M();
+            if (pbModel != null && pbModel.z1() != null && this.a.z1().h0()) {
+                String format = String.format(TbConfig.URL_BJH_REPORT, this.a.S1(), str);
+                ThreadData M = this.a.z1().M();
                 if (M.isBJHArticleThreadType()) {
                     format = format + "&channelid=33833";
                 } else if (M.isBjhDynamicThread()) {
@@ -3218,26 +3228,26 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 } else if (M.isBJHVideoThreadType()) {
                     format = format + "&channelid=33840";
                 }
-                O2(format);
+                Q2(format);
                 return;
             }
             this.b.a(str);
         }
     }
 
-    public final boolean N2(boolean z) {
+    public final boolean P2(boolean z) {
         InterceptResult invokeZ;
         boolean z2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048598, this, z)) == null) {
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(1048600, this, z)) == null) {
             PbModel pbModel = this.a;
-            if (pbModel != null && pbModel.u1() != null) {
-                if (this.a.u1().U() != 0) {
+            if (pbModel != null && pbModel.z1() != null) {
+                if (this.a.z1().U() != 0) {
                     z2 = true;
                 } else {
                     z2 = false;
                 }
-                if (z2 || this.a.u1().M() == null || this.a.u1().M().getAuthor() == null || TextUtils.equals(this.a.u1().M().getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
+                if (z2 || this.a.z1().M() == null || this.a.z1().M().getAuthor() == null || TextUtils.equals(this.a.z1().M().getAuthor().getUserId(), TbadkCoreApplication.getCurrentAccount())) {
                     return false;
                 }
                 return !z;
@@ -3247,25 +3257,25 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return invokeZ.booleanValue;
     }
 
-    public void T2(am9 am9Var) {
+    public void V2(pp9 pp9Var) {
         boolean z;
-        at4 at4Var;
-        am9 u2;
+        ct4 ct4Var;
+        pp9 w2;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048605, this, am9Var) != null) || am9Var == null) {
+        if ((interceptable != null && interceptable.invokeL(1048608, this, pp9Var) != null) || pp9Var == null) {
             return;
         }
-        if (am9Var.O() != null && am9Var.O().equals(this.a.p1())) {
+        if (pp9Var.N() != null && pp9Var.N().equals(this.a.u1())) {
             z = true;
         } else {
             z = false;
         }
-        MarkData o1 = this.a.o1(am9Var);
-        if (this.a.u1() != null && this.a.u1().h0() && (u2 = u2()) != null) {
-            o1 = this.a.o1(u2);
+        MarkData t1 = this.a.t1(pp9Var);
+        if (this.a.z1() != null && this.a.z1().h0() && (w2 = w2()) != null) {
+            t1 = this.a.t1(w2);
         }
-        if (o1 != null && (at4Var = this.y) != null) {
-            at4Var.i(o1);
+        if (t1 != null && (ct4Var = this.y) != null) {
+            ct4Var.i(t1);
             if (!z) {
                 this.y.a();
             } else {
@@ -3274,11 +3284,11 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final void I2(Bundle bundle) {
+    public final void K2(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
             this.k = getUniqueId();
-            at4 c2 = at4.c(this);
+            ct4 c2 = ct4.c(this);
             this.y = c2;
             if (c2 != null) {
                 c2.j(this.S);
@@ -3291,140 +3301,140 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             } else {
                 this.a = new PbModel(this, getIntent(), this.B);
             }
-            this.a.d3(true);
-            this.a.f3(4);
+            this.a.i3(true);
+            this.a.k3(4);
         }
     }
 
-    public final void a3(ve5 ve5Var) {
+    public final void c3(of5 of5Var) {
         PbModel pbModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048619, this, ve5Var) == null) && ve5Var != null && (pbModel = this.a) != null) {
-            ve5Var.p(pbModel.T0());
-            if (this.a.u1() != null && this.a.u1().k() != null) {
-                ve5Var.o(this.a.u1().k());
+        if ((interceptable == null || interceptable.invokeL(1048621, this, of5Var) == null) && of5Var != null && (pbModel = this.a) != null) {
+            of5Var.p(pbModel.Y0());
+            if (this.a.z1() != null && this.a.z1().k() != null) {
+                of5Var.o(this.a.z1().k());
             }
-            ve5Var.q("pb");
-            ve5Var.r(this.a);
+            of5Var.q("pb");
+            of5Var.r(this.a);
         }
     }
 
-    public boolean l2(int i2) {
+    public boolean n2(int i2) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048643, this, i2)) == null) {
-            if (this.u != null && this.a.u1() != null && !ThreadCardUtils.isSelf(this.a.u1().M()) && this.a.u1().c() != null) {
-                return this.u.checkPrivacyBeforeSend(this.a.u1().c().replyPrivateFlag, i2);
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048645, this, i2)) == null) {
+            if (this.u != null && this.a.z1() != null && !ThreadCardUtils.isSelf(this.a.z1().M()) && this.a.z1().c() != null) {
+                return this.u.checkPrivacyBeforeSend(this.a.z1().c().replyPrivateFlag, i2);
             }
             return true;
         }
         return invokeI.booleanValue;
     }
 
-    public final void K2(Bundle bundle) {
+    public final void M2(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048594, this, bundle) == null) {
-            this.d = new jy8(this);
-            this.e = new ly8(getPageContext());
-            hv8 hv8Var = new hv8(this, this.Q, this.D, this.F, this.G);
-            this.c = hv8Var;
-            hv8Var.X(this.a);
+        if (interceptable == null || interceptable.invokeL(1048596, this, bundle) == null) {
+            this.d = new x09(this);
+            this.e = new z09(getPageContext());
+            rx8 rx8Var = new rx8(this, this.Q, this.D, this.F, this.G);
+            this.c = rx8Var;
+            rx8Var.X(this.a);
             setContentView(this.c.z(), new FlowLayout.LayoutParams(-1, -1));
             adjustResizeForSoftInput();
             addGlobalLayoutListener();
             this.c.r();
             this.c.U(new t(this));
-            ve5 ve5Var = new ve5();
-            this.p = ve5Var;
-            a3(ve5Var);
-            te5 te5Var = (te5) this.p.a(getActivity());
-            this.q = te5Var;
-            te5Var.W(getPageContext());
+            of5 of5Var = new of5();
+            this.p = of5Var;
+            c3(of5Var);
+            mf5 mf5Var = (mf5) this.p.a(getActivity());
+            this.q = mf5Var;
+            mf5Var.W(getPageContext());
             this.q.g0(this.N);
             this.q.Y(1);
             this.q.A(getPageContext(), bundle);
-            this.q.b().b(new ad5(getActivity()));
+            this.q.b().b(new td5(getActivity()));
             this.q.b().E(true);
-            b3(true);
-            this.q.J(this.a.W0(), this.a.N1(), this.a.S0());
+            d3(true);
+            this.q.J(this.a.b1(), this.a.S1(), this.a.X0());
             this.c.S(this.q.b());
-            this.s = new ix8();
+            this.s = new wz8();
             if (this.q.s() != null) {
                 this.s.m(this.q.s().i());
             }
             registerListener(this.O);
-            if (!this.a.h1()) {
-                this.q.q(this.a.N1());
+            if (!this.a.m1()) {
+                this.q.q(this.a.S1());
             }
             if (!TextUtils.isEmpty(TbSingleton.getInstance().getAdVertiComment())) {
                 this.q.c0(TbSingleton.getInstance().getAdVertiComment());
-            } else if (this.a.d2()) {
+            } else if (this.a.i2()) {
                 this.q.c0(getPageContext().getString(R.string.pb_reply_hint_from_smart_frs));
             } else {
-                hv8 hv8Var2 = this.c;
-                if (hv8Var2 != null) {
-                    this.q.c0(hv8Var2.y());
+                rx8 rx8Var2 = this.c;
+                if (rx8Var2 != null) {
+                    this.q.c0(rx8Var2.y());
                 }
             }
             this.v = new ShareSuccessReplyToServerModel();
         }
     }
 
-    public final void Q2(View view2, String str, String str2, am9 am9Var) {
+    public final void S2(View view2, String str, String str2, pp9 pp9Var) {
         String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(1048601, this, view2, str, str2, am9Var) != null) || view2 == null || str == null || str2 == null || !k2()) {
+        if ((interceptable != null && interceptable.invokeLLLL(1048604, this, view2, str, str2, pp9Var) != null) || view2 == null || str == null || str2 == null || !m2()) {
             return;
         }
         if (view2.getParent() instanceof View) {
             ((View) view2.getParent()).getLocationOnScreen(this.w);
             this.x = ((View) view2.getParent()).getMeasuredHeight();
         }
-        if (this.c.x() != null && am9Var != null) {
-            if (am9Var.a0() != null) {
-                str3 = am9Var.a0().toString();
+        if (this.c.x() != null && pp9Var != null) {
+            if (pp9Var.a0() != null) {
+                str3 = pp9Var.a0().toString();
             } else {
                 str3 = "";
             }
-            this.c.x().o(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.reply_title), am9Var.q().getName_show(), str3));
+            this.c.x().o(String.format(TbadkCoreApplication.getInst().getResources().getString(R.string.reply_title), pp9Var.p().getName_show(), str3));
         }
-        if (this.a.u1() != null && this.a.u1().h0()) {
+        if (this.a.z1() != null && this.a.z1().h0()) {
             jg.a().postDelayed(new m(this, str, str2), 0L);
         } else {
             jg.a().postDelayed(new n(this, str, str2), 0L);
         }
     }
 
-    public void r2(int i2, String str, int i3, boolean z) {
+    public void t2(int i2, String str, int i3, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048657, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048659, this, new Object[]{Integer.valueOf(i2), str, Integer.valueOf(i3), Boolean.valueOf(z)}) == null) {
             SparseArray<Object> sparseArray = new SparseArray<>();
             sparseArray.put(R.id.tag_del_post_id, str);
             sparseArray.put(R.id.tag_del_post_type, Integer.valueOf(i2));
             sparseArray.put(R.id.tag_manage_user_identity, Integer.valueOf(i3));
             sparseArray.put(R.id.tag_del_post_is_self, Boolean.valueOf(z));
-            sparseArray.put(fx8.c2, Integer.valueOf(fx8.d2));
+            sparseArray.put(tz8.e2, Integer.valueOf(tz8.f2));
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                p2(sparseArray, null);
+                r2(sparseArray, null);
             } else {
                 TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11017)));
             }
         }
     }
 
-    public final void U2(int i2, String str) {
+    public final void W2(int i2, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048607, this, i2, str) == null) {
-            if (this.a.U1()) {
+        if (interceptable == null || interceptable.invokeIL(1048611, this, i2, str) == null) {
+            if (this.a.Z1()) {
                 showToast(str);
             } else if (ii.F()) {
                 if (i2 == 4) {
-                    hv8 hv8Var = this.c;
-                    hv8Var.f0(str + "(4" + SmallTailInfo.EMOTION_SUFFIX, true);
+                    rx8 rx8Var = this.c;
+                    rx8Var.f0(str + "(4" + SmallTailInfo.EMOTION_SUFFIX, true);
                 } else if (!TextUtils.isEmpty(str)) {
-                    hv8 hv8Var2 = this.c;
-                    hv8Var2.f0(str + "(" + i2 + SmallTailInfo.EMOTION_SUFFIX, true);
+                    rx8 rx8Var2 = this.c;
+                    rx8Var2.f0(str + "(" + i2 + SmallTailInfo.EMOTION_SUFFIX, true);
                 } else {
                     this.c.e0(R.string.no_data_text);
                 }
@@ -3434,26 +3444,26 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final void V2(String str, int i2, AbsPbActivity.e eVar) {
+    public final void X2(String str, int i2, AbsPbActivity.e eVar) {
         TbRichTextData tbRichTextData;
         int i3;
         int i4;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(1048608, this, str, i2, eVar) != null) || eVar == null) {
+        if ((interceptable != null && interceptable.invokeLIL(1048614, this, str, i2, eVar) != null) || eVar == null) {
             return;
         }
-        ht8 u1 = this.a.u1();
-        TbRichText k3 = k3(str, i2);
-        if (k3 == null || (tbRichTextData = k3.S().get(this.C)) == null) {
+        qv8 z1 = this.a.z1();
+        TbRichText m3 = m3(str, i2);
+        if (m3 == null || (tbRichTextData = m3.X().get(this.C)) == null) {
             return;
         }
-        eVar.f = String.valueOf(k3.getPostId());
+        eVar.f = String.valueOf(m3.getPostId());
         eVar.a = new ArrayList<>();
         eVar.b = new ConcurrentHashMap<>();
         boolean z = false;
-        if (!tbRichTextData.Y().W()) {
+        if (!tbRichTextData.d0().b0()) {
             eVar.h = false;
-            String a2 = it8.a(tbRichTextData);
+            String a2 = rv8.a(tbRichTextData);
             eVar.a.add(a2);
             ImageUrlData imageUrlData = new ImageUrlData();
             imageUrlData.imageUrl = str;
@@ -3467,24 +3477,26 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 }
                 imageUrlData.urlType = i4;
             }
-            imageUrlData.originalUrl = A2(tbRichTextData);
-            imageUrlData.originalUrl = A2(tbRichTextData);
-            imageUrlData.originalSize = B2(tbRichTextData);
-            imageUrlData.mIsShowOrigonButton = y2(tbRichTextData);
-            imageUrlData.isLongPic = x2(tbRichTextData);
-            imageUrlData.postId = k3.getPostId();
-            imageUrlData.mIsReserver = this.a.F1();
-            imageUrlData.mIsSeeHost = this.a.X0();
+            imageUrlData.urlThumbType = imageUrlData.urlType;
+            imageUrlData.imageThumbUrl = imageUrlData.imageUrl;
+            imageUrlData.originalUrl = C2(tbRichTextData);
+            imageUrlData.originalUrl = C2(tbRichTextData);
+            imageUrlData.originalSize = D2(tbRichTextData);
+            imageUrlData.mIsShowOrigonButton = A2(tbRichTextData);
+            imageUrlData.isLongPic = z2(tbRichTextData);
+            imageUrlData.postId = m3.getPostId();
+            imageUrlData.mIsReserver = this.a.K1();
+            imageUrlData.mIsSeeHost = this.a.c1();
             eVar.b.put(a2, imageUrlData);
-            if (u1 != null) {
-                if (u1.k() != null) {
-                    eVar.c = u1.k().getName();
-                    eVar.d = u1.k().getId();
+            if (z1 != null) {
+                if (z1.k() != null) {
+                    eVar.c = z1.k().getName();
+                    eVar.d = z1.k().getId();
                 }
-                if (u1.M() != null) {
-                    eVar.e = u1.M().getId();
+                if (z1.M() != null) {
+                    eVar.e = z1.M().getId();
                 }
-                if (u1.r() == 1) {
+                if (z1.r() == 1) {
                     z = true;
                 }
                 eVar.g = z;
@@ -3493,34 +3505,34 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             return;
         }
         eVar.h = true;
-        int size = u1.F().size();
+        int size = z1.F().size();
         this.E = false;
         eVar.j = -1;
-        if (u1.i() != null) {
-            i3 = w2(u1.i().a0(), k3, i2, i2, eVar.a, eVar.b);
+        if (z1.i() != null) {
+            i3 = y2(z1.i().a0(), m3, i2, i2, eVar.a, eVar.b);
         } else {
             i3 = i2;
         }
         int i5 = i3;
         for (int i6 = 0; i6 < size; i6++) {
-            am9 am9Var = u1.F().get(i6);
-            if (am9Var.O() == null || u1.i() == null || u1.i().O() == null || !am9Var.O().equals(u1.i().O())) {
-                i5 = w2(am9Var.a0(), k3, i5, i2, eVar.a, eVar.b);
+            pp9 pp9Var = z1.F().get(i6);
+            if (pp9Var.N() == null || z1.i() == null || z1.i().N() == null || !pp9Var.N().equals(z1.i().N())) {
+                i5 = y2(pp9Var.a0(), m3, i5, i2, eVar.a, eVar.b);
             }
         }
         if (eVar.a.size() > 0) {
             ArrayList<String> arrayList = eVar.a;
             eVar.i = arrayList.get(arrayList.size() - 1);
         }
-        if (u1 != null) {
-            if (u1.k() != null) {
-                eVar.c = u1.k().getName();
-                eVar.d = u1.k().getId();
+        if (z1 != null) {
+            if (z1.k() != null) {
+                eVar.c = z1.k().getName();
+                eVar.d = z1.k().getId();
             }
-            if (u1.M() != null) {
-                eVar.e = u1.M().getId();
+            if (z1.M() != null) {
+                eVar.e = z1.M().getId();
             }
-            if (u1.r() == 1) {
+            if (z1.r() == 1) {
                 z = true;
             }
             eVar.g = z;
@@ -3528,17 +3540,17 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         eVar.j = i5;
     }
 
-    public final AbsPbActivity.e X2(String str) {
+    public final AbsPbActivity.e Z2(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048614, this, str)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, str)) == null) {
             String str2 = null;
-            if (this.a.u1() != null && this.a.u1().F() != null && this.a.u1().F().size() != 0 && !StringUtils.isNull(str)) {
+            if (this.a.z1() != null && this.a.z1().F() != null && this.a.z1().F().size() != 0 && !StringUtils.isNull(str)) {
                 AbsPbActivity.e eVar = new AbsPbActivity.e();
                 int i2 = 0;
                 while (true) {
-                    if (i2 < this.a.u1().F().size()) {
-                        if (str.equals(this.a.u1().F().get(i2).O())) {
+                    if (i2 < this.a.z1().F().size()) {
+                        if (str.equals(this.a.z1().F().get(i2).N())) {
                             break;
                         }
                         i2++;
@@ -3547,22 +3559,22 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         break;
                     }
                 }
-                am9 am9Var = this.a.u1().F().get(i2);
-                if (am9Var.a0() != null && am9Var.a0().S() != null) {
-                    Iterator<TbRichTextData> it = am9Var.a0().S().iterator();
+                pp9 pp9Var = this.a.z1().F().get(i2);
+                if (pp9Var.a0() != null && pp9Var.a0().X() != null) {
+                    Iterator<TbRichTextData> it = pp9Var.a0().X().iterator();
                     while (true) {
                         if (!it.hasNext()) {
                             break;
                         }
                         TbRichTextData next = it.next();
                         if (next != null && next.getType() == 8) {
-                            if (next.Y() != null) {
-                                str2 = next.Y().R();
+                            if (next.d0() != null) {
+                                str2 = next.d0().W();
                             }
                         }
                     }
-                    V2(str2, 0, eVar);
-                    it8.b(am9Var, eVar);
+                    X2(str2, 0, eVar);
+                    rv8.b(pp9Var, eVar);
                     return eVar;
                 }
             }
@@ -3574,15 +3586,15 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048651, this, bundle) == null) {
-            J2(bundle);
+        if (interceptable == null || interceptable.invokeL(1048650, this, bundle) == null) {
+            L2(bundle);
             super.onCreate(bundle);
             VoiceManager voiceManager = new VoiceManager();
             this.t = voiceManager;
             voiceManager.onCreate(getPageContext());
-            I2(bundle);
             K2(bundle);
-            P2();
+            M2(bundle);
+            R2();
             if (this.r) {
                 this.c.z().setAnimTime(0);
                 this.c.z().setIsFromVideoTab(true);
@@ -3592,10 +3604,10 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             }
             this.c.z().h();
             this.c.w().setFromForumId(this.a.getFromForumId());
-            iz8 iz8Var = new iz8(this);
-            this.b = iz8Var;
-            iz8Var.b(getUniqueId());
-            this.o = new nt9(getPageContext(), getUniqueId());
+            b29 b29Var = new b29(this);
+            this.b = b29Var;
+            b29Var.b(getUniqueId());
+            this.o = new ix9(getPageContext(), getUniqueId());
             ReplyPrivacyCheckController replyPrivacyCheckController = new ReplyPrivacyCheckController(getPageContext());
             this.u = replyPrivacyCheckController;
             replyPrivacyCheckController.setAttentionCallback(new s(this));
@@ -3604,38 +3616,38 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             } else {
                 this.q.c0(this.c.y());
             }
-            ra5.b(false);
+            ib5.b(false);
         }
     }
 
-    public final boolean Z2(View view2) {
+    public final boolean b3(View view2) {
         InterceptResult invokeL;
         PbModel pbModel;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048618, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048620, this, view2)) == null) {
             if (view2 == null || !(view2.getTag() instanceof SparseArray)) {
                 return false;
             }
             Object obj = ((SparseArray) view2.getTag()).get(R.id.tag_clip_board);
-            if (!(obj instanceof am9)) {
+            if (!(obj instanceof pp9)) {
                 return false;
             }
-            am9 am9Var = (am9) obj;
-            if (checkUpIsLogin() && (pbModel = this.a) != null && pbModel.u1() != null) {
+            pp9 pp9Var = (pp9) obj;
+            if (checkUpIsLogin() && (pbModel = this.a) != null && pbModel.z1() != null) {
                 if (this.c.x() != null) {
                     this.c.x().g();
                 }
-                wt8 wt8Var = new wt8();
-                wt8Var.v(this.a.u1().k());
-                wt8Var.z(this.a.u1().M());
-                wt8Var.x(am9Var);
+                gw8 gw8Var = new gw8();
+                gw8Var.v(this.a.z1().k());
+                gw8Var.z(this.a.z1().M());
+                gw8Var.x(pp9Var);
                 TiebaStatic.log("c11743");
-                this.c.w().m0(wt8Var);
-                this.c.w().setPostId(am9Var.O());
-                Q2(view2, am9Var.q().getUserId(), "", am9Var);
-                te5 te5Var = this.q;
-                if (te5Var != null) {
-                    this.c.V(te5Var.y());
+                this.c.w().r0(gw8Var);
+                this.c.w().setPostId(pp9Var.N());
+                S2(view2, pp9Var.p().getUserId(), "", pp9Var);
+                mf5 mf5Var = this.q;
+                if (mf5Var != null) {
+                    this.c.V(mf5Var.y());
                 }
             }
             return true;
@@ -3647,36 +3659,36 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
     /*
         Code decompiled incorrectly, please refer to instructions dump.
     */
-    public final void m2(AgreeData agreeData) {
-        gl5 currentVisiblePageExtra;
+    public final void o2(AgreeData agreeData) {
+        zl5 currentVisiblePageExtra;
         PbModel pbModel;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048644, this, agreeData) != null) || agreeData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048646, this, agreeData) != null) || agreeData == null) {
             return;
         }
         if (this.l == null) {
-            this.l = new m45();
+            this.l = new b55();
         }
         if (this.m == null) {
-            ql9 ql9Var = new ql9();
-            this.m = ql9Var;
-            ql9Var.a = getUniqueId();
+            fp9 fp9Var = new fp9();
+            this.m = fp9Var;
+            fp9Var.a = getUniqueId();
         }
-        qw4 qw4Var = new qw4();
-        qw4Var.b = 5;
-        qw4Var.h = 8;
-        qw4Var.g = 2;
+        gx4 gx4Var = new gx4();
+        gx4Var.b = 5;
+        gx4Var.h = 8;
+        gx4Var.g = 2;
         PbModel pbModel2 = this.a;
         if (pbModel2 != null) {
-            qw4Var.f = pbModel2.t1();
+            gx4Var.f = pbModel2.y1();
         }
-        qw4Var.a = 2;
+        gx4Var.a = 2;
         int i2 = 1;
         if (agreeData.hasAgree) {
             if (agreeData.agreeType == 5) {
                 agreeData.agreeType = 5;
                 agreeData.hasAgree = false;
-                qw4Var.i = 0;
+                gx4Var.i = 0;
                 currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this);
                 if (currentVisiblePageExtra != null) {
                     agreeData.objSource = currentVisiblePageExtra.a();
@@ -3684,19 +3696,19 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 this.l.c(agreeData, i2, getUniqueId(), false);
                 this.l.d(agreeData, this.m);
                 pbModel = this.a;
-                if (pbModel == null && pbModel.u1() != null) {
-                    this.l.b(this, qw4Var, agreeData, this.a.u1().M());
+                if (pbModel == null && pbModel.z1() != null) {
+                    this.l.b(this, gx4Var, agreeData, this.a.z1().M());
                     return;
                 }
             }
             agreeData.agreeType = 5;
             agreeData.hasAgree = true;
             agreeData.agreeNum--;
-            qw4Var.i = 1;
+            gx4Var.i = 1;
         } else {
             agreeData.agreeType = 5;
             agreeData.hasAgree = true;
-            qw4Var.i = 1;
+            gx4Var.i = 1;
         }
         i2 = 0;
         currentVisiblePageExtra = TbPageExtraHelper.getCurrentVisiblePageExtra(this);
@@ -3709,48 +3721,48 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final void d3(SparseArray<Object> sparseArray, int i2, boolean z) {
+    public final void f3(SparseArray<Object> sparseArray, int i2, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048625, this, new Object[]{sparseArray, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
-            zy8.e(getActivity(), getPageContext(), new y(this, sparseArray, i2, z), new a(this));
+        if (interceptable == null || interceptable.invokeCommon(1048629, this, new Object[]{sparseArray, Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
+            n19.e(getActivity(), getPageContext(), new y(this, sparseArray, i2, z), new a(this));
         }
     }
 
-    public final void e3(boolean z, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage, String str, String str2, String str3) {
+    public final void g3(boolean z, UserMuteAddAndDelCustomMessage userMuteAddAndDelCustomMessage, String str, String str2, String str3) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048626, this, new Object[]{Boolean.valueOf(z), userMuteAddAndDelCustomMessage, str, str2, str3}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048631, this, new Object[]{Boolean.valueOf(z), userMuteAddAndDelCustomMessage, str, str2, str3}) == null) {
             if (z) {
                 this.c.c0();
                 MessageManager.getInstance().sendMessage(userMuteAddAndDelCustomMessage);
                 return;
             }
-            d05 d05Var = new d05(this);
+            u05 u05Var = new u05(this);
             if (!hi.isEmpty(str)) {
-                d05Var.setMessage(str);
+                u05Var.setMessage(str);
             } else {
-                d05Var.setMessage(getResources().getString(R.string.block_mute_message_alert, str3));
+                u05Var.setMessage(getResources().getString(R.string.block_mute_message_alert, str3));
             }
-            d05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f045d, new d(this, userMuteAddAndDelCustomMessage));
-            d05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038d, new e(this));
-            d05Var.create(getPageContext()).show();
+            u05Var.setPositiveButton(R.string.obfuscated_res_0x7f0f0465, new d(this, userMuteAddAndDelCustomMessage));
+            u05Var.setNegativeButton(R.string.obfuscated_res_0x7f0f038b, new e(this));
+            u05Var.create(getPageContext()).show();
         }
     }
 
-    public final void g2() {
+    public final void i2() {
         PbModel pbModel;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048631, this) == null) && (pbModel = this.a) != null && pbModel.u1() != null && this.a.u1().M() != null) {
-            ThreadData M = this.a.u1().M();
-            M.mRecomAbTag = this.a.z1();
-            M.mRecomWeight = this.a.C1();
-            M.mRecomSource = this.a.B1();
-            M.mRecomExtra = this.a.A1();
-            M.isSubPb = this.a.h1();
+        if ((interceptable == null || interceptable.invokeV(1048634, this) == null) && (pbModel = this.a) != null && pbModel.z1() != null && this.a.z1().M() != null) {
+            ThreadData M = this.a.z1().M();
+            M.mRecomAbTag = this.a.E1();
+            M.mRecomWeight = this.a.H1();
+            M.mRecomSource = this.a.G1();
+            M.mRecomExtra = this.a.F1();
+            M.isSubPb = this.a.m1();
             if (M.getFid() == 0) {
                 M.setFid(gg.g(this.a.getForumId(), 0L));
             }
-            StatisticItem i2 = ll5.i(this, M, "c13562");
-            TbPageTag l2 = ll5.l(this);
+            StatisticItem i2 = em5.i(this, M, "c13562");
+            TbPageTag l2 = em5.l(this);
             if (l2 != null && "a008".equals(l2.locatePage)) {
                 i2.param(TiebaStatic.Params.OBJ_CUR_PAGE, "a005");
                 i2.param(TiebaStatic.Params.OBJ_PRE_PAGE, "a008");
@@ -3765,49 +3777,49 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public am9 u2() {
+    public pp9 w2() {
         InterceptResult invokeV;
         MetaData metaData;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048660, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048662, this)) == null) {
             PbModel pbModel = this.a;
-            if (pbModel != null && pbModel.u1() != null && this.a.u1().M() != null && this.a.u1().M().getAuthor() != null) {
-                am9 am9Var = new am9();
-                MetaData author = this.a.u1().M().getAuthor();
+            if (pbModel != null && pbModel.z1() != null && this.a.z1().M() != null && this.a.z1().M().getAuthor() != null) {
+                pp9 pp9Var = new pp9();
+                MetaData author = this.a.z1().M().getAuthor();
                 String userId = author.getUserId();
-                HashMap<String, MetaData> userMap = this.a.u1().M().getUserMap();
+                HashMap<String, MetaData> userMap = this.a.z1().M().getUserMap();
                 if (userMap != null && (metaData = userMap.get(userId)) != null && metaData.getUserId() != null) {
                     author = metaData;
                 }
-                am9Var.K0(1);
-                am9Var.Q0(this.a.u1().M().getFirstPostId());
-                am9Var.h1(this.a.u1().M().getTitle());
-                am9Var.g1(this.a.u1().M().getCreateTime());
-                am9Var.H0(author);
-                return am9Var;
+                pp9Var.L0(1);
+                pp9Var.R0(this.a.z1().M().getFirstPostId());
+                pp9Var.i1(this.a.z1().M().getTitle());
+                pp9Var.h1(this.a.z1().M().getCreateTime());
+                pp9Var.I0(author);
+                return pp9Var;
             }
             return null;
         }
-        return (am9) invokeV.objValue;
+        return (pp9) invokeV.objValue;
     }
 
-    public final void h2(ht8 ht8Var, ArrayList<am9> arrayList) {
-        List<am9> list;
+    public final void j2(qv8 qv8Var, ArrayList<pp9> arrayList) {
+        List<pp9> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048634, this, ht8Var, arrayList) == null) && ht8Var != null && ht8Var.R() != null && ht8Var.R().a != null && (list = ht8Var.R().a) != null && arrayList != null) {
+        if ((interceptable == null || interceptable.invokeLL(1048636, this, qv8Var, arrayList) == null) && qv8Var != null && qv8Var.R() != null && qv8Var.R().a != null && (list = qv8Var.R().a) != null && arrayList != null) {
             ArrayList arrayList2 = new ArrayList();
             ArrayList arrayList3 = new ArrayList();
             if (list.size() > 0 && arrayList.size() > 0) {
                 arrayList3.addAll(list);
-                Iterator<am9> it = arrayList.iterator();
+                Iterator<pp9> it = arrayList.iterator();
                 while (it.hasNext()) {
-                    am9 next = it.next();
+                    pp9 next = it.next();
                     if (next != null) {
                         Iterator it2 = arrayList3.iterator();
                         while (it2.hasNext()) {
-                            am9 am9Var = (am9) it2.next();
-                            if (am9Var != null && !TextUtils.isEmpty(next.O()) && !TextUtils.isEmpty(am9Var.O()) && next.O().equals(am9Var.O())) {
-                                arrayList2.add(am9Var);
+                            pp9 pp9Var = (pp9) it2.next();
+                            if (pp9Var != null && !TextUtils.isEmpty(next.N()) && !TextUtils.isEmpty(pp9Var.N()) && next.N().equals(pp9Var.N())) {
+                                arrayList2.add(pp9Var);
                             }
                         }
                     }
@@ -3822,16 +3834,16 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         }
     }
 
-    public final boolean i2() {
+    public final boolean k2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048636, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048639, this)) == null) {
             PbModel pbModel = this.a;
-            if (pbModel == null || pbModel.u1() == null) {
+            if (pbModel == null || pbModel.z1() == null) {
                 return false;
             }
-            ThreadData M = this.a.u1().M();
-            AntiData c2 = this.a.u1().c();
+            ThreadData M = this.a.z1().M();
+            AntiData c2 = this.a.z1().c();
             if (!AntiHelper.b(getPageContext(), M) && !AntiHelper.d(getPageContext(), c2)) {
                 return false;
             }
@@ -3840,87 +3852,87 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return invokeV.booleanValue;
     }
 
-    public final void j3() {
+    public final void l3() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048640, this) == null) && TbadkCoreApplication.isLogin() && AddExperiencedModel.V(this.a.getForumId()) && this.a.u1() != null && this.a.u1().k() != null) {
+        if ((interceptable == null || interceptable.invokeV(1048642, this) == null) && TbadkCoreApplication.isLogin() && AddExperiencedModel.a0(this.a.getForumId()) && this.a.z1() != null && this.a.z1().k() != null) {
             boolean z = true;
-            if (this.a.u1().k().isLike() != 1) {
+            if (this.a.z1().k().isLike() != 1) {
                 z = false;
             }
             if (z) {
-                this.a.I0().U(this.a.getForumId(), this.a.N1());
+                this.a.N0().Z(this.a.getForumId(), this.a.S1());
             }
         }
     }
 
-    public boolean k2() {
+    public boolean m2() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048641, this)) == null) {
-            if ((this.a.u1() != null && (this.a.u1().h0() || ThreadCardUtils.isSelf(this.a.u1().M()))) || this.u == null || this.a.u1() == null || this.a.u1().c() == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048643, this)) == null) {
+            if ((this.a.z1() != null && (this.a.z1().h0() || ThreadCardUtils.isSelf(this.a.z1().M()))) || this.u == null || this.a.z1() == null || this.a.z1().c() == null) {
                 return true;
             }
-            return this.u.checkPrivacyBeforeInvokeEditor(this.a.u1().c().replyPrivateFlag);
+            return this.u.checkPrivacyBeforeInvokeEditor(this.a.z1().c().replyPrivateFlag);
         }
         return invokeV.booleanValue;
     }
 
-    public final void n2() {
+    public final void p2() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048645, this) == null) {
-            if (this.a.Z0() || this.a.c1()) {
+        if (interceptable == null || interceptable.invokeV(1048655, this) == null) {
+            if (this.a.e1() || this.a.h1()) {
                 Intent intent = new Intent();
                 intent.putExtra("type", 0);
-                intent.putExtra("tid", this.a.N1());
+                intent.putExtra("tid", this.a.S1());
                 setResult(-1, intent);
             }
-            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, this.a.N1()));
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921031, this.a.S1()));
             finish();
         }
     }
 
-    public final TbRichText k3(String str, int i2) {
+    public final TbRichText m3(String str, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048642, this, str, i2)) == null) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048644, this, str, i2)) == null) {
             PbModel pbModel = this.a;
             TbRichText tbRichText = null;
-            if (pbModel == null || pbModel.u1() == null || str == null || i2 < 0) {
+            if (pbModel == null || pbModel.z1() == null || str == null || i2 < 0) {
                 return null;
             }
-            ht8 u1 = this.a.u1();
-            if (u1.i() != null) {
-                ArrayList<am9> arrayList = new ArrayList<>();
-                arrayList.add(u1.i());
-                tbRichText = v2(arrayList, str, i2);
+            qv8 z1 = this.a.z1();
+            if (z1.i() != null) {
+                ArrayList<pp9> arrayList = new ArrayList<>();
+                arrayList.add(z1.i());
+                tbRichText = x2(arrayList, str, i2);
             }
             if (tbRichText == null) {
-                ArrayList<am9> F = u1.F();
-                h2(u1, F);
-                return v2(F, str, i2);
+                ArrayList<pp9> F = z1.F();
+                j2(z1, F);
+                return x2(F, str, i2);
             }
             return tbRichText;
         }
         return (TbRichText) invokeLI.objValue;
     }
 
-    public void q2(d05 d05Var, JSONArray jSONArray) {
+    public void s2(u05 u05Var, JSONArray jSONArray) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048656, this, d05Var, jSONArray) == null) {
-            d05Var.dismiss();
+        if (interceptable == null || interceptable.invokeLL(1048658, this, u05Var, jSONArray) == null) {
+            u05Var.dismiss();
             String currentAccount = TbadkCoreApplication.getCurrentAccount();
             if (currentAccount != null && currentAccount.length() > 0) {
-                if (!(d05Var.getYesButtonTag() instanceof SparseArray)) {
+                if (!(u05Var.getYesButtonTag() instanceof SparseArray)) {
                     return;
                 }
-                p2((SparseArray) d05Var.getYesButtonTag(), jSONArray);
+                r2((SparseArray) u05Var.getYesButtonTag(), jSONArray);
                 return;
             }
             TbadkCoreApplication.getInst().login(getPageContext(), new CustomMessage<>(2002001, new LoginActivityConfig(getPageContext().getPageActivity(), true, 11017)));
         }
     }
 
-    public final boolean o2(View view2) {
+    public final boolean q2(View view2) {
         InterceptResult invokeL;
         SparseArray sparseArray;
         boolean z;
@@ -3933,15 +3945,15 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         String str;
         boolean z8;
         boolean z9;
-        List<k05> c2;
+        List<b15> c2;
         int i2;
         boolean z10;
-        k05 k05Var;
-        k05 k05Var2;
-        k05 k05Var3;
+        b15 b15Var;
+        b15 b15Var2;
+        b15 b15Var3;
         tm tmVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048647, this, view2)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048656, this, view2)) == null) {
             try {
                 sparseArray = (SparseArray) view2.getTag();
             } catch (ClassCastException e2) {
@@ -3951,20 +3963,20 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
             if (sparseArray == null) {
                 return true;
             }
-            am9 am9Var = (am9) sparseArray.get(R.id.tag_clip_board);
-            this.K = am9Var;
-            if (am9Var == null || this.y == null) {
+            pp9 pp9Var = (pp9) sparseArray.get(R.id.tag_clip_board);
+            this.K = pp9Var;
+            if (pp9Var == null || this.y == null) {
                 return true;
             }
             if (this.i == null) {
-                o05 o05Var = new o05(this);
-                this.i = o05Var;
-                o05Var.p(this.L);
+                f15 f15Var = new f15(this);
+                this.i = f15Var;
+                f15Var.p(this.L);
             }
             ArrayList arrayList = new ArrayList();
             if (view2 != null && sparseArray != null) {
-                boolean M2 = M2(view2);
-                if (M2(view2) && (tmVar = this.I) != null && !tmVar.t()) {
+                boolean O2 = O2(view2);
+                if (O2(view2) && (tmVar = this.I) != null && !tmVar.t()) {
                     z = true;
                 } else {
                     z = false;
@@ -4009,25 +4021,25 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                 } else {
                     z8 = false;
                 }
-                if (M2) {
+                if (O2) {
                     z9 = z2;
-                    arrayList.add(new k05(1, getString(R.string.save_to_emotion), this.i));
+                    arrayList.add(new b15(1, getString(R.string.save_to_emotion), this.i));
                 } else {
                     z9 = z2;
                 }
                 if (z) {
-                    arrayList.add(new k05(2, getString(R.string.save_to_local), this.i));
+                    arrayList.add(new b15(2, getString(R.string.save_to_local), this.i));
                 }
-                if (!M2 && !z) {
-                    k05 k05Var4 = new k05(3, getString(R.string.obfuscated_res_0x7f0f0479), this.i);
+                if (!O2 && !z) {
+                    b15 b15Var4 = new b15(3, getString(R.string.obfuscated_res_0x7f0f0481), this.i);
                     SparseArray sparseArray2 = new SparseArray();
                     sparseArray2.put(R.id.tag_clip_board, this.K);
-                    k05Var4.d.setTag(sparseArray2);
-                    arrayList.add(k05Var4);
+                    b15Var4.d.setTag(sparseArray2);
+                    arrayList.add(b15Var4);
                 }
                 if (this.mIsLogin) {
-                    if (!zy8.j(this.a) && !z5 && z4) {
-                        k05 k05Var5 = new k05(5, getString(R.string.obfuscated_res_0x7f0f0bfc), this.i);
+                    if (!n19.j(this.a) && !z5 && z4) {
+                        b15 b15Var5 = new b15(5, getString(R.string.obfuscated_res_0x7f0f0c11), this.i);
                         SparseArray sparseArray3 = new SparseArray();
                         sparseArray3.put(R.id.tag_user_mute_visible, Boolean.TRUE);
                         sparseArray3.put(R.id.tag_is_mem, sparseArray.get(R.id.tag_is_mem));
@@ -4040,18 +4052,18 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         sparseArray3.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
                         sparseArray3.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                         sparseArray3.put(R.id.tag_manage_user_identity, sparseArray.get(R.id.tag_manage_user_identity));
-                        k05Var5.d.setTag(sparseArray3);
-                        arrayList.add(k05Var5);
+                        b15Var5.d.setTag(sparseArray3);
+                        arrayList.add(b15Var5);
                     } else {
-                        if (N2(z3) && TbadkCoreApplication.isLogin()) {
+                        if (P2(z3) && TbadkCoreApplication.isLogin()) {
                             z10 = true;
                         } else {
                             z10 = false;
                         }
                         if (z10) {
-                            k05 k05Var6 = new k05(5, getString(R.string.report_text), this.i);
-                            k05Var6.d.setTag(str);
-                            arrayList.add(k05Var6);
+                            b15 b15Var6 = new b15(5, getString(R.string.report_text), this.i);
+                            b15Var6.d.setTag(str);
+                            arrayList.add(b15Var6);
                         }
                     }
                     if (z5) {
@@ -4062,7 +4074,7 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                         sparseArray4.put(R.id.tag_forbid_user_name_show, sparseArray.get(R.id.tag_forbid_user_name_show));
                         sparseArray4.put(R.id.tag_forbid_user_portrait, sparseArray.get(R.id.tag_forbid_user_portrait));
                         sparseArray4.put(R.id.tag_forbid_user_post_id, str);
-                        if (!zy8.j(this.a) && z6) {
+                        if (!n19.j(this.a) && z6) {
                             sparseArray4.put(R.id.tag_user_mute_visible, Boolean.TRUE);
                             sparseArray4.put(R.id.tag_is_mem, sparseArray.get(R.id.tag_is_mem));
                             sparseArray4.put(R.id.tag_user_mute_mute_userid, sparseArray.get(R.id.tag_user_mute_mute_userid));
@@ -4080,17 +4092,17 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             sparseArray4.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
                             sparseArray4.put(R.id.tag_has_sub_post, sparseArray.get(R.id.tag_has_sub_post));
                             if (z8) {
-                                k05Var = new k05(6, getString(R.string.obfuscated_res_0x7f0f04d9), this.i);
-                                k05Var.d.setTag(sparseArray4);
-                                k05Var2 = new k05(7, getString(R.string.obfuscated_res_0x7f0f02f1), this.i);
-                                k05Var2.d.setTag(sparseArray4);
+                                b15Var = new b15(6, getString(R.string.obfuscated_res_0x7f0f04e3), this.i);
+                                b15Var.d.setTag(sparseArray4);
+                                b15Var2 = new b15(7, getString(R.string.obfuscated_res_0x7f0f02ef), this.i);
+                                b15Var2.d.setTag(sparseArray4);
                             }
                         } else {
                             sparseArray4.put(R.id.tag_should_delete_visible, Boolean.FALSE);
                         }
-                        k05Var = null;
-                        k05Var2 = new k05(7, getString(R.string.obfuscated_res_0x7f0f02f1), this.i);
-                        k05Var2.d.setTag(sparseArray4);
+                        b15Var = null;
+                        b15Var2 = new b15(7, getString(R.string.obfuscated_res_0x7f0f02ef), this.i);
+                        b15Var2.d.setTag(sparseArray4);
                     } else {
                         if (z7) {
                             SparseArray sparseArray5 = new SparseArray();
@@ -4102,39 +4114,39 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                             sparseArray5.put(R.id.tag_del_post_id, sparseArray.get(R.id.tag_del_post_id));
                             sparseArray5.put(R.id.tag_del_post_type, sparseArray.get(R.id.tag_del_post_type));
                             sparseArray5.put(R.id.tag_has_sub_post, sparseArray.get(R.id.tag_has_sub_post));
-                            if (this.a.u1().U() == 1002 && !z3) {
-                                k05Var3 = new k05(6, getString(R.string.report_text), this.i);
+                            if (this.a.z1().U() == 1002 && !z3) {
+                                b15Var3 = new b15(6, getString(R.string.report_text), this.i);
                             } else {
-                                k05Var3 = new k05(6, getString(R.string.obfuscated_res_0x7f0f04d9), this.i);
+                                b15Var3 = new b15(6, getString(R.string.obfuscated_res_0x7f0f04e3), this.i);
                             }
-                            k05Var3.d.setTag(sparseArray5);
-                            k05Var = k05Var3;
+                            b15Var3.d.setTag(sparseArray5);
+                            b15Var = b15Var3;
                         } else {
-                            k05Var = null;
+                            b15Var = null;
                         }
-                        k05Var2 = null;
+                        b15Var2 = null;
                     }
-                    if (k05Var != null) {
-                        arrayList.add(k05Var);
+                    if (b15Var != null) {
+                        arrayList.add(b15Var);
                     }
-                    if (k05Var2 != null) {
-                        arrayList.add(k05Var2);
+                    if (b15Var2 != null) {
+                        arrayList.add(b15Var2);
                     }
-                    zy8.b(arrayList, this.i, this.K, this.a);
+                    n19.b(arrayList, this.i, this.K, this.a);
                 }
                 if (UbsABTestHelper.isPBPlanA()) {
-                    c2 = zy8.d(arrayList, this.K.n(), sparseArray, this.i);
+                    c2 = n19.d(arrayList, this.K.n(), sparseArray, this.i);
                 } else {
-                    c2 = zy8.c(arrayList, this.K.n(), sparseArray, this.i);
+                    c2 = n19.c(arrayList, this.K.n(), sparseArray, this.i);
                 }
-                zy8.m(c2, this.g);
-                zy8.f(c2);
-                this.i.q(zy8.h(this.K));
+                n19.m(c2, this.g);
+                n19.f(c2);
+                this.i.q(n19.h(this.K));
                 this.i.l(c2, !UbsABTestHelper.isPBPlanA());
-                this.h = new m05(getPageContext(), this.i);
+                this.h = new d15(getPageContext(), this.i);
                 this.i.o(new w(this));
                 this.h.k();
-                StatisticItem param = new StatisticItem("c13272").param("tid", this.a.N1()).param("fid", this.a.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("post_id", this.a.S());
+                StatisticItem param = new StatisticItem("c13272").param("tid", this.a.S1()).param("fid", this.a.getForumId()).param("uid", TbadkCoreApplication.getCurrentAccount()).param("post_id", this.a.X());
                 if (z9) {
                     i2 = 2;
                 } else {
@@ -4148,28 +4160,28 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return invokeL.booleanValue;
     }
 
-    public final TbRichText v2(ArrayList<am9> arrayList, String str, int i2) {
+    public final TbRichText x2(ArrayList<pp9> arrayList, String str, int i2) {
         InterceptResult invokeLLI;
-        ArrayList<TbRichTextData> S;
+        ArrayList<TbRichTextData> X;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048661, this, arrayList, str, i2)) == null) {
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048664, this, arrayList, str, i2)) == null) {
             if (arrayList != null && !arrayList.isEmpty()) {
                 for (int i3 = 0; i3 < arrayList.size(); i3++) {
                     TbRichText a0 = arrayList.get(i3).a0();
-                    if (a0 != null && (S = a0.S()) != null) {
-                        int size = S.size();
+                    if (a0 != null && (X = a0.X()) != null) {
+                        int size = X.size();
                         int i4 = -1;
                         for (int i5 = 0; i5 < size; i5++) {
-                            if (S.get(i5) != null && S.get(i5).getType() == 8) {
+                            if (X.get(i5) != null && X.get(i5).getType() == 8) {
                                 i4++;
-                                if (!S.get(i5).Y().R().equals(str) && !S.get(i5).Y().S().equals(str)) {
+                                if (!X.get(i5).d0().W().equals(str) && !X.get(i5).d0().X().equals(str)) {
                                     if (i4 > i2) {
                                         break;
                                     }
                                 } else {
                                     int i6 = (int) ii.i(TbadkCoreApplication.getInst());
-                                    int width = S.get(i5).Y().getWidth() * i6;
-                                    int height = S.get(i5).Y().getHeight() * i6;
+                                    int width = X.get(i5).d0().getWidth() * i6;
+                                    int height = X.get(i5).d0().getHeight() * i6;
                                     if (width < 80 || height < 80 || width * height < 10000) {
                                         return null;
                                     }
@@ -4187,43 +4199,43 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
         return (TbRichText) invokeLLI.objValue;
     }
 
-    public final int w2(TbRichText tbRichText, TbRichText tbRichText2, int i2, int i3, ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
+    public final int y2(TbRichText tbRichText, TbRichText tbRichText2, int i2, int i3, ArrayList<String> arrayList, ConcurrentHashMap<String, ImageUrlData> concurrentHashMap) {
         InterceptResult invokeCommon;
         boolean z;
-        TbRichTextImageInfo Y;
+        TbRichTextImageInfo d0;
         int i4;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048662, this, new Object[]{tbRichText, tbRichText2, Integer.valueOf(i2), Integer.valueOf(i3), arrayList, concurrentHashMap})) == null) {
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048666, this, new Object[]{tbRichText, tbRichText2, Integer.valueOf(i2), Integer.valueOf(i3), arrayList, concurrentHashMap})) == null) {
             if (tbRichText == tbRichText2) {
                 this.E = true;
             }
             if (tbRichText != null) {
-                int size = tbRichText.S().size();
+                int size = tbRichText.X().size();
                 int i5 = i2;
                 int i6 = -1;
                 for (int i7 = 0; i7 < size; i7++) {
-                    TbRichTextData tbRichTextData = tbRichText.S().get(i7);
+                    TbRichTextData tbRichTextData = tbRichText.X().get(i7);
                     if ((tbRichTextData == null || tbRichTextData.getType() != 20) && tbRichTextData != null && tbRichTextData.getType() == 8) {
                         i6++;
                         int i8 = (int) ii.i(TbadkCoreApplication.getInst());
-                        int width = tbRichTextData.Y().getWidth() * i8;
-                        int height = tbRichTextData.Y().getHeight() * i8;
+                        int width = tbRichTextData.d0().getWidth() * i8;
+                        int height = tbRichTextData.d0().getHeight() * i8;
                         if (width >= 80 && height >= 80 && width * height >= 10000) {
                             z = false;
                         } else {
                             z = true;
                         }
-                        if (!z && tbRichTextData.Y().W()) {
+                        if (!z && tbRichTextData.d0().b0()) {
                             if (tbRichTextData.getType() != 20) {
-                                String a2 = it8.a(tbRichTextData);
+                                String a2 = rv8.a(tbRichTextData);
                                 if (!TextUtils.isEmpty(a2)) {
                                     arrayList.add(a2);
-                                    if (tbRichTextData != null && (Y = tbRichTextData.Y()) != null) {
-                                        String R = Y.R();
+                                    if (tbRichTextData != null && (d0 = tbRichTextData.d0()) != null) {
+                                        String W = d0.W();
                                         ImageUrlData imageUrlData = new ImageUrlData();
                                         if (TbadkCoreApplication.getInst().isGifAutoPlay()) {
                                             imageUrlData.urlType = 38;
-                                            R = Y.S();
+                                            W = d0.X();
                                         } else {
                                             if (this.f) {
                                                 i4 = 17;
@@ -4232,15 +4244,17 @@ public class FoldCommentActivity extends BaseFragmentActivity implements VoiceMa
                                             }
                                             imageUrlData.urlType = i4;
                                         }
-                                        imageUrlData.imageUrl = R;
-                                        imageUrlData.originalUrl = A2(tbRichTextData);
-                                        imageUrlData.originalSize = B2(tbRichTextData);
-                                        imageUrlData.mIsShowOrigonButton = y2(tbRichTextData);
-                                        imageUrlData.isLongPic = x2(tbRichTextData);
+                                        imageUrlData.imageUrl = W;
+                                        imageUrlData.urlThumbType = imageUrlData.urlType;
+                                        imageUrlData.imageThumbUrl = W;
+                                        imageUrlData.originalUrl = C2(tbRichTextData);
+                                        imageUrlData.originalSize = D2(tbRichTextData);
+                                        imageUrlData.mIsShowOrigonButton = A2(tbRichTextData);
+                                        imageUrlData.isLongPic = z2(tbRichTextData);
                                         imageUrlData.postId = tbRichText.getPostId();
-                                        imageUrlData.threadId = gg.g(this.a.N1(), -1L);
-                                        imageUrlData.mIsReserver = this.a.F1();
-                                        imageUrlData.mIsSeeHost = this.a.X0();
+                                        imageUrlData.threadId = gg.g(this.a.S1(), -1L);
+                                        imageUrlData.mIsReserver = this.a.K1();
+                                        imageUrlData.mIsSeeHost = this.a.c1();
                                         if (concurrentHashMap != null) {
                                             concurrentHashMap.put(a2, imageUrlData);
                                         }

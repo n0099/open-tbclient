@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
+import android.content.Context;
+import android.graphics.Color;
+import com.baidu.live.LiveFeedPageSdk;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -11,15 +10,11 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
+import java.util.HashMap;
 /* loaded from: classes3.dex */
-public class cc0 {
+public class cc0 extends xb0 {
     public static /* synthetic */ Interceptable $ic;
-    public static final String a;
-    public static boolean b;
-    public static String c;
-    public static ArrayList<String> d;
+    public static final HashMap<String, String[]> b;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -35,14 +30,7 @@ public class cc0 {
                 return;
             }
         }
-        AppInfoService appInfoService = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        if (appInfoService != null) {
-            l(appInfoService.isDebug());
-        }
-        a = cc0.class.getName();
-        b = false;
-        c = null;
-        d = new ArrayList<>();
+        b = new HashMap<>();
     }
 
     public cc0() {
@@ -55,184 +43,68 @@ public class cc0 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        b.put("color_1F1F1F", new String[]{"#141414", "#BFFFFFFF", "#E6FFFFFF", ""});
+        b.put("color_white1", new String[]{"#FFFFFF", "#141414", "#000000", ""});
+        b.put("color_white2", new String[]{"#F5F5F5", "#272729", "#141414", ""});
+        b.put("color_white3", new String[]{"#FFFFFF", "#D9FFFFFF", "#FFFFFF", ""});
+        b.put("color_F5F5F51", new String[]{"#F2F2F5", "#141414", "#000000", ""});
+        b.put("color_F5F5F52", new String[]{"#F7F7FA", "#1E1D1F", "#1AFFFFFF", ""});
+        b.put("color_F5F5F53", new String[]{"#0D000000", "#0DFFFFFF", "#1AFFFFFF", ""});
+        b.put("color_FF33551", new String[]{"#FF3355", "#D42A46", "#FF3355", ""});
+        b.put("color_FF33552", new String[]{"#1AFF3355", "#1AD42A46", "#1AFF3355", ""});
+        b.put("color_858585", new String[]{"#858585", "#59FFFFFF", "#80FFFFFF", ""});
+        b.put("color_525252", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
+        b.put("color_FF3333", new String[]{"#FF3333", "#FF3333", "#FF3333", ""});
+        b.put("color_768CAE", new String[]{"#768CAE", "#768CAE", "#768CAE", ""});
+        b.put("color_4E6EF2", new String[]{"#4E6EF2", "#4E6EF2", "#4E6EF2", ""});
+        b.put("color_8585852", new String[]{"#858585", "#444444", "#80FFFFFF", ""});
+        b.put("color_5252522", new String[]{"#525252", "#555555", "#99FFFFFF", ""});
+        b.put("color_btn_stroke", new String[]{"#00000000", "#00000000", "#00000000", ""});
+        b.put("color_btn_fill", new String[]{"#F7F7FA", "#1E1D1F", "#000000", ""});
+        b.put("color_sub_tab_normal", new String[]{"#141414", "#BFFFFFFF", "#E6FFFFFF", ""});
+        b.put("color_main_bg", new String[]{"#FFFFFF", "#141414", "#000000", ""});
+        b.put("color_white4", new String[]{"#1F1F1F", "#666666", "", "#FFFFFF"});
+        b.put("color_gradient_1", new String[]{"#FFFFFF", "#141414", "#000000", ""});
+        b.put("color_gradient_2", new String[]{"#00FFFFFF", "#00141414", "#00000000", ""});
+        b.put("color_E0E0E0", new String[]{"#E0E0E0", "", "", ""});
+        b.put("color_EEEEEE", new String[]{"#eeeeee", "", "", ""});
     }
 
-    public static boolean i() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.xb0
+    public int a(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
-            return b;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static String a(boolean z, String str, String str2, String str3) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{Boolean.valueOf(z), str, str2, str3})) == null) {
-            if (!i()) {
-                return null;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, context, str, str2)) == null) {
+            if (!b.containsKey(str2)) {
+                return -16777216;
             }
-            String str4 = c;
-            if (str4 != null && !str3.startsWith(str4)) {
-                return null;
+            String str3 = b.get(str2)[0];
+            if ("recommend".equals(str)) {
+                return bc0.c().a(context, str, str2);
             }
-            if (z && !j(str)) {
-                return null;
-            }
-            StringBuffer stringBuffer = new StringBuffer(100);
-            stringBuffer.append(str);
-            stringBuffer.append(":");
-            stringBuffer.append(str2);
-            stringBuffer.append(":");
-            stringBuffer.append(str3);
-            return stringBuffer.toString();
-        }
-        return (String) invokeCommon.objValue;
-    }
-
-    public static void b(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65539, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
-            Log.d(a, a2);
-        }
-    }
-
-    public static void f(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65543, null, str, str2, str3) == null) && (a2 = a(false, str, str2, str3)) != null) {
-            Log.e(a, a2);
-        }
-    }
-
-    public static void h(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65545, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
-            Log.i(a, a2);
-        }
-    }
-
-    public static void m(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65550, null, str, str2, str3) == null) && (a2 = a(true, str, str2, str3)) != null) {
-            Log.v(a, a2);
-        }
-    }
-
-    public static void n(String str, String str2, String str3) {
-        String a2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(65551, null, str, str2, str3) == null) && (a2 = a(false, str, str2, str3)) != null) {
-            Log.w(a, a2);
-        }
-    }
-
-    public static int c(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, th)) == null) {
-            if (i() && th != null) {
-                Log.e(a, th.getMessage(), th);
-                return k(0, th.getMessage());
-            }
-            return -1;
-        }
-        return invokeL.intValue;
-    }
-
-    public static int d(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            return k(0, str);
-        }
-        return invokeL.intValue;
-    }
-
-    public static int e(Throwable th) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, th)) == null) {
-            return k(0, th.getMessage());
-        }
-        return invokeL.intValue;
-    }
-
-    public static int g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return k(2, str);
-        }
-        return invokeL.intValue;
-    }
-
-    public static void l(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65549, null, z) == null) {
-            b = z;
-        }
-    }
-
-    public static boolean j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            boolean z = false;
-            if (d.size() == 0) {
-                return false;
-            }
-            Iterator<String> it = d.iterator();
-            while (it.hasNext()) {
-                if (str.startsWith(it.next())) {
-                    z = true;
+            if (LiveFeedPageSdk.IMMERSION.equals(str)) {
+                str3 = b.get(str2)[3];
+            } else {
+                String str4 = this.a;
+                if (LiveFeedPageSdk.UI_MODE_NIGHT == str4) {
+                    str3 = b.get(str2)[1];
+                } else if ("dark" == str4) {
+                    str3 = b.get(str2)[2];
                 }
             }
-            return z;
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static int k(int i, String str) {
-        InterceptResult invokeIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65548, null, i, str)) == null) {
-            if (!i()) {
-                return -1;
+            if (rb0.a(str3)) {
+                return -16777216;
             }
-            StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
-            if (stackTrace.length < 5) {
-                return -1;
-            }
-            StackTraceElement stackTraceElement = stackTrace[4];
-            String methodName = stackTraceElement.getMethodName();
-            String className = stackTraceElement.getClassName();
-            if (i > 1 && !j(className)) {
-                return -1;
-            }
-            if (i == 0) {
-                f(className, methodName, str);
-                return 0;
-            } else if (i == 1) {
-                n(className, methodName, str);
-                return 0;
-            } else if (i == 2) {
-                h(className, methodName, str);
-                return 0;
-            } else if (i == 3) {
-                b(className, methodName, str);
-                return 0;
-            } else {
-                m(className, methodName, str);
-                return 0;
+            try {
+                return Color.parseColor(str3);
+            } catch (Exception e) {
+                e.printStackTrace();
+                return -16777216;
             }
         }
-        return invokeIL.intValue;
+        return invokeLLL.intValue;
     }
 }

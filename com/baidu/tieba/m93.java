@@ -1,29 +1,64 @@
 package com.baidu.tieba;
 
+import android.animation.ValueAnimator;
 import android.content.Context;
-import android.text.TextUtils;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
 import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.swan.apps.core.container.NgWebView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class m93 extends s93 {
+public class m93 extends u93 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
+    /* loaded from: classes5.dex */
+    public class a implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eu1 a;
+
+        public a(m93 m93Var, eu1 eu1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {m93Var, eu1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eu1Var;
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) {
+                this.a.webViewScrollTo(0, ((Integer) valueAnimator.getAnimatedValue()).intValue());
+            }
+        }
+    }
+
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public m93(s83 s83Var) {
-        super(s83Var, "/swanAPI/postMessage");
+    public m93(u83 u83Var) {
+        super(u83Var, "/swanAPI/pageScrollTo");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,27 +72,44 @@ public class m93 extends s93 {
         }
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
         InterceptResult invokeLLLL;
+        int f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            z03.a("postMessage", "PostMsgAction handle");
-            String str = unitedSchemeEntity.getParams().get("params");
-            if (TextUtils.isEmpty(str)) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (x73Var != null && context != null) {
+                JSONObject a2 = u93.a(unitedSchemeEntity, "params");
+                if (a2 == null) {
+                    x42.i("PageScrollToAction", "params is null");
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202, "empty joParams");
+                    return false;
+                }
+                int optInt = a2.optInt("scrollTop", -1);
+                int optInt2 = a2.optInt("duration", -1);
+                if (optInt > -1 && optInt2 > -1) {
+                    eu1 i = kt2.U().i();
+                    if (i != null) {
+                        if (i instanceof NgWebView) {
+                            f = uw1.z(i, ol3.f(context, optInt));
+                        } else {
+                            f = ol3.f(context, optInt);
+                        }
+                        ValueAnimator ofInt = ValueAnimator.ofInt(i.getWebViewScrollY(), f);
+                        ofInt.setDuration(optInt2);
+                        ofInt.addUpdateListener(new a(this, i));
+                        ofInt.start();
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, 0);
+                    return true;
+                }
+                x42.c("PageScrollToAction", "illegal scrollTop or duration");
+                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "illegal params");
                 return false;
             }
-            yh2 a = yh2.a(str);
-            if (a == null) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
-                return false;
-            }
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-            z03.a("postMessage", "PostEvent start");
-            it2.U().y(a, true);
-            z03.a("postMessage", "PostEvent end.");
-            return true;
+            x42.c("PageScrollToAction", "swanApp is null");
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "empty swanApp");
+            return false;
         }
         return invokeLLLL.booleanValue;
     }

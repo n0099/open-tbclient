@@ -30,14 +30,14 @@ import com.baidu.tbadk.coreExtra.view.ImageUrlData;
 import com.baidu.tbadk.imageManager.TbImageMemoryCache;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.ax4;
 import com.baidu.tieba.cg;
+import com.baidu.tieba.d05;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ix;
-import com.baidu.tieba.kw4;
-import com.baidu.tieba.nz4;
-import com.baidu.tieba.sv4;
+import com.baidu.tieba.iw4;
+import com.baidu.tieba.ji6;
+import com.baidu.tieba.kx;
 import com.baidu.tieba.tm;
-import com.baidu.tieba.yg6;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -45,13 +45,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
 import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes2.dex */
-public class InterviewLiveLayout extends FrameLayout implements ix<kw4> {
+public class InterviewLiveLayout extends FrameLayout implements kx<ax4> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public boolean b;
-    public yg6<kw4> c;
-    public kw4 d;
+    public ji6<ax4> c;
+    public ax4 d;
     public TbImageView e;
     public LinearLayout f;
     public ImageView g;
@@ -106,6 +106,8 @@ public class InterviewLiveLayout extends FrameLayout implements ix<kw4> {
                 }
                 imageUrlData.urlType = i;
                 imageUrlData.imageUrl = str;
+                imageUrlData.urlThumbType = i;
+                imageUrlData.imageThumbUrl = str;
                 imageUrlData.originalUrl = str;
                 imageUrlData.originalSize = 0L;
                 imageUrlData.isLongPic = false;
@@ -187,11 +189,11 @@ public class InterviewLiveLayout extends FrameLayout implements ix<kw4> {
                 } else {
                     i = 14;
                 }
-                tm w = TbImageMemoryCache.s().w(cg.h().g(tbImageView.getUrl(), i));
+                tm A = TbImageMemoryCache.v().A(cg.h().g(tbImageView.getUrl(), i));
                 int i3 = 0;
-                if (w != null) {
-                    i3 = w.r();
-                    i2 = w.m();
+                if (A != null) {
+                    i3 = A.r();
+                    i2 = A.m();
                 } else {
                     i2 = 0;
                 }
@@ -305,10 +307,10 @@ public class InterviewLiveLayout extends FrameLayout implements ix<kw4> {
         }
     }
 
-    public void setSubClickListener(yg6<kw4> yg6Var) {
+    public void setSubClickListener(ji6<ax4> ji6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, yg6Var) == null) {
-            this.c = yg6Var;
+        if (interceptable == null || interceptable.invokeL(1048582, this, ji6Var) == null) {
+            this.c = ji6Var;
         }
     }
 
@@ -329,38 +331,38 @@ public class InterviewLiveLayout extends FrameLayout implements ix<kw4> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
+    @Override // com.baidu.tieba.kx
     /* renamed from: k */
-    public void a(kw4 kw4Var) {
+    public void a(ax4 ax4Var) {
         int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, kw4Var) == null) {
-            this.d = kw4Var;
-            if (kw4Var != null && this.e != null) {
-                ThreadData threadData = kw4Var.getThreadData();
-                nz4 taskInfoData = threadData.getTaskInfoData();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, ax4Var) == null) {
+            this.d = ax4Var;
+            if (ax4Var != null && this.e != null) {
+                ThreadData threadData = ax4Var.getThreadData();
+                d05 taskInfoData = threadData.getTaskInfoData();
                 if (taskInfoData == null) {
                     setVisibility(8);
                     return;
                 }
                 this.j = threadData;
                 this.k = threadData.getFid();
-                this.l = taskInfoData.g();
-                if (sv4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.k())) {
+                this.l = taskInfoData.h();
+                if (iw4.c().g() && taskInfoData != null && !StringUtils.isNull(taskInfoData.m())) {
                     this.i.clear();
-                    this.i.add(taskInfoData.k());
+                    this.i.add(taskInfoData.m());
                     setVisibility(0);
                     this.e.setSupportNoImage(true);
                     this.e.setScaleType(ImageView.ScaleType.MATRIX);
                     this.e.setOnDrawListener(this.n);
                     TbImageView tbImageView = this.e;
-                    String k = taskInfoData.k();
+                    String m = taskInfoData.m();
                     if (this.b) {
                         i = 13;
                     } else {
                         i = 14;
                     }
-                    tbImageView.N(k, i, false);
+                    tbImageView.N(m, i, false);
                     LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) getLayoutParams();
                     int l = ii.l(getContext()) - ii.g(getContext(), R.dimen.tbds88);
                     layoutParams.width = l;

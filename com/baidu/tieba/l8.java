@@ -102,7 +102,7 @@ public class l8 {
                                 Iterator<String> keys = jSONObject.keys();
                                 while (keys.hasNext()) {
                                     String next = keys.next();
-                                    if (u10.a(next, this.c) == i) {
+                                    if (w10.a(next, this.c) == i) {
                                         arrayList.add(new r8(next, jSONObject.get(next)));
                                     }
                                 }
@@ -129,7 +129,7 @@ public class l8 {
                     try {
                         jSONObject.put("version", e);
                         jSONObject.put("data", new JSONObject(d));
-                        l10.i(jSONObject);
+                        n10.i(jSONObject);
                     } catch (JSONException e2) {
                         e2.printStackTrace();
                     }

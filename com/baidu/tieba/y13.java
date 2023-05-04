@@ -1,342 +1,211 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.annotation.AnyThread;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.swan.apps.runtime.config.SwanAppConfigData;
-import com.baidu.tieba.de3;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
-import java.util.concurrent.ConcurrentHashMap;
 /* loaded from: classes7.dex */
-public class y13 implements zs2 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Set<String> e;
+public class y13 implements bt2 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static Boolean c = null;
+    public static int d = -1;
+    public static int e = -1;
+    public static int f = -1;
+    public static int g = -1;
+    public static int h = -1;
+    public static int i = -1;
+    public static int j = -1;
     public transient /* synthetic */ FieldHolder $fh;
-    public ConcurrentHashMap<String, SwanAppConfigData> c;
-    public boolean d;
-
-    /* loaded from: classes7.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ y13 a;
-
-        public a(y13 y13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y13Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = y13Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                this.a.b();
-                long currentTimeMillis2 = System.currentTimeMillis();
-                if (zs2.a) {
-                    Log.d("SwanPerformance", "async batch parse app.json cost = " + (currentTimeMillis2 - currentTimeMillis) + "ms");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements Comparator<File> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public b(y13 y13Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {y13Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        public final long b(@NonNull File file) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file)) == null) {
-                return file.lastModified();
-            }
-            return invokeL.longValue;
-        }
-
-        public /* synthetic */ b(y13 y13Var, a aVar) {
-            this(y13Var);
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // java.util.Comparator
-        /* renamed from: a */
-        public int compare(File file, File file2) {
-            InterceptResult invokeLL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, file, file2)) == null) {
-                if (file == null) {
-                    return 1;
-                }
-                if (file2 == null) {
-                    return -1;
-                }
-                return (int) ((b(file) - b(file2)) * (-1));
-            }
-            return invokeLL.intValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public static class c {
-        public static /* synthetic */ Interceptable $ic;
-        public static final y13 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-311311249, "Lcom/baidu/tieba/y13$c;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-311311249, "Lcom/baidu/tieba/y13$c;");
-                    return;
-                }
-            }
-            a = new y13(null);
-        }
-    }
 
     static {
         InterceptResult invokeClinit;
         ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948277262, "Lcom/baidu/tieba/y13;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948277262, "Lcom/baidu/tieba/y13;");
-                return;
-            }
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948277262, "Lcom/baidu/tieba/y13;")) == null) {
+            return;
         }
-        e = new HashSet();
-    }
-
-    public y13() {
-        Interceptable interceptable = $ic;
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
+            $ic = interceptable;
         }
-        this.c = new ConcurrentHashMap<>();
-        this.d = false;
-        h();
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948277262, "Lcom/baidu/tieba/y13;");
+        }
     }
 
-    public static y13 e() {
+    public static boolean a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return c.a;
-        }
-        return (y13) invokeV.objValue;
-    }
-
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap = this.c;
-            if (concurrentHashMap != null && !concurrentHashMap.isEmpty()) {
-                this.c.clear();
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            if (f == -1) {
+                f = b("swanswitch_file_res_cache_option");
             }
-            this.d = false;
-            if (zs2.a) {
-                Log.d("SwanPerformance", "release app.json batch cache");
+            if (f == 1) {
+                return true;
             }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public /* synthetic */ y13(a aVar) {
-        this();
-    }
-
-    public final void b() {
-        File[] listFiles;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            File g = rq2.g();
-            if (g.exists() && (listFiles = g.listFiles()) != null && listFiles.length != 0) {
-                for (String str : e) {
-                    c(new File(g, str));
-                }
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (i == -1) {
+                i = b("swan_http_interceptor_opt");
             }
+            if (i > 0) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void h() {
+    public static boolean e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            e.add("eot71qyZ0ino8W34o3XG6aQ9YdAn4R1m");
-            e.add("AZQtr4jkpf90T3X9QMWVLF1bkeV4LXxD");
-            e.add("AukeaxXFpdt1qCe7lE35VCvH27x6ayWI");
-            e.add("flFqXclepWs7RdugAszy9eERL7G5dS0I");
-            e.add("oFx3nbdDN6GWF3Vb0Wh7EDBMBxRTTcfe");
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            if (f() > 0) {
+                return true;
+            }
+            return false;
         }
+        return invokeV.booleanValue;
     }
 
-    public final void c(File file) {
-        File d;
-        SwanAppConfigData a2;
+    public static int f() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, file) == null) && file != null && file.exists() && file.isDirectory() && (d = d(file)) != null && (a2 = ns2.a(d)) != null) {
-            this.c.put(d.getAbsolutePath(), a2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            if (j == -1) {
+                j = b("swan_js_thread_opt");
+            }
+            return j;
         }
+        return invokeV.intValue;
     }
 
-    public final File d(File file) {
+    public static int g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if (h == -1) {
+                h = b("swan_preload_slave_opt");
+            }
+            return h;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean h() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            if (d > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
+            if (d == -1) {
+                d = b("swan_http_thread_opt");
+            }
+            int i2 = d;
+            if (i2 > 0 && i2 != 2) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int j() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65546, null)) == null) {
+            if (g == -1) {
+                g = b("swan_ubc_samping_opt");
+            }
+            return g;
+        }
+        return invokeV.intValue;
+    }
+
+    public static boolean k() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65547, null)) == null) {
+            if (j() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean l() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            if (c == null) {
+                c = Boolean.valueOf(d("swan_js_thread_dispatch"));
+            }
+            return c.booleanValue();
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static boolean m() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
+            if (e == -1) {
+                e = b("swan_webview_ssl_opt");
+            }
+            if (e > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, file)) == null) {
-            if (file != null && !file.isFile()) {
-                File[] listFiles = file.listFiles();
-                if (listFiles != null && listFiles.length > 0) {
-                    if (listFiles.length > 1) {
-                        Arrays.sort(listFiles, new b(this, null));
-                    }
-                    return listFiles[0];
-                }
-                de3.b bVar = new de3.b(10012);
-                bVar.h(file.getAbsolutePath());
-                bVar.k("async parse swanApp");
-                bVar.m();
-                if (zs2.a) {
-                    Log.d("SwanPerformance", file.getAbsolutePath() + " is an empty folder");
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            er2.g0().getSwitch(str, 0);
+            if (bt2.a) {
+                Log.d("SwanPerformance", "packing[" + str + " = 0" + PreferencesUtil.RIGHT_MOUNT);
             }
-            return null;
+            return 0;
         }
-        return (File) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public void g(String str) {
-        ConcurrentHashMap<String, SwanAppConfigData> concurrentHashMap;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, str) == null) && !TextUtils.isEmpty(str) && (concurrentHashMap = this.c) != null && !concurrentHashMap.isEmpty()) {
-            Iterator<Map.Entry<String, SwanAppConfigData>> it = this.c.entrySet().iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                Map.Entry<String, SwanAppConfigData> next = it.next();
-                if (next != null) {
-                    String key = next.getKey();
-                    if (!TextUtils.isEmpty(key) && key.contains(str)) {
-                        this.c.remove(key);
-                        break;
-                    }
-                }
-            }
-            if (zs2.a) {
-                Log.d("SwanPerformance", "release app.json appId = " + str);
-            }
-        }
-    }
-
-    @AnyThread
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            if (this.d) {
-                if (zs2.a) {
-                    Log.d("SwanPerformance", "has batch parse app.json, size = " + this.c.size());
-                    return;
-                }
-                return;
-            }
-            this.d = true;
-            try {
-                pk3.k(new a(this), "startAsyncBatchParseAppJson");
-            } catch (Throwable th) {
-                if (zs2.a) {
-                    Log.e("SwanPerformance", "batch parse app.json exception");
-                    th.printStackTrace();
-                }
-            }
-        }
-    }
-
-    public SwanAppConfigData j(File file) {
+    public static boolean d(String str) {
         InterceptResult invokeL;
-        boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, file)) == null) {
-            if (file == null || !file.exists()) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
+            if (b(str) != 0) {
+                return true;
             }
-            String absolutePath = file.getAbsolutePath();
-            if (TextUtils.isEmpty(absolutePath)) {
-                return null;
-            }
-            SwanAppConfigData swanAppConfigData = this.c.get(absolutePath);
-            if (zs2.a) {
-                StringBuilder sb = new StringBuilder();
-                sb.append("try obtain config data success = ");
-                if (swanAppConfigData != null) {
-                    z = true;
-                } else {
-                    z = false;
-                }
-                sb.append(z);
-                Log.d("SwanPerformance", sb.toString());
-            }
-            return swanAppConfigData;
+            return false;
         }
-        return (SwanAppConfigData) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 }

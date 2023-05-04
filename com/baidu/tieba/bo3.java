@@ -32,7 +32,7 @@ public class bo3 extends ProviderDelegation {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
             Bundle bundle2 = new Bundle();
-            bundle2.putString("result", wn3.q(getAgent().getContext()));
+            bundle2.putString("result", yn3.k(getAgent().getContext()));
             return bundle2;
         }
         return (Bundle) invokeL.objValue;

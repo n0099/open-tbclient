@@ -1,33 +1,29 @@
 package com.baidu.tieba;
 
-import androidx.core.util.Pair;
-import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import android.content.Context;
+import android.os.Build;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.NetWork;
-import com.baidu.tieba.browser.exception.UnzipErrorException;
-import com.baidu.tieba.frs.itemtab.gamecode.GameCodeGetResponseMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.io.File;
-import java.util.Map;
+import java.io.IOException;
 /* loaded from: classes3.dex */
-public class be6 extends BdAsyncTask<Void, Void, zd6> {
+public abstract class be6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
-    public final String d;
+    public final WebView a;
 
-    public be6(String str, fa9 fa9Var) {
+    public be6(WebView webView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str, fa9Var};
+            Object[] objArr = {webView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,113 +33,81 @@ public class be6 extends BdAsyncTask<Void, Void, zd6> {
                 return;
             }
         }
-        this.a = str;
-        this.c = fa9Var.c();
-        this.b = fa9Var.a();
-        this.d = fa9Var.b();
-    }
-
-    public static void c(String str, fa9 fa9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, str, fa9Var) == null) {
-            be6 be6Var = new be6(str, fa9Var);
-            be6Var.setPriority(4);
-            be6Var.execute(new Void[0]);
+        this.a = webView;
+        webView.setDrawingCacheEnabled(false);
+        webView.setLayerType(2, null);
+        webView.setScrollBarStyle(0);
+        webView.requestFocusFromTouch();
+        if (Build.VERSION.SDK_INT >= 26) {
+            webView.setRendererPriorityPolicy(2, false);
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: b */
-    public zd6 doInBackground(Void... voidArr) {
-        InterceptResult invokeL;
-        boolean z;
-        zd6 zd6Var;
+    public void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, voidArr)) == null) {
-            File file = new File(ud6.l().m(), this.a);
-            if (!gf6.a(file)) {
-                ye6.b("lt-log", "离线包下载失败：" + this.a + "->目录创建失败");
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            WebSettings c = c();
+            c.setJavaScriptEnabled(true);
+            c.setCacheMode(-1);
+            if (Build.VERSION.SDK_INT >= 21) {
+                c.setMixedContentMode(0);
             }
-            File file2 = new File(file, this.c + ".zip");
-            if (!file2.exists()) {
-                z = new NetWork(this.b).downloadFile(file2.getAbsolutePath(), null, 0, 3, 0, true);
-            } else {
-                z = true;
+            c.setGeolocationEnabled(true);
+            c.setLoadsImagesAutomatically(true);
+            c.setBlockNetworkImage(false);
+            c.setBlockNetworkLoads(false);
+            c.setLoadWithOverviewMode(true);
+            c.setAllowFileAccess(true);
+            c.setUseWideViewPort(true);
+            c.setSupportZoom(true);
+            c.setBuiltInZoomControls(false);
+            c.setDisplayZoomControls(false);
+            c.setMediaPlaybackRequiresUserGesture(false);
+            c.setDomStorageEnabled(true);
+            try {
+                c.setAppCacheEnabled(true);
+                c.setAppCachePath(b(getContext(), "tb_web_cache").getPath());
+            } catch (IOException unused) {
+                c.setAppCachePath(getContext().getCacheDir().getPath());
             }
-            if (!z) {
-                gf6.c(file2);
-                ye6.b("lt-log", "离线包下载失败:网络下载异常：" + this.a);
-                ud6.t("download bundle", "download_error", this.a, this.c, hf6.a(Pair.create("error_code", "-1"), Pair.create(GameCodeGetResponseMsg.PARAM_ERROR_MSG, "网络下载错误")));
-                return null;
-            } else if (!ff6.d(file2, this.d)) {
-                gf6.c(file2);
-                ye6.b("lt-log", "离线包目md5验证失败：" + this.a);
-                ud6.t("download bundle", "md5_error", this.a, this.c, hf6.a(Pair.create("detail", this.d + "_" + ff6.b(file2))));
-                return null;
-            } else {
-                File file3 = new File(ud6.l().k(), this.a);
-                if (!e(file2, file3, this.c)) {
-                    ud6.t("download bundle", "unzip_error", this.a, this.c, "");
-                    return null;
-                }
-                File file4 = new File(file3, this.c);
-                Map<String, ee6> b = ce6.b(file4);
-                if (ce6.f(file4, b)) {
-                    zd6Var = new zd6(file4, this.c, b);
-                } else {
-                    zd6Var = null;
-                }
-                if (zd6Var != null && zd6Var.c()) {
-                    ud6.i(ud6.l().k(), this.c, this.a);
-                    ud6.i(ud6.l().m(), this.c + ".zip", this.a);
-                    return zd6Var;
-                }
-                gf6.b(file4);
-                ye6.b("lt-log", "离线包应用失败：" + this.a + "，path：" + file4.getAbsolutePath());
-                return null;
+            String userAgentString = c().getUserAgentString();
+            String b = kd6.b();
+            if (!userAgentString.endsWith(b)) {
+                c.setUserAgentString(userAgentString + " " + b);
             }
-        }
-        return (zd6) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
-    /* renamed from: d */
-    public void onPostExecute(zd6 zd6Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, zd6Var) == null) {
-            super.onPostExecute(zd6Var);
-            if (zd6Var != null) {
-                ud6.l().v(this.a, zd6Var.b());
-                ud6.l().s();
-                xd6.d().j(this.a, zd6Var.a());
-                xd6.d().c(this.a);
-                ud6.t("download bundle", "success", "", this.a, zd6Var.b());
-            } else {
-                xd6.d().c(this.a);
-            }
-            td6.b(zd6Var, this.a);
+            c.setJavaScriptCanOpenWindowsAutomatically(true);
+            c.setTextZoom(100);
         }
     }
 
-    public final boolean e(File file, File file2, String str) {
-        InterceptResult invokeLLL;
+    public final File b(Context context, String str) throws IOException {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048579, this, file, file2, str)) == null) {
-            File file3 = new File(file2, str);
-            if (!file3.exists()) {
-                try {
-                    lf6.c(file, file3);
-                    return true;
-                } catch (UnzipErrorException e) {
-                    gf6.b(file2);
-                    ye6.b("lt-log", "离线包资源解压缩失败：" + e);
-                    return false;
-                }
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str)) == null) {
+            File file = new File(context.getCacheDir(), str);
+            if (!file.exists() && !file.mkdirs()) {
+                throw new IOException(file.getAbsolutePath() + "文件夹创建失败！");
             }
-            return true;
+            return file;
         }
-        return invokeLLL.booleanValue;
+        return (File) invokeLL.objValue;
+    }
+
+    public WebSettings c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a.getSettings();
+        }
+        return (WebSettings) invokeV.objValue;
+    }
+
+    public Context getContext() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.getContext();
+        }
+        return (Context) invokeV.objValue;
     }
 }

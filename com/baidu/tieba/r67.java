@@ -1,124 +1,97 @@
 package com.baidu.tieba;
 
-import androidx.core.app.NotificationManagerCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.abtest.UbsABTestHelper;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.TimeHelper;
-import com.baidu.tieba.frs.FrsActivity;
+import android.app.Activity;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Map;
 /* loaded from: classes6.dex */
 public class r67 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pa5 a;
-    public FrsActivity b;
-    public Map<String, Date> c;
-    public boolean d;
 
-    public r67(FrsActivity frsActivity) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+    /* loaded from: classes6.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ u05 a;
+
+        public a(u05 u05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {u05Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = u05Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                this.a.dismiss();
             }
         }
-        this.c = new HashMap();
-        this.d = false;
-        this.b = frsActivity;
     }
 
-    public void a() {
-        pa5 pa5Var;
+    public static void a(Activity activity, TbPageContext<?> tbPageContext) {
+        int l;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (pa5Var = this.a) != null) {
-            pa5Var.q();
-        }
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            pa5 pa5Var = this.a;
-            if (pa5Var != null && pa5Var.t()) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public Date c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-            if (this.c == null) {
-                this.c = new HashMap();
+        if ((interceptable == null || interceptable.invokeLL(65536, null, activity, tbPageContext) == null) && activity != null && tbPageContext != null) {
+            View inflate = LayoutInflater.from(activity).inflate(R.layout.frs_general_tab_notify_dialog_layout, (ViewGroup) null);
+            TextView textView = (TextView) inflate.findViewById(R.id.general_title);
+            TextView textView2 = (TextView) inflate.findViewById(R.id.general_content_1);
+            TextView textView3 = (TextView) inflate.findViewById(R.id.general_content_2);
+            TextView textView4 = (TextView) inflate.findViewById(R.id.general_content_3);
+            TextView textView5 = (TextView) inflate.findViewById(R.id.general_btn);
+            TbImageView tbImageView = (TbImageView) inflate.findViewById(R.id.top_general_image);
+            u05 u05Var = new u05(activity);
+            u05Var.setContentView(inflate);
+            u05Var.setContentViewSize(2);
+            u05Var.setCanceledOnTouchOutside(true);
+            u05Var.setAutoNight(true);
+            u05Var.setCancelable(true);
+            int g = ii.g(activity, R.dimen.tbds31);
+            SkinManager.setBackgroundShapeDrawable(inflate, g, R.color.CAM_X0201, R.color.CAM_X0101);
+            tbImageView.setRadius(g);
+            tbImageView.setConrers(3);
+            tbImageView.setIsBitmapPic(true);
+            int g2 = ii.g(activity, R.dimen.tbds44);
+            if (UtilHelper.getRealScreenOrientation(activity) == 2) {
+                l = ii.j(activity);
             } else {
-                this.c = TbSingleton.getInstance().getHasShowTip();
+                l = ii.l(activity);
             }
-            Date date = new Date(System.currentTimeMillis());
-            Map<String, Date> map = this.c;
-            if (map != null && map.containsKey(str)) {
-                if (TimeHelper.getDayDifference(this.c.get(str), date) >= 1) {
-                    this.d = true;
-                }
-            } else {
-                this.d = true;
-            }
-            return date;
-        }
-        return (Date) invokeL.objValue;
-    }
-
-    public void d(String str) {
-        FrsActivity frsActivity;
-        int i;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && (frsActivity = this.b) != null && frsActivity.getPageContext() != null) {
-            Date c = c(str);
-            boolean z = false;
-            if (!UbsABTestHelper.isPushPermissionForumFollowTestA() && !UbsABTestHelper.isPushPermissionForumFollowTestB()) {
-                i = 0;
-            } else {
-                i = 11;
-            }
-            if ((!NotificationManagerCompat.from(TbadkCoreApplication.getInst()).areNotificationsEnabled() || !p95.d().n()) && this.d && qa5.g(TbadkCoreApplication.getInst(), i)) {
-                FrsActivity frsActivity2 = this.b;
-                if (frsActivity2 != null && frsActivity2.v1() != null) {
-                    z = this.b.v1().B;
-                }
-                HashMap hashMap = new HashMap();
-                if (z) {
-                    hashMap.put("view_params_key_style", "short");
-                }
-                pa5 pa5Var = this.a;
-                if (pa5Var != null) {
-                    pa5Var.q();
-                }
-                this.a = qa5.l(this.b.getPageContext(), "forum_follow", 2000L, hashMap);
-                this.c.put(str, c);
-                TbSingleton.getInstance().setHasShowTip(this.c);
-                return;
-            }
-            ii.S(TbadkCoreApplication.getInst(), R.string.push_like_tip_msg);
+            int i = l - (g2 * 2);
+            ViewGroup.LayoutParams layoutParams = tbImageView.getLayoutParams();
+            layoutParams.width = -1;
+            layoutParams.height = (i * 556) / 988;
+            tbImageView.setLayoutParams(layoutParams);
+            SkinManager.setImageResource(tbImageView, R.drawable.frs_general_tab_notify_pic);
+            SkinManager.setViewTextColor(textView, (int) R.color.CAM_X0105);
+            SkinManager.setViewTextColor(textView2, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView3, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView4, (int) R.color.CAM_X0107);
+            SkinManager.setViewTextColor(textView5, (int) R.color.CAM_X0302);
+            textView5.setOnClickListener(new a(u05Var));
+            u05Var.create(tbPageContext).show();
         }
     }
 }

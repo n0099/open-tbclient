@@ -29,7 +29,7 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
 
     @Override // com.baidu.pass.ecommerce.common.dialog.BaseDialogFragment
     public int getLayoutResId() {
-        return R.layout.obfuscated_res_0x7f0d0527;
+        return R.layout.obfuscated_res_0x7f0d052f;
     }
 
     @SuppressLint({"ValidFragment"})
@@ -41,11 +41,11 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
     public void onClick(View view2) {
         if (this.optionOnClickListener != null) {
             int id = view2.getId();
-            if (id == R.id.obfuscated_res_0x7f091eb2) {
+            if (id == R.id.obfuscated_res_0x7f091ec5) {
                 this.optionOnClickListener.onOptionClick(1001);
-            } else if (id == R.id.obfuscated_res_0x7f091e85) {
+            } else if (id == R.id.obfuscated_res_0x7f091e98) {
                 this.optionOnClickListener.onOptionClick(1003);
-            } else if (id == R.id.obfuscated_res_0x7f091e90) {
+            } else if (id == R.id.obfuscated_res_0x7f091ea3) {
                 this.optionOnClickListener.onOptionClick(1002);
             }
         }
@@ -59,28 +59,28 @@ public class AddrOptionDialog extends BaseDialogFragment implements View.OnClick
     @Override // androidx.fragment.app.Fragment
     public void onViewCreated(@NonNull View view2, @Nullable Bundle bundle) {
         super.onViewCreated(view2, bundle);
-        this.setDefaultView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eb2);
-        this.setDefaultViewBottomLine = view2.findViewById(R.id.obfuscated_res_0x7f091eb3);
-        this.copyView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e85);
+        this.setDefaultView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ec5);
+        this.setDefaultViewBottomLine = view2.findViewById(R.id.obfuscated_res_0x7f091ec6);
+        this.copyView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e98);
         this.setDefaultView.setOnClickListener(this);
         this.copyView.setOnClickListener(this);
-        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091e90);
-        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091eaa);
+        TextView textView = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ea3);
+        TextView textView2 = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091ebd);
         textView.setOnClickListener(this);
         textView2.setOnClickListener(this);
         if (this.isDarkMode) {
             Resources resources = getResources();
-            this.setDefaultView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081121);
-            this.setDefaultView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060896));
-            this.setDefaultViewBottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060816));
-            this.copyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08111f);
-            this.copyView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060896));
-            view2.findViewById(R.id.obfuscated_res_0x7f091e86).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060816));
-            textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08111f);
-            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060886));
-            view2.findViewById(R.id.obfuscated_res_0x7f091e92).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f060816));
-            textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08111f);
-            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f060896));
+            this.setDefaultView.setBackgroundResource(R.drawable.obfuscated_res_0x7f081151);
+            this.setDefaultView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06089a));
+            this.setDefaultViewBottomLine.setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06081a));
+            this.copyView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08114f);
+            this.copyView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06089a));
+            view2.findViewById(R.id.obfuscated_res_0x7f091e99).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06081a));
+            textView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08114f);
+            textView.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06088a));
+            view2.findViewById(R.id.obfuscated_res_0x7f091ea5).setBackgroundColor(resources.getColor(R.color.obfuscated_res_0x7f06081a));
+            textView2.setBackgroundResource(R.drawable.obfuscated_res_0x7f08114f);
+            textView2.setTextColor(resources.getColor(R.color.obfuscated_res_0x7f06089a));
         }
         Bundle arguments = getArguments();
         boolean z = false;

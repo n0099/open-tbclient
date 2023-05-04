@@ -94,7 +94,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         this.b = i;
     }
 
-    public String Q() {
+    public String V() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -107,7 +107,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public String R() {
+    public String W() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
@@ -116,7 +116,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return (String) invokeV.objValue;
     }
 
-    public TiebaPlusInfo S() {
+    public TiebaPlusInfo X() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -152,7 +152,7 @@ public class TbRichTextTiebaPlusInfo extends OrmObject {
         return invokeV.intValue;
     }
 
-    public void T(TiebaPlusInfo tiebaPlusInfo) {
+    public void Y(TiebaPlusInfo tiebaPlusInfo) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048579, this, tiebaPlusInfo) == null) {
             this.a = tiebaPlusInfo;

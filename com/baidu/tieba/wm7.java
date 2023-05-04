@@ -1,35 +1,55 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.ThreadCardViewHolder;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.ThreadCardUtils;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.tieba.ey;
-import com.baidu.tieba.py;
+import com.baidu.tieba.gift.giftTab.CategoryGiftListModel;
+import com.baidu.tieba.gift.giftTab.DefaultGiftListModel;
+import com.baidu.tieba.gift.giftTab.FreeGiftChanceModel;
+import com.baidu.tieba.gift.giftTab.GiftTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Iterator;
 /* loaded from: classes6.dex */
-public class wm7 extends vm<nh6, ThreadCardViewHolder<nh6>> {
+public class wm7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
-    public TbPageContext<?> b;
-    public on c;
-    public yg6<nh6> d;
+    public a9<GiftTabActivity> a;
+    public DefaultGiftListModel b;
+    public CategoryGiftListModel c;
+    public FreeGiftChanceModel d;
+    public ArrayList<tm7> e;
+    public ArrayList<rm7> f;
+    public ArrayList<vm7> g;
+    public HashMap<Integer, ArrayList<ly4>> h;
+    public int i;
+    public String j;
+    public int k;
+    public my4 l;
+    public e m;
+    public d n;
+    public DefaultGiftListModel.b o;
+    public CategoryGiftListModel.b p;
+    public FreeGiftChanceModel.b q;
 
     /* loaded from: classes6.dex */
-    public class a extends yg6<nh6> {
+    public interface d {
+        void a(int i);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface e {
+        void a(int i, String str, boolean z, String str2, int i2, my4 my4Var, ArrayList<tm7> arrayList, ArrayList<rm7> arrayList2, ArrayList<vm7> arrayList3);
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements DefaultGiftListModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wm7 a;
 
         public a(wm7 wm7Var) {
             Interceptable interceptable = $ic;
@@ -43,28 +63,43 @@ public class wm7 extends vm<nh6, ThreadCardViewHolder<nh6>> {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
+            this.a = wm7Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg6
-        /* renamed from: d */
-        public void a(View view2, nh6 nh6Var) {
-            ThreadCardViewHolder threadCardViewHolder;
+        @Override // com.baidu.tieba.gift.giftTab.DefaultGiftListModel.b
+        public void a(int i, String str, int i2, String str2, int i3, my4 my4Var, ArrayList<rm7> arrayList, ArrayList<ly4> arrayList2, ArrayList<vm7> arrayList3) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, nh6Var) == null) {
-                super.a(view2, nh6Var);
-                if (nh6Var != null && nh6Var.getThreadData() != null && (threadCardViewHolder = (ThreadCardViewHolder) view2.getTag()) != null) {
-                    ThreadCardUtils.jumpToPB((kw4) nh6Var.getThreadData(), view2.getContext(), 1, false);
-                    threadCardViewHolder.a().p(new py.a(1));
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), str2, Integer.valueOf(i3), my4Var, arrayList, arrayList2, arrayList3}) == null) {
+                if (i == 0) {
+                    int i4 = 0;
+                    if (arrayList != null && arrayList.size() >= 1 && arrayList.get(0) != null) {
+                        i4 = arrayList.get(0).a();
+                    }
+                    this.a.f = arrayList;
+                    this.a.h.put(Integer.valueOf(i4), arrayList2);
+                    this.a.g = arrayList3;
+                    this.a.j = str2;
+                    this.a.i = i2;
+                    wm7 wm7Var = this.a;
+                    wm7Var.k = i3;
+                    wm7Var.l = my4Var;
+                    wm7Var.q();
+                }
+                if (this.a.m != null) {
+                    e eVar = this.a.m;
+                    String str3 = this.a.j;
+                    wm7 wm7Var2 = this.a;
+                    eVar.a(i, str, true, str3, wm7Var2.k, wm7Var2.l, wm7Var2.e, this.a.f, this.a.g);
                 }
             }
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b implements sn {
+    public class b implements CategoryGiftListModel.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ wm7 a;
@@ -87,84 +122,165 @@ public class wm7 extends vm<nh6, ThreadCardViewHolder<nh6>> {
             this.a = wm7Var;
         }
 
-        @Override // com.baidu.tieba.sn
-        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
+        @Override // com.baidu.tieba.gift.giftTab.CategoryGiftListModel.b
+        public void a(int i, String str, int i2, ArrayList<ly4> arrayList) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (inVar instanceof nh6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
-                ThreadCardViewHolder threadCardViewHolder = (ThreadCardViewHolder) view2.getTag();
-                nh6 nh6Var = (nh6) inVar;
-                if (this.a.d != null) {
-                    this.a.d.a(threadCardViewHolder.getView(), nh6Var);
+            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2), arrayList}) == null) {
+                if (i == 0) {
+                    this.a.h.put(Integer.valueOf(i2), arrayList);
+                    this.a.q();
+                }
+                if (this.a.m != null) {
+                    e eVar = this.a.m;
+                    String str2 = this.a.j;
+                    wm7 wm7Var = this.a;
+                    eVar.a(i, str, false, str2, wm7Var.k, wm7Var.l, wm7Var.e, this.a.f, this.a.g);
                 }
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wm7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
-        super(tbPageContext.getPageActivity(), bdUniqueId);
+    /* loaded from: classes6.dex */
+    public class c implements FreeGiftChanceModel.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ wm7 a;
+
+        public c(wm7 wm7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {wm7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = wm7Var;
+        }
+
+        @Override // com.baidu.tieba.gift.giftTab.FreeGiftChanceModel.b
+        public void a(int i, String str, int i2) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{Integer.valueOf(i), str, Integer.valueOf(i2)}) != null) || i != 0) {
+                return;
+            }
+            this.a.i = i2;
+            if (this.a.n != null) {
+                this.a.n.a(this.a.i);
+            }
+        }
+    }
+
+    public wm7(a9<GiftTabActivity> a9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId};
+            Object[] objArr = {a9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new a(this);
-        this.b = tbPageContext;
+        this.h = new HashMap<>();
+        this.o = new a(this);
+        this.p = new b(this);
+        this.q = new c(this);
+        this.a = a9Var;
+        DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(a9Var);
+        this.b = defaultGiftListModel;
+        defaultGiftListModel.h0(this.o);
+        CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
+        this.c = categoryGiftListModel;
+        categoryGiftListModel.Z(this.p);
+        FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
+        this.d = freeGiftChanceModel;
+        freeGiftChanceModel.Z(this.q);
     }
 
-    public void x(on onVar) {
+    public void n(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, onVar) == null) {
-            this.c = onVar;
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public ThreadCardViewHolder<nh6> onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            ey.b bVar = new ey.b(this.b.getPageActivity(), false);
-            bVar.h(new ay(this.b.getPageActivity()));
-            ey k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
-            k.s(1);
-            ThreadCardViewHolder<nh6> threadCardViewHolder = new ThreadCardViewHolder<>(k);
-            threadCardViewHolder.i(this.a);
-            setOnAdapterItemClickListener(new b(this));
-            return threadCardViewHolder;
-        }
-        return (ThreadCardViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, nh6 nh6Var, ThreadCardViewHolder<nh6> threadCardViewHolder) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, nh6Var, threadCardViewHolder})) == null) {
-            if (nh6Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && nh6Var.a != null) {
-                nh6Var.E(nh6Var.position + 1);
-                threadCardViewHolder.a().r(i);
-                threadCardViewHolder.e(nh6Var);
-                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
-                return threadCardViewHolder.getView();
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            if (this.d == null) {
+                FreeGiftChanceModel freeGiftChanceModel = new FreeGiftChanceModel(this.a);
+                this.d = freeGiftChanceModel;
+                freeGiftChanceModel.Z(this.q);
             }
-            return null;
+            this.d.Y(str);
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            if (this.c == null) {
+                CategoryGiftListModel categoryGiftListModel = new CategoryGiftListModel(this.a);
+                this.c = categoryGiftListModel;
+                categoryGiftListModel.Z(this.p);
+            }
+            this.c.Y(i);
+        }
+    }
+
+    public void r(d dVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
+            this.n = dVar;
+        }
+    }
+
+    public void s(e eVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, eVar) == null) {
+            this.m = eVar;
+        }
+    }
+
+    public void o(String str, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, j) == null) {
+            if (this.b == null) {
+                DefaultGiftListModel defaultGiftListModel = new DefaultGiftListModel(this.a);
+                this.b = defaultGiftListModel;
+                defaultGiftListModel.h0(this.o);
+            }
+            this.b.g0(str, j);
+        }
+    }
+
+    public final void q() {
+        HashMap<Integer, ArrayList<ly4>> hashMap;
+        ArrayList<rm7> arrayList;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (hashMap = this.h) != null && hashMap.size() > 0 && (arrayList = this.f) != null && arrayList.size() > 0) {
+            if (this.e == null) {
+                this.e = new ArrayList<>();
+            }
+            this.e.clear();
+            Iterator<rm7> it = this.f.iterator();
+            while (it.hasNext()) {
+                rm7 next = it.next();
+                if (next != null && !StringUtils.isNull(next.b())) {
+                    tm7 tm7Var = new tm7();
+                    tm7Var.c(next.a());
+                    tm7Var.d(next.b());
+                    ArrayList<ly4> arrayList2 = this.h.get(Integer.valueOf(next.a()));
+                    if (arrayList2 != null) {
+                        tm7Var.e(arrayList2);
+                    }
+                    this.e.add(tm7Var);
+                }
+            }
+        }
     }
 }

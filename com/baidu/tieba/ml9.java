@@ -1,17 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActHot;
+@Service
 /* loaded from: classes5.dex */
-public class ml9 {
+public class ml9 implements r25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
+
+    @Override // com.baidu.tieba.r25
+    public String name() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "SPRITE_RES_STRATEGY" : (String) invokeV.objValue;
+    }
 
     public ml9() {
         Interceptable interceptable = $ic;
@@ -27,31 +34,13 @@ public class ml9 {
         }
     }
 
-    public void a(ActHot actHot) {
+    @Override // com.baidu.tieba.r25
+    public p25 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actHot) != null) || actHot == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new ll9();
         }
-        String str = actHot.bsize;
-        if (str != null) {
-            try {
-                String[] split = str.split(",");
-                this.a = gg.e(split[0], 1);
-                this.b = gg.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        if (this.a <= 0) {
-            this.a = 1;
-        }
-        if (this.b <= 0) {
-            this.b = 1;
-        }
-        String str2 = actHot.img_src;
-        String str3 = actHot.link;
-        String str4 = actHot.author_name;
-        String str5 = actHot.img_des;
-        actHot.img_type.intValue();
+        return (p25) invokeV.objValue;
     }
 }

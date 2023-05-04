@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.util.Log;
 import com.xiaomi.push.fo;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fl {
     public static final boolean a = Log.isLoggable("BCompressed", 3);
 

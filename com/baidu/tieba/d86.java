@@ -1,191 +1,76 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.CompoundButton;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.NEGFeedBack.NEGFeedBackView;
+import com.baidu.tieba.ala.frsgamelive.view.AlaGameFrsLiveGameCardView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public class d86 {
+public class d86 extends vm<j86, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public NEGFeedBackView a;
-    public TbPageContext b;
-    public ViewGroup c;
-    public BdUniqueId d;
-    public NEGFeedBackView.b e;
+    public TbPageContext a;
+    public s46 b;
 
-    /* loaded from: classes4.dex */
-    public class a implements NEGFeedBackView.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void b(iy4 iy4Var, CompoundButton compoundButton, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, iy4Var, compoundButton, z) == null) {
-            }
-        }
-
-        public a(d86 d86Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {d86Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void a(ArrayList<Integer> arrayList, String str, iy4 iy4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLLL(1048576, this, arrayList, str, iy4Var) == null) && arrayList != null && iy4Var != null) {
-                StringBuilder sb = new StringBuilder();
-                for (int i = 0; i < arrayList.size(); i++) {
-                    sb.append(arrayList.get(i) + ",");
-                }
-                if (sb.length() > 0) {
-                    sb.deleteCharAt(sb.length() - 1);
-                }
-                if ("ala_frs_demo_hell_live_feed_back_type".equals(iy4Var.getType())) {
-                    TiebaStatic.log(new StatisticItem("c12803").param("tid", iy4Var.f()));
-                } else if ("ala_frs_stage_live_feed_back_type".equals(iy4Var.getType())) {
-                    TiebaStatic.log(new StatisticItem("c12807").param("tid", iy4Var.f()));
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.NEGFeedBack.NEGFeedBackView.b
-        public void c(iy4 iy4Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, iy4Var) != null) || iy4Var == null) {
-                return;
-            }
-            if ("ala_frs_demo_hell_live_feed_back_type".equals(iy4Var.getType())) {
-                TiebaStatic.log(new StatisticItem("c12802").param("tid", iy4Var.f()));
-            } else if ("ala_frs_stage_live_feed_back_type".equals(iy4Var.getType())) {
-                TiebaStatic.log(new StatisticItem("c12806").param("tid", iy4Var.f()));
-            }
-        }
-    }
-
-    public d86(TbPageContext tbPageContext, ViewGroup viewGroup) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public d86(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new a(this);
-        this.b = tbPageContext;
-        this.c = viewGroup;
+        this.a = tbPageContext;
     }
 
-    public View a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder(new AlaGameFrsLiveGameCardView(this.a));
         }
-        return (View) invokeV.objValue;
+        return (AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder) invokeL.objValue;
     }
 
-    public void c() {
-        NEGFeedBackView nEGFeedBackView;
+    public void u(s46 s46Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (nEGFeedBackView = this.a) != null) {
-            nEGFeedBackView.u();
-        }
-    }
-
-    public void b(ThreadData threadData, String str) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData, str) == null) && threadData != null && threadData.getThreadAlaInfo() != null && this.b != null && this.c != null) {
-            int i = 0;
-            if (threadData.getAuthor() != null && threadData.getAuthor().getUserId() != null && threadData.getAuthor().getUserId().equals(TbadkCoreApplication.getCurrentAccount())) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (TbadkCoreApplication.isLogin() && threadData.getThreadAlaInfo().dislikeInfo != null && !z && threadData.getThreadAlaInfo().dislikeInfo.size() > 0) {
-                if (this.a == null) {
-                    NEGFeedBackView nEGFeedBackView = new NEGFeedBackView(this.b);
-                    this.a = nEGFeedBackView;
-                    nEGFeedBackView.setUniqueId(this.d);
-                    this.a.setId(R.id.negative_feedback_view);
-                    this.a.setDefaultReasonArray(new String[]{this.b.getString(R.string.bad_quality), "", ""});
-                    this.a.setEventCallback(this.e);
-                    this.a.r(this.c, ii.g(this.b.getPageActivity(), R.dimen.tbds120), ii.g(this.b.getPageActivity(), R.dimen.tbds20));
-                    this.a.u();
-                }
-                if (this.a.getVisibility() != 0) {
-                    this.a.setVisibility(0);
-                }
-                iy4 iy4Var = new iy4();
-                iy4Var.o(threadData.getTid());
-                iy4Var.k(threadData.getFid());
-                iy4Var.n(threadData.getNid());
-                iy4Var.r(str);
-                iy4Var.j(threadData.getThreadAlaInfo().dislikeInfo);
-                this.a.setData(iy4Var);
-            } else {
-                NEGFeedBackView nEGFeedBackView2 = this.a;
-                if (nEGFeedBackView2 != null && nEGFeedBackView2.getVisibility() != 8) {
-                    this.a.setVisibility(8);
-                }
-                i = ii.g(this.b.getPageActivity(), R.dimen.obfuscated_res_0x7f070207);
-            }
-            if (this.c.getLayoutParams() instanceof LinearLayout.LayoutParams) {
-                LinearLayout.LayoutParams layoutParams = (LinearLayout.LayoutParams) this.c.getLayoutParams();
-                layoutParams.rightMargin = i;
-                this.c.setLayoutParams(layoutParams);
-            }
-            if (this.c.getLayoutParams() instanceof RelativeLayout.LayoutParams) {
-                RelativeLayout.LayoutParams layoutParams2 = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
-                layoutParams2.rightMargin = i;
-                this.c.setLayoutParams(layoutParams2);
-            }
-            NEGFeedBackView nEGFeedBackView3 = this.a;
-            if (nEGFeedBackView3 != null) {
-                nEGFeedBackView3.s();
-            }
+        if (interceptable == null || interceptable.invokeL(1048580, this, s46Var) == null) {
+            this.b = s46Var;
         }
     }
 
-    public void d(BdUniqueId bdUniqueId) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, j86 j86Var, AlaGameFrsLiveGameCardView.AlaGameFrsGameViewHolder alaGameFrsGameViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bdUniqueId) == null) {
-            this.d = bdUniqueId;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, j86Var, alaGameFrsGameViewHolder})) == null) {
+            alaGameFrsGameViewHolder.a.i(j86Var);
+            alaGameFrsGameViewHolder.a.t(this.b);
+            return alaGameFrsGameViewHolder.getView();
         }
+        return (View) invokeCommon.objValue;
     }
 }

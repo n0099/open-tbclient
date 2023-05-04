@@ -4,7 +4,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import java.net.SocketException;
 import java.net.SocketTimeoutException;
 import java.net.UnknownHostException;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fx {
     public static int a(Throwable th) {
         boolean z = th instanceof gg;

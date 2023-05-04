@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import java.io.UnsupportedEncodingException;
 import java.nio.ByteBuffer;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class iz extends jd {
     public static final ji a = new ji();
 
@@ -28,7 +28,7 @@ public class iz extends jd {
     public byte[] g;
     public byte[] h;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a implements jf {
         public int a;
 

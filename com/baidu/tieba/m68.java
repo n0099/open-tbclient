@@ -1,59 +1,56 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
-import android.view.ViewGroup;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.BaseItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillItemViewHolder;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.adapter.RobotSkillRecentlyItemViewHolder;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class m68 implements r38 {
+public class m68 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public k68 a;
 
-    public m68(k68 k68Var) {
+    @NonNull
+    public static StatisticItem a(String str, String str2, long j, String str3) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {k68Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{str, str2, Long.valueOf(j), str3})) == null) {
+            StatisticItem statisticItem = new StatisticItem(str);
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccount());
+            statisticItem.param("fid", j);
+            statisticItem.param("fname", str3);
+            if (!StringUtils.isNull(str2)) {
+                statisticItem.param("room_id", str2);
             }
+            return statisticItem;
         }
-        this.a = k68Var;
+        return (StatisticItem) invokeCommon.objValue;
     }
 
-    @Override // com.baidu.tieba.r38
-    @Nullable
-    public BaseItemViewHolder a(@NonNull ViewGroup viewGroup, int i) {
-        InterceptResult invokeLI;
+    public static void b(String str, long j, String str2, String str3, int i, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, viewGroup, i)) == null) {
-            if (i == 5) {
-                return new RobotSkillItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ab, viewGroup, false), this.a);
+        if (interceptable == null || interceptable.invokeCommon(65537, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), str4}) == null) {
+            StatisticItem a = a(str, str3, j, str2);
+            a.param("obj_locate", i);
+            if (!StringUtils.isNull(str4)) {
+                a.param("obj_type", str4);
             }
-            if (i == 4) {
-                return new RobotItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03a9, viewGroup, false));
-            }
-            if (i == 6) {
-                return new RobotSkillRecentlyItemViewHolder(LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ac, viewGroup, false), this.a);
-            }
-            return null;
+            TiebaStatic.log(a);
         }
-        return (BaseItemViewHolder) invokeLI.objValue;
+    }
+
+    public static void c(String str, long j, String str2, String str3, int i, String str4) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Long.valueOf(j), str2, str3, Integer.valueOf(i), str4}) == null) {
+            StatisticItem a = a(str, str3, j, str2);
+            a.param("obj_locate", i);
+            if (!StringUtils.isNull(str4)) {
+                a.param("obj_type", str4);
+            }
+            TiebaStatic.log(a);
+        }
     }
 }

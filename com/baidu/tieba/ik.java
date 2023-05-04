@@ -33,10 +33,10 @@ public final class ik {
     }
 
     @JvmStatic
-    public static final vg8 a() {
+    public static final dj8 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a() : (vg8) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) ? a.a() : (dj8) invokeV.objValue;
     }
 
     /* loaded from: classes4.dex */
@@ -63,13 +63,13 @@ public final class ik {
         }
 
         @JvmStatic
-        public final vg8 a() {
+        public final dj8 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return b.a.a();
             }
-            return (vg8) invokeV.objValue;
+            return (dj8) invokeV.objValue;
         }
     }
 
@@ -77,7 +77,7 @@ public final class ik {
     public static final class b {
         public static /* synthetic */ Interceptable $ic;
         public static final b a;
-        public static final vg8 b;
+        public static final dj8 b;
         public transient /* synthetic */ FieldHolder $fh;
 
         static {
@@ -94,7 +94,7 @@ public final class ik {
                 }
             }
             a = new b();
-            b = new vg8(Config.DEVICE_PART);
+            b = new dj8(Config.DEVICE_PART);
         }
 
         public b() {
@@ -111,13 +111,13 @@ public final class ik {
             }
         }
 
-        public final vg8 a() {
+        public final dj8 a() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
                 return b;
             }
-            return (vg8) invokeV.objValue;
+            return (dj8) invokeV.objValue;
         }
     }
 }

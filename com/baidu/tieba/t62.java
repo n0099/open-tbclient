@@ -1,24 +1,109 @@
 package com.baidu.tieba;
 
-import android.webkit.ValueCallback;
+import android.content.Context;
+import android.text.TextUtils;
 import androidx.annotation.NonNull;
+import androidx.annotation.StringRes;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.b73;
+import com.baidu.tieba.ur1;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public interface t62 {
-    void addJavascriptInterface(@NonNull Object obj, @NonNull String str);
+public class t62 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void continueTimer();
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z, String str);
+    }
 
-    void evaluateJavascript(String str, ValueCallback<String> valueCallback);
+    /* loaded from: classes6.dex */
+    public static class a implements ur1.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ b b;
 
-    String getContainerId();
+        public a(Context context, b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {context, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = context;
+            this.b = bVar;
+        }
 
-    String getUrl();
+        @Override // com.baidu.tieba.ur1.b
+        public void a(boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
+                if (!z) {
+                    x42.c("DeveloperAuthenticateHelper", "Authentication Fail : Not developer");
+                    this.b.a(false, this.a.getString(R.string.obfuscated_res_0x7f0f010d));
+                    return;
+                }
+                x42.c("DeveloperAuthenticateHelper", "Authentication Success");
+                this.b.a(true, "");
+            }
+        }
 
-    boolean isDestroyed();
+        @Override // com.baidu.tieba.ur1.b
+        public void b(Exception exc) {
+            String str;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                x42.d("DeveloperAuthenticateHelper", "onFail : Authentication exception :", exc);
+                String message = exc.getMessage();
+                StringBuilder sb = new StringBuilder();
+                sb.append(this.a.getString(R.string.obfuscated_res_0x7f0f010d));
+                if (TextUtils.isEmpty(message)) {
+                    str = "";
+                } else {
+                    str = "\n" + message;
+                }
+                sb.append(str);
+                this.b.a(false, sb.toString());
+            }
+        }
+    }
 
-    boolean isWebView();
+    public static void a(@NonNull x73 x73Var, @NonNull Context context, @NonNull b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65536, null, x73Var, context, bVar) == null) {
+            ko1.b(x73Var.O(), new a(context, bVar));
+        }
+    }
 
-    void onJSLoaded();
+    public static void b(Context context, @StringRes int i, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLIL(65537, null, context, i, str) == null) {
+            b73.a aVar = new b73.a(context);
+            aVar.U(i);
+            aVar.x(str);
+            aVar.n(new fn3());
+            aVar.O(R.string.obfuscated_res_0x7f0f011a, null);
+            aVar.X();
+        }
+    }
 
-    void suspendTimer();
+    public static void c(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            b(context, R.string.obfuscated_res_0x7f0f0153, str);
+        }
+    }
 }

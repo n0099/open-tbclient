@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nadcore.player.helper.NetUtils;
-import com.baidu.searchbox.player.event.SystemEvent;
-import com.baidu.tieba.vu0;
+import com.baidu.searchbox.player.event.StatisticsEvent;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class su0 extends eu0 implements vu0.a {
+public class su0 extends pu0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final vu0 b;
 
     public su0() {
         Interceptable interceptable = $ic;
@@ -25,105 +21,93 @@ public class su0 extends eu0 implements vu0.a {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.b = new vu0(this);
     }
 
-    @Override // com.baidu.tieba.vu0.a
-    public void onConfigurationChanged() {
+    public void g() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(ru0.w(SystemEvent.ACTION_CONFIGURATION_CHANGED));
+            c(ru0.w(StatisticsEvent.ACTION_PLAYER_PAUSE));
         }
     }
 
-    public void registerReceiver() {
+    public void h() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            try {
-                this.b.registerReceiver();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            c(ru0.w(StatisticsEvent.ACTION_PLAYER_RESUME));
         }
     }
 
-    public void unregisterReceiver() {
+    public void i() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            try {
-                this.b.unregisterReceiver();
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            c(ru0.w(StatisticsEvent.ACTION_PLAYER_START));
         }
     }
 
-    @Override // com.baidu.tieba.vu0.a
-    public void a(NetUtils.NetStatus netStatus, NetUtils.NetStatus netStatus2) {
+    public void d(int i, int i2, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, netStatus, netStatus2) == null) {
-            tu0 w = ru0.w(SystemEvent.ACTION_CONNECT_CHANGED);
-            w.n(1, netStatus2);
+        if (interceptable == null || interceptable.invokeIIL(1048576, this, i, i2, obj) == null) {
+            vu0 w = ru0.w(StatisticsEvent.ACTION_PLAYER_ERROR);
+            w.n(2, String.valueOf(obj));
+            w.n(4, Integer.valueOf(i2));
             c(w);
         }
     }
 
-    @Override // com.baidu.tieba.vu0.a
-    public void onBatteryChanged(int i) {
+    public void e(int i, int i2, Object obj) {
+        vu0 w;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            tu0 w = ru0.w(SystemEvent.ACTION_BATTERY_CHANGED);
-            w.r(1);
-            w.n(4, Integer.valueOf(i));
-            c(w);
-        }
-    }
-
-    @Override // com.baidu.tieba.vu0.a
-    public void onBluetoothHeadsetChanged(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            tu0 w = ru0.w(SystemEvent.ACTION_BLUETOOTH_HEADSET);
-            w.n(6, Boolean.valueOf(z));
-            c(w);
-        }
-    }
-
-    @Override // com.baidu.tieba.vu0.a
-    public void onHeadsetPlug(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
-            tu0 w = ru0.w(SystemEvent.ACTION_HEADSET_PLUG);
-            w.n(3, Boolean.valueOf(z));
-            c(w);
-        }
-    }
-
-    @Override // com.baidu.tieba.vu0.a
-    public void onScreenStatusChanged(boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            if (z) {
-                str = SystemEvent.ACTION_SCREEN_OFF;
+        if (interceptable == null || interceptable.invokeIIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2, obj) == null) {
+            if (i != 701) {
+                if (i != 702) {
+                    if (i != 904 && i != 956) {
+                        if (i != 10009) {
+                            if (i != 11004) {
+                                if (i != 11005) {
+                                    w = null;
+                                } else {
+                                    w = ru0.w(StatisticsEvent.ACTION_ERROR_RETRY_END);
+                                }
+                            } else {
+                                w = ru0.w(StatisticsEvent.ACTION_ERROR_RETRY_START);
+                                w.n(4, Integer.valueOf(i2));
+                            }
+                        } else {
+                            w = ru0.w("statistics_player_carlton");
+                            w.n(2, String.valueOf(obj));
+                        }
+                    } else {
+                        w = ru0.w(StatisticsEvent.ACTION_PLAYER_FIRST_FRAME_DISPLAY);
+                        w.n(2, String.valueOf(obj));
+                    }
+                } else {
+                    w = ru0.w(StatisticsEvent.ACTION_BUFFER_END);
+                }
             } else {
-                str = SystemEvent.ACTION_SCREEN_ON;
+                w = ru0.w(StatisticsEvent.ACTION_BUFFER_START);
             }
-            tu0 w = ru0.w(str);
-            w.n(2, Boolean.valueOf(z));
+            if (w != null) {
+                c(w);
+            }
+        }
+    }
+
+    public void f(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            vu0 w = ru0.w(StatisticsEvent.ACTION_PLAYER_COMPLETE);
+            w.n(1, Integer.valueOf(i));
             c(w);
         }
     }
 
-    @Override // com.baidu.tieba.vu0.a
-    public void onVolumeChanged(int i) {
+    public void j(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            tu0 w = ru0.w(SystemEvent.ACTION_VOLUME_CHANGED);
-            w.n(5, Integer.valueOf(i));
+            vu0 w = ru0.w(StatisticsEvent.ACTION_PLAYER_STOP);
+            w.n(1, Integer.valueOf(i));
             c(w);
         }
     }

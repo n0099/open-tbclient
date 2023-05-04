@@ -23,34 +23,34 @@ import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.searchbox.widget.SlideInterceptor;
 import com.baidu.swan.apps.core.container.view.SwanAppSelectPopView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ak3;
-import com.baidu.tieba.cu1;
-import com.baidu.tieba.du1;
-import com.baidu.tieba.fo1;
-import com.baidu.tieba.ml3;
-import com.baidu.tieba.u62;
-import com.baidu.tieba.v42;
-import com.baidu.tieba.v62;
+import com.baidu.tieba.ck3;
+import com.baidu.tieba.eu1;
+import com.baidu.tieba.fu1;
+import com.baidu.tieba.ho1;
+import com.baidu.tieba.ol3;
+import com.baidu.tieba.w62;
+import com.baidu.tieba.x42;
+import com.baidu.tieba.x62;
 import com.baidu.webkit.sdk.WebView;
 /* loaded from: classes3.dex */
-public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor, SwanAppSelectPopView.a {
+public class NgWebView extends BdSailorWebView implements eu1, SlideInterceptor, SwanAppSelectPopView.a {
     public static final String APP_CACHE_PATH = "appcache";
     public static final String APP_DATABASE_PATH = "databases";
     public static final String APP_GEO_PATH = "geolocation";
-    public static final boolean DEBUG = fo1.a;
+    public static final boolean DEBUG = ho1.a;
     public static final String TAG = "NgWebView";
-    public u62 mCommonEventHandler;
+    public w62 mCommonEventHandler;
     public SwanAppSelectPopView mSelectPopWindow;
     public SwanAppSelectPopView.a mSelectPopWindowListener;
-    public v62 mWebViewHookHandler;
-    public du1 mWebViewManager;
+    public x62 mWebViewHookHandler;
+    public fu1 mWebViewManager;
 
-    @Override // com.baidu.tieba.cu1
+    @Override // com.baidu.tieba.eu1
     public View covertToView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.t62
+    @Override // com.baidu.tieba.v62
     public boolean isWebView() {
         return true;
     }
@@ -73,26 +73,26 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         getSettings().setDisplayZoomControls(false);
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.tieba.cu1
+    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.tieba.eu1
     public boolean canGoBack() {
         boolean canGoBack = super.canGoBack();
-        v62 v62Var = this.mWebViewHookHandler;
-        if (v62Var != null) {
-            return v62Var.u(canGoBack);
+        x62 x62Var = this.mWebViewHookHandler;
+        if (x62Var != null) {
+            return x62Var.u(canGoBack);
         }
         return canGoBack;
     }
 
-    @Override // com.baidu.tieba.t62
+    @Override // com.baidu.tieba.v62
     public synchronized void continueTimer() {
         if (!isDestroyed()) {
-            v42.i(TAG, "continueTimer: for=" + this);
+            x42.i(TAG, "continueTimer: for=" + this);
             onResume();
             resumeTimers();
         }
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.tieba.cu1
+    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.tieba.eu1
     @DebugTrace
     public void destroy() {
         if (DEBUG) {
@@ -113,16 +113,16 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         getWebViewExt().completeSelectionExt();
     }
 
-    @Override // com.baidu.tieba.t62
+    @Override // com.baidu.tieba.v62
     public String getContainerId() {
-        du1 du1Var = this.mWebViewManager;
-        if (du1Var != null) {
-            return du1Var.a();
+        fu1 fu1Var = this.mWebViewManager;
+        if (fu1Var != null) {
+            return fu1Var.a();
         }
         return "";
     }
 
-    @Override // com.baidu.tieba.cu1
+    @Override // com.baidu.tieba.eu1
     public /* bridge */ /* synthetic */ View getCurrentWebView() {
         return super.getCurrentWebView();
     }
@@ -136,20 +136,20 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         return null;
     }
 
-    @Override // com.baidu.tieba.cu1
+    @Override // com.baidu.tieba.eu1
     public int getWebViewScrollX() {
         return getCurrentWebView().getWebViewScrollX();
     }
 
-    @Override // com.baidu.tieba.cu1
+    @Override // com.baidu.tieba.eu1
     public int getWebViewScrollY() {
         return getCurrentWebView().getWebViewScrollY();
     }
 
-    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.tieba.cu1
+    @Override // com.baidu.browser.sailor.BdSailorWebView, com.baidu.tieba.eu1
     public void goBack() {
-        v62 v62Var = this.mWebViewHookHandler;
-        if (v62Var == null || !v62Var.o()) {
+        x62 x62Var = this.mWebViewHookHandler;
+        if (x62Var == null || !x62Var.o()) {
             super.goBack();
         }
     }
@@ -162,25 +162,25 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
     }
 
     public boolean isSwanWebMode() {
-        du1 du1Var = this.mWebViewManager;
-        if (du1Var != null && du1Var.d() != null) {
+        fu1 fu1Var = this.mWebViewManager;
+        if (fu1Var != null && fu1Var.d() != null) {
             return this.mWebViewManager.d().b;
         }
         return false;
     }
 
-    @Override // com.baidu.tieba.t62
+    @Override // com.baidu.tieba.v62
     public void onJSLoaded() {
-        du1 du1Var = this.mWebViewManager;
-        if (du1Var != null) {
-            du1Var.onJSLoaded();
+        fu1 fu1Var = this.mWebViewManager;
+        if (fu1Var != null) {
+            fu1Var.onJSLoaded();
         }
     }
 
-    @Override // com.baidu.tieba.t62
+    @Override // com.baidu.tieba.v62
     public synchronized void suspendTimer() {
         if (!isDestroyed()) {
-            v42.i(TAG, "suspendTimer: for=" + this);
+            x42.i(TAG, "suspendTimer: for=" + this);
             pauseTimers();
             onPause();
         }
@@ -194,7 +194,7 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
 
     @DebugTrace
     private void init(Context context) {
-        ak3.a(this);
+        ck3.a(this);
         disableFeature(BdSailorConfig.SAILOR_EXT_WEBVIEWPAGER);
         disableControls();
     }
@@ -225,8 +225,8 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
 
     @Override // android.view.ViewGroup, android.view.View
     public boolean dispatchTouchEvent(MotionEvent motionEvent) {
-        u62 u62Var = this.mCommonEventHandler;
-        if (u62Var != null && u62Var.dispatchTouchEvent(motionEvent)) {
+        w62 w62Var = this.mCommonEventHandler;
+        if (w62Var != null && w62Var.dispatchTouchEvent(motionEvent)) {
             return true;
         }
         return super.dispatchTouchEvent(motionEvent);
@@ -264,20 +264,20 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         }
     }
 
-    public void setOnCommonEventHandler(u62 u62Var) {
-        this.mCommonEventHandler = u62Var;
+    public void setOnCommonEventHandler(w62 w62Var) {
+        this.mCommonEventHandler = w62Var;
     }
 
-    public void setOnWebViewHookHandler(v62 v62Var) {
-        this.mWebViewHookHandler = v62Var;
+    public void setOnWebViewHookHandler(x62 x62Var) {
+        this.mWebViewHookHandler = x62Var;
     }
 
     public void setSelectPopWindowListener(SwanAppSelectPopView.a aVar) {
         this.mSelectPopWindowListener = aVar;
     }
 
-    public void setWebViewManager(du1 du1Var) {
-        this.mWebViewManager = du1Var;
+    public void setWebViewManager(fu1 fu1Var) {
+        this.mWebViewManager = fu1Var;
     }
 
     @DebugTrace
@@ -291,8 +291,8 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         if (super.onKeyDown(i, keyEvent)) {
             return true;
         }
-        u62 u62Var = this.mCommonEventHandler;
-        if (u62Var != null && u62Var.onKeyDown(i, keyEvent)) {
+        w62 w62Var = this.mCommonEventHandler;
+        if (w62Var != null && w62Var.onKeyDown(i, keyEvent)) {
             return true;
         }
         return false;
@@ -302,7 +302,7 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         getCurrentWebView().scrollBy(i, i2);
     }
 
-    @Override // com.baidu.tieba.cu1
+    @Override // com.baidu.tieba.eu1
     public void webViewScrollTo(int i, int i2) {
         getCurrentWebView().scrollTo(i, i2);
     }
@@ -344,14 +344,14 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         }
         int measuredHeight = swanAppSelectPopView.getMeasuredHeight();
         int height = getCurrentWebView().getHeight();
-        int g2 = measuredHeight + ml3.g(22.0f);
+        int g2 = measuredHeight + ol3.g(22.0f);
         int i2 = popTopY - g2;
         if (i2 < 0) {
-            g = ml3.g(22.0f) + popBottomY;
-            swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08122b);
+            g = ol3.g(22.0f) + popBottomY;
+            swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08125c);
         } else {
-            g = ml3.g(22.0f) + i2;
-            swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08122a);
+            g = ol3.g(22.0f) + i2;
+            swanAppSelectPopView.setBackgroundResource(R.drawable.obfuscated_res_0x7f08125b);
         }
         if (g + g2 > height) {
             g = (popBottomY - popTopY) - g2;
@@ -392,7 +392,7 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
     @DebugTrace
     private void tryInitSelectPopupWindow(boolean z) {
         if (this.mSelectPopWindow == null) {
-            SwanAppSelectPopView swanAppSelectPopView = (SwanAppSelectPopView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08a8, (ViewGroup) null);
+            SwanAppSelectPopView swanAppSelectPopView = (SwanAppSelectPopView) LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d08b4, (ViewGroup) null);
             this.mSelectPopWindow = swanAppSelectPopView;
             if (z) {
                 swanAppSelectPopView.findViewById(R.id.select_separator_one).setVisibility(8);
@@ -400,7 +400,7 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
             }
             getCurrentWebView().addView(this.mSelectPopWindow, new ViewGroup.LayoutParams(new ViewGroup.LayoutParams(-2, -2)));
             this.mSelectPopWindow.setEventListener(this);
-            this.mSelectPopWindow.setBackgroundResource(R.drawable.obfuscated_res_0x7f08122a);
+            this.mSelectPopWindow.setBackgroundResource(R.drawable.obfuscated_res_0x7f08125b);
             this.mSelectPopWindow.setVisibility(4);
         }
     }
@@ -408,9 +408,9 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
     @Override // com.baidu.browser.sailor.BdSailorWebView, android.view.View
     public void onScrollChanged(int i, int i2, int i3, int i4) {
         super.onScrollChanged(i, i2, i3, i4);
-        u62 u62Var = this.mCommonEventHandler;
-        if (u62Var != null) {
-            u62Var.onScrollChanged(i, i2, i3, i4);
+        w62 w62Var = this.mCommonEventHandler;
+        if (w62Var != null) {
+            w62Var.onScrollChanged(i, i2, i3, i4);
         }
     }
 
@@ -428,8 +428,8 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         if (!getCurrentWebView().isFocused()) {
             getCurrentWebView().requestFocus();
         }
-        u62 u62Var = this.mCommonEventHandler;
-        if (u62Var != null && u62Var.onTouchEvent(motionEvent)) {
+        w62 w62Var = this.mCommonEventHandler;
+        if (w62Var != null && w62Var.onTouchEvent(motionEvent)) {
             return true;
         }
         try {
@@ -446,12 +446,12 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
         }
     }
 
-    @Override // com.baidu.tieba.cu1
+    @Override // com.baidu.tieba.eu1
     public void setDefaultViewSize(int i, int i2, String str) {
         int i3;
         Pair<Integer, Integer> pair;
         if (i2 == Integer.MIN_VALUE) {
-            pair = ml3.e(str);
+            pair = ol3.e(str);
             i3 = ((Integer) pair.second).intValue();
         } else {
             i3 = i2;
@@ -461,7 +461,7 @@ public class NgWebView extends BdSailorWebView implements cu1, SlideInterceptor,
             if (pair != null) {
                 i = ((Integer) pair.first).intValue();
             } else {
-                i = ml3.o(AppRuntime.getAppContext());
+                i = ol3.o(AppRuntime.getAppContext());
             }
         }
         if (i > 0 && i3 > 0) {

@@ -1,11 +1,20 @@
 package com.baidu.tieba;
 
-import org.json.JSONObject;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.InputStream;
+@Deprecated
 /* loaded from: classes5.dex */
-public interface kza {
-    void onCancel();
+public abstract class kza {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void onComplete(JSONObject jSONObject);
+    public final void a() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            throw null;
+        }
+    }
 
-    void onError(lza lzaVar);
+    public abstract InputStream b();
 }

@@ -74,9 +74,9 @@ public class ShadowDrawableWrapper extends DrawableWrapper {
         this.dirty = true;
         this.addPaddingForCorners = true;
         this.printedShadowClipWarning = false;
-        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605bc);
-        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605bb);
-        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605ba);
+        this.shadowStartColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605c0);
+        this.shadowMiddleColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605bf);
+        this.shadowEndColor = ContextCompat.getColor(context, R.color.obfuscated_res_0x7f0605be);
         Paint paint = new Paint(5);
         this.cornerShadowPaint = paint;
         paint.setStyle(Paint.Style.FILL);

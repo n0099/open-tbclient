@@ -1,26 +1,26 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.view.ViewGroup;
-import android.widget.FrameLayout;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.widget.IndicatorView;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbConfig;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.coreExtra.data.VersionData;
+import com.baidu.tbadk.data.DialogStrategiesData;
+import com.baidu.tbadk.switchs.LooperBlockSwitch;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
-public class x25 {
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
+import kotlin.jvm.internal.Intrinsics;
+import org.json.JSONObject;
+/* loaded from: classes7.dex */
+public final class x25 implements p25 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
-    public int f;
 
     public x25() {
         Interceptable interceptable = $ic;
@@ -36,97 +36,51 @@ public class x25 {
         }
     }
 
-    public int a() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.p25
+    public Map<String, Object> a(DialogStrategiesData dialogData, Map<String, Object> strategyData, Map<String, Object> extraData) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, dialogData, strategyData, extraData)) == null) {
+            Intrinsics.checkNotNullParameter(dialogData, "dialogData");
+            Intrinsics.checkNotNullParameter(strategyData, "strategyData");
+            Intrinsics.checkNotNullParameter(extraData, "extraData");
+            HashMap hashMap = new HashMap();
+            hashMap.put("dialogName", "updateDialog");
+            hashMap.putAll(strategyData);
+            hashMap.putAll(extraData);
+            return hashMap;
         }
-        return invokeV.intValue;
+        return (Map) invokeLLL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    @Override // com.baidu.tieba.p25
+    public boolean b(Map<String, Object> map) {
+        InterceptResult invokeL;
+        JSONObject syncJson;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void c(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
-            this.b = i;
-        }
-    }
-
-    public final void d(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
-            this.a = i;
-        }
-    }
-
-    public final void e(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public void f(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048581, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void g(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048582, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void h(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public void i(IndicatorView indicatorView) {
-        Resources resources;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, indicatorView) != null) || indicatorView == null || (resources = indicatorView.getResources()) == null) {
-            return;
-        }
-        int i = this.d;
-        if (i > 0) {
-            indicatorView.setSpacing(resources.getDimensionPixelSize(i));
-        }
-        int i2 = this.b;
-        if (i2 > 0) {
-            indicatorView.setDrawable(resources.getDrawable(i2));
-        }
-        int i3 = this.c;
-        if (i3 > 0) {
-            indicatorView.setSelector(resources.getDrawable(i3));
-        }
-        ViewGroup.LayoutParams layoutParams = indicatorView.getLayoutParams();
-        if (layoutParams instanceof FrameLayout.LayoutParams) {
-            FrameLayout.LayoutParams layoutParams2 = (FrameLayout.LayoutParams) layoutParams;
-            layoutParams2.gravity = this.a;
-            int i4 = this.e;
-            if (i4 > 0) {
-                layoutParams2.bottomMargin = resources.getDimensionPixelSize(i4);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map)) == null) {
+            Intrinsics.checkNotNullParameter(map, "map");
+            if (!LooperBlockSwitch.getIsOn() || (syncJson = TbSingleton.getInstance().getSyncJson()) == null) {
+                return false;
             }
-            int i5 = this.f;
-            if (i5 > 0) {
-                layoutParams2.rightMargin = resources.getDimensionPixelSize(i5);
+            VersionData versionData = new VersionData();
+            versionData.parserJson(syncJson.optJSONObject("version"));
+            if (versionData.hasNewVer() && TbConfig.COULD_UPDATE) {
+                if (versionData.forceUpdate()) {
+                    if (TbadkCoreApplication.getInst().getResumeNum() > 0) {
+                        return true;
+                    }
+                } else {
+                    long updateNotifyTime = TbadkCoreApplication.getInst().getUpdateNotifyTime();
+                    long time = new Date().getTime();
+                    if (time - updateNotifyTime > 86400000 && versionData.getStrategy() == 0 && TbadkCoreApplication.getInst().getResumeNum() > 0 && TbSingleton.getInstance().hasPerformedFirstLoginTest()) {
+                        TbadkCoreApplication.getInst().setUpdateNotifyTime(time);
+                        return true;
+                    }
+                }
             }
-            indicatorView.setLayoutParams(layoutParams);
+            return false;
         }
+        return invokeL.booleanValue;
     }
 }

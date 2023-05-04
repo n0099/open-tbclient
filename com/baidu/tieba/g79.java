@@ -1,98 +1,79 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.TextView;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.PbActivityConfig;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.widget.TbImageView;
+import com.baidu.tieba.card.holder.CardViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class g79 extends zf6<z59> {
+public class g79 extends vm<q89, CardViewHolder<s99>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public View i;
-    public TbImageView j;
-    public TextView k;
-    public ImageView l;
-    public z59 m;
-
-    @Override // com.baidu.tieba.zf6
-    public int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0777 : invokeV.intValue;
-    }
+    public TbPageContext<?> a;
+    public y79 b;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g79(TbPageContext<?> tbPageContext) {
-        super(tbPageContext);
+    public g79(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId) {
+        super(tbPageContext.getPageActivity(), q89.b, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
+            Object[] objArr = {tbPageContext, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((TbPageContext) newInitContext.callArgs[0]);
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        View h = h();
-        this.i = h;
-        this.j = (TbImageView) h.findViewById(R.id.obfuscated_res_0x7f091bb3);
-        this.k = (TextView) this.i.findViewById(R.id.obfuscated_res_0x7f091bb2);
-        this.l = (ImageView) this.i.findViewById(R.id.obfuscated_res_0x7f091bb4);
-        this.i.setOnClickListener(this);
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.tieba.zf6
-    public void m(TbPageContext<?> tbPageContext, int i) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public CardViewHolder<s99> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) != null) || this.a == i) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new CardViewHolder<>(new s99(this.a));
         }
-        this.a = i;
-        SkinManager.setBackgroundColor(this.i, R.color.CAM_X0201);
-        SkinManager.setViewTextColor(this.k, R.color.CAM_X0105, 1);
-        SkinManager.setImageResource(this.l, R.drawable.icon_play_video, i);
+        return (CardViewHolder) invokeL.objValue;
     }
 
-    @Override // android.view.View.OnClickListener
-    public void onClick(View view2) {
+    public void u(y79 y79Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048579, this, view2) == null) && this.i == view2) {
-            MessageManager messageManager = MessageManager.getInstance();
-            PbActivityConfig pbActivityConfig = new PbActivityConfig(this.c);
-            z59 z59Var = this.m;
-            messageManager.sendMessage(new CustomMessage(2004001, pbActivityConfig.createNormalCfg(z59Var.c, z59Var.d, "person_page")));
+        if (interceptable == null || interceptable.invokeL(1048580, this, y79Var) == null) {
+            this.b = y79Var;
         }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.zf6
-    /* renamed from: r */
-    public void l(z59 z59Var) {
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, q89 q89Var, CardViewHolder<s99> cardViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048580, this, z59Var) != null) || z59Var == null) {
-            return;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, q89Var, cardViewHolder})) == null) {
+            s99 a = cardViewHolder.a();
+            a.i(q89Var);
+            a.j(this.a, TbadkCoreApplication.getInst().getSkinType());
+            a.t(this.b);
+            return cardViewHolder.getView();
         }
-        this.m = z59Var;
-        this.j.N(z59Var.a, 10, false);
-        this.k.setText(z59Var.b);
-        m(this.b, TbadkCoreApplication.getInst().getSkinType());
+        return (View) invokeCommon.objValue;
     }
 }

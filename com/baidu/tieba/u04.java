@@ -1,73 +1,55 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.view.View;
-import com.baidu.swan.apps.SwanAppActivity;
+import android.util.Log;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class u04 {
+public class u04 extends ze3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String k;
 
-    public static boolean a(View view2, by2 by2Var) {
-        InterceptResult invokeLL;
+    public u04() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, view2, by2Var)) == null) {
-            mp1 W = it2.U().W();
-            if (W != null && W.c(view2, by2Var)) {
-                return true;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return false;
         }
-        return invokeLL.booleanValue;
+        this.k = "";
     }
 
-    public static boolean b() {
+    @Override // com.baidu.tieba.ze3
+    public JSONObject f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            mp1 W = it2.U().W();
-            if (W == null || !W.b() || W.h()) {
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.h == null) {
+                this.h = new JSONObject();
             }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean c(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, view2)) == null) {
-            mp1 W = it2.U().W();
-            if (W != null && W.d(view2)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @SuppressLint({"SourceLockedOrientationActivity"})
-    public static boolean d(View view2) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, view2)) == null) {
-            mp1 W = it2.U().W();
-            if (W == null) {
-                return false;
-            }
-            if (W.h()) {
-                SwanAppActivity activity = it2.U().getActivity();
-                if (activity != null) {
-                    activity.setRequestedOrientation(0);
+            try {
+                this.h.put("error_code", this.k);
+            } catch (JSONException e) {
+                if (ze3.j) {
+                    e.printStackTrace();
                 }
-                W.g(false);
             }
-            return W.removeView(view2);
+            if (ze3.j) {
+                Log.d("SwanGameAdEvent", "SwanGameAdEvent: mExt=" + this.h + "\t " + Thread.currentThread().getId());
+            }
+            return super.f();
         }
-        return invokeL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

@@ -5,7 +5,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.google.android.gms.dynamic.IObjectWrapper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public abstract class zzy extends com.google.android.gms.internal.common.zzb implements zzz {
     public zzy() {
         super("com.google.android.gms.common.internal.ICertData");

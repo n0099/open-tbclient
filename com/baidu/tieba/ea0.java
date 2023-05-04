@@ -1,51 +1,25 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.Message;
+import android.os.Build;
+import android.widget.EditText;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
+import java.lang.reflect.Field;
 /* loaded from: classes4.dex */
-public class ea0 extends Handler {
+public class ea0 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public WeakReference<a> a;
 
-    /* loaded from: classes4.dex */
-    public interface a {
-        void a(Message message);
-    }
-
-    public ea0(a aVar) {
+    public static void a(EditText editText, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeLI(65536, null, editText, i) == null) && Build.VERSION.SDK_INT < 29) {
+            try {
+                Field declaredField = TextView.class.getDeclaredField("mCursorDrawableRes");
+                declaredField.setAccessible(true);
+                declaredField.set(editText, Integer.valueOf(i));
+            } catch (Exception unused) {
             }
-        }
-        this.a = new WeakReference<>(aVar);
-    }
-
-    @Override // android.os.Handler
-    public void handleMessage(Message message) {
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-            if (this.a == null || (aVar = this.a.get()) == null) {
-                return;
-            }
-            aVar.a(message);
-            super.handleMessage(message);
         }
     }
 }

@@ -1,34 +1,29 @@
 package com.baidu.tieba;
 
-import android.text.SpannableString;
-import androidx.annotation.ColorRes;
-import androidx.annotation.DrawableRes;
-import androidx.core.view.InputDeviceCompat;
+import android.hardware.Camera;
+import android.view.MotionEvent;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes3.dex */
-public final class c0a {
+public class c0a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SpannableString a;
-    public int b;
+    public int a;
+    public float b;
     public int c;
-    @ColorRes
-    public int d;
-    @DrawableRes
-    public int e;
-    public int f;
-    public String g;
+    public Camera d;
+    public i0a e;
 
-    public c0a() {
+    public c0a(Camera camera) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {camera};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -38,123 +33,104 @@ public final class c0a {
                 return;
             }
         }
-        this.a = new SpannableString("");
-        this.b = 1;
-        this.c = 3;
-        this.g = "";
+        this.a = 0;
+        this.d = camera;
     }
 
-    public final String a() {
+    public void c(i0a i0aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, i0aVar) == null) {
+            this.e = i0aVar;
+        }
+    }
+
+    public final void d(int i) {
+        Camera camera;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeI(1048579, this, i) != null) || (camera = this.d) == null) {
+            return;
+        }
+        Camera.Parameters parameters = camera.getParameters();
+        if (!parameters.isZoomSupported()) {
+            return;
+        }
+        parameters.setZoom(i);
+        this.d.setParameters(parameters);
+        this.c = i;
+    }
+
+    public final int a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public final int b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public final int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
+            Camera camera = this.d;
+            if (camera == null) {
+                return -1;
+            }
+            Camera.Parameters parameters = camera.getParameters();
+            if (!parameters.isZoomSupported()) {
+                return -1;
+            }
+            if (parameters.getMaxZoom() > 40) {
+                return 40;
+            }
+            return parameters.getMaxZoom();
         }
         return invokeV.intValue;
     }
 
-    public final int d() {
-        InterceptResult invokeV;
+    public boolean b(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
+            i0a i0aVar = this.e;
+            if (i0aVar != null && i0aVar.j()) {
+                return true;
+            }
+            int action = motionEvent.getAction() & 255;
+            int i = 0;
+            if (action != 0) {
+                if (action != 2) {
+                    if (action == 5) {
+                        this.a = 1;
+                        this.b = e(motionEvent);
+                    }
+                } else if (this.a != 1 || motionEvent.getPointerCount() < 2) {
+                    return true;
+                } else {
+                    float e = e(motionEvent);
+                    int i2 = (int) ((e - this.b) / 10.0f);
+                    if (i2 >= 1 || i2 <= -1) {
+                        int i3 = this.c + i2;
+                        if (i3 > a()) {
+                            i3 = a();
+                        }
+                        if (i3 >= 0) {
+                            i = i3;
+                        }
+                        d(i);
+                        this.b = e;
+                    }
+                }
+            } else {
+                this.a = 0;
+            }
+            return true;
         }
-        return invokeV.intValue;
+        return invokeL.booleanValue;
     }
 
-    public final int e() {
-        InterceptResult invokeV;
+    public final float e(MotionEvent motionEvent) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, motionEvent)) == null) {
+            if (motionEvent == null) {
+                return 0.0f;
+            }
+            double x = motionEvent.getX(0) - motionEvent.getX(1);
+            double y = motionEvent.getY(0) - motionEvent.getY(1);
+            return (float) Math.sqrt((x * x) + (y * y));
         }
-        return invokeV.intValue;
-    }
-
-    public final SpannableString f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.a;
-        }
-        return (SpannableString) invokeV.objValue;
-    }
-
-    public final int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public final void h(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
-            Intrinsics.checkNotNullParameter(str, "<set-?>");
-            this.g = str;
-        }
-    }
-
-    public final void i(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
-            this.d = i;
-        }
-    }
-
-    public final void j(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
-            this.e = i;
-        }
-    }
-
-    public final void k(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
-            this.c = i;
-        }
-    }
-
-    public final void l(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-            this.f = i;
-        }
-    }
-
-    public final void m(SpannableString spannableString) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, spannableString) == null) {
-            Intrinsics.checkNotNullParameter(spannableString, "<set-?>");
-            this.a = spannableString;
-        }
-    }
-
-    public final void n(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048589, this, i) == null) {
-            this.b = i;
-        }
+        return invokeL.floatValue;
     }
 }

@@ -1,30 +1,78 @@
 package com.baidu.tieba;
 
+import android.os.Build;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.java_websocket.framing.Framedata;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 /* loaded from: classes6.dex */
-public class t0b extends q0b {
-    public static /* synthetic */ Interceptable $ic;
+public abstract class t0b {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static final String a = "PBKDF2";
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public t0b() {
-        super(Framedata.Opcode.PING);
-        Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948128803, "Lcom/baidu/tieba/t0b;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
         if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Framedata.Opcode) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948128803, "Lcom/baidu/tieba/t0b;");
+        }
+    }
+
+    public static byte[] a(char[] cArr, byte[] bArr, int i, int i2, boolean z) {
+        SecretKeyFactory secretKeyFactory;
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{cArr, bArr, Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)})) == null) {
+            try {
+                PBEKeySpec pBEKeySpec = new PBEKeySpec(cArr, bArr, i, i2);
+                if (z) {
+                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA256");
+                } else {
+                    secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+                }
+                return secretKeyFactory.generateSecret(pBEKeySpec).getEncoded();
+            } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
+                String str = a;
+                b1b.c(str, "pbkdf exception : " + e.getMessage());
+                return new byte[0];
             }
         }
+        return (byte[]) invokeCommon.objValue;
+    }
+
+    public static byte[] b(char[] cArr, byte[] bArr, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65538, null, cArr, bArr, i, i2)) == null) {
+            return a(cArr, bArr, i, i2, false);
+        }
+        return (byte[]) invokeLLII.objValue;
+    }
+
+    public static byte[] c(char[] cArr, byte[] bArr, int i, int i2) {
+        InterceptResult invokeLLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLII = interceptable.invokeLLII(65539, null, cArr, bArr, i, i2)) == null) {
+            byte[] bArr2 = new byte[0];
+            if (Build.VERSION.SDK_INT < 26) {
+                b1b.c(a, "system version not high than 26");
+                return bArr2;
+            }
+            return a(cArr, bArr, i, i2, true);
+        }
+        return (byte[]) invokeLLII.objValue;
     }
 }

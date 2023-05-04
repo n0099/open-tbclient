@@ -4,7 +4,7 @@ import android.app.Service;
 import android.content.Context;
 import android.content.Intent;
 import android.text.TextUtils;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class ej implements ef {
     private void a(Service service, Intent intent) {
         if ("com.xiaomi.mipush.sdk.WAKEUP".equals(intent.getAction())) {

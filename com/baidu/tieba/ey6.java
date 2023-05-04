@@ -1,36 +1,42 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedEntrybarComponent;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public final class ey6 {
+public abstract class ey6 extends d17<iy6<?>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public iy6<?> c;
 
-    public static final void a(FeedEntrybarComponent feedEntrybarComponent, List<c07<? extends Object>> mutableList, vx6 vx6Var) {
+    public ey6() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedEntrybarComponent, mutableList, vx6Var) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            Intrinsics.checkNotNullParameter(mutableList, "mutableList");
-            mutableList.add(b(feedEntrybarComponent, vx6Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static final xv6 b(FeedEntrybarComponent feedEntrybarComponent, vx6 vx6Var) {
-        InterceptResult invokeLL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.s17
+    @NonNull
+    /* renamed from: c */
+    public iy6<?> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, feedEntrybarComponent, vx6Var)) == null) {
-            Intrinsics.checkNotNullParameter(feedEntrybarComponent, "<this>");
-            String text = feedEntrybarComponent.text;
-            Intrinsics.checkNotNullExpressionValue(text, "text");
-            String schema = feedEntrybarComponent.schema;
-            Intrinsics.checkNotNullExpressionValue(schema, "schema");
-            return new xv6(text, schema, null, vx6Var, 4, null);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (xv6) invokeLL.objValue;
+        return (iy6) invokeV.objValue;
     }
 }

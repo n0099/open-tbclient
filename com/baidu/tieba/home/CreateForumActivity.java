@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.core.view.NoNetworkView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.an5;
-import com.baidu.tieba.b95;
 import com.baidu.tieba.ii;
+import com.baidu.tieba.s95;
+import com.baidu.tieba.tn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -274,14 +274,14 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
                     this.a.addPostData("tid", "0");
                     String postNetData = this.a.postNetData();
                     if (this.a.getNetContext().getResponse().isRequestSuccess()) {
-                        b95 b95Var = new b95();
-                        b95Var.e(postNetData);
-                        if (b95Var.c() != null && b95Var.c().length() > 0) {
-                            this.c.d = b95Var.b();
+                        s95 s95Var = new s95();
+                        s95Var.e(postNetData);
+                        if (s95Var.c() != null && s95Var.c().length() > 0) {
+                            this.c.d = s95Var.b();
                             if (this.b) {
                                 return null;
                             }
-                            NetWork netWork2 = new NetWork(b95Var.c());
+                            NetWork netWork2 = new NetWork(s95Var.c());
                             this.a = netWork2;
                             return BitmapHelper.Bytes2Bitmap(netWork2.getNetData());
                         }
@@ -372,7 +372,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048582, this, bundle) == null) {
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0216);
+            setContentView(R.layout.obfuscated_res_0x7f0d0219);
             initData();
             K1();
             J1();
@@ -430,25 +430,25 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             this.a = new a(this);
-            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e33);
+            this.e = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f091e46);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.view_navigation_bar);
             this.f = navigationBar;
             navigationBar.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
             this.f.setTitleText(R.string.create_bar);
             this.g = (NoNetworkView) this.e.findViewById(R.id.view_no_network);
-            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f09092e);
+            EditText editText = (EditText) findViewById(R.id.obfuscated_res_0x7f090931);
             this.h = editText;
             editText.setText(this.m);
-            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090941);
+            EditText editText2 = (EditText) findViewById(R.id.obfuscated_res_0x7f090944);
             this.i = editText2;
             editText2.setFocusable(true);
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d59);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f091d69);
             this.k = textView;
             textView.setOnClickListener(this.a);
-            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090fed);
+            ImageView imageView = (ImageView) findViewById(R.id.obfuscated_res_0x7f090ffc);
             this.j = imageView;
             imageView.setOnClickListener(this.a);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f092305);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f09231d);
             this.l = textView2;
             textView2.setOnClickListener(this.a);
             findViewById(R.id.obfuscated_res_0x7f0903fe).setOnTouchListener(new b(this));
@@ -461,7 +461,7 @@ public class CreateForumActivity extends BaseActivity<CreateForumActivity> {
         if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             super.changeSkinType(i);
             getLayoutMode().k(this.e);
-            an5.a(getPageContext(), this.e);
+            tn5.a(getPageContext(), this.e);
             NavigationBar navigationBar = this.f;
             if (navigationBar != null) {
                 navigationBar.onChangeSkinType(getPageContext(), i);

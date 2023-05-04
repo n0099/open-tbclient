@@ -1,56 +1,142 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.MetaData;
 import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.frs.accelerator.PkgNameAndNodeInfoData;
-import com.baidu.tieba.frs.accelerator.TornadoNodeInfo;
+import com.baidu.tbadk.data.FeatureCardGod;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
+import tbclient.FrsPageUserExtend;
+import tbclient.User;
 /* loaded from: classes3.dex */
-public class c77 {
+public class c77 implements in {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId e;
     public transient /* synthetic */ FieldHolder $fh;
+    public int a;
+    public List<MetaData> b;
+    public String c;
+    public boolean d;
 
-    public static Map<Integer, PkgNameAndNodeInfoData> a(List<TornadoNodeInfo> list) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            if (!ListUtils.isEmpty(list)) {
-                HashMap hashMap = new HashMap();
-                int i = 0;
-                for (int i2 = 0; i2 < list.size(); i2++) {
-                    for (int i3 = 0; i3 < list.get(i2).getNodeInfoList().size(); i3++) {
-                        hashMap.put(Integer.valueOf(i), new PkgNameAndNodeInfoData(list.get(i2).getPackageName(), list.get(i2).getNodeInfoList().get(i3), list.get(i2).getGameId()));
-                        i++;
-                    }
-                }
-                return hashMap;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947627750, "Lcom/baidu/tieba/c77;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return null;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947627750, "Lcom/baidu/tieba/c77;");
+                return;
+            }
         }
-        return (Map) invokeL.objValue;
+        e = BdUniqueId.gen();
     }
 
-    public static String[] b(List<TornadoNodeInfo> list, int i) {
-        InterceptResult invokeLI;
+    public c77() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65537, null, list, i)) == null) {
-            if (!ListUtils.isEmpty(list) && i > 0) {
-                String[] strArr = new String[i];
-                int i2 = 0;
-                for (int i3 = 0; i3 < list.size(); i3++) {
-                    for (int i4 = 0; i4 < list.get(i3).getNodeInfoList().size(); i4++) {
-                        strArr[i2] = list.get(i3).getNodeInfoList().get(i4).getNodeName();
-                        i2++;
-                    }
-                }
-                return strArr;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
-            return null;
         }
-        return (String[]) invokeLI.objValue;
+        this.a = 0;
+        this.c = "本吧都在关注";
+        this.d = false;
+    }
+
+    public int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<MetaData> c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.b;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return e;
+        }
+        return (BdUniqueId) invokeV.objValue;
+    }
+
+    public void e(FeatureCardGod featureCardGod) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048580, this, featureCardGod) == null) && featureCardGod != null && !ListUtils.isEmpty(featureCardGod.sub_nodes)) {
+            this.a = featureCardGod.floor.intValue();
+            this.b = featureCardGod.sub_nodes;
+            this.c = featureCardGod.title;
+        }
+    }
+
+    public void g(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+            this.d = z;
+        }
+    }
+
+    public void f(FrsPageUserExtend frsPageUserExtend) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048581, this, frsPageUserExtend) == null) && frsPageUserExtend != null && !ListUtils.isEmpty(frsPageUserExtend.data)) {
+            List<User> list = frsPageUserExtend.data;
+            this.a = frsPageUserExtend.user_extend_storey.intValue();
+            this.b = new ArrayList(list.size());
+            for (int i = 0; i < list.size(); i++) {
+                User user = list.get(i);
+                if (user != null && user.id.longValue() != 0) {
+                    MetaData metaData = new MetaData();
+                    metaData.parserProtobuf(list.get(i));
+                    this.b.add(metaData);
+                }
+            }
+            this.c = frsPageUserExtend.tips;
+        }
     }
 }

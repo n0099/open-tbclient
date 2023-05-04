@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
+import android.content.Context;
 import android.text.TextUtils;
+import android.util.Log;
+import android.widget.FrameLayout;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.crius.constants.CriusAttrConstants;
-import com.baidu.searchbox.crius.constants.NativeConstants;
+import com.baidu.tbadk.mutiprocess.mission.MissionEvent;
+import com.baidu.tieba.ds2;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,54 +16,235 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class pw2 extends l32 {
+public class pw2 implements vu2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean X;
+    public static final boolean h;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean A;
-    public boolean B;
-    public boolean C;
-    public boolean D;
-    public boolean E;
-    public int F;
-    public boolean G;
-    public boolean H;
-    public boolean I;
-    public boolean J;
-    public String K;
-    public boolean L;
-    public boolean M;
-    public boolean N;
-    public boolean O;
-    public boolean P;
-    public boolean Q;
-    public boolean R;
-    public boolean S;
-    public String T;
-    public boolean U;
-    public String V;
-    public String W;
-    public String j;
-    public boolean k;
-    public String l;
-    public int m;
-    public int n;
-    public boolean o;
-    public boolean p;
-    public String q;
-    public int r;
-    public boolean s;
-    public String t;
-    public String u;
-    public boolean v;
-    public boolean w;
-    public boolean x;
-    public String y;
-    public String z;
+    public ds2 a;
+    public String b;
+    public rw2 c;
+    public boolean d;
+    public Context e;
+    public boolean f;
+    public qw2 g;
+
+    @Override // com.baidu.tieba.vu2
+    public Object i() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) ? this : invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu2
+    public void j(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class a implements ds2.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pw2 a;
+
+        public a(pw2 pw2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pw2Var;
+        }
+
+        @Override // com.baidu.tieba.ds2.a
+        public void b(ds2 ds2Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ds2Var) == null) && this.a.g != null) {
+                this.a.g.b(ds2Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements ds2.b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pw2 a;
+
+        public b(pw2 pw2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pw2Var;
+        }
+
+        @Override // com.baidu.tieba.ds2.b
+        public boolean f(ds2 ds2Var, int i, int i2) {
+            InterceptResult invokeLII;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, ds2Var, i, i2)) == null) {
+                if (this.a.g != null && this.a.g.f(ds2Var, i, i2)) {
+                    return true;
+                }
+                return false;
+            }
+            return invokeLII.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class c implements ds2.d {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pw2 a;
+
+        public c(pw2 pw2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pw2Var;
+        }
+
+        @Override // com.baidu.tieba.ds2.d
+        public void e(ds2 ds2Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ds2Var) == null) && this.a.g != null) {
+                this.a.g.e(ds2Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements ds2.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pw2 a;
+
+        public d(pw2 pw2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pw2Var;
+        }
+
+        @Override // com.baidu.tieba.ds2.e
+        public void a(ds2 ds2Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ds2Var) == null) && this.a.g != null) {
+                this.a.g.a(ds2Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e implements ds2.f {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pw2 a;
+
+        public e(pw2 pw2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pw2Var;
+        }
+
+        @Override // com.baidu.tieba.ds2.f
+        public void d(ds2 ds2Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ds2Var) == null) && this.a.g != null) {
+                this.a.g.d(ds2Var);
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class f implements ds2.c {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ pw2 a;
+
+        public f(pw2 pw2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {pw2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = pw2Var;
+        }
+
+        @Override // com.baidu.tieba.ds2.c
+        public void c(ds2 ds2Var) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, ds2Var) == null) && this.a.g != null) {
+                this.a.g.c(ds2Var);
+            }
+        }
+    }
 
     static {
         InterceptResult invokeClinit;
@@ -75,60 +259,85 @@ public class pw2 extends l32 {
                 return;
             }
         }
-        X = fo1.a;
+        h = ho1.a;
     }
 
-    public boolean i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.o;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.l32, com.baidu.tieba.ux2
-    public boolean isValid() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return !TextUtils.isEmpty(this.j);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean j() {
+    @Override // com.baidu.tieba.vu2
+    public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return TextUtils.equals("auto", this.T);
+            return this.c.c;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean k() {
+    @Override // com.baidu.tieba.vu2
+    public String c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.C;
+            return this.b;
         }
-        return invokeV.booleanValue;
+        return (String) invokeV.objValue;
     }
 
-    public boolean l() {
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && !TextUtils.isEmpty(this.b)) {
+            wu2.a(this);
+        }
+    }
+
+    public int e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.w;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            return h().getCurrentPosition();
         }
-        return invokeV.booleanValue;
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.vu2
+    public String f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            rw2 rw2Var = this.c;
+            if (rw2Var != null) {
+                return rw2Var.z;
+            }
+            return "";
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public rw2 g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            return this.c;
+        }
+        return (rw2) invokeV.objValue;
+    }
+
+    public void l() {
+        ds2 ds2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048588, this) == null) && (ds2Var = this.a) != null) {
+            ds2Var.f();
+        }
     }
 
     public boolean m() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.B;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
+            ds2 ds2Var = this.a;
+            if (ds2Var != null && ds2Var.isEnd()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
@@ -136,166 +345,236 @@ public class pw2 extends l32 {
     public boolean n() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.A;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
+            ds2 ds2Var = this.a;
+            if (ds2Var != null && ds2Var.isPlaying()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public boolean o() {
+    @Override // com.baidu.tieba.vu2
+    public boolean onBackPressed() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return !this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            x42.i("video", "onBackPressed");
+            ds2 ds2Var = this.a;
+            if (ds2Var != null && ds2Var.onBackPressed()) {
+                return true;
+            }
+            return false;
         }
         return invokeV.booleanValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public pw2() {
-        super("video", "componentId");
+    @Override // com.baidu.tieba.vu2
+    public void onDestroy() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
+            x42.i("video", MissionEvent.MESSAGE_DESTROY);
+            ds2 ds2Var = this.a;
+            if (ds2Var != null) {
+                ds2Var.stop();
+                this.a = null;
+            }
+            wu2.k(this);
+        }
+    }
+
+    public void p() {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || !B()) {
+            return;
+        }
+        h().pause();
+    }
+
+    public void s() {
+        ds2 ds2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048597, this) == null) && B() && !n() && this.f && (ds2Var = this.a) != null) {
+            ds2Var.resume();
+        }
+    }
+
+    public void y() {
+        ds2 ds2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048603, this) == null) && B() && (ds2Var = this.a) != null) {
+            ds2Var.seekTo(0);
+            this.a.pause();
+        }
+    }
+
+    public pw2(Context context, @NonNull rw2 rw2Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context, rw2Var};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr = newInitContext.callArgs;
-                super((String) objArr[0], (String) objArr[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.j = "";
-        this.k = false;
-        this.l = "";
-        this.m = 0;
-        this.n = 0;
-        this.o = false;
-        this.p = false;
-        this.q = "";
-        this.r = 0;
-        this.t = "";
-        this.u = "";
-        this.v = false;
-        this.w = false;
-        this.x = true;
-        this.y = "";
-        this.z = "";
-        this.D = false;
-        this.E = true;
-        this.F = -1;
-        this.G = true;
-        this.H = true;
-        this.I = true;
-        this.J = true;
-        this.K = "";
-        this.L = true;
-        this.M = true;
-        this.N = false;
-        this.O = false;
-        this.P = true;
-        this.Q = false;
-        this.R = true;
-        this.S = false;
-        this.T = "";
-        this.U = true;
-        this.V = "";
-        this.W = "";
+        this.f = true;
+        this.e = context;
+        this.c = rw2Var;
+        this.b = rw2Var.j;
+        h();
+        d();
     }
 
-    public static pw2 h(JSONObject jSONObject, @NonNull pw2 pw2Var) {
-        InterceptResult invokeLL;
+    public void A(rw2 rw2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, jSONObject, pw2Var)) == null) {
-            pw2 pw2Var2 = new pw2();
-            if (jSONObject != null) {
-                pw2Var2.e(jSONObject, pw2Var);
-                pw2Var2.j = jSONObject.optString("componentId", pw2Var.j);
-                pw2Var2.o = jSONObject.optBoolean("autoplay", pw2Var.o);
-                pw2Var2.k = jSONObject.optBoolean("muted", pw2Var.k);
-                pw2Var2.q = jSONObject.optString("objectFit", pw2Var.q);
-                pw2Var2.m = jSONObject.optInt("initialTime", pw2Var.m);
-                pw2Var2.l = jSONObject.optString(NativeConstants.POSTER, pw2Var.l);
-                pw2Var2.r = jSONObject.optInt(CriusAttrConstants.POSITION, pw2Var.r);
-                pw2Var2.s = jSONObject.optBoolean("fullScreen", pw2Var.s);
-                pw2Var2.t = p(jSONObject);
-                pw2Var2.u = jSONObject.optString("danmuList", pw2Var.u);
-                pw2Var2.v = jSONObject.optBoolean("enableDanmu", pw2Var.v);
-                pw2Var2.w = jSONObject.optBoolean("danmuBtn", pw2Var.w);
-                pw2Var2.p = jSONObject.optBoolean("loop", pw2Var.p);
-                pw2Var2.x = jSONObject.optBoolean("controls", pw2Var.x);
-                pw2Var2.y = q(jSONObject.optString("src", pw2Var.y));
-                pw2Var2.I = !df3.E(jSONObject.optString("src", pw2Var.y));
-                pw2Var2.A = jSONObject.optBoolean("showPlayBtn", pw2Var.A);
-                pw2Var2.B = jSONObject.optBoolean("showMuteBtn", pw2Var.B);
-                pw2Var2.C = jSONObject.optBoolean("showCenterPlayBtn", pw2Var.C);
-                pw2Var2.D = jSONObject.optBoolean("pageGesture", pw2Var.D);
-                pw2Var2.E = jSONObject.optBoolean("showProgress", pw2Var.E);
-                pw2Var2.F = jSONObject.optInt(HiAnalyticsConstant.HaKey.BI_KEY_DIRECTION, pw2Var.F);
-                pw2Var2.G = jSONObject.optBoolean("showFullscreenBtn", pw2Var.G);
-                pw2Var2.H = jSONObject.optBoolean("enableProgressGesture", pw2Var.H);
-                pw2Var2.z = jSONObject.optString("componentId", pw2Var.z);
-                pw2Var2.J = jSONObject.optBoolean("showNoWifiTip", pw2Var.J);
-                pw2Var2.K = jSONObject.optString("title", pw2Var.K);
-                pw2Var2.L = jSONObject.optBoolean("enablePlayGesture", pw2Var.L);
-                pw2Var2.M = jSONObject.optBoolean("vslideGestureInFullscreen", pw2Var.M);
-                pw2Var2.N = jSONObject.optBoolean("customEnterExitFullScreen", pw2Var.N);
-                pw2Var2.P = jSONObject.optBoolean("showRateBtn", pw2Var.P);
-                pw2Var2.Q = jSONObject.optBoolean("isFullscreen", pw2Var.Q);
-                pw2Var2.O = jSONObject.optBoolean("isAlwaysOnlyShowTopView", pw2Var.O);
-                pw2Var2.R = jSONObject.optBoolean("showVslideBtnInFullscreen", pw2Var.R);
-                pw2Var2.S = jSONObject.optBoolean("silentPlay", pw2Var.S);
-                pw2Var2.T = jSONObject.optString("preload", pw2Var.T);
-                pw2Var2.U = jSONObject.optBoolean("showSilentPlayMutedIcon", pw2Var.U);
-                pw2Var2.V = jSONObject.optString("silentPlayTips", pw2Var.V);
-                pw2Var2.W = jSONObject.optString("rate", pw2Var.W);
+        if (interceptable == null || interceptable.invokeL(1048576, this, rw2Var) == null) {
+            if (h) {
+                Log.e("SwanAppVideoPlayer", "update 接口");
             }
-            return pw2Var2;
+            ds2 ds2Var = this.a;
+            if (ds2Var != null) {
+                ds2Var.h(rw2Var, true);
+            }
+            this.c = rw2Var;
         }
-        return (pw2) invokeLL.objValue;
     }
 
-    public static String p(JSONObject jSONObject) {
+    public void o(rw2 rw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048591, this, rw2Var) == null) {
+            x42.i("video", "Open Player " + rw2Var.j);
+            ds2 ds2Var = this.a;
+            if (ds2Var != null) {
+                ds2Var.o(rw2Var);
+            }
+            this.c = rw2Var;
+        }
+    }
+
+    public int q(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                jSONObject2.putOpt("text", jSONObject.optString("text"));
-                jSONObject2.putOpt("color", jSONObject.optString("color"));
-                jSONObject2.putOpt("componentId", jSONObject.optString("componentId"));
-            } catch (JSONException e) {
-                if (X) {
-                    e.printStackTrace();
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048595, this, str)) == null) {
+            ds2 ds2Var = this.a;
+            if (ds2Var != null) {
+                return ds2Var.q(str);
             }
-            return jSONObject2.toString();
+            return 1001;
         }
-        return (String) invokeL.objValue;
+        return invokeL.intValue;
     }
 
-    public static String q(String str) {
-        InterceptResult invokeL;
+    public void r(String str) {
+        ds2 ds2Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (df3.E(str) && v73.M() != null) {
-                return df3.H(str, v73.M());
-            }
-            return str;
+        if ((interceptable == null || interceptable.invokeL(1048596, this, str) == null) && (ds2Var = this.a) != null) {
+            ds2Var.i(str);
         }
-        return (String) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.l32
-    public String toString() {
+    public void t(int i) {
+        ds2 ds2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeI(1048598, this, i) == null) && B() && (ds2Var = this.a) != null) {
+            ds2Var.seekTo(i);
+        }
+    }
+
+    public void v(qw2 qw2Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048600, this, qw2Var) == null) {
+            this.g = qw2Var;
+        }
+    }
+
+    public void w(boolean z) {
+        ds2 ds2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZ(1048601, this, z) == null) && (ds2Var = this.a) != null) {
+            ds2Var.d(z);
+        }
+    }
+
+    public void x(FrameLayout frameLayout) {
+        ds2 ds2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048602, this, frameLayout) == null) && (ds2Var = this.a) != null) {
+            ds2Var.a(frameLayout);
+        }
+    }
+
+    public void z(rw2 rw2Var) {
+        ds2 ds2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048604, this, rw2Var) == null) && (ds2Var = this.a) != null) {
+            ds2Var.n(rw2Var);
+        }
+    }
+
+    public final boolean B() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            rw2 rw2Var = this.c;
+            if (rw2Var != null && !TextUtils.isEmpty(rw2Var.y) && !TextUtils.isEmpty(this.b) && !TextUtils.isEmpty(this.c.b)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ds2 h() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "VideoPlayerParams{mPlayerId='" + this.j + "', mMute=" + this.k + ", mPoster='" + this.l + "', mInitialTime=" + this.m + ", duration=" + this.n + ", mAutoPlay=" + this.o + ", mLoop=" + this.p + ", mObjectFit='" + this.q + "', mPos=" + this.r + ", mFullScreen=" + this.s + ", mDanmu='" + this.t + "', mDanmuList='" + this.u + "', mEnableDanmu=" + this.v + ", mShowDanmuBtn=" + this.w + ", mShowControlPanel=" + this.x + ", mSrc='" + this.y + "', mSanId='" + this.z + "', mShowPlayBtn=" + this.A + ", mShowMuteBtn=" + this.B + ", mShowCenterPlayBtn=" + this.C + ", mPageGesture=" + this.D + ", mShowProgress=" + this.E + ", mDirection=" + this.F + ", mShowFullscreenBtn=" + this.G + ", mEnableProgressGesture=" + this.H + ", mIsRemoteFile=" + this.I + '}';
+            if (this.a == null) {
+                x42.i("video", "create player");
+                ds2 C0 = er2.C0();
+                C0.e(this.e, this.c);
+                this.a = C0;
+                C0.g(new a(this));
+                this.a.p(new b(this));
+                this.a.m(new c(this));
+                this.a.j(new d(this));
+                this.a.k(new e(this));
+                this.a.r(new f(this));
+            }
+            return this.a;
         }
-        return (String) invokeV.objValue;
+        return (ds2) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.vu2
+    public void k(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048587, this, z) == null) {
+            this.f = z;
+            if (z) {
+                if (this.d) {
+                    h().resume();
+                }
+                h().b();
+            } else if (this.a != null) {
+                this.d = h().isPlaying();
+                h().pause();
+                h().c();
+            }
+        }
+    }
+
+    public void u(boolean z, int i) {
+        ds2 ds2Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeCommon(1048599, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i)}) == null) && (ds2Var = this.a) != null) {
+            ds2Var.l(z, i);
+        }
     }
 }

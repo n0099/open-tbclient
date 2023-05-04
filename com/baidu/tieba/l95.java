@@ -1,155 +1,132 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tieba.k95;
+import android.text.TextUtils;
+import androidx.collection.ArrayMap;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.ref.WeakReference;
 import java.util.Map;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class l95 {
     public static /* synthetic */ Interceptable $ic;
-    public static boolean a;
-    public static WeakReference<k95> b;
+    public static final l95 d;
     public transient /* synthetic */ FieldHolder $fh;
+    public final boolean a;
+    public Map<String, m95> b;
+    public int c;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k95 a;
-
-        public a(k95 k95Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947897729, "Lcom/baidu/tieba/l95;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k95Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = k95Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.A();
-                boolean unused = l95.a = true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947897729, "Lcom/baidu/tieba/l95;");
+                return;
             }
         }
+        d = new l95(false);
     }
 
-    /* loaded from: classes5.dex */
-    public static class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ k95 a;
-
-        public b(k95 k95Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {k95Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = k95Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.t();
-            }
-        }
-    }
-
-    public static k95 b() {
+    public int b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            WeakReference<k95> weakReference = b;
-            if (weakReference != null) {
-                return weakReference.get();
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.c;
         }
-        return (k95) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public static boolean c() {
+    public boolean d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a;
         }
         return invokeV.booleanValue;
     }
 
-    public static void e() {
+    public l95(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            q45.m().A("key_live_remind_float_view", System.currentTimeMillis());
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
         }
+        this.a = z;
     }
 
-    public static k95 d(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2, k95.h hVar) {
-        InterceptResult invokeCommon;
+    public static l95 e(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65539, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2), hVar})) == null) {
-            k95 k95Var = new k95(tbPageContext, map);
-            if (hVar != null) {
-                k95Var.x(hVar);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, jSONObject)) == null) {
+            if (jSONObject == null) {
+                return d;
             }
-            if (view2 != null) {
-                k95Var.y(view2);
-            }
-            if (j <= 0) {
-                k95Var.A();
-                a = true;
-            } else {
-                jg.a().postDelayed(new a(k95Var), j);
-            }
-            if (j2 > 0) {
-                jg.a().postDelayed(new b(k95Var), j2);
-            }
-            b = new WeakReference<>(k95Var);
-            return k95Var;
+            JSONObject optJSONObject = jSONObject.optJSONObject("push_strategy");
+            l95 l95Var = new l95(true);
+            l95Var.a(optJSONObject);
+            return l95Var;
         }
-        return (k95) invokeCommon.objValue;
+        return (l95) invokeL.objValue;
     }
 
-    public static k95 f(View view2, TbPageContext<?> tbPageContext, Map<String, Object> map, long j, long j2) {
-        InterceptResult invokeCommon;
+    public m95 c(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{view2, tbPageContext, map, Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            if (tbPageContext != null && !MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW && !ma5.e()) {
-                return d(view2, tbPageContext, map, j, j2, null);
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            if (this.b != null && !TextUtils.isEmpty(str)) {
+                return this.b.get(str);
             }
             return null;
         }
-        return (k95) invokeCommon.objValue;
+        return (m95) invokeL.objValue;
+    }
+
+    public final void a(JSONObject jSONObject) {
+        int length;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        JSONArray optJSONArray = jSONObject.optJSONArray("scene");
+        if (optJSONArray == null) {
+            length = 0;
+        } else {
+            length = optJSONArray.length();
+        }
+        this.b = new ArrayMap(length);
+        for (int i = 0; i < length; i++) {
+            JSONObject optJSONObject = optJSONArray.optJSONObject(i);
+            if (optJSONObject != null) {
+                m95 d2 = m95.d(optJSONObject);
+                if (!TextUtils.isEmpty(d2.a())) {
+                    this.b.put(d2.a(), d2);
+                }
+            }
+        }
+        try {
+            this.c = Integer.parseInt(jSONObject.optString("freq"));
+        } catch (Exception unused) {
+            this.c = 0;
+        }
     }
 }

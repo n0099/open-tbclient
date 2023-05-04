@@ -1,87 +1,88 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.GetTagList.DataRes;
+import tbclient.GetTagList.ResponseTagInfo;
 /* loaded from: classes5.dex */
 public class mf8 {
     public static /* synthetic */ Interceptable $ic;
-    public static final HashMap<String, mf8> f;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
-    public String b;
-    public String c;
-    public int d;
-    public String e;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947970858, "Lcom/baidu/tieba/mf8;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947970858, "Lcom/baidu/tieba/mf8;");
-                return;
-            }
-        }
-        f = new HashMap<>();
-    }
+    public List<lf8> a;
+    public List<lf8> b;
+    public List<Integer> c;
 
     public mf8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
-        this.b = "";
     }
 
-    public static mf8 a(long j, String str) {
-        InterceptResult invokeJL;
+    public List<lf8> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJL = interceptable.invokeJL(65538, null, j, str)) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(j);
-            sb.append("_");
-            if (TextUtils.isEmpty(str)) {
-                str = "";
-            }
-            sb.append(str);
-            return f.get(sb.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.b;
         }
-        return (mf8) invokeJL.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public void b() {
-        String str;
+    public List<lf8> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(this.a);
-            sb.append("_");
-            if (TextUtils.isEmpty(this.b)) {
-                str = "";
-            } else {
-                str = this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void c(DataRes dataRes) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, dataRes) != null) || dataRes == null) {
+            return;
+        }
+        if (!ListUtils.isEmpty(dataRes.sex_taglist)) {
+            ArrayList arrayList = new ArrayList();
+            this.a = arrayList;
+            d(arrayList, dataRes.sex_taglist);
+        }
+        if (!ListUtils.isEmpty(dataRes.taglist)) {
+            this.b = new ArrayList();
+            this.c = new ArrayList();
+            d(this.b, dataRes.taglist);
+        }
+    }
+
+    public final void d(List<lf8> list, List<ResponseTagInfo> list2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048579, this, list, list2) == null) && list != null && list2 != null) {
+            for (ResponseTagInfo responseTagInfo : list2) {
+                if (responseTagInfo != null && !StringUtils.isNull(responseTagInfo.tag_name)) {
+                    lf8 lf8Var = new lf8();
+                    lf8Var.a(responseTagInfo);
+                    list.add(lf8Var);
+                    List<Integer> list3 = this.c;
+                    if (list3 != null && lf8Var.c) {
+                        list3.add(Integer.valueOf(lf8Var.a));
+                    }
+                }
             }
-            sb.append(str);
-            f.put(sb.toString(), this);
         }
     }
 }

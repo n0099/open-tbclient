@@ -4,46 +4,31 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.animation.Animation;
-import android.view.animation.AnimationUtils;
 import android.widget.ImageView;
-import android.widget.TextView;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.StringHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.tbselector.TBSelector;
+import com.baidu.tieba.newinterest.viewholder.InterestedForumStyleAForumViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ExcPbPage.ExcellentPbThreadInfo;
 /* loaded from: classes4.dex */
-public class ct8 {
+public class ct8 extends vm<lt8, InterestedForumStyleAForumViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Context a;
-    public View b;
-    public TextView c;
-    public ImageView d;
-    public TextView e;
-    public TextView f;
-    public c g;
-    public boolean h;
-    public long i;
-    public Animation j;
-    public boolean k;
+    public tt8 a;
 
     /* loaded from: classes4.dex */
-    public interface c {
-        void a(long j, String str);
-
-        void b(boolean z);
-    }
-
-    /* loaded from: classes4.dex */
-    public class a implements View.OnClickListener {
+    public class a implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ ct8 a;
@@ -66,186 +51,152 @@ public class ct8 {
             this.a = ct8Var;
         }
 
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
+        @Override // com.baidu.tieba.sn
+        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, view2) != null) || this.a.k || !ViewHelper.checkUpIsLogin(this.a.a)) {
+            if ((interceptable != null && interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) != null) || !(inVar instanceof lt8)) {
                 return;
             }
-            this.a.k = true;
-            this.a.d.startAnimation(this.a.g());
-            if (this.a.g != null) {
-                this.a.g.b(this.a.h);
+            lt8 lt8Var = (lt8) inVar;
+            lt8Var.q(!lt8Var.h());
+            InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder = (InterestedForumStyleAForumViewHolder) view2.getTag();
+            if (interestedForumStyleAForumViewHolder != null) {
+                this.a.D(interestedForumStyleAForumViewHolder.h, lt8Var.h());
             }
+            if (this.a.a != null) {
+                this.a.a.a();
+            }
+            if (!lt8Var.h()) {
+                return;
+            }
+            this.a.x(lt8Var);
         }
     }
 
-    /* loaded from: classes4.dex */
-    public class b implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ExcellentPbThreadInfo a;
-        public final /* synthetic */ ct8 b;
-
-        public b(ct8 ct8Var, ExcellentPbThreadInfo excellentPbThreadInfo) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ct8Var, excellentPbThreadInfo};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ct8Var;
-            this.a = excellentPbThreadInfo;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.b.g != null) {
-                c cVar = this.b.g;
-                long longValue = this.a.forum.forum_id.longValue();
-                cVar.a(longValue, this.a.thread_id + "");
-            }
-        }
-    }
-
-    public ct8(Context context) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public ct8(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.i = 0L;
-        this.k = false;
-        this.a = context;
-        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01ec, (ViewGroup) null);
-        this.b = inflate;
-        this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0906d9);
-        this.d = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f0906db);
-        this.e = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0906dc);
-        this.f = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f0906da);
+        this.mContext = context;
+        this.mType = bdUniqueId;
+        setOnAdapterItemClickListener(new a(this));
     }
 
-    public void i(c cVar) {
+    public void B(tt8 tt8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, cVar) == null) {
-            this.g = cVar;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tt8Var) == null) {
+            this.a = tt8Var;
         }
     }
 
-    public void j(int i) {
-        TextView textView;
+    public final void x(lt8 lt8Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048579, this, i) == null) && (textView = this.c) != null) {
-            textView.setText(i);
+        if (interceptable == null || interceptable.invokeL(1048582, this, lt8Var) == null) {
+            StatisticItem statisticItem = new StatisticItem("c13682");
+            statisticItem.param("obj_type", 2);
+            statisticItem.param("obj_locate", 4);
+            statisticItem.param("fid", lt8Var.c());
+            TiebaStatic.log(statisticItem);
         }
     }
 
-    public void k(View.OnClickListener onClickListener) {
-        TextView textView;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: y */
+    public InterestedForumStyleAForumViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) && (textView = this.f) != null) {
-            textView.setOnClickListener(onClickListener);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, viewGroup)) == null) {
+            return new InterestedForumStyleAForumViewHolder(LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d042b, viewGroup, false));
         }
+        return (InterestedForumStyleAForumViewHolder) invokeL.objValue;
     }
 
-    public void m(boolean z) {
+    public final void D(ImageView imageView, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
-            o(z);
+        if (interceptable == null || interceptable.invokeLZ(1048579, this, imageView, z) == null) {
             if (z) {
-                this.i++;
+                SkinManager.setImageResource(imageView, R.drawable.icon_interest_checked);
             } else {
-                this.i--;
+                SkinManager.setImageResource(imageView, R.drawable.icon_interest_unchecked);
             }
-            l(this.i);
         }
     }
 
-    public final void o(boolean z) {
+    public final void A(InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder, lt8 lt8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(InputDeviceCompat.SOURCE_TOUCHPAD, this, z) == null) {
-            this.h = z;
-            if (z) {
-                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f08042f);
+        if (interceptable == null || interceptable.invokeLL(1048576, this, interestedForumStyleAForumViewHolder, lt8Var) == null) {
+            interestedForumStyleAForumViewHolder.b.setShowOval(true);
+            interestedForumStyleAForumViewHolder.b.setAutoChangeStyle(true);
+            interestedForumStyleAForumViewHolder.b.setStrokeWith(ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds1));
+            interestedForumStyleAForumViewHolder.b.setStrokeColorResId(R.color.CAM_X0401);
+            interestedForumStyleAForumViewHolder.b.setScaleType(ImageView.ScaleType.CENTER_CROP);
+            interestedForumStyleAForumViewHolder.b.setPlaceHolder(1);
+            interestedForumStyleAForumViewHolder.b.N(lt8Var.a(), 10, false);
+            interestedForumStyleAForumViewHolder.c.setText(lt8Var.d() + this.mContext.getString(R.string.obfuscated_res_0x7f0f06c2));
+            if (!StringUtils.isNull(lt8Var.f())) {
+                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f0a0b, lt8Var.f()));
             } else {
-                SkinManager.setImageResource(this.d, R.drawable.obfuscated_res_0x7f08042e);
+                interestedForumStyleAForumViewHolder.d.setText(this.mContext.getString(R.string.obfuscated_res_0x7f0f0a0f));
             }
-            this.d.setVisibility(0);
+            interestedForumStyleAForumViewHolder.e.setText(String.format(this.mContext.getString(R.string.obfuscated_res_0x7f0f0459), StringHelper.numberUniformFormatExtraWithRoundInt(lt8Var.e())));
+            interestedForumStyleAForumViewHolder.f.setText(String.format(this.mContext.getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtraWithRoundInt(lt8Var.g())));
+            D(interestedForumStyleAForumViewHolder.h, lt8Var.h());
         }
     }
 
-    public final Animation g() {
-        InterceptResult invokeV;
+    public final void C(InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.j == null) {
-                this.j = AnimationUtils.loadAnimation(this.a, R.anim.praise_animation_scale3);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, interestedForumStyleAForumViewHolder) == null) {
+            g35 d = g35.d(interestedForumStyleAForumViewHolder.c);
+            d.w(R.color.CAM_X0105);
+            d.B(R.dimen.T_X06);
+            g35 d2 = g35.d(interestedForumStyleAForumViewHolder.d);
+            d2.w(R.color.CAM_X0109);
+            d2.B(R.dimen.T_X09);
+            g35 d3 = g35.d(interestedForumStyleAForumViewHolder.e);
+            d3.w(R.color.CAM_X0109);
+            d3.B(R.dimen.T_X09);
+            g35 d4 = g35.d(interestedForumStyleAForumViewHolder.f);
+            d4.w(R.color.CAM_X0109);
+            d4.B(R.dimen.T_X09);
+            TBSelector.setViewBackgroundColorWithPressedState(interestedForumStyleAForumViewHolder.a, R.color.CAM_X0205, R.color.CAM_X0204);
+        }
+    }
+
+    /* JADX DEBUG: Method arguments types fixed to match base method, original types: [int, android.view.View, android.view.ViewGroup, java.lang.Object, com.baidu.adp.widget.ListView.TypeAdapter$ViewHolder] */
+    @Override // com.baidu.tieba.vm
+    public /* bridge */ /* synthetic */ View onFillViewHolder(int i, View view2, ViewGroup viewGroup, lt8 lt8Var, InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
+        z(i, view2, viewGroup, lt8Var, interestedForumStyleAForumViewHolder);
+        return view2;
+    }
+
+    public View z(int i, View view2, ViewGroup viewGroup, lt8 lt8Var, InterestedForumStyleAForumViewHolder interestedForumStyleAForumViewHolder) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), view2, viewGroup, lt8Var, interestedForumStyleAForumViewHolder})) == null) {
+            if (lt8Var == null) {
+                return view2;
             }
-            return this.j;
+            C(interestedForumStyleAForumViewHolder);
+            A(interestedForumStyleAForumViewHolder, lt8Var);
+            return view2;
         }
-        return (Animation) invokeV.objValue;
-    }
-
-    public View h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            this.k = false;
-        }
-    }
-
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeJ(1048581, this, j) != null) || j < 0) {
-            return;
-        }
-        this.i = j;
-        TextView textView = this.e;
-        if (textView != null) {
-            textView.setVisibility(0);
-            this.e.setText(this.a.getString(R.string.obfuscated_res_0x7f0f0404, StringHelper.numFormatOver10000(j)));
-        }
-        TextView textView2 = this.e;
-        if (textView2 != null && textView2.getVisibility() == 8) {
-            this.e.setVisibility(0);
-        }
-    }
-
-    public void update(ExcellentPbThreadInfo excellentPbThreadInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048585, this, excellentPbThreadInfo) != null) || excellentPbThreadInfo == null) {
-            return;
-        }
-        j(R.string.obfuscated_res_0x7f0f0400);
-        l(excellentPbThreadInfo.zan.zansum.longValue());
-        o(excellentPbThreadInfo.zan.is_zan.booleanValue());
-        this.d.setOnClickListener(new a(this));
-        k(new b(this, excellentPbThreadInfo));
+        return (View) invokeCommon.objValue;
     }
 }

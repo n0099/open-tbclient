@@ -23,13 +23,13 @@ import com.baidu.tbadk.core.voice.VoiceManager;
 import com.baidu.tbadk.widget.richText.TbRichTextVoiceInfo;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.io9;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.ui5;
+import com.baidu.tieba.nj5;
 import com.baidu.tieba.view.AudioAnimationView;
+import com.baidu.tieba.xr9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -168,10 +168,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
             Context context = getContext();
             if (context instanceof VoiceManager.j) {
-                return ((VoiceManager.j) context).x0();
+                return ((VoiceManager.j) context).y0();
             }
             if ((g9.a(getContext()) instanceof a9) && (tbPageContext = (TbPageContext) g9.a(getContext())) != null && (tbPageContext.getOrignalPage() instanceof VoiceManager.j)) {
-                return ((VoiceManager.j) tbPageContext.getOrignalPage()).x0();
+                return ((VoiceManager.j) tbPageContext.getOrignalPage()).y0();
             }
             return this.k;
         }
@@ -198,7 +198,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             }
         }
         this.h = 0;
-        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, io9.Voice_play_type);
+        TypedArray obtainStyledAttributes = context.obtainStyledAttributes(attributeSet, xr9.Voice_play_type);
         obtainStyledAttributes.getInteger(0, 0);
         obtainStyledAttributes.recycle();
         h(context);
@@ -398,7 +398,7 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
             d();
             SkinManager.setViewTextColor(this.d, (int) R.color.CAM_X0302);
-            r25 d = r25.d(this.b);
+            g35 d = g35.d(this.b);
             d.o(R.string.J_X05);
             d.m(R.dimen.L_X03);
             d.l(R.color.CAM_X0302);
@@ -479,9 +479,9 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             this.f.setCertainColumnCount(getAudioVoiceColumnCount());
             this.f.f();
             this.f.setVisibility(4);
-            if (ui5.b().d()) {
-                ui5.b().n(false);
-                ui5.b().l(false);
+            if (nj5.b().d()) {
+                nj5.b().n(false);
+                nj5.b().l(false);
             }
             f(false);
             if (i == 1) {
@@ -533,10 +533,10 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
             RelativeLayout relativeLayout = (RelativeLayout) findViewById(R.id.voice_image_content);
             this.b = relativeLayout;
             relativeLayout.setOnClickListener(this);
-            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b83);
-            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b74);
+            this.c = (ImageView) findViewById(R.id.obfuscated_res_0x7f091b92);
+            this.d = (TextView) findViewById(R.id.obfuscated_res_0x7f091b83);
             this.f = (AudioAnimationView) findViewById(R.id.audioAnimationView);
-            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091c37);
+            ProgressBar progressBar = (ProgressBar) findViewById(R.id.obfuscated_res_0x7f091c47);
             this.e = progressBar;
             if (progressBar != null) {
                 progressBar.setVisibility(4);
@@ -570,19 +570,19 @@ public class PlayVoiceBntNew extends RelativeLayout implements VoiceManager.i, V
         if (interceptable == null || interceptable.invokeL(1048603, this, obj) == null) {
             if (obj != null && (obj instanceof TbRichTextVoiceInfo)) {
                 TbRichTextVoiceInfo tbRichTextVoiceInfo = (TbRichTextVoiceInfo) obj;
-                VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) tbRichTextVoiceInfo.S();
+                VoiceData.VoiceModel voiceModel = (VoiceData.VoiceModel) tbRichTextVoiceInfo.X();
                 if (voiceModel == null) {
                     voiceModel = new VoiceData.VoiceModel();
-                    if (tbRichTextVoiceInfo.Q() == 0) {
+                    if (tbRichTextVoiceInfo.V() == 0) {
                         voiceModel.from = TbadkCoreStatisticKey.PB_VOICE_PLAY;
                     } else {
                         voiceModel.from = TbadkCoreStatisticKey.FLOOR_VOICE_PLAY;
                     }
-                    voiceModel.setVoiceId(tbRichTextVoiceInfo.R());
+                    voiceModel.setVoiceId(tbRichTextVoiceInfo.W());
                     voiceModel.setDuration(tbRichTextVoiceInfo.getDuration());
-                    tbRichTextVoiceInfo.T(voiceModel);
+                    tbRichTextVoiceInfo.Y(voiceModel);
                 }
-                tbRichTextVoiceInfo.Q();
+                tbRichTextVoiceInfo.V();
                 setVoiceModel(voiceModel);
                 d();
                 obj = voiceModel;

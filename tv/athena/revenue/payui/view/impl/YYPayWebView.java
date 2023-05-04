@@ -24,13 +24,13 @@ import android.widget.LinearLayout;
 import androidx.annotation.Nullable;
 import com.baidu.tbadk.core.data.SmallTailInfo;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cbb;
-import com.baidu.tieba.dbb;
-import com.baidu.tieba.h7b;
-import com.baidu.tieba.iab;
-import com.baidu.tieba.k9b;
-import com.baidu.tieba.kab;
-import com.baidu.tieba.l9b;
+import com.baidu.tieba.afb;
+import com.baidu.tieba.bfb;
+import com.baidu.tieba.fbb;
+import com.baidu.tieba.geb;
+import com.baidu.tieba.idb;
+import com.baidu.tieba.ieb;
+import com.baidu.tieba.jdb;
 import com.yy.mobile.framework.revenuesdk.baseapi.Env;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.paybaseapi.BuildConfig;
@@ -40,7 +40,7 @@ import tv.athena.revenue.payui.model.NativeOperationParams;
 import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.webview.UrlPageParams;
 /* loaded from: classes9.dex */
-public class YYPayWebView extends LinearLayout implements kab, dbb.h {
+public class YYPayWebView extends LinearLayout implements ieb, bfb.h {
     public c a;
     public WebView b;
     public boolean c;
@@ -51,29 +51,29 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
     public interface c {
         void b(NativeOperationParams nativeOperationParams);
 
-        void c(l9b l9bVar, k9b k9bVar);
+        void c(jdb jdbVar, idb idbVar);
 
         void d(WebView webView, String str);
 
-        void e(k9b k9bVar);
+        void e(idb idbVar);
 
         String getToken();
     }
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     public void attachWindow(Window window) {
     }
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     public void refreshView() {
     }
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -85,13 +85,13 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
         @Override // android.webkit.WebViewClient
         public void onPageFinished(WebView webView, String str) {
             super.onPageFinished(webView, str);
-            RLog.info("YYPayWebView", "onPageFinished: url:" + iab.a(str));
+            RLog.info("YYPayWebView", "onPageFinished: url:" + geb.a(str));
         }
 
         @Override // android.webkit.WebViewClient
         public void onPageStarted(WebView webView, String str, Bitmap bitmap) {
             super.onPageStarted(webView, str, bitmap);
-            RLog.info("YYPayWebView", "onPageStarted: url:" + iab.a(str));
+            RLog.info("YYPayWebView", "onPageStarted: url:" + geb.a(str));
         }
 
         @Override // android.webkit.WebViewClient
@@ -173,7 +173,7 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
         this(context, null);
     }
 
-    @Override // com.baidu.tieba.dbb.h
+    @Override // com.baidu.tieba.bfb.h
     public void b(NativeOperationParams nativeOperationParams) {
         if (nativeOperationParams == null) {
             RLog.error("YYPayWebView", "onNativeOperation params = null", new Object[0]);
@@ -186,7 +186,7 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
         }
     }
 
-    @Override // com.baidu.tieba.dbb.h
+    @Override // com.baidu.tieba.bfb.h
     public void c(UrlPageParams urlPageParams) {
         if (urlPageParams == null) {
             RLog.error("YYPayWebView", "onUpdateTopUi pageParams is null", new Object[0]);
@@ -195,12 +195,12 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
         RLog.debug("YYPayWebView", "onUpdateTopUi pageParams: %s", urlPageParams);
         c cVar = this.a;
         if (cVar != null) {
-            cVar.e(new k9b(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl, urlPageParams.rightIcon, urlPageParams.rightIconTitle, urlPageParams.rightIconUrl));
+            cVar.e(new idb(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl, urlPageParams.rightIcon, urlPageParams.rightIconTitle, urlPageParams.rightIconUrl));
         }
     }
 
     public final String i(String str) {
-        Object[] objArr = h7b.a;
+        Object[] objArr = fbb.a;
         if (objArr == null || objArr.length <= 0 || str == null) {
             return null;
         }
@@ -224,7 +224,7 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
     }
 
     public void k(String str) {
-        RLog.info("YYPayWebView", "loadUrl: " + iab.a(str));
+        RLog.info("YYPayWebView", "loadUrl: " + geb.a(str));
         this.b.loadUrl(str);
     }
 
@@ -243,7 +243,7 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
         j(context, attributeSet);
     }
 
-    @Override // com.baidu.tieba.dbb.h
+    @Override // com.baidu.tieba.bfb.h
     public void e(UrlPageParams urlPageParams) {
         if (urlPageParams == null) {
             RLog.error("YYPayWebView", "openPage null pageParams", new Object[0]);
@@ -251,11 +251,11 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
         }
         RLog.debug("YYPayWebView", "onOpenUrl pageParams: %s", urlPageParams);
         if (this.a != null) {
-            this.a.c(new l9b(urlPageParams.url, urlPageParams.pageType), new k9b(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl, urlPageParams.rightIcon, urlPageParams.rightIconTitle, urlPageParams.rightIconUrl));
+            this.a.c(new jdb(urlPageParams.url, urlPageParams.pageType), new idb(urlPageParams.title, urlPageParams.rightTitle, urlPageParams.rightUrl, urlPageParams.rightIcon, urlPageParams.rightIconTitle, urlPageParams.rightIconUrl));
         }
     }
 
-    @Override // com.baidu.tieba.dbb.h
+    @Override // com.baidu.tieba.bfb.h
     public String getToken() {
         c cVar = this.a;
         if (cVar != null) {
@@ -279,7 +279,7 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
 
     public final void j(Context context, AttributeSet attributeSet) {
         LayoutInflater.from(context).inflate(R.layout.pay_ui_layout_pay_wallet_view, (ViewGroup) this, true);
-        WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f09285f);
+        WebView webView = (WebView) findViewById(R.id.obfuscated_res_0x7f09287b);
         this.b = webView;
         this.e = context;
         WebSettings settings = webView.getSettings();
@@ -297,12 +297,12 @@ public class YYPayWebView extends LinearLayout implements kab, dbb.h {
                 settings.setMixedContentMode(0);
             }
         }
-        this.b.addJavascriptInterface(new dbb(this), "YYPaySdkJsInterface");
+        this.b.addJavascriptInterface(new bfb(this), "YYPaySdkJsInterface");
         this.b.setWebViewClient(new a());
         if (Build.VERSION.SDK_INT < 23) {
             this.b.setWebChromeClient(new b());
         }
-        cbb.a(this.b);
+        afb.a(this.b);
         this.d = !Env.instance().isTestEnv();
         RLog.info("YYPayWebView", "isEnableBackupDomain=" + this.d);
     }

@@ -11,7 +11,7 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.il9;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -101,12 +101,12 @@ public class ReplyMeModel extends BdBaseModel {
             }
             boolean z = responsedMessage instanceof CheckPostResponseMessage;
             if (!z && !(responsedMessage instanceof CheckPostHttpResponseMessage)) {
-                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d1b);
+                this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d30);
             } else if (responsedMessage.hasError()) {
                 if (!TextUtils.isEmpty(responsedMessage.getErrorString())) {
                     this.a.a.showToast(responsedMessage.getErrorString());
                 } else {
-                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d1b);
+                    this.a.a.showToast(R.string.obfuscated_res_0x7f0f0d30);
                 }
             } else {
                 if (z) {
@@ -143,10 +143,10 @@ public class ReplyMeModel extends BdBaseModel {
                             }
                             return;
                         } else if (postState == 0) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f14b9);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f14d2);
                             return;
                         } else if (postState == -1) {
-                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f14c4);
+                            this.a.a.showToast(R.string.obfuscated_res_0x7f0f14dd);
                             return;
                         } else {
                             return;
@@ -177,11 +177,11 @@ public class ReplyMeModel extends BdBaseModel {
                 return;
             }
         }
-        il9.f(303010, CheckPostResponseMessage.class, false);
-        il9.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
+        xo9.f(303010, CheckPostResponseMessage.class, false);
+        xo9.c(303010, CmdConfigHttp.CMD_CHECK_POST, "c/f/check/checkpost", CheckPostHttpResponseMessage.class, true, true, false, false);
     }
 
-    public void S() {
+    public void X() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = new a(this, CmdConfigHttp.CMD_CHECK_POST, 303010);
@@ -212,17 +212,17 @@ public class ReplyMeModel extends BdBaseModel {
             }
         }
         this.a = tbPageContext;
-        S();
+        X();
     }
 
-    public void U(b bVar) {
+    public void Z(b bVar) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
             this.b = bVar;
         }
     }
 
-    public void T(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
+    public void Y(long j, int i, String str, String str2, BaijiahaoData baijiahaoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{Long.valueOf(j), Integer.valueOf(i), str, str2, baijiahaoData}) == null) {
             CheckPostRequestMessage checkPostRequestMessage = new CheckPostRequestMessage();

@@ -1,78 +1,59 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.data.MetaData;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.im.data.GroupInfoData;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.im.db.pojo.ImMessageCenterPojo;
+import com.baidu.tieba.im.message.MemoryChangedMessage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* loaded from: classes6.dex */
-public class x18 {
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+/* loaded from: classes7.dex */
+public class x18 extends oa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(GroupInfoData groupInfoData, MetaData metaData, int i) {
-        String str;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public x18() {
+        super(2016004);
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65536, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_SHARE_FORUM_OR_THREAD);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        if (metaData != null) {
-            str = metaData.getUserId();
-        } else {
-            str = null;
-        }
-        if (!TextUtils.isEmpty(str)) {
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
-        }
-        statisticItem.addParam("obj_type", i);
-        statisticItem.addParam("obj_source", 100);
-        TiebaStatic.log(statisticItem);
     }
 
-    public static void c(GroupInfoData groupInfoData, MetaData metaData, int i) {
-        String str;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.ua
+    /* renamed from: c */
+    public CustomResponsedMessage a(CustomResponsedMessage customResponsedMessage) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLI(65538, null, groupInfoData, metaData, i) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, customResponsedMessage)) == null) {
+            if (customResponsedMessage == null) {
+                return null;
+            }
+            if (customResponsedMessage instanceof MemoryChangedMessage) {
+                MemoryChangedMessage memoryChangedMessage = (MemoryChangedMessage) customResponsedMessage;
+                ImMessageCenterPojo data = memoryChangedMessage.getData();
+                if (data != null && data.getCustomGroupType() == -8) {
+                    return new MemoryChangedMessage(bz7.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
+                if (data != null && data.getCustomGroupType() == -7) {
+                    return new MemoryChangedMessage(cz7.a(data), memoryChangedMessage.isFromServer(), memoryChangedMessage.getType());
+                }
+            }
+            return customResponsedMessage;
         }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_SUCCESS);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        if (metaData != null) {
-            str = metaData.getUserId();
-        } else {
-            str = null;
-        }
-        if (!TextUtils.isEmpty(str)) {
-            statisticItem.addParam(TiebaStatic.Params.FRIEND_UID, str);
-        }
-        statisticItem.addParam("obj_type", i);
-        statisticItem.addParam("obj_source", 1);
-        TiebaStatic.log(statisticItem);
-    }
-
-    public static void b(GroupInfoData groupInfoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65537, null, groupInfoData) != null) || !GroupInfoData.isValidGroup(groupInfoData)) {
-            return;
-        }
-        StatisticItem statisticItem = new StatisticItem(TbadkCoreStatisticKey.KEY_GROUP_SHARE_PANEL_SHOW);
-        statisticItem.addParam("uid", TbadkCoreApplication.getCurrentAccountId());
-        statisticItem.addParam("room_id", groupInfoData.getGroupId());
-        statisticItem.addParam("fid", groupInfoData.getForumId());
-        statisticItem.addParam("fname", groupInfoData.getForumName());
-        statisticItem.addParam("obj_source", 1);
-        TiebaStatic.log(statisticItem);
+        return (CustomResponsedMessage) invokeL.objValue;
     }
 }

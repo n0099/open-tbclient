@@ -1,188 +1,103 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.minivideo.arface.utils.ThreadPool;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ubs.analytics.SampleResult;
 /* loaded from: classes4.dex */
-public class gha {
+public final class gha {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
-    public int b;
-    public int c;
-    public boolean d;
-    public b e;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ gha a;
-
-        public a(gha ghaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ghaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ghaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i();
-            }
-        }
-    }
-
-    /* loaded from: classes4.dex */
-    public interface b {
-        void a(int i);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947795305, "Lcom/baidu/tieba/gha;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947795305, "Lcom/baidu/tieba/gha;");
-        }
-    }
-
-    public gha() {
+    public static SampleResult a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-            }
-        }
-    }
-
-    public int a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            int i = this.c;
-            if (i != 0) {
-                return i;
-            }
-            int i2 = this.b;
-            return i2 != 0 ? i2 : this.a;
-        }
-        return invokeV.intValue;
-    }
-
-    public synchronized void b(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
-            synchronized (this) {
-                if (i == this.c) {
-                    return;
-                }
-                if ((this.b == 0 || i != this.b) && (this.b != 0 || i != this.a)) {
-                    this.c = i;
-                    if (i != 0 && !this.d) {
-                        this.d = true;
-                        g();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
+            if (str != null && !str.equals("")) {
+                char c = 65535;
+                int hashCode = str.hashCode();
+                if (hashCode != 79) {
+                    switch (hashCode) {
+                        case 2126:
+                            if (str.equals("C1")) {
+                                c = 5;
+                                break;
+                            }
+                            break;
+                        case 2127:
+                            if (str.equals("C2")) {
+                                c = 6;
+                                break;
+                            }
+                            break;
+                        case 2128:
+                            if (str.equals("C3")) {
+                                c = 7;
+                                break;
+                            }
+                            break;
+                        default:
+                            switch (hashCode) {
+                                case 2653:
+                                    if (str.equals("T1")) {
+                                        c = 0;
+                                        break;
+                                    }
+                                    break;
+                                case 2654:
+                                    if (str.equals("T2")) {
+                                        c = 1;
+                                        break;
+                                    }
+                                    break;
+                                case 2655:
+                                    if (str.equals("T3")) {
+                                        c = 2;
+                                        break;
+                                    }
+                                    break;
+                                case 2656:
+                                    if (str.equals("T4")) {
+                                        c = 3;
+                                        break;
+                                    }
+                                    break;
+                                case 2657:
+                                    if (str.equals("T5")) {
+                                        c = 4;
+                                        break;
+                                    }
+                                    break;
+                            }
                     }
+                } else if (str.equals("O")) {
+                    c = '\b';
                 }
-                this.c = 0;
-            }
-        }
-    }
-
-    public void c(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bVar) == null) {
-            this.e = bVar;
-        }
-    }
-
-    public final synchronized void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            synchronized (this) {
-                if (this.c != this.a) {
-                    this.b = this.c;
+                switch (c) {
+                    case 0:
+                        return SampleResult.T1;
+                    case 1:
+                        return SampleResult.T2;
+                    case 2:
+                        return SampleResult.T3;
+                    case 3:
+                        return SampleResult.T4;
+                    case 4:
+                        return SampleResult.T5;
+                    case 5:
+                        return SampleResult.C1;
+                    case 6:
+                        return SampleResult.C2;
+                    case 7:
+                        return SampleResult.C3;
+                    case '\b':
+                        return SampleResult.OTHERE;
+                    default:
+                        return SampleResult.OTHERE;
                 }
-                this.c = 0;
             }
+            return SampleResult.OTHERE;
         }
-    }
-
-    public final synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            synchronized (this) {
-                if (this.b != 0) {
-                    this.a = this.b;
-                }
-                this.b = 0;
-            }
-        }
-    }
-
-    public final void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            ThreadPool.b().e(new a(this));
-        }
-    }
-
-    public final synchronized void h() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            synchronized (this) {
-                this.d = false;
-            }
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null && interceptable.invokeV(1048583, this) != null) {
-            return;
-        }
-        while (true) {
-            e();
-            int i = this.b;
-            if (i == 0) {
-                h();
-                return;
-            }
-            b bVar = this.e;
-            if (bVar != null) {
-                bVar.a(i);
-            }
-            f();
-        }
+        return (SampleResult) invokeL.objValue;
     }
 }

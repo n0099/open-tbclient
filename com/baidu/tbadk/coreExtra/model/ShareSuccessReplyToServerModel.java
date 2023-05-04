@@ -12,8 +12,8 @@ import com.baidu.tbadk.TbConfig;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.JsonHttpResponsedMessage;
 import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.is8;
 import com.baidu.tieba.pb.interactionpopupwindow.CustomDialogData;
+import com.baidu.tieba.ru8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -80,7 +80,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
                 if (statusCode != 200 || error < 0 || jSONObject == null || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("data")) == null) {
                     return;
                 }
-                this.mActDialogData = is8.a(optJSONObject);
+                this.mActDialogData = ru8.a(optJSONObject);
             }
         }
 
@@ -157,7 +157,7 @@ public class ShareSuccessReplyToServerModel extends BdBaseModel {
         registerListener(this.a);
     }
 
-    public void Q(String str, int i, b bVar) {
+    public void V(String str, int i, b bVar) {
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLIL(1048576, this, str, i, bVar) != null) || str == null) {
             return;

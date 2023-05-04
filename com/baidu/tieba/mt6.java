@@ -1,338 +1,179 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.PorterDuff;
-import android.graphics.PorterDuffColorFilter;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.gif.NSGif;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.EmotionUtil;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.coreExtra.data.EmotionGroupType;
-import com.baidu.tbadk.imageManager.TbImageMemoryCache;
-import com.baidu.tieba.faceshop.DiyEmotionData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.WebPManager;
+import com.baidu.tbadk.mvc.core.ViewEventCenter;
+import com.baidu.tieba.enterForum.adapter.ClassFitionForumItemAdapter;
+import com.baidu.tieba.enterForum.model.EnterForumModel;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
 import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
+import java.util.HashMap;
 import java.util.List;
-import java.util.Set;
 /* loaded from: classes5.dex */
-public class mt6 extends id5 {
+public class mt6 extends ol5<hr6, jr6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<String> e;
-    public Set<String> f;
-    public int g;
+    public TbPageContext f;
+    public final LinearLayout g;
+    public RecyclerView h;
+    public EMTextView i;
+    public ImageView j;
+    public ClassFitionForumItemAdapter k;
+    public List<gr6> l;
+    public boolean m;
 
-    @Override // com.baidu.tieba.id5
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) ? "用户Diy表情" : (String) invokeV.objValue;
+    /* loaded from: classes5.dex */
+    public interface b {
+        void a(List<gr6> list, int i);
     }
 
-    @Override // com.baidu.tieba.id5
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
+    /* loaded from: classes5.dex */
+    public class a implements b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ mt6 a;
+
+        public a(mt6 mt6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {mt6Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = mt6Var;
         }
-        return invokeV.intValue;
-    }
 
-    @Override // com.baidu.tieba.id5
-    public boolean j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return true;
+        @Override // com.baidu.tieba.mt6.b
+        public void a(List<gr6> list, int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, list, i) == null) {
+                if (i == list.size() - 1) {
+                    mt6 mt6Var = this.a;
+                    mt6Var.m = !mt6Var.m;
+                    this.a.k.update(this.a.o());
+                    return;
+                }
+                HashMap hashMap = new HashMap();
+                hashMap.put(this.a.f.getString(R.string.obfuscated_res_0x7f0f0724), list.get(i).b());
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921678, hashMap));
+                TiebaStatic.log(new StatisticItem("c14583").param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_type", i + 1));
+            }
         }
-        return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.id5
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public mt6() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public mt6(TbPageContext<?> tbPageContext, View view2, ViewEventCenter viewEventCenter, rt6 rt6Var, EnterForumModel enterForumModel) {
+        super(tbPageContext, view2, viewEventCenter);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, view2, viewEventCenter, rt6Var, enterForumModel};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (View) objArr2[1], (ViewEventCenter) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.e = new ArrayList<>();
-        this.f = new HashSet();
-        this.g = 3;
-        x();
+        this.m = false;
+        this.f = tbPageContext;
+        this.i = (EMTextView) view2.findViewById(R.id.obfuscated_res_0x7f09240b);
+        this.j = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f0902c1);
+        this.g = (LinearLayout) view2.findViewById(R.id.obfuscated_res_0x7f09050a);
+        RecyclerView recyclerView = (RecyclerView) view2.findViewById(R.id.recycler_view);
+        this.h = recyclerView;
+        recyclerView.setNestedScrollingEnabled(false);
+        this.h.setLayoutManager(new GridLayoutManager(getContext(), 5));
+        ClassFitionForumItemAdapter classFitionForumItemAdapter = new ClassFitionForumItemAdapter(tbPageContext, null);
+        this.k = classFitionForumItemAdapter;
+        this.h.setAdapter(classFitionForumItemAdapter);
+        this.k.m(new a(this));
     }
 
-    public final void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            t(2);
-            q(4);
-            tm tmVar = new tm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f0809a1)), false);
-            super.s(tmVar);
-            super.r(tmVar);
-            y();
-        }
-    }
-
-    @Override // com.baidu.tieba.id5
-    public String b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            if (i >= this.e.size()) {
-                return null;
-            }
-            return this.e.get(i);
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // com.baidu.tieba.id5
-    public boolean m(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, str)) == null) {
-            return this.f.contains(str);
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.id5
-    public int c() {
+    public final List<gr6> o() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<String> arrayList = this.e;
-            if (arrayList != null && arrayList.size() != 0) {
-                return this.e.size();
-            }
-            return 1;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // com.baidu.tieba.id5
-    public tm e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return super.d();
-        }
-        return (tm) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.id5
-    public String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return sf5.b();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.id5
-    public EmotionGroupType h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return EmotionGroupType.USER_DIY;
-        }
-        return (EmotionGroupType) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.id5
-    public tm n(String str) {
-        InterceptResult invokeL;
-        ByteArrayOutputStream byteArrayOutputStream;
-        Throwable th;
-        FileInputStream fileInputStream;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
-            File file = new File(u(str).getAbsolutePath().replace("_s.jpg", "_b.gif"));
-            if (!file.exists()) {
-                return null;
-            }
-            try {
-                fileInputStream = new FileInputStream(file);
-            } catch (Exception e) {
-                e = e;
-                fileInputStream = null;
-                byteArrayOutputStream = null;
-            } catch (Throwable th2) {
-                byteArrayOutputStream = null;
-                th = th2;
-                fileInputStream = null;
-            }
-            try {
-                byteArrayOutputStream = new ByteArrayOutputStream(1024);
-                try {
-                    try {
-                        byte[] bArr = new byte[1024];
-                        while (true) {
-                            int read = fileInputStream.read(bArr, 0, 1024);
-                            if (read != -1) {
-                                byteArrayOutputStream.write(bArr, 0, read);
-                            } else {
-                                byte[] byteArray = byteArrayOutputStream.toByteArray();
-                                tm tmVar = new tm(NSGif.f(byteArray, 0, byteArray.length));
-                                fg.c(fileInputStream);
-                                fg.d(byteArrayOutputStream);
-                                return tmVar;
-                            }
-                        }
-                    } catch (Exception e2) {
-                        e = e2;
-                        e.printStackTrace();
-                        fg.c(fileInputStream);
-                        fg.d(byteArrayOutputStream);
-                        return null;
-                    }
-                } catch (Throwable th3) {
-                    th = th3;
-                    fg.c(fileInputStream);
-                    fg.d(byteArrayOutputStream);
-                    throw th;
+            ArrayList arrayList = new ArrayList();
+            arrayList.addAll(this.l);
+            if (this.m) {
+                if (this.l.size() >= 14) {
+                    List<gr6> subList = arrayList.subList(0, 14);
+                    subList.add(new gr6(this.f.getString(R.string.obfuscated_res_0x7f0f06a3), R.drawable.obfuscated_res_0x7f08085f));
+                    return subList;
                 }
-            } catch (Exception e3) {
-                e = e3;
-                byteArrayOutputStream = null;
-            } catch (Throwable th4) {
-                th = th4;
-                byteArrayOutputStream = null;
-                fg.c(fileInputStream);
-                fg.d(byteArrayOutputStream);
-                throw th;
+                return arrayList;
+            } else if (this.l.size() >= 9) {
+                List<gr6> subList2 = arrayList.subList(0, 9);
+                subList2.add(new gr6(this.f.getString(R.string.obfuscated_res_0x7f0f0bc1), R.drawable.obfuscated_res_0x7f0808b3));
+                return subList2;
+            } else {
+                return arrayList;
             }
-        } else {
-            return (tm) invokeL.objValue;
         }
+        return (List) invokeV.objValue;
     }
 
-    public File u(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.mo9
+    public boolean onChangeSkinType(TbPageContext<?> tbPageContext, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048589, this, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return null;
-            }
-            String replace = str.replace(EmotionUtil.NEW_EMOTION_SHARPTEXT_PREFIX, "");
-            String replace2 = replace.substring(0, replace.indexOf(",")).replace("diy_", "");
-            if (replace2.contains("_")) {
-                replace2 = replace2.substring(replace2.indexOf("_") + 1);
-            }
-            return new File(TbadkCoreApplication.getInst().getFilesDir().getAbsolutePath() + "/.collect/" + sf5.c() + "/" + replace2 + "_s.jpg");
-        }
-        return (File) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id5
-    public tm o(String str) {
-        InterceptResult invokeL;
-        Bitmap image;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
-            if ("#(meme,diysetting)".equals(str)) {
-                return new tm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f08092d)), false);
-            }
-            File u = u(str);
-            if (u == null || (image = FileHelper.getImage(u.getAbsolutePath())) == null) {
-                return null;
-            }
-            return new tm(image, false, str);
-        }
-        return (tm) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.id5
-    public void p(int i) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeI(1048588, this, i) != null) || i == this.g) {
-            return;
-        }
-        this.g = i;
-        tm tmVar = new tm(v(BitmapFactory.decodeResource(TbadkCoreApplication.getInst().getApp().getResources(), R.drawable.obfuscated_res_0x7f0809a1)), false);
-        super.s(tmVar);
-        super.r(tmVar);
-        TbImageMemoryCache.s().p(cg.h().g("#(meme,diysetting)", 20));
-    }
-
-    public final Bitmap v(Bitmap bitmap) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048590, this, bitmap)) == null) {
-            if (TbadkCoreApplication.getInst().getSkinType() != 0) {
-                Bitmap createBitmap = Bitmap.createBitmap(bitmap.getWidth(), bitmap.getHeight(), bitmap.getConfig());
-                PorterDuffColorFilter porterDuffColorFilter = new PorterDuffColorFilter(SkinManager.getColor(R.color.CAM_X0105), PorterDuff.Mode.SRC_IN);
-                Paint paint = new Paint();
-                paint.setColorFilter(porterDuffColorFilter);
-                new Canvas(createBitmap).drawBitmap(bitmap, 0.0f, 0.0f, paint);
-                return createBitmap;
-            }
-            return bitmap;
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public boolean w(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048591, this, str)) == null) {
-            if (this.e != null && !TextUtils.isEmpty(str)) {
-                Iterator<String> it = this.e.iterator();
-                while (it.hasNext()) {
-                    if (it.next().contains(str)) {
-                        return true;
-                    }
-                }
-            }
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i)) == null) {
+            SkinManager.setBackgroundColor(this.h, R.color.CAM_X0201);
+            g35 d = g35.d(this.g);
+            d.o(R.string.J_X06);
+            d.f(R.color.CAM_X0205);
+            g35 d2 = g35.d(this.i);
+            d2.C(R.string.F_X02);
+            d2.B(R.dimen.T_X07);
+            d2.w(R.color.CAM_X0105);
+            WebPManager.setPureDrawable(this.j, R.drawable.icon_pure_list_arrow16_right, R.color.CAM_X0105, WebPManager.ResourceStateType.NORMAL);
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeLI.booleanValue;
     }
 
-    public void y() {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.rl5
+    /* renamed from: p */
+    public void f(hr6 hr6Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            List<DiyEmotionData> r = qt6.o().r(TbadkCoreApplication.getCurrentAccountForEmotion());
-            this.e.clear();
-            this.f.clear();
-            for (DiyEmotionData diyEmotionData : r) {
-                this.e.add(diyEmotionData.getSharpText());
-                this.f.add(diyEmotionData.getSharpText());
-            }
+        if (interceptable == null || interceptable.invokeL(1048579, this, hr6Var) == null) {
+            super.f(hr6Var);
+            this.l = hr6Var.f();
+            this.k.update(o());
+            this.i.setText(hr6Var.getTitle());
+            onChangeSkinType(b(), TbadkCoreApplication.getInst().getSkinType());
         }
     }
 }

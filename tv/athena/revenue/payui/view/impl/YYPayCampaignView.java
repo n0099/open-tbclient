@@ -12,8 +12,8 @@ import android.widget.RelativeLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hab;
-import com.baidu.tieba.lab;
+import com.baidu.tieba.feb;
+import com.baidu.tieba.jeb;
 import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagItemInfo;
 import com.yy.mobile.framework.revenuesdk.payapi.bean.GiftBagsInfo;
@@ -24,7 +24,7 @@ import tv.athena.revenue.payui.view.WindowParams;
 import tv.athena.revenue.payui.view.adapter.PayAmountCampaignListAdapter;
 import tv.athena.revenue.payui.view.adapter.PayCampaignListItemDecoration;
 /* loaded from: classes9.dex */
-public class YYPayCampaignView extends LinearLayout implements lab {
+public class YYPayCampaignView extends LinearLayout implements jeb {
     public Activity a;
     public RecyclerView b;
     public RelativeLayout c;
@@ -34,16 +34,16 @@ public class YYPayCampaignView extends LinearLayout implements lab {
     public PayAmountCampaignListAdapter g;
     public LinearLayoutManager h;
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     public void attachWindow(Window window) {
     }
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     public View getContentView() {
         return this;
     }
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     public void refreshWindow(WindowParams windowParams) {
     }
 
@@ -56,7 +56,7 @@ public class YYPayCampaignView extends LinearLayout implements lab {
     }
 
     public final void b(Context context) {
-        LayoutInflater.from(new ContextThemeWrapper(context, hab.a.a(this.e))).inflate(R.layout.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
+        LayoutInflater.from(new ContextThemeWrapper(context, feb.a.a(this.e))).inflate(R.layout.pay_ui_layout_pay_amount_campaign_view, (ViewGroup) this, true);
         this.b = (RecyclerView) findViewById(R.id.rv_campaign);
         this.c = (RelativeLayout) findViewById(R.id.rl_content);
         this.h = new LinearLayoutManager(context, 0, false);
@@ -66,7 +66,7 @@ public class YYPayCampaignView extends LinearLayout implements lab {
         this.b.setAdapter(this.g);
     }
 
-    @Override // com.baidu.tieba.kab
+    @Override // com.baidu.tieba.ieb
     public void refreshView() {
         GiftBagsInfo giftBagsInfo = this.d;
         if (giftBagsInfo == null) {
@@ -83,7 +83,7 @@ public class YYPayCampaignView extends LinearLayout implements lab {
         RLog.error("YYPayCampaignView", "refreshView error giftbag null", new Object[0]);
     }
 
-    @Override // com.baidu.tieba.lab
+    @Override // com.baidu.tieba.jeb
     public void setGiftBagsInfo(GiftBagsInfo giftBagsInfo) {
         RLog.info("YYPayCampaignView", "setGiftBagsInfo giftBagsInfo:" + giftBagsInfo);
         this.d = giftBagsInfo;

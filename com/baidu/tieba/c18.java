@@ -1,75 +1,132 @@
 package com.baidu.tieba;
 
-import android.app.Dialog;
-import android.content.Context;
-import android.graphics.Rect;
-import android.view.MotionEvent;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.GreyUtil;
+import android.content.ContentValues;
+import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
+import android.text.TextUtils;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedList;
 /* loaded from: classes3.dex */
-public class c18 extends Dialog {
+public class c18 {
     public static /* synthetic */ Interceptable $ic;
+    public static String a;
+    public static volatile SQLiteDatabase b;
+    public static HashMap<String, SQLiteDatabase> c;
     public transient /* synthetic */ FieldHolder $fh;
-    public a a;
 
-    /* loaded from: classes3.dex */
-    public interface a {
-        void onClick();
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public c18(@NonNull Context context, int i) {
-        super(context, i);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {context, Integer.valueOf(i)};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], ((Integer) objArr2[1]).intValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947622015, "Lcom/baidu/tieba/c18;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947622015, "Lcom/baidu/tieba/c18;");
                 return;
             }
         }
-        getWindow().setSoftInputMode(32);
-        GreyUtil.grey(this);
+        c = new HashMap<>();
     }
 
-    public void a(a aVar) {
+    public static void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, aVar) == null) {
-            this.a = aVar;
-        }
-    }
-
-    @Override // android.app.Dialog
-    public boolean onTouchEvent(@NonNull MotionEvent motionEvent) {
-        InterceptResult invokeL;
-        a aVar;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, motionEvent)) == null) {
-            if (motionEvent.getAction() == 0) {
-                Rect rect = new Rect();
-                getWindow().getDecorView().getGlobalVisibleRect(rect);
-                if (!rect.contains((int) motionEvent.getX(), (int) motionEvent.getY()) && (aVar = this.a) != null) {
-                    aVar.onClick();
-                    return true;
+        if (interceptable == null || interceptable.invokeL(65537, null, str) == null) {
+            try {
+                try {
+                    if (!TextUtils.isEmpty(str)) {
+                        d18.d().f();
+                        Iterator<String> it = b().iterator();
+                        while (it.hasNext()) {
+                            String next = it.next();
+                            if (next != null) {
+                                if (next.equals("tb_message_center")) {
+                                    ContentValues contentValues = new ContentValues();
+                                    contentValues.put("is_hidden", (Integer) 1);
+                                    d18.d().update("tb_message_center", contentValues, null, null);
+                                } else if (!next.equals("tb_new_friends")) {
+                                    d18.d().delete(next, null, null);
+                                }
+                            }
+                        }
+                    }
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.deleteImDb", new Object[0]);
+                    e.printStackTrace();
                 }
-                return true;
+            } finally {
+                d18.d().b();
             }
-            return true;
         }
-        return invokeL.booleanValue;
+    }
+
+    public static LinkedList<String> b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            SQLiteDatabase c2 = c();
+            LinkedList<String> linkedList = new LinkedList<>();
+            Cursor cursor = null;
+            try {
+                if (c2 != null) {
+                    try {
+                        cursor = c2.rawQuery("select * from sqlite_master where type='table'", null);
+                        if (cursor != null) {
+                            cursor.moveToFirst();
+                            while (cursor.moveToNext()) {
+                                linkedList.add(cursor.getString(cursor.getColumnIndex("name")));
+                            }
+                        }
+                    } catch (Exception e) {
+                        TiebaStatic.printDBExceptionLog(e, "ImDatabaseManager.getAllTables", new Object[0]);
+                        e.printStackTrace();
+                    }
+                }
+                return linkedList;
+            } finally {
+                ji.a(cursor);
+            }
+        }
+        return (LinkedList) invokeV.objValue;
+    }
+
+    public static synchronized SQLiteDatabase c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            synchronized (c18.class) {
+                try {
+                } catch (Exception e) {
+                    TiebaStatic.printDBExceptionLog(e, "ImDatabaseHelper.getImDataBase", new Object[0]);
+                }
+                if (TextUtils.isEmpty(TbadkCoreApplication.getCurrentAccount())) {
+                    return null;
+                }
+                String str = TbadkCoreApplication.getCurrentAccount() + ".db";
+                if (c.containsKey(str)) {
+                    return c.get(str);
+                }
+                if (b != null && str.equals(a) && b.isOpen()) {
+                    return b;
+                }
+                if (b != null) {
+                    ji.b(b);
+                }
+                b18 b18Var = new b18(TbadkCoreApplication.getInst().getApp(), str);
+                a = str;
+                b = b18Var.getWritableDatabase();
+                return b;
+            }
+        }
+        return (SQLiteDatabase) invokeV.objValue;
     }
 }

@@ -1,71 +1,102 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.listener.HttpMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.message.HttpMessage;
-import com.baidu.adp.framework.message.HttpResponsedMessage;
-import com.baidu.adp.lib.util.BdNetTypeUtil;
-import com.baidu.adp.lib.util.NetWorkChangedMessage;
+import android.content.ContentResolver;
+import android.content.ContentUris;
+import android.content.Context;
+import android.database.Cursor;
+import android.net.Uri;
+import android.provider.MediaStore;
+import com.baidu.adp.lib.asyncTask.BdAsyncTask;
+import com.baidu.adp.lib.util.BdLog;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.crius.constants.NativeConstants;
 import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tbadk.util.CheckBaiduSimResponseMessage;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.album.MediaFileInfo;
+import com.baidu.tbadk.album.VideoFileInfo;
+import com.baidu.tbadk.core.util.ListUtils;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.img.ImageFileInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-/* loaded from: classes6.dex */
+import java.io.File;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+/* loaded from: classes7.dex */
 public class ws4 {
     public static /* synthetic */ Interceptable $ic;
-    public static ws4 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public CustomMessageListener a;
-    public boolean b;
-    public HttpMessageListener c;
+    public final String a;
+    public c b;
+    public final Context c;
+    public int d;
+    public String[] e;
+    public String[] f;
+    public HashMap<String, rs4> g;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948281137, "Lcom/baidu/tieba/ws4;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948281137, "Lcom/baidu/tieba/ws4;");
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class a extends CustomMessageListener {
+    /* loaded from: classes7.dex */
+    public class a implements Comparator<MediaFileInfo> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ws4 a;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(ws4 ws4Var, int i) {
-            super(i);
+        public a(ws4 ws4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ws4Var, Integer.valueOf(i)};
+                Object[] objArr = {ws4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(MediaFileInfo mediaFileInfo, MediaFileInfo mediaFileInfo2) {
+            InterceptResult invokeLL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, mediaFileInfo, mediaFileInfo2)) == null) {
+                int i = ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) > 0L ? 1 : ((mediaFileInfo2.getSortTime() - mediaFileInfo.getSortTime()) == 0L ? 0 : -1));
+                if (i == 0) {
+                    return 0;
+                }
+                if (i > 0) {
+                    return 1;
+                }
+                return -1;
+            }
+            return invokeLL.intValue;
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class b implements Comparator<rs4> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ ws4 a;
+
+        public b(ws4 ws4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {ws4Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
@@ -75,139 +106,420 @@ public class ws4 {
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        @Override // java.util.Comparator
+        /* renamed from: a */
+        public int compare(rs4 rs4Var, rs4 rs4Var2) {
+            InterceptResult invokeLL;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage.getCmd() == 2000994 && (customResponsedMessage instanceof NetWorkChangedMessage) && !customResponsedMessage.hasError() && ii.F() && BdNetTypeUtil.isMobileNet()) {
-                this.a.c();
+            if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, rs4Var, rs4Var2)) == null) {
+                if (this.a.a.equals(rs4Var.g())) {
+                    return -1;
+                }
+                if (this.a.a.equals(rs4Var2.g())) {
+                    return 1;
+                }
+                int i = ((rs4Var2.e().getSortTime() - rs4Var.e().getSortTime()) > 0L ? 1 : ((rs4Var2.e().getSortTime() - rs4Var.e().getSortTime()) == 0L ? 0 : -1));
+                if (i == 0) {
+                    return 0;
+                }
+                if (i <= 0) {
+                    return -1;
+                }
+                return 1;
             }
+            return invokeLL.intValue;
         }
     }
 
-    /* loaded from: classes6.dex */
-    public class b extends HttpMessageListener {
+    /* loaded from: classes7.dex */
+    public class c extends BdAsyncTask<Object, Integer, xs4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ws4 a;
+        public final vs4 a;
+        public final /* synthetic */ ws4 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(ws4 ws4Var, int i) {
-            super(i);
+        public c(ws4 ws4Var, vs4 vs4Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ws4Var, Integer.valueOf(i)};
+                Object[] objArr = {ws4Var, vs4Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = ws4Var;
+            this.b = ws4Var;
+            this.a = vs4Var;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-            String str;
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: b */
+        public xs4 doInBackground(Object... objArr) {
+            InterceptResult invokeL;
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, httpResponsedMessage) != null) || httpResponsedMessage == null || httpResponsedMessage.getCmd() != 1003392 || !(httpResponsedMessage instanceof CheckBaiduSimResponseMessage)) {
-                return;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
+                return this.b.d();
             }
-            this.a.b = false;
-            CheckBaiduSimResponseMessage checkBaiduSimResponseMessage = (CheckBaiduSimResponseMessage) httpResponsedMessage;
-            if (checkBaiduSimResponseMessage.isSuc) {
-                boolean z = checkBaiduSimResponseMessage.isBaiduSim;
-                q45 m = q45.m();
-                if (z) {
-                    str = TbadkCoreApplication.getInst().getResources().getString(R.string.baidu_sim_traffic_free);
-                } else {
-                    str = "";
+            return (xs4) invokeL.objValue;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        /* renamed from: c */
+        public void onPostExecute(xs4 xs4Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, xs4Var) == null) {
+                super.onPostExecute(xs4Var);
+                vs4 vs4Var = this.a;
+                if (vs4Var != null) {
+                    vs4Var.a(xs4Var);
                 }
-                m.B("key_baidu_sim_card_writting_tip", str);
-                MessageManager.getInstance().unRegisterTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+            }
+        }
+
+        @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
+        public void onPreExecute() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+                super.onPreExecute();
+                vs4 vs4Var = this.a;
+                if (vs4Var != null) {
+                    vs4Var.onPreLoad();
+                }
             }
         }
     }
 
-    public ws4() {
+    public ws4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new a(this, 2000994);
-        this.b = false;
-        this.c = new b(this, CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
+        this.a = TbConfig.getTempDirName();
+        this.d = 0;
+        this.e = new String[]{"_id", "bucket_id", "bucket_display_name", "_data", "mime_type", "date_added", "_size", "date_modified"};
+        this.f = new String[]{"_id", "_data", "title", "mime_type", "_display_name", "duration", "datetaken", "date_modified", "date_added"};
+        this.g = new HashMap<>();
+        this.c = context;
     }
 
-    public static ws4 d() {
+    public void c() {
+        c cVar;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (cVar = this.b) != null) {
+            cVar.cancel();
+            this.b = null;
+        }
+    }
+
+    public List<ImageFileInfo> e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (d == null) {
-                d = new ws4();
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            List<ImageFileInfo> f = f(MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+            if (f != null) {
+                arrayList.addAll(f);
             }
-            return d;
+            List<ImageFileInfo> f2 = f(MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+            if (f2 != null) {
+                arrayList.addAll(f2);
+            }
+            return arrayList;
         }
-        return (ws4) invokeV.objValue;
+        return (List) invokeV.objValue;
     }
 
-    public final String e() {
+    public final xs4 d() {
         InterceptResult invokeV;
+        List<ImageFileInfo> list;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            int curOperatorType = BdNetTypeUtil.curOperatorType();
-            if (curOperatorType != 1) {
-                if (curOperatorType != 2) {
-                    if (curOperatorType != 3) {
-                        return "UNKNOWN";
+            this.g.clear();
+            xs4 xs4Var = new xs4();
+            List<VideoFileInfo> list2 = null;
+            if (this.d != 1) {
+                list = e();
+            } else {
+                list = null;
+            }
+            int i = this.d;
+            if (i != 2 && i != 3 && i != 4) {
+                list2 = g();
+            }
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(list)) {
+                arrayList.addAll(list);
+            }
+            if (!ListUtils.isEmpty(list2)) {
+                arrayList.addAll(list2);
+            }
+            if (!ListUtils.isEmpty(arrayList)) {
+                Collections.sort(arrayList, new a(this));
+            }
+            ArrayList arrayList2 = new ArrayList(this.g.values());
+            if (!ListUtils.isEmpty(arrayList2)) {
+                Collections.sort(arrayList2, new b(this));
+            }
+            xs4Var.a = arrayList2;
+            xs4Var.c = list2;
+            xs4Var.b = arrayList;
+            return xs4Var;
+        }
+        return (xs4) invokeV.objValue;
+    }
+
+    /* JADX WARN: Code restructure failed: missing block: B:22:0x009f, code lost:
+        if (r12 > 3145728) goto L27;
+     */
+    /* JADX WARN: Removed duplicated region for block: B:48:0x0122 A[LOOP:0: B:12:0x002c->B:48:0x0122, LOOP_END] */
+    /* JADX WARN: Removed duplicated region for block: B:80:0x013a A[EDGE_INSN: B:80:0x013a->B:61:0x013a ?: BREAK  , SYNTHETIC] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final List<ImageFileInfo> f(Uri uri) {
+        InterceptResult invokeL;
+        Cursor cursor;
+        ArrayList arrayList;
+        Cursor cursor2;
+        String str;
+        ArrayList arrayList2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, uri)) == null) {
+            String str2 = null;
+            if (this.c == null) {
+                return null;
+            }
+            ArrayList arrayList3 = new ArrayList();
+            try {
+                cursor2 = this.c.getContentResolver().query(uri, this.e, "mime_type like 'image/%'", null, "date_added DESC");
+            } catch (Exception e) {
+                e = e;
+                arrayList = arrayList3;
+                cursor2 = null;
+            } catch (Throwable th) {
+                th = th;
+                cursor = null;
+                fg.a(cursor);
+                throw th;
+            }
+            if (cursor2 != null) {
+                try {
+                    try {
+                    } catch (Exception e2) {
+                        e = e2;
+                        arrayList = arrayList3;
                     }
-                    return "TELECOM";
+                    if (cursor2.moveToFirst()) {
+                        while (true) {
+                            Uri withAppendedId = ContentUris.withAppendedId(uri, cursor2.getLong(cursor2.getColumnIndex("_id")));
+                            if (withAppendedId != null) {
+                                str = withAppendedId.toString();
+                            } else {
+                                str = str2;
+                            }
+                            String string = cursor2.getString(cursor2.getColumnIndex("bucket_id"));
+                            String string2 = cursor2.getString(cursor2.getColumnIndex("bucket_display_name"));
+                            String string3 = cursor2.getString(cursor2.getColumnIndex("_data"));
+                            String string4 = cursor2.getString(cursor2.getColumnIndex("mime_type"));
+                            long j = cursor2.getLong(cursor2.getColumnIndex("date_added"));
+                            int i = cursor2.getInt(cursor2.getColumnIndex("_size"));
+                            long j2 = cursor2.getLong(cursor2.getColumnIndex("date_modified"));
+                            boolean endsWith = string4.endsWith(NativeConstants.TYPE_GIF);
+                            try {
+                                if (endsWith) {
+                                    if (this.d != 3) {
+                                        arrayList2 = arrayList3;
+                                    } else {
+                                        arrayList = arrayList3;
+                                        if (!cursor2.moveToNext()) {
+                                            break;
+                                        }
+                                        arrayList3 = arrayList;
+                                        str2 = null;
+                                    }
+                                } else {
+                                    arrayList2 = arrayList3;
+                                }
+                                if (this.d == 4 && !string4.endsWith("jpeg") && !string4.endsWith("png")) {
+                                    arrayList = arrayList2;
+                                    if (!cursor2.moveToNext()) {
+                                    }
+                                } else {
+                                    ImageFileInfo imageFileInfo = new ImageFileInfo();
+                                    imageFileInfo.setAlbumnId(string);
+                                    imageFileInfo.setContentUriStr(str);
+                                    imageFileInfo.setFilePath(string3);
+                                    imageFileInfo.setIsGif(endsWith);
+                                    imageFileInfo.setModifyTime(StringHelper.getChineseFormatTimeString(j2));
+                                    imageFileInfo.setSortTime(j);
+                                    arrayList = arrayList2;
+                                    try {
+                                        arrayList.add(imageFileInfo);
+                                        rs4 rs4Var = this.g.get(string);
+                                        if (rs4Var == null) {
+                                            rs4Var = new rs4();
+                                            this.g.put(string, rs4Var);
+                                        }
+                                        rs4Var.h(string);
+                                        rs4Var.l(string2);
+                                        rs4Var.a();
+                                        if (rs4Var.e() == null) {
+                                            rs4Var.k(imageFileInfo);
+                                        }
+                                        List<MediaFileInfo> d = rs4Var.d();
+                                        if (rs4Var.d() == null) {
+                                            d = new ArrayList<>();
+                                            rs4Var.j(d);
+                                        }
+                                        d.add(imageFileInfo);
+                                        if (!cursor2.moveToNext()) {
+                                        }
+                                    } catch (Exception e3) {
+                                        e = e3;
+                                        BdLog.detailException(e);
+                                        fg.a(cursor2);
+                                        return arrayList;
+                                    }
+                                }
+                            } catch (Exception e4) {
+                                e = e4;
+                                arrayList = arrayList2;
+                                BdLog.detailException(e);
+                                fg.a(cursor2);
+                                return arrayList;
+                            }
+                        }
+                        fg.a(cursor2);
+                        return arrayList;
+                    }
+                } catch (Throwable th2) {
+                    th = th2;
+                    cursor = cursor2;
+                    fg.a(cursor);
+                    throw th;
                 }
-                return "UNICOM";
             }
-            return "MOBILE";
+            arrayList = arrayList3;
+            fg.a(cursor2);
+            return arrayList;
         }
-        return (String) invokeV.objValue;
+        return (List) invokeL.objValue;
     }
 
-    public void f() {
+    public final List<VideoFileInfo> g() {
+        InterceptResult invokeV;
+        Cursor cursor;
+        Cursor cursor2;
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().registerListener(this.a);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            Context context = this.c;
+            if (context == null) {
+                return arrayList;
+            }
+            ContentResolver contentResolver = context.getContentResolver();
+            HashSet hashSet = new HashSet();
+            try {
+                Uri uri = MediaStore.Video.Media.EXTERNAL_CONTENT_URI;
+                Cursor query = contentResolver.query(uri, this.f, null, null, "date_added DESC");
+                if (query != null) {
+                    try {
+                        if (query.moveToFirst()) {
+                            while (true) {
+                                int i = query.getInt(query.getColumnIndex("_id"));
+                                Uri withAppendedId = ContentUris.withAppendedId(uri, i);
+                                if (withAppendedId != null) {
+                                    str = withAppendedId.toString();
+                                } else {
+                                    str = null;
+                                }
+                                String string = query.getString(query.getColumnIndexOrThrow("_data"));
+                                String string2 = query.getString(query.getColumnIndexOrThrow("title"));
+                                String string3 = query.getString(query.getColumnIndexOrThrow("_display_name"));
+                                String string4 = query.getString(query.getColumnIndexOrThrow("mime_type"));
+                                int i2 = query.getInt(query.getColumnIndexOrThrow("duration"));
+                                long j = query.getLong(query.getColumnIndexOrThrow("date_modified"));
+                                Uri uri2 = uri;
+                                long j2 = query.getLong(query.getColumnIndexOrThrow("date_added"));
+                                if (i2 > 1 && !hashSet.contains(string)) {
+                                    hashSet.add(string);
+                                    File file = new File(string);
+                                    if (file.exists() && file.isFile() && di.u(file) > 0) {
+                                        VideoFileInfo videoFileInfo = new VideoFileInfo();
+                                        videoFileInfo.videoId = i;
+                                        videoFileInfo.contentUriStr = str;
+                                        videoFileInfo.videoPath = string;
+                                        videoFileInfo.displayName = string3;
+                                        videoFileInfo.title = string2;
+                                        videoFileInfo.mimeType = string4;
+                                        videoFileInfo.videoDuration = i2;
+                                        videoFileInfo.lastModified = j;
+                                        videoFileInfo.setSortTime(j2);
+                                        arrayList.add(videoFileInfo);
+                                    }
+                                }
+                                if (!query.moveToNext()) {
+                                    break;
+                                }
+                                uri = uri2;
+                            }
+                        }
+                    } catch (Exception unused) {
+                        cursor2 = query;
+                        fg.a(cursor2);
+                        return arrayList;
+                    } catch (Throwable th) {
+                        th = th;
+                        cursor = query;
+                        fg.a(cursor);
+                        throw th;
+                    }
+                }
+                fg.a(query);
+            } catch (Exception unused2) {
+                cursor2 = null;
+            } catch (Throwable th2) {
+                th = th2;
+                cursor = null;
+            }
+            return arrayList;
         }
+        return (List) invokeV.objValue;
     }
 
-    public final void c() {
+    public boolean h(int i, vs4 vs4Var) {
+        InterceptResult invokeIL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && !this.b) {
-            this.b = true;
-            if (System.currentTimeMillis() >= q45.m().o("key_next_check_baidu_sim_time", 0L)) {
-                q45.m().A("key_next_check_baidu_sim_time", System.currentTimeMillis() + 86400000);
-                TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_CHECK_BAIDU_SIM, TbConfig.SERVER_ADDRESS + "c/s/holycard");
-                tbHttpMessageTask.setResponsedClass(CheckBaiduSimResponseMessage.class);
-                MessageManager.getInstance().registerTask(tbHttpMessageTask);
-                MessageManager.getInstance().registerListener(this.c);
-                HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_CHECK_BAIDU_SIM);
-                httpMessage.addParam("localip", UtilHelper.getGprsIpv4Address());
-                httpMessage.addParam("network", e());
-                MessageManager.getInstance().sendMessage(httpMessage);
-                return;
+        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048581, this, i, vs4Var)) == null) {
+            if (vs4Var == null) {
+                return false;
             }
-            this.b = false;
+            c();
+            this.d = i;
+            c cVar = new c(this, vs4Var);
+            this.b = cVar;
+            cVar.setPriority(3);
+            this.b.execute(new Object[0]);
+            return true;
         }
+        return invokeIL.booleanValue;
     }
 }

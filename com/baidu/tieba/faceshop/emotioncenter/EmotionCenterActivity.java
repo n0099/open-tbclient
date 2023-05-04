@@ -25,7 +25,7 @@ import com.baidu.tbadk.core.view.viewpager.BdBaseViewPager;
 import com.baidu.tieba.R;
 import com.baidu.tieba.faceshop.forumpackage.ForumEmotionFragment;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iv4;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -49,9 +49,9 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     public String j;
     public CustomMessageListener k;
 
-    public final void x1() {
+    public final void A1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
         }
     }
 
@@ -92,7 +92,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
                     return;
                 }
                 this.a.j = str;
-                this.a.x1();
+                this.a.A1();
             }
         }
     }
@@ -185,26 +185,26 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     @Override // com.baidu.tbadk.core.BaseFragmentActivity, com.baidu.adp.base.BdBaseFragmentActivity, androidx.fragment.app.FragmentActivity, androidx.activity.ComponentActivity, androidx.core.app.ComponentActivity, android.app.Activity
     public void onCreate(Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, bundle) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, bundle) == null) {
             setIsAddSwipeBackLayout(false);
             super.onCreate(bundle);
-            setContentView(R.layout.obfuscated_res_0x7f0d0269);
+            setContentView(R.layout.obfuscated_res_0x7f0d026c);
             initView();
-            w1();
+            y1();
             registerListener(this.k);
         }
     }
 
     public final void initView() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0580));
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f058d));
             EmotionRecommendFragment emotionRecommendFragment = new EmotionRecommendFragment();
             Bundle bundle = new Bundle();
             bundle.putBoolean("need_check_login", true);
             emotionRecommendFragment.setArguments(bundle);
             this.g.add(emotionRecommendFragment);
-            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f0581));
+            this.i.add(getPageContext().getResources().getString(R.string.obfuscated_res_0x7f0f058e));
             ForumEmotionFragment forumEmotionFragment = new ForumEmotionFragment();
             Bundle bundle2 = new Bundle();
             bundle2.putString("key_load_url", this.j);
@@ -212,7 +212,7 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             this.g.add(forumEmotionFragment);
             NavigationBar navigationBar = (NavigationBar) findViewById(R.id.navigation_bar);
             this.b = navigationBar;
-            TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f038d));
+            TextView addTextButtonByDefTextColor = navigationBar.addTextButtonByDefTextColor(NavigationBar.ControlAlign.HORIZONTAL_LEFT, getString(R.string.obfuscated_res_0x7f0f038b));
             this.c = addTextButtonByDefTextColor;
             addTextButtonByDefTextColor.setTextSize(0, ii.g(this, R.dimen.obfuscated_res_0x7f07020f));
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(-2, -2);
@@ -221,14 +221,14 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
             this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, imageView, (View.OnClickListener) null);
             this.d.setPadding(0, ii.g(this, R.dimen.obfuscated_res_0x7f0701d5), ii.g(this, R.dimen.obfuscated_res_0x7f07029c), ii.g(this, R.dimen.obfuscated_res_0x7f0701d5));
             this.d.setLayoutParams(layoutParams);
-            this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d0277, (View.OnClickListener) null);
-            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090951);
+            this.b.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_CENTER, R.layout.obfuscated_res_0x7f0d027a, (View.OnClickListener) null);
+            CommonPagerSlidingTabStrip commonPagerSlidingTabStrip = (CommonPagerSlidingTabStrip) findViewById(R.id.obfuscated_res_0x7f090954);
             this.e = commonPagerSlidingTabStrip;
             commonPagerSlidingTabStrip.k(ii.g(this, R.dimen.obfuscated_res_0x7f070207), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f0701e8), ii.g(this, R.dimen.obfuscated_res_0x7f070224), ii.g(this, R.dimen.obfuscated_res_0x7f070258), R.color.CAM_X0107, R.color.CAM_X0105);
             this.c.setOnClickListener(this);
             this.d.setOnClickListener(this);
-            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09098c);
-            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090952);
+            this.f = (LinearLayout) findViewById(R.id.obfuscated_res_0x7f09098f);
+            BdBaseViewPager bdBaseViewPager = (BdBaseViewPager) findViewById(R.id.obfuscated_res_0x7f090955);
             this.a = bdBaseViewPager;
             bdBaseViewPager.setmDisallowSlip(true);
             this.h = new b(this, getSupportFragmentManager());
@@ -239,9 +239,9 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     public void onChangeSkinType(int i) {
         boolean z;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
             this.mSkinType = i;
-            iv4 layoutMode = getLayoutMode();
+            yv4 layoutMode = getLayoutMode();
             if (i == 4) {
                 z = true;
             } else {
@@ -269,23 +269,23 @@ public class EmotionCenterActivity extends BaseFragmentActivity {
     @Override // com.baidu.adp.base.BdBaseFragmentActivity, android.view.View.OnClickListener
     public void onClick(View view2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, view2) == null) {
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
             super.onClick(view2);
             if (view2 == this.c) {
                 finish();
             } else if (view2 == this.d) {
                 int i = 0;
                 if (!ListUtils.isEmpty(this.g) && (this.g.get(0) instanceof EmotionRecommendFragment)) {
-                    i = ((EmotionRecommendFragment) this.g.get(0)).J1();
+                    i = ((EmotionRecommendFragment) this.g.get(0)).K1();
                 }
                 sendMessage(new CustomMessage(2002001, new NativeEmotionManagerActivityConfig(getPageContext().getPageActivity(), i)));
             }
         }
     }
 
-    public final void w1() {
+    public final void y1() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.a.setAdapter(this.h);
             this.e.setViewPager(this.a);
         }

@@ -15,16 +15,16 @@ import com.baidu.tbadk.core.atomData.AlaFrsStoryLiveGatherActivityConfig;
 import com.baidu.tbadk.core.atomData.AlaGameFrsLiveListActivityConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.R;
-import com.baidu.tieba.a67;
 import com.baidu.tieba.ala.frsgamelive.message.AlaFrsStoryLiveGatherRespMessage;
 import com.baidu.tieba.ala.frsgamelive.message.AlaGameFrsLiveThreadsRespMessage;
 import com.baidu.tieba.ala.frsgamelive.mvc.AlaFrsStoryLiveGatherActivity;
 import com.baidu.tieba.ala.gamefrslivelist.AlaGameFrsLiveListActivity;
 import com.baidu.tieba.ala.gamelist.mvc.AlaAllGameLiveEntryActivity;
-import com.baidu.tieba.j76;
-import com.baidu.tieba.q76;
-import com.baidu.tieba.r76;
-import com.baidu.tieba.z57;
+import com.baidu.tieba.k86;
+import com.baidu.tieba.p77;
+import com.baidu.tieba.q77;
+import com.baidu.tieba.r86;
+import com.baidu.tieba.s86;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -70,18 +70,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof a67)) {
+            if (!(data instanceof q77)) {
                 return;
             }
-            a67 a67Var = (a67) data;
-            j76 j76Var = new j76(true);
-            j76Var.b().e = 2;
-            j76Var.h(a67Var.c());
-            j76Var.i(a67Var.d());
-            j76Var.g(a67Var.b());
-            j76Var.j(1);
-            j76Var.k(false);
-            a67Var.a(j76Var);
+            q77 q77Var = (q77) data;
+            k86 k86Var = new k86(true);
+            k86Var.b().e = 2;
+            k86Var.h(q77Var.c());
+            k86Var.i(q77Var.d());
+            k86Var.g(q77Var.b());
+            k86Var.j(1);
+            k86Var.k(false);
+            q77Var.a(k86Var);
         }
     }
 
@@ -118,19 +118,19 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof z57)) {
+            if (!(data instanceof p77)) {
                 return;
             }
-            z57 z57Var = (z57) data;
-            j76 j76Var = new j76(true);
-            j76Var.b().e = 9;
-            j76Var.h(z57Var.c());
-            j76Var.i(z57Var.d());
-            j76Var.g(z57Var.b());
-            j76Var.j(1);
-            j76Var.k(true);
-            if (z57Var.h(9)) {
-                z57Var.a(j76Var);
+            p77 p77Var = (p77) data;
+            k86 k86Var = new k86(true);
+            k86Var.b().e = 9;
+            k86Var.h(p77Var.c());
+            k86Var.i(p77Var.d());
+            k86Var.g(p77Var.b());
+            k86Var.j(1);
+            k86Var.k(true);
+            if (p77Var.h(9)) {
+                p77Var.a(k86Var);
             }
         }
     }
@@ -168,18 +168,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof a67)) {
+            if (!(data instanceof q77)) {
                 return;
             }
-            a67 a67Var = (a67) data;
-            j76 j76Var = new j76(false);
-            j76Var.b().e = 1;
-            j76Var.h(a67Var.c());
-            j76Var.i(a67Var.d());
-            j76Var.g(a67Var.b());
-            j76Var.j(2);
-            j76Var.k(false);
-            a67Var.a(j76Var);
+            q77 q77Var = (q77) data;
+            k86 k86Var = new k86(false);
+            k86Var.b().e = 1;
+            k86Var.h(q77Var.c());
+            k86Var.i(q77Var.d());
+            k86Var.g(q77Var.b());
+            k86Var.j(2);
+            k86Var.k(false);
+            q77Var.a(k86Var);
         }
     }
 
@@ -216,16 +216,16 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof a67)) {
+            if (!(data instanceof q77)) {
                 return;
             }
-            a67 a67Var = (a67) data;
-            r76 r76Var = new r76();
-            r76Var.b().e = 3;
-            r76Var.g(a67Var.c());
-            r76Var.h(a67Var.d());
-            r76Var.i(false);
-            a67Var.a(r76Var);
+            q77 q77Var = (q77) data;
+            s86 s86Var = new s86();
+            s86Var.b().e = 3;
+            s86Var.g(q77Var.c());
+            s86Var.h(q77Var.d());
+            s86Var.i(false);
+            q77Var.a(s86Var);
         }
     }
 
@@ -262,18 +262,18 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof z57)) {
+            if (!(data instanceof p77)) {
                 return;
             }
-            z57 z57Var = (z57) data;
-            r76 r76Var = new r76();
-            r76Var.b().e = 8;
-            r76Var.b().b = R.string.obfuscated_res_0x7f0f0255;
-            r76Var.g(z57Var.c());
-            r76Var.h(z57Var.d());
-            r76Var.i(true);
-            if (z57Var.h(8)) {
-                z57Var.a(r76Var);
+            p77 p77Var = (p77) data;
+            s86 s86Var = new s86();
+            s86Var.b().e = 8;
+            s86Var.b().b = R.string.obfuscated_res_0x7f0f0253;
+            s86Var.g(p77Var.c());
+            s86Var.h(p77Var.d());
+            s86Var.i(true);
+            if (p77Var.h(8)) {
+                p77Var.a(s86Var);
             }
         }
     }
@@ -311,15 +311,15 @@ public class AlaFrsLiveStatic {
                 return;
             }
             Object data = customResponsedMessage.getData();
-            if (!(data instanceof z57)) {
+            if (!(data instanceof p77)) {
                 return;
             }
-            z57 z57Var = (z57) data;
-            q76 q76Var = new q76();
-            q76Var.i(z57Var.c());
-            q76Var.j(z57Var.d());
-            q76Var.h(z57Var.b());
-            q76Var.g(z57Var);
+            p77 p77Var = (p77) data;
+            r86 r86Var = new r86();
+            r86Var.i(p77Var.c());
+            r86Var.j(p77Var.d());
+            r86Var.h(p77Var.b());
+            r86Var.g(p77Var);
         }
     }
 

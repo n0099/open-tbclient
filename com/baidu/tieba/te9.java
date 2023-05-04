@@ -1,31 +1,26 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.os.Bundle;
-import android.text.TextUtils;
-import com.baidu.adp.lib.util.StringUtils;
+import android.app.PendingIntent;
+import android.content.Intent;
+import android.widget.RemoteViews;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.resourceLoaderProc.EmotionShareLoaderProc;
-import com.baidu.tbadk.switchs.QqShareH5Switch;
-import com.baidu.tieba.se9;
-import com.baidu.tieba.sharesdk.bean.ShareEntity;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.download.DownloadData;
+import com.baidu.tbadk.download.DownloadReceiver;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.tencent.connect.share.QQShare;
-import com.tencent.tauth.IUiListener;
-import java.util.ArrayList;
 /* loaded from: classes6.dex */
-public class te9 extends se9 {
+public class te9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public IUiListener p;
-    public final bg<EmotionShareLoaderProc.EmotionShare> q;
+    public final RemoteViews a;
 
     /* loaded from: classes6.dex */
-    public class a extends bg<EmotionShareLoaderProc.EmotionShare> {
+    public class a extends bg<tm> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ te9 a;
@@ -48,162 +43,86 @@ public class te9 extends se9 {
             this.a = te9Var;
         }
 
-        @Override // com.baidu.tieba.bg
-        public void onCancelled(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-                super.onCancelled(str);
-                this.a.t(3, 4);
-            }
-        }
-
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.tieba.bg
-        /* renamed from: a */
-        public void onLoaded(EmotionShareLoaderProc.EmotionShare emotionShare, String str, int i) {
+        public void onLoaded(tm tmVar, String str, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLLI(1048576, this, emotionShare, str, i) == null) {
-                super.onLoaded(emotionShare, str, i);
-                if (emotionShare == null || emotionShare.image == null || TextUtils.isEmpty(emotionShare.path)) {
-                    this.a.t(2, 4);
-                }
-                if (emotionShare != null && !TextUtils.isEmpty(emotionShare.path)) {
-                    this.a.O(emotionShare.path);
-                }
+            if ((interceptable == null || interceptable.invokeLLI(1048576, this, tmVar, str, i) == null) && this.a.a != null && tmVar != null && tmVar.p() != null) {
+                this.a.a.setImageViewBitmap(R.id.app_icon, tmVar.p());
             }
         }
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public te9(Context context) {
-        super(context);
+    public te9(DownloadData downloadData, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {downloadData, Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.q = new a(this);
-        this.l = 4;
+        this.a = new RemoteViews(TbadkCoreApplication.getInst().getPackageName(), (int) R.layout.download_notify_view);
+        c(i);
+        this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
+        this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+        this.a.setImageViewResource(R.id.download_cancel, R.drawable.notify_cancel_bg);
+        this.a.setTextViewText(R.id.downapp_name, downloadData.getUser_name());
+        cg.h().m(downloadData.getApp_icon(), 17, new a(this), BdUniqueId.gen());
+        Intent intent = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
+        intent.setPackage(TbadkCoreApplication.getInst().getPackageName());
+        intent.setAction(DownloadReceiver.ACTION_PAUSE_DOWNLOAD);
+        intent.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
+        this.a.setOnClickPendingIntent(R.id.download_btn, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent, 134217728));
+        Intent intent2 = new Intent(TbadkCoreApplication.getInst().getContext(), DownloadReceiver.class);
+        intent2.setAction(DownloadReceiver.ACTION_CANCEL_DOWNLOAD);
+        intent2.putExtra(DownloadReceiver.DOWNLOAD_DATA, downloadData);
+        intent2.setPackage(TbadkCoreApplication.getInst().getPackageName());
+        this.a.setOnClickPendingIntent(R.id.download_cancel, PendingIntent.getBroadcast(TbadkCoreApplication.getInst(), downloadData.getNotifyId(), intent2, 134217728));
     }
 
-    public final void O(String str) {
+    public RemoteViews b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putString("imageLocalUrl", str);
-            bundle.putInt("req_type", 5);
-            bundle.putInt("cflag", 1);
-            IUiListener iUiListener = this.p;
-            if (iUiListener != null) {
-                this.k.shareToQQ((Activity) this.b, bundle, iUiListener);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (RemoteViews) invokeV.objValue;
+    }
+
+    public void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.downloading_app_paused));
+            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_start_bg);
         }
     }
 
-    public final void M(ShareEntity shareEntity, IUiListener iUiListener) {
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, shareEntity, iUiListener) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("req_type", 7);
-            bundle.putString("title", af9.a(this.b));
-            if (!StringUtils.isNull(shareEntity.getTitle())) {
-                bundle.putString("summary", shareEntity.getTitle());
-            } else if (!StringUtils.isNull(shareEntity.getContent())) {
-                bundle.putString("summary", shareEntity.getContent());
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.a.setTextViewText(R.id.download_status_text, TbadkCoreApplication.getInst().getResources().getString(R.string.on_downloading));
+            this.a.setImageViewResource(R.id.download_btn, R.drawable.notify_pause_bg);
+        }
+    }
+
+    public void c(int i) {
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+            if (i > 0) {
+                str = i + "%";
             } else {
-                bundle.putString("summary", this.b.getString(R.string.obfuscated_res_0x7f0f122a));
+                str = "0%";
             }
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
-                arrayList.add(shareEntity.getImgUrl());
-            } else {
-                arrayList.add("http://tb3.bdstatic.com/public/img/fcf10e29473417fa5e0d4a1e6.fcf10e29.png");
-            }
-            bundle.putStringArrayList("imageUrl", arrayList);
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_APPID, "1111264064");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_TYPE, "3");
-            bundle.putString(QQShare.SHARE_TO_QQ_MINI_PROGRAM_PATH, "pages/pb/pb?tid=" + shareEntity.getTid());
-            if (iUiListener != null) {
-                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
-            }
-        }
-    }
-
-    public final void N(ShareEntity shareEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, shareEntity) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("req_type", 1);
-            bundle.putString("title", shareEntity.getTitle());
-            bundle.putString("summary", shareEntity.getContent());
-            bundle.putString("targetUrl", shareEntity.getLinkUrl());
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (!TextUtils.isEmpty(shareEntity.getImgUrl())) {
-                arrayList.add(shareEntity.getImgUrl());
-            }
-            bundle.putStringArrayList("imageUrl", arrayList);
-            IUiListener iUiListener = this.p;
-            if (iUiListener != null) {
-                this.k.shareToQzone((Activity) this.b, bundle, iUiListener);
-            }
-        }
-    }
-
-    public final void P(ShareEntity shareEntity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, shareEntity) == null) {
-            if (p(shareEntity.getLocalFile())) {
-                O(shareEntity.getLocalFile());
-            } else if (o(shareEntity.getImageUri())) {
-                O(shareEntity.getImageUri().getPath());
-            } else {
-                cg.h().k(shareEntity.getImgUrl(), 34, this.q, 0, 0, j(), new Object[0]);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.se9, com.baidu.tieba.xe9
-    public void a(ShareEntity shareEntity, ye9 ye9Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, shareEntity, ye9Var) == null) {
-            if (shareEntity != null && this.k != null) {
-                this.e = shareEntity;
-                Context context = this.b;
-                if (context != null && (context instanceof Activity)) {
-                    this.p = new se9.c(this, ye9Var);
-                    if (!QqShareH5Switch.isOn() && !StringUtils.isNull(shareEntity.getTid()) && !"0".equals(shareEntity.getTid())) {
-                        M(shareEntity, this.p);
-                        return;
-                    } else if (shareEntity.getShareType() != 0) {
-                        P(shareEntity);
-                        return;
-                    } else {
-                        N(shareEntity);
-                        return;
-                    }
-                }
-                t(2, 4);
-                if (ye9Var != null) {
-                    ye9Var.c1(0, 2);
-                    return;
-                }
-                return;
-            }
-            t(2, 4);
-            if (ye9Var != null) {
-                ye9Var.c1(0, 2);
-            }
+            this.a.setProgressBar(R.id.download_progress, 100, i, false);
+            this.a.setTextViewText(R.id.download_progress_text, str);
         }
     }
 }

@@ -1,167 +1,225 @@
 package com.baidu.tieba;
 
-import android.graphics.drawable.ShapeDrawable;
-import android.widget.EditText;
-import android.widget.TextView;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.util.UtilHelper;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.view.HeadImageView;
+import com.baidu.tbadk.core.view.HeadPendantView;
+import com.baidu.tieba.frs.entelechy.adapter.FrsCardVideoViewHolder;
+import com.baidu.tieba.tbadkCore.FrsViewData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Array;
-import java.lang.reflect.Field;
-import java.lang.reflect.Method;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
 /* loaded from: classes6.dex */
-public class qa7 {
+public class qa7 extends p67<f05, FrsCardVideoViewHolder<pb7>> implements hi6, vh7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext<?> l;
+    public String m;
+    public th7 n;
+    public ji6<ThreadData> o;
 
-    public static String d(int i) {
+    public final String X(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65539, null, i)) == null) {
-            switch (i) {
-                case 1:
-                    return "一";
-                case 2:
-                    return "二";
-                case 3:
-                    return "三";
-                case 4:
-                    return "四";
-                case 5:
-                    return "五";
-                case 6:
-                    return "六";
-                case 7:
-                    return "七";
-                case 8:
-                    return "八";
-                case 9:
-                    return "九";
-                case 10:
-                    return "十";
-                case 11:
-                    return "十一";
-                case 12:
-                    return "十二";
-                case 13:
-                    return "十三";
-                case 14:
-                    return "十四";
-                case 15:
-                    return "十五";
-                case 16:
-                    return "十六";
-                case 17:
-                    return "十七";
-                case 18:
-                    return "十八";
-                case 19:
-                    return "十九";
-                case 20:
-                    return "二十";
-                default:
-                    return "";
-            }
+        return (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) ? i == 5 ? "3" : i == 10 ? "10" : i == 15 ? "11" : "" : (String) invokeI.objValue;
+    }
+
+    @Override // com.baidu.tieba.hi6
+    public void p(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048585, this, i) == null) {
         }
-        return (String) invokeI.objValue;
     }
 
     /* loaded from: classes6.dex */
-    public static class a extends ShapeDrawable {
+    public class a extends ji6<ThreadData> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public int a;
-        public int b;
+        public final /* synthetic */ qa7 b;
 
-        public a(int i, int i2, int i3, int i4) {
+        public a(qa7 qa7Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)};
+                Object[] objArr = {qa7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i5 = newInitContext.flag;
-                if ((i5 & 1) != 0) {
-                    int i6 = i5 & 2;
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = i3;
-            this.b = i4;
-            setDither(false);
-            getPaint().setColor(i);
-            setIntrinsicWidth(i2);
+            this.b = qa7Var;
         }
 
-        @Override // android.graphics.drawable.Drawable
-        public void setBounds(int i, int i2, int i3, int i4) {
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.ji6
+        /* renamed from: d */
+        public void a(View view2, ThreadData threadData) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeIIII(1048576, this, i, i2, i3, i4) == null) {
-                super.setBounds(i, i2 + this.a, i3, i4 + this.b);
+            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, threadData) == null) && view2 != null && threadData != null) {
+                if (view2.getId() == R.id.frame_video) {
+                    this.b.W(threadData, "c11718");
+                } else if (view2.getId() == R.id.layout_root) {
+                    this.b.W(threadData, TbadkCoreStatisticKey.FRS_PHOTO_LIVE_VIEW_PAGER_ITEM);
+                } else if (view2.getId() == R.id.image_user || view2.getId() == R.id.pendant_image_user) {
+                    this.b.W(threadData, "c10241");
+                } else if (view2.getId() == R.id.card_divider_tv) {
+                    lk7.a(this.b.n, threadData.getRecomReason());
+                }
+                if (view2.getId() != R.id.card_home_page_normal_thread_user_name && !(view2 instanceof HeadImageView) && !(view2 instanceof HeadPendantView)) {
+                    if (view2.getId() == R.id.frame_video) {
+                        sh7.e(threadData, 4, this.b.mPageId, this.b.n, this.b.t());
+                        if (this.b.b != null && this.b.b.getForum() != null) {
+                            sh7.c(threadData, this.b.b.getForum().getId());
+                            return;
+                        }
+                        return;
+                    } else if (view2.getId() == R.id.thread_info_commont_container) {
+                        sh7.e(threadData, 5, this.b.mPageId, this.b.n, this.b.t());
+                        if (this.b.b != null && this.b.b.getForum() != null) {
+                            sh7.c(threadData, this.b.b.getForum().getId());
+                            return;
+                        }
+                        return;
+                    } else {
+                        sh7.e(threadData, 1, this.b.mPageId, this.b.n, this.b.t());
+                        if (this.b.b != null && this.b.b.getForum() != null) {
+                            sh7.c(threadData, this.b.b.getForum().getId());
+                            return;
+                        }
+                        return;
+                    }
+                }
+                sh7.e(threadData, 2, this.b.mPageId, this.b.n, this.b.t());
             }
         }
     }
 
-    public static long a(String str) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qa7(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
+        super(tbPageContext, bdUniqueId, bdUniqueId2);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.n = new th7();
+        this.o = new a(this);
+        this.l = tbPageContext;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: Z */
+    public FrsCardVideoViewHolder onCreateViewHolder(ViewGroup viewGroup) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, str)) == null) {
-            long j = 0;
-            if (StringUtils.isNull(str)) {
-                return 0L;
-            }
-            try {
-                Date parse = new SimpleDateFormat("yyyy.MM.dd").parse(str);
-                if (parse != null) {
-                    j = parse.getTime();
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, viewGroup)) == null) {
+            pb7 pb7Var = new pb7(this.l, this.mPageId);
+            pb7Var.W(this.mPageId);
+            pb7Var.a(this.m);
+            return new FrsCardVideoViewHolder(pb7Var);
+        }
+        return (FrsCardVideoViewHolder) invokeL.objValue;
+    }
+
+    @Override // com.baidu.tieba.hi6
+    public void a(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            this.m = str;
+        }
+    }
+
+    public final void W(ThreadData threadData, String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, threadData, str) != null) || threadData == null) {
+            return;
+        }
+        int insertFloor = threadData.getInsertFloor();
+        StatisticItem statisticItem = new StatisticItem(str);
+        statisticItem.param("obj_locate", X(insertFloor));
+        statisticItem.param("tid", threadData.getTid());
+        statisticItem.param("obj_type", 2);
+        TiebaStatic.log(statisticItem);
+    }
+
+    public final va9 Y(ThreadData threadData) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, threadData)) == null) {
+            if (threadData != null) {
+                va9 va9Var = new va9();
+                va9Var.a = X(threadData.getInsertFloor());
+                va9Var.d = this.n.c;
+                va9Var.c = threadData.getTid();
+                va9Var.l = threadData.mRecomAbTag;
+                if (threadData.getThreadVideoInfo() != null) {
+                    va9Var.m = threadData.getThreadVideoInfo().video_md5;
                 }
-                return j / 1000;
-            } catch (ParseException e) {
-                e.printStackTrace();
-                return 0L;
+                threadData.updateShowStatus();
+                return va9Var;
             }
+            return null;
         }
-        return invokeL.longValue;
+        return (va9) invokeL.objValue;
     }
 
-    public static int b(long j) {
-        InterceptResult invokeJ;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.p67, com.baidu.tieba.vm
+    /* renamed from: a0 */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f05 f05Var, FrsCardVideoViewHolder frsCardVideoViewHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65537, null, j)) == null) {
-            if (j < 0) {
-                return -1;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048581, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f05Var, frsCardVideoViewHolder})) == null) {
+            if (frsCardVideoViewHolder != null && frsCardVideoViewHolder.a() != null) {
+                frsCardVideoViewHolder.a().c0(Y(f05Var.t));
+                frsCardVideoViewHolder.a().i(f05Var.t);
+                frsCardVideoViewHolder.a().k(this.o);
+                sh7.p(f05Var.t, this.mPageId, this.n, t());
+                FrsViewData frsViewData = this.b;
+                if (frsViewData != null && frsViewData.getForum() != null) {
+                    sh7.n(f05Var.t, t());
+                    sh7.o(f05Var.t, this.b.getForum().getId());
+                }
+                return frsCardVideoViewHolder.getView();
             }
-            return (int) (j / 86400);
+            return null;
         }
-        return invokeJ.intValue;
+        return (View) invokeCommon.objValue;
     }
 
-    public static void c(int i, int i2, EditText editText) {
+    @Override // com.baidu.tieba.vh7
+    public th7 i() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIIL(65538, null, i, i2, editText) == null) {
-            try {
-                Method declaredMethod = TextView.class.getDeclaredMethod("createEditorIfNeeded", new Class[0]);
-                declaredMethod.setAccessible(true);
-                declaredMethod.invoke(editText, new Object[0]);
-                Field declaredField = TextView.class.getDeclaredField("mEditor");
-                Field declaredField2 = Class.forName("android.widget.Editor").getDeclaredField("mCursorDrawable");
-                declaredField.setAccessible(true);
-                declaredField2.setAccessible(true);
-                Object obj = declaredField2.get(declaredField.get(editText));
-                Array.set(obj, 0, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-                Array.set(obj, 1, new a(SkinManager.getColor(R.color.CAM_X0302), UtilHelper.getDimenPixelSize(R.dimen.tbds5), i, i2));
-            } catch (Exception unused) {
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.n;
         }
+        return (th7) invokeV.objValue;
     }
 }

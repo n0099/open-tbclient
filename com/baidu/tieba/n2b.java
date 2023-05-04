@@ -1,23 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.tieba.n1b;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class n2b<T, R> implements n1b.a<R> {
+public final class n2b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final n1b.a<T> a;
-    public final n1b.b<? extends R, ? super T> b;
+    public final float a;
+    public final float b;
 
-    public n2b(n1b.a<T> aVar, n1b.b<? extends R, ? super T> bVar) {
+    public n2b(float f, float f2, float f3) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {aVar, bVar};
+            Object[] objArr = {Float.valueOf(f), Float.valueOf(f2), Float.valueOf(f3)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,26 +28,25 @@ public final class n2b<T, R> implements n1b.a<R> {
                 return;
             }
         }
-        this.a = aVar;
-        this.b = bVar;
+        this.a = f;
+        this.b = f2;
     }
 
-    public void call(t1b<? super R> t1bVar) {
+    public final float a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, t1bVar) == null) {
-            try {
-                t1b t1bVar2 = (t1b) u5b.n(this.b).call(t1bVar);
-                t1bVar2.d();
-                this.a.call(t1bVar2);
-            } catch (Throwable th) {
-                z1b.e(th);
-                t1bVar.onError(th);
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
+        return invokeV.floatValue;
     }
 
-    @Override // com.baidu.tieba.n1b.a, com.baidu.tieba.b2b
-    public /* bridge */ /* synthetic */ void call(Object obj) {
-        call((t1b) ((t1b) obj));
+    public final float b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.floatValue;
     }
 }

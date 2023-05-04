@@ -1,246 +1,144 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.Context;
-import android.text.TextUtils;
+import android.os.Build;
+import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.JsPromptResult;
+import android.webkit.JsResult;
+import android.webkit.WebChromeClient;
+import android.webkit.WebStorage;
 import android.webkit.WebView;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.lib.OrmObject.toolsystem.orm.object.OrmObject;
-import com.baidu.adp.lib.util.BdLog;
+import android.widget.FrameLayout;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.browser.CommonTbJsBridge;
-import com.baidu.tbadk.browser.UegTbJsBridge;
-import com.baidu.tbadk.core.atomData.LoginActivityConfig;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.download.DownloadData;
-import com.baidu.tbadk.xiuba.JSResultData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.bytedance.sdk.openadsdk.downloadnew.core.TTDownloadField;
-import java.util.HashMap;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class ut4 implements se6 {
+public class ut4 extends WebChromeClient {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public a9 a;
+    public eq9 b;
 
-    @Override // com.baidu.tieba.se6
-    public /* synthetic */ void a(WebView webView, String str, JSONObject jSONObject) {
-        re6.a(this, webView, str, jSONObject);
-    }
-
-    public ut4() {
+    public ut4(a9 a9Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {a9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
+        }
+        this.a = a9Var;
+    }
+
+    public void b(eq9 eq9Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, eq9Var) == null) {
+            this.b = eq9Var;
         }
     }
 
-    @Override // com.baidu.tieba.se6
-    public boolean b(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
-        InterceptResult invokeLLLLL;
+    public final void a(WebView webView, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str, str2, str3, jsPromptResult)) == null) {
-            if (!TextUtils.equals("CommonJSBridge", str)) {
-                return false;
+        if ((interceptable == null || interceptable.invokeLLL(1048576, this, webView, str, str2) == null) && webView != null && !hi.isEmpty(str) && !hi.isEmpty(str2)) {
+            if (Build.VERSION.SDK_INT >= 19) {
+                webView.evaluateJavascript("javascript:" + str + "('" + str2 + "')", null);
+                return;
             }
-            if (TextUtils.equals("startLoginModule", str2)) {
-                try {
-                    jsPromptResult.confirm(h(webView, new JSONObject(str3).optString("cssUrl")).a());
-                    return true;
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            } else if (CommonTbJsBridge.LOAD_THIRD_PARTY_LOGIN.equals(str2)) {
-                jsPromptResult.confirm(e(webView, str3));
-            } else if (CommonTbJsBridge.START_DOWNLOAD_CSS.equals(str2)) {
-                try {
-                    jsPromptResult.confirm(g(webView, new JSONObject(str3).optString(TTDownloadField.TT_DOWNLOAD_URL)).a());
-                } catch (JSONException e2) {
-                    BdLog.e(e2);
-                }
-            } else if (UegTbJsBridge.METHOD_BIND_MOBILE_NUMBER.equals(str2)) {
-                jsPromptResult.confirm(c(webView).a());
+            webView.loadUrl("javascript:" + str + "('" + str2 + "')");
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public View getVideoLoadingProgressView() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            FrameLayout frameLayout = new FrameLayout(this.a.getPageActivity());
+            frameLayout.setLayoutParams(new ViewGroup.LayoutParams(-1, -1));
+            return frameLayout;
+        }
+        return (View) invokeV.objValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public void onExceededDatabaseQuota(String str, String str2, long j, long j2, long j3, WebStorage.QuotaUpdater quotaUpdater) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{str, str2, Long.valueOf(j), Long.valueOf(j2), Long.valueOf(j3), quotaUpdater}) == null) {
+            super.onExceededDatabaseQuota(str, str2, j, j2, j3, quotaUpdater);
+            quotaUpdater.updateQuota(j2 * 2);
+        }
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsAlert(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048580, this, webView, str, str2, jsResult)) == null) {
+            a9 a9Var = this.a;
+            if (a9Var != null && lg.f(a9Var)) {
+                return super.onJsAlert(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsBeforeUnload(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048581, this, webView, str, str2, jsResult)) == null) {
+            a9 a9Var = this.a;
+            if (a9Var != null && lg.f(a9Var)) {
+                return super.onJsBeforeUnload(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsConfirm(WebView webView, String str, String str2, JsResult jsResult) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048582, this, webView, str, str2, jsResult)) == null) {
+            a9 a9Var = this.a;
+            if (a9Var != null && lg.f(a9Var)) {
+                return super.onJsConfirm(webView, str, str2, jsResult);
+            }
+            return true;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    @Override // android.webkit.WebChromeClient
+    public boolean onJsPrompt(WebView webView, String str, String str2, String str3, JsPromptResult jsPromptResult) {
+        InterceptResult invokeLLLLL;
+        eq9 eq9Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(1048583, this, webView, str, str2, str3, jsPromptResult)) == null) {
+            if (!e95.a(str) && str2.startsWith("tiebaapp")) {
+                hq9 hq9Var = new hq9();
+                hq9Var.w(lq9.b(str2));
+                hq9Var.y(301);
+                a(webView, hq9Var.c(), hq9Var.d());
+            }
+            if (e95.a(str) && (eq9Var = this.b) != null && eq9Var.onJsPrompt(str2, jsPromptResult)) {
                 return true;
             }
-            return false;
+            jsPromptResult.cancel();
+            return true;
         }
         return invokeLLLLL.booleanValue;
-    }
-
-    public sm9 c(WebView webView) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, webView)) == null) {
-            sm9 sm9Var = new sm9();
-            try {
-                MessageManager.getInstance().sendMessage(new CustomMessage(2921372, u75.b()));
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            return sm9Var;
-        }
-        return (sm9) invokeL.objValue;
-    }
-
-    public sm9 d(WebView webView, int i, String str) {
-        InterceptResult invokeLIL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, webView, i, str)) == null) {
-            sm9 sm9Var = new sm9();
-            JSONObject jSONObject = new JSONObject();
-            Activity a = ie6.a(webView.getContext());
-            if (a == null) {
-                try {
-                    jSONObject.put("resultCode", 0);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-                sm9Var.o(jSONObject.toString());
-                return sm9Var;
-            }
-            LoginActivityConfig loginActivityConfig = new LoginActivityConfig((Context) a, true);
-            loginActivityConfig.setThirdPartyLoginForResult(i, str);
-            loginActivityConfig.setUrl(webView.getOriginalUrl());
-            ViewHelper.checkUpIsLoginFromH5(loginActivityConfig);
-            try {
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e2) {
-                BdLog.e(e2);
-            }
-            sm9Var.o(jSONObject.toString());
-            return sm9Var;
-        }
-        return (sm9) invokeLIL.objValue;
-    }
-
-    public final String e(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, webView, str)) == null) {
-            if (!hi.isEmpty(str)) {
-                try {
-                    JSONObject jSONObject = new JSONObject(str);
-                    return d(webView, jSONObject.optInt("socialType", 0), jSONObject.optString("activityId")).a();
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                    return null;
-                }
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public sm9 h(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048583, this, webView, str)) == null) {
-            sm9 sm9Var = new sm9();
-            Activity a = ie6.a(webView.getContext());
-            if (a != null) {
-                ViewHelper.checkUpIsLoginFromH5(a, webView.getOriginalUrl(), str);
-            }
-            JSResultData jSResultData = new JSResultData();
-            jSResultData.setStatus(1);
-            jSResultData.setErrorCode("0");
-            jSResultData.setErrorMsg("");
-            sm9Var.o(OrmObject.jsonStrWithObject(jSResultData));
-            return sm9Var;
-        }
-        return (sm9) invokeLL.objValue;
-    }
-
-    public sm9 f(WebView webView, HashMap<String, Boolean> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, webView, hashMap)) == null) {
-            if (hashMap == null || hashMap.get("isLogin") == null || !Boolean.TRUE.equals(hashMap.get("isLogin"))) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("resultCode", 1);
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            a(webView, CommonTbJsBridge.LOGIN_RESULT_TO_H5, jSONObject);
-            sm9 sm9Var = new sm9();
-            sm9Var.o(jSONObject.toString());
-            return sm9Var;
-        }
-        return (sm9) invokeLL.objValue;
-    }
-
-    public sm9 i(WebView webView, HashMap<String, Object> hashMap) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, webView, hashMap)) == null) {
-            if (hashMap == null) {
-                return null;
-            }
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("resultCode", 1);
-                jSONObject.put("socialType", hashMap.get("social_type"));
-                jSONObject.put("activityId", hashMap.get("activityId"));
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-            a(webView, CommonTbJsBridge.RESULT_THIRD_PARTY_LOGIN, jSONObject);
-            sm9 sm9Var = new sm9();
-            sm9Var.o(jSONObject.toString());
-            return sm9Var;
-        }
-        return (sm9) invokeLL.objValue;
-    }
-
-    public sm9 g(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048582, this, webView, str)) == null) {
-            sm9 sm9Var = new sm9();
-            JSONObject jSONObject = new JSONObject();
-            if (!hi.isEmpty(str)) {
-                try {
-                    if (hi.isEmpty(str)) {
-                        jSONObject.put("resultCode", 0);
-                        sm9Var.o(jSONObject.toString());
-                        return sm9Var;
-                    }
-                    String customLoginCssFileName = FileHelper.getCustomLoginCssFileName(str);
-                    String customLoginCssStoragePath = FileHelper.getCustomLoginCssStoragePath(str);
-                    if (!FileHelper.checkIsCssFile(customLoginCssStoragePath)) {
-                        jSONObject.put("resultCode", 0);
-                        sm9Var.o(jSONObject.toString());
-                        return sm9Var;
-                    }
-                    DownloadData downloadData = new DownloadData(customLoginCssFileName, customLoginCssFileName, str, null);
-                    downloadData.setPath(customLoginCssStoragePath);
-                    mc5.k().l(downloadData);
-                    jSONObject.put("resultCode", 1);
-                } catch (JSONException e) {
-                    BdLog.e(e);
-                }
-            }
-            sm9Var.o(jSONObject.toString());
-            return sm9Var;
-        }
-        return (sm9) invokeLL.objValue;
     }
 }

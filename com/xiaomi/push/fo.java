@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.nio.ByteBuffer;
 import java.nio.ByteOrder;
 import java.util.zip.GZIPInputStream;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public class fo {
     public static final byte[] a = {80, 85, 83, 72};
 
@@ -19,7 +19,7 @@ public class fo {
     public short f394a;
     public byte[] b;
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static class a {
         public static final c a = new c();
 
@@ -39,18 +39,18 @@ public class fo {
         }
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public interface b {
         byte a();
 
         byte[] a(byte[] bArr, int i);
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class c {
     }
 
-    /* loaded from: classes8.dex */
+    /* loaded from: classes9.dex */
     public static final class d implements b {
         @Override // com.xiaomi.push.fo.b
         public byte a() {

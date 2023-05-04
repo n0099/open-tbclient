@@ -1,90 +1,81 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.database.Cursor;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.Closeable;
+import java.util.zip.ZipFile;
 /* loaded from: classes5.dex */
 public class l40 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public long a;
 
-    /* JADX WARN: 'this' call moved to the top of the method (can break code semantics) */
-    public l40() {
-        this(0L);
+    public static boolean a(Cursor cursor) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                this(((Long) newInitContext.callArgs[0]).longValue());
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-    }
-
-    public long d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return invokeV.longValue;
-    }
-
-    public l40(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {Long.valueOf(j)};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = j;
-    }
-
-    public long a(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            return j & this.a;
-        }
-        return invokeJ.longValue;
-    }
-
-    public void b(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j) == null) {
-            this.a = j;
-        }
-    }
-
-    public boolean c(long j, long j2) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Long.valueOf(j), Long.valueOf(j2)})) == null) {
-            long j3 = this.a;
-            long j4 = (j & j2) | ((~j2) & j3);
-            this.a = j4;
-            if ((j4 ^ j3) != 0) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, cursor)) == null) {
+            if (cursor != null) {
+                try {
+                    cursor.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
             }
             return false;
         }
-        return invokeCommon.booleanValue;
+        return invokeL.booleanValue;
+    }
+
+    public static boolean b(Closeable closeable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, closeable)) == null) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean c(Closeable closeable) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, closeable)) == null) {
+            if (closeable != null) {
+                try {
+                    closeable.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean d(ZipFile zipFile) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, zipFile)) == null) {
+            if (zipFile != null) {
+                try {
+                    zipFile.close();
+                    return true;
+                } catch (Throwable unused) {
+                    return false;
+                }
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
     }
 }

@@ -1,65 +1,59 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
+import android.app.Activity;
+import android.content.DialogInterface;
+import com.baidu.tbadk.coreExtra.share.ShareItem;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.ActivityInfo;
 /* loaded from: classes6.dex */
 public class sw4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public ShareItem a;
+    public Activity b;
+    public int c;
+    public DialogInterface.OnCancelListener d;
 
-    public sw4() {
+    public sw4(ShareItem shareItem, Activity activity, int i, DialogInterface.OnCancelListener onCancelListener) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {shareItem, activity, Integer.valueOf(i), onCancelListener};
             interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = shareItem;
+        this.b = activity;
+        this.c = i;
+        this.d = onCancelListener;
+    }
+
+    public sw4(ShareItem shareItem, Activity activity, DialogInterface.OnCancelListener onCancelListener) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {shareItem, activity, onCancelListener};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-    }
-
-    public void a(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        try {
-            jSONObject.optLong("activity_id");
-            jSONObject.optString("main_title");
-            jSONObject.optString("sub_title");
-            jSONObject.optInt("back_pic_width");
-            jSONObject.optInt("back_pic_height");
-            jSONObject.optString("back_pic");
-            jSONObject.optString("subpage_link");
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
-    }
-
-    public void b(ActivityInfo activityInfo) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activityInfo) != null) || activityInfo == null) {
-            return;
-        }
-        try {
-            activityInfo.activity_id.longValue();
-            String str = activityInfo.main_title;
-            String str2 = activityInfo.sub_title;
-            activityInfo.back_pic_width.intValue();
-            activityInfo.back_pic_height.intValue();
-            String str3 = activityInfo.back_pic;
-            String str4 = activityInfo.subpage_link;
-        } catch (Exception e) {
-            BdLog.e(e.getMessage());
-        }
+        this.a = shareItem;
+        this.b = activity;
+        this.d = onCancelListener;
     }
 }

@@ -28,10 +28,10 @@ import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.gx4;
 import com.baidu.tieba.homepage.concern.adapter.ContentCollectListAdapter;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.r25;
 import com.baidu.tieba.ri;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -217,17 +217,17 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r25 d = r25.d(this.a);
+            g35 d = g35.d(this.a);
             d.C(R.string.F_X02);
             d.B(R.dimen.T_X05);
             d.w(R.color.CAM_X0105);
-            r25 d2 = r25.d(this.b);
+            g35 d2 = g35.d(this.b);
             d2.B(R.dimen.T_X07);
             d2.w(R.color.CAM_X0107);
-            r25 d3 = r25.d(this.c);
+            g35 d3 = g35.d(this.c);
             d3.B(R.dimen.T_X08);
             d3.w(R.color.CAM_X0108);
-            r25 d4 = r25.d(this.d);
+            g35 d4 = g35.d(this.d);
             d4.w(R.color.CAM_X0101);
             d4.C(R.string.F_X02);
             d4.o(R.string.J_X01);
@@ -248,7 +248,7 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
     public final void c() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07cb, (ViewGroup) this, true);
+            this.r = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d07d7, (ViewGroup) this, true);
             setOrientation(1);
             ViewGroup.MarginLayoutParams marginLayoutParams = new ViewGroup.MarginLayoutParams(-1, -2);
             marginLayoutParams.bottomMargin = ii.g(getContext(), R.dimen.M_H_X003);
@@ -258,11 +258,11 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.n = ii.g(getContext(), R.dimen.tbds115);
             this.m = ii.g(getContext(), R.dimen.tbds3);
             u = (((ii.l(getContext()) - (ii.g(getContext(), R.dimen.M_W_X004) * 5)) - ii.g(getContext(), R.dimen.M_W_X006)) - ii.g(getContext(), R.dimen.M_W_X005)) - this.k;
-            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0923f2);
-            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090782);
-            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916e0);
+            this.a = (EMTextView) findViewById(R.id.obfuscated_res_0x7f09240b);
+            this.b = (EMTextView) findViewById(R.id.obfuscated_res_0x7f090785);
+            this.d = (EMTextView) findViewById(R.id.obfuscated_res_0x7f0916ee);
             this.f = (BarImageView) findViewById(R.id.obfuscated_res_0x7f090333);
-            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f090ff4);
+            this.e = (TbImageView) findViewById(R.id.obfuscated_res_0x7f091003);
             this.i = (SingleLineEllipsizeTextView) findViewById(R.id.obfuscated_res_0x7f090351);
             this.h = (ImageView) findViewById(R.id.comment_icon);
             this.c = (EMTextView) findViewById(R.id.comment_num);
@@ -292,13 +292,13 @@ public class ContentCollectView extends LinearLayout implements View.OnClickList
             this.g.setFrom(this.p);
             this.g.setIsAgreeNumClick(true);
             this.g.setAgreeAnimationResource();
-            qw4 qw4Var = new qw4();
-            qw4Var.b = 1;
-            qw4Var.h = 1;
-            qw4Var.g = 1;
-            qw4Var.c = 7;
-            qw4Var.f = this.q;
-            this.g.setStatisticData(qw4Var);
+            gx4 gx4Var = new gx4();
+            gx4Var.b = 1;
+            gx4Var.h = 1;
+            gx4Var.g = 1;
+            gx4Var.c = 7;
+            gx4Var.f = this.q;
+            this.g.setStatisticData(gx4Var);
         }
     }
 

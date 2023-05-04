@@ -1,21 +1,11 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.content.DialogInterface;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import org.json.JSONObject;
+import java.net.MalformedURLException;
 /* loaded from: classes4.dex */
 public interface ep1 {
-    void a(@NonNull Activity activity, @Nullable DialogInterface.OnClickListener onClickListener);
+    String a();
 
-    String b();
+    boolean b();
 
-    void c(JSONObject jSONObject);
-
-    qf4 d();
-
-    void e(int i, String str);
-
-    void f(@NonNull om3<Boolean> om3Var);
+    String c(String str) throws MalformedURLException;
 }

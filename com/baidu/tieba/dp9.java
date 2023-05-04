@@ -1,66 +1,25 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.atomData.NewUserRedPackageActivityConfig;
-import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
+import tbclient.ActHot;
+import tbclient.ActPost;
+import tbclient.LinkInfo;
 /* loaded from: classes4.dex */
 public class dp9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public boolean b;
-    public Runnable c;
+    public ArrayList<bp9> a;
+    public ArrayList<cp9> b;
 
-    /* loaded from: classes4.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ dp9 a;
-
-        public a(dp9 dp9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {dp9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = dp9Var;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (MainTabActivityConfig.IS_MAIN_TAB_SPLASH_SHOW) {
-                    this.a.b = true;
-                } else {
-                    this.a.a();
-                }
-            }
-        }
-    }
-
-    public dp9(MainTabActivity mainTabActivity, ro9 ro9Var) {
+    public dp9() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ro9Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -70,41 +29,30 @@ public class dp9 {
                 return;
             }
         }
-        this.b = false;
-        this.c = new a(this);
-        this.a = mainTabActivity;
+        this.a = new ArrayList<>();
+        this.b = new ArrayList<>();
     }
 
-    public void a() {
+    public void a(ActPost actPost) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && TbSingleton.getInstance().getNewUserRedPackageData() != null) {
-            TbSingleton.getInstance().setNewUserRedPackageShowed(true);
-            this.a.sendMessage(new CustomMessage(2002001, new NewUserRedPackageActivityConfig(this.a, TbSingleton.getInstance().getNewUserRedPackageData())));
-            TbSingleton.getInstance().setNewUserRedPackageData(null);
+        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
+            return;
         }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.b) {
-            this.b = false;
-            jg.a().removeCallbacks(this.c);
-            jg.a().postDelayed(this.c, 200L);
+        String str = actPost.list_head;
+        for (ActHot actHot : actPost.act_hot) {
+            if (actHot != null) {
+                bp9 bp9Var = new bp9();
+                bp9Var.a(actHot);
+                this.a.add(bp9Var);
+            }
         }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            jg.a().removeCallbacks(this.c);
-        }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            jg.a().removeCallbacks(this.c);
-            jg.a().postDelayed(this.c, 200L);
+        List<LinkInfo> list = actPost.link_info;
+        for (LinkInfo linkInfo : list) {
+            if (list != null) {
+                cp9 cp9Var = new cp9();
+                cp9Var.a(linkInfo);
+                this.b.add(cp9Var);
+            }
         }
     }
 }

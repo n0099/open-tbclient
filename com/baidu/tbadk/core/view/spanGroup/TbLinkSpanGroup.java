@@ -14,8 +14,8 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.hi;
-import com.baidu.tieba.i65;
-import com.baidu.tieba.ix4;
+import com.baidu.tieba.y65;
+import com.baidu.tieba.yx4;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,11 +25,11 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
+public class TbLinkSpanGroup extends y65<TbLinkSpanGroup> {
     public static /* synthetic */ Interceptable $ic;
     public static final String r;
     public transient /* synthetic */ FieldHolder $fh;
-    public ix4 i;
+    public yx4 i;
     public LINK_TYPE j;
     public int k;
     public CharSequence l;
@@ -156,13 +156,13 @@ public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
         }
     }
 
-    public ix4 v() {
+    public yx4 v() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
             return this.i;
         }
-        return (ix4) invokeV.objValue;
+        return (yx4) invokeV.objValue;
     }
 
     public LINK_TYPE w() {
@@ -179,8 +179,8 @@ public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            ix4 ix4Var = this.i;
-            if (ix4Var != null && ix4Var.o == 5) {
+            yx4 yx4Var = this.i;
+            if (yx4Var != null && yx4Var.o == 5) {
                 return R.drawable.icon_group_chat_icon;
             }
             return R.drawable.icon_pure_post_link16;
@@ -226,7 +226,7 @@ public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.i65
+    @Override // com.baidu.tieba.y65
     /* renamed from: u */
     public void b(TbLinkSpanGroup tbLinkSpanGroup) {
         Interceptable interceptable = $ic;
@@ -255,10 +255,10 @@ public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
         return (TbLinkSpanGroup) invokeLL.objValue;
     }
 
-    public void B(ix4 ix4Var) {
+    public void B(yx4 yx4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, ix4Var) == null) {
-            this.i = ix4Var;
+        if (interceptable == null || interceptable.invokeL(1048576, this, yx4Var) == null) {
+            this.i = yx4Var;
         }
     }
 
@@ -295,7 +295,7 @@ public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
         k(str);
         if (f() >= 0 && f() <= this.c.length() && f() + 3 >= 0 && f() + 3 <= this.c.length() && c() >= 0 && c() <= this.c.length()) {
             EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(x(), R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
-            eMRichTextAnyIconSpan.e(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+            eMRichTextAnyIconSpan.i(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
             n(eMRichTextAnyIconSpan, f(), f() + 3, 33);
             n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
         }
@@ -312,12 +312,12 @@ public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
         this.q = str.length();
         k(str);
         EMRichTextAnyIconSpan eMRichTextAnyIconSpan = new EMRichTextAnyIconSpan(x(), R.color.CAM_X0304, EMRichTextAnyIconSpan.IconType.WEBP);
-        eMRichTextAnyIconSpan.e(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
+        eMRichTextAnyIconSpan.i(UtilHelper.getDimenPixelSize(R.dimen.M_W_X002));
         n(eMRichTextAnyIconSpan, f(), f() + 3, 33);
         n(new SpanGroupForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0304)), f() + 3, c(), 33);
     }
 
-    @Override // com.baidu.tieba.i65
+    @Override // com.baidu.tieba.y65
     public void a(Editable editable, int i, int i2, int i3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLIII(1048582, this, editable, i, i2, i3) == null) {
@@ -332,13 +332,13 @@ public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.i65
+    @Override // com.baidu.tieba.y65
     public void r(Editable editable) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, editable) == null) {
-            ix4 ix4Var = this.i;
-            if (ix4Var != null && ix4Var.b == 2) {
-                if (ix4Var.h != null) {
+            yx4 yx4Var = this.i;
+            if (yx4Var != null && yx4Var.b == 2) {
+                if (yx4Var.h != null) {
                     StringBuilder sb = new StringBuilder();
                     sb.append("#(commodity,commo_");
                     sb.append(this.i.h);
@@ -355,7 +355,7 @@ public class TbLinkSpanGroup extends i65<TbLinkSpanGroup> {
         }
     }
 
-    @Override // com.baidu.tieba.i65
+    @Override // com.baidu.tieba.y65
     public void s(Editable editable, int i) {
         String str;
         String str2;

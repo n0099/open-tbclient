@@ -1,70 +1,118 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.util.Log;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class wa3 extends s93 {
+public class wa3 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean q;
+    public static String r;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final double b;
+    public final double c;
+    public final float d;
+    public final double e;
+    public final double f;
+    public final double g;
+    public final double h;
+    public final String i;
+    public final String j;
+    public final String k;
+    public final String l;
+    public final String m;
+    public final String n;
+    public final String o;
+    public final String p;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wa3(s83 s83Var) {
-        super(s83Var, "/swanAPI/hideNavigationBarLoading");
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948263808, "Lcom/baidu/tieba/wa3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948263808, "Lcom/baidu/tieba/wa3;");
+                return;
+            }
+        }
+        q = ho1.a;
+        r = "LocationResult";
+    }
+
+    public wa3(String str, double d, double d2, float f, double d3, double d4, String str2, String str3, String str4, String str5, String str6, String str7, String str8, String str9) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {s83Var};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {str, Double.valueOf(d), Double.valueOf(d2), Float.valueOf(f), Double.valueOf(d3), Double.valueOf(d4), str2, str3, str4, str5, str6, str7, str8, str9};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
+        this.a = str;
+        this.b = d;
+        this.c = d2;
+        this.d = f;
+        this.e = d3;
+        this.f = d4;
+        this.g = 0.0d;
+        this.h = d3;
+        this.i = str2;
+        this.j = str3;
+        this.k = str4;
+        this.l = str5;
+        this.m = str6;
+        this.n = str7;
+        this.o = str8;
+        this.p = str9;
     }
 
-    @Override // com.baidu.tieba.s93
-    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeLLLL;
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, v73Var)) == null) {
-            if (s93.b) {
-                Log.d("SwanAppAction", "handle entity: " + unitedSchemeEntity.toString());
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("longitude", this.b);
+                jSONObject.put("latitude", this.c);
+                jSONObject.put("speed", this.d);
+                jSONObject.put("accuracy", this.e);
+                jSONObject.put("altitude", this.f);
+                jSONObject.put("verticalAccuracy", this.g);
+                jSONObject.put("horizontalAccuracy", this.h);
+                jSONObject.put("country", this.i);
+                jSONObject.put("countryCode", this.j);
+                jSONObject.put("city", this.k);
+                jSONObject.put("cityCode", this.l);
+                jSONObject.put("province", this.m);
+                jSONObject.put("district", this.n);
+                jSONObject.put("street", this.o);
+                jSONObject.put("streetNumber", this.p);
+                jSONObject.put("isFullAccuracy", true);
+            } catch (JSONException e) {
+                if (q) {
+                    String str = r;
+                    Log.e(str, "toJSON error: " + Log.getStackTraceString(e));
+                }
             }
-            e72 V = it2.U().V();
-            if (V == null) {
-                v42.c("navigationLoading", "manager is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            }
-            b72 m = V.m();
-            if (m == null) {
-                v42.c("navigationLoading", "swanAppFragment is null");
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                return false;
-            } else if (!m.V1()) {
-                unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
-                v42.c("navigationLoading", "hide navigation loading progressbar fail");
-                return false;
-            } else {
-                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-                return true;
-            }
+            return jSONObject;
         }
-        return invokeLLLL.booleanValue;
+        return (JSONObject) invokeV.objValue;
     }
 }

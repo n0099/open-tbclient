@@ -18,9 +18,9 @@ public class ScrollBridgeWebview extends BridgeWebView {
 
     /* loaded from: classes3.dex */
     public interface a {
-        void a(int i, int i2, int i3, int i4);
-
         void b(int i, int i2, int i3, int i4);
+
+        void e(int i, int i2, int i3, int i4);
 
         void onScrollChanged(int i, int i2, int i3, int i4);
     }
@@ -75,9 +75,9 @@ public class ScrollBridgeWebview extends BridgeWebView {
             super.onScrollChanged(i, i2, i3, i4);
             if (this.a != null) {
                 if (Math.abs((getContentHeight() * getScale()) - (getHeight() + getScrollY())) < 1.0f) {
-                    this.a.b(i, i2, i3, i4);
+                    this.a.e(i, i2, i3, i4);
                 } else if (getScrollY() == 0) {
-                    this.a.a(i, i2, i3, i4);
+                    this.a.b(i, i2, i3, i4);
                 } else {
                     this.a.onScrollChanged(i, i2, i3, i4);
                 }

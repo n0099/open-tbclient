@@ -1,24 +1,43 @@
 package com.baidu.tieba;
 
+import android.util.Log;
+import android.webkit.JavascriptInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
 /* loaded from: classes7.dex */
 public class z04 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile z04 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<b14> a;
+    public a a;
+    @V8JavascriptField
+    public int height;
+    @V8JavascriptField
+    public int left;
+    @V8JavascriptField
+    public int realHeight;
+    @V8JavascriptField
+    public int realWidth;
+    @V8JavascriptField
+    public int top;
+    @V8JavascriptField
+    public int width;
 
-    public z04() {
+    /* loaded from: classes7.dex */
+    public interface a {
+        void i(String str);
+    }
+
+    public z04(@NonNull e02 e02Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {e02Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,50 +47,37 @@ public class z04 {
                 return;
             }
         }
-        this.a = new CopyOnWriteArrayList();
+        a(e02Var);
     }
 
-    public static z04 b() {
-        InterceptResult invokeV;
+    public void b(a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (z04.class) {
-                    if (b == null) {
-                        b = new z04();
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, aVar) == null) {
+            this.a = aVar;
+        }
+    }
+
+    @JavascriptInterface
+    public void onFieldChangedCallback(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+            if (ho1.a) {
+                Log.d("BannerAdStyle", "onFieldChangedCallback fieldName=" + str);
             }
-            return b;
-        }
-        return (z04) invokeV.objValue;
-    }
-
-    public void a(b14 b14Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, b14Var) == null) && b14Var != null && !this.a.contains(b14Var)) {
-            this.a.add(b14Var);
-        }
-    }
-
-    public void d(b14 b14Var) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b14Var) == null) && this.a.contains(b14Var)) {
-            this.a.remove(b14Var);
-        }
-    }
-
-    public void c(int i, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, str) == null) {
-            for (b14 b14Var : this.a) {
-                if (i == 16) {
-                    b14Var.c();
-                } else if (i == 17) {
-                    b14Var.b(str);
-                }
-                d(b14Var);
+            a aVar = this.a;
+            if (aVar != null) {
+                aVar.i(str);
             }
+        }
+    }
+
+    public final void a(@NonNull e02 e02Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, e02Var) == null) {
+            this.left = e02Var.r("left", this.left);
+            this.top = e02Var.r("top", this.top);
+            this.width = e02Var.r("width", this.width);
+            this.height = e02Var.r("height", this.height);
         }
     }
 }

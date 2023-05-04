@@ -11,9 +11,9 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.view.MessageRedDotView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qy7;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.n08;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -29,7 +29,7 @@ public class GameContactsItemView extends RelativeLayout {
     public CircleStrokeHeadImageView a;
     public MessageRedDotView b;
     public View c;
-    public qy7 d;
+    public n08 d;
 
     static {
         InterceptResult invokeClinit;
@@ -71,13 +71,13 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public qy7 getGameMatchUser() {
+    public n08 getGameMatchUser() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
             return this.d;
         }
-        return (qy7) invokeV.objValue;
+        return (n08) invokeV.objValue;
     }
 
     public void h() {
@@ -183,7 +183,7 @@ public class GameContactsItemView extends RelativeLayout {
             layoutParams.addRule(15);
             this.c.setLayoutParams(layoutParams);
             this.c.setVisibility(8);
-            r25 d = r25.d(this.c);
+            g35 d = g35.d(this.c);
             d.o(R.string.J_X12);
             d.f(R.color.CAM_X0302);
             addView(this.c);
@@ -215,12 +215,12 @@ public class GameContactsItemView extends RelativeLayout {
         }
     }
 
-    public void setGameMatchUser(@NonNull qy7 qy7Var) {
+    public void setGameMatchUser(@NonNull n08 n08Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, qy7Var) != null) || qy7Var.equals(this.d)) {
+        if ((interceptable != null && interceptable.invokeL(1048586, this, n08Var) != null) || n08Var.equals(this.d)) {
             return;
         }
-        this.d = qy7Var;
+        this.d = n08Var;
         i();
     }
 }

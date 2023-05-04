@@ -474,12 +474,14 @@ public class NoDataViewFactory {
         public static final ImgType CREATE;
         public static final ImgType EMOTION;
         public static final ImgType FINDBAR;
-        public static final ImgType GIFT;
         public static final ImgType LOCAL;
         public static final ImgType NETERROR;
         public static final ImgType NODATA;
+        public static final ImgType NOFOLLOW;
         public static final ImgType NONE;
-        public static final ImgType SINGALL;
+        public static final ImgType NOPOST;
+        public static final ImgType NORESULT;
+        public static final ImgType NOTLOGIN;
         public static final ImgType WEBVIEW;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -502,14 +504,16 @@ public class NoDataViewFactory {
             FINDBAR = new ImgType("FINDBAR", 3);
             COLLECTION = new ImgType("COLLECTION", 4);
             EMOTION = new ImgType("EMOTION", 5);
-            SINGALL = new ImgType("SINGALL", 6);
-            GIFT = new ImgType("GIFT", 7);
-            WEBVIEW = new ImgType("WEBVIEW", 8);
-            LOCAL = new ImgType("LOCAL", 9);
-            ANTI = new ImgType("ANTI", 10);
-            ImgType imgType = new ImgType("NETERROR", 11);
-            NETERROR = imgType;
-            $VALUES = new ImgType[]{NONE, CREATE, NODATA, FINDBAR, COLLECTION, EMOTION, SINGALL, GIFT, WEBVIEW, LOCAL, ANTI, imgType};
+            NOPOST = new ImgType("NOPOST", 6);
+            NOFOLLOW = new ImgType("NOFOLLOW", 7);
+            NORESULT = new ImgType("NORESULT", 8);
+            WEBVIEW = new ImgType("WEBVIEW", 9);
+            LOCAL = new ImgType("LOCAL", 10);
+            ANTI = new ImgType("ANTI", 11);
+            NETERROR = new ImgType("NETERROR", 12);
+            ImgType imgType = new ImgType("NOTLOGIN", 13);
+            NOTLOGIN = imgType;
+            $VALUES = new ImgType[]{NONE, CREATE, NODATA, FINDBAR, COLLECTION, EMOTION, NOPOST, NOFOLLOW, NORESULT, WEBVIEW, LOCAL, ANTI, NETERROR, imgType};
         }
 
         public ImgType(String str, int i) {
@@ -606,7 +610,12 @@ public class NoDataViewFactory {
                     layoutParams.addRule(14);
                     noDataView.setLayoutParams(layoutParams);
                 } else if (view2 instanceof LinearLayout) {
-                    ((LinearLayout) view2).addView(noDataView);
+                    LinearLayout linearLayout = (LinearLayout) view2;
+                    if (z) {
+                        linearLayout.addView(noDataView, 0);
+                    } else {
+                        linearLayout.addView(noDataView);
+                    }
                     LinearLayout.LayoutParams layoutParams2 = (LinearLayout.LayoutParams) noDataView.getLayoutParams();
                     layoutParams2.gravity = 1;
                     noDataView.setLayoutParams(layoutParams2);

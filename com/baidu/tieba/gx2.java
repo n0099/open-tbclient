@@ -1,13 +1,6 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,10 +8,15 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.facebook.imageutils.JfifUtil;
+import java.util.HashMap;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class gx2 extends ix2 {
+public class gx2 {
     public static /* synthetic */ Interceptable $ic;
+    public static final HashMap<String, Integer> a;
+    public static final HashMap<String, Integer> b;
+    public static final HashMap<String, Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -34,66 +32,77 @@ public class gx2 extends ix2 {
                 return;
             }
         }
-        boolean z = fo1.a;
+        HashMap<String, Integer> hashMap = new HashMap<>(16);
+        a = hashMap;
+        hashMap.put("VRModeProjectionSphere", 201);
+        a.put("VRModeProjectionDome180", 202);
+        a.put("VRModeProjectionDome230", 203);
+        a.put("VRModeProjectionDome180Upper", 204);
+        a.put("VRModeProjectionDome230Upper", 205);
+        a.put("VRModeProjectionPlaneFit", 207);
+        a.put("VRModeProjectionPlaneCrop", 208);
+        a.put("VRModeProjectionPlaneFull", 209);
+        a.put("VRModeProjectionMultiFishEyeHorizontal", 210);
+        a.put("VRModeProjectionMultiFishEyeVertical", 211);
+        a.put("VRModeProjectionStereoSphereHorizontal", 212);
+        a.put("VRModeProjectionStereoSphereVertical", 213);
+        a.put("VRModeProjectionStereoPlaneFitHorizontal", 214);
+        a.put("VRModeProjectionStereoPlaneFitVertical", 215);
+        a.put("VRModeProjectionPlaneFullHorizontal", Integer.valueOf((int) JfifUtil.MARKER_SOI));
+        a.put("VRModeProjectionPlaneFullVertical", 217);
+        HashMap<String, Integer> hashMap2 = new HashMap<>(2);
+        b = hashMap2;
+        hashMap2.put("VRModeDisplayNormal", 101);
+        b.put("VRModeDisplayGlass", 102);
+        HashMap<String, Integer> hashMap3 = new HashMap<>(5);
+        c = hashMap3;
+        hashMap3.put("VRModeInteractiveMotion", 1);
+        c.put("VRModeInteractiveTouch", 2);
+        c.put("VRModeInteractiveMotionWithTouch", 3);
+        c.put("VRModeInteractiveGVRMotion", 4);
+        c.put("VRModeInteractiveGVRMotionWithTouch", 5);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gx2(String str) {
-        super(str);
+    public gx2() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str};
             interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65537, newInitContext);
-                return;
             }
         }
     }
 
-    @Override // com.baidu.tieba.ix2
-    public boolean a(dx2 dx2Var, fx2 fx2Var, Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, v73 v73Var) {
-        InterceptResult invokeCommon;
+    public gx2 a(JSONObject jSONObject) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048576, this, new Object[]{dx2Var, fx2Var, context, unitedSchemeEntity, callbackHandler, v73Var})) == null) {
-            v42.i("vrvideo", "open, video id:" + fx2Var.j + " slave id: " + fx2Var.c);
-            d(dx2Var, fx2Var, unitedSchemeEntity, callbackHandler);
-            return true;
-        }
-        return invokeCommon.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.ix2
-    public dx2 b(@NonNull Context context, @Nullable String str, @Nullable String str2, @NonNull String str3, @NonNull JSONObject jSONObject) {
-        InterceptResult invokeLLLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLLLL = interceptable.invokeLLLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, str, str2, str3, jSONObject)) == null) {
-            if (TextUtils.isEmpty(str3)) {
-                return null;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
+            gx2 gx2Var = new gx2();
+            if (jSONObject == null) {
+                return gx2Var;
             }
-            tu2 f = uu2.f(str, str2, str3);
-            if (f == null) {
-                return new dx2(context, fx2.h(jSONObject, new fx2()));
+            String optString = jSONObject.optString("projectionMode");
+            if (!TextUtils.isEmpty(optString) && a.containsKey(optString)) {
+                a.get(optString).intValue();
             }
-            if (!(f.i() instanceof dx2)) {
-                return null;
+            String optString2 = jSONObject.optString("displayMode");
+            if (!TextUtils.isEmpty(optString2) && b.containsKey(optString2)) {
+                b.get(optString2).intValue();
             }
-            return (dx2) f.i();
+            String optString3 = jSONObject.optString("interactiveMode");
+            if (!TextUtils.isEmpty(optString3) && c.containsKey(optString3)) {
+                c.get(optString3).intValue();
+            }
+            jSONObject.optInt("fov", -1);
+            jSONObject.optInt("minFov", -1);
+            jSONObject.optInt("maxFov", -1);
+            jSONObject.optBoolean("pinchEnable", true);
+            return gx2Var;
         }
-        return (dx2) invokeLLLLL.objValue;
-    }
-
-    public final void d(dx2 dx2Var, fx2 fx2Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLLL(Constants.METHOD_SEND_USER_MSG, this, dx2Var, fx2Var, unitedSchemeEntity, callbackHandler) == null) {
-            dx2Var.g(fx2Var);
-            UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
-        }
+        return (gx2) invokeL.objValue;
     }
 }

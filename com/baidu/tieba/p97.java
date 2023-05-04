@@ -1,169 +1,168 @@
 package com.baidu.tieba;
 
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.lib.util.StringUtils;
+import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ForumData;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.frs.entelechy.adapter.FrsVideoActivityViewHolder;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tieba.frs.brand.buttommenu.BottomMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Calendar;
+import java.util.List;
+import tbclient.BottomMenu;
+import tbclient.SubBottomMenu;
 /* loaded from: classes5.dex */
-public class p97 extends z47<uk9, FrsVideoActivityViewHolder> {
+public class p97 implements BottomMenuView.a {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String l;
+    public TbPageContext<?> a;
+    public View b;
+    public ImageView c;
+    public BottomMenuView d;
+    public ForumData e;
+    public int f;
+    public int g;
+    public int h;
 
-    /* loaded from: classes5.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ uk9 a;
-        public final /* synthetic */ p97 b;
-
-        public a(p97 p97Var, uk9 uk9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {p97Var, uk9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = p97Var;
-            this.a = uk9Var;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                TiebaStatic.log(new StatisticItem("c12587").param("fid", this.b.l));
-                q45 m = q45.m();
-                m.A("frs_video_activity_tip" + this.b.l, System.currentTimeMillis());
-                uk9 uk9Var = this.a;
-                if (uk9Var != null && !StringUtils.isNull(uk9Var.b)) {
-                    jt4.q(this.b.mContext, this.a.b);
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public p97(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2) {
-        super(tbPageContext, bdUniqueId, bdUniqueId2);
+    public p97(TbPageContext tbPageContext, View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2};
+            Object[] objArr = {tbPageContext, view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((TbPageContext) objArr2[0], (BdUniqueId) objArr2[1], (BdUniqueId) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
+        this.a = tbPageContext;
+        this.b = view2;
+        this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091895);
+        BottomMenuView bottomMenuView = (BottomMenuView) view2.findViewById(R.id.obfuscated_res_0x7f09044c);
+        this.d = bottomMenuView;
+        bottomMenuView.setOnMenuItemClickListener(this);
+        this.f = ii.g(tbPageContext.getPageActivity(), R.dimen.tbds160);
+        this.g = ii.g(tbPageContext.getPageActivity(), R.dimen.tbds44);
+        this.h = ii.g(tbPageContext.getPageActivity(), R.dimen.obfuscated_res_0x7f070224);
     }
 
-    public void M(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, str) == null) {
-            this.l = str;
-        }
-    }
-
-    public final boolean I(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-            if (j == 0) {
-                return true;
-            }
-            long currentTimeMillis = System.currentTimeMillis();
-            if (currentTimeMillis - j > 86400000) {
-                return true;
-            }
-            Calendar calendar = Calendar.getInstance();
-            calendar.setTimeInMillis(currentTimeMillis);
-            Calendar calendar2 = Calendar.getInstance();
-            calendar2.setTimeInMillis(j);
-            if (calendar.get(7) > calendar2.get(7)) {
-                return true;
-            }
-            return false;
-        }
-        return invokeJ.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: J */
-    public FrsVideoActivityViewHolder onCreateViewHolder(ViewGroup viewGroup) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, viewGroup)) == null) {
-            View inflate = LayoutInflater.from(this.mContext).inflate(R.layout.obfuscated_res_0x7f0d0377, (ViewGroup) null);
-            FrsVideoActivityViewHolder frsVideoActivityViewHolder = new FrsVideoActivityViewHolder(inflate);
-            SkinManager.setViewTextColor(frsVideoActivityViewHolder.a, (int) R.color.CAM_X0105);
-            SkinManager.setViewTextColor(frsVideoActivityViewHolder.c, (int) R.color.CAM_X0301);
-            SkinManager.setImageResource(frsVideoActivityViewHolder.b, R.drawable.icon_news_list_prompt);
-            SkinManager.setImageResource(frsVideoActivityViewHolder.d, R.drawable.icon_index_category_arrow_r);
-            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.e, R.color.CAM_X0204);
-            SkinManager.setBackgroundColor(frsVideoActivityViewHolder.f, R.color.CAM_X0204);
-            SkinManager.setBackgroundResource(inflate, R.drawable.home_thread_card_item_bg);
-            return frsVideoActivityViewHolder;
-        }
-        return (FrsVideoActivityViewHolder) invokeL.objValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.z47, com.baidu.tieba.vm
-    /* renamed from: K */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, uk9 uk9Var, FrsVideoActivityViewHolder frsVideoActivityViewHolder) {
-        InterceptResult invokeCommon;
+    @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
+    public void b(BottomMenuView.MenuItemView menuItemView, BottomMenu bottomMenu) {
         String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{Integer.valueOf(i), view2, viewGroup, uk9Var, frsVideoActivityViewHolder})) == null) {
-            if (view2 != null && frsVideoActivityViewHolder != null) {
-                view2.setOnClickListener(new a(this, uk9Var));
-                TextView textView = frsVideoActivityViewHolder.a;
-                if (uk9Var != null) {
-                    str = uk9Var.a;
-                } else {
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, menuItemView, bottomMenu) == null) {
+            long currentAccountId = TbadkCoreApplication.getCurrentAccountId();
+            if (bottomMenu != null && ListUtils.getCount(bottomMenu.submenu) == 0) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{bottomMenu.url});
+                ForumData forumData = this.e;
+                String str2 = "";
+                if (forumData == null) {
                     str = "";
-                }
-                textView.setText(str);
-                q45 m = q45.m();
-                if (I(m.o("frs_video_activity_tip" + this.l, 0L))) {
-                    frsVideoActivityViewHolder.b.setVisibility(0);
                 } else {
-                    frsVideoActivityViewHolder.b.setVisibility(8);
+                    str = forumData.getId();
                 }
-                return frsVideoActivityViewHolder.getView();
+                ForumData forumData2 = this.e;
+                if (forumData2 != null) {
+                    str2 = forumData2.getName();
+                }
+                TiebaStatic.log(new StatisticItem("c13117").param("fid", str).param("fname", str2).param("uid", currentAccountId).param("obj_param1", bottomMenu.name));
+                return;
             }
-            return null;
+            TiebaStatic.log(new StatisticItem("c13118").param("uid", currentAccountId));
         }
-        return (View) invokeCommon.objValue;
+    }
+
+    @Override // com.baidu.tieba.frs.brand.buttommenu.BottomMenuView.a
+    public void a(BottomMenuView.SubMenuItemView subMenuItemView, SubBottomMenu subBottomMenu) {
+        String str;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, subMenuItemView, subBottomMenu) == null) && subBottomMenu != null) {
+            UrlManager.getInstance().dealOneLink(this.a, new String[]{subBottomMenu.url});
+            ForumData forumData = this.e;
+            String str2 = "";
+            if (forumData == null) {
+                str = "";
+            } else {
+                str = forumData.getId();
+            }
+            ForumData forumData2 = this.e;
+            if (forumData2 != null) {
+                str2 = forumData2.getName();
+            }
+            TiebaStatic.log(new StatisticItem("c13117").param("fid", str).param("fname", str2).param("uid", TbadkCoreApplication.getCurrentAccountId()).param("obj_param1", subBottomMenu.name));
+        }
+    }
+
+    public final void c(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
+            RelativeLayout.LayoutParams layoutParams = (RelativeLayout.LayoutParams) this.c.getLayoutParams();
+            if (z) {
+                layoutParams.addRule(11);
+                layoutParams.addRule(12);
+                layoutParams.addRule(14, 0);
+                layoutParams.bottomMargin = this.f;
+                layoutParams.rightMargin = this.g;
+                return;
+            }
+            layoutParams.addRule(11, 0);
+            layoutParams.addRule(12);
+            layoutParams.addRule(14);
+            layoutParams.bottomMargin = this.h;
+            layoutParams.rightMargin = 0;
+        }
+    }
+
+    public void d(TbPageContext<?> tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLI(1048579, this, tbPageContext, i) == null) && this.d.getVisibility() == 0) {
+            this.d.a(tbPageContext, i);
+        }
+    }
+
+    public void e(List<BottomMenu> list, ForumData forumData) {
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048580, this, list, forumData) == null) {
+            this.e = forumData;
+            if (ListUtils.getCount(list) > 0) {
+                z = true;
+            } else {
+                z = false;
+            }
+            c(z);
+            if (z) {
+                this.d.setVisibility(0);
+                this.d.b(list, this.a);
+                return;
+            }
+            this.d.setVisibility(8);
+        }
+    }
+
+    public void f(boolean z) {
+        int i;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            BottomMenuView bottomMenuView = this.d;
+            if (z) {
+                i = 0;
+            } else {
+                i = 8;
+            }
+            bottomMenuView.setVisibility(i);
+        }
     }
 }

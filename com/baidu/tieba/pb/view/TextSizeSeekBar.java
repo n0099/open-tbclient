@@ -16,7 +16,7 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.ju8;
+import com.baidu.tieba.tw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -140,7 +140,7 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     public void onDraw(Canvas canvas) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, canvas) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, canvas) == null) {
             super.onDraw(canvas);
             c(canvas);
             b(canvas);
@@ -184,7 +184,7 @@ public class TextSizeSeekBar extends View {
     public boolean onTouchEvent(MotionEvent motionEvent) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, motionEvent)) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048585, this, motionEvent)) == null) {
             int action = motionEvent.getAction();
             if (action == 1 || action == 2) {
                 int i = 0;
@@ -193,7 +193,7 @@ public class TextSizeSeekBar extends View {
                         break;
                     } else if (this.p.get(i).contains((int) motionEvent.getX(), (int) motionEvent.getY())) {
                         this.j = i;
-                        ju8.a(Math.abs(i - 3));
+                        tw8.a(Math.abs(i - 3));
                         invalidate();
                         break;
                     } else {
@@ -242,18 +242,10 @@ public class TextSizeSeekBar extends View {
         }
     }
 
-    public void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.a = 0;
-            this.b = 0;
-        }
-    }
-
     @Override // android.view.View
     public void onAttachedToWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.i = SkinManager.getDrawable(R.drawable.pic_wordsize_n);
             this.j = Math.abs(TbadkCoreApplication.getInst().getFontSize() - 3);
             super.onAttachedToWindow();
@@ -263,7 +255,7 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     public void onDetachedFromWindow() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
             super.onDetachedFromWindow();
             Drawable drawable = this.i;
             if (drawable != null) {
@@ -276,7 +268,7 @@ public class TextSizeSeekBar extends View {
     @Override // android.view.View
     public void onMeasure(int i, int i2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(1048585, this, i, i2) == null) {
+        if (interceptable == null || interceptable.invokeII(InputDeviceCompat.SOURCE_TOUCHPAD, this, i, i2) == null) {
             super.onMeasure(i, i2);
             if (this.a == 0 || this.b == 0) {
                 this.a = View.MeasureSpec.getSize(i);

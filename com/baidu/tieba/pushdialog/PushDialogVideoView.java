@@ -28,13 +28,11 @@ import com.baidu.tbadk.core.util.StringHelper;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b89;
-import com.baidu.tieba.c89;
-import com.baidu.tieba.gv5;
-import com.baidu.tieba.h89;
+import com.baidu.tieba.ab9;
+import com.baidu.tieba.gw5;
+import com.baidu.tieba.ha9;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.o79;
 import com.baidu.tieba.play.CallStateMessage;
 import com.baidu.tieba.play.CallStateReceiver;
 import com.baidu.tieba.play.PbVideoWifiTipLayout;
@@ -42,8 +40,10 @@ import com.baidu.tieba.play.TbVideoView;
 import com.baidu.tieba.play.TbVideoViewContainer;
 import com.baidu.tieba.play.VideoControllerView;
 import com.baidu.tieba.play.VideoLoadingProgressView;
-import com.baidu.tieba.uu9;
-import com.baidu.tieba.z79;
+import com.baidu.tieba.py9;
+import com.baidu.tieba.sa9;
+import com.baidu.tieba.ua9;
+import com.baidu.tieba.va9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -55,8 +55,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public transient /* synthetic */ FieldHolder $fh;
     public boolean A;
     public boolean B;
-    public gv5 C;
-    public h89 D;
+    public gw5 C;
+    public ab9 D;
     public VideoLoadingProgressView.c E;
     public Runnable F;
     public Runnable G;
@@ -70,8 +70,8 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public int c;
     public int d;
     public TbPageContext<?> e;
-    public o79 f;
-    public z79 g;
+    public ha9 f;
+    public sa9 g;
     public ProgressBar h;
     public View i;
     public View j;
@@ -98,19 +98,19 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     /* loaded from: classes6.dex */
-    public class a implements h89 {
+    public class a implements ab9 {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ PushDialogVideoView a;
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void changeRenderViewMode(int i) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public int getCurrentPosition() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -120,7 +120,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.intValue;
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public View getMainView() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return (View) invokeV.objValue;
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public boolean isFullScreen() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -140,7 +140,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public boolean isPlaying() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -150,7 +150,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public boolean onBackPress() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -160,7 +160,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public boolean onBackground(boolean z) {
             InterceptResult invokeZ;
             Interceptable interceptable = $ic;
@@ -187,7 +187,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeIIL.booleanValue;
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void onScroll() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
@@ -201,7 +201,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public boolean onVolumeUp() {
             InterceptResult invokeV;
             Interceptable interceptable = $ic;
@@ -211,63 +211,63 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             return invokeV.booleanValue;
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void setAfterClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048592, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void setData(ThreadData threadData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048593, this, threadData) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void setFrom(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048594, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void setJumpToPbClickListener(View.OnClickListener onClickListener) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048595, this, onClickListener) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void setStageType(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048596, this, str) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
-        public void setStatistic(c89 c89Var) {
+        @Override // com.baidu.tieba.ab9
+        public void setStatistic(va9 va9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048597, this, c89Var) == null) {
+            if (interceptable == null || interceptable.invokeL(1048597, this, va9Var) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void setUniqueId(BdUniqueId bdUniqueId) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048598, this, bdUniqueId) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void startPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048599, this) == null) {
             }
         }
 
-        @Override // com.baidu.tieba.h89
+        @Override // com.baidu.tieba.ab9
         public void stopPlay() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048600, this) == null) {
@@ -309,7 +309,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             } else {
                 this.a.H(false);
             }
-            b89.d().e(this.a.n);
+            ua9.d().e(this.a.n);
             if (this.a.f != null && this.a.f.getDuration() <= 150000) {
                 PushDialogVideoView pushDialogVideoView = this.a;
                 pushDialogVideoView.O(pushDialogVideoView.n, this.a.o);
@@ -818,11 +818,11 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public void setTbRichTextVideoInfo(gv5 gv5Var) {
+    public void setTbRichTextVideoInfo(gw5 gw5Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048601, this, gv5Var) == null) {
-            this.C = gv5Var;
-            this.m.setText(StringHelper.stringForVideoTime(gv5Var.b() * 1000));
+        if (interceptable == null || interceptable.invokeL(1048601, this, gw5Var) == null) {
+            this.C = gw5Var;
+            this.m.setText(StringHelper.stringForVideoTime(gw5Var.b() * 1000));
         }
     }
 
@@ -833,10 +833,10 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         }
     }
 
-    public void setVideoViewBusiness(c89 c89Var) {
+    public void setVideoViewBusiness(va9 va9Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048604, this, c89Var) == null) {
-            this.f.setVideoStatData(c89Var);
+        if (interceptable == null || interceptable.invokeL(1048604, this, va9Var) == null) {
+            this.f.setVideoStatData(va9Var);
         }
     }
 
@@ -844,11 +844,11 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            o79 o79Var = this.f;
-            if (o79Var == null) {
+            ha9 ha9Var = this.f;
+            if (ha9Var == null) {
                 return false;
             }
-            return o79Var.isPlaying();
+            return ha9Var.isPlaying();
         }
         return invokeV.booleanValue;
     }
@@ -903,14 +903,14 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public void K() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            b89.d().update(this.n, this.f.getCurrentPositionSync());
+            ua9.d().update(this.n, this.f.getCurrentPositionSync());
         }
     }
 
     public final void M() {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeV(1048587, this) == null) && BdNetTypeUtil.isMobileNet()) {
-            uu9.c().f(getContext());
+            py9.c().f(getContext());
         }
     }
 
@@ -925,11 +925,11 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048595, this)) == null) {
-            o79 o79Var = this.f;
-            if (o79Var == null) {
+            ha9 ha9Var = this.f;
+            if (ha9Var == null) {
                 return 0;
             }
-            return o79Var.getCurrentPosition();
+            return ha9Var.getCurrentPosition();
         }
         return invokeV.intValue;
     }
@@ -959,7 +959,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ii.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0d1b));
+                ii.N(getContext(), getContext().getString(R.string.obfuscated_res_0x7f0f0d30));
             } else if (this.f.isPlaying()) {
                 F();
             } else if (this.r) {
@@ -1046,19 +1046,19 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     }
 
     public final void T() {
-        o79 o79Var;
+        ha9 ha9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || (o79Var = this.f) == null) {
+        if ((interceptable != null && interceptable.invokeV(1048594, this) != null) || (ha9Var = this.f) == null) {
             return;
         }
         if (this.z) {
-            o79Var.start();
+            ha9Var.start();
             this.z = false;
         }
         jg.a().removeCallbacks(this.F);
         jg.a().postDelayed(this.F, 20L);
         jg.a().removeCallbacks(this.G);
-        int c2 = b89.d().c(this.n);
+        int c2 = ua9.d().c(this.n);
         this.s = c2;
         if (c2 != 0) {
             this.f.seekTo(c2);
@@ -1123,7 +1123,7 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             if (objArr != null && objArr.length > 0 && (objArr[0] instanceof Boolean)) {
                 this.w = ((Boolean) objArr[0]).booleanValue();
             }
-            if (BdNetTypeUtil.isMobileNet() && !this.B && !uu9.c().d()) {
+            if (BdNetTypeUtil.isMobileNet() && !this.B && !py9.c().d()) {
                 this.q.setVisibility(0);
                 this.q.setData(this.C.b(), this.C.c());
                 return;
@@ -1136,17 +1136,17 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
     public final void z(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01de, (ViewGroup) this, true);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01e1, (ViewGroup) this, true);
             int l = ii.l(context) - ii.g(context, R.dimen.tbds132);
             this.c = l;
             this.d = (int) (l * 0.5625f);
-            TbVideoView control = ((TbVideoViewContainer) findViewById(R.id.obfuscated_res_0x7f092700)).getControl();
+            TbVideoView control = ((TbVideoViewContainer) findViewById(R.id.obfuscated_res_0x7f09271c)).getControl();
             this.f = control;
             control.setPlayMode("2");
             this.f.setStageType(null);
-            z79 z79Var = new z79((ViewGroup) findViewById(R.id.auto_video_loading_container));
-            this.g = z79Var;
-            z79Var.f(this.E);
+            sa9 sa9Var = new sa9((ViewGroup) findViewById(R.id.auto_video_loading_container));
+            this.g = sa9Var;
+            sa9Var.f(this.E);
             ProgressBar progressBar = (ProgressBar) findViewById(R.id.pgrBottomProgress);
             this.h = progressBar;
             progressBar.setMax(this.c);
@@ -1155,9 +1155,9 @@ public class PushDialogVideoView extends RelativeLayout implements View.OnClickL
             this.j = findViewById(R.id.layout_error);
             this.k = (ImageView) findViewById(R.id.img_play);
             this.l = (TextView) findViewById(R.id.txt_replay);
-            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091ca1);
+            this.m = (TextView) findViewById(R.id.obfuscated_res_0x7f091cb1);
             this.p = (TbImageView) findViewById(R.id.video_thumbnail);
-            this.q = (PbVideoWifiTipLayout) findViewById(R.id.obfuscated_res_0x7f09141c);
+            this.q = (PbVideoWifiTipLayout) findViewById(R.id.obfuscated_res_0x7f09142a);
             this.p.setDefaultBgResource(R.drawable.pic_bg_video_frs);
             CallStateReceiver callStateReceiver = new CallStateReceiver();
             this.t = callStateReceiver;

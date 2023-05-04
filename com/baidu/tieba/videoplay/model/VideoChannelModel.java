@@ -53,7 +53,7 @@ public class VideoChannelModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -131,7 +131,7 @@ public class VideoChannelModel extends BdBaseModel {
                             this.a.b.b(arrayList);
                         }
                     }
-                    VideoChannelModel.R(this.a);
+                    VideoChannelModel.W(this.a);
                 }
             }
         }
@@ -173,7 +173,7 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                ii.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d1b));
+                ii.N(this.a.a.getPageActivity(), this.a.a.getResources().getString(R.string.obfuscated_res_0x7f0f0d30));
                 return;
             }
             Object data = customResponsedMessage.getData();
@@ -181,7 +181,7 @@ public class VideoChannelModel extends BdBaseModel {
                 return;
             }
             this.a.d = true;
-            this.a.Y();
+            this.a.d0();
             MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921575, Integer.valueOf(this.a.e)));
         }
     }
@@ -217,30 +217,48 @@ public class VideoChannelModel extends BdBaseModel {
         registerListener(this.g);
     }
 
-    public static /* synthetic */ int R(VideoChannelModel videoChannelModel) {
+    public static /* synthetic */ int W(VideoChannelModel videoChannelModel) {
         int i = videoChannelModel.c;
         videoChannelModel.c = i + 1;
         return i;
     }
 
-    public void Z(int i) {
+    public void e0(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.e = i;
         }
     }
 
-    public void a0(c cVar) {
+    public void f0(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048581, this, cVar) == null) {
             this.b = cVar;
         }
     }
 
-    public final HttpMessage X(int i) {
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.c < 2) {
+                this.c = 2;
+            }
+            sendMessage(c0(2));
+        }
+    }
+
+    public void d0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.c = 1;
+            sendMessage(c0(1));
+        }
+    }
+
+    public final HttpMessage c0(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_HTTP_VIDEO_CHANNEL_FEED);
             httpMessage.addParam("scr_w", ii.l(TbadkCoreApplication.getInst()));
             httpMessage.addParam("scr_h", ii.j(TbadkCoreApplication.getInst()));
@@ -250,23 +268,5 @@ public class VideoChannelModel extends BdBaseModel {
             return httpMessage;
         }
         return (HttpMessage) invokeI.objValue;
-    }
-
-    public void Y() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.c = 1;
-            sendMessage(X(1));
-        }
-    }
-
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            if (this.c < 2) {
-                this.c = 2;
-            }
-            sendMessage(X(2));
-        }
     }
 }

@@ -1,10 +1,8 @@
 package com.baidu.tieba;
 
-import android.content.res.Resources;
-import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IResourcesFetcher;
-import com.baidu.nps.interfa.IResourcesFetcher_ResourcesFetcherManager_Provider;
+import com.baidu.nps.interfa.IPackageGetter;
+import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -19,14 +17,14 @@ public class dd1 {
     public static dd1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ej1<IResourcesFetcher> a;
+    public gj1<IPackageGetter> a;
 
-    public void e() {
+    public void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            cj1 b2 = cj1.b();
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            ej1 b2 = ej1.b();
             this.a = b2;
-            b2.a(new IResourcesFetcher_ResourcesFetcherManager_Provider());
+            b2.a(new IPackageGetter_PackageGetter_Provider());
         }
     }
 
@@ -59,10 +57,10 @@ public class dd1 {
                 return;
             }
         }
-        e();
+        c();
     }
 
-    public static dd1 c() {
+    public static dd1 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
@@ -71,33 +69,12 @@ public class dd1 {
         return (dd1) invokeV.objValue;
     }
 
-    public Resources b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a.get().getGlobalResources();
-        }
-        return (Resources) invokeV.objValue;
-    }
-
-    public Resources[] d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a.get().getWrapperResources();
-        }
-        return (Resources[]) invokeV.objValue;
-    }
-
-    public Resources a() {
+    public IPackageGetter b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (be1.a()) {
-                Log.i("NPS-ResourcesFetcher", "resourcesFetcherHolder class=" + this.a.getClass());
-            }
-            return this.a.get().getBaseContextResources();
+            return this.a.get();
         }
-        return (Resources) invokeV.objValue;
+        return (IPackageGetter) invokeV.objValue;
     }
 }

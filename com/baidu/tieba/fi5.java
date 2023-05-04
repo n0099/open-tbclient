@@ -1,21 +1,8 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: ChatBoxDialogService.java */
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.ArrayList;
 /* loaded from: classes4.dex */
-public final /* synthetic */ class fi5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static gi5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (gi5) ServiceManager.getService(gi5.a);
-        }
-        return (gi5) invokeV.objValue;
-    }
+public interface fi5 {
+    void onReceiveMessage(int i, int i2, ArrayList<ChatMsg> arrayList);
 }

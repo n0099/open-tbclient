@@ -1,9 +1,8 @@
 package com.baidu.tieba;
 
-import android.graphics.Matrix;
-import android.graphics.PointF;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.k6;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -11,25 +10,19 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public final class vl6 extends nl6 {
+public final class vl6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final k6<ul6> b;
-    public final PointF c;
-    public float d;
-    public final PointF e;
-    public float f;
+    public final BdUniqueId a;
+    public final Object b;
+    public Object c;
 
-    public final void h(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-        }
-    }
-
-    public vl6() {
+    public vl6(BdUniqueId id, Object tag) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {id, tag};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -39,82 +32,80 @@ public final class vl6 extends nl6 {
                 return;
             }
         }
-        this.b = new k6<>(0);
-        this.c = new PointF();
-        this.e = new PointF(1.0f, 1.0f);
-        this.f = 1.0f;
+        Intrinsics.checkNotNullParameter(id, "id");
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        this.a = id;
+        this.b = tag;
     }
 
-    public final void c(long j) {
+    public vl6(TbPageContext<?> pageContext, Object tag) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
-            g();
-            k6.b<ul6> it = this.b.iterator();
-            Intrinsics.checkNotNullExpressionValue(it, "actions.iterator()");
-            while (it.hasNext()) {
-                it.next().a(j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {pageContext, tag};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(pageContext, "pageContext");
+        Intrinsics.checkNotNullParameter(tag, "tag");
+        BdUniqueId uniqueId = pageContext.getUniqueId();
+        Intrinsics.checkNotNullExpressionValue(uniqueId, "pageContext.uniqueId");
+        this.a = uniqueId;
+        this.b = tag;
     }
 
-    public final void d(ul6 action) {
+    public final void a(Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            action.c(this);
-            action.b();
-            this.b.a(action);
+        if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
+            this.c = obj;
         }
     }
 
-    public final void i(Matrix matrix) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, matrix) == null) {
-            Intrinsics.checkNotNullParameter(matrix, "matrix");
-            PointF pointF = this.e;
-            matrix.setScale(pointF.x, pointF.y);
-            matrix.postRotate(this.d);
-            PointF pointF2 = this.c;
-            matrix.postTranslate(pointF2.x, pointF2.y);
-        }
-    }
-
-    public final float e() {
+    public final BdUniqueId b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.f;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-        return invokeV.floatValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final PointF f() {
+    public int hashCode() {
         InterceptResult invokeV;
+        int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.c;
+            Object obj = this.c;
+            if (obj != null) {
+                i = obj.hashCode();
+            } else {
+                i = 0;
+            }
+            return (this.a.hashCode() * 31) + this.b.hashCode() + (i * 17);
         }
-        return (PointF) invokeV.objValue;
+        return invokeV.intValue;
     }
 
-    public final void g() {
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            a().f().u();
-            this.c.set(0.0f, 0.0f);
-            this.d = 0.0f;
-            this.e.set(1.0f, 1.0f);
-            this.f = 1.0f;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj)) == null) {
+            if (obj == null || !(obj instanceof vl6)) {
+                return false;
+            }
+            vl6 vl6Var = (vl6) obj;
+            if (!Intrinsics.areEqual(this.a, vl6Var.a) || !Intrinsics.areEqual(vl6Var.b, this.b) || !Intrinsics.areEqual(vl6Var.c, this.c)) {
+                return false;
+            }
+            return true;
         }
-    }
-
-    @Override // com.baidu.tieba.nl6, com.baidu.tieba.j7.a
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            super.reset();
-            g();
-            this.b.clear();
-        }
+        return invokeL.booleanValue;
     }
 }

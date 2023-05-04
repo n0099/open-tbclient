@@ -43,24 +43,24 @@ import com.baidu.tbadk.core.util.httpNet.HttpRequest;
 import com.baidu.tbadk.core.view.NavigationBar;
 import com.baidu.tbadk.util.BdListViewHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f05;
-import com.baidu.tieba.f45;
-import com.baidu.tieba.g75;
-import com.baidu.tieba.h75;
-import com.baidu.tieba.ig5;
+import com.baidu.tieba.a55;
+import com.baidu.tieba.bh5;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.iv4;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.l45;
-import com.baidu.tieba.q45;
-import com.baidu.tieba.ry5;
+import com.baidu.tieba.kw4;
+import com.baidu.tieba.lw4;
+import com.baidu.tieba.mw4;
+import com.baidu.tieba.nb5;
+import com.baidu.tieba.nw4;
+import com.baidu.tieba.rz5;
 import com.baidu.tieba.tbadkCore.message.CancelDownloadMessage;
-import com.baidu.tieba.ty5;
-import com.baidu.tieba.uv4;
-import com.baidu.tieba.vv4;
-import com.baidu.tieba.wa5;
-import com.baidu.tieba.wv4;
-import com.baidu.tieba.xv4;
+import com.baidu.tieba.tz5;
+import com.baidu.tieba.u45;
+import com.baidu.tieba.w05;
+import com.baidu.tieba.w75;
+import com.baidu.tieba.x75;
+import com.baidu.tieba.yv4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -74,16 +74,16 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public transient /* synthetic */ FieldHolder $fh;
     public int a;
     public List<AccountData> b;
-    public ry5 c;
+    public rz5 c;
     public ListView d;
     public RelativeLayout e;
-    public ty5 f;
+    public tz5 f;
     public NavigationBar g;
     public TextView h;
     public View.OnClickListener i;
     public l j;
     public i k;
-    public wa5 l;
+    public nb5 l;
     public BdAsyncTask<?, ?, ?> m;
     public CustomMessageListener n;
     public TextView o;
@@ -97,7 +97,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public final /* synthetic */ AccountActivity a;
 
         /* loaded from: classes3.dex */
-        public class a implements f05.c {
+        public class a implements w05.c {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ View a;
@@ -122,11 +122,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 this.a = view2;
             }
 
-            @Override // com.baidu.tieba.f05.c
-            public void a(f05 f05Var, int i, View view2) {
+            @Override // com.baidu.tieba.w05.c
+            public void a(w05 w05Var, int i, View view2) {
                 View view3;
                 Interceptable interceptable = $ic;
-                if ((interceptable != null && interceptable.invokeLIL(1048576, this, f05Var, i, view2) != null) || (view3 = this.a) == null) {
+                if ((interceptable != null && interceptable.invokeLIL(1048576, this, w05Var, i, view2) != null) || (view3 = this.a) == null) {
                     return;
                 }
                 AccountData accountData = (AccountData) view3.getTag();
@@ -137,7 +137,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                 } else if (accountData != null) {
                     this.b.a.S1(false, accountData);
                 }
-                f05Var.e();
+                w05Var.e();
             }
         }
 
@@ -163,12 +163,12 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         public void onClick(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                String[] strArr = {this.a.getPageContext().getString(R.string.delete_account_only), this.a.getPageContext().getString(R.string.delete_account_and_group_cache), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f038d)};
-                f05 f05Var = new f05(this.a.getPageContext().getPageActivity());
-                f05Var.k(R.string.obfuscated_res_0x7f0f09ad);
-                f05Var.j(strArr, new a(this, view2));
-                f05Var.c(this.a.getPageContext());
-                f05Var.m();
+                String[] strArr = {this.a.getPageContext().getString(R.string.delete_account_only), this.a.getPageContext().getString(R.string.delete_account_and_group_cache), this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f038b)};
+                w05 w05Var = new w05(this.a.getPageContext().getPageActivity());
+                w05Var.k(R.string.obfuscated_res_0x7f0f09c2);
+                w05Var.j(strArr, new a(this, view2));
+                w05Var.c(this.a.getPageContext());
+                w05Var.m();
             }
         }
     }
@@ -259,10 +259,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     TbadkCoreApplication.getInst().login(this.a.getPageContext(), new CustomMessage<>(2002001, loginActivityConfig));
                     return;
                 }
-                TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f0070, TBAlertConfig.OperateBtnStyle.MAIN);
+                TBAlertConfig.a aVar = new TBAlertConfig.a((int) R.string.obfuscated_res_0x7f0f006e, TBAlertConfig.OperateBtnStyle.MAIN);
                 TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(this.a.getActivity());
-                tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f0071);
-                tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f152d);
+                tBAlertBuilder.w(R.string.obfuscated_res_0x7f0f006f);
+                tBAlertBuilder.m(R.string.obfuscated_res_0x7f0f1546);
                 tBAlertBuilder.u(aVar);
                 tBAlertBuilder.j(false);
                 aVar.a(new a(this, tBAlertBuilder.z()));
@@ -364,21 +364,21 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2008015, this.a.getID()));
                 }
                 MessageManager.getInstance().dispatchResponsedMessageToUI(new CustomResponsedMessage(2001189, this.a.getID()));
-                uv4.t().g(this.a.getID(), true);
+                kw4.t().g(this.a.getID(), true);
                 String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                q45 m = q45.m();
+                f55 m = f55.m();
                 m.H("get_addresslist_switch" + this.a.getID());
                 if (this.a.getID().equals(currentAccount)) {
                     if (this.d.b.size() >= 2) {
                         return (AccountData) this.d.b.get(1);
                     }
-                    h75 b = g75.b();
+                    x75 b = w75.b();
                     if (b != null) {
                         b.a();
                     }
                     this.b = 2;
                 } else {
-                    h75 b2 = g75.b();
+                    x75 b2 = w75.b();
                     if (b2 != null) {
                         b2.c(this.a);
                     }
@@ -397,21 +397,21 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, accountData) == null) {
                 if (accountData != null) {
                     accountData.setIsActive(1);
-                    vv4.g(accountData);
-                    h75 b = g75.b();
+                    lw4.g(accountData);
+                    x75 b = w75.b();
                     if (b != null) {
                         b.b(accountData);
                     }
                     this.d.V1(accountData);
                 }
                 if (this.a != null) {
-                    f45.a(DI.ACCOUNT, -1L, 0, "account_change_delete_success", 0, "", "type", Integer.valueOf(this.b), "delete_uid", this.a.getID());
-                    new j(this.d, this.a.getBDUSS(), wv4.a(this.a)).start();
+                    u45.a(DI.ACCOUNT, -1L, 0, "account_change_delete_success", 0, "", "type", Integer.valueOf(this.b), "delete_uid", this.a.getID());
+                    new j(this.d, this.a.getBDUSS(), mw4.a(this.a)).start();
                 }
                 this.d.closeLoadingDialog();
                 if (this.b != 0) {
                     jg.a().postDelayed(new a(this), 1000L);
-                    f45.a(DI.ACCOUNT, -1L, 0, "account_activity_delete_account", 0, "", new Object[0]);
+                    u45.a(DI.ACCOUNT, -1L, 0, "account_activity_delete_account", 0, "", new Object[0]);
                     TbadkCoreApplication.setCurrentAccount(null, this.d.getPageContext().getPageActivity());
                 }
                 int i = this.b;
@@ -424,24 +424,24 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     }
                 } else {
                     AccountActivity accountActivity = this.d;
-                    accountActivity.showToast(accountActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f130b));
+                    accountActivity.showToast(accountActivity.getPageContext().getString(R.string.obfuscated_res_0x7f0f1324));
                     this.d.b.remove(this.a);
                     this.a = null;
                     this.d.c.notifyDataSetChanged();
                     AccountActivity accountActivity2 = this.d;
                     accountActivity2.a = accountActivity2.getIntent().getIntExtra("locate_type", -1);
                     if (this.d.a == -1) {
-                        q45 m = q45.m();
+                        f55 m = f55.m();
                         if (m.i("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), true)) {
                             this.d.a = 2;
-                            q45 m2 = q45.m();
+                            f55 m2 = f55.m();
                             m2.w("account_first_login_" + TbadkCoreApplication.getCurrentAccount(), false);
                         } else {
                             this.d.a = 2;
                         }
                     }
-                    if (l45.b() != null) {
-                        l45.g(this.d.getPageContext().getPageActivity(), this.d.a, false);
+                    if (a55.b() != null) {
+                        a55.g(this.d.getPageContext().getPageActivity(), this.d.a, false);
                     } else {
                         this.d.sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(this.d.getPageContext().getPageActivity()).createNormalCfg(this.d.a)));
                     }
@@ -522,7 +522,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
                 if (!this.a.c.a()) {
                     this.a.c.c(true);
-                    this.a.h.setText(R.string.obfuscated_res_0x7f0f0530);
+                    this.a.h.setText(R.string.obfuscated_res_0x7f0f053d);
                     if (TbadkCoreApplication.getInst().getSkinType() == 2) {
                         SkinManager.setViewTextColor(this.a.h, R.color.navi_op_text, 1);
                     } else {
@@ -532,7 +532,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                     return;
                 }
                 this.a.c.c(false);
-                this.a.h.setText(R.string.obfuscated_res_0x7f0f0563);
+                this.a.h.setText(R.string.obfuscated_res_0x7f0f0570);
                 SkinManager.setViewTextColor(this.a.h, R.color.navi_op_text, 1);
                 this.a.c.notifyDataSetChanged();
             }
@@ -540,7 +540,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class e implements wa5.e {
+    public class e implements nb5.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ AccountActivity a;
@@ -563,7 +563,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             this.a = accountActivity;
         }
 
-        @Override // com.baidu.tieba.wa5.e
+        @Override // com.baidu.tieba.nb5.e
         public void a(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, accountData) == null) {
@@ -741,13 +741,13 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     }
 
     /* loaded from: classes3.dex */
-    public class k implements xv4.a {
+    public class k implements nw4.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public AccountData a;
         public final /* synthetic */ AccountActivity b;
 
-        @Override // com.baidu.tieba.xv4.a
+        @Override // com.baidu.tieba.nw4.a
         public void b(String str) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
@@ -773,11 +773,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             this.a = accountData;
         }
 
-        @Override // com.baidu.tieba.xv4.a
+        @Override // com.baidu.tieba.nw4.a
         public void a(String str, int i, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeLIL(1048576, this, str, i, str2) == null) {
-                f45.a(DI.ACCOUNT, -1L, 0, "account_change_cslogin_fail", i, str2, "uname", str);
+                u45.a(DI.ACCOUNT, -1L, 0, "account_change_cslogin_fail", i, str2, "uname", str);
                 this.b.closeLoadingDialog();
                 this.b.showToast(str2);
                 if (i == 1 && this.a != null) {
@@ -787,11 +787,11 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             }
         }
 
-        @Override // com.baidu.tieba.xv4.a
+        @Override // com.baidu.tieba.nw4.a
         public void c(AccountData accountData) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, accountData) == null) {
-                f45.a(DI.ACCOUNT, -1L, 0, "account_change_cslogin_success", 0, "", "uid", accountData.getID());
+                u45.a(DI.ACCOUNT, -1L, 0, "account_change_cslogin_success", 0, "", "uid", accountData.getID());
                 TiebaStatic.log(new StatisticItem("c12948").param("obj_type", 1).param("obj_param1", "account_change"));
                 this.b.U1(accountData);
             }
@@ -846,8 +846,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
                         BdLog.detailException(e);
                     }
                     this.a.setIsActive(1);
-                    vv4.g(this.a);
-                    h75 b = g75.b();
+                    lw4.g(this.a);
+                    x75 b = w75.b();
                     if (b != null) {
                         b.b(this.a);
                     }
@@ -935,9 +935,9 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048585, this, accountData) == null) {
             if (this.l == null) {
-                wa5 wa5Var = new wa5(this);
-                this.l = wa5Var;
-                wa5Var.w(new e(this));
+                nb5 nb5Var = new nb5(this);
+                this.l = nb5Var;
+                nb5Var.w(new e(this));
             }
             this.l.p();
             this.l.u(accountData);
@@ -952,8 +952,8 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             super.onCreate(bundle);
             setContentView(R.layout.obfuscated_res_0x7f0d001f);
             x1();
-            this.f = new ty5(this);
-            z1();
+            this.f = new tz5(this);
+            y1();
             registerListener(this.n);
         }
     }
@@ -998,7 +998,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public final void x1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            this.b = vv4.f();
+            this.b = lw4.f();
         }
     }
 
@@ -1014,10 +1014,10 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             z2 = false;
         }
         if (z2) {
-            ig5.b(0, 0, 0, 2, 3);
+            bh5.b(0, 0, 0, 2, 3);
             X1("account delete");
         }
-        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f04f5), new g(this, z2));
+        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f04ff), new g(this, z2));
         i iVar = new i(this, z, accountData);
         this.k = iVar;
         iVar.setPriority(3);
@@ -1059,12 +1059,12 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
     public final void V1(AccountData accountData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048581, this, accountData) == null) {
-            f45.a(DI.ACCOUNT, -1L, 0, "account_change_change_success", 0, "", "uid", accountData.getID());
+            u45.a(DI.ACCOUNT, -1L, 0, "account_change_change_success", 0, "", "uid", accountData.getID());
             TbadkCoreApplication.setCurrentAccount(accountData, getPageContext().getPageActivity());
             closeLoadingDialog();
             MessageManager.getInstance().dispatchResponsedMessageToUI(new CancelDownloadMessage(Boolean.TRUE));
             TbadkCoreApplication.getInst().onUserChanged();
-            l45.g(getPageContext().getPageActivity(), 2, false);
+            a55.g(getPageContext().getPageActivity(), 2, false);
             this.j = null;
         }
     }
@@ -1074,14 +1074,14 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         if ((interceptable != null && interceptable.invokeL(1048586, this, accountData) != null) || this.j != null) {
             return;
         }
-        ig5.b(0, 0, 0, 2, 2);
+        bh5.b(0, 0, 0, 2, 2);
         X1("account changed");
-        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f007c), new f(this));
+        showLoadingDialog(getPageContext().getString(R.string.obfuscated_res_0x7f0f007a), new f(this));
         BdAsyncTask<?, ?, ?> bdAsyncTask = this.m;
         if (bdAsyncTask != null) {
             bdAsyncTask.cancel();
         }
-        this.m = xv4.b().a(accountData.getAccount(), accountData.getBDUSS(), "", accountData.getStoken(), new k(this, accountData));
+        this.m = nw4.b().a(accountData.getAccount(), accountData.getBDUSS(), "", accountData.getStoken(), new k(this, accountData));
     }
 
     @Override // com.baidu.tbadk.BaseActivity
@@ -1094,7 +1094,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             SkinManager.setBackgroundColor(this.o, R.color.CAM_X0204);
             this.f.e(i2);
             this.g.onChangeSkinType(getPageContext(), i2);
-            iv4 layoutMode = getLayoutMode();
+            yv4 layoutMode = getLayoutMode();
             if (i2 == 4) {
                 z = true;
             } else {
@@ -1106,7 +1106,7 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
         }
     }
 
-    public final void z1() {
+    public final void y1() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
             this.e = (RelativeLayout) findViewById(R.id.obfuscated_res_0x7f09005a);
@@ -1118,13 +1118,13 @@ public class AccountActivity extends BaseActivity<AccountActivity> {
             View addCustomView = this.g.addCustomView(NavigationBar.ControlAlign.HORIZONTAL_RIGHT, R.layout.navigation_right_button_layout, (View.OnClickListener) null);
             TextView textView = (TextView) addCustomView.findViewById(R.id.right_textview);
             this.h = textView;
-            textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0563));
+            textView.setText(getPageContext().getString(R.string.obfuscated_res_0x7f0f0570));
             SkinManager.setViewTextColor(this.h, R.color.navi_op_text, 1);
             addCustomView.setOnClickListener(new c(this));
-            ry5 ry5Var = new ry5(this, this.i);
-            this.c = ry5Var;
-            ry5Var.b(this.b);
-            this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f091493);
+            rz5 rz5Var = new rz5(this, this.i);
+            this.c = rz5Var;
+            rz5Var.b(this.b);
+            this.d = (ListView) findViewById(R.id.obfuscated_res_0x7f0914a1);
             TextView textView2 = new TextView(getActivity());
             textView2.setLayoutParams(new AbsListView.LayoutParams(-1, BdListViewHelper.a(BdListViewHelper.HeadType.DEFAULT)));
             this.d.addHeaderView(textView2);

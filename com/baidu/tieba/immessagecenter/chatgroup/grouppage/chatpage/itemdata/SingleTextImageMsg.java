@@ -11,10 +11,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbadkApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.R;
-import com.baidu.tieba.cq5;
-import com.baidu.tieba.et6;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.BotsDTO;
-import com.baidu.tieba.t58;
+import com.baidu.tieba.u78;
+import com.baidu.tieba.uu6;
+import com.baidu.tieba.vq5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -32,16 +32,16 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
     public static final int MSG_TYPE = 102;
     public transient /* synthetic */ FieldHolder $fh;
     @Nullable
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public CharSequence cacheText;
     @Nullable
     public BotsDTO.BotListDTO.SkillDTO.ItemsDTO fileItem;
     @Nullable
     @SerializedName("robot_params")
     public Map<String, Object> robotParams;
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public String text;
-    @cq5(serialize = false)
+    @vq5(serialize = false)
     public SpannableStringBuilder thumbnailText;
 
     @Override // com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
@@ -55,7 +55,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
     }
 
     /* loaded from: classes5.dex */
-    public class a implements et6.i {
+    public class a implements uu6.i {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ SingleTextImageMsg a;
@@ -78,7 +78,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
             this.a = singleTextImageMsg;
         }
 
-        @Override // com.baidu.tieba.et6.i
+        @Override // com.baidu.tieba.uu6.i
         public void a(SpannableStringBuilder spannableStringBuilder) {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, spannableStringBuilder) == null) && this.a.thumbnailText.length() <= 0) {
@@ -232,7 +232,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
                 return spannableStringBuilder;
             }
             this.thumbnailText = new SpannableStringBuilder();
-            et6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
+            uu6.d(TbadkApplication.getInst(), this.text, UtilHelper.getDimenPixelSize(R.dimen.T_X03), new a(this));
             if (this.thumbnailText.length() <= 0) {
                 this.thumbnailText.append((CharSequence) this.text);
             }
@@ -254,7 +254,7 @@ public class SingleTextImageMsg extends BaseImageMsg<TextImageMsg> {
             super.setSdkMsg(str, str2);
             if (this.robotParams != null && (itemsDTO = this.fileItem) != null && itemsDTO.isFileType() && (opts = this.fileItem.getOpts()) != null && !opts.isEmpty() && (ext = opts.get(0).getExt()) != null) {
                 ext.setPicPath(str2);
-                t58.n(this.robotParams, this.fileItem);
+                u78.o(this.robotParams, this.fileItem);
             }
         }
     }

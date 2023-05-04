@@ -19,14 +19,14 @@ import com.baidu.tbadk.core.util.TbMd5;
 import com.baidu.tbadk.core.util.httpNet.WebClient;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ag;
+import com.baidu.tieba.ar5;
 import com.baidu.tieba.bi;
 import com.baidu.tieba.dg;
-import com.baidu.tieba.f45;
+import com.baidu.tieba.dr5;
 import com.baidu.tieba.fg;
-import com.baidu.tieba.hq5;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.kq5;
 import com.baidu.tieba.tm;
+import com.baidu.tieba.u45;
 import com.baidu.tieba.ub;
 import com.baidu.tieba.vf;
 import com.baidu.tieba.yb;
@@ -217,7 +217,7 @@ public class BigImageLoaderProc implements dg<tm> {
         String[] split;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (str != null && hq5.a(str)) {
+            if (str != null && ar5.a(str)) {
                 String[] split2 = str.split("/");
                 if (split2.length > 3) {
                     try {
@@ -244,7 +244,7 @@ public class BigImageLoaderProc implements dg<tm> {
         int i;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            if (str != null && hq5.a(str)) {
+            if (str != null && ar5.a(str)) {
                 int lastIndexOf = str.lastIndexOf("/");
                 int lastIndexOf2 = str.lastIndexOf(".");
                 int lastIndexOf3 = str.lastIndexOf(".jpg");
@@ -381,8 +381,8 @@ public class BigImageLoaderProc implements dg<tm> {
             } else {
                 str3 = TbConfig.IMAGE_ADDRESS + ((str + "&imgtype=0") + "&qulity=" + TbImageHelper.getInstance().getUrlQuality());
             }
-            kq5.e(booleanValue, str3, str);
-            Pair<Boolean, String> d = kq5.d(str3);
+            dr5.e(booleanValue, str3, str);
+            Pair<Boolean, String> d = dr5.d(str3);
             if (((Boolean) d.first).booleanValue()) {
                 str4 = (String) d.second;
                 z = true;
@@ -398,7 +398,7 @@ public class BigImageLoaderProc implements dg<tm> {
             boolean needCache = webClient.needCache();
             if (webClient.IsRequestSuccess() && webClient.errorCode == -11) {
                 BdLog.e("BIGIMAGE imagesize too big");
-                f45.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
+                u45.a(ImageLoaderProc.GIF_PLAY_LOG_TYPE, -1L, -1, "BigImageLoaderProc.getFromRemote", webClient.errorCode, "image size too large", "url", str4);
             }
             if (webClient.responseCode == 302 && (17 == getProcType() || 18 == getProcType() || 13 == getProcType() || 14 == getProcType())) {
                 try {
@@ -413,7 +413,7 @@ public class BigImageLoaderProc implements dg<tm> {
             if (webClient.IsRequestSuccess() || webClient.responseCode == 302) {
                 bitmap = BitmapHelper.Bytes2Bitmap(downloadImageBytes);
                 if (z && bitmap == null) {
-                    kq5.b(str4);
+                    dr5.b(str4);
                     downloadImageBytes = webClient.downloadImageBytes(str3, !booleanValue);
                     needCache = webClient.needCache();
                     if (downloadImageBytes != null && webClient.IsRequestSuccess()) {

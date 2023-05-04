@@ -1,116 +1,102 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.view.View;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.SkinManager;
+import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.zxing.BarcodeFormat;
-import com.google.zxing.BinaryBitmap;
-import com.google.zxing.DecodeHintType;
-import com.google.zxing.MultiFormatReader;
-import com.google.zxing.RGBLuminanceSource;
-import com.google.zxing.common.GlobalHistogramBinarizer;
-import com.google.zxing.common.HybridBinarizer;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.Map;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class y99 {
+public class y99 extends kh6<v89> {
     public static /* synthetic */ Interceptable $ic;
-    public static final Map<DecodeHintType, Object> a;
     public transient /* synthetic */ FieldHolder $fh;
+    public TbPageContext i;
+    public View j;
+    public TbImageView k;
+    public TextView l;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948285136, "Lcom/baidu/tieba/y99;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948285136, "Lcom/baidu/tieba/y99;");
+    @Override // com.baidu.tieba.kh6
+    public int d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? R.layout.obfuscated_res_0x7f0d0429 : invokeV.intValue;
+    }
+
+    @Override // android.view.View.OnClickListener
+    public void onClick(View view2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, view2) == null) {
+        }
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public y99(TbPageContext tbPageContext) {
+        super(tbPageContext);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((TbPageContext) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = new EnumMap(DecodeHintType.class);
-        ArrayList arrayList = new ArrayList();
-        arrayList.add(BarcodeFormat.QR_CODE);
-        arrayList.add(BarcodeFormat.AZTEC);
-        arrayList.add(BarcodeFormat.DATA_MATRIX);
-        arrayList.add(BarcodeFormat.PDF_417);
-        a.put(DecodeHintType.TRY_HARDER, BarcodeFormat.QR_CODE);
-        a.put(DecodeHintType.POSSIBLE_FORMATS, arrayList);
-        a.put(DecodeHintType.CHARACTER_SET, IMAudioTransRequest.CHARSET);
+        View h = h();
+        this.j = h;
+        this.i = tbPageContext;
+        h.setTag(this);
+        this.k = (TbImageView) this.j.findViewById(R.id.obfuscated_res_0x7f090dd8);
+        this.l = (TextView) this.j.findViewById(R.id.obfuscated_res_0x7f090dd6);
     }
 
-    public static Bitmap a(String str) {
-        InterceptResult invokeL;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.kh6
+    /* renamed from: r */
+    public void i(v89 v89Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                BitmapFactory.Options options = new BitmapFactory.Options();
-                int i = 1;
-                options.inJustDecodeBounds = true;
-                BitmapFactory.decodeFile(str, options);
-                int i2 = options.outHeight / 800;
-                if (i2 > 0) {
-                    i = i2;
+        if (interceptable == null || interceptable.invokeL(1048580, this, v89Var) == null) {
+            if (v89Var == null) {
+                this.j.setVisibility(8);
+                return;
+            }
+            j(this.i, TbadkCoreApplication.getInst().getSkinType());
+            this.k.N(v89Var.a, 10, false);
+            this.j.setOnClickListener(this);
+            if (v89Var.b > 0) {
+                this.l.setVisibility(0);
+                long j = v89Var.b;
+                if (j > 99) {
+                    this.l.setText("99");
+                    return;
+                } else {
+                    this.l.setText(String.valueOf(j));
+                    return;
                 }
-                options.inSampleSize = i;
-                options.inJustDecodeBounds = false;
-                return BitmapFactory.decodeFile(str, options);
-            } catch (Exception unused) {
-                return null;
             }
+            this.l.setVisibility(8);
         }
-        return (Bitmap) invokeL.objValue;
     }
 
-    public static String b(Bitmap bitmap) {
-        InterceptResult invokeL;
-        RGBLuminanceSource rGBLuminanceSource;
+    @Override // com.baidu.tieba.kh6
+    public void j(TbPageContext<?> tbPageContext, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, bitmap)) == null) {
-            try {
-                int width = bitmap.getWidth();
-                int height = bitmap.getHeight();
-                int[] iArr = new int[width * height];
-                bitmap.getPixels(iArr, 0, width, 0, 0, width, height);
-                rGBLuminanceSource = new RGBLuminanceSource(width, height, iArr);
-            } catch (Exception e) {
-                e = e;
-                rGBLuminanceSource = null;
-            }
-            try {
-                return new MultiFormatReader().decode(new BinaryBitmap(new HybridBinarizer(rGBLuminanceSource)), a).getText();
-            } catch (Exception e2) {
-                e = e2;
-                e.printStackTrace();
-                if (rGBLuminanceSource != null) {
-                    try {
-                        return new MultiFormatReader().decode(new BinaryBitmap(new GlobalHistogramBinarizer(rGBLuminanceSource)), a).getText();
-                    } catch (Throwable th) {
-                        th.printStackTrace();
-                        return null;
-                    }
-                }
-                return null;
-            }
+        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
+            SkinManager.setBackgroundColor(this.j, R.color.CAM_X0201);
+            SkinManager.setBackgroundResource(this.k, R.drawable.item_gift_selector);
+            SkinManager.setBackgroundColor(this.l, R.color.common_color_10294);
+            SkinManager.setViewTextColor(this.l, (int) R.color.CAM_X0302);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            return b(a(str));
-        }
-        return (String) invokeL.objValue;
     }
 }

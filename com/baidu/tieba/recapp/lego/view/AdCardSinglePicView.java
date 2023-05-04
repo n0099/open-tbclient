@@ -9,10 +9,10 @@ import com.baidu.nadcore.widget.AdImageView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.ec9;
-import com.baidu.tieba.ic9;
+import com.baidu.tieba.bf9;
+import com.baidu.tieba.ch8;
+import com.baidu.tieba.ff9;
 import com.baidu.tieba.recapp.lego.model.AdCard;
-import com.baidu.tieba.ue8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,14 +29,14 @@ public class AdCardSinglePicView extends AdCardBaseView {
     public int getCustomLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d018b : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? R.layout.obfuscated_res_0x7f0d018e : invokeV.intValue;
     }
 
     @Override // com.baidu.tieba.recapp.lego.view.AdCardBaseView
     public int getLayout() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d0189 : invokeV.intValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? R.layout.obfuscated_res_0x7f0d018c : invokeV.intValue;
     }
 
     /* loaded from: classes6.dex */
@@ -96,10 +96,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
     public void U(AdCard adCard) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, adCard) == null) {
-            ec9 ec9Var = adCard.picInfo;
-            if (ec9Var != null && !ue8.e(ec9Var.c)) {
-                String str = ec9Var.c.get(0);
-                boolean y0 = y0(this.r0, adCard, ec9Var);
+            bf9 bf9Var = adCard.picInfo;
+            if (bf9Var != null && !ch8.e(bf9Var.c)) {
+                String str = bf9Var.c.get(0);
+                boolean y0 = y0(this.r0, adCard, bf9Var);
                 if (!TextUtils.isEmpty(str) && y0) {
                     this.o.setVisibility(0);
                     this.r0.o(str);
@@ -121,8 +121,8 @@ public class AdCardSinglePicView extends AdCardBaseView {
             if (view2 instanceof XfremodeRoundLayout) {
                 ((XfremodeRoundLayout) view2).setRoundLayoutRadius(W);
             }
-            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091deb);
-            AdImageView adImageView = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f09177d);
+            this.j0 = (XfremodeRoundLayout) view2.findViewById(R.id.obfuscated_res_0x7f091dfb);
+            AdImageView adImageView = (AdImageView) view2.findViewById(R.id.obfuscated_res_0x7f09178b);
             this.r0 = adImageView;
             adImageView.setPlaceHolderDrawable(SkinManager.getDrawable(SkinManager.getResourceId(R.drawable.pic_use_header_40_n)));
             this.j0.setRoundLayoutRadius(W);
@@ -143,10 +143,10 @@ public class AdCardSinglePicView extends AdCardBaseView {
         }
     }
 
-    public boolean y0(View view2, AdCard adCard, @NonNull ec9 ec9Var) {
+    public boolean y0(View view2, AdCard adCard, @NonNull bf9 bf9Var) {
         InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, view2, adCard, ec9Var)) == null) {
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048581, this, view2, adCard, bf9Var)) == null) {
             if (adCard == null || view2 == null) {
                 return false;
             }
@@ -156,13 +156,13 @@ public class AdCardSinglePicView extends AdCardBaseView {
             }
             int i = this.B;
             int i2 = (int) (i * d);
-            int b = (int) (ic9.b(i) * d);
+            int b = (int) (ff9.b(i) * d);
             if (!adCard.isNeedResize()) {
                 z0(view2, b, i2);
                 return true;
             }
-            int i3 = ec9Var.e;
-            int i4 = ec9Var.d;
+            int i3 = bf9Var.e;
+            int i4 = bf9Var.d;
             if (i2 > 0 && i3 > 0 && i4 > 0) {
                 int i5 = (i3 * i2) / i4;
                 if (i5 > i2) {

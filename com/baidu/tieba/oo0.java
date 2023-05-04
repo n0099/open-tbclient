@@ -1,16 +1,64 @@
 package com.baidu.tieba;
 
-import android.view.MotionEvent;
-import com.baidu.nadcore.max.uiwidget.basic.WebViewContainer;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public interface oo0 extends ii0 {
-    WebViewContainer b();
+public class oo0 {
+    public static /* synthetic */ Interceptable $ic;
+    public static no0 a;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void f(boolean z, boolean z2, boolean z3, int i);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948038841, "Lcom/baidu/tieba/oo0;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948038841, "Lcom/baidu/tieba/oo0;");
+        }
+    }
 
-    boolean g();
+    public oo0() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
 
-    void i(MotionEvent motionEvent);
-
-    void j(boolean z, boolean z2, boolean z3);
+    public static no0 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            if (a == null) {
+                synchronized (oo0.class) {
+                    if (a == null) {
+                        a = (no0) ServiceManager.getService(no0.a);
+                    }
+                    if (a == null) {
+                        a = no0.b;
+                    }
+                }
+            }
+            return a;
+        }
+        return (no0) invokeV.objValue;
+    }
 }

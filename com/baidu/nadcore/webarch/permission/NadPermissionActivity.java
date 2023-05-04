@@ -4,21 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import androidx.annotation.NonNull;
 import com.baidu.nadcore.appframework.BaseActivity;
-import com.baidu.tieba.b51;
-import com.baidu.tieba.c51;
-import com.baidu.tieba.y41;
+import com.baidu.tieba.a51;
+import com.baidu.tieba.d51;
+import com.baidu.tieba.e51;
 /* loaded from: classes2.dex */
 public class NadPermissionActivity extends BaseActivity {
     public int u;
     public String[] v;
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void I1() {
-        super.I1();
+    public void K1() {
+        super.K1();
         requestPermissions();
     }
 
-    public final void X1() {
+    public final void Z1() {
         Intent intent = getIntent();
         this.u = intent.getIntExtra("request_code", 0);
         this.v = intent.getStringArrayExtra("permissions");
@@ -29,16 +29,16 @@ public class NadPermissionActivity extends BaseActivity {
         if (strArr != null && strArr.length != 0) {
             boolean z = false;
             for (String str : strArr) {
-                if (!z && !y41.b(this, str)) {
+                if (!z && !a51.b(this, str)) {
                     z = false;
                 } else {
                     z = true;
                 }
             }
             if (z) {
-                y41.requestPermissions(this, this.v, this.u);
-            } else if (c51.a(this, this.u)) {
-                y41.requestPermissions(this, this.v, this.u);
+                a51.requestPermissions(this, this.v, this.u);
+            } else if (e51.a(this, this.u)) {
+                a51.requestPermissions(this, this.v, this.u);
             } else {
                 onRequestPermissionsResult(this.u, this.v, new int[0]);
             }
@@ -46,14 +46,14 @@ public class NadPermissionActivity extends BaseActivity {
     }
 
     @Override // com.baidu.nadcore.appframework.BaseActivity
-    public void B1(Bundle bundle) {
-        super.B1(bundle);
-        X1();
+    public void D1(Bundle bundle) {
+        super.D1(bundle);
+        Z1();
     }
 
     @Override // androidx.fragment.app.FragmentActivity, android.app.Activity, androidx.core.app.ActivityCompat.OnRequestPermissionsResultCallback
     public void onRequestPermissionsResult(int i, @NonNull String[] strArr, @NonNull int[] iArr) {
-        y41.b c = b51.b().c(this.u);
+        a51.b c = d51.b().c(this.u);
         if (c != null) {
             c.onRequestPermissionsResult(i, strArr, iArr);
         }

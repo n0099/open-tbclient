@@ -14,7 +14,7 @@ import com.baidu.tbadk.core.view.MorePopupWindow;
 import com.baidu.tieba.R;
 import com.baidu.tieba.frs.TabMenuPopView;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.x67;
+import com.baidu.tieba.n87;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -94,12 +94,12 @@ public class PostCategoryView extends TextView {
         drawable2.setBounds(0, 0, drawable2.getIntrinsicWidth(), this.g.getIntrinsicHeight());
         setCompoundDrawables(null, null, this.g, null);
         setPadding(0, 0, ii.g(getContext(), R.dimen.obfuscated_res_0x7f0702d3), 0);
-        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0791, (ViewGroup) null);
+        LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d079d, (ViewGroup) null);
         this.c = linearLayout;
-        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091bb7);
+        LinearLayout linearLayout2 = (LinearLayout) linearLayout.findViewById(R.id.obfuscated_res_0x7f091bc6);
         this.d = linearLayout2;
-        this.e = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091bb8);
-        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091bb6);
+        this.e = (TabMenuPopView) linearLayout2.findViewById(R.id.obfuscated_res_0x7f091bc7);
+        View findViewById = this.c.findViewById(R.id.obfuscated_res_0x7f091bc5);
         this.f = findViewById;
         findViewById.setOnClickListener(new a(this));
     }
@@ -128,10 +128,10 @@ public class PostCategoryView extends TextView {
         }
     }
 
-    public void setCategoryContainerData(List<x67> list, x67 x67Var) {
+    public void setCategoryContainerData(List<n87> list, n87 n87Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, x67Var) == null) {
-            this.e.setData(list, x67Var);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, list, n87Var) == null) {
+            this.e.setData(list, n87Var);
         }
     }
 }

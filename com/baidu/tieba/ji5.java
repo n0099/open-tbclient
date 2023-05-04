@@ -1,21 +1,9 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: GroupChatService.java */
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.chatmessage.messages.ChatMsg;
+import java.util.List;
 /* loaded from: classes5.dex */
-public final /* synthetic */ class ji5 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-
-    public static ki5 a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return (ki5) ServiceManager.getService(ki5.a);
-        }
-        return (ki5) invokeV.objValue;
-    }
+public interface ji5 {
+    boolean a(int i, long j, @NonNull List<ChatMsg> list);
 }

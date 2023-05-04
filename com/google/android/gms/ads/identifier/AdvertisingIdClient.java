@@ -28,7 +28,7 @@ import javax.annotation.ParametersAreNonnullByDefault;
 import javax.annotation.concurrent.GuardedBy;
 @KeepForSdk
 @ParametersAreNonnullByDefault
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class AdvertisingIdClient {
     @Nullable
     @GuardedBy("this")
@@ -52,7 +52,7 @@ public class AdvertisingIdClient {
     }
 
     @KeepForSdkWithMembers
-    /* loaded from: classes7.dex */
+    /* loaded from: classes8.dex */
     public static final class Info {
         @Nullable
         public final String zza;

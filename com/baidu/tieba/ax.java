@@ -1,125 +1,156 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
+import android.widget.RelativeLayout;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.card.view.ForumEnterLayout;
+import com.baidu.card.view.FollowUserDecorView;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.view.FollowUserButton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public class ax extends xw {
+public class ax extends tw implements kx<ThreadData>, lx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public kw4 h;
-    public ForumEnterLayout i;
-    public final View.OnClickListener j;
+    public FollowUserDecorView e;
+    public boolean f;
+    public int g;
+    public int h;
 
-    /* loaded from: classes3.dex */
-    public class a implements View.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ax a;
-
-        public a(ax axVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {axVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = axVar;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.h() != null) {
-                this.a.h().a(view2, this.a.h);
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ax(Context context) {
-        super(context);
+    public ax(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.j = new a(this);
-        int g = ii.g(context, R.dimen.M_H_X003);
-        int g2 = ii.g(context, R.dimen.tbds0);
-        v(g);
-        u(g2);
-        if ((TbadkCoreApplication.getInst().getPersonalizeViewData().d instanceof ForumEnterLayout) && TbadkCoreApplication.getInst().getPersonalizeViewData().d.getParent() == null) {
-            this.i = (ForumEnterLayout) TbadkCoreApplication.getInst().getPersonalizeViewData().d;
-        } else {
-            this.i = new ForumEnterLayout(context);
+        this.f = true;
+        this.g = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds166);
+        this.h = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds78);
+        this.e = new FollowUserDecorView(tbPageContext.getPageActivity());
+        h(-1);
+        m();
+    }
+
+    public final int l(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+            return ii.g(TbadkCoreApplication.getInst(), i);
         }
-        this.i.setOnAfterClickListener(this.j);
+        return invokeI.intValue;
+    }
+
+    public void o(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.e.setClickableUnLike(z);
+        }
+    }
+
+    public void p(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
+            this.e.setIsShowIcon(z);
+        }
+    }
+
+    public void q(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(InputDeviceCompat.SOURCE_TOUCHPAD, this, i) == null) {
+            if (d() != null) {
+                d().rightMargin = i;
+            }
+            this.e.setLayoutParams(d());
+        }
+    }
+
+    public void r(FollowUserButton.a aVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048585, this, aVar) == null) {
+            this.e.setOnClickEvent(aVar);
+        }
+    }
+
+    public void s(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048586, this, bdUniqueId) == null) {
+            this.e.setPageUniqueId(bdUniqueId);
+        }
+    }
+
+    public void t(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.e.setSvgIconResId(i);
+        }
+    }
+
+    public void k(ax4 ax4Var, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ax4Var, z) == null) {
+            this.f = z;
+            t(0);
+            o(true);
+        }
+    }
+
+    @Override // com.baidu.tieba.lx
+    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(1048582, this, tbPageContext, i) == null) {
+            this.e.onChangeSkinType(i);
+        }
+    }
+
+    public final void m() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            this.g = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds177);
+            this.h = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds76);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(this.g, this.h);
+            layoutParams.addRule(11);
+            layoutParams.addRule(10);
+            layoutParams.topMargin = l(R.dimen.tbds52);
+            i(layoutParams);
+            g(this.e);
+        }
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
-    /* renamed from: y */
-    public void a(kw4 kw4Var) {
+    @Override // com.baidu.tieba.kx
+    /* renamed from: n */
+    public void a(ThreadData threadData) {
+        int i;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, kw4Var) == null) {
-            this.h = kw4Var;
-            this.i.setSourceForPb(this.a.j());
-            this.i.setData(kw4Var);
-        }
-    }
-
-    @Override // com.baidu.tieba.qw
-    public View k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.i;
-        }
-        return (View) invokeV.objValue;
-    }
-
-    public void x() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            int g = ii.g(this.b, R.dimen.M_H_X003);
-            int g2 = ii.g(this.b, R.dimen.tbds0);
-            v(g);
-            u(g2);
-        }
-    }
-
-    @Override // com.baidu.tieba.jx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.i.n(tbPageContext, i);
+        if (interceptable == null || interceptable.invokeL(1048580, this, threadData) == null) {
+            if (threadData != null && threadData.getAuthor() != null) {
+                if (this.f) {
+                    i = R.dimen.tbds120;
+                } else {
+                    i = R.dimen.tbds44;
+                }
+                q(l(i));
+                this.e.setVisibility(0);
+                this.e.setData(threadData);
+                this.e.setTag(threadData);
+                return;
+            }
+            this.e.setVisibility(8);
         }
     }
 }

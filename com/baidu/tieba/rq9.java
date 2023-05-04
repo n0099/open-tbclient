@@ -1,69 +1,112 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.tblauncher.MainTabActivity;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public class rq9 extends CustomMessageListener {
+public class rq9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final MainTabActivity a;
-    public final ro9 b;
+    public volatile int a;
+    public volatile int b;
+    public volatile HashMap<Long, Integer> c;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public rq9(MainTabActivity mainTabActivity, ro9 ro9Var) {
-        super(2001304);
+    public rq9(int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {mainTabActivity, ro9Var};
+            Object[] objArr = {Integer.valueOf(i)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super(((Integer) newInitContext.callArgs[0]).intValue());
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = mainTabActivity;
-        this.b = ro9Var;
+        this.c = new HashMap<>();
+        this.a = 0;
+        this.b = i;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.adp.framework.listener.MessageListener
-    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-        ro9 ro9Var;
-        boolean z;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof Integer) && (ro9Var = this.b) != null && ro9Var.y() != null) {
-            int intValue = ((Integer) customResponsedMessage.getData()).intValue();
-            int oldSkinType = TbadkCoreApplication.getInst().getOldSkinType();
-            boolean z2 = false;
-            if (intValue != 2 && oldSkinType != 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
+            try {
+                Long valueOf = Long.valueOf(Long.parseLong(str));
+                synchronized (this) {
+                    if (this.c.size() >= this.b) {
+                        c();
+                    }
+                    this.a++;
+                    this.c.put(valueOf, Integer.valueOf(this.a));
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
             }
-            if (z) {
-                return;
+        }
+    }
+
+    public boolean d(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            try {
+                Long valueOf = Long.valueOf(Long.parseLong(str));
+                synchronized (this) {
+                    if (this.c.get(valueOf) == null) {
+                        return false;
+                    }
+                    return true;
+                }
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
-            if ((intValue == 3 || intValue == 0) && oldSkinType == 2) {
-                z2 = true;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public boolean b(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            try {
+                return this.c.containsKey(Long.valueOf(Long.parseLong(str)));
+            } catch (Exception e) {
+                BdLog.e(e.getMessage());
+                return false;
             }
-            if (z2) {
-                this.b.y().e(1);
-            } else if (TbadkCoreApplication.getInst().isThemeIconCover()) {
-                this.b.y().e(2);
-            } else {
-                this.b.y().e(1);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (this) {
+                Long l = null;
+                int i = 134217727;
+                for (Map.Entry<Long, Integer> entry : this.c.entrySet()) {
+                    if (entry.getValue().intValue() < i) {
+                        int intValue = entry.getValue().intValue();
+                        i = intValue;
+                        l = entry.getKey();
+                    }
+                }
+                if (l != null) {
+                    this.c.remove(l);
+                } else {
+                    this.c.clear();
+                }
             }
         }
     }

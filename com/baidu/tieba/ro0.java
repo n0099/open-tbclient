@@ -1,7 +1,5 @@
 package com.baidu.tieba;
 /* loaded from: classes6.dex */
-public interface ro0 extends ii0 {
-    dp0 b();
-
-    void e(int i);
+public interface ro0 extends ki0 {
+    void d(long j, boolean z);
 }

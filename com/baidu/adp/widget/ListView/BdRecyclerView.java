@@ -22,8 +22,8 @@ import com.baidu.tieba.g9;
 import com.baidu.tieba.jn;
 import com.baidu.tieba.kn;
 import com.baidu.tieba.mn;
+import com.baidu.tieba.oq5;
 import com.baidu.tieba.qk;
-import com.baidu.tieba.vp5;
 import com.baidu.tieba.wm;
 import com.baidu.tieba.ym;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -766,7 +766,7 @@ public class BdRecyclerView extends RecyclerView implements kn<BdRecyclerView> {
             try {
                 super.removeViewAt(i2);
             } catch (NullPointerException e2) {
-                vp5.a(this, i2, e2);
+                oq5.a(this, i2, e2);
                 throw e2;
             }
         }

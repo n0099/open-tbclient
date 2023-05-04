@@ -1,109 +1,57 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.ResponsedMessage;
+import android.location.Address;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterHttpResMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterRequestMessage;
-import com.baidu.tieba.memberCenter.memberTask.MemberTaskCenterSocketResMessage;
+import com.baidu.searchbox.live.interfaces.location.LocationCallback;
+import com.baidu.searchbox.live.interfaces.location.LocationInfo;
+import com.baidu.searchbox.live.interfaces.service.LiveLocationService;
+import com.baidu.tieba.cf;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
-import tbclient.GetMemberTaskList.ImgInfo;
 /* loaded from: classes5.dex */
-public class nl8 {
+public class nl8 implements LiveLocationService {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ImgInfo> a;
-    public long b;
-    public List<jl8> c;
-    public b d;
-    public za e;
 
     /* loaded from: classes5.dex */
-    public interface b {
-        void a(int i, String str);
-
-        void b(List<ImgInfo> list, List<jl8> list2, long j);
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends za {
+    public class a implements cf.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ nl8 a;
+        public final /* synthetic */ LocationCallback a;
+        public final /* synthetic */ nl8 b;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(nl8 nl8Var, int i, int i2) {
-            super(i, i2);
+        public a(nl8 nl8Var, LocationCallback locationCallback) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {nl8Var, Integer.valueOf(i), Integer.valueOf(i2)};
+                Object[] objArr = {nl8Var, locationCallback};
                 interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    Object[] objArr2 = newInitContext.callArgs;
-                    super(((Integer) objArr2[0]).intValue(), ((Integer) objArr2[1]).intValue());
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = nl8Var;
+            this.b = nl8Var;
+            this.a = locationCallback;
         }
 
-        @Override // com.baidu.tieba.za
-        public void onMessage(ResponsedMessage<?> responsedMessage) {
+        @Override // com.baidu.tieba.cf.c
+        public void a(int i, String str, Address address) {
             Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, responsedMessage) != null) || responsedMessage == null) {
-                return;
-            }
-            boolean z = responsedMessage instanceof MemberTaskCenterHttpResMessage;
-            if (!z && !(responsedMessage instanceof MemberTaskCenterSocketResMessage)) {
-                return;
-            }
-            if (z) {
-                MemberTaskCenterHttpResMessage memberTaskCenterHttpResMessage = (MemberTaskCenterHttpResMessage) responsedMessage;
-                if (memberTaskCenterHttpResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterHttpResMessage.getError(), memberTaskCenterHttpResMessage.getErrorString());
-                        return;
+            if (interceptable == null || interceptable.invokeILL(1048576, this, i, str, address) == null) {
+                try {
+                    if (this.a != null && address != null) {
+                        this.a.onReceiveLocation(this.b.b(address));
                     }
-                    return;
-                }
-                this.a.a = memberTaskCenterHttpResMessage.getImageList();
-                this.a.c = memberTaskCenterHttpResMessage.getTaskList();
-                if (memberTaskCenterHttpResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterHttpResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
-                }
-            }
-            if (responsedMessage instanceof MemberTaskCenterSocketResMessage) {
-                MemberTaskCenterSocketResMessage memberTaskCenterSocketResMessage = (MemberTaskCenterSocketResMessage) responsedMessage;
-                if (memberTaskCenterSocketResMessage.hasError()) {
-                    if (this.a.d != null) {
-                        this.a.d.a(memberTaskCenterSocketResMessage.getError(), memberTaskCenterSocketResMessage.getErrorString());
-                        return;
-                    }
-                    return;
-                }
-                this.a.a = memberTaskCenterSocketResMessage.getImageList();
-                this.a.c = memberTaskCenterSocketResMessage.getTaskList();
-                if (memberTaskCenterSocketResMessage.getUserPointInfo() != null) {
-                    this.a.b = memberTaskCenterSocketResMessage.getUserPointInfo().points_total.longValue();
-                }
-                if (this.a.d != null) {
-                    this.a.d.b(this.a.a, this.a.c, this.a.b);
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }
         }
@@ -119,58 +67,42 @@ public class nl8 {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.e = new a(this, CmdConfigHttp.CMD_MEMBER_TASK, 309427);
-        il9.h(309427, MemberTaskCenterSocketResMessage.class, false, false);
-        il9.c(309427, CmdConfigHttp.CMD_MEMBER_TASK, TbConfig.GET_MEMBER_TASK, MemberTaskCenterHttpResMessage.class, false, false, false, false);
-        MessageManager.getInstance().registerListener(this.e);
     }
 
-    public void l(long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeJ(1048580, this, j) == null) {
-            this.b = j;
-        }
-    }
-
-    public void m(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
-            this.d = bVar;
-        }
-    }
-
-    public long h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
-        }
-        return invokeV.longValue;
-    }
-
-    public List<jl8> i() {
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public LocationInfo getLocationInfo() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
+            return b(cf.n().k(false, null));
         }
-        return (List) invokeV.objValue;
+        return (LocationInfo) invokeV.objValue;
     }
 
-    public void j() {
+    public final LocationInfo b(Address address) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            MessageManager.getInstance().sendMessage(new MemberTaskCenterRequestMessage());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, address)) == null) {
+            LocationInfo locationInfo = new LocationInfo();
+            if (address != null) {
+                locationInfo.setCity(address.getLocality());
+                locationInfo.setLatitude(address.getLatitude());
+                locationInfo.setLongitude(address.getLongitude());
+                locationInfo.setProvince(address.getAdminArea());
+                locationInfo.setCounty(address.getCountryName());
+            }
+            return locationInfo;
         }
+        return (LocationInfo) invokeL.objValue;
     }
 
-    public void k() {
+    @Override // com.baidu.searchbox.live.interfaces.service.LiveLocationService
+    public void requestLocate(LocationCallback locationCallback) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            MessageManager.getInstance().unRegisterListener(this.e);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, locationCallback) == null) {
+            cf.n().k(false, new a(this, locationCallback));
         }
     }
 }

@@ -1,30 +1,51 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
-import com.baidu.poly.widget.toast.ToastLoadingView;
+import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.poly.widget.PayChannelEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class th1 {
+public class th1 extends BaseAdapter {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<PayChannelEntity> a;
+    public Context b;
+
+    @Override // android.widget.Adapter
+    public long getItemId(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+            return 0L;
+        }
+        return invokeI.longValue;
+    }
 
     /* loaded from: classes6.dex */
-    public static class a implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ToastLoadingView a;
+        public ImageView a;
+        public TextView b;
+        public ImageView c;
 
-        public a(ToastLoadingView toastLoadingView) {
+        public a(View view2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {toastLoadingView};
+                Object[] objArr = {view2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -34,54 +55,92 @@ public class th1 {
                     return;
                 }
             }
-            this.a = toastLoadingView;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                th1.b(this.a);
-            }
+            this.a = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091ba6);
+            this.b = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f091baa);
+            this.c = (ImageView) view2.findViewById(R.id.obfuscated_res_0x7f091bab);
         }
     }
 
-    public static void a(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, ToastLoadingView toastLoadingView, long j) {
+    public th1(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{viewGroup, layoutParams, toastLoadingView, Long.valueOf(j)}) == null) {
-            if (toastLoadingView.getParent() instanceof ViewGroup) {
-                ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            viewGroup.addView(toastLoadingView, layoutParams);
-            toastLoadingView.setLoading(true);
-            if (j != -1) {
-                viewGroup.postDelayed(new a(toastLoadingView), j);
+        }
+        this.b = context;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // android.widget.Adapter
+    /* renamed from: a */
+    public PayChannelEntity getItem(int i) {
+        InterceptResult invokeI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+            if (i >= 0 && i < this.a.size()) {
+                return this.a.get(i);
             }
+            return null;
+        }
+        return (PayChannelEntity) invokeI.objValue;
+    }
+
+    public void b(List<PayChannelEntity> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = list;
+            notifyDataSetChanged();
         }
     }
 
-    public static void b(ToastLoadingView toastLoadingView) {
+    @Override // android.widget.Adapter
+    public int getCount() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65537, null, toastLoadingView) == null) && toastLoadingView != null && (toastLoadingView.getParent() instanceof ViewGroup)) {
-            ((ViewGroup) toastLoadingView.getParent()).removeView(toastLoadingView);
-            toastLoadingView.setLoading(false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            List<PayChannelEntity> list = this.a;
+            if (list == null) {
+                return 0;
+            }
+            return list.size();
         }
+        return invokeV.intValue;
     }
 
-    public static ToastLoadingView c(ViewGroup viewGroup, ViewGroup.LayoutParams layoutParams, String str, long j) {
-        InterceptResult invokeCommon;
+    @Override // android.widget.Adapter
+    public View getView(int i, View view2, ViewGroup viewGroup) {
+        InterceptResult invokeILL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{viewGroup, layoutParams, str, Long.valueOf(j)})) == null) {
-            if (viewGroup == null) {
-                return null;
+        if (interceptable == null || (invokeILL = interceptable.invokeILL(1048581, this, i, view2, viewGroup)) == null) {
+            PayChannelEntity item = getItem(i);
+            if (item == null) {
+                return view2;
             }
-            ToastLoadingView toastLoadingView = new ToastLoadingView(viewGroup.getContext());
-            if (!TextUtils.isEmpty(str)) {
-                toastLoadingView.setText(str);
+            if (view2 == null) {
+                view2 = LayoutInflater.from(this.b).inflate(R.layout.obfuscated_res_0x7f0d024f, (ViewGroup) null, false);
+                view2.setTag(new a(view2));
             }
-            a(viewGroup, layoutParams, toastLoadingView, j);
-            return toastLoadingView;
+            if (view2.getTag() != null && (view2.getTag() instanceof a)) {
+                a aVar = (a) view2.getTag();
+                tf1.b().a(aVar.a, item.getIcon());
+                aVar.b.setText(item.getDisplayName());
+                if (item.getIsSelected() == 1) {
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f08045c);
+                } else {
+                    aVar.c.setImageResource(R.drawable.obfuscated_res_0x7f081333);
+                }
+            }
+            return view2;
         }
-        return (ToastLoadingView) invokeCommon.objValue;
+        return (View) invokeILL.objValue;
     }
 }

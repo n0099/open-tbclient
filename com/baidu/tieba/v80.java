@@ -1,16 +1,10 @@
 package com.baidu.tieba;
 
-import android.os.Handler;
-import android.os.HandlerThread;
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Looper;
-import android.os.Message;
-import android.os.Process;
-import android.util.SparseIntArray;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.LiveFeedPageSdk;
-import com.baidu.live.asynctask.BdAsyncTask;
-import com.baidu.live.asynctask.BdAsyncTaskParallelType;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,609 +12,330 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.InvalidParameterException;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.concurrent.BlockingQueue;
-import java.util.concurrent.Executor;
-import java.util.concurrent.SynchronousQueue;
-import java.util.concurrent.ThreadFactory;
-import java.util.concurrent.ThreadPoolExecutor;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicInteger;
 /* loaded from: classes6.dex */
-public class v80 implements Executor {
-    public static /* synthetic */ Interceptable $ic;
-    public static final ThreadFactory k;
-    public static final BlockingQueue<Runnable> l;
-    public static final Executor m;
-    public static volatile v80 n;
+public class v80 {
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = "";
+    public static String b = "";
     public transient /* synthetic */ FieldHolder $fh;
-    public final SparseIntArray a;
-    public final LinkedList<d> b;
-    public final LinkedList<d> c;
-    public final LinkedList<d> d;
-    public volatile int e;
-    public volatile int f;
-    public volatile int g;
-    public volatile int h;
-    public HandlerThread i;
-    public Handler j;
 
-    /* loaded from: classes6.dex */
-    public static class a implements ThreadFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final AtomicInteger a;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = new AtomicInteger(1);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948194523, "Lcom/baidu/tieba/v80;")) == null) {
+            return;
         }
-
-        @Override // java.util.concurrent.ThreadFactory
-        public Thread newThread(Runnable runnable) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, runnable)) == null) {
-                String str = "BdAsyncTask #" + String.valueOf(this.a.getAndIncrement());
-                cc0.g(str);
-                return new Thread(runnable, str);
-            }
-            return (Thread) invokeL.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948194523, "Lcom/baidu/tieba/v80;");
         }
     }
 
     /* loaded from: classes6.dex */
-    public class b extends Handler {
+    public static class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v80 a;
+        public final /* synthetic */ SharedPreferences a;
+        public final /* synthetic */ String b;
+        public final /* synthetic */ Object c;
 
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public b(v80 v80Var, Looper looper) {
-            super(looper);
+        public a(SharedPreferences sharedPreferences, String str, Object obj) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {v80Var, looper};
+                Object[] objArr = {sharedPreferences, str, obj};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
-                    super((Looper) newInitContext.callArgs[0]);
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
                     return;
                 }
             }
-            this.a = v80Var;
-        }
-
-        @Override // android.os.Handler
-        public void handleMessage(Message message) {
-            Object obj;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, message) == null) {
-                super.handleMessage(message);
-                int i = message.what;
-                if (i == 1) {
-                    Object obj2 = message.obj;
-                    if (obj2 == null || !(obj2 instanceof d)) {
-                        return;
-                    }
-                    this.a.j((d) obj2);
-                } else if (i == 2 && (obj = message.obj) != null && (obj instanceof d)) {
-                    this.a.i((d) obj);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends d {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ v80 b;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public c(v80 v80Var, w80 w80Var) {
-            super(w80Var);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {v80Var, w80Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    super((w80) newInitContext.callArgs[0]);
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = v80Var;
+            this.a = sharedPreferences;
+            this.b = str;
+            this.c = obj;
         }
 
         @Override // java.lang.Runnable
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    try {
-                        if (e() == 4) {
-                            Process.setThreadPriority(-2);
-                        } else if (e() == 3) {
-                            Process.setThreadPriority(-1);
-                        } else if (e() == 2) {
-                            Process.setThreadPriority(0);
-                        } else {
-                            Process.setThreadPriority(10);
-                        }
-                    } catch (Exception e) {
-                        cc0.d(e.getMessage());
-                    }
-                    j();
-                } finally {
-                    if (!h()) {
-                        this.b.j.sendMessageDelayed(this.b.j.obtainMessage(2, this), 1L);
-                    }
-                }
+                v80.B(this.a, this.b, this.c);
             }
         }
     }
 
-    /* loaded from: classes6.dex */
-    public static abstract class d implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public w80<?> a;
-
-        public d(w80<?> w80Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {w80Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = null;
-            if (w80Var != null && w80Var.b() != null) {
-                this.a = w80Var;
-                return;
-            }
-            throw new InvalidParameterException("parameter is null");
-        }
-
-        public void a() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.a();
-            }
-        }
-
-        public int b() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().a();
-                }
-                return 1;
-            }
-            return invokeV.intValue;
-        }
-
-        public int c() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().b();
-                }
-                return 0;
-            }
-            return invokeV.intValue;
-        }
-
-        public BdAsyncTaskParallelType d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-                if (this.a.b().j() != null) {
-                    return this.a.b().j().getType();
-                }
-                return BdAsyncTaskParallelType.MAX_PARALLEL;
-            }
-            return (BdAsyncTaskParallelType) invokeV.objValue;
-        }
-
-        public int e() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-                return this.a.b().k();
-            }
-            return invokeV.intValue;
-        }
-
-        public BdAsyncTask<?, ?, ?> f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-                return this.a.b();
-            }
-            return (BdAsyncTask) invokeV.objValue;
-        }
-
-        public boolean g() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-                return this.a.isCancelled();
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean h() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-                return this.a.b().m();
-            }
-            return invokeV.booleanValue;
-        }
-
-        public boolean i() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-                return this.a.b().n();
-            }
-            return invokeV.booleanValue;
-        }
-
-        public void j() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-                try {
-                    this.a.run();
-                } catch (OutOfMemoryError e) {
-                    cc0.e(e);
-                }
-            }
-        }
-
-        public void k(boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeZ(1048586, this, z) == null) {
-                this.a.b().y(z);
-            }
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194523, "Lcom/baidu/tieba/v80;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948194523, "Lcom/baidu/tieba/v80;");
-                return;
-            }
-        }
-        k = new a();
-        l = new SynchronousQueue();
-        m = new ThreadPoolExecutor(7, 256, 30L, TimeUnit.SECONDS, l, k, new ThreadPoolExecutor.DiscardPolicy());
-        n = null;
-    }
-
-    public String toString() {
-        InterceptResult invokeV;
+    public static void A(Context context, String str, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return "mWaitingTasks = " + this.b.size() + " mRunningTasks = " + this.c.size() + " mTimeOutTasks = " + this.d.size();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public v80() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new SparseIntArray();
-        this.b = new LinkedList<>();
-        this.c = new LinkedList<>();
-        this.d = new LinkedList<>();
-        this.e = 0;
-        this.f = 0;
-        this.g = 0;
-        this.h = 0;
-        this.i = null;
-        this.j = null;
-        HandlerThread handlerThread = new HandlerThread("BdAsyncTaskExecutor");
-        this.i = handlerThread;
-        handlerThread.start();
-        this.j = new b(this, this.i.getLooper());
-    }
-
-    /* JADX WARN: Code restructure failed: missing block: B:12:0x001f, code lost:
-        r0.remove();
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public synchronized void h(BdAsyncTask<?, ?, ?> bdAsyncTask) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, bdAsyncTask) == null) {
-            synchronized (this) {
-                Iterator<d> it = this.b.iterator();
-                while (true) {
-                    if (!it.hasNext()) {
-                        break;
-                    }
-                    d next = it.next();
-                    if (next != null && next.f() == bdAsyncTask) {
-                        break;
-                    }
-                }
-            }
+        if (interceptable == null || interceptable.invokeLLI(65537, null, context, str, i) == null) {
+            C(context, str, Integer.valueOf(i));
         }
     }
 
-    public static v80 e() {
-        InterceptResult invokeV;
+    public static void D(Context context, String str, String str2) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            if (n == null) {
-                synchronized (v80.class) {
-                    if (n == null) {
-                        n = new v80();
-                    }
-                }
-            }
-            return n;
+        if (interceptable == null || interceptable.invokeLLL(InputDeviceCompat.SOURCE_TRACKBALL, null, context, str, str2) == null) {
+            C(context, str, str2);
         }
-        return (v80) invokeV.objValue;
     }
 
-    public final boolean c(int i, d dVar) {
-        InterceptResult invokeIL;
+    public static boolean m(Context context, String str, boolean z) {
+        InterceptResult invokeLLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(1048576, this, i, dVar)) == null) {
-            if (dVar == null) {
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65553, null, context, str, z)) == null) {
+            if (context == null) {
                 return false;
             }
-            BdAsyncTaskParallelType d2 = dVar.d();
-            if (d2 == BdAsyncTaskParallelType.SERIAL) {
-                if (i < 1) {
-                    return true;
-                }
-            } else if (d2 == BdAsyncTaskParallelType.TWO_PARALLEL) {
-                if (i < 2) {
-                    return true;
-                }
-            } else if (d2 == BdAsyncTaskParallelType.THREE_PARALLEL) {
-                if (i < 3) {
-                    return true;
-                }
-            } else if (d2 == BdAsyncTaskParallelType.FOUR_PARALLEL) {
-                if (i < 4) {
-                    return true;
-                }
-            } else if (d2 != BdAsyncTaskParallelType.CUSTOM_PARALLEL || i < dVar.b()) {
-                return true;
-            }
-            return false;
+            return context.getSharedPreferences("blcp_sp", 0).getBoolean(str, z);
         }
-        return invokeIL.booleanValue;
+        return invokeLLZ.booleanValue;
     }
 
-    public final synchronized void d(d dVar) {
+    public static int n(Context context, String str, int i) {
+        InterceptResult invokeLLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
-                    return;
-                }
-                this.c.add(dVar);
-                this.b.remove(dVar);
-                m.execute(dVar);
-                this.j.sendMessageDelayed(this.j.obtainMessage(1, dVar), LiveFeedPageSdk.REFRESH_TIME);
-                int e = dVar.e();
-                if (e != 1) {
-                    if (e != 2) {
-                        if (e != 3) {
-                            if (e == 4) {
-                                this.e++;
-                                if (this.e >= 7) {
-                                    cc0.d("SuperHight Task too much num = " + this.e);
-                                }
-                            }
-                        } else {
-                            this.f++;
-                        }
-                    } else {
-                        this.g++;
-                    }
-                } else {
-                    this.h++;
-                }
-                int c2 = dVar.c();
-                if (c2 != 0) {
-                    this.a.put(c2, this.a.get(c2, 0) + 1);
-                }
+        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(65554, null, context, str, i)) == null) {
+            if (context == null) {
+                return -1;
+            }
+            return context.getSharedPreferences("blcp_sp", 0).getInt(str, i);
+        }
+        return invokeLLI.intValue;
+    }
+
+    public static String o(Context context, String str, String str2) {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65555, null, context, str, str2)) == null) {
+            if (context == null) {
+                return "";
+            }
+            return context.getSharedPreferences("blcp_sp", 0).getString(str, str2);
+        }
+        return (String) invokeLLL.objValue;
+    }
+
+    public static void v(Context context, String str, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLI(65562, null, context, str, i) == null) {
+            D(context, "protocol_priority" + i, str);
+        }
+    }
+
+    public static void y(Context context, String str, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLZ(65565, null, context, str, z) == null) {
+            C(context, str, Boolean.valueOf(z));
+        }
+    }
+
+    public static void B(SharedPreferences sharedPreferences, String str, Object obj) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(65538, null, sharedPreferences, str, obj) == null) {
+            if (obj instanceof Boolean) {
+                sharedPreferences.edit().putBoolean(str, ((Boolean) obj).booleanValue()).apply();
+            } else if (obj instanceof Integer) {
+                sharedPreferences.edit().putInt(str, ((Integer) obj).intValue()).apply();
+            } else if (obj instanceof Long) {
+                sharedPreferences.edit().putLong(str, ((Long) obj).longValue()).apply();
+            } else if (obj instanceof Float) {
+                sharedPreferences.edit().putFloat(str, ((Float) obj).floatValue()).apply();
+            } else if (obj instanceof String) {
+                sharedPreferences.edit().putString(str, (String) obj).apply();
             }
         }
     }
 
-    public final synchronized void g(d dVar) {
+    public static void C(Context context, String str, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
-                    return;
-                }
-                if (dVar.i()) {
-                    this.d.remove(dVar);
-                } else {
-                    this.c.remove(dVar);
-                    this.j.removeMessages(1, dVar);
-                    int e = dVar.e();
-                    if (e != 1) {
-                        if (e != 2) {
-                            if (e != 3) {
-                                if (e == 4) {
-                                    this.e--;
-                                }
-                            } else {
-                                this.f--;
-                            }
-                        } else {
-                            this.g--;
-                        }
-                    } else {
-                        this.h--;
-                    }
-                    int c2 = dVar.c();
-                    if (c2 != 0) {
-                        int i = this.a.get(c2) - 1;
-                        if (i <= 0) {
-                            this.a.delete(c2);
-                        } else {
-                            this.a.put(c2, i);
-                        }
-                        if (i < 0) {
-                            cc0.d("removeTask error < 0");
-                        }
-                    }
-                }
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, context, str, obj) != null) || context == null) {
+            return;
+        }
+        try {
+            SharedPreferences sharedPreferences = context.getSharedPreferences("blcp_sp", 0);
+            if (Looper.getMainLooper().getThread() == Thread.currentThread()) {
+                r80.a(context).b(new a(sharedPreferences, str, obj));
+            } else {
+                B(sharedPreferences, str, obj);
             }
+        } catch (Throwable th) {
+            u80.b("SpUtils", th.getMessage());
         }
     }
 
-    public synchronized void i(d dVar) {
+    public static String b(Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, dVar) == null) {
-            synchronized (this) {
-                g(dVar);
-                for (int i = 0; i < this.b.size(); i++) {
-                    d dVar2 = this.b.get(i);
-                    if (dVar2 != null) {
-                        int c2 = dVar2.c();
-                        int e = dVar2.e();
-                        if (e != 1) {
-                            if (e != 2) {
-                                if (e != 3) {
-                                    if (e == 4 && c2 == 0) {
-                                        d(dVar2);
-                                        return;
-                                    }
-                                } else if (this.f + this.g + this.h >= 7) {
-                                    return;
-                                }
-                            } else if (this.f + this.g + this.h >= 6) {
-                                return;
-                            }
-                        } else if (this.f + this.g + this.h >= 5) {
-                            return;
-                        }
-                        if (c(this.a.get(c2), dVar2)) {
-                            d(dVar2);
-                            return;
-                        }
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, context)) == null) {
+            if (!TextUtils.isEmpty(b)) {
+                return b;
             }
+            return o(context, "blcp_app_id", "");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, context)) == null) {
+            return m(context, "bddns_enable", false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static int d(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, context)) == null) {
+            return n(context, "conn_type", 1);
+        }
+        return invokeL.intValue;
+    }
+
+    public static String e(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65545, null, context)) == null) {
+            if (!TextUtils.isEmpty(a)) {
+                return a;
+            }
+            return o(context, "blcp_cuid", "");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static int f(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, context)) == null) {
+            return n(context, "key_vip_connect_type", 3);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int g(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
+            return n(context, "lcp_env_debug", 0);
+        }
+        return invokeL.intValue;
+    }
+
+    public static int i(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, context)) == null) {
+            return n(context, "protocols_size", 1);
+        }
+        return invokeL.intValue;
+    }
+
+    public static String j(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65550, null, context)) == null) {
+            return o(context, "blcp_token", "");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static boolean k(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, context)) == null) {
+            return !TextUtils.isEmpty(j(context));
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static boolean l(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, context)) == null) {
+            return m(context, "lcp_debug", false);
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static String h(Context context, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65548, null, context, i)) == null) {
+            return o(context, "protocol_priority" + i, " : : ");
+        }
+        return (String) invokeLI.objValue;
+    }
+
+    public static void p(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65556, null, context, str) == null) {
+            b = str;
+            D(context, "blcp_app_id", str);
         }
     }
 
-    @Override // java.util.concurrent.Executor
-    public synchronized void execute(Runnable runnable) {
+    public static void q(Context context, boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, runnable) == null) {
-            synchronized (this) {
-                if (!(runnable instanceof w80)) {
-                    return;
-                }
-                c cVar = new c(this, (w80) runnable);
-                if (cVar.h()) {
-                    new Thread(cVar).start();
-                    return;
-                }
-                f(cVar);
-                i(null);
-            }
+        if (interceptable == null || interceptable.invokeLZ(65557, null, context, z) == null) {
+            y(context, "bddns_enable", z);
         }
     }
 
-    public final synchronized void f(d dVar) {
+    public static void r(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, dVar) == null) {
-            synchronized (this) {
-                if (dVar == null) {
-                    return;
-                }
-                int size = this.b.size();
-                int i = 0;
-                while (i < size && this.b.get(i).e() >= dVar.e()) {
-                    i++;
-                }
-                this.b.add(i, dVar);
-            }
+        if (interceptable == null || interceptable.invokeLL(65558, null, context, str) == null) {
+            a = str;
+            D(context, "blcp_cuid", str);
         }
     }
 
-    public final synchronized void j(d dVar) {
-        d poll;
+    public static void s(Context context, int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, dVar) == null) {
-            synchronized (this) {
-                g(dVar);
-                if (!dVar.g()) {
-                    dVar.k(true);
-                    this.d.add(dVar);
-                    if (this.d.size() > 242 && (poll = this.d.poll()) != null) {
-                        poll.a();
-                    }
-                } else {
-                    cc0.d("task TimeOut but it's cancelled()");
-                }
-                i(null);
-            }
+        if (interceptable == null || interceptable.invokeLI(65559, null, context, i) == null) {
+            A(context, "key_vip_connect_type", i);
+        }
+    }
+
+    public static void t(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65560, null, context, i) == null) {
+            A(context, "lcp_env_debug", i);
+        }
+    }
+
+    public static void u(Context context, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLZ(65561, null, context, z) == null) {
+            y(context, "lcp_debug", z);
+        }
+    }
+
+    public static void w(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65563, null, context, i) == null) {
+            A(context, "protocols_size", i);
+        }
+    }
+
+    public static void x(Context context, String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65564, null, context, str) == null) {
+            D(context, "blcp_token", str);
+        }
+    }
+
+    public static void z(Context context, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLI(65566, null, context, i) == null) {
+            A(context, "conn_type", i);
         }
     }
 }

@@ -1,20 +1,12 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
-@Singleton
-@Service
 /* loaded from: classes6.dex */
-public class v44 implements ap1 {
+public class v44 implements m54 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -32,39 +24,19 @@ public class v44 implements ap1 {
         }
     }
 
-    @Override // com.baidu.tieba.ap1
-    public List<s93> a(s83 s83Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m54
+    public void a(l84 l84Var, k84 k84Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, s83Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new l34(s83Var));
-            arrayList.add(new m34(s83Var));
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeLL(1048576, this, l84Var, k84Var) == null) && k84Var != null) {
+            k84Var.a(l84Var, "Method 'shareVideo' is not implemented.");
         }
-        return (List) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.ap1
-    public List<s93> c(s83 s83Var) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.m54
+    public void b(c84 c84Var, b84 b84Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, s83Var)) == null) {
-            ArrayList arrayList = new ArrayList();
-            arrayList.add(new e84(s83Var));
-            arrayList.add(new d84(s83Var));
-            return arrayList;
+        if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, c84Var, b84Var) == null) && b84Var != null) {
+            b84Var.a(c84Var, "Method 'clipVideo' is not implemented.");
         }
-        return (List) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ap1
-    public List<s93> b(s83 s83Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, s83Var)) == null) {
-            return Arrays.asList(new y34(s83Var), new n24(s83Var), new w24(s83Var), new j34(s83Var));
-        }
-        return (List) invokeL.objValue;
     }
 }

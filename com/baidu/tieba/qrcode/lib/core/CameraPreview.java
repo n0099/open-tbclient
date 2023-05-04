@@ -9,7 +9,7 @@ import android.view.TextureView;
 import android.view.View;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.w99;
+import com.baidu.tieba.sc9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -25,7 +25,7 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     public Camera a;
     public boolean b;
     public boolean c;
-    public w99 d;
+    public sc9 d;
     public SurfaceTexture e;
     public Runnable f;
     public Camera.AutoFocusCallback g;
@@ -163,10 +163,10 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
     }
 
     public void f() {
-        w99 w99Var;
+        sc9 sc9Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (w99Var = this.d) != null) {
-            w99Var.i();
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (sc9Var = this.d) != null) {
+            sc9Var.i();
         }
     }
 
@@ -212,9 +212,9 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, camera) == null) {
             this.a = camera;
             if (camera != null) {
-                w99 w99Var = new w99(getContext());
-                this.d = w99Var;
-                w99Var.h(this.a);
+                sc9 sc9Var = new sc9(getContext());
+                this.d = sc9Var;
+                sc9Var.h(this.a);
                 if (this.b) {
                     requestLayout();
                 } else {
@@ -262,8 +262,8 @@ public class CameraPreview extends TextureView implements TextureView.SurfaceTex
         if (interceptable == null || interceptable.invokeII(1048579, this, i, i2) == null) {
             int defaultSize = TextureView.getDefaultSize(getSuggestedMinimumWidth(), i);
             int defaultSize2 = TextureView.getDefaultSize(getSuggestedMinimumHeight(), i2);
-            w99 w99Var = this.d;
-            if (w99Var != null && w99Var.e() != null) {
+            sc9 sc9Var = this.d;
+            if (sc9Var != null && sc9Var.e() != null) {
                 Point e = this.d.e();
                 float f = defaultSize;
                 float f2 = defaultSize2;

@@ -1,5 +1,70 @@
 package com.baidu.tieba;
+
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.CustomGrid;
 /* loaded from: classes4.dex */
-public interface f59 {
-    void a();
+public class f59 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public String d;
+    public int e;
+    public long f;
+    public String g;
+    public String h;
+
+    public f59() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
+        }
+    }
+
+    public void a(CustomGrid customGrid) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, customGrid) == null) {
+            this.a = customGrid.title;
+            this.b = customGrid.action_uri;
+            this.c = customGrid.action_type.intValue();
+            this.d = customGrid.icon;
+            this.e = customGrid.type.intValue();
+            this.g = customGrid.desc;
+            this.h = customGrid.mark_text;
+            this.f = customGrid.red_point_version.longValue();
+        }
+    }
+
+    public o59 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            o59 o59Var = new o59();
+            o59Var.e = this.a;
+            o59Var.n = true;
+            o59Var.l = this.d;
+            o59Var.g = this.b;
+            o59Var.a = this.e;
+            o59Var.m = this.c;
+            q59 q59Var = new q59();
+            q59Var.b = this.g;
+            q59Var.i = this.h;
+            o59Var.i = q59Var;
+            return o59Var;
+        }
+        return (o59) invokeV.objValue;
+    }
 }

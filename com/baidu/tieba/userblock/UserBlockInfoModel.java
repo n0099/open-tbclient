@@ -11,11 +11,11 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tieba.R;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.il9;
+import com.baidu.tieba.kv4;
 import com.baidu.tieba.userblock.message.UserBlockInfoHttpResponseMessage;
 import com.baidu.tieba.userblock.message.UserBlockInfoRequestMessage;
 import com.baidu.tieba.userblock.message.UserBlockInfoSocketResponseMessage;
-import com.baidu.tieba.uu4;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -28,7 +28,7 @@ public class UserBlockInfoModel extends BdBaseModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public long a;
-    public uu4 b;
+    public kv4 b;
     public za c;
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -99,7 +99,7 @@ public class UserBlockInfoModel extends BdBaseModel {
                     return;
                 }
                 if (StringUtils.isNull(errorString)) {
-                    errorString = this.a.U(R.string.obfuscated_res_0x7f0f05ec);
+                    errorString = this.a.Z(R.string.obfuscated_res_0x7f0f05f9);
                 }
                 this.a.b.onError(error, errorString);
             }
@@ -126,10 +126,10 @@ public class UserBlockInfoModel extends BdBaseModel {
         }
         this.c = new a(this, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, 309698);
         setUniqueId(bdUniqueId);
-        V();
+        a0();
     }
 
-    public final String U(int i) {
+    public final String Z(int i) {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
@@ -138,7 +138,7 @@ public class UserBlockInfoModel extends BdBaseModel {
         return (String) invokeI.objValue;
     }
 
-    public void W(long j) {
+    public void b0(long j) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j) == null) {
             this.a = j;
@@ -148,18 +148,18 @@ public class UserBlockInfoModel extends BdBaseModel {
         }
     }
 
-    public void X(uu4 uu4Var) {
+    public void c0(kv4 kv4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, uu4Var) == null) {
-            this.b = uu4Var;
+        if (interceptable == null || interceptable.invokeL(1048579, this, kv4Var) == null) {
+            this.b = kv4Var;
         }
     }
 
-    public void V() {
+    public void a0() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            il9.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
-            il9.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
+            xo9.h(309698, UserBlockInfoSocketResponseMessage.class, false, false);
+            xo9.c(309698, CmdConfigHttp.CMD_GET_USER_BLOCK_INFO, TbConfig.URL_GET_USER_BLOCK_INFO, UserBlockInfoHttpResponseMessage.class, true, false, true, false);
             this.c.getHttpMessageListener().setSelfListener(true);
             this.c.getSocketMessageListener().setSelfListener(true);
             registerListener(this.c);

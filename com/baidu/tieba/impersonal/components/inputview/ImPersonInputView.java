@@ -10,9 +10,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tieba.R;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.g35;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -91,32 +90,30 @@ public class ImPersonInputView extends RelativeLayout {
                 return;
             }
         }
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03ed, (ViewGroup) this, true);
-        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f090fc5);
-        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f090924);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d03f2, (ViewGroup) this, true);
+        this.a = inflate.findViewById(R.id.obfuscated_res_0x7f090fd4);
+        EditText editText = (EditText) inflate.findViewById(R.id.obfuscated_res_0x7f090927);
         this.b = editText;
-        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f12ae));
+        editText.setHint(getContext().getString(R.string.obfuscated_res_0x7f0f12c7));
         this.b.setMaxLines(3);
         this.b.setHintTextColor(getResources().getColor(R.color.CAM_X0108));
         this.b.setTextColor(getResources().getColor(R.color.CAM_X0105));
-        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f0925ef);
+        View findViewById = inflate.findViewById(R.id.obfuscated_res_0x7f092608);
         this.c = findViewById;
         findViewById.setAlpha(0.5f);
-        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f0925f0);
+        TextView textView = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f092609);
         this.d = textView;
-        textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0362));
+        textView.setText(getContext().getString(R.string.obfuscated_res_0x7f0f0360));
+        g35 d = g35.d(this.c);
+        d.o(R.string.J_X01);
+        d.f(R.color.CAM_X0920);
         a();
     }
 
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            r25 d = r25.d(this.b);
-            d.l(R.color.CAM_X0340);
-            d.m(R.dimen.L_X04);
-            d.o(R.string.J_X01);
-            d.h(SkinManager.getColor(0, (int) R.color.CAM_X0201));
-            r25.d(this.d).w(R.color.CAM_X0100);
+            g35.d(this.d).w(R.color.CAM_X0100);
         }
     }
 
@@ -124,7 +121,7 @@ public class ImPersonInputView extends RelativeLayout {
     public EditText getEditText() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.b;
         }
         return (EditText) invokeV.objValue;
@@ -134,7 +131,7 @@ public class ImPersonInputView extends RelativeLayout {
     public TextView getSendTextView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.d;
         }
         return (TextView) invokeV.objValue;
@@ -144,9 +141,20 @@ public class ImPersonInputView extends RelativeLayout {
     public View getSendViewContainer() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.c;
         }
         return (View) invokeV.objValue;
+    }
+
+    public void b(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (z) {
+                this.c.setVisibility(0);
+            } else {
+                this.c.setVisibility(8);
+            }
+        }
     }
 }

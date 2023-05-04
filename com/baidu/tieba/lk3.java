@@ -1,176 +1,172 @@
 package com.baidu.tieba;
 
-import android.app.ActivityManager;
-import android.os.Build;
-import android.os.StatFs;
 import android.text.TextUtils;
-import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.elasticthread.ExecutorUtilsExt;
-import com.baidu.tieba.oh3;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.text.DecimalFormat;
-import org.json.JSONObject;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+import java.util.HashSet;
+import java.util.Locale;
+import java.util.Set;
 /* loaded from: classes5.dex */
-public class lk3 {
+public final class lk3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile String a;
+    public static final Set<Integer> a;
+    public static final Set<Integer> b;
+    public static final Set<Integer> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes5.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ int a;
-        public final /* synthetic */ long b;
-        public final /* synthetic */ om3 c;
-
-        public a(int i, long j, om3 om3Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947945717, "Lcom/baidu/tieba/lk3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {Integer.valueOf(i), Long.valueOf(j), om3Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
+                $ic = interceptable;
             }
-            this.a = i;
-            this.b = j;
-            this.c = om3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947945717, "Lcom/baidu/tieba/lk3;");
+                return;
+            }
         }
+        a = new HashSet();
+        b = new HashSet();
+        c = new HashSet();
+        a.add(2);
+        a.add(3);
+        a.add(4);
+        a.add(5);
+        a.add(6);
+        b.add(7);
+        b.add(1);
+        c.addAll(a);
+        c.addAll(b);
+    }
 
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                JSONObject jSONObject = new JSONObject();
+    public static Date a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new Date();
+        }
+        return (Date) invokeV.objValue;
+    }
+
+    public static String b(Date date, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, date, str)) == null) {
+            if (date == null) {
+                return "";
+            }
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
                 try {
-                    lk3.f(jSONObject, iz2.c(), this.a, this.b);
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).format(date);
                 } catch (Exception e) {
-                    vk3.f(jSONObject, "errorMsg", e.getMessage());
-                }
-                this.c.a(jSONObject);
-            }
-        }
-    }
-
-    public lk3() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public static String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (TextUtils.isEmpty(a)) {
-                synchronized (lk3.class) {
-                    a = e();
+                    e.printStackTrace();
+                    return "";
                 }
             }
-            return a;
         }
-        return (String) invokeV.objValue;
+        return (String) invokeLL.objValue;
     }
 
-    public static String b(long j) {
-        InterceptResult invokeJ;
+    public static Date c(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
-            return new DecimalFormat("#.##").format(j / 1.073741824E9d);
-        }
-        return (String) invokeJ.objValue;
-    }
-
-    public static void d(@NonNull ss2 ss2Var, @NonNull om3<JSONObject> om3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, ss2Var, om3Var) == null) {
-            ExecutorUtilsExt.postOnElastic(new a(ss2Var.i("host_launch_type"), ss2Var.k("box_cold_launch"), om3Var), "getDeviceInfoAsync", 2);
-        }
-    }
-
-    public static String e() {
-        InterceptResult invokeV;
-        String replace;
-        String replace2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String str = Build.MODEL;
-            String str2 = "NUL";
-            if (TextUtils.isEmpty(str)) {
-                replace = "NUL";
-            } else {
-                replace = str.replace("_", "-");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, str, str2)) == null) {
+            if (str == null) {
+                return null;
             }
-            String str3 = Build.VERSION.RELEASE;
-            if (TextUtils.isEmpty(str3)) {
-                replace2 = "0.0";
-            } else {
-                replace2 = str3.replace("_", "-");
-            }
-            int i = Build.VERSION.SDK_INT;
-            String str4 = Build.MANUFACTURER;
-            if (!TextUtils.isEmpty(str4)) {
-                str2 = str4.replace("_", "-");
-            }
-            return replace + "_" + replace2 + "_" + i + "_" + str2;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static void f(@NonNull JSONObject jSONObject, int i, int i2, long j) {
-        int i3;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{jSONObject, Integer.valueOf(i), Integer.valueOf(i2), Long.valueOf(j)}) == null) {
-            vk3.f(jSONObject, "model", Build.MODEL);
-            vk3.f(jSONObject, "systemVersion", Build.VERSION.RELEASE);
-            vk3.f(jSONObject, "netStatus", Integer.valueOf(i));
-            oh3.a a2 = oh3.a(cr2.c());
-            if (a2 == null) {
-                i3 = -1;
-            } else {
-                i3 = a2.a;
-            }
-            vk3.f(jSONObject, "batteryLevel", Integer.valueOf(i3));
-            vk3.f(jSONObject, "appCurVersion", pl3.D());
-            vk3.f(jSONObject, "startupType", String.valueOf(i2));
-            vk3.f(jSONObject, "coldLaunchTime", Long.valueOf(j));
-            StatFs statFs = new StatFs(rq2.i());
-            vk3.f(jSONObject, "totalDiskSpace", b(statFs.getTotalBytes()));
-            vk3.f(jSONObject, "freeDiskSpace", b(statFs.getAvailableBytes()));
-            ActivityManager activityManager = (ActivityManager) u73.K().getSystemService("activity");
-            if (activityManager != null) {
-                ActivityManager.MemoryInfo memoryInfo = new ActivityManager.MemoryInfo();
-                activityManager.getMemoryInfo(memoryInfo);
-                vk3.f(jSONObject, "totalMemory", b(memoryInfo.totalMem));
-                vk3.f(jSONObject, "freeMemory", b(memoryInfo.availMem));
-                if (memoryInfo.lowMemory) {
-                    str = "1";
-                } else {
-                    str = "0";
+            try {
+                return new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault()).parse(str);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return null;
                 }
-                vk3.f(jSONObject, "lowMemory", str);
             }
         }
+        return (Date) invokeLL.objValue;
+    }
+
+    public static Date d(String str, String[] strArr) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, strArr)) == null) {
+            Date date = null;
+            if (!TextUtils.isEmpty(str) && strArr != null) {
+                for (String str2 : strArr) {
+                    try {
+                        date = new SimpleDateFormat(str2, Locale.getDefault()).parse(str);
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                    if (date != null) {
+                        break;
+                    }
+                }
+            }
+            return date;
+        }
+        return (Date) invokeLL.objValue;
+    }
+
+    public static String e(Date date, String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, date, str)) == null) {
+            if (date == null) {
+                return "";
+            }
+            try {
+                return new SimpleDateFormat(str, Locale.getDefault()).format(date);
+            } catch (Exception unused) {
+                try {
+                    return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(date);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return "";
+                }
+            }
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public static String g(long j, String str) {
+        InterceptResult invokeJL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJL = interceptable.invokeJL(65543, null, j, str)) == null) {
+            try {
+                return new SimpleDateFormat((str == null || str.isEmpty()) ? "yyyy-MM-dd HH:mm:ss" : "yyyy-MM-dd HH:mm:ss", Locale.getDefault()).format(new Date(j));
+            } catch (NumberFormatException e) {
+                if (ho1.a) {
+                    e.printStackTrace();
+                    return "";
+                }
+                return "";
+            }
+        }
+        return (String) invokeJL.objValue;
+    }
+
+    public static boolean f(Long l, Long l2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65542, null, l, l2)) == null) {
+            if (l.longValue() / 86400000 == l2.longValue() / 86400000) {
+                return true;
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
     }
 }

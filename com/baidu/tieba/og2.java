@@ -9,7 +9,7 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 @Service
 /* loaded from: classes5.dex */
-public class og2 extends jg2 {
+public class og2 extends lg2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
@@ -27,12 +27,12 @@ public class og2 extends jg2 {
         }
     }
 
-    @Override // com.baidu.tieba.ut2
+    @Override // com.baidu.tieba.wt2
     public LifecycleProcessType b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return LifecycleProcessType.SWAN;
+            return LifecycleProcessType.MAIN;
         }
         return (LifecycleProcessType) invokeV.objValue;
     }

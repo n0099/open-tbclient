@@ -1,121 +1,180 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.adp.lib.util.StringUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.immessagecenter.chatgroup.chatbox.GroupChatBottomSheetController;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.data.UserData;
+import com.baidu.tbadk.core.util.CommonStatisticKey;
+import com.baidu.tbadk.core.util.CommonStatisticUtils;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tieba.im.message.chat.ChatMessage;
+import com.baidu.tieba.im.model.AddMsgRecordModel;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Iterator;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class i38 implements sj1<gi5> {
+public class i38 {
     public static /* synthetic */ Interceptable $ic;
+    public static i38 c;
     public transient /* synthetic */ FieldHolder $fh;
+    public HashSet<String> a;
+    public StringBuilder b;
 
-    /* loaded from: classes4.dex */
-    public class a implements gi5 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        @Nullable
-        public GroupChatBottomSheetController b;
-
-        public a(i38 i38Var) {
-            Interceptable interceptable = $ic;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947802683, "Lcom/baidu/tieba/i38;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
             if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {i38Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947802683, "Lcom/baidu/tieba/i38;");
+                return;
             }
         }
-
-        @Override // com.baidu.tieba.gi5
-        public void onChangeSkinType(int i) {
-            GroupChatBottomSheetController groupChatBottomSheetController;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (groupChatBottomSheetController = this.b) != null) {
-                groupChatBottomSheetController.b0(i);
-            }
-        }
-
-        @Override // com.baidu.tieba.li5
-        public void a(@NonNull TbPageContext tbPageContext, @Nullable List<Long> list, long j, String str, long j2, boolean z, boolean z2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{tbPageContext, list, Long.valueOf(j), str, Long.valueOf(j2), Boolean.valueOf(z), Boolean.valueOf(z2)}) == null) {
-                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
-                if (groupChatBottomSheetController == null) {
-                    this.b = new GroupChatBottomSheetController(tbPageContext, j, str, j2, list, z, z2);
-                } else {
-                    groupChatBottomSheetController.i0(j, str, j2, list, z, z2);
-                }
-                this.b.k0();
-            }
-        }
-
-        @Override // com.baidu.tieba.gi5
-        public void onDestroy() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                GroupChatBottomSheetController groupChatBottomSheetController = this.b;
-                if (groupChatBottomSheetController != null) {
-                    groupChatBottomSheetController.c0();
-                }
-                this.b = null;
-            }
-        }
-
-        @Override // com.baidu.tieba.gi5
-        public void onPause() {
-            GroupChatBottomSheetController groupChatBottomSheetController;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (groupChatBottomSheetController = this.b) != null) {
-                groupChatBottomSheetController.e0();
-            }
-        }
-
-        @Override // com.baidu.tieba.gi5
-        public void onResume() {
-            GroupChatBottomSheetController groupChatBottomSheetController;
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (groupChatBottomSheetController = this.b) != null) {
-                groupChatBottomSheetController.f0();
-            }
-        }
+        c = new i38();
     }
 
     public i38() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashSet<>();
+        this.b = new StringBuilder();
+    }
+
+    public static i38 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c;
+        }
+        return (i38) invokeV.objValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            StringBuilder sb = this.b;
+            if (sb != null && sb.length() > 0) {
+                StringBuilder sb2 = this.b;
+                sb2.delete(0, sb2.length());
+            }
+            HashSet<String> hashSet = this.a;
+            if (hashSet != null) {
+                hashSet.clear();
             }
         }
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.sj1
-    /* renamed from: a */
-    public gi5 getService() {
-        InterceptResult invokeV;
+    public void a(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return new a(this);
+        if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && str != null && str.length() > 0) {
+            StringBuilder sb = this.b;
+            sb.append(str);
+            sb.append(",");
         }
-        return (gi5) invokeV.objValue;
+    }
+
+    public void d(ChatMessage chatMessage) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, chatMessage) == null) && chatMessage.getUserInfo() != null && CommonStatisticKey.TbMemberOfficialStatic.TB_MEMBER_OFFICIAL_ID.equals(chatMessage.getUserInfo().getUserId()) && !StringUtils.isNull(chatMessage.getContent())) {
+            try {
+                JSONArray jSONArray = new JSONArray(chatMessage.getContent());
+                if (jSONArray.length() > 0) {
+                    JSONObject jSONObject = jSONArray.getJSONObject(0);
+                    String optString = jSONObject.optString("msg_src");
+                    String optString2 = jSONObject.optString("type");
+                    CommonStatisticUtils.staticTbMemberNotify(CommonStatisticKey.TbMemberOfficialStatic.MEMBER_OFFICIAL_NOTIFY_LIST_PAGE_MSG_SHOW, optString + "_" + optString2, jSONObject.optString("title"));
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+    public void e(ChatMessage chatMessage, Context context) {
+        UserData userInfo;
+        v08 o;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(1048579, this, chatMessage, context) != null) || chatMessage == null || StringUtils.isNull(chatMessage.getContent()) || (userInfo = chatMessage.getUserInfo()) == null) {
+            return;
+        }
+        if ((userInfo.getUserType() == 1 || userInfo.getUserType() == 3) && (o = c48.o(chatMessage.getContent())) != null && !TextUtils.isEmpty(o.b) && this.a.add(o.b)) {
+            TiebaStatic.eventStat(context, "message_open", "click", 1, "task_type", o.a, "task_id", o.b);
+        }
+    }
+
+    public void f(ChatMessage chatMessage, Context context) {
+        UserData userInfo;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(1048580, this, chatMessage, context) == null) && chatMessage != null && !StringUtils.isNull(chatMessage.getContent()) && (userInfo = chatMessage.getUserInfo()) != null && userInfo.getUserType() == 4) {
+            StatisticItem statisticItem = new StatisticItem("c13989");
+            statisticItem.param("service_id", chatMessage.getStatisticsServiceId());
+            statisticItem.param("task_id", chatMessage.getStatTaskId());
+            statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
+            TiebaStatic.log(statisticItem);
+        }
+    }
+
+    public void g() {
+        String str;
+        StringBuilder sb;
+        StringBuilder sb2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+            String str2 = null;
+            if (this.a != null) {
+                StringBuilder sb3 = new StringBuilder();
+                Iterator<String> it = this.a.iterator();
+                while (it.hasNext()) {
+                    String next = it.next();
+                    if (next != null && next.length() > 0) {
+                        sb3.append(next);
+                        sb3.append(",");
+                    }
+                }
+                if (sb3.length() > 0) {
+                    sb3.deleteCharAt(sb3.length() - 1);
+                    if (sb3.length() > 0) {
+                        str = sb3.toString();
+                        sb = this.b;
+                        if (sb != null && sb.length() > 0) {
+                            this.b.deleteCharAt(sb2.length() - 1);
+                            str2 = this.b.toString();
+                        }
+                        new AddMsgRecordModel().reqViewAndClick(str, str2);
+                    }
+                }
+            }
+            str = null;
+            sb = this.b;
+            if (sb != null) {
+                this.b.deleteCharAt(sb2.length() - 1);
+                str2 = this.b.toString();
+            }
+            new AddMsgRecordModel().reqViewAndClick(str, str2);
+        }
     }
 }

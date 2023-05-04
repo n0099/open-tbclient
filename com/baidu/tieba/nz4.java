@@ -1,33 +1,21 @@
 package com.baidu.tieba;
 
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.lib.util.BdLog;
+import android.content.Intent;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
-import tbclient.TaskInfo;
 /* loaded from: classes5.dex */
 public class nz4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String a;
-    public long b;
-    public long c;
-    public long d;
-    public long e;
-    public long f;
-    public String g;
-    public int h;
-    public int i;
-    public String j;
-    public int k;
-    public yz4 l;
-    public hz4 m;
+    public String b;
+    public String c;
+    public String d;
 
     public nz4() {
         Interceptable interceptable = $ic;
@@ -43,216 +31,35 @@ public class nz4 {
         }
     }
 
-    public long a() {
-        InterceptResult invokeV;
+    public void a(Intent intent) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.f;
-        }
-        return invokeV.longValue;
-    }
-
-    public String b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.b + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.j;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public hz4 e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.m;
-        }
-        return (hz4) invokeV.objValue;
-    }
-
-    public long f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.e;
-        }
-        return invokeV.longValue;
-    }
-
-    public String g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.c + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.k;
-        }
-        return invokeV.intValue;
-    }
-
-    public String i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.d + "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.i;
-        }
-        return invokeV.intValue;
-    }
-
-    public String k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.g;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public int l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.h;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public yz4 m() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.l;
-        }
-        return (yz4) invokeV.objValue;
-    }
-
-    public void n(JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048589, this, jSONObject) != null) || jSONObject == null) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, intent) != null) || intent == null) {
             return;
         }
-        try {
-            this.a = jSONObject.optString("forum_name");
-            this.b = jSONObject.optLong("forum_id");
-            this.c = jSONObject.optLong("task_id");
-            this.d = jSONObject.optLong("thread_id");
-            jSONObject.optString("bgimg");
-            this.e = jSONObject.optLong("start_time");
-            this.f = jSONObject.optLong("end_time");
-            this.g = jSONObject.optString("thread_img");
-            this.k = jSONObject.optInt("card_type");
-            String optString = jSONObject.optString("thread_img_size");
-            if (optString != null && optString.length() > 0) {
-                String[] split = optString.split(",");
-                if (split.length > 1) {
-                    this.h = Integer.valueOf(split[0]).intValue();
-                    this.i = Integer.valueOf(split[1]).intValue();
-                }
-            }
-            if (this.h <= 0) {
-                this.h = 1;
-            }
-            if (this.i <= 0) {
-                this.i = 1;
-            }
-        } catch (Exception e) {
-            BdLog.e(e.toString());
-        }
+        this.a = intent.getStringExtra(TiebaStatic.Params.RECOM_WEIGHT);
+        this.b = intent.getStringExtra("recom_source");
+        this.c = intent.getStringExtra("recom_abtag");
+        this.d = intent.getStringExtra(TiebaStatic.Params.RECOM_EXTRA);
     }
 
-    public void o(TaskInfo taskInfo) {
-        long j;
-        long j2;
-        long j3;
+    public void b(ThreadData threadData) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048590, this, taskInfo) != null) || taskInfo == null) {
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, threadData) != null) || threadData == null) {
             return;
         }
-        this.a = taskInfo.forum_name;
-        this.b = taskInfo.forum_id.longValue();
-        Long l = taskInfo.task_id;
-        long j4 = -1;
-        if (l != null) {
-            j = l.longValue();
-        } else {
-            j = -1;
+        this.a = threadData.mRecomWeight;
+        this.b = threadData.mRecomSource;
+        this.c = threadData.mRecomAbTag;
+        this.d = threadData.mRecomExtra;
+    }
+
+    public void c(Intent intent) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, intent) == null) && intent != null) {
+            intent.putExtra(TiebaStatic.Params.RECOM_WEIGHT, this.a);
+            intent.putExtra("recom_source", this.b);
+            intent.putExtra("recom_abtag", this.c);
+            intent.putExtra(TiebaStatic.Params.RECOM_EXTRA, this.d);
         }
-        this.c = j;
-        Long l2 = taskInfo.thread_id;
-        if (l2 != null) {
-            j2 = l2.longValue();
-        } else {
-            j2 = -1;
-        }
-        this.d = j2;
-        String str = taskInfo.bgimg;
-        this.g = taskInfo.thread_img;
-        Long l3 = taskInfo.start_time;
-        if (l3 != null) {
-            j3 = l3.longValue();
-        } else {
-            j3 = -1;
-        }
-        this.e = j3;
-        Long l4 = taskInfo.end_time;
-        if (l4 != null) {
-            j4 = l4.longValue();
-        }
-        this.f = j4;
-        String str2 = taskInfo.thread_img_size;
-        if (str2 != null) {
-            try {
-                String[] split = str2.split(",");
-                this.h = gg.e(split[0], 1);
-                this.i = gg.e(split[1], 1);
-            } catch (Exception e) {
-                BdLog.e(e.getMessage());
-            }
-        }
-        if (this.h <= 0) {
-            this.h = 1;
-        }
-        if (this.i <= 0) {
-            this.i = 1;
-        }
-        this.j = taskInfo.obj_id;
-        this.k = taskInfo.card_type.intValue();
-        this.l = yz4.a(taskInfo.vote_schema);
-        this.m = hz4.n(taskInfo.reward_card);
     }
 }

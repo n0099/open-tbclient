@@ -33,10 +33,10 @@ import com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.dx4;
+import com.baidu.tieba.ex4;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.jg;
-import com.baidu.tieba.nw4;
-import com.baidu.tieba.ow4;
 import com.baidu.tieba.tm;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -76,7 +76,7 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
     public ValueAnimator.AnimatorUpdateListener U;
     public Animator.AnimatorListener V;
     public ValueAnimator.AnimatorUpdateListener W;
-    public nw4 x;
+    public dx4 x;
     public boolean y;
     public TbImageView z;
 
@@ -493,8 +493,8 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
             TbPageContext<?> a02 = a0(getContext());
             if (a02 != null && this.x != null) {
                 Context baseContext = a02.getPageActivity().getBaseContext();
-                nw4 nw4Var = this.x;
-                if (!UtilHelper.isMatchScheme(baseContext, nw4Var.f, nw4Var.g)) {
+                dx4 dx4Var = this.x;
+                if (!UtilHelper.isMatchScheme(baseContext, dx4Var.f, dx4Var.g)) {
                     UrlManager.getInstance().dealOneLink(a02, new String[]{this.x.b}, true);
                     MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921586, Boolean.FALSE));
                     return true;
@@ -661,12 +661,12 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
     }
 
     public void setAdvancedAdStyle(boolean z) {
-        nw4 nw4Var;
+        dx4 dx4Var;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048593, this, z) == null) {
             this.y = z;
-            if (z && (nw4Var = this.x) != null) {
-                this.z.N(nw4Var.a, 10, false);
+            if (z && (dx4Var = this.x) != null) {
+                this.z.N(dx4Var.a, 10, false);
             } else {
                 Y();
             }
@@ -687,11 +687,11 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         }
     }
 
-    public void X(nw4 nw4Var, ViewGroup viewGroup) {
+    public void X(dx4 dx4Var, ViewGroup viewGroup) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048581, this, nw4Var, viewGroup) == null) {
+        if (interceptable == null || interceptable.invokeLL(1048581, this, dx4Var, viewGroup) == null) {
             if (viewGroup != null) {
-                this.x = nw4Var;
+                this.x = dx4Var;
                 this.E = viewGroup;
                 return;
             }
@@ -748,13 +748,13 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         return (TbImageView) invokeV.objValue;
     }
 
-    public nw4 getData() {
+    public dx4 getData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
             return this.x;
         }
-        return (nw4) invokeV.objValue;
+        return (dx4) invokeV.objValue;
     }
 
     @Override // com.baidu.tbadk.core.view.slideLoadingLayout.LottieSlideLoadingLayout, com.baidu.tbadk.core.view.slideLoadingLayout.BaseSlideLoadingLayout
@@ -844,8 +844,8 @@ public class AdvancedAdSlideLoadingLayout extends LottieSlideLoadingLayout {
         if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Integer.valueOf(i), Float.valueOf(f2)}) == null) {
             super.G(i, f2);
             if (this.y && this.z != null && this.C) {
-                ow4.a().f(f2, getLoadingPointRatio(), getShowAdPointRatio(), this.Q);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921679, ow4.a()));
+                ex4.a().f(f2, getLoadingPointRatio(), getShowAdPointRatio(), this.Q);
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921679, ex4.a()));
                 this.z.getImageMatrix().setTranslate(0.0f, this.D + i);
                 float f3 = f2 * 2.0f;
                 if (f3 > 1.0f) {

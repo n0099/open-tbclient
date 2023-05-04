@@ -1,33 +1,209 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.j5b;
+import com.baidu.tieba.m5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetBannerConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.GetSplitOrderConfigReqParams;
-import com.yy.mobile.framework.revenuesdk.payapi.request.QueryCurrencyReqParams;
-import java.util.HashMap;
-import java.util.Map;
-import org.json.JSONException;
-import org.json.JSONObject;
-import tv.athena.revenue.api.MiddleRevenueConfig;
-import tv.athena.revenue.api.pay.params.PayFlowType;
 /* loaded from: classes6.dex */
-public class v6b implements l6b {
+public final class v6b<T> implements j5b.a<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MiddleRevenueConfig a;
+    public final m5b a;
+    public final j5b<T> b;
 
-    public v6b(MiddleRevenueConfig middleRevenueConfig) {
+    /* loaded from: classes6.dex */
+    public class a implements w5b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ p5b a;
+        public final /* synthetic */ m5b.a b;
+        public final /* synthetic */ v6b c;
+
+        /* renamed from: com.baidu.tieba.v6b$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class C0454a extends p5b<T> {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ Thread e;
+            public final /* synthetic */ a f;
+
+            /* renamed from: com.baidu.tieba.v6b$a$a$a  reason: collision with other inner class name */
+            /* loaded from: classes6.dex */
+            public class C0455a implements l5b {
+                public static /* synthetic */ Interceptable $ic;
+                public transient /* synthetic */ FieldHolder $fh;
+                public final /* synthetic */ l5b a;
+                public final /* synthetic */ C0454a b;
+
+                /* renamed from: com.baidu.tieba.v6b$a$a$a$a  reason: collision with other inner class name */
+                /* loaded from: classes6.dex */
+                public class C0456a implements w5b {
+                    public static /* synthetic */ Interceptable $ic;
+                    public transient /* synthetic */ FieldHolder $fh;
+                    public final /* synthetic */ long a;
+                    public final /* synthetic */ C0455a b;
+
+                    public C0456a(C0455a c0455a, long j) {
+                        Interceptable interceptable = $ic;
+                        if (interceptable != null) {
+                            InitContext newInitContext = TitanRuntime.newInitContext();
+                            newInitContext.initArgs = r2;
+                            Object[] objArr = {c0455a, Long.valueOf(j)};
+                            interceptable.invokeUnInit(65536, newInitContext);
+                            int i = newInitContext.flag;
+                            if ((i & 1) != 0) {
+                                int i2 = i & 2;
+                                newInitContext.thisArg = this;
+                                interceptable.invokeInitBody(65536, newInitContext);
+                                return;
+                            }
+                        }
+                        this.b = c0455a;
+                        this.a = j;
+                    }
+
+                    @Override // com.baidu.tieba.w5b
+                    public void call() {
+                        Interceptable interceptable = $ic;
+                        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                            this.b.a.request(this.a);
+                        }
+                    }
+                }
+
+                public C0455a(C0454a c0454a, l5b l5bVar) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable != null) {
+                        InitContext newInitContext = TitanRuntime.newInitContext();
+                        newInitContext.initArgs = r2;
+                        Object[] objArr = {c0454a, l5bVar};
+                        interceptable.invokeUnInit(65536, newInitContext);
+                        int i = newInitContext.flag;
+                        if ((i & 1) != 0) {
+                            int i2 = i & 2;
+                            newInitContext.thisArg = this;
+                            interceptable.invokeInitBody(65536, newInitContext);
+                            return;
+                        }
+                    }
+                    this.b = c0454a;
+                    this.a = l5bVar;
+                }
+
+                @Override // com.baidu.tieba.l5b
+                public void request(long j) {
+                    Interceptable interceptable = $ic;
+                    if (interceptable == null || interceptable.invokeJ(1048576, this, j) == null) {
+                        if (this.b.e == Thread.currentThread()) {
+                            this.a.request(j);
+                        } else {
+                            this.b.f.b.b(new C0456a(this, j));
+                        }
+                    }
+                }
+            }
+
+            /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+            public C0454a(a aVar, p5b p5bVar, Thread thread) {
+                super(p5bVar);
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar, p5bVar, thread};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        super((p5b) newInitContext.callArgs[0]);
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.f = aVar;
+                this.e = thread;
+            }
+
+            @Override // com.baidu.tieba.p5b
+            public void f(l5b l5bVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048576, this, l5bVar) == null) {
+                    this.f.a.f(new C0455a(this, l5bVar));
+                }
+            }
+
+            @Override // com.baidu.tieba.k5b
+            public void onError(Throwable th) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, th) == null) {
+                    try {
+                        this.f.a.onError(th);
+                    } finally {
+                        this.f.b.unsubscribe();
+                    }
+                }
+            }
+
+            @Override // com.baidu.tieba.k5b
+            public void onNext(T t) {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeL(1048579, this, t) == null) {
+                    this.f.a.onNext(t);
+                }
+            }
+
+            @Override // com.baidu.tieba.k5b
+            public void onCompleted() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+                    try {
+                        this.f.a.onCompleted();
+                    } finally {
+                        this.f.b.unsubscribe();
+                    }
+                }
+            }
+        }
+
+        public a(v6b v6bVar, p5b p5bVar, m5b.a aVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {v6bVar, p5bVar, aVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = v6bVar;
+            this.a = p5bVar;
+            this.b = aVar;
+        }
+
+        @Override // com.baidu.tieba.w5b
+        public void call() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.c.b.D(new C0454a(this, this.a, Thread.currentThread()));
+            }
+        }
+    }
+
+    public v6b(j5b<T> j5bVar, m5b m5bVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {middleRevenueConfig};
+            Object[] objArr = {j5bVar, m5bVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -37,162 +213,21 @@ public class v6b implements l6b {
                 return;
             }
         }
-        this.a = middleRevenueConfig;
+        this.a = m5bVar;
+        this.b = j5bVar;
     }
 
-    @Override // com.baidu.tieba.l6b
-    public GetBannerConfigReqParams a() {
-        InterceptResult invokeV;
+    public void call(p5b<? super T> p5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            GetBannerConfigReqParams getBannerConfigReqParams = new GetBannerConfigReqParams();
-            getBannerConfigReqParams.setAppId(this.a.getAppId());
-            getBannerConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getBannerConfigReqParams.setUid(this.a.getUid());
-            getBannerConfigReqParams.setToken(this.a.getToken());
-            getBannerConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            return getBannerConfigReqParams;
+        if (interceptable == null || interceptable.invokeL(1048576, this, p5bVar) == null) {
+            m5b.a createWorker = this.a.createWorker();
+            p5bVar.b(createWorker);
+            createWorker.b(new a(this, p5bVar, createWorker));
         }
-        return (GetBannerConfigReqParams) invokeV.objValue;
     }
 
-    public String toString() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return "QueryParamsProviderImpl" + hashCode() + " revenueConfig:" + this.a.hashCode();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l6b
-    public QueryCurrencyReqParams b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            queryCurrencyReqParams.setReturnYb(true);
-            return queryCurrencyReqParams;
-        }
-        return (QueryCurrencyReqParams) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.l6b
-    public o6b c(PayFlowType payFlowType, Map<String, String> map) {
-        InterceptResult invokeLL;
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, payFlowType, map)) == null) {
-            o6b o6bVar = new o6b();
-            o6bVar.D(this.a.getUid());
-            o6bVar.A(this.a.getToken());
-            o6bVar.E(this.a.getUseChannel());
-            o6bVar.t(this.a.getCurrencyType());
-            o6bVar.B(this.a.getTokenCallback());
-            String deviceId = this.a.getDeviceId();
-            RLog.info("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId:" + deviceId);
-            HashMap hashMap = new HashMap();
-            if (deviceId != null) {
-                hashMap.put("deviceId", deviceId);
-            } else {
-                RLog.error("QueryParamsProviderImpl", "getMiddlePayWithProductInfoParams deviceId null", new Object[0]);
-            }
-            if (payFlowType == PayFlowType.WALLET_PAY_FLOW) {
-                str = "1";
-            } else {
-                str = "0";
-            }
-            hashMap.put("chargeScene", str);
-            JSONObject f = f(map);
-            if (f != null) {
-                hashMap.put("clientInfo", f);
-            }
-            o6bVar.u(hashMap);
-            return o6bVar;
-        }
-        return (o6b) invokeLL.objValue;
-    }
-
-    @Override // com.baidu.tieba.l6b
-    public GetSplitOrderConfigReqParams d(int i, String str, long j) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), str, Long.valueOf(j)})) == null) {
-            GetSplitOrderConfigReqParams getSplitOrderConfigReqParams = new GetSplitOrderConfigReqParams();
-            getSplitOrderConfigReqParams.setAppId(this.a.getAppId());
-            getSplitOrderConfigReqParams.setUsedChannel(this.a.getUseChannel());
-            getSplitOrderConfigReqParams.setUid(this.a.getUid());
-            getSplitOrderConfigReqParams.setToken(this.a.getToken());
-            getSplitOrderConfigReqParams.setTokenCallback(this.a.getTokenCallback());
-            getSplitOrderConfigReqParams.setCurrencyType(this.a.getCurrencyType());
-            getSplitOrderConfigReqParams.setOrderId(str);
-            getSplitOrderConfigReqParams.setType(i);
-            getSplitOrderConfigReqParams.setAmount(j);
-            return getSplitOrderConfigReqParams;
-        }
-        return (GetSplitOrderConfigReqParams) invokeCommon.objValue;
-    }
-
-    @Override // com.baidu.tieba.l6b
-    public QueryCurrencyReqParams e(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, map)) == null) {
-            QueryCurrencyReqParams queryCurrencyReqParams = new QueryCurrencyReqParams();
-            queryCurrencyReqParams.setCurrencyType(this.a.getCurrencyType());
-            queryCurrencyReqParams.setAppId(this.a.getAppId());
-            queryCurrencyReqParams.setUsedChannel(this.a.getUseChannel());
-            queryCurrencyReqParams.setUid(this.a.getUid());
-            queryCurrencyReqParams.setToken(this.a.getToken());
-            queryCurrencyReqParams.setTokenCallback(this.a.getTokenCallback());
-            HashMap hashMap = new HashMap();
-            JSONObject f = f(map);
-            if (f != null) {
-                hashMap.put("clientInfo", f);
-            }
-            queryCurrencyReqParams.setExpandMap(hashMap);
-            return queryCurrencyReqParams;
-        }
-        return (QueryCurrencyReqParams) invokeL.objValue;
-    }
-
-    public final JSONObject f(Map<String, String> map) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, map)) == null) {
-            JSONObject jSONObject = null;
-            if (map == null) {
-                return null;
-            }
-            try {
-                if (map.size() <= 0) {
-                    return null;
-                }
-                JSONObject jSONObject2 = new JSONObject();
-                try {
-                    for (Map.Entry<String, String> entry : map.entrySet()) {
-                        if (entry.getKey() != null && entry.getValue() != null) {
-                            jSONObject2.put(entry.getKey(), entry.getValue());
-                        }
-                    }
-                    return jSONObject2;
-                } catch (JSONException e) {
-                    e = e;
-                    jSONObject = jSONObject2;
-                    RLog.error("QueryParamsProviderImpl", "getClientInfoJsonObject JSONException" + e.getLocalizedMessage(), new Object[0]);
-                    return jSONObject;
-                }
-            } catch (JSONException e2) {
-                e = e2;
-            }
-        } else {
-            return (JSONObject) invokeL.objValue;
-        }
+    @Override // com.baidu.tieba.j5b.a, com.baidu.tieba.x5b
+    public /* bridge */ /* synthetic */ void call(Object obj) {
+        call((p5b) ((p5b) obj));
     }
 }

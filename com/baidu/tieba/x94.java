@@ -1,37 +1,49 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Service;
-import com.baidu.pyramid.annotation.Singleton;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-@Singleton
-@Service
+import kotlin.jvm.JvmField;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes7.dex */
-public class x94 implements np1 {
+public final class x94 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    @V8JavascriptField
+    @JvmField
+    public final String address;
+    @V8JavascriptField
+    @JvmField
+    public final String family;
+    @V8JavascriptField
+    @JvmField
+    public final int port;
+    @V8JavascriptField
+    @JvmField
+    public final int size;
 
-    public x94() {
+    public x94(String address, int i, int i2, String family) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {address, Integer.valueOf(i), Integer.valueOf(i2), family};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            int i3 = newInitContext.flag;
+            if ((i3 & 1) != 0) {
+                int i4 = i3 & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-    }
-
-    @Override // com.baidu.tieba.np1
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            z94.c.f();
-        }
+        Intrinsics.checkNotNullParameter(address, "address");
+        Intrinsics.checkNotNullParameter(family, "family");
+        this.address = address;
+        this.size = i;
+        this.port = i2;
+        this.family = family;
     }
 }

@@ -1,143 +1,217 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.view.ViewGroup;
-import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tieba.card.holder.CardViewHolder;
-import com.baidu.tieba.square.ForumSquareActivity;
+import com.baidu.searchbox.dns.DnsHelper;
+import com.baidu.searchbox.dns.DnsParseResult;
+import com.baidu.searchbox.dns.util.DnsUtil;
+import com.baidu.searchbox.http.IHttpDns;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.net.Inet6Address;
+import java.net.InetAddress;
+import java.net.UnknownHostException;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.regex.Pattern;
+import okhttp3.Dns;
 /* loaded from: classes6.dex */
-public class ui9 extends vm<wi9, CardViewHolder<nj9>> {
+public class ui9 implements Dns, IHttpDns {
     public static /* synthetic */ Interceptable $ic;
+    public static final Pattern j;
     public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public yg6<wi9> b;
+    public boolean a;
+    public long b;
+    public long c;
+    public DnsParseResult e;
+    public boolean f;
+    public DnsHelper g;
+    public boolean h;
+    public a i;
 
     /* loaded from: classes6.dex */
-    public class a extends yg6<wi9> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ui9 b;
-
-        public a(ui9 ui9Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ui9Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = ui9Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.yg6
-        /* renamed from: d */
-        public void a(View view2, wi9 wi9Var) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, wi9Var) == null) && wi9Var != null && (this.b.a.getPageActivity() instanceof ForumSquareActivity)) {
-                String className = ((ForumSquareActivity) this.b.a.getPageActivity()).x1().getClassName();
-                if (!"推荐".equals(className)) {
-                    StatisticItem statisticItem = new StatisticItem("c13652");
-                    statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                    statisticItem.param("fid", wi9Var.a);
-                    statisticItem.param("resource_id", className);
-                    TiebaStatic.log(statisticItem);
-                    return;
-                }
-                StatisticItem statisticItem2 = new StatisticItem("c13643");
-                statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                statisticItem2.param("fid", wi9Var.a);
-                statisticItem2.param("obj_locate", 3);
-                TiebaStatic.log(statisticItem2);
-            }
-        }
+    public interface a {
+        void a(long j, long j2, DnsParseResult dnsParseResult);
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public ui9(TbPageContext tbPageContext) {
-        super(tbPageContext.getPageActivity(), wi9.h);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948212100, "Lcom/baidu/tieba/ui9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948212100, "Lcom/baidu/tieba/ui9;");
+                return;
+            }
+        }
+        j = Pattern.compile("([0-9a-fA-F]*:[0-9a-fA-F:.]*)|([\\d.]+)");
+    }
+
+    public DnsHelper a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.g;
+        }
+        return (DnsHelper) invokeV.objValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public boolean getHttpDnsEnable() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public ui9(DnsHelper dnsHelper, boolean z) {
+        boolean z2;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext};
-            interceptable.invokeUnInit(65536, newInitContext);
+            Object[] objArr = {dnsHelper, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.b = new a(this);
-        this.a = tbPageContext;
+        this.f = z;
+        this.b = -1L;
+        this.c = -1L;
+        this.g = dnsHelper;
+        if (dnsHelper != null && dnsHelper.isHttpDnsEnable()) {
+            z2 = true;
+        } else {
+            z2 = false;
+        }
+        this.a = z2;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: t */
-    public CardViewHolder<nj9> onCreateViewHolder(ViewGroup viewGroup) {
+    public static boolean b(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
-            nj9 nj9Var = new nj9(this.a);
-            nj9Var.o(this.mPageId);
-            return new CardViewHolder<>(nj9Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
+            return j.matcher(str).matches();
         }
-        return (CardViewHolder) invokeL.objValue;
+        return invokeL.booleanValue;
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.vm
-    /* renamed from: u */
-    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, wi9 wi9Var, CardViewHolder<nj9> cardViewHolder) {
-        InterceptResult invokeCommon;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, wi9Var, cardViewHolder})) == null) {
-            if (wi9Var != null && cardViewHolder != null && cardViewHolder.a() != null) {
-                cardViewHolder.a().l(wi9Var);
-                cardViewHolder.a().n(this.b);
-                if (this.a.getPageActivity() instanceof ForumSquareActivity) {
-                    String className = ((ForumSquareActivity) this.a.getPageActivity()).x1().getClassName();
-                    if (!"推荐".equals(className)) {
-                        StatisticItem statisticItem = new StatisticItem("c13651");
-                        statisticItem.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem.param("fid", wi9Var.a);
-                        statisticItem.param("resource_id", className);
-                        TiebaStatic.log(statisticItem);
-                    } else {
-                        StatisticItem statisticItem2 = new StatisticItem("c13642");
-                        statisticItem2.param("uid", TbadkCoreApplication.getCurrentAccountId());
-                        statisticItem2.param("fid", wi9Var.d());
-                        statisticItem2.param("obj_locate", 3);
-                        TiebaStatic.log(statisticItem2);
-                    }
-                }
-                return cardViewHolder.getView();
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj)) == null) {
+            if (obj instanceof ui9) {
+                return true;
             }
-            return null;
+            return super.equals(obj);
         }
-        return (View) invokeCommon.objValue;
+        return invokeL.booleanValue;
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public void setHttpDnsEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048580, this, z) == null) {
+            this.a = z;
+            DnsHelper dnsHelper = this.g;
+            if (dnsHelper != null) {
+                dnsHelper.setHttpDnsEnable(z);
+            }
+        }
+    }
+
+    @Override // com.baidu.searchbox.http.IHttpDns
+    public void setHttpDnsIPv4OnlyEnable(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+            this.h = z;
+        }
+    }
+
+    @Override // okhttp3.Dns
+    public List<InetAddress> lookup(String str) throws UnknownHostException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
+            if (str != null) {
+                boolean z = this.f;
+                if (z) {
+                    this.b = System.currentTimeMillis();
+                }
+                List arrayList = new ArrayList();
+                try {
+                    if (b(str)) {
+                        return Arrays.asList(InetAddress.getAllByName(str));
+                    }
+                    if (this.a && this.g != null) {
+                        DnsParseResult parseResult = this.g.getParseResult(str);
+                        if (parseResult != null) {
+                            arrayList = DnsUtil.parseInetAddressList(parseResult.getIpList());
+                        }
+                        if (z) {
+                            long currentTimeMillis = System.currentTimeMillis();
+                            this.c = currentTimeMillis;
+                            this.e = parseResult;
+                            if (this.i != null) {
+                                this.i.a(this.b, currentTimeMillis, parseResult);
+                            }
+                        }
+                    } else {
+                        arrayList = Arrays.asList(InetAddress.getAllByName(str));
+                        if (z) {
+                            this.c = System.currentTimeMillis();
+                            DnsParseResult dnsParseResult = new DnsParseResult(DnsUtil.parseRawAddressList(arrayList), 0, 1, DnsUtil.stackType);
+                            this.e = dnsParseResult;
+                            if (this.i != null) {
+                                this.i.a(this.b, this.c, dnsParseResult);
+                            }
+                        }
+                    }
+                    if (DnsUtil.stackType == 3 && this.h && arrayList != null) {
+                        ArrayList arrayList2 = new ArrayList();
+                        for (InetAddress inetAddress : arrayList) {
+                            if (inetAddress instanceof Inet6Address) {
+                                arrayList2.add(inetAddress);
+                            }
+                        }
+                        arrayList.removeAll(arrayList2);
+                        if (arrayList.isEmpty()) {
+                            throw new UnknownHostException("request support ipv4 address only!");
+                        }
+                    }
+                    return arrayList;
+                } catch (IllegalArgumentException e) {
+                    e = e;
+                    throw new UnknownHostException(e.getMessage());
+                } catch (NullPointerException e2) {
+                    if (e2.getMessage() != null && e2.getMessage().contains("Attempt to get length of null array")) {
+                        UnknownHostException unknownHostException = new UnknownHostException("Broken system behaviour for dns lookup of " + str);
+                        unknownHostException.initCause(e2);
+                        throw unknownHostException;
+                    }
+                    throw e2;
+                } catch (SecurityException e3) {
+                    e = e3;
+                    throw new UnknownHostException(e.getMessage());
+                }
+            }
+            throw new UnknownHostException("hostname == null");
+        }
+        return (List) invokeL.objValue;
     }
 }

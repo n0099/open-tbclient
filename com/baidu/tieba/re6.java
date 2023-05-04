@@ -1,28 +1,67 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import android.webkit.WebView;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
-/* compiled from: JsPromptInterface.java */
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.Map;
 /* loaded from: classes6.dex */
-public final /* synthetic */ class re6 {
+public abstract class re6<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public re6<T> a;
 
-    public static void a(se6 se6Var, WebView webView, String str, JSONObject jSONObject) {
+    public abstract T c(String str, String str2, Map<String, String> map);
+
+    public abstract boolean e(String str, String str2, Map<String, String> map);
+
+    public re6() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLLL(65536, null, se6Var, webView, str, jSONObject) != null) || webView == null) {
-            return;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
-        long currentTimeMillis = System.currentTimeMillis();
-        webView.evaluateJavascript("javascript:" + str + "&&" + str + "('" + jSONObject.toString() + "')", null);
-        StringBuilder sb = new StringBuilder();
-        sb.append("javascript 执行成功:");
-        sb.append(str);
-        sb.append(" 耗时：");
-        sb.append(System.currentTimeMillis() - currentTimeMillis);
-        Log.i("lt-log", sb.toString());
+    }
+
+    public re6<T> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (re6) invokeV.objValue;
+    }
+
+    public final T b(String str, String str2, Map<String, String> map) {
+        InterceptResult invokeLLL;
+        T t;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, map)) == null) {
+            if (e(str, str2, map)) {
+                t = c(str, str2, map);
+            } else {
+                t = null;
+            }
+            if (t == null && a() != null) {
+                return a().b(str, str2, map);
+            }
+            return t;
+        }
+        return (T) invokeLLL.objValue;
+    }
+
+    public void d(re6<T> re6Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, re6Var) == null) {
+            this.a = re6Var;
+        }
     }
 }

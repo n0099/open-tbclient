@@ -1,418 +1,240 @@
 package com.baidu.tieba;
 
-import android.content.ContentResolver;
-import android.database.CharArrayBuffer;
-import android.database.ContentObserver;
-import android.database.Cursor;
-import android.database.DataSetObserver;
-import android.net.Uri;
-import android.os.Bundle;
+import android.app.ActivityManager;
+import android.content.Context;
+import android.os.Process;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class ij1 implements Cursor {
+public class ij1 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile String a;
+    public static volatile int b;
     public transient /* synthetic */ FieldHolder $fh;
-    public Bundle a;
 
-    @Override // android.database.Cursor, java.io.Closeable, java.lang.AutoCloseable
-    public void close() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947855321, "Lcom/baidu/tieba/ij1;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947855321, "Lcom/baidu/tieba/ij1;");
         }
     }
 
-    @Override // android.database.Cursor
-    public void copyStringToBuffer(int i, CharArrayBuffer charArrayBuffer) {
+    public static void h(String str, Exception exc) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, charArrayBuffer) == null) {
+        if (interceptable == null || interceptable.invokeLL(65545, null, str, exc) == null) {
         }
     }
 
-    @Override // android.database.Cursor
-    public void deactivate() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    @Override // android.database.Cursor
-    public byte[] getBlob(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) ? new byte[0] : (byte[]) invokeI.objValue;
-    }
-
-    @Override // android.database.Cursor
-    public int getColumnCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.database.Cursor
-    public int getColumnIndex(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, str)) == null) {
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // android.database.Cursor
-    public int getColumnIndexOrThrow(String str) throws IllegalArgumentException {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return 0;
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // android.database.Cursor
-    public String getColumnName(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048583, this, i)) == null) {
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // android.database.Cursor
-    public String[] getColumnNames() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) ? new String[0] : (String[]) invokeV.objValue;
-    }
-
-    @Override // android.database.Cursor
-    public int getCount() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.database.Cursor
-    public double getDouble(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048586, this, i)) == null) {
-            return 0.0d;
-        }
-        return invokeI.doubleValue;
-    }
-
-    @Override // android.database.Cursor
-    public float getFloat(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
-            return 0.0f;
-        }
-        return invokeI.floatValue;
-    }
-
-    @Override // android.database.Cursor
-    public int getInt(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.database.Cursor
-    public long getLong(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
-            return 0L;
-        }
-        return invokeI.longValue;
-    }
-
-    @Override // android.database.Cursor
-    public Uri getNotificationUri() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
-            return null;
-        }
-        return (Uri) invokeV.objValue;
-    }
-
-    @Override // android.database.Cursor
-    public int getPosition() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    @Override // android.database.Cursor
-    public short getShort(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
-            return (short) 0;
-        }
-        return invokeI.shortValue;
-    }
-
-    @Override // android.database.Cursor
-    public String getString(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048594, this, i)) == null) {
-            return null;
-        }
-        return (String) invokeI.objValue;
-    }
-
-    @Override // android.database.Cursor
-    public int getType(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048595, this, i)) == null) {
-            return 0;
-        }
-        return invokeI.intValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean getWantsAllOnMoveCalls() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048596, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean isAfterLast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048597, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean isBeforeFirst() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean isClosed() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048599, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean isFirst() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048600, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean isLast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048601, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean isNull(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048602, this, i)) == null) {
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean move(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean moveToFirst() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048604, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean moveToLast() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048605, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean moveToNext() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048606, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean moveToPosition(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public boolean moveToPrevious() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048608, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public void registerContentObserver(ContentObserver contentObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048609, this, contentObserver) == null) {
-        }
-    }
-
-    @Override // android.database.Cursor
-    public void registerDataSetObserver(DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048610, this, dataSetObserver) == null) {
-        }
-    }
-
-    @Override // android.database.Cursor
-    public boolean requery() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048611, this)) == null) {
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // android.database.Cursor
-    public Bundle respond(Bundle bundle) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048612, this, bundle)) == null) {
-            return null;
-        }
-        return (Bundle) invokeL.objValue;
-    }
-
-    @Override // android.database.Cursor
-    public void setNotificationUri(ContentResolver contentResolver, Uri uri) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048614, this, contentResolver, uri) == null) {
-        }
-    }
-
-    @Override // android.database.Cursor
-    public void unregisterContentObserver(ContentObserver contentObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048615, this, contentObserver) == null) {
-        }
-    }
-
-    @Override // android.database.Cursor
-    public void unregisterDataSetObserver(DataSetObserver dataSetObserver) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048616, this, dataSetObserver) == null) {
-        }
-    }
-
-    public ij1(Bundle bundle) {
+    public ij1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bundle};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        this.a = bundle;
     }
 
-    @Override // android.database.Cursor
-    public void setExtras(Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048613, this, bundle) == null) {
-            this.a = bundle;
-        }
-    }
-
-    @Override // android.database.Cursor
-    public Bundle getExtras() {
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
+            if ((e() & 1) != 0) {
+                return true;
+            }
+            return false;
         }
-        return (Bundle) invokeV.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
+            if ((e() & 2) != 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public static int a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            Context a2 = mj1.a();
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) a2.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return -1;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.importance;
+                }
+            }
+            return 0;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            String str = a;
+            if (str == null) {
+                synchronized (ij1.class) {
+                    str = a;
+                    if (str == null) {
+                        Context a2 = mj1.a();
+                        String d = d();
+                        if (d == null && (d = c(a2)) == null) {
+                            d = a2.getPackageName();
+                        }
+                        a = d;
+                        str = d;
+                    }
+                }
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public static int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
+            int i = b;
+            if (i == 0) {
+                String b2 = b();
+                String packageName = mj1.a().getPackageName();
+                if (!TextUtils.equals(b2, packageName) && (!b2.startsWith(packageName) || b2.contains(":"))) {
+                    i |= 4;
+                } else {
+                    i = i | 1 | 2;
+                }
+                b = i;
+            }
+            return i;
+        }
+        return invokeV.intValue;
+    }
+
+    public static String c(Context context) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, context)) == null) {
+            int myPid = Process.myPid();
+            List<ActivityManager.RunningAppProcessInfo> runningAppProcesses = ((ActivityManager) context.getSystemService("activity")).getRunningAppProcesses();
+            if (runningAppProcesses == null) {
+                return null;
+            }
+            for (ActivityManager.RunningAppProcessInfo runningAppProcessInfo : runningAppProcesses) {
+                if (runningAppProcessInfo.pid == myPid) {
+                    return runningAppProcessInfo.processName;
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:17:0x0036 */
+    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:43:0x000c */
+    /* JADX WARN: Multi-variable type inference failed */
+    /* JADX WARN: Type inference failed for: r1v3 */
+    /* JADX WARN: Type inference failed for: r1v4 */
+    /* JADX WARN: Type inference failed for: r1v5, types: [java.io.BufferedReader] */
+    /* JADX WARN: Type inference failed for: r1v8, types: [java.lang.String] */
+    /* JADX WARN: Type inference failed for: r2v0 */
+    /* JADX WARN: Type inference failed for: r2v1 */
+    /* JADX WARN: Type inference failed for: r2v3 */
+    public static String d() {
+        InterceptResult invokeV;
+        ?? r2;
+        BufferedReader bufferedReader;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            BufferedReader bufferedReader2 = 0;
+            BufferedReader bufferedReader3 = null;
+            try {
+                try {
+                    bufferedReader = new BufferedReader(new InputStreamReader(new FileInputStream(new File(ProcessUtils.CMD_LINE_NAME))));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (Exception e) {
+                e = e;
+                r2 = null;
+            }
+            try {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    readLine = readLine.trim();
+                }
+                try {
+                    bufferedReader.close();
+                    return readLine;
+                } catch (IOException e2) {
+                    e2.printStackTrace();
+                    return readLine;
+                }
+            } catch (Exception e3) {
+                e = e3;
+                r2 = null;
+                bufferedReader3 = bufferedReader;
+                h("MultiProcess", e);
+                if (bufferedReader3 != null) {
+                    try {
+                        bufferedReader3.close();
+                    } catch (IOException e4) {
+                        e4.printStackTrace();
+                    }
+                }
+                bufferedReader2 = r2;
+                return bufferedReader2;
+            } catch (Throwable th2) {
+                th = th2;
+                bufferedReader2 = bufferedReader;
+                if (bufferedReader2 != 0) {
+                    try {
+                        bufferedReader2.close();
+                    } catch (IOException e5) {
+                        e5.printStackTrace();
+                    }
+                }
+                throw th;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 }

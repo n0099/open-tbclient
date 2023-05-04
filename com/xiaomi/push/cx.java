@@ -2,7 +2,7 @@ package com.xiaomi.push;
 
 import android.content.Context;
 import java.util.List;
-/* loaded from: classes8.dex */
+/* loaded from: classes9.dex */
 public abstract class cx {
     public int a;
 

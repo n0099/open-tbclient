@@ -1,86 +1,142 @@
 package com.baidu.tieba;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.runtime.service.ServiceManager;
+import com.baidu.tieba.yl6;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collection;
-import java.util.Set;
-import kotlin.jvm.functions.Function1;
-import kotlin.jvm.internal.DefaultConstructorMarker;
-import kotlin.jvm.internal.Intrinsics;
-import kotlin.text.StringsKt__StringsKt;
 /* loaded from: classes6.dex */
-public final class wl6 extends cm6<String> {
+public class wl6 {
     public static /* synthetic */ Interceptable $ic;
+    public static yl6 a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final Function1<Long, Boolean> e;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public wl6(Function1<? super Long, Boolean> selfPredicate) {
-        super(2048, false, 2, null);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948274472, "Lcom/baidu/tieba/wl6;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948274472, "Lcom/baidu/tieba/wl6;");
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static class a implements yl6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        @Override // com.baidu.tieba.yl6
+        public <T extends xl6> void b(@Nullable T t) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, t) == null) {
+            }
+        }
+
+        @Override // com.baidu.tieba.yl6
+        public void unregister(@NonNull Object obj) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.yl6
+        public <T extends xl6> void a(@NonNull Object obj, @NonNull zl6<T> zl6Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, obj, zl6Var) == null) {
+                throw new IllegalStateException("Unable to find eventbus service!");
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public static final class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final yl6.a a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-313992470, "Lcom/baidu/tieba/wl6$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-313992470, "Lcom/baidu/tieba/wl6$b;");
+                    return;
+                }
+            }
+            a = (yl6.a) ServiceManager.getService(yl6.a.a);
+        }
+    }
+
+    public wl6() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {selfPredicate};
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                Object[] objArr2 = newInitContext.callArgs;
-                super(((Integer) objArr2[0]).intValue(), ((Boolean) objArr2[1]).booleanValue(), ((Integer) objArr2[2]).intValue(), (DefaultConstructorMarker) objArr2[3]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
-        Intrinsics.checkNotNullParameter(selfPredicate, "selfPredicate");
-        this.e = selfPredicate;
     }
 
-    @Override // com.baidu.tieba.cm6, com.baidu.tieba.xl6
-    public boolean b(gl6 item, jn6 timer, al6 config) {
-        InterceptResult invokeLLL;
-        boolean z;
+    public static void a(@NonNull BdUniqueId bdUniqueId) {
+        yl6.a aVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, item, timer, config)) == null) {
-            Intrinsics.checkNotNullParameter(item, "item");
-            Intrinsics.checkNotNullParameter(timer, "timer");
-            Intrinsics.checkNotNullParameter(config, "config");
-            hl6 e = item.e();
-            if (!this.e.invoke(e.p()).booleanValue()) {
-                Set<String> d = d();
-                if (!(d instanceof Collection) || !d.isEmpty()) {
-                    for (String str : d) {
-                        if (StringsKt__StringsKt.contains$default((CharSequence) e.c(), (CharSequence) str, false, 2, (Object) null)) {
-                            z = true;
-                            break;
-                        }
+        if ((interceptable == null || interceptable.invokeL(65538, null, bdUniqueId) == null) && (aVar = b.a) != null) {
+            aVar.a(bdUniqueId);
+        }
+    }
+
+    public static yl6 b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                synchronized (wl6.class) {
+                    if (a == null) {
+                        a = (yl6) ServiceManager.getService(yl6.a);
+                    }
+                    if (a == null) {
+                        a = new a();
                     }
                 }
-                z = false;
-                if (z) {
-                    return true;
-                }
             }
-            return false;
+            return a;
         }
-        return invokeLLL.booleanValue;
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.cm6
-    /* renamed from: e */
-    public String c(hl6 data) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, data)) == null) {
-            Intrinsics.checkNotNullParameter(data, "data");
-            return data.c();
-        }
-        return (String) invokeL.objValue;
+        return (yl6) invokeV.objValue;
     }
 }

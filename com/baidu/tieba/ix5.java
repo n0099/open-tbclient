@@ -1,75 +1,78 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.TimerTask;
 /* loaded from: classes5.dex */
-public class ix5 {
+public final class ix5 extends TimerTask {
     public static /* synthetic */ Interceptable $ic;
-    public static final ix5 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public SparseArray<hx5> a;
+    public int a;
+    public int b;
+    public int c;
+    public final WheelView d;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947868899, "Lcom/baidu/tieba/ix5;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947868899, "Lcom/baidu/tieba/ix5;");
-                return;
-            }
-        }
-        b = new ix5();
-    }
-
-    public ix5() {
+    public ix5(WheelView wheelView, int i) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wheelView, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new SparseArray<>();
+        this.d = wheelView;
+        this.c = i;
+        this.a = Integer.MAX_VALUE;
+        this.b = 0;
     }
 
-    public static ix5 b() {
-        InterceptResult invokeV;
+    @Override // java.util.TimerTask, java.lang.Runnable
+    public final void run() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return b;
-        }
-        return (ix5) invokeV.objValue;
-    }
-
-    public hx5 a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
-            return this.a.get(i);
-        }
-        return (hx5) invokeI.objValue;
-    }
-
-    public void c(int i, hx5 hx5Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, hx5Var) == null) {
-            this.a.put(i, hx5Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            if (this.a == Integer.MAX_VALUE) {
+                this.a = this.c;
+            }
+            int i = this.a;
+            int i2 = (int) (i * 0.1f);
+            this.b = i2;
+            if (i2 == 0) {
+                if (i < 0) {
+                    this.b = -1;
+                } else {
+                    this.b = 1;
+                }
+            }
+            if (Math.abs(this.a) <= 1) {
+                this.d.b();
+                this.d.getHandler().sendEmptyMessage(3000);
+                return;
+            }
+            WheelView wheelView = this.d;
+            wheelView.setTotalScrollY(wheelView.getTotalScrollY() + this.b);
+            if (!this.d.i()) {
+                float itemHeight = this.d.getItemHeight();
+                float itemsCount = ((this.d.getItemsCount() - 1) - this.d.getInitPosition()) * itemHeight;
+                if (this.d.getTotalScrollY() <= (-this.d.getInitPosition()) * itemHeight || this.d.getTotalScrollY() >= itemsCount) {
+                    WheelView wheelView2 = this.d;
+                    wheelView2.setTotalScrollY(wheelView2.getTotalScrollY() - this.b);
+                    this.d.b();
+                    this.d.getHandler().sendEmptyMessage(3000);
+                    return;
+                }
+            }
+            this.d.getHandler().sendEmptyMessage(1000);
+            this.a -= this.b;
         }
     }
 }

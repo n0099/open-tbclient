@@ -4,29 +4,22 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.content.pm.PackageInfo;
-import android.content.pm.PackageManager;
-import android.content.pm.Signature;
-import android.text.TextUtils;
+import android.os.IBinder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sso.r.a;
+import com.baidu.sso.q.c;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
 /* loaded from: classes6.dex */
 public class tn1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public com.baidu.sso.r.a a;
-    public Context b;
-    public String c;
-    public String d;
-    public qn1 e;
-    public ServiceConnection f;
+    public Context a;
+    public com.baidu.sso.q.c b;
+    public ServiceConnection c;
+    public sn1 d;
 
     public tn1(Context context) {
         Interceptable interceptable = $ic;
@@ -44,79 +37,78 @@ public class tn1 {
             }
         }
         this.a = null;
-        this.c = null;
-        this.d = null;
-        this.f = new vn1(this);
-        this.b = context;
+        this.a = context;
+    }
+
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            try {
+                if (this.b != null) {
+                    return ((c.a.C0177a) this.b).a();
+                }
+                return null;
+            } catch (Throwable unused) {
+                return null;
+            }
+        }
+        return (String) invokeV.objValue;
     }
 
     public void b() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            Intent intent = new Intent();
-            intent.setComponent(new ComponentName("com.heytap.openid", "com.heytap.openid.IdentifyService"));
-            intent.setAction("action.com.heytap.openid.OPEN_ID_SERVICE");
-            this.b.bindService(intent, this.f, 1);
+            this.c = new a(this);
+            Intent intent = new Intent("com.uodis.opendevice.OPENIDS_SERVICE");
+            intent.setPackage("com.huawei.hwid");
+            this.a.bindService(intent, this.c, 1);
         }
     }
 
-    /* JADX WARN: Removed duplicated region for block: B:25:0x0055 A[Catch: NoSuchAlgorithmException -> 0x006f, all -> 0x007e, LOOP:0: B:24:0x0053->B:25:0x0055, LOOP_END, TryCatch #1 {NoSuchAlgorithmException -> 0x006f, blocks: (B:23:0x0045, B:25:0x0055, B:26:0x006b), top: B:45:0x0045 }] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public String a(String str) {
-        InterceptResult invokeL;
-        String str2;
-        Signature[] signatureArr;
-        PackageInfo packageInfo;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, str)) == null) {
-            if (this.a != null) {
-                String str3 = null;
-                try {
-                    if (TextUtils.isEmpty(this.c)) {
-                        this.c = this.b.getPackageName();
-                    }
-                    if (TextUtils.isEmpty(this.d)) {
-                        try {
-                            packageInfo = this.b.getPackageManager().getPackageInfo(this.c, 64);
-                        } catch (PackageManager.NameNotFoundException unused) {
-                        }
-                        if (packageInfo != null) {
-                            signatureArr = packageInfo.signatures;
-                            if (signatureArr != null && signatureArr.length > 0) {
-                                try {
-                                    byte[] digest = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
-                                    StringBuilder sb = new StringBuilder();
-                                    for (byte b : digest) {
-                                        sb.append(Integer.toHexString((b & 255) | 256).substring(1, 3));
-                                    }
-                                    str3 = sb.toString();
-                                } catch (NoSuchAlgorithmException unused2) {
-                                }
-                            }
-                            this.d = str3;
-                        }
-                        signatureArr = null;
-                        if (signatureArr != null) {
-                            byte[] digest2 = MessageDigest.getInstance("SHA1").digest(signatureArr[0].toByteArray());
-                            StringBuilder sb2 = new StringBuilder();
-                            while (r3 < r4) {
-                            }
-                            str3 = sb2.toString();
-                        }
-                        this.d = str3;
-                    }
-                    str2 = ((a.AbstractBinderC0178a.C0179a) this.a).a(this.c, this.d, str);
-                } catch (Throwable unused3) {
-                    str2 = str3;
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    return str2;
+    /* loaded from: classes6.dex */
+    public class a implements ServiceConnection {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ tn1 a;
+
+        public a(tn1 tn1Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tn1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
                 }
             }
-            return "";
+            this.a = tn1Var;
         }
-        return (String) invokeL.objValue;
+
+        @Override // android.content.ServiceConnection
+        public synchronized void onServiceConnected(ComponentName componentName, IBinder iBinder) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, componentName, iBinder) == null) {
+                synchronized (this) {
+                    this.a.b = c.a.a(iBinder);
+                    sn1 sn1Var = this.a.d;
+                }
+            }
+        }
+
+        @Override // android.content.ServiceConnection
+        public void onServiceDisconnected(ComponentName componentName) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, componentName) == null) {
+                tn1 tn1Var = this.a;
+                tn1Var.b = null;
+                sn1 sn1Var = tn1Var.d;
+            }
+        }
     }
 }

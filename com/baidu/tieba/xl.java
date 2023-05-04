@@ -3,6 +3,7 @@ package com.baidu.tieba;
 import com.baidu.adp.base.BdBaseApplication;
 import com.baidu.adp.lib.asyncTask.BdAsyncTask;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.adp.log.DefaultLog;
 import com.baidu.searchbox.pms.bean.PackageInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -46,8 +47,14 @@ public class xl extends BdAsyncTask<List<PackageInfo>, Integer, Boolean> {
                         if (packageInfo != null && !StringUtils.isNull(packageInfo.name)) {
                             BdBaseApplication.getInst().getResHashMap().remove(packageInfo.name);
                             File file = new File(am.b(packageInfo.name));
-                            if (file.exists() && !file.delete()) {
-                                z = false;
+                            if (file.exists()) {
+                                dj8 defaultLog = DefaultLog.getInstance();
+                                defaultLog.c("PMS delete File", "待删除文件:" + file);
+                                if (!file.delete()) {
+                                    z = false;
+                                }
+                                dj8 defaultLog2 = DefaultLog.getInstance();
+                                defaultLog2.c("PMS delete File", "文件删除状态:" + z);
                             }
                         }
                     }

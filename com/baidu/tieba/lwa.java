@@ -1,5 +1,4 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface lwa<TResult> {
-    void onSuccess(TResult tresult);
+public interface lwa {
 }

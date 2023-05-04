@@ -1,21 +1,9 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
-import com.baidu.pyramid.runtime.multiprocess.IPCServiceManager;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class hj1 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface hj1<T> {
+    void a(dj1<List<T>> dj1Var);
 
-    public static Bundle a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return IPCServiceManager.d();
-        }
-        return (Bundle) invokeV.objValue;
-    }
+    List<T> getList();
 }

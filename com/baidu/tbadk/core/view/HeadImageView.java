@@ -23,13 +23,13 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class HeadImageView extends TbClipImageView {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public String A0;
+    public boolean A0;
     public String B0;
     public String C0;
     public String D0;
     public String E0;
     public String F0;
-    public int G0;
+    public String G0;
     public int H0;
     public int I0;
     public int J0;
@@ -38,13 +38,13 @@ public class HeadImageView extends TbClipImageView {
     public int M0;
     public int N0;
     public int O0;
-    public AlaInfoData P0;
-    public int Q0;
-    public Paint R0;
-    public boolean S0;
-    public int x0;
+    public int P0;
+    public AlaInfoData Q0;
+    public int R0;
+    public Paint S0;
+    public boolean T0;
     public int y0;
-    public boolean z0;
+    public int z0;
 
     public void setBjhAuthIconRes(int i) {
         Interceptable interceptable = $ic;
@@ -77,15 +77,15 @@ public class HeadImageView extends TbClipImageView {
         int i;
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && this.S0 && (i = this.N0) == (i2 = this.O0)) {
+        if ((interceptable == null || interceptable.invokeL(1048576, this, canvas) == null) && this.T0 && (i = this.O0) == (i2 = this.P0)) {
             float f = i * 0.77f;
             float f2 = (i - f) / 2.0f;
             float f3 = f + f2;
             float f4 = (i2 * 0.77f) + f2;
-            this.R0.setColor(SkinManager.getColor(R.color.CAM_X0201));
-            canvas.drawCircle(f3, f4, f2, this.R0);
-            this.R0.setColor(SkinManager.getColor(R.color.CAM_X0309));
-            canvas.drawCircle(f3, f4, f2 - 4.0f, this.R0);
+            this.S0.setColor(SkinManager.getColor(R.color.CAM_X0201));
+            canvas.drawCircle(f3, f4, f2, this.S0);
+            this.S0.setColor(SkinManager.getColor(R.color.CAM_X0309));
+            canvas.drawCircle(f3, f4, f2 - 4.0f, this.S0);
         }
     }
 
@@ -129,32 +129,32 @@ public class HeadImageView extends TbClipImageView {
                 return;
             }
         }
-        this.x0 = 0;
         this.y0 = 0;
-        this.z0 = false;
-        this.A0 = null;
+        this.z0 = 0;
+        this.A0 = false;
         this.B0 = null;
         this.C0 = null;
         this.D0 = null;
         this.E0 = null;
         this.F0 = null;
-        this.H0 = R.drawable.transparent_bg;
-        this.I0 = R.color.CAM_X0209;
-        this.J0 = R.drawable.ic_icon_mask_shen20_n;
-        this.K0 = 0;
-        this.Q0 = -1;
+        this.G0 = null;
+        this.I0 = R.drawable.transparent_bg;
+        this.J0 = R.color.CAM_X0209;
+        this.K0 = R.drawable.ic_icon_mask_shen20_n;
+        this.L0 = 0;
+        this.R0 = -1;
         x();
     }
 
     private void x() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(65539, this) == null) {
-            this.y0 = ii.g(getContext(), R.dimen.tbds36);
+            this.z0 = ii.g(getContext(), R.dimen.tbds36);
             setDrawerType(1);
             setGifIconSupport(false);
             setDrawBorder(true);
-            setDefaultBgResource(this.I0);
-            setDefaultResource(this.H0);
+            setDefaultBgResource(this.J0);
+            setDefaultResource(this.I0);
             setBorderWidth(TbadkCoreApplication.getInst().getResources().getDimensionPixelSize(R.dimen.tbds1));
             setBorderColor(SkinManager.getColor(R.color.black_alpha8));
             setBorderSurroundContent(true);
@@ -165,53 +165,53 @@ public class HeadImageView extends TbClipImageView {
     public void V(Canvas canvas) {
         Drawable drawable;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.z0 && this.y0 > 0) {
-            int i = this.L0;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, canvas) == null) && this.A0 && this.z0 > 0) {
+            int i = this.M0;
             if (i != 0) {
                 Drawable drawable2 = SkinManager.getDrawable(i);
                 if (drawable2 == null) {
                     return;
                 }
-                int i2 = this.N0;
-                int i3 = this.y0;
-                int i4 = this.x0;
-                int i5 = this.O0;
+                int i2 = this.O0;
+                int i3 = this.z0;
+                int i4 = this.y0;
+                int i5 = this.P0;
                 drawable2.setBounds((i2 - i3) - i4, (i5 - i3) - i4, i2 - i4, i5 - i4);
                 drawable2.draw(canvas);
                 return;
             }
-            int i6 = this.M0;
+            int i6 = this.N0;
             if (i6 != 0) {
                 Drawable drawable3 = SkinManager.getDrawable(i6);
                 if (drawable3 == null) {
                     return;
                 }
-                int i7 = this.N0;
-                int i8 = this.y0;
-                int i9 = this.x0;
-                int i10 = this.O0;
+                int i7 = this.O0;
+                int i8 = this.z0;
+                int i9 = this.y0;
+                int i10 = this.P0;
                 drawable3.setBounds((i7 - i8) - i9, (i10 - i8) - i9, i7 - i9, i10 - i9);
                 drawable3.draw(canvas);
                 return;
             }
-            Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.J0);
+            Drawable bjhBigVIconDrawable = UtilHelper.getBjhBigVIconDrawable(this.K0);
             if (bjhBigVIconDrawable != null) {
-                int i11 = this.N0;
-                int i12 = this.y0;
-                int i13 = this.x0;
-                int i14 = this.O0;
+                int i11 = this.O0;
+                int i12 = this.z0;
+                int i13 = this.y0;
+                int i14 = this.P0;
                 bjhBigVIconDrawable.setBounds((i11 - i12) - i13, (i14 - i12) - i13, i11 - i13, i14 - i13);
                 bjhBigVIconDrawable.draw(canvas);
                 return;
             }
-            int i15 = this.K0;
+            int i15 = this.L0;
             if (i15 == 0 || (drawable = SkinManager.getDrawable(i15)) == null) {
                 return;
             }
-            int i16 = this.N0;
-            int i17 = this.y0;
-            int i18 = this.x0;
-            int i19 = this.O0;
+            int i16 = this.O0;
+            int i17 = this.z0;
+            int i18 = this.y0;
+            int i19 = this.P0;
             drawable.setBounds((i16 - i17) - i18, (i19 - i17) - i18, i16 - i18, i19 - i18);
             drawable.draw(canvas);
         }
@@ -233,35 +233,35 @@ public class HeadImageView extends TbClipImageView {
     public void setAlaInfo(AlaInfoData alaInfoData) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048589, this, alaInfoData) == null) {
-            this.P0 = alaInfoData;
+            this.Q0 = alaInfoData;
         }
     }
 
     public void setBazhuIconRes(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i) == null) {
-            this.K0 = i;
+            this.L0 = i;
         }
     }
 
     public void setFName(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048592, this, str) == null) {
-            this.F0 = str;
+            this.G0 = str;
         }
     }
 
     public void setFid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048593, this, str) == null) {
-            this.C0 = str;
+            this.D0 = str;
         }
     }
 
     public void setFloor(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048594, this, i) == null) {
-            this.G0 = i;
+            this.H0 = i;
         }
     }
 
@@ -270,7 +270,7 @@ public class HeadImageView extends TbClipImageView {
         if (interceptable == null || interceptable.invokeI(1048595, this, i) == null) {
             setIsRound(true);
             if (i > 0) {
-                this.x0 = ii.g(getContext(), i);
+                this.y0 = ii.g(getContext(), i);
             }
             invalidate();
         }
@@ -279,7 +279,7 @@ public class HeadImageView extends TbClipImageView {
     public void setGodIconResId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048596, this, i) == null) {
-            this.J0 = i;
+            this.K0 = i;
         }
     }
 
@@ -287,7 +287,7 @@ public class HeadImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048597, this, i) == null) {
             if (i > 0) {
-                this.y0 = ii.g(getContext(), i);
+                this.z0 = ii.g(getContext(), i);
             }
             invalidate();
         }
@@ -296,20 +296,20 @@ public class HeadImageView extends TbClipImageView {
     public void setIsBigV(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048598, this, z) == null) {
-            this.z0 = z;
+            this.A0 = z;
         }
     }
 
     public void setIsGod(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048599, this, z) == null) {
-            this.z0 = z;
+            this.A0 = z;
             if (z) {
                 setGodIconMargin(0);
                 return;
             }
             setIsRound(true);
-            this.x0 = 0;
+            this.y0 = 0;
             invalidate();
         }
     }
@@ -317,31 +317,31 @@ public class HeadImageView extends TbClipImageView {
     public void setLiveStatus(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048600, this, i) == null) {
-            this.Q0 = i;
+            this.R0 = i;
         }
     }
 
     public void setOfficialIconResId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048601, this, i) == null) {
-            this.L0 = i;
+            this.M0 = i;
         }
     }
 
     public void setOriginatorResId(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048602, this, i) == null) {
-            this.M0 = i;
+            this.N0 = i;
         }
     }
 
     public void setShowActiveStatus(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048603, this, z) == null) {
-            this.S0 = z;
+            this.T0 = z;
             if (z) {
                 Paint paint = new Paint(1);
-                this.R0 = paint;
+                this.S0 = paint;
                 paint.setStyle(Paint.Style.FILL);
                 invalidate();
             }
@@ -351,28 +351,28 @@ public class HeadImageView extends TbClipImageView {
     public void setShowV(boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeZ(1048604, this, z) == null) {
-            this.z0 = z;
+            this.A0 = z;
         }
     }
 
     public void setTid(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048605, this, str) == null) {
-            this.D0 = str;
+            this.E0 = str;
         }
     }
 
     public void setUrl(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048606, this, str) == null) {
-            this.E0 = str;
+            this.F0 = str;
         }
     }
 
     public void setUserId(String str) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048607, this, str) == null) {
-            this.A0 = str;
+            this.B0 = str;
         }
     }
 
@@ -387,7 +387,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.P0;
+            return this.Q0;
         }
         return (AlaInfoData) invokeV.objValue;
     }
@@ -396,7 +396,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.F0;
+            return this.G0;
         }
         return (String) invokeV.objValue;
     }
@@ -405,7 +405,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.C0;
+            return this.D0;
         }
         return (String) invokeV.objValue;
     }
@@ -414,7 +414,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.G0;
+            return this.H0;
         }
         return invokeV.intValue;
     }
@@ -423,7 +423,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.Q0;
+            return this.R0;
         }
         return invokeV.intValue;
     }
@@ -432,7 +432,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            return this.D0;
+            return this.E0;
         }
         return (String) invokeV.objValue;
     }
@@ -442,7 +442,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return this.E0;
+            return this.F0;
         }
         return (String) invokeV.objValue;
     }
@@ -451,7 +451,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.A0;
+            return this.B0;
         }
         return (String) invokeV.objValue;
     }
@@ -460,7 +460,7 @@ public class HeadImageView extends TbClipImageView {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.B0;
+            return this.C0;
         }
         return (String) invokeV.objValue;
     }
@@ -470,15 +470,15 @@ public class HeadImageView extends TbClipImageView {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeIIII(1048588, this, i, i2, i3, i4) == null) {
             super.onSizeChanged(i, i2, i3, i4);
-            this.N0 = getWidth();
-            this.O0 = getHeight();
+            this.O0 = getWidth();
+            this.P0 = getHeight();
         }
     }
 
     public void setUserName(String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLL(1048609, this, str, str2) == null) {
-            this.B0 = str;
+            this.C0 = str;
             setContentDescription(str2);
         }
     }

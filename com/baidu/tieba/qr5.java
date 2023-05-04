@@ -1,55 +1,67 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.coreExtra.data.NewGodData;
+import android.os.SystemClock;
+import androidx.annotation.NonNull;
+import androidx.collection.ArrayMap;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import tbclient.NewGodInfo;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public class qr5 {
+public class qr5<KEY> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final ArrayMap<KEY, Long> a;
+    public final long b;
 
-    public static String a(NewGodData newGodData) {
-        InterceptResult invokeL;
-        boolean z;
+    public qr5(int i, @NonNull TimeUnit timeUnit) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, newGodData)) == null) {
-            if (newGodData != null && newGodData.getType() == 2) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i), timeUnit};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return c(z);
         }
-        return (String) invokeL.objValue;
+        this.a = new ArrayMap<>();
+        this.b = timeUnit.toMillis(i);
     }
 
-    public static String b(NewGodInfo newGodInfo) {
-        InterceptResult invokeL;
-        boolean z;
+    public static <T> qr5<T> b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, newGodInfo)) == null) {
-            if (newGodInfo != null && newGodInfo.type.intValue() == 2) {
-                z = true;
-            } else {
-                z = false;
-            }
-            return c(z);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return new qr5<>(1000, TimeUnit.MILLISECONDS);
         }
-        return (String) invokeL.objValue;
+        return (qr5) invokeV.objValue;
     }
 
-    public static String c(boolean z) {
-        InterceptResult invokeZ;
+    public synchronized boolean a(@NonNull KEY key) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65538, null, z)) == null) {
-            if (z) {
-                return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_video_god);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, key)) == null) {
+            synchronized (this) {
+                Long l = this.a.get(key);
+                long uptimeMillis = SystemClock.uptimeMillis();
+                if (l == null) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else if (uptimeMillis - l.longValue() > this.b) {
+                    this.a.put(key, Long.valueOf(uptimeMillis));
+                    return true;
+                } else {
+                    return false;
+                }
             }
-            return TbadkCoreApplication.getInst().getApp().getString(R.string.field_new_god);
         }
-        return (String) invokeZ.objValue;
+        return invokeL.booleanValue;
     }
 }

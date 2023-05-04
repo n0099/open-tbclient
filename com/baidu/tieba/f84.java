@@ -1,68 +1,48 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import androidx.annotation.NonNull;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class f84 {
+public class f84 extends e84 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ce4 a;
-    public boolean b;
 
-    public f84() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public f84(u83 u83Var) {
+        super(u83Var, "/swanAPI/hideShareMenu", "hideShareMenu");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {u83Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((u83) objArr2[0], (String) objArr2[1], (String) objArr2[2]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.b = true;
     }
 
-    public void a() {
+    @Override // com.baidu.tieba.e84
+    public boolean k(@NonNull h84 h84Var, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler) {
+        InterceptResult invokeLLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            c(false);
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(1048576, this, h84Var, unitedSchemeEntity, callbackHandler)) == null) {
+            h84Var.a();
+            j(unitedSchemeEntity, callbackHandler);
+            return true;
         }
-    }
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            c(true);
-        }
-    }
-
-    public void b(ce4 ce4Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, ce4Var) == null) {
-            this.a = ce4Var;
-            c(this.b);
-        }
-    }
-
-    public final void c(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            this.b = z;
-            ce4 ce4Var = this.a;
-            if (ce4Var == null) {
-                return;
-            }
-            if (z) {
-                ce4Var.d(4, 1);
-            } else {
-                ce4Var.l(4);
-            }
-        }
+        return invokeLLL.booleanValue;
     }
 }

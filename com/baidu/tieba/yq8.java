@@ -1,71 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.newinterest.fragment.BaseInterestSelectionFragment;
-import com.baidu.tieba.newinterest.model.InterestSelectionStyleAModel;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.List;
 /* loaded from: classes7.dex */
-public class yq8<V> implements ir8<V> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public InterestSelectionStyleAModel a;
-    public rq8 b;
-    public BaseInterestSelectionFragment c;
+public interface yq8 {
+    void a();
 
-    public yq8(BaseInterestSelectionFragment baseInterestSelectionFragment, rq8 rq8Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {baseInterestSelectionFragment, rq8Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.c = baseInterestSelectionFragment;
-        this.b = rq8Var;
-        this.a = new InterestSelectionStyleAModel(rq8Var, this);
-    }
+    void c();
 
-    @Override // com.baidu.tieba.ir8
-    public void a(V v) {
-        BaseInterestSelectionFragment baseInterestSelectionFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048576, this, v) == null) && (baseInterestSelectionFragment = this.c) != null) {
-            baseInterestSelectionFragment.F1();
-        }
-    }
+    void d(boolean z);
 
-    public void b() {
-        InterestSelectionStyleAModel interestSelectionStyleAModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
-            interestSelectionStyleAModel.onDestroy();
-        }
-    }
+    void e();
 
-    public void c() {
-        InterestSelectionStyleAModel interestSelectionStyleAModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (interestSelectionStyleAModel = this.a) != null) {
-            interestSelectionStyleAModel.V();
-        }
-    }
+    void h(boolean z, List<in> list);
 
-    @Override // com.baidu.tieba.ir8
-    public void onError(int i, String str) {
-        BaseInterestSelectionFragment baseInterestSelectionFragment;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeIL(1048579, this, i, str) == null) && (baseInterestSelectionFragment = this.c) != null) {
-            baseInterestSelectionFragment.G1(str);
-        }
-    }
+    void i(String str);
+
+    void k(int i);
+
+    void l();
+
+    void m(int i);
+
+    void n(boolean z);
+
+    void o(xq8 xq8Var);
+
+    void onCreate();
+
+    void onDestroy();
+
+    void p();
+
+    void q(String str);
 }

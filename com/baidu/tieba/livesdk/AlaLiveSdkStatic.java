@@ -40,32 +40,32 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.coreExtra.message.UpdateAttentionMessage;
 import com.baidu.tbadk.mutiprocess.share.ShareEvent;
 import com.baidu.tbadk.switchs.AsyncGetClipboardSwitch;
-import com.baidu.tieba.bg8;
-import com.baidu.tieba.ci6;
-import com.baidu.tieba.ci8;
-import com.baidu.tieba.dr5;
-import com.baidu.tieba.fx7;
+import com.baidu.tieba.az7;
 import com.baidu.tieba.g9;
 import com.baidu.tieba.gg;
-import com.baidu.tieba.gg8;
-import com.baidu.tieba.gq5;
-import com.baidu.tieba.hg8;
-import com.baidu.tieba.hr5;
-import com.baidu.tieba.i95;
 import com.baidu.tieba.jg;
+import com.baidu.tieba.ji8;
+import com.baidu.tieba.kj6;
+import com.baidu.tieba.kk8;
 import com.baidu.tieba.livesdk.dispatcher.YYCustomerServiceDispatcher;
 import com.baidu.tieba.livesdk.dispatcher.YYFeedbackDispatcher;
 import com.baidu.tieba.livesdk.dispatcher.YYLiveRoomDispatcher;
 import com.baidu.tieba.livesdk.dispatcher.YYRouterDispatcher;
 import com.baidu.tieba.livesdk.share.AlaSDKShareEmptyActivity;
 import com.baidu.tieba.livesdk.share.AlaShareInBarEmptyActivity;
-import com.baidu.tieba.mg8;
-import com.baidu.tieba.os4;
+import com.baidu.tieba.oi8;
+import com.baidu.tieba.oj6;
 import com.baidu.tieba.pa;
+import com.baidu.tieba.pi8;
 import com.baidu.tieba.play.cyberPlayer.CyberRemotePlayerService;
+import com.baidu.tieba.ps5;
+import com.baidu.tieba.qs4;
+import com.baidu.tieba.ui8;
 import com.baidu.tieba.vr5;
 import com.baidu.tieba.yk;
-import com.baidu.tieba.zh6;
+import com.baidu.tieba.z95;
+import com.baidu.tieba.zq5;
+import com.baidu.tieba.zr5;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -102,23 +102,23 @@ public class AlaLiveSdkStatic {
 
             /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$b$a$b  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0330b implements gq5<String> {
+            public class C0348b implements zq5<String> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
                 /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$b$a$b$a  reason: collision with other inner class name */
                 /* loaded from: classes5.dex */
-                public class RunnableC0331a implements Runnable {
+                public class RunnableC0349a implements Runnable {
                     public static /* synthetic */ Interceptable $ic;
                     public transient /* synthetic */ FieldHolder $fh;
                     public final /* synthetic */ String a;
 
-                    public RunnableC0331a(C0330b c0330b, String str) {
+                    public RunnableC0349a(C0348b c0348b, String str) {
                         Interceptable interceptable = $ic;
                         if (interceptable != null) {
                             InitContext newInitContext = TitanRuntime.newInitContext();
                             newInitContext.initArgs = r2;
-                            Object[] objArr = {c0330b, str};
+                            Object[] objArr = {c0348b, str};
                             interceptable.invokeUnInit(65536, newInitContext);
                             int i = newInitContext.flag;
                             if ((i & 1) != 0) {
@@ -141,7 +141,7 @@ public class AlaLiveSdkStatic {
                     }
                 }
 
-                public C0330b(a aVar) {
+                public C0348b(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -158,24 +158,24 @@ public class AlaLiveSdkStatic {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.gq5
+                @Override // com.baidu.tieba.zq5
                 /* renamed from: a */
                 public void onReturnDataInUI(String str) {
                     Interceptable interceptable = $ic;
                     if ((interceptable == null || interceptable.invokeL(1048576, this, str) == null) && !StringUtils.isNull(str) && str.startsWith("#bdtiebalive://") && str.endsWith("#")) {
                         AlaLiveSdkStatic.k();
-                        jg.a().postDelayed(new RunnableC0331a(this, str), 1000L);
+                        jg.a().postDelayed(new RunnableC0349a(this, str), 1000L);
                     }
                 }
             }
 
             /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$b$a$a  reason: collision with other inner class name */
             /* loaded from: classes5.dex */
-            public class C0329a extends dr5<String> {
+            public class C0347a extends vr5<String> {
                 public static /* synthetic */ Interceptable $ic;
                 public transient /* synthetic */ FieldHolder $fh;
 
-                public C0329a(a aVar) {
+                public C0347a(a aVar) {
                     Interceptable interceptable = $ic;
                     if (interceptable != null) {
                         InitContext newInitContext = TitanRuntime.newInitContext();
@@ -192,7 +192,7 @@ public class AlaLiveSdkStatic {
                 }
 
                 /* JADX DEBUG: Method merged with bridge method */
-                @Override // com.baidu.tieba.dr5
+                @Override // com.baidu.tieba.vr5
                 public String doInBackground() {
                     InterceptResult invokeV;
                     Interceptable interceptable = $ic;
@@ -258,7 +258,7 @@ public class AlaLiveSdkStatic {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
                     if (AsyncGetClipboardSwitch.isOn() && TbadkCoreApplication.getInst().isMIUIRom()) {
-                        hr5.b(new C0329a(this), new C0330b(this));
+                        zr5.b(new C0347a(this), new C0348b(this));
                         return;
                     }
                     String clipBoardContent = UtilHelper.getClipBoardContent();
@@ -307,12 +307,12 @@ public class AlaLiveSdkStatic {
 
         /* renamed from: com.baidu.tieba.livesdk.AlaLiveSdkStatic$a$a  reason: collision with other inner class name */
         /* loaded from: classes5.dex */
-        public class C0328a extends CustomMessageListener {
+        public class C0346a extends CustomMessageListener {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
 
             /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-            public C0328a(a aVar, int i) {
+            public C0346a(a aVar, int i) {
                 super(i);
                 Interceptable interceptable = $ic;
                 if (interceptable != null) {
@@ -359,7 +359,7 @@ public class AlaLiveSdkStatic {
         public void run() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                MessageManager.getInstance().registerListener(new C0328a(this, 2921569));
+                MessageManager.getInstance().registerListener(new C0346a(this, 2921569));
             }
         }
     }
@@ -429,7 +429,7 @@ public class AlaLiveSdkStatic {
         }
 
         /* loaded from: classes5.dex */
-        public class b implements hg8 {
+        public class b implements pi8 {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ TbPageContext a;
@@ -454,7 +454,7 @@ public class AlaLiveSdkStatic {
                 this.b = str;
             }
 
-            @Override // com.baidu.tieba.hg8
+            @Override // com.baidu.tieba.pi8
             public void onCallback(JSONObject jSONObject) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) {
@@ -516,14 +516,14 @@ public class AlaLiveSdkStatic {
                     }
                     AlaLiveSdkStatic.k();
                     if (strArr[0].contains(UrlSchemaHelper.GO_TO_MIX_LIVE)) {
-                        String d = vr5.d(strArr[0], "url");
+                        String d = ps5.d(strArr[0], "url");
                         if ("video/mixlive".equals(AlaLiveSdkStatic.n(d))) {
                             Uri parse = Uri.parse(d);
                             HashMap hashMap = new HashMap();
                             for (String str : parse.getQueryParameterNames()) {
                                 hashMap.put(str, parse.getQueryParameter(str));
                             }
-                            ci8.j().w(tbPageContext.getPageActivity(), (String) hashMap.get("room_id"), (String) hashMap.get("source"), AlaLiveSdkStatic.j(hashMap), parse);
+                            kk8.j().w(tbPageContext.getPageActivity(), (String) hashMap.get("room_id"), (String) hashMap.get("source"), AlaLiveSdkStatic.j(hashMap), parse);
                             return 0;
                         }
                     }
@@ -533,7 +533,7 @@ public class AlaLiveSdkStatic {
                         for (String str2 : parse2.getQueryParameterNames()) {
                             hashMap2.put(str2, parse2.getQueryParameter(str2));
                         }
-                        ci8.j().w(tbPageContext.getPageActivity(), (String) hashMap2.get("room_id"), (String) hashMap2.get("source"), AlaLiveSdkStatic.j(hashMap2), parse2);
+                        kk8.j().w(tbPageContext.getPageActivity(), (String) hashMap2.get("room_id"), (String) hashMap2.get("source"), AlaLiveSdkStatic.j(hashMap2), parse2);
                         return 0;
                     } else if (strArr[0].startsWith("bdtiebalive://video/createRoom") && "video/createRoom".equals(AlaLiveSdkStatic.n(strArr[0]))) {
                         Uri parse3 = Uri.parse(strArr[0]);
@@ -542,17 +542,17 @@ public class AlaLiveSdkStatic {
                             hashMap3.put(str3, String.valueOf(parse3.getQueryParameter(str3)));
                         }
                         BjhMasterActivityConfig bjhMasterActivityConfig = new BjhMasterActivityConfig(tbPageContext.getPageActivity().getApplication(), (String) hashMap3.get("fid"), (String) hashMap3.get("forumName"));
-                        bg8.r((Application) bjhMasterActivityConfig.getContext(), bjhMasterActivityConfig.getTiebaExtra(), null);
+                        ji8.r((Application) bjhMasterActivityConfig.getContext(), bjhMasterActivityConfig.getTiebaExtra(), null);
                         return 0;
                     } else if (strArr[0].startsWith("bdtiebalive://deeplink")) {
                         if ("deeplink".equals(AlaLiveSdkStatic.n(strArr[0]))) {
-                            ci6 ci6Var = new ci6(strArr[0]);
-                            zh6.a(tbPageContext.getPageActivity(), ci6Var.d(), ci6Var.a(), false);
+                            oj6 oj6Var = new oj6(strArr[0]);
+                            kj6.a(tbPageContext.getPageActivity(), oj6Var.d(), oj6Var.a(), false);
                         }
                         return 0;
                     } else {
                         if (strArr[0].startsWith("bdtiebalive://webview") && AlbumActivityConfig.FROM_WEB_VIEW.equals(AlaLiveSdkStatic.n(strArr[0]))) {
-                            String b2 = new ci6(strArr[0]).b("url_key");
+                            String b2 = new oj6(strArr[0]).b("url_key");
                             if (!TextUtils.isEmpty(b2)) {
                                 UrlManager.getInstance().dealOneLink((TbPageContext) g9.a(tbPageContext.getPageActivity()), new String[]{b2});
                                 return 0;
@@ -566,30 +566,30 @@ public class AlaLiveSdkStatic {
                             }
                             if (strArr[0].startsWith("bdtiebalive:video/live/tbean")) {
                                 String str5 = (String) hashMap4.get(WebChromeClient.KEY_ARG_CALLBACK);
-                                mg8 mg8Var = new mg8();
-                                mg8Var.a = str5;
-                                mg8Var.c = (String) hashMap4.get("is_translucent");
-                                mg8Var.b = TextUtils.equals((String) hashMap4.get("is_translucent"), "1");
-                                bg8.e(tbPageContext.getPageActivity(), mg8Var, new b(this, tbPageContext, str5));
+                                ui8 ui8Var = new ui8();
+                                ui8Var.a = str5;
+                                ui8Var.c = (String) hashMap4.get("is_translucent");
+                                ui8Var.b = TextUtils.equals((String) hashMap4.get("is_translucent"), "1");
+                                ji8.e(tbPageContext.getPageActivity(), ui8Var, new b(this, tbPageContext, str5));
                             } else if (strArr[0].startsWith("bdtiebalive://video/live/start")) {
-                                bg8.b(tbPageContext.getPageActivity(), strArr[0], hashMap4);
+                                ji8.b(tbPageContext.getPageActivity(), strArr[0], hashMap4);
                             } else if (strArr[0].startsWith("bdtiebalive://video/live/admin")) {
-                                bg8.f(tbPageContext.getPageActivity());
+                                ji8.f(tbPageContext.getPageActivity());
                             } else if (strArr[0].startsWith("bdtiebalive://video/live/forbidden")) {
-                                bg8.i(tbPageContext.getPageActivity());
+                                ji8.i(tbPageContext.getPageActivity());
                             } else if (!strArr[0].startsWith("bdtiebalive://video/live/exp") && !strArr[0].startsWith("bdtiebalive://video/live/experience")) {
                                 if (strArr[0].startsWith("bdtiebalive://video/live/guardian")) {
-                                    bg8.j(tbPageContext.getPageActivity(), (String) hashMap4.get("value"), (String) hashMap4.get("uid"));
+                                    ji8.j(tbPageContext.getPageActivity(), (String) hashMap4.get("value"), (String) hashMap4.get("uid"));
                                 } else if (strArr[0].startsWith("bdtiebalive://video/live/fans")) {
-                                    bg8.h(tbPageContext.getPageActivity(), null, 0);
+                                    ji8.h(tbPageContext.getPageActivity(), null, 0);
                                 } else if (strArr[0].startsWith("bdtiebalive://video/live/patrons")) {
-                                    bg8.m(tbPageContext.getPageActivity(), (String) hashMap4.get("userId"));
+                                    ji8.m(tbPageContext.getPageActivity(), (String) hashMap4.get("userId"));
                                 } else if (strArr[0].startsWith("bdtiebalive://video/live/patronage")) {
-                                    bg8.l(tbPageContext.getPageActivity());
+                                    ji8.l(tbPageContext.getPageActivity());
                                 } else if (strArr[0].startsWith("bdtiebalive://video/live/realAuthen")) {
-                                    bg8.n(tbPageContext.getPageActivity(), (String) hashMap4.get("userId"), (String) hashMap4.get("certifyStatus"));
+                                    ji8.n(tbPageContext.getPageActivity(), (String) hashMap4.get("userId"), (String) hashMap4.get("certifyStatus"));
                                 } else {
-                                    bg8.c(tbPageContext.getPageActivity(), strArr[0], hashMap4);
+                                    ji8.c(tbPageContext.getPageActivity(), strArr[0], hashMap4);
                                 }
                             } else {
                                 if (hashMap4.get("exp") == null) {
@@ -602,25 +602,25 @@ public class AlaLiveSdkStatic {
                                 } else {
                                     intValue = ((Integer) hashMap4.get("level")).intValue();
                                 }
-                                bg8.g(tbPageContext.getPageActivity(), longValue, intValue);
+                                ji8.g(tbPageContext.getPageActivity(), longValue, intValue);
                             }
                             return 0;
                         } else if (strArr[0].startsWith(YYRouterDispatcher.PREFIX)) {
-                            bg8.d(tbPageContext.getPageActivity(), strArr[0]);
+                            ji8.d(tbPageContext.getPageActivity(), strArr[0]);
                             return 0;
                         } else if (strArr[0].startsWith("com.baidu.tieba://unidispatch/BDPLiveChannel")) {
                             AlaTabFeedActivityConfig alaTabFeedActivityConfig = new AlaTabFeedActivityConfig(tbPageContext.getPageActivity());
-                            alaTabFeedActivityConfig.setPageSource(i95.d(strArr[0]));
+                            alaTabFeedActivityConfig.setPageSource(z95.d(strArr[0]));
                             MessageManager.getInstance().sendMessage(new CustomMessage(2002001, alaTabFeedActivityConfig));
                             return 0;
                         } else if (strArr[0].startsWith(YYLiveRoomDispatcher.PREFIX)) {
-                            ci8.j().G(tbPageContext.getPageActivity(), strArr[0]);
+                            kk8.j().G(tbPageContext.getPageActivity(), strArr[0]);
                             return 0;
                         } else if (strArr[0].startsWith(YYFeedbackDispatcher.PREFIX)) {
-                            ci8.j().F(tbPageContext.getPageActivity(), strArr[0]);
+                            kk8.j().F(tbPageContext.getPageActivity(), strArr[0]);
                             return 0;
                         } else if (strArr[0].startsWith(YYCustomerServiceDispatcher.PREFIX)) {
-                            ci8.j().E(tbPageContext.getPageActivity(), strArr[0]);
+                            kk8.j().E(tbPageContext.getPageActivity(), strArr[0]);
                             return 0;
                         }
                     }
@@ -808,7 +808,7 @@ public class AlaLiveSdkStatic {
                             return 0;
                         }
                     } else if (str.startsWith(UrlSchemaHelper.SCHEMA_TYPE_JUMP_LIVE_ROOM)) {
-                        long g = gg.g(vr5.c(str, "liveId="), 0L);
+                        long g = gg.g(ps5.c(str, "liveId="), 0L);
                         if (g == 0) {
                             return 3;
                         }
@@ -889,45 +889,45 @@ public class AlaLiveSdkStatic {
                     AlaLiveSdkStatic.k();
                     AlaLiveRoomActivityConfig alaLiveRoomActivityConfig = (AlaLiveRoomActivityConfig) customMessage.getData();
                     Intent intent = alaLiveRoomActivityConfig.getIntent();
-                    bg8.k(alaLiveRoomActivityConfig.getContext(), intent.getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE), (AlaLiveInfoCoreData) intent.getSerializableExtra("live_info_core"));
+                    ji8.k(alaLiveRoomActivityConfig.getContext(), intent.getStringExtra(AlaLiveRoomActivityConfig.LIVE_FROM_TYPE), (AlaLiveInfoCoreData) intent.getSerializableExtra("live_info_core"));
                     return null;
                 } else if (customMessage != null && (customMessage.getData() instanceof AlaMasterLiveRoomActivityConfig)) {
                     AlaLiveSdkStatic.k();
-                    bg8.a(((AlaMasterLiveRoomActivityConfig) customMessage.getData()).getContext());
+                    ji8.a(((AlaMasterLiveRoomActivityConfig) customMessage.getData()).getContext());
                     return null;
                 } else if (customMessage != null && (customMessage.getData() instanceof BjhMasterActivityConfig)) {
                     AlaLiveSdkStatic.k();
                     BjhMasterActivityConfig bjhMasterActivityConfig = (BjhMasterActivityConfig) customMessage.getData();
-                    bg8.r((Application) bjhMasterActivityConfig.getContext(), bjhMasterActivityConfig.getTiebaExtra(), null);
+                    ji8.r((Application) bjhMasterActivityConfig.getContext(), bjhMasterActivityConfig.getTiebaExtra(), null);
                     return null;
                 } else if (customMessage != null && (customMessage.getData() instanceof AlaAdminListActivityConfig)) {
                     AlaLiveSdkStatic.k();
-                    bg8.f(((AlaAdminListActivityConfig) customMessage.getData()).getContext());
+                    ji8.f(((AlaAdminListActivityConfig) customMessage.getData()).getContext());
                     return null;
                 } else if (customMessage != null && (customMessage.getData() instanceof AlaFansFamilyActivityConfig)) {
                     AlaLiveSdkStatic.k();
                     AlaFansFamilyActivityConfig alaFansFamilyActivityConfig = (AlaFansFamilyActivityConfig) customMessage.getData();
-                    bg8.h(alaFansFamilyActivityConfig.getContext(), alaFansFamilyActivityConfig.getIntent().getStringExtra("author_live_user_id"), -1);
+                    ji8.h(alaFansFamilyActivityConfig.getContext(), alaFansFamilyActivityConfig.getIntent().getStringExtra("author_live_user_id"), -1);
                     return null;
                 } else if (customMessage != null && (customMessage.getData() instanceof AlaForbiddenListActivityConfig)) {
                     AlaLiveSdkStatic.k();
-                    bg8.i(((AlaForbiddenListActivityConfig) customMessage.getData()).getContext());
+                    ji8.i(((AlaForbiddenListActivityConfig) customMessage.getData()).getContext());
                     return null;
                 } else if (customMessage != null && (customMessage.getData() instanceof AlaLoveFamilyActivityConfig)) {
                     AlaLiveSdkStatic.k();
-                    bg8.l(((AlaLoveFamilyActivityConfig) customMessage.getData()).getContext());
+                    ji8.l(((AlaLoveFamilyActivityConfig) customMessage.getData()).getContext());
                     return null;
                 } else if (customMessage != null && (customMessage.getData() instanceof AlaPersonCenterExpActivityConfig)) {
                     AlaLiveSdkStatic.k();
                     AlaPersonCenterExpActivityConfig alaPersonCenterExpActivityConfig = (AlaPersonCenterExpActivityConfig) customMessage.getData();
                     Intent intent2 = alaPersonCenterExpActivityConfig.getIntent();
-                    bg8.g(alaPersonCenterExpActivityConfig.getContext(), intent2.getLongExtra(AlaPersonCenterExpActivityConfig.CURRENT_EXP, 0L), intent2.getIntExtra("current_level", 0));
+                    ji8.g(alaPersonCenterExpActivityConfig.getContext(), intent2.getLongExtra(AlaPersonCenterExpActivityConfig.CURRENT_EXP, 0L), intent2.getIntExtra("current_level", 0));
                     return null;
                 } else if (customMessage != null && (customMessage.getData() instanceof AlaPersonCenterRealAuthenConfig)) {
                     AlaLiveSdkStatic.k();
                     AlaPersonCenterRealAuthenConfig alaPersonCenterRealAuthenConfig = (AlaPersonCenterRealAuthenConfig) customMessage.getData();
                     Intent intent3 = alaPersonCenterRealAuthenConfig.getIntent();
-                    bg8.n(alaPersonCenterRealAuthenConfig.getContext(), intent3.getStringExtra(AlaPersonCenterRealAuthenConfig.REAL_AUTHEN_USER_ID), intent3.getStringExtra(AlaPersonCenterRealAuthenConfig.REAL_AUTHEN_CERTIFY_STATUS));
+                    ji8.n(alaPersonCenterRealAuthenConfig.getContext(), intent3.getStringExtra(AlaPersonCenterRealAuthenConfig.REAL_AUTHEN_USER_ID), intent3.getStringExtra(AlaPersonCenterRealAuthenConfig.REAL_AUTHEN_CERTIFY_STATUS));
                     return null;
                 } else {
                     return customMessage;
@@ -965,15 +965,15 @@ public class AlaLiveSdkStatic {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            os4 os4Var;
+            qs4 qs4Var;
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                if (customResponsedMessage.getData() instanceof os4) {
-                    os4Var = (os4) customResponsedMessage.getData();
+                if (customResponsedMessage.getData() instanceof qs4) {
+                    qs4Var = (qs4) customResponsedMessage.getData();
                 } else {
-                    os4Var = null;
+                    qs4Var = null;
                 }
-                ci8.j().l(os4Var);
+                kk8.j().l(qs4Var);
             }
         }
     }
@@ -1008,13 +1008,13 @@ public class AlaLiveSdkStatic {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                ci8.j().e(TbadkCoreApplication.getInst().getContext());
+                kk8.j().e(TbadkCoreApplication.getInst().getContext());
             }
         }
     }
 
     /* loaded from: classes5.dex */
-    public static class l implements CustomMessageTask.CustomRunnable<os4> {
+    public static class l implements CustomMessageTask.CustomRunnable<qs4> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -1033,11 +1033,11 @@ public class AlaLiveSdkStatic {
         }
 
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<?> run(CustomMessage<os4> customMessage) {
+        public CustomResponsedMessage<?> run(CustomMessage<qs4> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2921548, Long.valueOf(ci8.j().k(TbadkCoreApplication.getInst().getContext())));
+                return new CustomResponsedMessage<>(2921548, Long.valueOf(kk8.j().k(TbadkCoreApplication.getInst().getContext())));
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -1161,7 +1161,7 @@ public class AlaLiveSdkStatic {
             if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof ShareEvent)) {
                 long g = gg.g(((ShareEvent) customResponsedMessage.getData()).extLiveInfo, 0L);
                 if (g > 0) {
-                    bg8.q(g);
+                    ji8.q(g);
                 }
             }
         }
@@ -1204,7 +1204,7 @@ public class AlaLiveSdkStatic {
                 return;
             }
             AlaLiveSdkStatic.k();
-            bg8.p(updateAttentionMessage.getData().c, updateAttentionMessage.getData().d);
+            ji8.p(updateAttentionMessage.getData().c, updateAttentionMessage.getData().d);
         }
     }
 
@@ -1226,7 +1226,7 @@ public class AlaLiveSdkStatic {
         p();
         x();
         t();
-        fx7.b(AlaCmdConfigSocket.ALA_SOCKET_PUSH_ALERT, ALAPushAlertResponsedMessage.class, false);
+        az7.b(AlaCmdConfigSocket.ALA_SOCKET_PUSH_ALERT, ALAPushAlertResponsedMessage.class, false);
         TbadkCoreApplication.getInst().RegisterIntent(AlaSDKShareEmptyActivityConfig.class, AlaSDKShareEmptyActivity.class);
         TbadkCoreApplication.getInst().RegisterIntent(AlaWriteShareInBarActivityConfig.class, AlaShareInBarEmptyActivity.class);
         u();
@@ -1259,7 +1259,7 @@ public class AlaLiveSdkStatic {
         if (interceptable == null || interceptable.invokeV(65549, null) == null) {
             try {
                 if (!a) {
-                    new gg8().b("0");
+                    new oi8().b("0");
                     a = true;
                 }
             } catch (Throwable th) {

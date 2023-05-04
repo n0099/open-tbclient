@@ -1,5 +1,4 @@
 package com.baidu.tieba;
 /* loaded from: classes5.dex */
-public interface jwa<TResult> {
-    void onComplete(mwa<TResult> mwaVar);
+public interface jwa {
 }

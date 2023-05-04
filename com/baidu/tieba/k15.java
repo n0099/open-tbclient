@@ -1,108 +1,72 @@
 package com.baidu.tieba;
 
 import android.app.Activity;
-import android.content.Context;
-import android.content.DialogInterface;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbadkApplication;
-import com.baidu.tbadk.core.dialog.TBAlertBuilder;
-import com.baidu.tbadk.core.log.YunDialogLog;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public abstract class k15 extends l15 {
+public abstract class k15 implements Comparable<k15> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Activity a;
-    public TBAlertBuilder b;
+    public int a;
+    public Activity b;
 
-    public abstract void b(TBAlertBuilder tBAlertBuilder);
+    /* loaded from: classes5.dex */
+    public interface a {
+        void a(boolean z);
+    }
 
-    public void c() {
+    public abstract void b();
+
+    public abstract void d(a aVar);
+
+    public abstract void e();
+
+    public void f() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
         }
     }
 
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-        }
-    }
-
-    public k15() {
+    public k15(@NonNull Activity activity) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {activity};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public final Activity getActivity() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (Activity) invokeV.objValue;
-    }
-
-    public static final void e(k15 this$0, DialogInterface dialogInterface) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65537, null, this$0, dialogInterface) == null) {
-            Intrinsics.checkNotNullParameter(this$0, "this$0");
-            this$0.c();
-        }
-    }
-
-    @Override // com.baidu.tieba.l15
-    public void a(Context context, c15 data) {
-        Activity activity;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, context, data) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            Intrinsics.checkNotNullParameter(data, "data");
-            if (!(context instanceof Activity)) {
-                activity = TbadkApplication.getInst().getCurrentActivity();
-            } else {
-                activity = (Activity) context;
-            }
-            this.a = activity;
-            if (activity == null) {
-                c();
-                vg8 yunDialogLog = YunDialogLog.getInstance();
-                yunDialogLog.c("YunDialogManager", "云弹窗 " + data.a("yun_dialogName") + " 展示失败：当前 activity 为空");
                 return;
             }
-            Intrinsics.checkNotNull(activity);
-            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder(activity);
-            this.b = tBAlertBuilder;
-            if (tBAlertBuilder != null) {
-                tBAlertBuilder.s(new DialogInterface.OnDismissListener() { // from class: com.baidu.tieba.f15
-                    public static /* synthetic */ Interceptable $ic;
-                    public transient /* synthetic */ FieldHolder $fh;
+        }
+        this.a = Integer.MIN_VALUE;
+        this.b = activity;
+    }
 
-                    @Override // android.content.DialogInterface.OnDismissListener
-                    public final void onDismiss(DialogInterface dialogInterface) {
-                        Interceptable interceptable2 = $ic;
-                        if (interceptable2 == null || interceptable2.invokeL(1048576, this, dialogInterface) == null) {
-                            k15.e(k15.this, dialogInterface);
-                        }
-                    }
-                });
-                b(tBAlertBuilder);
-                d();
-            }
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // java.lang.Comparable
+    /* renamed from: a */
+    public int compareTo(k15 k15Var) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, k15Var)) == null) {
+            return this.a - k15Var.a;
+        }
+        return invokeL.intValue;
+    }
+
+    public final void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            l15.j();
         }
     }
 }

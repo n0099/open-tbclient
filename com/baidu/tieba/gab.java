@@ -1,85 +1,60 @@
 package com.baidu.tieba;
 
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.framework.common.StringUtils;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import java.text.DecimalFormat;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import rx.internal.subscriptions.SequentialSubscription;
 /* loaded from: classes4.dex */
-public class gab {
+public final class gab implements q5b {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final SequentialSubscription a;
 
-    public static String a(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
+    public gab() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65536, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            if (z) {
-                return String.valueOf(j);
-            }
-            return new DecimalFormat("#.##").format(d);
         }
-        return (String) invokeCommon.objValue;
+        this.a = new SequentialSubscription();
     }
 
-    public static String b(double d) {
-        InterceptResult invokeCommon;
-        boolean z;
+    @Override // com.baidu.tieba.q5b
+    public boolean isUnsubscribed() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65537, null, new Object[]{Double.valueOf(d)})) == null) {
-            long j = (long) d;
-            if (d == j) {
-                z = true;
-            } else {
-                z = false;
-            }
-            if (z) {
-                return String.valueOf(j);
-            }
-            return new DecimalFormat("#.#").format(d);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a.isUnsubscribed();
         }
-        return (String) invokeCommon.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static double c(String str) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.q5b
+    public void unsubscribe() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0.0d;
-            }
-            try {
-                return Double.valueOf(str).doubleValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseDouble " + str, new Object[0]);
-                return 0.0d;
-            }
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.a.unsubscribe();
         }
-        return invokeL.doubleValue;
     }
 
-    public static long d(String str) {
-        InterceptResult invokeL;
+    public void a(q5b q5bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, str)) == null) {
-            if (str == null || str.length() == 0) {
-                return 0L;
+        if (interceptable == null || interceptable.invokeL(1048576, this, q5bVar) == null) {
+            if (q5bVar != null) {
+                this.a.replace(q5bVar);
+                return;
             }
-            try {
-                return Long.valueOf(str).longValue();
-            } catch (Throwable unused) {
-                RLog.error(StringUtils.TAG, "safeParseLong " + str, new Object[0]);
-                return 0L;
-            }
+            throw new IllegalArgumentException("Subscription can not be null");
         }
-        return invokeL.longValue;
     }
 }

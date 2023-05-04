@@ -1,115 +1,209 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
+import android.net.Uri;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.HashMap;
 /* loaded from: classes5.dex */
 public class kg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final HashMap<String, es4> a;
 
-    public static void a(@NonNull StringBuilder sb, long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65536, null, new Object[]{sb, Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            sb.append("roomId");
-            sb.append("=");
-            sb.append(j);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_CODE);
-            sb.append("=");
-            sb.append(i);
-            sb.append(",");
-            sb.append(StatConstants.KEY_EXT_ERR_MSG);
-            sb.append("=");
-            sb.append(str);
-            sb.append(",");
-        }
+    /* loaded from: classes5.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
     }
 
-    public static void b(@NonNull StringBuilder sb, boolean z) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65537, null, sb, z) == null) {
-            if (z) {
-                str = "success";
-            } else {
-                str = com.baidu.pass.biometrics.face.liveness.b.a.g0;
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public boolean a;
+        public String b;
+        public HashMap<String, String> c;
+
+        public b(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {str};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            sb.append(str);
-            sb.append(",");
+            this.a = false;
+            Uri parse = Uri.parse(str);
+            this.a = "tblego".equals(parse.getScheme());
+            if (e()) {
+                this.b = parse.getAuthority() + parse.getPath();
+                this.c = new HashMap<>();
+                for (String str2 : parse.getQueryParameterNames()) {
+                    this.c.put(str2, parse.getQueryParameter(str2));
+                }
+                return;
+            }
+            this.b = "";
+            this.c = new HashMap<>();
+        }
+
+        public static b a(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+                return new b(str);
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public String b() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return this.b;
+            }
+            return (String) invokeV.objValue;
+        }
+
+        public HashMap<String, String> c() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return this.c;
+            }
+            return (HashMap) invokeV.objValue;
+        }
+
+        public boolean e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+                return this.a;
+            }
+            return invokeV.booleanValue;
+        }
+
+        public String d(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+                if (!TextUtils.isEmpty(str) && e()) {
+                    for (String str2 : this.c.keySet()) {
+                        if (str.equals(str2)) {
+                            return this.c.get(str2);
+                        }
+                    }
+                }
+                return null;
+            }
+            return (String) invokeL.objValue;
         }
     }
 
-    public static void d(@NonNull String str, long j) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65539, null, str, j) == null) {
-            tv4.d(str + j);
+    /* loaded from: classes5.dex */
+    public static class c {
+        public static /* synthetic */ Interceptable $ic;
+        public static kg8 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-662100274, "Lcom/baidu/tieba/kg8$c;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-662100274, "Lcom/baidu/tieba/kg8$c;");
+                    return;
+                }
+            }
+            a = new kg8(null);
         }
     }
 
-    public static void k(@NonNull String str, long j) {
+    public kg8() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLJ(65546, null, str, j) == null) {
-            tv4.e(str + j);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = new HashMap<>();
+    }
+
+    public static kg8 a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return c.a;
+        }
+        return (kg8) invokeV.objValue;
+    }
+
+    public /* synthetic */ kg8(a aVar) {
+        this();
+    }
+
+    public void b(bs4 bs4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bs4Var) == null) {
+            c(bs4Var.c(), bs4Var);
         }
     }
 
-    public static void c(@NonNull String str) {
+    public void c(String str, es4 es4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
-            tv4.d(str);
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, es4Var) == null) {
+            this.a.put(str, es4Var);
         }
     }
 
-    public static void i(boolean z) {
+    public void d(Object obj, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(65544, null, z) == null) {
-            StringBuilder sb = new StringBuilder();
-            b(sb, z);
-            tv4.b("login_lcp", sb.toString());
+        if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, obj, str) != null) || str == null) {
+            return;
+        }
+        b a2 = b.a(str);
+        es4 es4Var = this.a.get(a2.b());
+        if (es4Var != null && a2.e()) {
+            es4Var.b(obj, a2.c(), str);
         }
     }
 
-    public static void j(@NonNull String str) {
+    public void e(Object obj, String str, HashMap<String, String> hashMap, z8 z8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65545, null, str) == null) {
-            tv4.e(str);
+        if ((interceptable != null && interceptable.invokeLLLL(1048579, this, obj, str, hashMap, z8Var) != null) || str == null) {
+            return;
         }
-    }
-
-    public static void e(long j, long j2, int i, boolean z, boolean z2, int i2, @NonNull String str, int i3) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TRACKBALL, null, new Object[]{Long.valueOf(j), Long.valueOf(j2), Integer.valueOf(i), Boolean.valueOf(z), Boolean.valueOf(z2), Integer.valueOf(i2), str, Integer.valueOf(i3)}) == null) {
-            tv4.b("fetch_chat_room_msg_request", "roomId=" + j + ",beginMsgId=" + j2 + ",count=" + i + ",isFirstFetch=" + z + ",isFetchHistory=" + z2 + ",errCode=" + i2 + ",errMsg=" + str + ",resultCount=" + i3 + ",");
-        }
-    }
-
-    public static void f(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65541, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            tv4.b("im_enter_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void g(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65542, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            tv4.b("im_exit_auto_retry_" + j, sb.toString());
-        }
-    }
-
-    public static void h(long j, int i, @NonNull String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{Long.valueOf(j), Integer.valueOf(i), str}) == null) {
-            StringBuilder sb = new StringBuilder();
-            a(sb, j, i, str);
-            tv4.b("login_im", sb.toString());
+        b a2 = b.a(str);
+        es4 es4Var = this.a.get(a2.b());
+        if (es4Var != null && a2.e()) {
+            if (hashMap != null && !hashMap.isEmpty()) {
+                a2.c().putAll(hashMap);
+            }
+            es4Var.a(obj, a2.c(), str, z8Var);
         }
     }
 }

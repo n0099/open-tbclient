@@ -1,10 +1,5 @@
 package com.baidu.tieba;
 
-import android.content.pm.PackageInfo;
-import android.text.TextUtils;
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -12,12 +7,10 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.heytap.mcssdk.PushService;
 import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yy3 extends b04 {
+public class yy3 extends d04 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
     public transient /* synthetic */ FieldHolder $fh;
 
     static {
@@ -33,12 +26,12 @@ public class yy3 extends b04 {
                 return;
             }
         }
-        c = fo1.a;
+        boolean z = ho1.a;
     }
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public yy3() {
-        super("checkAppInstalled");
+        super("getDownloadConfig");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
@@ -54,39 +47,30 @@ public class yy3 extends b04 {
         }
     }
 
-    @Override // com.baidu.tieba.b04
-    public vz1 a(@NonNull JSONObject jSONObject, @NonNull zk2 zk2Var) {
+    @Override // com.baidu.tieba.d04
+    public xz1 a(JSONObject jSONObject, bl2 bl2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, zk2Var)) == null) {
-            if (c) {
-                Log.d("checkAppInstalled", "handle: " + jSONObject);
-            }
-            String optString = jSONObject.optString("packageName");
-            if (TextUtils.isEmpty(optString)) {
-                zk2Var.onFail(31010, "package name is empty");
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, jSONObject, bl2Var)) == null) {
+            if (jSONObject == null) {
+                bl2Var.onFail(202, "params may be error");
                 return null;
             }
-            try {
-                PackageInfo packageInfo = AppRuntime.getAppContext().getPackageManager().getPackageInfo(optString, 0);
-                if (c) {
-                    Log.d("checkAppInstalled", "packageInfo: " + packageInfo);
-                }
-                if (packageInfo != null) {
-                    JSONObject jSONObject2 = new JSONObject();
-                    JSONObject jSONObject3 = new JSONObject();
-                    jSONObject3.put(PushService.APP_VERSION_NAME, packageInfo.versionName);
-                    jSONObject3.put(PushService.APP_VERSION_CODE, packageInfo.versionCode);
-                    jSONObject2.put("data", jSONObject3);
-                    zk2Var.a(jSONObject2);
-                } else {
-                    zk2Var.onFail(31016, "no package info");
-                }
-            } catch (Exception unused) {
-                zk2Var.onFail(31011, "app is not installed");
+            if (jSONObject.has("wifiResumeDownloadFlag")) {
+                hz3.a().c(jSONObject.optBoolean("wifiResumeDownloadFlag", false));
             }
+            if (jSONObject.has("install_guide_switch")) {
+                mz3.r(jSONObject.optBoolean("install_guide_switch"));
+            }
+            if (jSONObject.has("install_guide_count")) {
+                mz3.q(jSONObject.optInt("install_guide_count"));
+            }
+            if (jSONObject.has("get_install_result")) {
+                mz3.s(jSONObject.optBoolean("get_install_result"));
+            }
+            bl2Var.a(null);
             return null;
         }
-        return (vz1) invokeLL.objValue;
+        return (xz1) invokeLL.objValue;
     }
 }

@@ -1,10 +1,5 @@
 package com.baidu.tieba;
-
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import org.json.JSONObject;
 /* loaded from: classes3.dex */
-public class bf1 extends ef1<JSONObject> {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface bf1 {
+    void a(int i, int i2, int i3);
 }

@@ -3,9 +3,9 @@ package com.baidu.tieba.enterForum.tabfeed.message;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.message.http.TbHttpResponsedMessage;
-import com.baidu.tieba.ek5;
+import com.baidu.tieba.ft6;
 import com.baidu.tieba.in;
-import com.baidu.tieba.pr6;
+import com.baidu.tieba.xk5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -16,10 +16,10 @@ import java.util.ArrayList;
 import tbclient.Error;
 import tbclient.Tabfeedlist.TabfeedlistResIdl;
 /* loaded from: classes4.dex */
-public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements ek5 {
+public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage implements xk5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public pr6 enterForumTabFeedData;
+    public ft6 enterForumTabFeedData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public TabFeedListHttpResponsedMessage() {
@@ -76,9 +76,9 @@ public class TabFeedListHttpResponsedMessage extends TbHttpResponsedMessage impl
             if (getError() != 0 || tabfeedlistResIdl.data == null) {
                 return;
             }
-            pr6 pr6Var = new pr6();
-            this.enterForumTabFeedData = pr6Var;
-            pr6Var.g(tabfeedlistResIdl.data);
+            ft6 ft6Var = new ft6();
+            this.enterForumTabFeedData = ft6Var;
+            ft6Var.g(tabfeedlistResIdl.data);
         }
     }
 }

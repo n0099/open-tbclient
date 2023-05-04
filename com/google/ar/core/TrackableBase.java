@@ -1,8 +1,8 @@
 package com.google.ar.core;
 
-import com.baidu.tieba.psa;
+import com.baidu.tieba.lwa;
 /* loaded from: classes8.dex */
-public class TrackableBase implements psa {
+public class TrackableBase implements lwa {
     public final long a;
     public final Session b;
 

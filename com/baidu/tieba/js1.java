@@ -1,22 +1,14 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
-import android.graphics.Bitmap;
-import java.io.File;
-import java.util.HashMap;
+import android.net.Uri;
+import com.baidu.tieba.j93;
 /* loaded from: classes5.dex */
 public interface js1 {
+    boolean a(Activity activity, String str, j93.b bVar);
 
-    /* loaded from: classes5.dex */
-    public interface a {
-        void onResult(String str);
-    }
+    boolean b(Context context, String str);
 
-    void a(HashMap<String, String> hashMap, File file, a aVar, String str);
-
-    void b(Context context, String str, String str2, String str3);
-
-    void c(HashMap<String, String> hashMap, File file, a aVar);
-
-    void d(Bitmap bitmap, HashMap<String, String> hashMap, File[] fileArr, a aVar);
+    boolean c(Activity activity, Uri uri, String str);
 }

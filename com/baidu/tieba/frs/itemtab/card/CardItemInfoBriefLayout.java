@@ -11,16 +11,16 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.elementsMaven.view.EMTextView;
 import com.baidu.tbadk.core.view.MultiLineEllipsizeTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.jx;
-import com.baidu.tieba.r25;
+import com.baidu.tieba.lx;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import tbclient.ItemInfo;
 /* loaded from: classes4.dex */
-public class CardItemInfoBriefLayout extends FrameLayout implements jx {
+public class CardItemInfoBriefLayout extends FrameLayout implements lx {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public MultiLineEllipsizeTextView a;
@@ -100,11 +100,11 @@ public class CardItemInfoBriefLayout extends FrameLayout implements jx {
                 CardItemInfoBriefLayout cardItemInfoBriefLayout = this.a;
                 cardItemInfoBriefLayout.d = !cardItemInfoBriefLayout.d;
                 if (!this.a.d) {
-                    this.a.b.setText(R.string.obfuscated_res_0x7f0f062c);
+                    this.a.b.setText(R.string.obfuscated_res_0x7f0f0639);
                     this.a.a.setMaxLines(3);
                     return;
                 }
-                this.a.b.setText(R.string.obfuscated_res_0x7f0f0696);
+                this.a.b.setText(R.string.obfuscated_res_0x7f0f06a3);
                 this.a.a.setMaxLines(Integer.MAX_VALUE);
                 this.a.a.setText(this.a.c);
             }
@@ -154,16 +154,16 @@ public class CardItemInfoBriefLayout extends FrameLayout implements jx {
         f();
     }
 
-    @Override // com.baidu.tieba.jx
+    @Override // com.baidu.tieba.lx
     public void onChangeSkinType(TbPageContext tbPageContext, int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, tbPageContext, i) == null) {
-            r25 d = r25.d(this);
+            g35 d = g35.d(this);
             d.n(2);
             d.o(R.string.J_X06);
             d.f(R.color.CAM_X0205);
-            r25.d(this.a).w(R.color.CAM_X0105);
-            r25.d(this.b).w(R.color.CAM_X0304);
+            g35.d(this.a).w(R.color.CAM_X0105);
+            g35.d(this.b).w(R.color.CAM_X0304);
         }
     }
 
@@ -208,8 +208,8 @@ public class CardItemInfoBriefLayout extends FrameLayout implements jx {
             this.a = multiLineEllipsizeTextView;
             multiLineEllipsizeTextView.setMaxLines(3);
             MultiLineEllipsizeTextView multiLineEllipsizeTextView2 = this.a;
-            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f062c))));
-            r25 d = r25.d(this.a);
+            multiLineEllipsizeTextView2.setIconWidthForLastLine((int) multiLineEllipsizeTextView2.getPaint().measureText(String.valueOf(getResources().getText(R.string.obfuscated_res_0x7f0f0639))));
+            g35 d = g35.d(this.a);
             d.B(R.dimen.T_X07);
             d.y(R.dimen.M_T_X002);
             this.a.setPadding(0, 0, 0, ii.g(getContext(), R.dimen.M_H_X005));
@@ -217,8 +217,8 @@ public class CardItemInfoBriefLayout extends FrameLayout implements jx {
             this.a.setOnTextMeasuredCallback(new a(this));
             EMTextView eMTextView = new EMTextView(getContext());
             this.b = eMTextView;
-            eMTextView.setText(R.string.obfuscated_res_0x7f0f062c);
-            r25.d(this.a).B(R.dimen.T_X07);
+            eMTextView.setText(R.string.obfuscated_res_0x7f0f0639);
+            g35.d(this.a).B(R.dimen.T_X07);
             this.b.setPadding(ii.g(getContext(), R.dimen.M_W_X005), ii.g(getContext(), R.dimen.M_H_X005), 0, ii.g(getContext(), R.dimen.M_H_X005));
             this.b.setVisibility(8);
             FrameLayout.LayoutParams layoutParams = new FrameLayout.LayoutParams(-2, -2);

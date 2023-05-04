@@ -1,137 +1,42 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.annotation.NonNull;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.V8JavascriptField;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-import org.json.JSONArray;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class i64 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<c02> a;
+    @V8JavascriptField
+    public String filePath;
+    @V8JavascriptField
+    public int statusCode;
+    @V8JavascriptField
+    public String tempFilePath;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947805442, "Lcom/baidu/tieba/i64;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947805442, "Lcom/baidu/tieba/i64;");
-                return;
-            }
-        }
-        b = fo1.a;
-    }
-
-    public i64(JSONArray jSONArray) {
+    public i64() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONArray};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
-            }
-        }
-        this.a = new ArrayList();
-        if (jSONArray == null) {
-            return;
-        }
-        if (b) {
-            Log.d("SwanGamePreloadConfig", "jsonArray:" + jSONArray);
-        }
-        int length = jSONArray.length();
-        int i3 = 0;
-        int i4 = 0;
-        for (int i5 = 0; i5 < length; i5++) {
-            JSONObject optJSONObject = jSONArray.optJSONObject(i5);
-            if (optJSONObject != null) {
-                String optString = optJSONObject.optString("type");
-                char c = 65535;
-                int hashCode = optString.hashCode();
-                if (hashCode != 1095692943) {
-                    if (hashCode == 1427818632 && optString.equals("download")) {
-                        c = 1;
-                    }
-                } else if (optString.equals("request")) {
-                    c = 0;
-                }
-                if (c != 0) {
-                    if (c == 1 && i4 < 10) {
-                        this.a.add(a(optJSONObject));
-                        i4++;
-                    }
-                } else if (i3 < 3) {
-                    this.a.add(b(optJSONObject));
-                    i3++;
-                }
+                interceptable.invokeInitBody(65536, newInitContext);
             }
         }
     }
 
-    public final c02 a(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, jSONObject)) == null) {
-            c02 c02Var = new c02();
-            c02Var.G("type", jSONObject.optString("type"));
-            c02Var.G("url", jSONObject.optString("url"));
-            c02Var.G("filePath", jSONObject.optString("filePath"));
-            c02Var.G("header", c(jSONObject.optJSONObject("header")));
-            return c02Var;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return "ResponseData{statusCode=" + this.statusCode + ",tempFilePath=" + this.tempFilePath + ",filePath=" + this.filePath + "}";
         }
-        return (c02) invokeL.objValue;
-    }
-
-    public final c02 b(@NonNull JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            c02 c02Var = new c02();
-            c02Var.G("type", jSONObject.optString("type"));
-            c02Var.G("url", jSONObject.optString("url"));
-            c02Var.G("responseType", jSONObject.optString("responseType"));
-            c02Var.G("header", c(jSONObject.optJSONObject("header")));
-            return c02Var;
-        }
-        return (c02) invokeL.objValue;
-    }
-
-    public final c02 c(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject)) == null) {
-            if (jSONObject == null) {
-                return null;
-            }
-            c02 c02Var = new c02();
-            Iterator<String> keys = jSONObject.keys();
-            while (keys.hasNext()) {
-                String next = keys.next();
-                c02Var.G(next, jSONObject.optString(next));
-            }
-            return c02Var;
-        }
-        return (c02) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 }

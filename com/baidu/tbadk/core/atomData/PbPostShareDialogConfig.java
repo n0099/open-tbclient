@@ -2,7 +2,7 @@ package com.baidu.tbadk.core.atomData;
 
 import android.content.Context;
 import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tieba.st8;
+import com.baidu.tieba.cw8;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -12,16 +12,16 @@ import com.baidu.titan.sdk.runtime.TitanRuntime;
 public class PbPostShareDialogConfig extends ShareDialogConfig {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public st8 mPbPostData;
+    public cw8 mPbPostData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, st8 st8Var) {
+    public PbPostShareDialogConfig(Context context, ShareItem shareItem, boolean z, cw8 cw8Var) {
         super(context, shareItem, z);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, shareItem, Boolean.valueOf(z), st8Var};
+            Object[] objArr = {context, shareItem, Boolean.valueOf(z), cw8Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -33,15 +33,15 @@ public class PbPostShareDialogConfig extends ShareDialogConfig {
                 return;
             }
         }
-        this.mPbPostData = st8Var;
+        this.mPbPostData = cw8Var;
     }
 
-    public st8 getPbPostData() {
+    public cw8 getPbPostData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             return this.mPbPostData;
         }
-        return (st8) invokeV.objValue;
+        return (cw8) invokeV.objValue;
     }
 }

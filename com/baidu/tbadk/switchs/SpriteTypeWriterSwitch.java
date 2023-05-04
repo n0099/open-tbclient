@@ -142,7 +142,7 @@ public final class SpriteTypeWriterSwitch extends te {
     }
 
     @Override // com.baidu.tieba.te
-    /* renamed from: getCrashKeys  reason: collision with other method in class */
+    /* renamed from: getCrashKeys */
     public /* bridge */ /* synthetic */ String[] mo55getCrashKeys() {
         return (String[]) getCrashKeys();
     }

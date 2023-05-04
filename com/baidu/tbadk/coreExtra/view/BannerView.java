@@ -18,9 +18,9 @@ import com.baidu.tbadk.core.util.UrlManager;
 import com.baidu.tbadk.core.util.UrlSchemaHelper;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.eb9;
+import com.baidu.tieba.be9;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.sx4;
+import com.baidu.tieba.iy4;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -41,7 +41,7 @@ public class BannerView extends RelativeLayout {
     public float i;
     public String j;
     public boolean k;
-    public sx4 l;
+    public iy4 l;
     public String m;
     public b n;
     public View.OnClickListener o;
@@ -166,11 +166,11 @@ public class BannerView extends RelativeLayout {
         h(context);
     }
 
-    public void setBannerData(sx4 sx4Var) {
+    public void setBannerData(iy4 iy4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, sx4Var) == null) {
-            this.l = sx4Var;
-            eb9.f(sx4Var.g, this.f, sx4Var.h, ii.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
+        if (interceptable == null || interceptable.invokeL(1048581, this, iy4Var) == null) {
+            this.l = iy4Var;
+            be9.f(iy4Var.g, this.f, iy4Var.h, ii.g(getContext(), R.dimen.obfuscated_res_0x7f0701f0));
         }
     }
 
@@ -265,7 +265,7 @@ public class BannerView extends RelativeLayout {
     public final void h(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d0137, this);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d013a, this);
             Button button = (Button) findViewById(R.id.btn_close);
             this.c = button;
             button.setOnClickListener(this.o);

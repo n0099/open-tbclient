@@ -1,59 +1,26 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import android.webkit.JsPromptResult;
+import android.webkit.ValueCallback;
 import android.webkit.WebView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import androidx.core.util.Pair;
+import com.baidu.pyramid.runtime.service.ServiceReference;
+import java.util.HashMap;
+import java.util.List;
 /* loaded from: classes6.dex */
-public class vf6 implements ve6 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
+public interface vf6 {
+    public static final ServiceReference a = new ServiceReference("Frames", "JsPromptBridge");
 
-    @Override // com.baidu.tieba.ve6
-    public void b(WebView webView) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, webView) == null) {
-        }
-    }
+    void a(List<Pair<String, String>> list);
 
-    @Override // com.baidu.tieba.ve6
-    public void d(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, webView, str) == null) {
-        }
-    }
+    void b(String str, HashMap<String, Object> hashMap);
 
-    @Override // com.baidu.tieba.ve6
-    public void e(WebView webView, String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, webView, str) == null) {
-        }
-    }
+    boolean c(WebView webView, String str, JsPromptResult jsPromptResult);
 
-    @Override // com.baidu.tieba.ve6
-    public boolean shouldOverrideUrlLoading(WebView webView, String str) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, webView, str)) == null) {
-            return false;
-        }
-        return invokeLL.booleanValue;
-    }
+    void d(View view2, String str, HashMap<String, Object> hashMap);
 
-    public vf6() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
+    void e(View view2, String str, ValueCallback<String> valueCallback);
+
+    void f(xf6 xf6Var, Object obj);
 }

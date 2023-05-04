@@ -1,129 +1,60 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes4.dex */
 public class dk4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static volatile dk4 a;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static boolean a = true;
+    public static String b = "0";
+    public static long c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public dk4() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947707420, "Lcom/baidu/tieba/dk4;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947707420, "Lcom/baidu/tieba/dk4;");
+                return;
+            }
+        }
+        gf4 b2 = if4.b();
+        if (b2 != null) {
+            b = b2.i().getString("key_h2_heart_beat_version", "0");
         }
     }
 
-    public static dk4 b() {
-        InterceptResult invokeV;
+    public static long a(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (a == null) {
-                synchronized (dk4.class) {
-                    if (a == null) {
-                        a = new dk4();
-                    }
-                }
+        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
+            gf4 b2 = if4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timespan", i);
             }
-            return a;
+            return i;
         }
-        return (dk4) invokeV.objValue;
+        return invokeI.longValue;
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static long b(int i) {
+        InterceptResult invokeI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            return gf4.b().i().getString("web_mode_version", "0");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            if (gf4.b().i().getInt("web_mode_switch", 1) == 1) {
-                return true;
+        if (interceptable == null || (invokeI = interceptable.invokeI(65538, null, i)) == null) {
+            gf4 b2 = if4.b();
+            if (b2 != null) {
+                return b2.i().getInt("key_h2_heart_beat_timeout", i);
             }
-            return false;
+            return i;
         }
-        return invokeV.booleanValue;
-    }
-
-    public ArrayList<String> a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            String string = gf4.b().i().getString("web_mode_degrade_list", "");
-            JSONArray jSONArray = null;
-            if (TextUtils.isEmpty(string)) {
-                return null;
-            }
-            try {
-                jSONArray = new JSONArray(string);
-            } catch (JSONException unused) {
-            }
-            ArrayList<String> arrayList = new ArrayList<>();
-            if (jSONArray != null && jSONArray.length() > 0) {
-                for (int i = 0; i < jSONArray.length(); i++) {
-                    arrayList.add(jSONArray.optString(i));
-                }
-            }
-            return arrayList;
-        }
-        return (ArrayList) invokeV.objValue;
-    }
-
-    public final String e(JSONObject jSONObject) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject)) == null) {
-            JSONArray optJSONArray = jSONObject.optJSONArray("errno_list");
-            if (optJSONArray != null) {
-                return optJSONArray.toString();
-            }
-            return "";
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public void f(JSONObject jSONObject) {
-        JSONObject optJSONObject;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        String optString = jSONObject.optString("version");
-        if (TextUtils.isEmpty(optString) || (optJSONObject = jSONObject.optJSONObject("data")) == null || !optJSONObject.has("host_use_weburl_degrade")) {
-            return;
-        }
-        int optInt = optJSONObject.optInt("host_use_weburl_degrade", 0);
-        String e = e(optJSONObject);
-        ef4 b = gf4.b();
-        if (b == null) {
-            return;
-        }
-        xn4 i = b.i();
-        i.putInt("web_mode_switch", optInt);
-        i.putString("web_mode_degrade_list", e);
-        i.putString("web_mode_version", optString);
+        return invokeI.longValue;
     }
 }

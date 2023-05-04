@@ -1,30 +1,38 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.runtime.service.ServiceManager;
+import android.view.View;
+import android.widget.FrameLayout;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-/* compiled from: IMSdkService.java */
 /* loaded from: classes4.dex */
-public final /* synthetic */ class gh5 {
+public class gh5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static hh5 a() {
-        InterceptResult invokeV;
+    public static fh5 a(View view2, boolean z) {
+        InterceptResult invokeLZ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            return new ih5(b());
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65536, null, view2, z)) == null) {
+            if (view2 == null) {
+                return null;
+            }
+            if (view2 instanceof LinearLayout) {
+                return new hh5();
+            }
+            if (view2 instanceof RelativeLayout) {
+                return new kh5();
+            }
+            if (!(view2 instanceof FrameLayout)) {
+                return null;
+            }
+            if (z) {
+                return new lh5();
+            }
+            return new dh5();
         }
-        return (hh5) invokeV.objValue;
-    }
-
-    public static hh5 b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (hh5) ServiceManager.getService(hh5.a);
-        }
-        return (hh5) invokeV.objValue;
+        return (fh5) invokeLZ.objValue;
     }
 }

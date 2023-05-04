@@ -1,369 +1,165 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.network.outback.EngineName;
-import com.baidu.searchbox.network.outback.cookie.CookieManager;
-import com.baidu.searchbox.network.outback.core.Call;
-import com.baidu.searchbox.network.outback.core.CallFactory;
-import com.baidu.searchbox.network.outback.core.CallFactoryParams;
-import com.baidu.searchbox.network.outback.core.Request;
-import com.baidu.searchbox.network.outback.core.internal.Util;
-import com.baidu.searchbox.network.support.okhttp.converters.RequestConverter;
+import android.util.Pair;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.net.ProxySelector;
-import java.util.List;
-import java.util.concurrent.TimeUnit;
-import okhttp3.ConnectionPool;
-import okhttp3.Dispatcher;
-import okhttp3.Dns;
-import okhttp3.EventListener;
-import okhttp3.Interceptor;
-import okhttp3.OkHttpClient;
+import java.io.IOException;
+import java.io.RandomAccessFile;
+import java.nio.ByteBuffer;
+import java.nio.ByteOrder;
+import kotlin.UShort;
 /* loaded from: classes6.dex */
-public class q50 implements CallFactory.CallFactoryProducer {
+public abstract class q50 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public OkHttpClient a;
-    public String b;
-    public EventListener c;
-    public y50 d;
 
-    @Override // com.baidu.searchbox.network.outback.core.CallFactory.CallFactoryProducer
-    public String getEngineName() {
-        InterceptResult invokeV;
+    public static void a(ByteBuffer byteBuffer) {
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? EngineName.OKHTTP : (String) invokeV.objValue;
+        if ((interceptable != null && interceptable.invokeL(65536, null, byteBuffer) != null) || byteBuffer.order() == ByteOrder.LITTLE_ENDIAN) {
+            return;
+        }
+        throw new IllegalArgumentException("ByteBuffer byte order must be little endian");
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.CallFactory.CallFactoryProducer
-    public boolean isAvailable() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    /* loaded from: classes6.dex */
-    public class a implements CallFactory {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ CallFactoryParams a;
-        public final /* synthetic */ OkHttpClient b;
-        public final /* synthetic */ q50 c;
-
-        /* renamed from: com.baidu.tieba.q50$a$a  reason: collision with other inner class name */
-        /* loaded from: classes6.dex */
-        public class C0402a implements x50 {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-
-            public C0402a(a aVar, Request request) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {aVar, request};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                    }
-                }
-            }
-        }
-
-        public a(q50 q50Var, CallFactoryParams callFactoryParams, OkHttpClient okHttpClient) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {q50Var, callFactoryParams, okHttpClient};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = q50Var;
-            this.a = callFactoryParams;
-            this.b = okHttpClient;
-        }
-
-        @Override // com.baidu.searchbox.network.outback.core.CallFactory
-        public Call newCall(Request request, boolean z) {
-            InterceptResult invokeLZ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLZ = interceptable.invokeLZ(1048576, this, request, z)) == null) {
-                Request e = this.c.e(request);
-                if (this.c.h(e, this.a)) {
-                    OkHttpClient.Builder newBuilder = this.b.newBuilder();
-                    if (e.getConnectionTimeout() > 0) {
-                        newBuilder.connectTimeout(e.getConnectionTimeout(), TimeUnit.MILLISECONDS);
-                    }
-                    if (e.getReadTimeout() > 0) {
-                        newBuilder.readTimeout(e.getReadTimeout(), TimeUnit.MILLISECONDS);
-                    }
-                    if (e.getWriteTimeout() > 0) {
-                        newBuilder.writeTimeout(e.getWriteTimeout(), TimeUnit.MILLISECONDS);
-                    }
-                    if (e.getCookieManager() != null && e.getCookieManager() != this.a.getCookieManager()) {
-                        newBuilder.cookieJar(new r50(e.getCookieManager()));
-                    }
-                    if (!e.isFollowSslRedirects()) {
-                        newBuilder.followSslRedirects(e.isFollowSslRedirects());
-                    }
-                    if (!e.isFollowRedirects()) {
-                        newBuilder.followRedirects(e.isFollowRedirects());
-                    }
-                    newBuilder.eventListener(new s50(this.c.c));
-                    if (this.c.d != null) {
-                        Dns a = this.c.d.a(e, new C0402a(this, e));
-                        newBuilder.dns(a);
-                        newBuilder.addNetworkInterceptor(new u50(a));
-                    }
-                    return new p50(e, RequestConverter.toOks(e), newBuilder.build());
-                }
-                return new p50(e, RequestConverter.toOks(e), this.b);
-            }
-            return (Call) invokeLZ.objValue;
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public static class b {
-        public static /* synthetic */ Interceptable $ic;
-        public static List<Class<? extends Interceptor>> o;
-        public static List<Class<? extends Interceptor>> p;
-        public transient /* synthetic */ FieldHolder $fh;
-        public OkHttpClient a;
-        public OkHttpClient.Builder b;
-        public int c;
-        public int d;
-        public int e;
-        public ConnectionPool f;
-        public Dns g;
-        public ProxySelector h;
-        public int i;
-        public CookieManager j;
-        public boolean k;
-        public String l;
-        public EventListener m;
-        public y50 n;
-
-        public b() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = 30000;
-            this.d = 30000;
-            this.e = 30000;
-            this.k = true;
-        }
-
-        public b p(OkHttpClient okHttpClient) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, okHttpClient)) == null) {
-                this.a = okHttpClient;
-                return this;
-            }
-            return (b) invokeL.objValue;
-        }
-
-        public final void m(OkHttpClient.Builder builder) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, builder) == null) {
-                List<Class<? extends Interceptor>> list = o;
-                if (list != null) {
-                    try {
-                        for (Class<? extends Interceptor> cls : list) {
-                            builder.addNetworkInterceptor(cls.getConstructor(new Class[0]).newInstance(new Object[0]));
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                }
-                List<Class<? extends Interceptor>> list2 = p;
-                if (list2 != null) {
-                    try {
-                        for (Class<? extends Interceptor> cls2 : list2) {
-                            builder.addInterceptor(cls2.getConstructor(new Class[0]).newInstance(new Object[0]));
-                        }
-                    } catch (Exception e2) {
-                        e2.printStackTrace();
-                    }
-                }
-            }
-        }
-
-        public q50 n() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-                if (this.a == null) {
-                    if (this.b == null) {
-                        this.b = new OkHttpClient.Builder();
-                    }
-                    o();
-                    this.a = this.b.build();
-                }
-                return new q50(this, null);
-            }
-            return (q50) invokeV.objValue;
-        }
-
-        public final void o() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-                try {
-                    this.b.connectTimeout(this.c, TimeUnit.MILLISECONDS).readTimeout(this.d, TimeUnit.MILLISECONDS).writeTimeout(this.e, TimeUnit.MILLISECONDS);
-                    if (this.f == null) {
-                        this.f = new ConnectionPool(10, 5L, TimeUnit.MINUTES);
-                    }
-                    this.b.connectionPool(this.f);
-                    if (this.g != null && (this.g instanceof Dns)) {
-                        this.b.dns(this.g);
-                    }
-                    this.b.addNetworkInterceptor(new t50());
-                    this.b.addInterceptor(new v50());
-                    m(this.b);
-                    if (this.h != null) {
-                        this.b.proxySelector(this.h);
-                    }
-                    if (this.j != null) {
-                        this.b.cookieJar(new r50(this.j));
-                    }
-                    this.b.followRedirects(this.k);
-                    this.b.eventListener(new s50(this.m));
-                } catch (Exception unused) {
-                }
-            }
-        }
-    }
-
-    public q50(b bVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {bVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.a = bVar.a;
-        int unused = bVar.c;
-        int unused2 = bVar.d;
-        Dns unused3 = bVar.g;
-        ConnectionPool unused4 = bVar.f;
-        int unused5 = bVar.e;
-        ProxySelector unused6 = bVar.h;
-        boolean unused7 = bVar.k;
-        int unused8 = bVar.i;
-        this.b = bVar.l;
-        this.c = bVar.m;
-        this.d = bVar.n;
-    }
-
-    public /* synthetic */ q50(b bVar, a aVar) {
-        this(bVar);
-    }
-
-    public final Request e(Request request) {
+    public static Pair<ByteBuffer, Long> c(RandomAccessFile randomAccessFile) throws IOException {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, request)) == null) {
-            if (!Util.isTextEmpty(g())) {
-                return request.newBuilder().header("User-Agent", g()).build();
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, randomAccessFile)) == null) {
+            if (randomAccessFile.length() < 22) {
+                return null;
             }
-            return request;
+            Pair<ByteBuffer, Long> d = d(randomAccessFile, 0);
+            if (d != null) {
+                return d;
+            }
+            return d(randomAccessFile, 65535);
         }
-        return (Request) invokeL.objValue;
+        return (Pair) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.network.outback.core.CallFactory.CallFactoryProducer
-    public CallFactory produceCallFactory(CallFactoryParams callFactoryParams) {
+    public static long g(ByteBuffer byteBuffer) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, callFactoryParams)) == null) {
-            OkHttpClient.Builder newBuilder = this.a.newBuilder();
-            newBuilder.addNetworkInterceptor(new w50());
-            f(newBuilder, callFactoryParams);
-            return new a(this, callFactoryParams, newBuilder.build());
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, byteBuffer)) == null) {
+            a(byteBuffer);
+            return f(byteBuffer, byteBuffer.position() + 16);
         }
-        return (CallFactory) invokeL.objValue;
+        return invokeL.longValue;
     }
 
-    public final void f(OkHttpClient.Builder builder, CallFactoryParams callFactoryParams) {
+    public static long h(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, builder, callFactoryParams) == null) {
-            builder.dispatcher(new Dispatcher(this.a.dispatcher().executorService()));
-            if (callFactoryParams != null) {
-                if (callFactoryParams.getConnectTimeoutMs() > 0) {
-                    builder.connectTimeout(callFactoryParams.getConnectTimeoutMs(), TimeUnit.MILLISECONDS);
-                }
-                if (callFactoryParams.getReadTimeoutMs() > 0) {
-                    builder.readTimeout(callFactoryParams.getReadTimeoutMs(), TimeUnit.MILLISECONDS);
-                }
-                if (callFactoryParams.getWriteTimeoutMs() > 0) {
-                    builder.writeTimeout(callFactoryParams.getWriteTimeoutMs(), TimeUnit.MILLISECONDS);
-                }
-                if (callFactoryParams.getConnectionPoolMaxIdleConnections() > 0) {
-                    builder.connectionPool(new ConnectionPool(callFactoryParams.getConnectionPoolMaxIdleConnections(), callFactoryParams.getConnectionPoolKeepAliveDurationNs(), callFactoryParams.getConnectionPoolTimeUnit()));
-                }
-                if (callFactoryParams.getProxySelector() != null) {
-                    builder.proxySelector(callFactoryParams.getProxySelector());
-                }
-                if (callFactoryParams.getCookieManager() != null) {
-                    builder.cookieJar(new r50(callFactoryParams.getCookieManager()));
+        if (interceptable == null || (invokeL = interceptable.invokeL(65543, null, byteBuffer)) == null) {
+            a(byteBuffer);
+            return f(byteBuffer, byteBuffer.position() + 12);
+        }
+        return invokeL.longValue;
+    }
+
+    public static int b(ByteBuffer byteBuffer) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, byteBuffer)) == null) {
+            a(byteBuffer);
+            int capacity = byteBuffer.capacity();
+            if (capacity < 22) {
+                return -1;
+            }
+            int i = capacity - 22;
+            int min = Math.min(i, 65535);
+            for (int i2 = 0; i2 < min; i2++) {
+                int i3 = i - i2;
+                if (byteBuffer.getInt(i3) == 101010256 && e(byteBuffer, i3 + 20) == i2) {
+                    return i3;
                 }
             }
+            return -1;
         }
+        return invokeL.intValue;
     }
 
-    public String g() {
-        InterceptResult invokeV;
+    public static Pair<ByteBuffer, Long> d(RandomAccessFile randomAccessFile, int i) throws IOException {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65539, null, randomAccessFile, i)) == null) {
+            if (i >= 0 && i <= 65535) {
+                long length = randomAccessFile.length();
+                if (length < 22) {
+                    return null;
+                }
+                ByteBuffer allocate = ByteBuffer.allocate(((int) Math.min(i, length - 22)) + 22);
+                allocate.order(ByteOrder.LITTLE_ENDIAN);
+                long capacity = length - allocate.capacity();
+                randomAccessFile.seek(capacity);
+                randomAccessFile.readFully(allocate.array(), allocate.arrayOffset(), allocate.capacity());
+                int b = b(allocate);
+                if (b == -1) {
+                    return null;
+                }
+                allocate.position(b);
+                ByteBuffer slice = allocate.slice();
+                slice.order(ByteOrder.LITTLE_ENDIAN);
+                return Pair.create(slice, Long.valueOf(capacity + b));
+            }
+            throw new IllegalArgumentException("maxCommentSize: " + i);
         }
-        return (String) invokeV.objValue;
+        return (Pair) invokeLI.objValue;
     }
 
-    public final boolean h(Request request, CallFactoryParams callFactoryParams) {
-        InterceptResult invokeLL;
+    public static int e(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, request, callFactoryParams)) == null) {
-            if (request.getConnectionTimeout() <= 0 && request.getWriteTimeout() <= 0 && request.getReadTimeout() <= 0 && request.getHeaders() == null && request.getNetworkStatRecord() == null && request.isFollowRedirects() && request.isFollowSslRedirects() && this.d == null && (request.getCookieManager() == null || request.getCookieManager() == callFactoryParams.getCookieManager())) {
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(InputDeviceCompat.SOURCE_TRACKBALL, null, byteBuffer, i)) == null) {
+            return byteBuffer.getShort(i) & UShort.MAX_VALUE;
+        }
+        return invokeLI.intValue;
+    }
+
+    public static long f(ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(65541, null, byteBuffer, i)) == null) {
+            return byteBuffer.getInt(i) & 4294967295L;
+        }
+        return invokeLI.longValue;
+    }
+
+    public static final boolean i(RandomAccessFile randomAccessFile, long j) throws IOException {
+        InterceptResult invokeLJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(65544, null, randomAccessFile, j)) == null) {
+            long j2 = j - 20;
+            if (j2 < 0) {
+                return false;
+            }
+            randomAccessFile.seek(j2);
+            if (randomAccessFile.readInt() != 1347094023) {
                 return false;
             }
             return true;
         }
-        return invokeLL.booleanValue;
+        return invokeLJ.booleanValue;
+    }
+
+    public static void k(ByteBuffer byteBuffer, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLJ(65546, null, byteBuffer, j) == null) {
+            a(byteBuffer);
+            j(byteBuffer, byteBuffer.position() + 16, j);
+        }
+    }
+
+    public static void j(ByteBuffer byteBuffer, int i, long j) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeCommon(65545, null, new Object[]{byteBuffer, Integer.valueOf(i), Long.valueOf(j)}) == null) {
+            if (j >= 0 && j <= 4294967295L) {
+                byteBuffer.putInt(byteBuffer.position() + i, (int) j);
+                return;
+            }
+            throw new IllegalArgumentException("uint32 value of out range: " + j);
+        }
     }
 }

@@ -1,28 +1,60 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
 import android.content.Context;
-import android.os.Build;
-import androidx.annotation.NonNull;
-import androidx.core.app.NotificationManagerCompat;
+import android.os.IBinder;
+import android.view.inputmethod.InputMethodManager;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class yk3 {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @SuppressLint({"ObsoleteSdkInt"})
-    public static boolean a(@NonNull Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            if (Build.VERSION.SDK_INT >= 19) {
-                return NotificationManagerCompat.from(context).areNotificationsEnabled();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948333000, "Lcom/baidu/tieba/yk3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return true;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948333000, "Lcom/baidu/tieba/yk3;");
+                return;
+            }
         }
-        return invokeL.booleanValue;
+        a = ho1.a;
+    }
+
+    public static void a(Context context, IBinder iBinder) {
+        InputMethodManager inputMethodManager;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65537, null, context, iBinder) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
+            try {
+                inputMethodManager.hideSoftInputFromWindow(iBinder, 0);
+            } catch (Exception e) {
+                if (a) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void b(Context context, boolean z) {
+        InputMethodManager inputMethodManager;
+        int i;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLZ(65538, null, context, z) == null) && (inputMethodManager = (InputMethodManager) context.getSystemService("input_method")) != null) {
+            if (z) {
+                i = 2;
+            } else {
+                i = 0;
+            }
+            inputMethodManager.toggleSoftInput(i, 2);
+        }
     }
 }

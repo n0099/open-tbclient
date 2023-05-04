@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes6.dex */
-public class qu2 implements ux2 {
+public class qu2 implements wx2 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ou2> a;
-    public int b;
-    public int c;
-    public int d;
-    public int e;
+    public double a;
+    public double b;
 
     public qu2() {
         Interceptable interceptable = $ic;
@@ -33,58 +29,42 @@ public class qu2 implements ux2 {
                 return;
             }
         }
-        this.b = 1;
-        this.c = -16777216;
-        this.d = 0;
-        this.e = 0;
+        this.a = -200.0d;
+        this.b = -200.0d;
     }
 
-    @Override // com.baidu.tieba.ux2
+    @Override // com.baidu.tieba.wx2
+    public void a(JSONObject jSONObject) throws JSONException {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, jSONObject) == null) && jSONObject != null && jSONObject.has("longitude") && jSONObject.has("latitude")) {
+            this.a = jSONObject.optDouble("latitude", this.a);
+            this.b = jSONObject.optDouble("longitude", this.b);
+        }
+    }
+
+    @Override // com.baidu.tieba.wx2
     public boolean isValid() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            ArrayList<ou2> arrayList = this.a;
-            if (arrayList != null && !arrayList.isEmpty()) {
-                return true;
+            double d = this.a;
+            if (d >= -90.0d && d <= 90.0d) {
+                double d2 = this.b;
+                if (d2 >= -180.0d && d2 <= 180.0d) {
+                    return true;
+                }
             }
             return false;
         }
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.ux2
-    public void a(JSONObject jSONObject) throws JSONException {
-        int length;
+    public String toString() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || jSONObject == null || !jSONObject.has("points")) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return "[latitude：" + this.a + "longitude：" + this.b + PreferencesUtil.RIGHT_MOUNT;
         }
-        JSONArray optJSONArray = jSONObject.optJSONArray("points");
-        if (optJSONArray == null) {
-            length = 0;
-        } else {
-            length = optJSONArray.length();
-        }
-        if (length > 0) {
-            this.a = new ArrayList<>(length);
-            for (int i = 0; i < length; i++) {
-                JSONObject optJSONObject = optJSONArray.optJSONObject(i);
-                if (optJSONObject != null) {
-                    ou2 ou2Var = new ou2();
-                    ou2Var.a(optJSONObject);
-                    if (ou2Var.isValid()) {
-                        this.a.add(ou2Var);
-                    }
-                }
-            }
-        }
-        ArrayList<ou2> arrayList = this.a;
-        if (arrayList != null && arrayList.size() > 0) {
-            this.b = (int) Math.abs(iu2.b(jSONObject.optInt("strokeWidth", 1)));
-            this.c = iu2.a(jSONObject.optString("strokeColor"), -16777216);
-            this.d = iu2.a(jSONObject.optString("fillColor"), 0);
-            this.e = jSONObject.optInt("zIndex", 0);
-        }
+        return (String) invokeV.objValue;
     }
 }

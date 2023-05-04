@@ -2,7 +2,7 @@ package com.baidu.ugc.editvideo.record.renderer;
 
 import android.opengl.GLES20;
 import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
-import com.baidu.tieba.lf0;
+import com.baidu.tieba.nf0;
 import com.baidu.ugc.editvideo.faceunity.gles.FullFrameRect;
 import com.baidu.ugc.editvideo.faceunity.gles.GlUtil;
 import com.baidu.ugc.editvideo.record.entity.GLViewPortLocation;
@@ -58,7 +58,7 @@ public class MediaBaseRenderer implements IMediaRenderer {
     }
 
     @Override // com.baidu.ugc.editvideo.record.renderer.IMediaRenderer
-    public void onDrawFrame(lf0 lf0Var, int i, float[] fArr) {
+    public void onDrawFrame(nf0 nf0Var, int i, float[] fArr) {
         this.mTextureId = i;
         this.mMtx = fArr;
         GLViewPortLocation gLViewPortLocation = this.mGLViewPortLocation;

@@ -1,28 +1,28 @@
 package com.baidu.swan.pms.node;
 
 import android.text.TextUtils;
-import com.baidu.tieba.gj4;
-import com.baidu.tieba.hj4;
-import com.baidu.tieba.lk4;
-import com.baidu.tieba.mj4;
-import com.baidu.tieba.mk4;
-import com.baidu.tieba.nj4;
-import com.baidu.tieba.qj4;
-import com.baidu.tieba.qk4;
-import com.baidu.tieba.rj4;
-import com.baidu.tieba.rk4;
+import com.baidu.tieba.ij4;
+import com.baidu.tieba.jj4;
+import com.baidu.tieba.nk4;
+import com.baidu.tieba.oj4;
+import com.baidu.tieba.ok4;
+import com.baidu.tieba.pj4;
+import com.baidu.tieba.sj4;
+import com.baidu.tieba.sk4;
+import com.baidu.tieba.tj4;
+import com.baidu.tieba.tk4;
 /* loaded from: classes3.dex */
 public enum Node {
-    HOST("host", lk4.class, mk4.class),
-    PACKAGE("package", qk4.class, rk4.class, true),
-    CERES("ceres", mj4.class, nj4.class),
-    COMMON("common", qj4.class, rj4.class);
+    HOST("host", nk4.class, ok4.class),
+    PACKAGE("package", sk4.class, tk4.class, true),
+    CERES("ceres", oj4.class, pj4.class),
+    COMMON("common", sj4.class, tj4.class);
     
     public static final String TAG = "LXNODE";
     public boolean mIsDataArray;
     public String mName;
-    public Class<? extends hj4> mParamsProvider;
-    public Class<? extends gj4> mProcessor;
+    public Class<? extends jj4> mParamsProvider;
+    public Class<? extends ij4> mProcessor;
 
     Node(String str, Class cls, Class cls2) {
         this.mName = str;
@@ -48,8 +48,8 @@ public enum Node {
         return null;
     }
 
-    public static hj4 getProvider(Node node) {
-        Class<? extends hj4> paramsProvider;
+    public static jj4 getProvider(Node node) {
+        Class<? extends jj4> paramsProvider;
         if (node == null || (paramsProvider = node.getParamsProvider()) == null) {
             return null;
         }
@@ -64,11 +64,11 @@ public enum Node {
         return this.mName;
     }
 
-    public Class<? extends hj4> getParamsProvider() {
+    public Class<? extends jj4> getParamsProvider() {
         return this.mParamsProvider;
     }
 
-    public Class<? extends gj4> getProcessor() {
+    public Class<? extends ij4> getProcessor() {
         return this.mProcessor;
     }
 

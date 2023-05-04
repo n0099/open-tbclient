@@ -5,10 +5,10 @@ import androidx.lifecycle.MutableLiveData;
 import androidx.lifecycle.ViewModel;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.ak7;
+import com.baidu.tieba.at4;
+import com.baidu.tieba.bt4;
 import com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper;
-import com.baidu.tieba.ys4;
-import com.baidu.tieba.zs4;
+import com.baidu.tieba.vl7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -22,11 +22,11 @@ import kotlin.jvm.internal.Intrinsics;
 public final class VoiceRoomListViewModel extends ViewModel {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final ak7 a;
-    public final MutableLiveData<zs4<List<VoiceRoomWrapper>>> b;
+    public final vl7 a;
+    public final MutableLiveData<bt4<List<VoiceRoomWrapper>>> b;
 
     /* loaded from: classes4.dex */
-    public static final class a implements ys4<List<? extends VoiceRoomWrapper>> {
+    public static final class a implements at4<List<? extends VoiceRoomWrapper>> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public final /* synthetic */ VoiceRoomListViewModel a;
@@ -49,9 +49,9 @@ public final class VoiceRoomListViewModel extends ViewModel {
             this.a = voiceRoomListViewModel;
         }
 
-        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.tieba.zs4<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
-        @Override // com.baidu.tieba.ys4
-        public void a(zs4<? extends List<? extends VoiceRoomWrapper>> result) {
+        /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.tieba.bt4<? extends java.util.List<com.baidu.tieba.frs.voiceroom.data.VoiceRoomWrapper>>] */
+        @Override // com.baidu.tieba.at4
+        public void a(bt4<? extends List<? extends VoiceRoomWrapper>> result) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, result) == null) {
                 Intrinsics.checkNotNullParameter(result, "result");
@@ -73,11 +73,11 @@ public final class VoiceRoomListViewModel extends ViewModel {
                 return;
             }
         }
-        this.a = new ak7();
+        this.a = new vl7();
         this.b = new MutableLiveData<>();
     }
 
-    public final LiveData<zs4<List<VoiceRoomWrapper>>> b() {
+    public final LiveData<bt4<List<VoiceRoomWrapper>>> b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {

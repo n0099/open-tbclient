@@ -1,115 +1,134 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import androidx.annotation.NonNull;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.browser.sailor.BdSailorWebView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 /* loaded from: classes6.dex */
-public class rc2 {
+public final class rc2 extends InputStream {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public InputStream a;
+    public pc2 b;
 
-    /* loaded from: classes6.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ PrefetchEvent b;
-
-        public a(String str, PrefetchEvent prefetchEvent) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str, prefetchEvent};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = str;
-            this.b = prefetchEvent;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                rc2.d(this.a);
-                rc2.d(rc2.e(this.a, this.b.pageUrl));
-            }
-        }
-    }
-
-    public static void c(@NonNull PrefetchEvent prefetchEvent) {
+    public rc2(@NonNull InputStream inputStream, @NonNull pc2 pc2Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, prefetchEvent) != null) || !w13.a()) {
-            return;
-        }
-        String str = prefetchEvent.appPath;
-        if (TextUtils.isEmpty(str) || !new File(str).exists()) {
-            return;
-        }
-        pk3.k(new a(str, prefetchEvent), "addFileResToMemoryCache");
-    }
-
-    public static void d(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65539, null, str) != null) || TextUtils.isEmpty(str)) {
-            return;
-        }
-        File file = new File(str);
-        if (!file.exists()) {
-            return;
-        }
-        if (file.isDirectory()) {
-            String[] list = file.list();
-            if (list != null && list.length != 0) {
-                for (String str2 : list) {
-                    if (!TextUtils.isEmpty(str2)) {
-                        String str3 = str + File.separator + str2;
-                        File file2 = new File(str3);
-                        if (file2.exists() && file2.isFile() && (str3.endsWith(FileHelper.FILE_CACHE_CSS) || str3.endsWith(".js"))) {
-                            BdSailorWebView.addToWebCache("file://" + str3, true);
-                        }
-                    }
-                }
-            }
-        } else if (file.isFile()) {
-            String absolutePath = file.getAbsolutePath();
-            if (TextUtils.isEmpty(absolutePath)) {
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {inputStream, pc2Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
-            if (absolutePath.endsWith(FileHelper.FILE_CACHE_CSS) || absolutePath.endsWith(".js")) {
-                BdSailorWebView.addToWebCache("file://" + absolutePath, true);
+        }
+        this.a = inputStream;
+        this.b = pc2Var;
+    }
+
+    @Override // java.io.InputStream
+    public int available() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a.available();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream, java.io.Closeable, java.lang.AutoCloseable
+    public void close() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            super.close();
+            this.b.c(this.a);
+            this.b.a();
+            bo4.d(this.a);
+        }
+    }
+
+    @Override // java.io.InputStream
+    public boolean markSupported() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.a.markSupported();
+        }
+        return invokeV.booleanValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read() throws IOException {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.a.read();
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public synchronized void reset() throws IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            synchronized (this) {
+                super.reset();
+                this.a.reset();
             }
         }
     }
 
-    public static String e(@NonNull String str, String str2) {
-        InterceptResult invokeLL;
-        int lastIndexOf;
+    @Override // java.io.InputStream
+    public void mark(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
-            String f = nl3.f(str2);
-            if (TextUtils.isEmpty(f) || (lastIndexOf = f.lastIndexOf(File.separator)) <= 0) {
-                return null;
-            }
-            String substring = f.substring(0, lastIndexOf);
-            return str + File.separator + substring;
+        if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
+            super.mark(i);
+            this.a.mark(i);
         }
-        return (String) invokeLL.objValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(@NonNull byte[] bArr) throws IOException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, bArr)) == null) {
+            int read = this.a.read(bArr);
+            this.b.d(bArr, 0, read);
+            return read;
+        }
+        return invokeL.intValue;
+    }
+
+    @Override // java.io.InputStream
+    public long skip(long j) throws IOException {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(InputDeviceCompat.SOURCE_TOUCHPAD, this, j)) == null) {
+            this.a.skip(j);
+            return super.skip(j);
+        }
+        return invokeJ.longValue;
+    }
+
+    @Override // java.io.InputStream
+    public int read(@NonNull byte[] bArr, int i, int i2) throws IOException {
+        InterceptResult invokeLII;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
+            int read = this.a.read(bArr, i, i2);
+            this.b.d(bArr, i, read);
+            return read;
+        }
+        return invokeLII.intValue;
     }
 }

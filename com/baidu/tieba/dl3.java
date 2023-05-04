@@ -1,40 +1,62 @@
 package com.baidu.tieba;
 
-import android.content.Intent;
-import android.os.Bundle;
-import com.baidu.swan.apps.SwanAppActivity;
-import com.baidu.swan.apps.env.launch.SwanLauncher;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.preference.PreferenceManager;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes4.dex */
-public class dl3 {
+public final class dl3 {
     public static /* synthetic */ Interceptable $ic;
+    public static SharedPreferences a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(SwanAppActivity swanAppActivity) {
-        Intent intent;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65536, null, swanAppActivity) != null) || swanAppActivity == null || (intent = swanAppActivity.getIntent()) == null) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947708350, "Lcom/baidu/tieba/dl3;")) == null) {
             return;
         }
-        if (u33.D()) {
-            g52.k().s();
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
         }
-        Bundle bundle = new Bundle();
-        bundle.putAll(intent.getExtras());
-        bundle.putBoolean("should_ignore_launch_time", true);
-        Bundle bundle2 = bundle.getBundle("mExtraData");
-        if (bundle2 == null) {
-            bundle2 = new Bundle();
-            bundle.putBundle("mExtraData", bundle2);
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1947708350, "Lcom/baidu/tieba/dl3;");
         }
-        bundle2.putLong("launch_flag_for_statistic", System.currentTimeMillis());
-        bundle2.putLong("page_display_flag_for_statistic", System.currentTimeMillis());
-        u73.K().n(new String[0]);
-        bundle.remove("pms_db_info_onload");
-        bundle.remove("pms_db_info_updated");
-        bundle.remove("mPage");
-        bundle.putString("launch_id", SwanLauncher.h());
-        u73.K().l(bundle, "update_tag_by_activity_on_relaunch");
+    }
+
+    public static Context a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            return AppRuntime.getAppContext();
+        }
+        return (Context) invokeV.objValue;
+    }
+
+    public static SharedPreferences c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
+            if (a == null) {
+                a = PreferenceManager.getDefaultSharedPreferences(a());
+            }
+            return a;
+        }
+        return (SharedPreferences) invokeV.objValue;
+    }
+
+    public static boolean b(String str, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65538, null, str, z)) == null) {
+            return c().getBoolean(str, z);
+        }
+        return invokeLZ.booleanValue;
     }
 }

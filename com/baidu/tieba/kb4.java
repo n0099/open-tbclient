@@ -1,48 +1,43 @@
 package com.baidu.tieba;
 
-import com.baidu.swan.games.view.recommend.model.RecommendItemModel;
+import android.annotation.SuppressLint;
+import android.content.Context;
+import android.view.LayoutInflater;
+import android.view.View;
+import android.view.ViewGroup;
+import android.widget.TextView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
+import com.facebook.drawee.view.SimpleDraweeView;
 /* loaded from: classes5.dex */
 public class kb4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public RecommendItemModel a;
-    public List<RecommendItemModel> b;
+    public View a;
+    public SimpleDraweeView b;
+    public TextView c;
 
-    public kb4() {
+    @SuppressLint({"InflateParams"})
+    public kb4(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    public kb4(RecommendItemModel recommendItemModel, List<RecommendItemModel> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {recommendItemModel, list};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = recommendItemModel;
-        this.b = list;
+        View inflate = LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d08b7, (ViewGroup) null);
+        this.a = inflate;
+        this.b = (SimpleDraweeView) inflate.findViewById(R.id.obfuscated_res_0x7f0921d7);
+        this.c = (TextView) this.a.findViewById(R.id.obfuscated_res_0x7f0921d8);
     }
 }

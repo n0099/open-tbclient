@@ -1,26 +1,27 @@
 package com.baidu.tieba;
 
-import android.view.ViewGroup;
+import android.content.Context;
+import android.graphics.BitmapRegionDecoder;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.widget.multidelmenu.view.MultiDelPostMenuView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.io.IOException;
 /* loaded from: classes6.dex */
-public class qu5 extends pu5 {
+public class qu5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public MultiDelPostMenuView c;
-    public ViewGroup d;
+    public final int[] a;
+    public Context b;
 
-    public qu5(TbPageContext tbPageContext, ViewGroup viewGroup, fu5 fu5Var) {
+    public qu5(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, viewGroup, fu5Var};
+            Object[] objArr = {context};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -30,52 +31,31 @@ public class qu5 extends pu5 {
                 return;
             }
         }
-        this.d = viewGroup;
-        nu5 nu5Var = new nu5(tbPageContext, new gu5(fu5Var));
-        this.b = nu5Var;
-        nu5Var.d(this);
-        this.c = new MultiDelPostMenuView(tbPageContext, this);
+        this.a = new int[2];
+        this.b = context;
     }
 
-    @Override // com.baidu.tieba.pu5
-    public void a() {
+    public BitmapRegionDecoder a(byte[] bArr) throws IOException {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || !this.a) {
-            return;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bArr)) == null) {
+            if (bArr != null && bArr.length > 0) {
+                BitmapRegionDecoder newInstance = BitmapRegionDecoder.newInstance(bArr, 0, bArr.length, false);
+                this.a[0] = newInstance.getWidth();
+                this.a[1] = newInstance.getHeight();
+                return newInstance;
+            }
+            return null;
         }
-        this.a = false;
-        MultiDelPostMenuView multiDelPostMenuView = this.c;
-        if (multiDelPostMenuView != null && this.d != null && multiDelPostMenuView.getParent() != null) {
-            this.d.removeView(this.c);
-        }
-        mu5 mu5Var = this.b;
-        if (mu5Var != null) {
-            mu5Var.dismiss();
-        }
-        this.c = null;
-        this.d = null;
-        this.b = null;
+        return (BitmapRegionDecoder) invokeL.objValue;
     }
 
-    @Override // com.baidu.tieba.pu5
-    public void d(int i) {
-        MultiDelPostMenuView multiDelPostMenuView;
+    public int[] b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && (multiDelPostMenuView = this.c) != null) {
-            multiDelPostMenuView.setDelCount(i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.a;
         }
-    }
-
-    @Override // com.baidu.tieba.pu5
-    public void e() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.a) {
-            return;
-        }
-        this.a = true;
-        ViewGroup viewGroup = this.d;
-        if (viewGroup != null) {
-            viewGroup.addView(this.c, new ViewGroup.LayoutParams(-1, -1));
-        }
+        return (int[]) invokeV.objValue;
     }
 }

@@ -1,7 +1,7 @@
 package com.google.android.gms.actions;
 
 import androidx.annotation.NonNull;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class SearchIntents {
     @NonNull
     public static final String ACTION_SEARCH = "com.google.android.gms.actions.SEARCH_ACTION";

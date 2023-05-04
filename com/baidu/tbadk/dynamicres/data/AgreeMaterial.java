@@ -6,7 +6,7 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.FileHelper;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
-import com.baidu.tieba.bu5;
+import com.baidu.tieba.bv5;
 import com.baidu.tieba.gg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -41,7 +41,7 @@ public class AgreeMaterial extends OrmObject {
         public String tid;
 
         /* loaded from: classes3.dex */
-        public class a implements bu5.a {
+        public class a implements bv5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -64,7 +64,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.baidu.tieba.bu5.a
+            @Override // com.baidu.tieba.bv5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -78,7 +78,7 @@ public class AgreeMaterial extends OrmObject {
         }
 
         /* loaded from: classes3.dex */
-        public class b implements bu5.a {
+        public class b implements bv5.a {
             public static /* synthetic */ Interceptable $ic;
             public transient /* synthetic */ FieldHolder $fh;
             public final /* synthetic */ Data a;
@@ -101,7 +101,7 @@ public class AgreeMaterial extends OrmObject {
                 this.a = data;
             }
 
-            @Override // com.baidu.tieba.bu5.a
+            @Override // com.baidu.tieba.bv5.a
             public void a(boolean z, String str) {
                 Interceptable interceptable = $ic;
                 if (interceptable == null || interceptable.invokeZL(1048576, this, z, str) == null) {
@@ -128,15 +128,15 @@ public class AgreeMaterial extends OrmObject {
             }
         }
 
-        public void Q() {
+        public void V() {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                R(this.dayRes, new a(this));
-                R(this.nightRes, new b(this));
+                W(this.dayRes, new a(this));
+                W(this.nightRes, new b(this));
             }
         }
 
-        public static Data T(JSONObject jSONObject) {
+        public static Data Y(JSONObject jSONObject) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
@@ -157,21 +157,21 @@ public class AgreeMaterial extends OrmObject {
             return (Data) invokeL.objValue;
         }
 
-        public final void R(String str, bu5.a aVar) {
+        public final void W(String str, bv5.a aVar) {
             Interceptable interceptable = $ic;
             if ((interceptable != null && interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, aVar) != null) || StringUtils.isNull(str)) {
                 return;
             }
-            new bu5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
+            new bv5(TBLottieAnimationView.getAnimationPath(), str, aVar).execute(new Void[0]);
         }
 
         /* JADX WARN: Code restructure failed: missing block: B:39:0x00b9, code lost:
-            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.R(r8.nightDirName + r9) == false) goto L35;
+            if (com.baidu.tbadk.dynamicres.data.AgreeMaterial.W(r8.nightDirName + r9) == false) goto L35;
          */
         /*
             Code decompiled incorrectly, please refer to instructions dump.
         */
-        public String S(String str, String str2, String str3) {
+        public String X(String str, String str2, String str3) {
             InterceptResult invokeLLL;
             StringBuilder sb;
             String str4;
@@ -181,7 +181,7 @@ public class AgreeMaterial extends OrmObject {
                 long g = gg.g(this.startTime, 0L);
                 long g2 = gg.g(this.endTime, 0L);
                 if (currentTimeMillis >= g && currentTimeMillis < g2 && !StringUtils.isNull(this.dayDirName)) {
-                    if (AgreeMaterial.R(this.dayDirName + str)) {
+                    if (AgreeMaterial.W(this.dayDirName + str)) {
                         boolean z = false;
                         boolean z2 = true;
                         if (!this.all) {
@@ -232,7 +232,7 @@ public class AgreeMaterial extends OrmObject {
         }
     }
 
-    public static boolean R(String str) {
+    public static boolean W(String str) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
@@ -251,7 +251,7 @@ public class AgreeMaterial extends OrmObject {
         return invokeL.booleanValue;
     }
 
-    public static AgreeMaterial S(JSONObject jSONObject) {
+    public static AgreeMaterial X(JSONObject jSONObject) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
@@ -259,10 +259,10 @@ public class AgreeMaterial extends OrmObject {
                 return null;
             }
             AgreeMaterial agreeMaterial = new AgreeMaterial();
-            agreeMaterial.staticData = Data.T(jSONObject.optJSONObject("static"));
-            agreeMaterial.singleTapData = Data.T(jSONObject.optJSONObject("single_point"));
-            agreeMaterial.doubleTapData = Data.T(jSONObject.optJSONObject("double_click"));
-            agreeMaterial.longPressData = Data.T(jSONObject.optJSONObject("long_press"));
+            agreeMaterial.staticData = Data.Y(jSONObject.optJSONObject("static"));
+            agreeMaterial.singleTapData = Data.Y(jSONObject.optJSONObject("single_point"));
+            agreeMaterial.doubleTapData = Data.Y(jSONObject.optJSONObject("double_click"));
+            agreeMaterial.longPressData = Data.Y(jSONObject.optJSONObject("long_press"));
             return agreeMaterial;
         }
         return (AgreeMaterial) invokeL.objValue;

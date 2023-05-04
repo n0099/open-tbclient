@@ -1,660 +1,315 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.AlertDialog;
-import android.content.DialogInterface;
-import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.lib.util.BdLog;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.BaseActivity;
-import com.baidu.tbadk.core.BaseFragmentActivity;
-import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.MainTabActivityConfig;
-import com.baidu.tbadk.core.message.BackgroundSwitchMessage;
-import com.baidu.tbadk.core.util.FileHelper;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.ubc.UBCManager;
 import java.io.File;
-import java.util.concurrent.Executors;
-import java.util.concurrent.ScheduledExecutorService;
-import java.util.concurrent.TimeUnit;
-import java.util.concurrent.atomic.AtomicLong;
-import org.json.JSONObject;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.Enumeration;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipException;
+import java.util.zip.ZipFile;
+import java.util.zip.ZipOutputStream;
 /* loaded from: classes5.dex */
 public class n45 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
-    public int c;
-    public int d;
-    public boolean e;
-    public int f;
-    public volatile boolean g;
-    public volatile boolean h;
-    public AtomicLong i;
-    public ScheduledExecutorService j;
-    public e k;
-    public boolean l;
-    public CustomMessageListener m;
 
-    /* loaded from: classes5.dex */
-    public class c implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ n45 b;
-
-        /* loaded from: classes5.dex */
-        public class a extends dr5<Object> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public a(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // com.baidu.tieba.dr5
-            public Object doInBackground() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    this.a.b.k();
-                    if (Build.VERSION.SDK_INT >= 24) {
-                        this.a.a.deleteSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
-                    } else {
-                        q45.m().d();
-                    }
-                    q45.m().w("key_is_jump_splash_ad", true);
-                    q45.m().L();
-                    return null;
-                }
-                return invokeV.objValue;
-            }
-        }
-
-        /* loaded from: classes5.dex */
-        public class b implements gq5<Object> {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ c a;
-
-            public b(c cVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {cVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = cVar;
-            }
-
-            @Override // com.baidu.tieba.gq5
-            public void onReturnDataInUI(Object obj) {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                    c cVar = this.a;
-                    cVar.b.t(cVar.a);
-                    ii.J(this.a.a);
-                }
-            }
-        }
-
-        public c(n45 n45Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n45Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = n45Var;
-            this.a = activity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(1048576, this, dialogInterface, i) != null) {
-                return;
-            }
-            this.b.B("fix");
-            this.b.z(this.a);
-            hr5.b(new a(this), new b(this));
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class e implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n45 a;
-
-        /* loaded from: classes5.dex */
-        public class a implements Runnable {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ e a;
-
-            public a(e eVar) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {eVar};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = eVar;
-            }
-
-            @Override // java.lang.Runnable
-            public void run() {
-                Interceptable interceptable = $ic;
-                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                    this.a.a.g();
-                }
-            }
-        }
-
-        public e(n45 n45Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n45Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n45Var;
-        }
-
-        public /* synthetic */ e(n45 n45Var, a aVar) {
-            this(n45Var);
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                this.a.i.incrementAndGet();
-                if (this.a.i.get() >= 10) {
-                    jg.a().post(new a(this));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ n45 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(n45 n45Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n45Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = n45Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && (customResponsedMessage instanceof BackgroundSwitchMessage) && ((BackgroundSwitchMessage) customResponsedMessage).getData().booleanValue()) {
-                this.a.g();
-            }
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ Activity a;
-        public final /* synthetic */ n45 b;
-
-        public b(n45 n45Var, Activity activity) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {n45Var, activity};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = n45Var;
-            this.a = activity;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeLI(1048576, this, dialogInterface, i) != null) {
-                return;
-            }
-            this.b.B("cancel");
-            this.b.l();
-            dialogInterface.dismiss();
-            this.a.finish();
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static class d {
-        public static /* synthetic */ Interceptable $ic;
-        public static final n45 a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-623401734, "Lcom/baidu/tieba/n45$d;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-623401734, "Lcom/baidu/tieba/n45$d;");
-                    return;
-                }
-            }
-            a = new n45(null);
-        }
-    }
-
-    public n45() {
+    public static boolean a(File file, String str) {
+        InterceptResult invokeLL;
+        ZipFile zipFile;
+        FileOutputStream fileOutputStream;
+        InputStream inputStream;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = false;
-        this.i = new AtomicLong(0L);
-        this.k = new e(this, null);
-        this.l = true;
-        this.m = new a(this, 2001011);
-        if (TbadkCoreApplication.getInst().isMainProcess(false)) {
-            boolean z = q45.m().n("key_is_start_safe_mode", 0) == 1;
-            this.a = z;
-            if (!z) {
-                return;
-            }
-            this.b = q45.m().n("key_first_level_safe_mode_continuous_crash_time", 3);
-            this.c = q45.m().n("key_second_level_safe_mode_continuous_crash_time", 6);
-            this.d = q45.m().n("key_continupus_crash_times", 0);
-            MessageManager.getInstance().registerListener(this.m);
-        }
-    }
-
-    public final void k() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
-            j();
-            n(new File("/data/data/" + TbadkCoreApplication.getInst().getPackageName() + "/databases"));
-            n(new File("/data/data/" + TbadkCoreApplication.getInst().getPackageName() + "/shared_prefs"));
-            n(new File("/data/data/" + TbadkCoreApplication.getInst().getPackageName() + "/files"));
-        }
-    }
-
-    public /* synthetic */ n45(a aVar) {
-        this();
-    }
-
-    public final void B(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put("type", str);
-                uBCManager.onEvent("5087", jSONObject);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-        }
-    }
-
-    public final void n(File file) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, file) == null) {
-            FileHelper.deleteFileOrDir(file);
-        }
-    }
-
-    public void x(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048595, this, activity) == null) && TbadkCoreApplication.getInst().isMainProcess(false) && w8.f().g() == 1) {
-            q().g();
-        }
-    }
-
-    public static final n45 q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65544, null)) == null) {
-            return d.a;
-        }
-        return (n45) invokeV.objValue;
-    }
-
-    public void A() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.a && !this.g && !this.h) {
-            this.g = true;
-            ScheduledExecutorService newSingleThreadScheduledExecutor = Executors.newSingleThreadScheduledExecutor();
-            this.j = newSingleThreadScheduledExecutor;
-            newSingleThreadScheduledExecutor.scheduleWithFixedDelay(this.k, 0L, 1L, TimeUnit.SECONDS);
-        }
-    }
-
-    public void h() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || !this.a || this.h) {
-            return;
-        }
-        this.d++;
-        q45.m().z("key_continupus_crash_times", this.d);
-        q45.m().L();
-    }
-
-    public final void l() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.d > 0) {
-            this.d = 0;
-            q45.m().z("key_continupus_crash_times", this.d);
-            q45.m().L();
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.d = 0;
-            q45.m().z("key_continupus_crash_times", this.d);
-            q45.m().w("key_is_jump_splash_ad", false);
-        }
-    }
-
-    public int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048587, this)) == null) {
-            return this.d;
-        }
-        return invokeV.intValue;
-    }
-
-    public int p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.b;
-        }
-        return invokeV.intValue;
-    }
-
-    public int r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048589, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public int s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048590, this)) == null) {
-            return this.f;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
-            return this.a;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public final void C(int i, int i2) {
-        String str;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_SEND_USER_MSG, this, i, i2) == null) {
-            UBCManager uBCManager = (UBCManager) ServiceManager.getService(UBCManager.SERVICE_REFERENCE);
-            JSONObject jSONObject = new JSONObject();
-            if (i == 1) {
-                str = "first_level";
-            } else if (i == 2) {
-                str = "second_level";
-            } else {
-                str = "";
-            }
-            try {
-                jSONObject.put("type", str);
-                JSONObject jSONObject2 = new JSONObject();
-                jSONObject2.put("crash_times", i2);
-                jSONObject.put("ext", jSONObject2);
-                uBCManager.onEvent("5081", jSONObject);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && this.a && !this.h && this.g) {
-            this.h = true;
-            ScheduledExecutorService scheduledExecutorService = this.j;
-            if (scheduledExecutorService != null && !scheduledExecutorService.isShutdown()) {
-                this.j.shutdownNow();
-            }
-            if (this.i.get() <= 5) {
-                return;
-            }
-            l();
-        }
-    }
-
-    public int i(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, activity)) == null) {
-            if (!this.a || this.e) {
-                return 0;
-            }
-            this.e = true;
-            this.f = 0;
-            int i = this.d;
-            if (i >= this.c) {
-                if (activity == null) {
-                    return 0;
-                }
-                y(activity);
-                this.f = 2;
-                C(2, this.d);
-                return this.f;
-            } else if (i < this.b) {
-                return 0;
-            } else {
-                j();
-                this.f = 1;
-                C(1, this.d);
-                return this.f;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public final void z(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048597, this, activity) == null) {
-            if (activity instanceof BaseActivity) {
-                BaseActivity baseActivity = (BaseActivity) activity;
-                baseActivity.showLoadingView(activity.getWindow().findViewById(16908290), true);
-                pg5 loadingView = baseActivity.getLoadingView();
-                if (loadingView != null) {
-                    loadingView.r(R.string.data_cleaning);
-                }
-            } else if (activity instanceof BaseFragmentActivity) {
-                BaseFragmentActivity baseFragmentActivity = (BaseFragmentActivity) activity;
-                baseFragmentActivity.showLoadingView(activity.getWindow().findViewById(16908290), true);
-                pg5 loadingView2 = baseFragmentActivity.getLoadingView();
-                if (loadingView2 != null) {
-                    loadingView2.r(R.string.data_cleaning);
-                }
-            }
-        }
-    }
-
-    public final void j() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            n(new File(FileHelper.getCacheDir()));
-            n(TbadkCoreApplication.getInst().getCacheDir());
-            n(TbadkCoreApplication.getInst().getExternalCacheDir());
-            c05.d();
-            try {
-                c05.c("tb.rec_frs_update", TbadkCoreApplication.getCurrentAccount()).g("0", null);
-            } catch (Exception e2) {
-                BdLog.e(e2);
-            }
-        }
-    }
-
-    public final void t(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048591, this, activity) == null) {
-            if (activity instanceof BaseActivity) {
-                ((BaseActivity) activity).hideLoadingView(activity.getWindow().findViewById(16908290));
-            } else if (activity instanceof BaseFragmentActivity) {
-                ((BaseFragmentActivity) activity).hideLoadingView(activity.getWindow().findViewById(16908290));
-            }
-        }
-    }
-
-    public final void y(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048596, this, activity) == null) {
-            AlertDialog.Builder builder = new AlertDialog.Builder(activity, R.style.obfuscated_res_0x7f1003ea);
-            builder.setMessage(R.string.check_app_has_been_damaged);
-            builder.setCancelable(false);
-            builder.setPositiveButton(R.string.obfuscated_res_0x7f0f0620, new b(this, activity));
-            builder.setNegativeButton(R.string.obfuscated_res_0x7f0f068d, new c(this, activity));
-            builder.show();
-        }
-    }
-
-    public boolean v(Activity activity) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048593, this, activity)) == null) {
-            if (!q().u() || activity == null || !TbadkCoreApplication.getInst().isMainProcess(false) || !activity.getClass().getPackage().getName().startsWith("com.baidu.tieba") || !this.l || q().o() < q().r() || activity.getClass().getSimpleName().equals("MainTabActivity")) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, file, str)) == null) {
+            File file2 = new File(str);
+            if (!file2.exists() && !file2.mkdirs()) {
                 return false;
             }
-            return true;
+            boolean z = true;
+            ZipFile zipFile2 = null;
+            InputStream inputStream2 = null;
+            zipFile2 = null;
+            try {
+                try {
+                    zipFile = new ZipFile(file);
+                } catch (Exception e) {
+                    e = e;
+                }
+            } catch (Throwable th) {
+                th = th;
+            }
+            try {
+                Enumeration<? extends ZipEntry> entries = zipFile.entries();
+                while (entries.hasMoreElements()) {
+                    try {
+                        ZipEntry nextElement = entries.nextElement();
+                        String name = nextElement.getName();
+                        if (name == null || !name.contains("__MACOSX/")) {
+                            File file3 = new File(str, name);
+                            if (nextElement.isDirectory()) {
+                                file3.mkdirs();
+                            } else {
+                                inputStream = zipFile.getInputStream(nextElement);
+                                try {
+                                    fileOutputStream = new FileOutputStream(file3);
+                                    try {
+                                        try {
+                                            byte[] bArr = new byte[1024];
+                                            while (true) {
+                                                int read = inputStream.read(bArr);
+                                                if (read <= 0) {
+                                                    break;
+                                                }
+                                                fileOutputStream.write(bArr, 0, read);
+                                            }
+                                            fileOutputStream.flush();
+                                            if (inputStream != null) {
+                                                try {
+                                                    inputStream.close();
+                                                } catch (IOException e2) {
+                                                    e2.printStackTrace();
+                                                }
+                                            }
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e3) {
+                                                e3.printStackTrace();
+                                            }
+                                        } catch (Throwable th2) {
+                                            th = th2;
+                                            inputStream2 = inputStream;
+                                            if (inputStream2 != null) {
+                                                try {
+                                                    inputStream2.close();
+                                                } catch (IOException e4) {
+                                                    e4.printStackTrace();
+                                                }
+                                            }
+                                            if (fileOutputStream != null) {
+                                                try {
+                                                    fileOutputStream.close();
+                                                } catch (IOException e5) {
+                                                    e5.printStackTrace();
+                                                }
+                                            }
+                                            throw th;
+                                        }
+                                    } catch (Exception e6) {
+                                        e = e6;
+                                        e.printStackTrace();
+                                        if (inputStream != null) {
+                                            try {
+                                                inputStream.close();
+                                            } catch (IOException e7) {
+                                                e7.printStackTrace();
+                                            }
+                                        }
+                                        if (fileOutputStream != null) {
+                                            try {
+                                                fileOutputStream.close();
+                                            } catch (IOException e8) {
+                                                e8.printStackTrace();
+                                            }
+                                        }
+                                        z = false;
+                                    }
+                                } catch (Exception e9) {
+                                    e = e9;
+                                    fileOutputStream = null;
+                                } catch (Throwable th3) {
+                                    th = th3;
+                                    fileOutputStream = null;
+                                }
+                            }
+                        }
+                    } catch (Exception e10) {
+                        e = e10;
+                        inputStream = null;
+                        fileOutputStream = null;
+                    } catch (Throwable th4) {
+                        th = th4;
+                        fileOutputStream = null;
+                    }
+                }
+                try {
+                    zipFile.close();
+                } catch (IOException e11) {
+                    e11.printStackTrace();
+                }
+                return z;
+            } catch (Exception e12) {
+                e = e12;
+                zipFile2 = zipFile;
+                e.printStackTrace();
+                if (zipFile2 == null) {
+                    return false;
+                }
+                try {
+                    zipFile2.close();
+                    return false;
+                } catch (IOException e13) {
+                    e13.printStackTrace();
+                    return false;
+                }
+            } catch (Throwable th5) {
+                th = th5;
+                zipFile2 = zipFile;
+                if (zipFile2 != null) {
+                    try {
+                        zipFile2.close();
+                    } catch (IOException e14) {
+                        e14.printStackTrace();
+                    }
+                }
+                throw th;
+            }
         }
-        return invokeL.booleanValue;
+        return invokeLL.booleanValue;
     }
 
-    public void w(Activity activity) {
+    public static boolean b(String str, String str2) {
+        InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048594, this, activity) == null) && q().u() && activity != null && TbadkCoreApplication.getInst().isMainProcess(false) && activity.getClass().getPackage().getName().startsWith("com.baidu.tieba")) {
-            if (this.l && q().o() >= q().r() && !activity.getClass().getSimpleName().equals("MainTabActivity")) {
-                this.l = false;
-                MessageManager.getInstance().sendMessage(new CustomMessage(2015002, new MainTabActivityConfig(activity).createNormalCfg(2)));
-                activity.finish();
-                return;
-            }
-            q().A();
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, str, str2)) == null) {
+            return a(new File(str), str2);
         }
+        return invokeLL.booleanValue;
+    }
+
+    public static void c(File file, String str) throws ZipException, IOException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, file, str) == null) {
+            File file2 = new File(str);
+            if (!file2.exists()) {
+                file2.mkdirs();
+            }
+            ZipFile zipFile = new ZipFile(file);
+            Enumeration<? extends ZipEntry> entries = zipFile.entries();
+            while (entries.hasMoreElements()) {
+                ZipEntry nextElement = entries.nextElement();
+                String name = nextElement.getName();
+                if (!"./".equals(name) && !".".equals(name) && !name.endsWith("/")) {
+                    InputStream inputStream = zipFile.getInputStream(nextElement);
+                    File file3 = new File(str + File.separator + name);
+                    if (!file3.exists()) {
+                        File parentFile = file3.getParentFile();
+                        if (!parentFile.exists()) {
+                            parentFile.mkdirs();
+                        }
+                        file3.createNewFile();
+                    }
+                    FileOutputStream fileOutputStream = new FileOutputStream(file3);
+                    byte[] bArr = new byte[10240];
+                    while (true) {
+                        int read = inputStream.read(bArr);
+                        if (read <= 0) {
+                            break;
+                        }
+                        fileOutputStream.write(bArr, 0, read);
+                    }
+                    inputStream.close();
+                    fileOutputStream.close();
+                }
+            }
+        }
+    }
+
+    public static void d(String str, String str2, ZipOutputStream zipOutputStream) throws Exception {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLLL(65539, null, str, str2, zipOutputStream) != null) || zipOutputStream == null) {
+            return;
+        }
+        File file = new File(str, str2);
+        if (!file.exists()) {
+            return;
+        }
+        if (file.isFile()) {
+            ZipEntry zipEntry = new ZipEntry(str2);
+            FileInputStream fileInputStream = new FileInputStream(file);
+            zipOutputStream.putNextEntry(zipEntry);
+            byte[] bArr = new byte[4096];
+            while (true) {
+                int read = fileInputStream.read(bArr);
+                if (read != -1) {
+                    zipOutputStream.write(bArr, 0, read);
+                } else {
+                    zipOutputStream.closeEntry();
+                    return;
+                }
+            }
+        } else if (file.isDirectory()) {
+            String[] list = file.list();
+            if (list.length <= 0) {
+                zipOutputStream.putNextEntry(new ZipEntry(str2 + File.separator));
+                zipOutputStream.closeEntry();
+            }
+            for (int i = 0; i < list.length; i++) {
+                d(str, str2 + File.separator + list[i], zipOutputStream);
+            }
+        }
+    }
+
+    public static boolean e(String str, String str2) {
+        InterceptResult invokeLL;
+        ZipOutputStream zipOutputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, str2)) == null) {
+            ZipOutputStream zipOutputStream2 = null;
+            try {
+                try {
+                    zipOutputStream = new ZipOutputStream(new FileOutputStream(str2));
+                } catch (Throwable th) {
+                    th = th;
+                }
+            } catch (FileNotFoundException e) {
+                e = e;
+            } catch (IOException e2) {
+                e = e2;
+            } catch (Exception e3) {
+                e = e3;
+            }
+            try {
+                File file = new File(str);
+                if (!file.exists()) {
+                    ji.f(zipOutputStream);
+                    return false;
+                }
+                d(file.getParent(), file.getName(), zipOutputStream);
+                zipOutputStream.finish();
+                zipOutputStream.close();
+                ji.f(zipOutputStream);
+                return true;
+            } catch (FileNotFoundException e4) {
+                e = e4;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                ji.f(zipOutputStream2);
+                return false;
+            } catch (IOException e5) {
+                e = e5;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                ji.f(zipOutputStream2);
+                return false;
+            } catch (Exception e6) {
+                e = e6;
+                zipOutputStream2 = zipOutputStream;
+                e.printStackTrace();
+                ji.f(zipOutputStream2);
+                return false;
+            } catch (Throwable th2) {
+                th = th2;
+                zipOutputStream2 = zipOutputStream;
+                ji.f(zipOutputStream2);
+                throw th;
+            }
+        }
+        return invokeLL.booleanValue;
     }
 }

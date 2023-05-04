@@ -1,81 +1,86 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbSingleton;
-import com.baidu.tbadk.util.PriorityOrganizer;
-import com.baidu.tieba.frs.FrsActivity;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tieba.frs.itemtab.holder.FrsItemAcceleratorHolder;
+import com.baidu.tieba.frs.itemtab.view.FrsItemAcceleratorView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
-public class qe7 extends PriorityOrganizer.Task {
+public class qe7 extends vm<ef7, FrsItemAcceleratorHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment m;
-    public FrsActivity n;
-    public boolean o;
+    public BdUniqueId a;
 
-    public qe7(FrsActivity frsActivity, FrsFragment frsFragment) {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public qe7(Context context, BdUniqueId bdUniqueId) {
+        super(context, bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {frsActivity, frsFragment};
+            Object[] objArr = {context, bdUniqueId};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.n = frsActivity;
-        this.m = frsFragment;
     }
 
-    public void F(boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public FrsItemAcceleratorHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048576, this, z) == null) {
-            this.o = z;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new FrsItemAcceleratorHolder(new FrsItemAcceleratorView(viewGroup.getContext()), this.a);
+        }
+        return (FrsItemAcceleratorHolder) invokeL.objValue;
+    }
+
+    public void u(BdUniqueId bdUniqueId) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048580, this, bdUniqueId) == null) {
+            this.a = bdUniqueId;
         }
     }
 
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean u() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, ef7 ef7Var, FrsItemAcceleratorHolder frsItemAcceleratorHolder) {
+        InterceptResult invokeCommon;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            FrsFragment frsFragment = this.m;
-            if (frsFragment != null && !frsFragment.G3() && TbSingleton.getInstance().getFrsResponseData() != null) {
-                return true;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, ef7Var, frsItemAcceleratorHolder})) == null) {
+            frsItemAcceleratorHolder.b(ef7Var);
+            frsItemAcceleratorHolder.e();
+            if (TbSingleton.getInstance().isItemTabVisible) {
+                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921573, new m65(17)));
+                if (ef7Var.a() == TbSingleton.getInstance().acceleratorItemId) {
+                    frsItemAcceleratorHolder.c();
+                    return null;
+                }
+                frsItemAcceleratorHolder.d();
+                return null;
             }
-            return false;
+            return null;
         }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public boolean w() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (a15.i() || !this.o || !yh7.d(TbSingleton.getInstance().getFrsResponseData(), this.m)) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tbadk.util.PriorityOrganizer.Task
-    public void z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            t();
-        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -9,16 +9,16 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import com.baidu.webkit.sdk.plugin.ZeusPlugin;
 /* loaded from: classes6.dex */
-public class sp2 extends pl2<gq2> {
+public class sp2 extends rl2<iq2> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     @NonNull
     public String b() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "setMuted" : (String) invokeV.objValue;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "seekTo" : (String) invokeV.objValue;
     }
 
     public sp2() {
@@ -36,17 +36,14 @@ public class sp2 extends pl2<gq2> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.pl2
+    @Override // com.baidu.tieba.rl2
     /* renamed from: e */
-    public void a(@NonNull ZeusPlugin.Command command, @NonNull gq2 gq2Var) {
+    public void a(@NonNull ZeusPlugin.Command command, @NonNull iq2 iq2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, gq2Var) == null) {
-            Object obj = command.obj;
-            if (obj instanceof Boolean) {
-                gq2Var.l(((Boolean) obj).booleanValue());
-                String str = command.what;
-                d(gq2Var, str, "setMuted:" + command.obj, false);
-            }
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, command, iq2Var) == null) {
+            iq2Var.seekTo(command.arg1);
+            String str = command.what;
+            d(iq2Var, str, "SeekTo: " + command.arg1, false);
         }
     }
 }

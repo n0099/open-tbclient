@@ -311,7 +311,7 @@ public class a extends g {
                 jSONObject.put("exceptionStackTrace", this.o);
                 jSONObject.put("operatorType", this.p);
                 jSONObject.put("networkType", this.q);
-                jSONObject.put(com.xiaomi.mipush.sdk.Constants.PHONE_BRAND, this.r);
+                jSONObject.put("brand", this.r);
                 jSONObject.put("reqDevice", this.s);
                 jSONObject.put("reqSystem", this.t);
                 jSONObject.put("simCardNum", this.u);

@@ -1,7 +1,7 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface g45 {
-    String p1();
+    void a(String str);
 
-    String w0();
+    void b();
 }

@@ -1,19 +1,15 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import com.baidu.swan.apps.SwanAppActivity;
+import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes6.dex */
 public interface ss1 {
-    void a(String str);
+    io2 a(ZeusPluginFactory.Invoker invoker, String str);
 
-    void b();
+    iq2 b(ZeusPluginFactory.Invoker invoker, String str);
 
-    void c(String str);
+    iq2 c(ZeusPluginFactory.Invoker invoker, String str);
 
-    void d(@NonNull SwanAppActivity swanAppActivity, int i, @Nullable ss2 ss2Var);
+    ho2 d(ZeusPluginFactory.Invoker invoker, String str);
 
-    void e(String str);
-
-    void f(String str);
+    fm2 e(ZeusPluginFactory.Invoker invoker, String str);
 }

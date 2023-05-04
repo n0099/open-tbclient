@@ -1,8 +1,10 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
-import android.app.Application;
-import android.os.Bundle;
+import android.content.BroadcastReceiver;
+import android.content.Context;
+import android.content.Intent;
+import android.content.IntentFilter;
+import android.text.TextUtils;
 import android.util.Log;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
@@ -13,40 +15,236 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
+import java.util.Timer;
+import java.util.TimerTask;
 /* loaded from: classes5.dex */
-public class jt2 implements Application.ActivityLifecycleCallbacks {
+public class jt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean c;
-    public static volatile jt2 d;
+    public static final boolean e;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-    public int b;
+    public c a;
+    public a b;
+    public boolean c;
+    public final ot2 d;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityCreated(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+    /* loaded from: classes5.dex */
+    public interface b {
+        void h(int i);
+    }
+
+    /* loaded from: classes5.dex */
+    public static class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public b a;
+        public Timer b;
+        public long c;
+        public int d;
+
+        /* renamed from: com.baidu.tieba.jt2$a$a  reason: collision with other inner class name */
+        /* loaded from: classes5.dex */
+        public class C0337a extends TimerTask {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+            public final /* synthetic */ a a;
+
+            public C0337a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                        return;
+                    }
+                }
+                this.a = aVar;
+            }
+
+            @Override // java.util.TimerTask, java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    if (jt2.e) {
+                        Log.d("SwanAppCollectionPolicy", "task run: " + this.a.c);
+                    }
+                    this.a.c -= 10;
+                    if (this.a.c <= 0 && this.a.a != null) {
+                        this.a.a.h(1);
+                        this.a.l();
+                    }
+                }
+            }
+        }
+
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.c = 300L;
+            this.d = 0;
+        }
+
+        public final synchronized void d() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                synchronized (this) {
+                    if (this.b != null) {
+                        this.b.cancel();
+                        this.b.purge();
+                        this.b = null;
+                    }
+                }
+            }
+        }
+
+        public final TimerTask e() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+                return new C0337a(this);
+            }
+            return (TimerTask) invokeV.objValue;
+        }
+
+        public void f() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) != null) || this.d == 2) {
+                return;
+            }
+            this.d = 4;
+            d();
+        }
+
+        public final void g() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+                this.c = w13.a();
+                if (jt2.e && w33.u().getBoolean("swan_5min_back_optimize", false)) {
+                    this.c = 30L;
+                }
+            }
+        }
+
+        public void h() {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.d != 4) {
+                return;
+            }
+            this.d = 3;
+            d();
+            i();
+        }
+
+        public final void i() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
+                Timer timer = new Timer();
+                this.b = timer;
+                timer.schedule(e(), 0L, 10000L);
+            }
+        }
+
+        public void k() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+                this.d = 1;
+                g();
+                d();
+                i();
+            }
+        }
+
+        public void l() {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
+                this.d = 2;
+                d();
+                g();
+            }
+        }
+
+        public void j(b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, bVar) == null) {
+                this.a = bVar;
+            }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityDestroyed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
-        }
-    }
+    /* loaded from: classes5.dex */
+    public static class c extends BroadcastReceiver {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public WeakReference<jt2> mPolicyRef;
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityPaused(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+        public c(jt2 jt2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {jt2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.mPolicyRef = new WeakReference<>(jt2Var);
         }
-    }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivitySaveInstanceState(Activity activity, Bundle bundle) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, activity, bundle) == null) {
+        public static IntentFilter getIntentFilter() {
+            InterceptResult invokeV;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                IntentFilter intentFilter = new IntentFilter();
+                intentFilter.addAction("android.intent.action.SCREEN_ON");
+                intentFilter.addAction("android.intent.action.SCREEN_OFF");
+                return intentFilter;
+            }
+            return (IntentFilter) invokeV.objValue;
+        }
+
+        @Override // android.content.BroadcastReceiver
+        public void onReceive(Context context, Intent intent) {
+            jt2 jt2Var;
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, context, intent) != null) || intent == null || TextUtils.isEmpty(intent.getAction()) || (jt2Var = this.mPolicyRef.get()) == null) {
+                return;
+            }
+            String action = intent.getAction();
+            char c = 65535;
+            int hashCode = action.hashCode();
+            if (hashCode != -2128145023) {
+                if (hashCode == -1454123155 && action.equals("android.intent.action.SCREEN_ON")) {
+                    c = 0;
+                }
+            } else if (action.equals("android.intent.action.SCREEN_OFF")) {
+                c = 1;
+            }
+            if (c == 0) {
+                jt2Var.d(true);
+            } else if (c == 1) {
+                jt2Var.d(false);
+            }
         }
     }
 
@@ -63,7 +261,43 @@ public class jt2 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        c = fo1.a;
+        e = ho1.a;
+    }
+
+    public final void e() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.b.f();
+        }
+    }
+
+    public final void g() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            this.b.h();
+        }
+    }
+
+    public void i() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            if (e) {
+                Log.d("SwanAppCollectionPolicy", "startCollectionTimeOut");
+            }
+            this.d.onPause();
+            this.b.k();
+        }
+    }
+
+    public void j() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048583, this) == null) {
+            if (e) {
+                Log.d("SwanAppCollectionPolicy", "stopCollectionTimeOut");
+            }
+            this.d.onResume();
+            this.b.l();
+        }
     }
 
     public jt2() {
@@ -79,105 +313,58 @@ public class jt2 implements Application.ActivityLifecycleCallbacks {
                 return;
             }
         }
-        this.a = false;
+        this.a = new c(this);
+        this.b = new a();
+        this.d = qt2.c();
     }
 
-    public static jt2 a() {
-        InterceptResult invokeV;
+    public void c(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (d == null) {
-                synchronized (jt2.class) {
-                    if (d == null) {
-                        d = new jt2();
-                    }
-                }
-            }
-            return d;
+        if ((interceptable != null && interceptable.invokeL(1048576, this, context) != null) || this.c) {
+            return;
         }
-        return (jt2) invokeV.objValue;
-    }
-
-    public boolean b() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (context == null && (context = er2.c()) == null) {
+            return;
         }
-        return invokeV.booleanValue;
+        this.c = true;
+        context.registerReceiver(this.a, c.getIntentFilter());
     }
 
-    public void c() {
+    public void f(Context context) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            if (c) {
-                Log.d("SwanAppLifecycle", "registerSelf for lifecycle");
-            }
-            cr2.c().registerActivityLifecycleCallbacks(this);
+        if ((interceptable != null && interceptable.invokeL(1048579, this, context) != null) || !this.c) {
+            return;
         }
-    }
-
-    public void e() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            if (c) {
-                Log.d("SwanAppLifecycle", "un registerSelf for lifecycle");
-            }
-            cr2.c().unregisterActivityLifecycleCallbacks(this);
+        if (context == null && (context = er2.c()) == null) {
+            return;
         }
-    }
-
-    public void d(boolean z) {
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && (z2 = this.a) != z) {
-            if (z2) {
-                this.a = false;
-                xt2.a().e(null);
-                return;
-            }
-            this.a = true;
-            xt2.a().d(null);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityResumed(Activity activity) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048583, this, activity) == null) && !this.a) {
-            this.a = true;
-            xt2.a().d(activity);
-        }
-    }
-
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStarted(Activity activity) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048585, this, activity) == null) {
-            int i = this.b + 1;
-            this.b = i;
-            if (i == 1 && !this.a) {
-                if (c) {
-                    Log.d("SwanAppLifecycle", "onBackgroundToForeground");
-                }
-                this.a = true;
-                xt2.a().d(activity);
+        this.c = false;
+        try {
+            context.unregisterReceiver(this.a);
+        } catch (IllegalArgumentException e2) {
+            if (e) {
+                e2.printStackTrace();
             }
         }
     }
 
-    @Override // android.app.Application.ActivityLifecycleCallbacks
-    public void onActivityStopped(Activity activity) {
+    public void h(b bVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048586, this, activity) == null) {
-            int i = this.b - 1;
-            this.b = i;
-            if (i == 0 && this.a) {
-                if (c) {
-                    Log.d("SwanAppLifecycle", "onForegroundToBackground");
-                }
-                this.a = false;
-                xt2.a().e(activity);
+        if (interceptable == null || interceptable.invokeL(1048581, this, bVar) == null) {
+            this.b.j(bVar);
+        }
+    }
+
+    public final void d(boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
+            if (e) {
+                Log.d("SwanAppCollectionPolicy", "onScreenStatusChanged isOn: " + z);
+            }
+            if (z) {
+                g();
+            } else {
+                e();
             }
         }
     }

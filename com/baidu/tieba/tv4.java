@@ -1,13 +1,12 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.ArrayMap;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tbadk.core.util.StatisticItem;
-import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.adp.lib.util.BdLog;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.util.ChunkUploadDatabaseService;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -15,20 +14,67 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Map;
+import java.io.File;
 /* loaded from: classes6.dex */
 public class tv4 {
-    public static /* synthetic */ Interceptable $ic;
-    public static final Map<String, List<String>> a;
-    public static final Map<String, Boolean> b;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static long a = 604800000;
     public transient /* synthetic */ FieldHolder $fh;
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948194647, "Lcom/baidu/tieba/tv4;")) == null) {
+            return;
+        }
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948194647, "Lcom/baidu/tieba/tv4;");
+        }
+    }
 
     /* loaded from: classes6.dex */
     public static class a extends CustomMessageListener {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+
+        /* renamed from: com.baidu.tieba.tv4$a$a  reason: collision with other inner class name */
+        /* loaded from: classes6.dex */
+        public class RunnableC0442a implements Runnable {
+            public static /* synthetic */ Interceptable $ic;
+            public transient /* synthetic */ FieldHolder $fh;
+
+            public RunnableC0442a(a aVar) {
+                Interceptable interceptable = $ic;
+                if (interceptable != null) {
+                    InitContext newInitContext = TitanRuntime.newInitContext();
+                    newInitContext.initArgs = r2;
+                    Object[] objArr = {aVar};
+                    interceptable.invokeUnInit(65536, newInitContext);
+                    int i = newInitContext.flag;
+                    if ((i & 1) != 0) {
+                        int i2 = i & 2;
+                        newInitContext.thisArg = this;
+                        interceptable.invokeInitBody(65536, newInitContext);
+                    }
+                }
+            }
+
+            @Override // java.lang.Runnable
+            public void run() {
+                Interceptable interceptable = $ic;
+                if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                    try {
+                        ChunkUploadDatabaseService.delOverdueChunkUploadData();
+                        tv4.c(TbadkCoreApplication.getInst().getCacheDir());
+                    } catch (Exception unused) {
+                    }
+                }
+            }
+        }
 
         /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
         public a(int i) {
@@ -55,86 +101,50 @@ public class tv4 {
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
             if (interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) {
-                tv4.f();
+                long o = f55.m().o("key_clear_resource", 0L);
+                long currentTimeMillis = System.currentTimeMillis();
+                if (o == 0) {
+                    f55.m().A("key_clear_resource", currentTimeMillis);
+                    o = currentTimeMillis;
+                }
+                if (currentTimeMillis - o > tv4.a) {
+                    km6.a(new RunnableC0442a(this), "clearResource", 3);
+                    f55.m().A("key_clear_resource", currentTimeMillis);
+                }
             }
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948194647, "Lcom/baidu/tieba/tv4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948194647, "Lcom/baidu/tieba/tv4;");
+    public static void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
+            MessageManager.getInstance().registerListener(new a(2005016));
+        }
+    }
+
+    public static void c(File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65539, null, file) != null) || file == null) {
+            return;
+        }
+        try {
+            if (file.isDirectory()) {
+                File[] listFiles = file.listFiles();
+                if (listFiles != null) {
+                    for (int i = 0; i < listFiles.length; i++) {
+                        if (listFiles[i].isDirectory()) {
+                            c(listFiles[i]);
+                        } else {
+                            listFiles[i].delete();
+                        }
+                    }
+                    return;
+                }
                 return;
             }
-        }
-        a = new ArrayMap();
-        b = new ArrayMap();
-        c();
-    }
-
-    public static void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65539, null) == null) {
-            MessageManager.getInstance().registerListener(new a(2001167));
-        }
-    }
-
-    public static synchronized void b(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65538, null, str, str2) == null) {
-            synchronized (tv4.class) {
-                if (b.get(str) != null && b.get(str).booleanValue()) {
-                    return;
-                }
-                if (a.get(str) == null) {
-                    a.put(str, new ArrayList());
-                }
-                a.get(str).add(str2);
-            }
-        }
-    }
-
-    public static synchronized void d(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) {
-            synchronized (tv4.class) {
-                b.put(str, Boolean.FALSE);
-                a.remove(str);
-            }
-        }
-    }
-
-    public static synchronized void e(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            synchronized (tv4.class) {
-                if (b.get(str) != null && b.get(str).booleanValue()) {
-                    return;
-                }
-                b.put(str, Boolean.TRUE);
-                List<String> list = a.get(str);
-                if (list != null && list.size() < 100) {
-                    TiebaStatic.log(new StatisticItem("TiebaTracer").param("obj_name", str).param("obj_param1", TextUtils.join("_", list)));
-                    a.remove(str);
-                }
-            }
-        }
-    }
-
-    public static synchronized void f() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65542, null) == null) {
-            synchronized (tv4.class) {
-                for (Map.Entry<String, List<String>> entry : a.entrySet()) {
-                    e(entry.getKey());
-                }
-            }
+            file.delete();
+        } catch (Exception e) {
+            BdLog.e(e.getMessage());
         }
     }
 }

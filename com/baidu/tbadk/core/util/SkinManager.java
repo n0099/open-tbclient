@@ -39,13 +39,13 @@ import com.baidu.tbadk.core.elementsMaven.EMABTest;
 import com.baidu.tbadk.core.util.SvgManager;
 import com.baidu.tbadk.widget.lottie.TBLottieAnimationView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.f45;
-import com.baidu.tieba.fk9;
-import com.baidu.tieba.hu9;
+import com.baidu.tieba.cy9;
+import com.baidu.tieba.e35;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.ki;
-import com.baidu.tieba.p25;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.u45;
+import com.baidu.tieba.un9;
 import com.baidu.tieba.w8;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -54,7 +54,6 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.File;
 import tbclient.ThemeColorInfo;
 @SuppressLint({"ResourceAsColor"})
@@ -155,8 +154,8 @@ public class SkinManager {
                 }
             }
         });
-        RESOURCE_ALPHA_PRESS = p25.b(R.string.A_X07);
-        RESOURCE_ALPHA_DISABLE = p25.b(R.string.A_X09);
+        RESOURCE_ALPHA_PRESS = e35.b(R.string.A_X07);
+        RESOURCE_ALPHA_DISABLE = e35.b(R.string.A_X09);
         TYPE_ERROR = "skinType not support";
         TYPE_COLOR = "com.baidu.tieba:color/CAM_X0";
         sPackagename = null;
@@ -238,7 +237,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeIIII = interceptable.invokeIIII(65538, null, i, i2, i3, i4)) == null) {
             if (i != 0 && i2 != 0 && i3 != 0) {
-                return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), fk9.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
+                return new ColorStateList(new int[][]{new int[]{16842912}, new int[]{-16842910}, new int[0]}, new int[]{getColor(i4, i2), un9.a(getColor(i4, i3), RESOURCE_ALPHA_DISABLE), getColor(i4, i)});
             }
             return null;
         }
@@ -250,7 +249,7 @@ public class SkinManager {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLILL(65587, null, view2, i, orientation, fArr) == null) && view2 != null && i != 0 && orientation != null && fArr.length >= 8) {
             int color = getColor(i);
-            int[] iArr = {fk9.c(color), color};
+            int[] iArr = {un9.c(color), color};
             if (Build.VERSION.SDK_INT >= 16) {
                 gradientDrawable = new GradientDrawable();
                 gradientDrawable.setOrientation(orientation);
@@ -311,7 +310,7 @@ public class SkinManager {
                 return null;
             }
             int color = getColor(TbadkCoreApplication.getInst().getSkinType(), i);
-            int a = fk9.a(color, RESOURCE_ALPHA_PRESS);
+            int a = un9.a(color, RESOURCE_ALPHA_PRESS);
             return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{16842910, 16842908}, new int[0]}, new int[]{a, a, color});
         }
         return (ColorStateList) invokeI.objValue;
@@ -338,7 +337,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{fk9.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{un9.a(getColor(i), RESOURCE_ALPHA_PRESS), getColor(i)});
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -385,7 +384,7 @@ public class SkinManager {
             if (themeColorInfo == null) {
                 return getColor(i);
             }
-            int b = hu9.b(themeColorInfo);
+            int b = cy9.b(themeColorInfo);
             if (b == 0 || b == Integer.MAX_VALUE) {
                 return getColor(i);
             }
@@ -715,7 +714,7 @@ public class SkinManager {
         InterceptResult invokeI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeI = interceptable.invokeI(65571, null, i)) == null) {
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{fk9.a(i, RESOURCE_ALPHA_PRESS), i});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[0]}, new int[]{un9.a(i, RESOURCE_ALPHA_PRESS), i});
         }
         return (ColorStateList) invokeI.objValue;
     }
@@ -950,7 +949,7 @@ public class SkinManager {
             } else {
                 color = getColor(i2, view2.getResources(), i);
             }
-            view2.setBackgroundColor(fk9.a(color, f));
+            view2.setBackgroundColor(un9.a(color, f));
             if (paddingLeft != 0 || paddingRight != 0 || paddingTop != 0 || paddingBottom != 0) {
                 view2.setPadding(paddingLeft, paddingTop, paddingRight, paddingBottom);
             }
@@ -1088,7 +1087,7 @@ public class SkinManager {
             if (i <= 0) {
                 return null;
             }
-            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{fk9.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), fk9.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
+            return new ColorStateList(new int[][]{new int[]{16842910, 16842919}, new int[]{-16842910}, new int[0]}, new int[]{un9.a(getColor(i2, i), RESOURCE_ALPHA_PRESS), un9.a(getColor(i2, i), RESOURCE_ALPHA_DISABLE), getColor(i2, i)});
         }
         return (ColorStateList) invokeII.objValue;
     }
@@ -1211,7 +1210,7 @@ public class SkinManager {
             if (mPluginRes == null) {
                 mPluginRes = resources;
             }
-            f45.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", ki.k(), "model", ki.g(), Constants.PHONE_BRAND, Build.BRAND);
+            u45.a("img", -1L, 0, "svg_load_failed", 0, "svg_load_failed", "version_code", ki.k(), "model", ki.g(), "brand", Build.BRAND);
             try {
                 String resourceName = resources.getResourceName(i);
                 if (StringUtils.isNull(resourceName)) {
@@ -1251,8 +1250,8 @@ public class SkinManager {
                     return;
                 }
                 TbadkCoreApplication.getInst().setSkinType(0);
-            } else if (q45.m().i("key_is_dark_mode_notify_shown", false)) {
-                boolean i2 = q45.m().i("key_is_follow_system_mode", false);
+            } else if (f55.m().i("key_is_dark_mode_notify_shown", false)) {
+                boolean i2 = f55.m().i("key_is_follow_system_mode", false);
                 if (z) {
                     UtilHelper.showSkinChangeAnimation(b);
                 }
@@ -1266,8 +1265,8 @@ public class SkinManager {
                 }
                 TbadkCoreApplication.getInst().setSkinType(i);
             } else {
-                q45.m().w("key_is_dark_mode_notify_shown", true);
-                q45.m().w("key_is_follow_system_mode", true);
+                f55.m().w("key_is_dark_mode_notify_shown", true);
+                f55.m().w("key_is_follow_system_mode", true);
                 TbadkCoreApplication inst = TbadkCoreApplication.getInst();
                 if (isCurrentSystemDarkMode()) {
                     i = 4;

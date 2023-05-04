@@ -1,69 +1,17 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbPageContext;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.LinkedList;
-import java.util.List;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes6.dex */
-public class t37 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    public TbPageContext<?> a;
-    public BdTypeRecyclerView b;
-    public u37 c;
-    public qn d;
-    public List<vm> e;
+public interface t37 {
+    void a(DownloadData downloadData);
 
-    public t37(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = new LinkedList();
-        this.a = tbPageContext;
-        this.b = bdTypeRecyclerView;
-        a();
-    }
+    void b(DownloadData downloadData);
 
-    public final void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            u37 u37Var = new u37(this.a);
-            this.c = u37Var;
-            this.e.add(u37Var);
-            qn qnVar = new qn(this.a);
-            this.d = qnVar;
-            this.e.add(qnVar);
-            this.b.addAdapters(this.e);
-        }
-    }
+    void c(DownloadData downloadData);
 
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            this.b.getAdapter().notifyDataSetChanged();
-        }
-    }
+    void d(DownloadData downloadData);
 
-    public void c(List<in> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
-            this.b.setData(list);
-        }
-    }
+    void e(DownloadData downloadData);
+
+    void f(DownloadData downloadData);
 }

@@ -1,101 +1,66 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.android.imsdk.chatmessage.messages.CustomMsg;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONObject;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes6.dex */
-public class te8 {
+public final class te8 extends re8<CustomMsg, wc8> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final int b;
-    public final int c;
-    public final String d;
 
-    public te8(JSONObject jSONObject) {
+    @Override // com.baidu.tieba.re8
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return Integer.MAX_VALUE;
+        }
+        return invokeV.intValue;
+    }
+
+    public te8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {jSONObject};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        if (jSONObject != null) {
-            this.a = jSONObject.optString("moreText");
-            this.b = ve8.b(jSONObject.optString("moreColor", ""));
-            this.c = ve8.b(jSONObject.optString("moreColorNight", ""));
-            this.d = jSONObject.optString("moreScheme");
-            return;
-        }
-        this.a = "";
-        this.b = Integer.MAX_VALUE;
-        this.c = Integer.MAX_VALUE;
-        this.d = "";
     }
 
-    public static te8 a(JSONObject jSONObject) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.re8
+    /* renamed from: h */
+    public CustomMsg e(wc8 wc8Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, jSONObject)) == null) {
-            return new te8(jSONObject);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, wc8Var)) == null) {
+            CustomMsg customMsg = new CustomMsg();
+            customMsg.setMsgId(Long.MAX_VALUE);
+            customMsg.setMsgKey(String.valueOf(System.currentTimeMillis()));
+            return customMsg;
         }
-        return (te8) invokeL.objValue;
+        return (CustomMsg) invokeL.objValue;
     }
 
-    public int b() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.re8
+    /* renamed from: i */
+    public wc8 g(CustomMsg sdkMsg) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.b;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, sdkMsg)) == null) {
+            Intrinsics.checkNotNullParameter(sdkMsg, "sdkMsg");
+            return new wc8();
         }
-        return invokeV.intValue;
-    }
-
-    public int c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.c;
-        }
-        return invokeV.intValue;
-    }
-
-    public String d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.d;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            return this.a;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public boolean f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return !TextUtils.isEmpty(this.a);
-        }
-        return invokeV.booleanValue;
+        return (wc8) invokeL.objValue;
     }
 }

@@ -1,8 +1,9 @@
 package com.baidu.tieba;
 
+import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.interfa.IPackageGetter;
-import com.baidu.nps.interfa.IPackageGetter_PackageGetter_Provider;
+import com.baidu.nps.interfa.IAlertManager;
+import com.baidu.nps.interfa.IAlertManager_AlertManager_Provider;
 import com.baidu.pyramid.annotation.Inject;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
@@ -17,14 +18,14 @@ public class bd1 {
     public static bd1 b;
     public transient /* synthetic */ FieldHolder $fh;
     @Inject
-    public ej1<IPackageGetter> a;
+    public gj1<IAlertManager> a;
 
-    public void c() {
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            cj1 b2 = cj1.b();
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            ej1 b2 = ej1.b();
             this.a = b2;
-            b2.a(new IPackageGetter_PackageGetter_Provider());
+            b2.a(new IAlertManager_AlertManager_Provider());
         }
     }
 
@@ -57,7 +58,7 @@ public class bd1 {
                 return;
             }
         }
-        c();
+        b();
     }
 
     public static bd1 a() {
@@ -69,12 +70,10 @@ public class bd1 {
         return (bd1) invokeV.objValue;
     }
 
-    public IPackageGetter b() {
-        InterceptResult invokeV;
+    public void c(String str, String str2, View.OnClickListener onClickListener, String str3, View.OnClickListener onClickListener2, String str4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.get();
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, onClickListener, str3, onClickListener2, str4}) == null) {
+            this.a.get().onAlert(str, str2, onClickListener, str3, onClickListener2, str4);
         }
-        return (IPackageGetter) invokeV.objValue;
     }
 }

@@ -11,9 +11,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.widget.timepicker.wheel.view.WheelView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.aw5;
-import com.baidu.tieba.cn5;
-import com.baidu.tieba.sv5;
+import com.baidu.tieba.ax5;
+import com.baidu.tieba.sw5;
+import com.baidu.tieba.vn5;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -21,14 +21,14 @@ import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
 /* loaded from: classes6.dex */
-public class SelectClassDialogView extends ViewGroup implements cn5 {
+public class SelectClassDialogView extends ViewGroup implements vn5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public ViewGroup a;
-    public aw5<String> b;
+    public ax5<String> b;
 
-    @Override // com.baidu.tieba.cn5
-    public boolean N0() {
+    @Override // com.baidu.tieba.vn5
+    public boolean O0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -37,7 +37,7 @@ public class SelectClassDialogView extends ViewGroup implements cn5 {
         return invokeV.booleanValue;
     }
 
-    @Override // com.baidu.tieba.cn5
+    @Override // com.baidu.tieba.vn5
     public Intent getResultIntent() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -50,7 +50,7 @@ public class SelectClassDialogView extends ViewGroup implements cn5 {
     @Override // android.view.ViewGroup, android.view.View
     public void onLayout(boolean z, int i, int i2, int i3, int i4) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
+        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Boolean.valueOf(z), Integer.valueOf(i), Integer.valueOf(i2), Integer.valueOf(i3), Integer.valueOf(i4)}) == null) {
         }
     }
 
@@ -79,10 +79,10 @@ public class SelectClassDialogView extends ViewGroup implements cn5 {
     public final void a(Context context) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context) == null) {
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f1, this.a, true);
-            aw5<String> aw5Var = new aw5<>(this.a, true);
-            this.b = aw5Var;
-            aw5Var.t(9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d01f4, this.a, true);
+            ax5<String> ax5Var = new ax5<>(this.a, true);
+            this.b = ax5Var;
+            ax5Var.t(9);
             this.b.C(UtilHelper.getDimenPixelSize(R.dimen.T_X06) / 3);
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.s(WheelView.DividerType.FILL);
@@ -95,10 +95,10 @@ public class SelectClassDialogView extends ViewGroup implements cn5 {
         }
     }
 
-    @Override // com.baidu.tieba.cn5
-    public void o(int i) {
+    @Override // com.baidu.tieba.vn5
+    public void q(int i) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048579, this, i) == null) {
+        if (interceptable == null || interceptable.invokeI(1048580, this, i) == null) {
             this.b.q(SkinManager.getColor(R.color.CAM_X0203));
             this.b.B(SkinManager.getColor(R.color.CAM_X0105));
             this.b.z(SkinManager.getColor(R.color.CAM_X0105));
@@ -120,15 +120,15 @@ public class SelectClassDialogView extends ViewGroup implements cn5 {
         }
     }
 
-    public void setOnOptionsSelectChangeListener(sv5 sv5Var) {
-        aw5<String> aw5Var;
+    public void setOnOptionsSelectChangeListener(sw5 sw5Var) {
+        ax5<String> ax5Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048582, this, sv5Var) == null) && (aw5Var = this.b) != null) {
-            aw5Var.w(sv5Var);
+        if ((interceptable == null || interceptable.invokeL(1048582, this, sw5Var) == null) && (ax5Var = this.b) != null) {
+            ax5Var.w(sw5Var);
         }
     }
 
-    @Override // com.baidu.tieba.cn5
+    @Override // com.baidu.tieba.vn5
     public boolean z() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;

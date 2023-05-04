@@ -1,12 +1,19 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.core.data.ErrorData;
-import java.util.List;
+import com.baidu.tbadk.download.DownloadData;
 /* loaded from: classes6.dex */
 public interface s37 {
-    void onError(String str, ErrorData errorData);
+    void a(t37 t37Var);
 
-    void onNoData(ErrorData errorData);
+    boolean b(DownloadData downloadData, t37 t37Var);
 
-    void onSucc(String str, List<String> list, List<in> list2);
+    void c(DownloadData downloadData);
+
+    int d(DownloadData downloadData);
+
+    void e(DownloadData downloadData);
+
+    int f(DownloadData downloadData);
+
+    void g(t37 t37Var);
 }

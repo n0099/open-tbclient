@@ -1,115 +1,147 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import com.baidu.tieba.jz6;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.util.HashMap;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 import kotlin.jvm.internal.Intrinsics;
-import tbclient.FeedContentResource;
-import tbclient.FeedItem;
-import tbclient.FeedKV;
-import tbclient.FeedOriginComponent;
-import tbclient.FeedOriginPic;
-import tbclient.PicInfo;
-import tbclient.VideoField;
 /* loaded from: classes5.dex */
 public final class ky6 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final String a;
+    public final int b;
+    public final String c;
+    public final String d;
+    public final String e;
+    public final boolean f;
 
-    public static final void a(FeedOriginComponent feedOriginComponent, List<c07<?>> dataList, ex6 feedExtraData) {
-        dw6 dw6Var;
-        hw6 hw6Var;
-        String str;
-        wv6 wv6Var;
-        aw6 aw6Var;
-        String str2;
-        boolean z;
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65536, null, feedOriginComponent, dataList, feedExtraData) == null) {
-            Intrinsics.checkNotNullParameter(feedOriginComponent, "<this>");
-            Intrinsics.checkNotNullParameter(dataList, "dataList");
-            Intrinsics.checkNotNullParameter(feedExtraData, "feedExtraData");
-            SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
-            List<FeedContentResource> _abstract = feedOriginComponent._abstract;
-            Intrinsics.checkNotNullExpressionValue(_abstract, "_abstract");
-            vv6 a = cy6.a(spannableStringBuilder, _abstract, new ex6());
-            if (a.g()) {
-                FeedOriginPic feedOriginPic = feedOriginComponent.pic_info;
-                if (feedOriginPic != null && feedOriginPic.pics != null) {
-                    String str3 = feedOriginPic.schema;
-                    if (str3 == null) {
-                        str3 = "";
-                    } else {
-                        Intrinsics.checkNotNullExpressionValue(str3, "pic_info.schema ?: \"\"");
-                    }
-                    List<PicInfo> list = feedOriginComponent.pic_info.pics;
-                    Intrinsics.checkNotNullExpressionValue(list, "pic_info.pics");
-                    dw6Var = ly6.a(list, str3, new ex6());
-                } else {
-                    dw6Var = null;
-                }
-                if (feedOriginComponent.video != null) {
-                    yx6 yx6Var = new yx6();
-                    String schema = feedOriginComponent.schema;
-                    Intrinsics.checkNotNullExpressionValue(schema, "schema");
-                    yx6Var.g(schema);
-                    VideoField video = feedOriginComponent.video;
-                    Intrinsics.checkNotNullExpressionValue(video, "video");
-                    hw6Var = py6.b(video, yx6Var, new ex6());
-                } else {
-                    hw6Var = null;
-                }
-                jz6.a aVar = jz6.a;
-                List<FeedKV> list2 = feedOriginComponent.item.business_info;
-                Intrinsics.checkNotNullExpressionValue(list2, "item.business_info");
-                HashMap<String, String> a2 = aVar.a(list2);
-                String str4 = a2.get("apk_detail");
-                String str5 = feedExtraData.a().a().get("origin_thread_id");
-                if (str5 == null) {
-                    str = "";
-                } else {
-                    str = str5;
-                }
-                long g = gg.g(a2.get("item_id"), 0L);
-                if (str4 == null) {
-                    String str6 = feedOriginComponent.item.name;
-                    if (str6 != null && str6.length() != 0) {
-                        z = false;
-                    } else {
-                        z = true;
-                    }
-                    if (!z) {
-                        FeedItem item = feedOriginComponent.item;
-                        Intrinsics.checkNotNullExpressionValue(item, "item");
-                        aw6 b = gy6.b(item, g, str, "", "");
-                        b.a().j = R.color.CAM_X0205;
-                        b.d(false);
-                        aw6Var = b;
-                    } else {
-                        aw6Var = null;
-                    }
-                    wv6Var = null;
-                } else {
-                    FeedItem item2 = feedOriginComponent.item;
-                    Intrinsics.checkNotNullExpressionValue(item2, "item");
-                    wv6 a3 = gy6.a(item2, str4, g, str, "", "");
-                    a3.a().j = R.color.CAM_X0205;
-                    a3.d(false);
-                    wv6Var = a3;
-                    aw6Var = null;
-                }
-                vx6 b2 = fx6.b(feedExtraData, "origin_card_click");
-                String str7 = feedOriginComponent.schema;
-                if (str7 == null) {
-                    str2 = "";
-                } else {
-                    str2 = str7;
-                }
-                dataList.add(new d07(new cw6(a, dw6Var, hw6Var, aw6Var, wv6Var, str2, b2, null, 128, null), "origin_card"));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof ky6) {
+                ky6 ky6Var = (ky6) obj;
+                return Intrinsics.areEqual(this.a, ky6Var.a) && this.b == ky6Var.b && Intrinsics.areEqual(this.c, ky6Var.c) && Intrinsics.areEqual(this.d, ky6Var.d) && Intrinsics.areEqual(this.e, ky6Var.e) && this.f == ky6Var.f;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    /* JADX DEBUG: Multi-variable search result rejected for r1v9, resolved type: boolean */
+    /* JADX WARN: Multi-variable type inference failed */
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((this.a.hashCode() * 31) + this.b) * 31;
+            String str = this.c;
+            int hashCode2 = (hashCode + (str == null ? 0 : str.hashCode())) * 31;
+            String str2 = this.d;
+            int hashCode3 = (hashCode2 + (str2 == null ? 0 : str2.hashCode())) * 31;
+            String str3 = this.e;
+            int hashCode4 = (hashCode3 + (str3 != null ? str3.hashCode() : 0)) * 31;
+            boolean z = this.f;
+            int i = z;
+            if (z != 0) {
+                i = 1;
+            }
+            return hashCode4 + i;
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "CardHeadImageData(imgUrl=" + this.a + ", imgShape=" + this.b + ", schema=" + this.c + ", pendantUrl=" + this.d + ", cornerUrl=" + this.e + ", showLivingLottie=" + this.f + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public ky6(String imgUrl, int i, String str, String str2, String str3, boolean z) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {imgUrl, Integer.valueOf(i), str, str2, str3, Boolean.valueOf(z)};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        Intrinsics.checkNotNullParameter(imgUrl, "imgUrl");
+        this.a = imgUrl;
+        this.b = i;
+        this.c = str;
+        this.d = str2;
+        this.e = str3;
+        this.f = z;
+    }
+
+    public final String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.e;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final int b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return this.b;
+        }
+        return invokeV.intValue;
+    }
+
+    public final String c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.d;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final String e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public final boolean f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.f;
+        }
+        return invokeV.booleanValue;
     }
 }

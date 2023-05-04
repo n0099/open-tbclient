@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.a9;
 import com.baidu.tieba.im.message.IceBreakHttpResponsedMessage;
-import com.baidu.tieba.ry7;
-import com.baidu.tieba.sy7;
+import com.baidu.tieba.o08;
+import com.baidu.tieba.p08;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,7 +29,7 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
 
     /* loaded from: classes4.dex */
     public interface IceBreakRequestCallback {
-        void onSuccess(List<sy7> list);
+        void onSuccess(List<p08> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
@@ -113,12 +113,12 @@ public class IceBreakEmotionModel extends BdBaseModel<IceBreakEmotionModel> {
                 /* JADX DEBUG: Method merged with bridge method */
                 @Override // com.baidu.adp.framework.listener.MessageListener
                 public void onMessage(HttpResponsedMessage httpResponsedMessage) {
-                    ry7 ry7Var;
+                    o08 o08Var;
                     Interceptable interceptable2 = $ic;
-                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (ry7Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
+                    if ((interceptable2 != null && interceptable2.invokeL(1048576, this, httpResponsedMessage) != null) || !(httpResponsedMessage instanceof IceBreakHttpResponsedMessage) || httpResponsedMessage.getError() != 0 || (o08Var = ((IceBreakHttpResponsedMessage) httpResponsedMessage).data) == null) {
                         return;
                     }
-                    List<sy7> a = ry7Var.a();
+                    List<p08> a = o08Var.a();
                     if (!ListUtils.isEmpty(a) && this.this$0.mCallback != null) {
                         this.this$0.mCallback.onSuccess(a);
                     }

@@ -181,8 +181,8 @@ public class FragmentAnim {
         boolean z2 = false;
         fragment.setNextAnim(0);
         View onFindViewById = fragmentContainer.onFindViewById(fragment.mContainerId);
-        if (onFindViewById != null && onFindViewById.getTag(R.id.obfuscated_res_0x7f09280f) != null) {
-            onFindViewById.setTag(R.id.obfuscated_res_0x7f09280f, null);
+        if (onFindViewById != null && onFindViewById.getTag(R.id.obfuscated_res_0x7f09282b) != null) {
+            onFindViewById.setTag(R.id.obfuscated_res_0x7f09282b, null);
         }
         ViewGroup viewGroup = fragment.mContainer;
         if (viewGroup != null && viewGroup.getLayoutTransition() != null) {

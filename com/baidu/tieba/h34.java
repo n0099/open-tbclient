@@ -1,33 +1,42 @@
 package com.baidu.tieba;
 
-import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.v8engine.V8Engine;
+import com.baidu.searchbox.v8engine.event.EventTarget;
+import com.baidu.searchbox.v8engine.thread.V8ThreadDelegatePolicy;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class h34 {
+public class h34 extends ff2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    @Override // com.baidu.tieba.hf2, com.baidu.searchbox.unitedscheme.TypedCallbackHandler
+    public int getInvokeSourceType() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return 1;
+        }
+        return invokeV.intValue;
+    }
+
     /* loaded from: classes4.dex */
-    public static class a implements om3<vc3> {
+    public class a implements V8Engine.WorkerFactory {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c02 a;
+        public final /* synthetic */ h34 a;
 
-        public a(c02 c02Var) {
+        public a(h34 h34Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c02Var};
+                Object[] objArr = {h34Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -37,63 +46,68 @@ public class h34 {
                     return;
                 }
             }
-            this.a = c02Var;
+            this.a = h34Var;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(vc3 vc3Var) {
+        @Override // com.baidu.searchbox.v8engine.V8Engine.WorkerFactory
+        public V8Engine onCreateWorker() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc3Var) == null) {
-                if (vc3Var == null || vc3Var.d || vc3Var.j != 1) {
-                    h34.c(this.a, false, "system deny");
-                } else {
-                    h34.c(this.a, true, "authorize:ok");
-                }
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                i34 i34Var = new i34(this.a.getInitBasePath());
+                i34Var.H0();
+                i34Var.u(new rf2(i34Var));
+                i34Var.G0(new sf2(i34Var));
+                return i34Var.l0();
             }
+            return (V8Engine) invokeV.objValue;
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947772768, "Lcom/baidu/tieba/h34;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947772768, "Lcom/baidu/tieba/h34;");
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public h34(@NonNull String str, @NonNull cg2 cg2Var, V8ThreadDelegatePolicy v8ThreadDelegatePolicy) {
+        super(str, cg2Var, v8ThreadDelegatePolicy);
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {str, cg2Var, v8ThreadDelegatePolicy};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((String) objArr2[0], (cg2) objArr2[1], (V8ThreadDelegatePolicy) objArr2[2]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fo1.a;
-    }
-
-    public static void b(JsObject jsObject) {
-        c02 F;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, jsObject) != null) || (F = c02.F(jsObject)) == null) {
+        V8Engine v8Engine = this.a;
+        if (v8Engine == null) {
             return;
         }
-        v73 b0 = v73.b0();
-        if (b0 == null) {
-            c(F, false, "authorize:fail internal error");
-        } else {
-            b0.e0().e("mapp_enable_eval", new a(F));
-        }
+        v8Engine.setWorkerFactoryDelegate(new a(this));
     }
 
-    public static void c(c02 c02Var, boolean z, String str) {
+    @Override // com.baidu.tieba.ff2
+    @NonNull
+    public EventTarget A() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65539, null, new Object[]{c02Var, Boolean.valueOf(z), str}) == null) {
-            if (a) {
-                Log.i("AuthorizeEvalApi", "callAsyncCallback: " + str);
-            }
-            e24 e24Var = new e24();
-            e24Var.errMsg = str;
-            ha4.call(c02Var, z, e24Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return new e24(this);
         }
+        return (EventTarget) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ff2
+    public EventTarget D() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return new h24(this);
+        }
+        return (EventTarget) invokeV.objValue;
     }
 }

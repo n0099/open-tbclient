@@ -1,145 +1,285 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.wifi.WifiConfiguration;
-import android.net.wifi.WifiEnterpriseConfig;
+import android.net.wifi.ScanResult;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
-import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.content.ContextCompat;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.mobstat.Config;
+import com.baidu.searchbox.retrieve.timer.bean.FetchTimer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.nio.charset.StandardCharsets;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.apache.http.cookie.ClientCookie;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class wi3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
+    public int c;
+    public int d;
+    public int e;
 
-    public static WifiConfiguration a(ti3 ti3Var) {
-        InterceptResult invokeL;
+    public wi3() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, ti3Var)) == null) {
-            int b = xi3.b(ti3Var);
-            if (!f(ti3Var.a)) {
-                return null;
-            }
-            WifiConfiguration wifiConfiguration = new WifiConfiguration();
-            wifiConfiguration.SSID = "\"" + ti3Var.a + "\"";
-            if (!TextUtils.isEmpty(ti3Var.b)) {
-                wifiConfiguration.BSSID = ti3Var.b;
-            }
-            if (b != 0) {
-                if (b != 1) {
-                    if (b != 2) {
-                        if (b == 3) {
-                            xi3.d(wifiConfiguration, 3);
-                            WifiEnterpriseConfig wifiEnterpriseConfig = new WifiEnterpriseConfig();
-                            wifiEnterpriseConfig.setEapMethod(0);
-                            wifiEnterpriseConfig.setIdentity(ti3Var.c);
-                            wifiEnterpriseConfig.setPassword(ti3Var.d);
-                            wifiConfiguration.enterpriseConfig = wifiEnterpriseConfig;
-                        }
-                    } else {
-                        xi3.d(wifiConfiguration, 2);
-                        wifiConfiguration.preSharedKey = "\"" + ti3Var.d + "\"";
-                    }
-                } else {
-                    xi3.d(wifiConfiguration, 1);
-                    String[] strArr = wifiConfiguration.wepKeys;
-                    strArr[0] = "\"" + ti3Var.d + "\"";
-                }
-            } else {
-                xi3.d(wifiConfiguration, 0);
-            }
-            return wifiConfiguration;
-        }
-        return (WifiConfiguration) invokeL.objValue;
-    }
-
-    public static WifiConfiguration b(Context context, WifiManager wifiManager, WifiInfo wifiInfo) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65537, null, context, wifiManager, wifiInfo)) == null) {
-            if (wifiInfo != null && f(wifiInfo.getSSID()) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), e(wifiInfo.getSSID()))) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static WifiConfiguration c(Context context, WifiManager wifiManager, ti3 ti3Var) {
-        InterceptResult invokeLLL;
-        List<WifiConfiguration> d;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65538, null, context, wifiManager, ti3Var)) == null) {
-            if (ti3Var != null && f(ti3Var.a) && (d = d(context, wifiManager)) != null) {
-                for (WifiConfiguration wifiConfiguration : d) {
-                    if (TextUtils.equals(e(wifiConfiguration.SSID), ti3Var.a)) {
-                        return wifiConfiguration;
-                    }
-                }
-            }
-            return null;
-        }
-        return (WifiConfiguration) invokeLLL.objValue;
-    }
-
-    public static List<WifiConfiguration> d(Context context, WifiManager wifiManager) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65539, null, context, wifiManager)) == null) {
-            if (wifiManager == null) {
-                return null;
-            }
-            try {
-                if (ContextCompat.checkSelfPermission(context, com.kuaishou.weapon.p0.h.g) != 0) {
-                    return null;
-                }
-                return wifiManager.getConfiguredNetworks();
-            } catch (Exception e) {
-                v42.b("SwanWifiUtils", Log.getStackTraceString(e));
-                return null;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
-        return (List) invokeLL.objValue;
+        f();
     }
 
-    public static String e(String str) {
-        InterceptResult invokeL;
-        int length;
+    public int a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && (length = str.length()) > 1 && str.charAt(0) == '\"') {
-                int i = length - 1;
-                if (str.charAt(i) == '\"') {
-                    return str.substring(1, i);
-                }
-                return str;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return WifiManager.calculateSignalLevel(this.d, 100);
+        }
+        return invokeV.intValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            String str = this.b;
+            if (str == null) {
+                return Config.DEF_MAC_ID;
             }
             return str;
         }
-        return (String) invokeL.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public static boolean f(String str) {
+    public int c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.e;
+        }
+        return invokeV.intValue;
+    }
+
+    public String d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            String str = this.a;
+            if (str == null) {
+                return "<unknown ssid>";
+            }
+            return str;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.c;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void f() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
+            this.a = "<unknown ssid>";
+            this.b = Config.DEF_MAC_ID;
+            this.c = -1;
+            this.d = 0;
+            this.e = 0;
+        }
+    }
+
+    public boolean g() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            if (e() > 0) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
+            return this.a.hashCode() + this.b.hashCode();
+        }
+        return invokeV.intValue;
+    }
+
+    public String o() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048592, this)) == null) {
+            return n().toString();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048593, this)) == null) {
+            return o();
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public wi3(ScanResult scanResult) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {scanResult};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        if (scanResult == null) {
+            f();
+            return;
+        }
+        m(scanResult.SSID);
+        h(scanResult.BSSID);
+        j(scanResult.level);
+        l(scanResult.capabilities);
+        i(scanResult.frequency);
+    }
+
+    public wi3(WifiInfo wifiInfo, int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {wifiInfo, Integer.valueOf(i)};
+            interceptable.invokeUnInit(65538, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65538, newInitContext);
+                return;
+            }
+        }
+        if (wifiInfo == null) {
+            f();
+            return;
+        }
+        m(yi3.e(wifiInfo.getSSID()));
+        h(wifiInfo.getBSSID());
+        j(wifiInfo.getRssi());
+        k(i);
+        i(wifiInfo.getFrequency());
+    }
+
+    public boolean equals(Object obj) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65541, null, str)) == null) {
-            if (!TextUtils.isEmpty(str) && !str.equals("<unknown ssid>")) {
-                return StandardCharsets.UTF_8.newEncoder().canEncode(str);
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (!(obj instanceof wi3)) {
+                return super.equals(obj);
+            }
+            wi3 wi3Var = (wi3) obj;
+            if (wi3Var.a.equals(this.a) && wi3Var.b.equals(this.b)) {
+                return true;
             }
             return false;
         }
         return invokeL.booleanValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str) == null) {
+            if (str == null) {
+                str = Config.DEF_MAC_ID;
+            }
+            this.b = str;
+        }
+    }
+
+    public void i(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048586, this, i) == null) {
+            this.e = i;
+        }
+    }
+
+    public void j(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
+            this.d = i;
+        }
+    }
+
+    public void k(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048588, this, i) == null) {
+            this.c = i;
+        }
+    }
+
+    public void l(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048589, this, str) == null) {
+            this.c = zi3.c(str);
+        }
+    }
+
+    public void m(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048590, this, str) == null) {
+            if (str == null) {
+                str = "<unknown ssid>";
+            }
+            this.a = str;
+        }
+    }
+
+    public JSONObject n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048591, this)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("SSID", d());
+                jSONObject.put("BSSID", b());
+                jSONObject.put(ClientCookie.SECURE_ATTR, g());
+                jSONObject.put("signalStrength", a());
+                jSONObject.put(FetchTimer.FREQUENCY, c());
+                return jSONObject;
+            } catch (JSONException e) {
+                if (ho1.a) {
+                    Log.d("WifiAccessPoint", Log.getStackTraceString(e));
+                }
+                return new JSONObject();
+            }
+        }
+        return (JSONObject) invokeV.objValue;
     }
 }

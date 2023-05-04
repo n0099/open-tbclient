@@ -1,42 +1,64 @@
 package com.baidu.tieba;
 
-import android.bluetooth.BluetoothAdapter;
-import android.content.Context;
-import android.media.AudioManager;
+import com.baidu.nadcore.video.plugin.videoplayer.model.ClarityUrlList;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
 public final class yz0 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static int a = -2;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static final boolean a(Context context) {
-        InterceptResult invokeL;
-        boolean z;
-        boolean z2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
-            Intrinsics.checkNotNullParameter(context, "context");
-            AudioManager a = g01.a(context);
-            if (a != null) {
-                z = a.isWiredHeadsetOn();
-            } else {
-                z = false;
-            }
-            BluetoothAdapter defaultAdapter = BluetoothAdapter.getDefaultAdapter();
-            if (defaultAdapter != null && defaultAdapter.getProfileConnectionState(1) == 2) {
-                z2 = true;
-            } else {
-                z2 = false;
-            }
-            d01.b("BdHeadsetUtils", "当前耳机连接状态>>> 有线耳机=" + z + ", 蓝牙=" + z2);
-            if (!z && !z2) {
-                return false;
-            }
-            return true;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948347322, "Lcom/baidu/tieba/yz0;")) == null) {
+            return;
         }
-        return invokeL.booleanValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948347322, "Lcom/baidu/tieba/yz0;");
+        }
+    }
+
+    public static void a(ClarityUrlList clarityUrlList) {
+        ClarityUrlList.c cVar;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65537, null, clarityUrlList) == null) {
+            Iterator it = clarityUrlList.iterator();
+            while (true) {
+                if (it.hasNext()) {
+                    cVar = (ClarityUrlList.c) it.next();
+                    if ("auto".equals(cVar.c())) {
+                        break;
+                    }
+                } else {
+                    cVar = null;
+                    break;
+                }
+            }
+            if (cVar != null) {
+                clarityUrlList.remove(cVar);
+            }
+        }
+    }
+
+    public static ly0 b(ClarityUrlList clarityUrlList, double d) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65538, null, new Object[]{clarityUrlList, Double.valueOf(d)})) == null) {
+            a(clarityUrlList);
+            int f = m01.f(a);
+            a = f;
+            return m01.g(clarityUrlList, f, d, false);
+        }
+        return (ly0) invokeCommon.objValue;
     }
 }

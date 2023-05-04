@@ -1,22 +1,15 @@
 package com.baidu.tieba;
 
-import android.net.Uri;
-import androidx.annotation.NonNull;
 import com.baidu.swan.game.ad.downloader.model.DownloadInfo;
-import com.baidu.tieba.qv3;
 /* loaded from: classes7.dex */
 public interface zv3 {
     void a(DownloadInfo downloadInfo);
 
-    void b(DownloadInfo downloadInfo);
+    void b();
 
-    void c(DownloadInfo downloadInfo);
+    DownloadInfo c(String str);
 
-    void d(DownloadInfo downloadInfo);
+    void close();
 
-    void destroy();
-
-    void f(@NonNull String str, @NonNull Uri uri, @NonNull qv3.d<Boolean> dVar);
-
-    DownloadInfo g(String str);
+    void delete(DownloadInfo downloadInfo);
 }

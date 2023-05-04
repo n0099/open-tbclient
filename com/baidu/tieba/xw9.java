@@ -1,87 +1,34 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.content.Intent;
-import android.net.Uri;
-import android.view.View;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.message.CustomMessage;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tbadk.core.atomData.ShareDialogConfig;
-import com.baidu.tbadk.core.util.ViewHelper;
-import com.baidu.tbadk.coreExtra.share.ShareItem;
-import com.baidu.tbadk.switchs.ShareSwitch;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tieba.tbadkCore.util.AntiHelper;
+import com.baidu.tieba.u05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import tbclient.BlockPopInfo;
 /* loaded from: classes7.dex */
-public class xw9 implements ww9 {
+public class xw9 {
     public static /* synthetic */ Interceptable $ic;
+    public static BlockPopInfo d;
+    public static BlockPopInfo e;
     public transient /* synthetic */ FieldHolder $fh;
-    public uw9 a;
-    public tw9 b;
-    public TbPageContext<?> c;
-
-    @Override // com.baidu.tieba.ww9
-    public void onDestroy() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.ww9
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-        }
-    }
+    public TbPageContext a;
+    public u05 b;
+    public CustomMessageListener c;
 
     /* loaded from: classes7.dex */
-    public class a implements View.OnClickListener {
+    public class a implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ShareItem a;
-        public final /* synthetic */ xw9 b;
 
-        public a(xw9 xw9Var, ShareItem shareItem) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xw9Var, shareItem};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = xw9Var;
-            this.a = shareItem;
-        }
-
-        @Override // android.view.View.OnClickListener
-        public void onClick(View view2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-                yh.a(this.a.x);
-                ii.Q(this.b.c.getPageActivity(), view2.getResources().getString(R.string.copy_pb_url_success));
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements DialogInterface.OnDismissListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ xw9 a;
-
-        public b(xw9 xw9Var) {
+        public a(xw9 xw9Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -93,28 +40,97 @@ public class xw9 implements ww9 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = xw9Var;
         }
 
-        @Override // android.content.DialogInterface.OnDismissListener
-        public void onDismiss(DialogInterface dialogInterface) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if (interceptable != null && interceptable.invokeL(1048576, this, dialogInterface) != null) {
-                return;
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                u05Var.dismiss();
             }
-            this.a.h();
         }
     }
 
-    public xw9(TbPageContext<?> tbPageContext, tw9 tw9Var, Intent intent) {
+    /* loaded from: classes7.dex */
+    public class b implements u05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ BlockPopInfo a;
+        public final /* synthetic */ xw9 b;
+
+        public b(xw9 xw9Var, BlockPopInfo blockPopInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw9Var, blockPopInfo};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = xw9Var;
+            this.a = blockPopInfo;
+        }
+
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                this.b.e(this.a);
+            }
+        }
+    }
+
+    /* loaded from: classes7.dex */
+    public class c extends CustomMessageListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+        public c(xw9 xw9Var, int i) {
+            super(i);
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {xw9Var, Integer.valueOf(i)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i2 = newInitContext.flag;
+                if ((i2 & 1) != 0) {
+                    int i3 = i2 & 2;
+                    super(((Integer) newInitContext.callArgs[0]).intValue());
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.adp.framework.listener.MessageListener
+        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+            Interceptable interceptable = $ic;
+            if ((interceptable != null && interceptable.invokeL(1048576, this, customResponsedMessage) != null) || customResponsedMessage == null) {
+                return;
+            }
+            xw9.h(null);
+            xw9.g(null);
+        }
+    }
+
+    public xw9(TbPageContext tbPageContext) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, tw9Var, intent};
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -124,104 +140,107 @@ public class xw9 implements ww9 {
                 return;
             }
         }
-        this.c = tbPageContext;
-        this.b = tw9Var;
-        vw9 vw9Var = new vw9();
-        this.a = vw9Var;
-        vw9Var.b(intent);
-        this.a.e(tbPageContext.getUniqueId());
+        c cVar = new c(this, 2005016);
+        this.c = cVar;
+        this.a = tbPageContext;
+        tbPageContext.registerListener(cVar);
     }
 
-    @Override // com.baidu.tieba.ww9
-    public void a() {
+    public static void g(BlockPopInfo blockPopInfo) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(1048576, this) != null) || this.c == null) {
+        if (interceptable == null || interceptable.invokeL(65538, null, blockPopInfo) == null) {
+            e = blockPopInfo;
+        }
+    }
+
+    public static void h(BlockPopInfo blockPopInfo) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65539, null, blockPopInfo) == null) {
+            d = blockPopInfo;
+        }
+    }
+
+    public final void e(BlockPopInfo blockPopInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048579, this, blockPopInfo) != null) || blockPopInfo == null) {
             return;
         }
-        if (!ShareSwitch.isOn() && !ViewHelper.checkUpIsLogin(this.c.getPageActivity())) {
-            return;
-        }
-        i();
+        AntiHelper.p(this.a.getPageActivity(), blockPopInfo.ahead_url);
     }
 
-    @Override // com.baidu.tieba.ww9
-    public void b() {
-        uw9 uw9Var;
+    public final boolean b(BlockPopInfo blockPopInfo) {
+        InterceptResult invokeL;
+        Integer num;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (uw9Var = this.a) != null) {
-            q45.m().w(q45.q(uw9Var.c()), false);
-        }
-    }
-
-    @Override // com.baidu.tieba.ww9
-    public void c() {
-        uw9 uw9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) && (uw9Var = this.a) != null && this.b != null) {
-            this.b.H0(uw9Var.getVideoUrl());
-        }
-    }
-
-    @Override // com.baidu.tieba.ww9
-    public void d() {
-        tw9 tw9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (tw9Var = this.b) != null) {
-            tw9Var.showErrorView();
-        }
-    }
-
-    @Override // com.baidu.tieba.ww9
-    public void e() {
-        tw9 tw9Var;
-        uw9 uw9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (tw9Var = this.b) != null && (uw9Var = this.a) != null) {
-            tw9Var.q0(uw9Var.a(), this.a.g());
-        }
-    }
-
-    public final void h() {
-        uw9 uw9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && (uw9Var = this.a) != null && this.b != null) {
-            this.b.C0(uw9Var.getVideoUrl());
-        }
-    }
-
-    @Override // com.baidu.tieba.ww9
-    public void onClose() {
-        tw9 tw9Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048583, this) == null) && (tw9Var = this.b) != null) {
-            tw9Var.finishActivity();
-        }
-    }
-
-    @Override // com.baidu.tieba.ww9
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            h();
-        }
-    }
-
-    public final void i() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a != null && this.c != null) {
-            ShareItem shareItem = new ShareItem();
-            shareItem.v = this.a.d();
-            shareItem.w = this.a.i();
-            shareItem.x = this.a.f();
-            shareItem.y = this.a.f();
-            if (!hi.isEmpty(this.a.h())) {
-                shareItem.z = Uri.parse(this.a.h());
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, blockPopInfo)) == null) {
+            if (blockPopInfo != null && (num = blockPopInfo.appeal_status) != null && num.intValue() == 1) {
+                BdToast b2 = BdToast.b(this.a.getPageActivity(), blockPopInfo.appeal_msg);
+                b2.g(BdToast.ToastIcon.FAILURE);
+                b2.d(3000);
+                b2.o();
+                return true;
+            } else if (blockPopInfo != null && blockPopInfo.can_post.intValue() == 0) {
+                if ((blockPopInfo.ahead_type.intValue() == 1 || blockPopInfo.ahead_type.intValue() == 2) && blockPopInfo.appeal_status.intValue() != 1) {
+                    if (blockPopInfo.ahead_type.intValue() == 1) {
+                        String str = blockPopInfo.block_info;
+                        String str2 = blockPopInfo.ok_info;
+                        if (!hi.isEmpty(str) && !hi.isEmpty(str2)) {
+                            i(blockPopInfo);
+                        } else {
+                            BdToast b3 = BdToast.b(this.a.getPageActivity(), this.a.getString(R.string.hanpen_error));
+                            b3.g(BdToast.ToastIcon.FAILURE);
+                            b3.d(3000);
+                            b3.o();
+                        }
+                    } else if (blockPopInfo.ahead_type.intValue() == 2) {
+                        e(blockPopInfo);
+                    }
+                    return true;
+                }
+                return false;
+            } else {
+                return false;
             }
-            ShareDialogConfig shareDialogConfig = new ShareDialogConfig((Context) this.c.getPageActivity(), shareItem, true, true);
-            shareDialogConfig.setIsCopyLink(true);
-            shareDialogConfig.setCopyLinkListener(new a(this, shareItem));
-            shareDialogConfig.setOnDismissListener(new b(this));
-            this.c.sendMessage(new CustomMessage(2001276, shareDialogConfig));
         }
+        return invokeL.booleanValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return b(e);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return b(d);
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void f() {
+        u05 u05Var;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && this.a != null && (u05Var = this.b) != null && u05Var.isShowing()) {
+            this.b.autoChangeSkinType(this.a);
+        }
+    }
+
+    public final void i(BlockPopInfo blockPopInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(1048581, this, blockPopInfo) != null) || blockPopInfo == null) {
+            return;
+        }
+        u05 u05Var = new u05(this.a.getPageActivity());
+        this.b = u05Var;
+        u05Var.setMessage(blockPopInfo.block_info);
+        this.b.setNegativeButton(blockPopInfo.ok_info, new a(this));
+        this.b.setPositiveButton(blockPopInfo.ahead_info, new b(this, blockPopInfo));
+        this.b.create(this.a).show();
     }
 }

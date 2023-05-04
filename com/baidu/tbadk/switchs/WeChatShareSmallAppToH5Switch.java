@@ -1,7 +1,7 @@
 package com.baidu.tbadk.switchs;
 
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.f55;
 import com.baidu.tieba.te;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -86,7 +86,7 @@ public class WeChatShareSmallAppToH5Switch extends te {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (q45.m().n("key_wechat_small_app_to_h5", 0) != 1) {
+            if (f55.m().n("key_wechat_small_app_to_h5", 0) != 1) {
                 return false;
             }
             return true;

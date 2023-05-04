@@ -23,8 +23,8 @@ public class LoadingLayout extends LinearLayout {
     public void b(boolean z) {
         if (z) {
             setVisibility(0);
-            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01014b);
-            this.a.setImageResource(R.drawable.obfuscated_res_0x7f08121e);
+            Animation loadAnimation = AnimationUtils.loadAnimation(getContext(), R.anim.obfuscated_res_0x7f01014d);
+            this.a.setImageResource(R.drawable.obfuscated_res_0x7f08124f);
             this.a.startAnimation(loadAnimation);
             return;
         }
@@ -36,10 +36,10 @@ public class LoadingLayout extends LinearLayout {
     }
 
     public final void a() {
-        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0891, (ViewGroup) null);
+        View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d089d, (ViewGroup) null);
         inflate.setBackgroundColor(-1);
-        this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09024e);
-        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09024f);
+        this.a = (ImageView) inflate.findViewById(R.id.obfuscated_res_0x7f09024d);
+        this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f09024e);
         addView(inflate);
     }
 

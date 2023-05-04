@@ -6,10 +6,10 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.immessagecenter.chatgroup.chatbox.adapter.ChatRoomRecycleAdapter;
-import com.baidu.tieba.k68;
-import com.baidu.tieba.l68;
-import com.baidu.tieba.m68;
-import com.baidu.tieba.o38;
+import com.baidu.tieba.l58;
+import com.baidu.tieba.l88;
+import com.baidu.tieba.m88;
+import com.baidu.tieba.n88;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -19,32 +19,33 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 /* loaded from: classes5.dex */
-public class RobotItem extends o38 implements Serializable {
+public class RobotItem extends l58 implements Serializable {
     public static /* synthetic */ Interceptable $ic = null;
     public static final long serialVersionUID = -5589601297540632738L;
     public transient /* synthetic */ FieldHolder $fh;
     public boolean isShowHeadView;
     public RecyclerView.Adapter mAdapter;
-    public List<o38> mSubItems;
+    public List<l58> mSubItems;
     public String roboatName;
     public String robortAvatar;
+    public String robotUk;
 
-    @Override // com.baidu.tieba.o38
+    @Override // com.baidu.tieba.l58
     public int getViewType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             return 4;
         }
         return invokeV.intValue;
     }
 
-    public RobotItem(List<o38> list, @NonNull String str, @NonNull String str2, @NonNull TbPageContext tbPageContext, k68 k68Var, boolean z) {
+    public RobotItem(List<l58> list, @NonNull String str, @NonNull String str2, @NonNull String str3, @NonNull TbPageContext tbPageContext, l88 l88Var, boolean z) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {list, str, str2, tbPageContext, k68Var, Boolean.valueOf(z)};
+            Object[] objArr = {list, str, str2, str3, tbPageContext, l88Var, Boolean.valueOf(z)};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -58,12 +59,13 @@ public class RobotItem extends o38 implements Serializable {
         this.isShowHeadView = z;
         this.roboatName = str2;
         this.robortAvatar = str;
-        l68 l68Var = new l68(tbPageContext);
+        this.robotUk = str3;
+        m88 m88Var = new m88(tbPageContext);
         if (!ListUtils.isEmpty(list)) {
             this.mSubItems.addAll(list);
         }
-        this.mAdapter = new ChatRoomRecycleAdapter(new m68(k68Var), l68Var, tbPageContext);
-        l68Var.b(getSubItems());
+        this.mAdapter = new ChatRoomRecycleAdapter(new n88(l88Var), m88Var, tbPageContext);
+        m88Var.b(getSubItems());
     }
 
     public RecyclerView.Adapter getAdapter() {
@@ -93,10 +95,20 @@ public class RobotItem extends o38 implements Serializable {
         return (String) invokeV.objValue;
     }
 
-    public List<o38> getSubItems() {
+    @NonNull
+    public String getRobotUk() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.robotUk;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public List<l58> getSubItems() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
             return this.mSubItems;
         }
         return (List) invokeV.objValue;
@@ -105,7 +117,7 @@ public class RobotItem extends o38 implements Serializable {
     public boolean isShowHeadView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
             return this.isShowHeadView;
         }
         return invokeV.booleanValue;
@@ -113,7 +125,7 @@ public class RobotItem extends o38 implements Serializable {
 
     public void setShowHeadView(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048583, this, z) == null) {
             this.isShowHeadView = z;
         }
     }

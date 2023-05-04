@@ -20,9 +20,9 @@ import com.baidu.tbadk.core.util.SkinManager;
 import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.util.MaskView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
+import com.baidu.tieba.gx4;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.qw4;
-import com.baidu.tieba.r25;
 import com.baidu.tieba.tbadkCore.data.WorksInfoData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -121,11 +121,11 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
     public void T(String str, String str2) {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) && this.D != null && !TextUtils.isEmpty(str) && str.equals(this.D.getTid())) {
-            qw4 qw4Var = new qw4();
-            qw4Var.b = 4;
-            qw4Var.d = 2;
-            qw4Var.j = str2;
-            this.e.setStatisticData(qw4Var);
+            gx4 gx4Var = new gx4();
+            gx4Var.b = 4;
+            gx4Var.d = 2;
+            gx4Var.j = str2;
+            this.e.setStatisticData(gx4Var);
             this.e.N();
         }
     }
@@ -297,7 +297,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             textView.setLayoutParams(layoutParams4);
             float f3 = g2;
             textView.setTextSize(0, f3);
-            textView.setText(this.E.getString(R.string.obfuscated_res_0x7f0f1208));
+            textView.setText(this.E.getString(R.string.obfuscated_res_0x7f0f1221));
             if (X()) {
                 this.K = true;
                 setNeedAddReplyIcon(true);
@@ -387,7 +387,7 @@ public class PbThreadCommentAndPraiseInfoLayout extends ThreadCommentAndPraiseIn
             WebPManager.setPureDrawable(this.g, R.drawable.icon_pure_pb_operate_commen, R.color.CAM_X0107, null);
             EMTextView eMTextView = this.h;
             if (eMTextView != null) {
-                r25 d = r25.d(eMTextView);
+                g35 d = g35.d(eMTextView);
                 d.C(R.string.F_X02);
                 d.w(R.color.CAM_X0107);
                 SkinManager.setBackgroundShapeDrawable(this.h, ii.g(TbadkCoreApplication.getInst().getContext(), R.dimen.tbds18), R.color.CAM_X0207, R.color.CAM_X0207);

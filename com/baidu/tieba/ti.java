@@ -48,7 +48,7 @@ public class ti {
                     if (i != 1) {
                         if (i != 6) {
                             if (ti.d != null) {
-                                ti.d.error(message.what, aj.a(R.string.obfuscated_res_0x7f0f169f));
+                                ti.d.error(message.what, aj.a(R.string.obfuscated_res_0x7f0f16b8));
                             }
                         } else {
                             if (ti.d != null) {
@@ -57,7 +57,7 @@ public class ti {
                             return true;
                         }
                     } else if (ti.d != null) {
-                        ti.d.error(message.what, aj.a(R.string.obfuscated_res_0x7f0f169d));
+                        ti.d.error(message.what, aj.a(R.string.obfuscated_res_0x7f0f16b6));
                     }
                 } else if (ti.d != null) {
                     ti.d.c(ti.c, message.arg1);
@@ -113,7 +113,7 @@ public class ti {
                 d = viVar;
                 b.j(str);
                 a = 2;
-                wk6.a(b, "AmrAudioPlayer", 2);
+                km6.a(b, "AmrAudioPlayer", 2);
                 return true;
             }
             return false;

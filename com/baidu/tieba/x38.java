@@ -1,31 +1,30 @@
 package com.baidu.tieba;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import java.util.Map;
-/* loaded from: classes6.dex */
-public interface x38 {
-    void a();
+import com.baidu.adp.framework.MessageManager;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.core.data.MetaData;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.util.ArrayList;
+import java.util.List;
+/* loaded from: classes7.dex */
+public class x38 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void c(@NonNull String str);
-
-    void i();
-
-    void k(@NonNull String str);
-
-    void l(boolean z, int i, int i2, @Nullable Map<String, Object> map);
-
-    void m(@NonNull String str, @NonNull CharSequence charSequence);
-
-    void n(@NonNull v38 v38Var);
-
-    void o();
-
-    void onDestroy();
-
-    void p();
-
-    void q(@NonNull String str, @Nullable String str2);
-
-    void r(int i, int i2, @Nullable String str);
+    @NonNull
+    public static List<MetaData> a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
+            CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921765, u08.class);
+            if (runTask != null && runTask.getData() != null) {
+                return ((u08) runTask.getData()).b();
+            }
+            return new ArrayList();
+        }
+        return (List) invokeV.objValue;
+    }
 }

@@ -1,60 +1,105 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.tbadk.core.data.ThreadData;
-import com.baidu.tieba.card.data.BaseCardInfo;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.searchbox.launch.stats.SpeedStatsStampTable;
+import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.core.atomData.BigdayActivityConfig;
+import com.baidu.tbadk.core.util.DeviceInfoUtil;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.UtilHelper;
+import com.baidu.tbadk.coreExtra.service.DealIntentService;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.List;
 /* loaded from: classes5.dex */
-public class jk9 extends BaseCardInfo implements in {
+public class jk9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
-    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public List<ThreadData> a;
+    @NonNull
+    public final gk9 a;
+    @NonNull
+    public final hk9 b;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947886321, "Lcom/baidu/tieba/jk9;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947886321, "Lcom/baidu/tieba/jk9;");
-                return;
-            }
-        }
-        b = BdUniqueId.gen();
-    }
-
-    public jk9() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public jk9(@NonNull gk9 gk9Var, @NonNull hk9 hk9Var) {
+        super(2016311);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {gk9Var, hk9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = gk9Var;
+        this.b = hk9Var;
     }
 
-    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
-    public BdUniqueId getType() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        String str;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return b;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2016311) {
+            SpeedStatsManager.getInstance().addStatsTimeStamp(SpeedStatsStampTable.AD_SHOW_END_STAMP_KEY);
+            Object data = customResponsedMessage.getData();
+            if (data instanceof String) {
+                String str2 = (String) data;
+                as9.a("SplashClickListener link:" + str2);
+                if (!TextUtils.isEmpty(str2) && !TextUtils.equals("advertevent", Uri.parse(str2).getScheme())) {
+                    Intent intent = new Intent();
+                    int indexOf = str2.indexOf("&extInfo=");
+                    if (indexOf > 0) {
+                        str = str2.substring(0, indexOf);
+                    } else {
+                        str = str2;
+                    }
+                    String substring = str2.substring(str.length() + 9, str2.length());
+                    if (str.startsWith("https://") || str.startsWith("http://")) {
+                        intent.putExtra("gd_ad", true);
+                        intent.putExtra("ext_info", substring);
+                    }
+                    if (!this.a.h() && ((StringUtils.isNull(str) || !str.startsWith("bdtiebalive")) && this.a.g() != 2)) {
+                        intent.putExtra(DealIntentService.KEY_CLASS, 30);
+                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
+                        intent.putExtra("is_ad", true);
+                        TbadkCoreApplication.setIntent(intent);
+                    } else {
+                        intent.putExtra(DealIntentService.KEY_CLASS, 30);
+                        intent.putExtra(BigdayActivityConfig.JUMP_URL, str);
+                        intent.putExtra("is_ad", true);
+                        UtilHelper.commenDealIntent(this.a.getActivity(), intent);
+                    }
+                }
+                this.a.e();
+                TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_SPLASH_GOTO_MAIN_TAB).param("obj_locate", this.a.getActivity().getClass().getSimpleName()).param("obj_param1", 5).param(TiebaStatic.Params.OBJ_PARAM3, String.valueOf(this.a.d())));
+                if (!this.a.d() && !DeviceInfoUtil.isHuaWeiP40Pro()) {
+                    SpeedStatsManager.getInstance().setStatsFlag(-1);
+                    if (!this.a.h()) {
+                        TiebaStatic.log(new StatisticItem("ignore_speed").param("obj_source", "click"));
+                        return;
+                    }
+                    return;
+                }
+                this.b.a();
+            }
         }
-        return (BdUniqueId) invokeV.objValue;
     }
 }

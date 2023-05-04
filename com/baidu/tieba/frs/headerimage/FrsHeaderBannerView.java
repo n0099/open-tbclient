@@ -134,12 +134,12 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
     public void a() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0335, (ViewGroup) this, true);
-            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090c5e);
-            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c53);
-            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c5d);
-            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c5f);
-            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090c6a);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0338, (ViewGroup) this, true);
+            this.d = inflate.findViewById(R.id.obfuscated_res_0x7f090c66);
+            this.a = (TbImageView) inflate.findViewById(R.id.obfuscated_res_0x7f090c5b);
+            this.b = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c65);
+            this.c = (TextView) inflate.findViewById(R.id.obfuscated_res_0x7f090c67);
+            this.e = inflate.findViewById(R.id.obfuscated_res_0x7f090c72);
             this.a.setOnClickListener(this);
             this.d.setOnClickListener(this);
             this.e.setOnClickListener(this);
@@ -147,7 +147,7 @@ public class FrsHeaderBannerView extends LinearLayout implements View.OnClickLis
             this.a.setRadius(ii.g(getContext(), R.dimen.tbds20));
             this.a.setConrers(15);
             this.a.setPlaceHolder(2);
-            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f076c));
+            this.c.setText(getContext().getString(R.string.obfuscated_res_0x7f0f077b));
             this.g = getTbPageContext();
         }
     }

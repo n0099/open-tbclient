@@ -1,24 +1,20 @@
 package com.baidu.tieba;
 
-import android.content.SharedPreferences;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.text.TextUtils;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.nps.utils.Constant;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.util.NotificationHelper;
-import com.baidu.tbadk.core.util.TiebaStatic;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.download.DownloadData;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class hc5 implements lc5 {
+public class hc5 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
+    public String b;
 
     public hc5() {
         Interceptable interceptable = $ic;
@@ -34,86 +30,57 @@ public class hc5 implements lc5 {
         }
     }
 
-    @Override // com.baidu.tieba.lc5
-    public void onFileDownloadFailed(DownloadData downloadData, int i, String str) {
+    public String a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(1048576, this, downloadData, i, str) == null) {
-            sb9 n = sb9.n();
-            if (i == 3) {
-                n.v(downloadData);
-                MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2016484, downloadData));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public boolean c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            if (!TextUtils.isEmpty(this.a) && !TextUtils.isEmpty(this.b)) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public String b() {
+        InterceptResult invokeV;
+        String str;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (TextUtils.isEmpty(this.b)) {
+                return "";
+            }
+            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
+                str = "skin=dark";
             } else {
-                n.B(downloadData);
+                str = "skin=default";
             }
-            ic5.a(downloadData);
-            sb9.n().y(downloadData);
+            if (this.b.contains("?")) {
+                this.b += "&customfullscreen=1&nonavigationbar=1&" + str;
+            } else {
+                this.b += "?customfullscreen=1&nonavigationbar=1&" + str;
+            }
+            return this.b;
         }
+        return (String) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lc5
-    public void onFileDownloadSucceed(DownloadData downloadData) {
+    public void d(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, downloadData) != null) || downloadData == null) {
+        if ((interceptable != null && interceptable.invokeL(1048579, this, jSONObject) != null) || jSONObject == null || (optJSONObject = jSONObject.optJSONObject("homepage_guide")) == null) {
             return;
         }
-        String[] tag = downloadData.getTag();
-        if (tag != null && tag.length == 3) {
-            TiebaStatic.eventStat(TbadkCoreApplication.getInst().getApp(), "dl_game_success", "click", 1, "dev_id", downloadData.getId(), "ref_id", tag[0], "is_detail", tag[2], "ref_type", tag[1]);
-        }
-        ic5.c(downloadData);
-        NotificationHelper.cancelNotification(TbadkCoreApplication.getInst().getApp(), downloadData.getNotifyId());
-        sb9.n().y(downloadData);
-        if (downloadData.isNeedInvokeApk()) {
-            String str = downloadData.getId().replace(".", "_") + Constant.FILE.SUFFIX.BUNDLE_SUFFIX;
-            if (downloadData.getApkDownloadData() != null) {
-                nu4.c().a(downloadData.getApkDownloadData().getPackageName(), downloadData.getName(), Integer.toString(downloadData.getSource()), downloadData.getUrl());
-            }
-            UtilHelper.install_apk(TbadkCoreApplication.getInst().getApp(), str);
-        }
-    }
-
-    @Override // com.baidu.tieba.lc5
-    public boolean onFileDownloaded(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            downloadData.setStatusMsg(null);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lc5
-    public boolean onPreDownload(DownloadData downloadData) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, downloadData)) == null) {
-            if (downloadData == null) {
-                return false;
-            }
-            downloadData.setStatusMsg(null);
-            return true;
-        }
-        return invokeL.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.lc5
-    public void onFileUpdateProgress(DownloadData downloadData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, downloadData) != null) || downloadData == null) {
-            return;
-        }
-        SharedPreferences sharedPreferences = TbadkCoreApplication.getInst().getSharedPreferences("app_download_progress", 0);
-        long j = sharedPreferences.getLong(downloadData.getId(), 0L);
-        if (j <= 1 || (downloadData.getSize() > 1 && j != downloadData.getSize())) {
-            SharedPreferences.Editor edit = sharedPreferences.edit();
-            edit.putLong(downloadData.getId(), downloadData.getSize());
-            edit.commit();
-        }
-        sb9.n().C(downloadData);
-        sb9.n().y(downloadData);
+        this.a = optJSONObject.optString("guide_picture");
+        this.b = optJSONObject.optString("guide_url");
     }
 }

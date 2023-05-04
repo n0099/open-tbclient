@@ -40,21 +40,21 @@ import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.BaseViewPager;
 import com.baidu.tbadk.widget.TbImageView;
 import com.baidu.tieba.R;
-import com.baidu.tieba.al7;
-import com.baidu.tieba.an5;
-import com.baidu.tieba.cl7;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.gg;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
-import com.baidu.tieba.t45;
-import com.baidu.tieba.vx4;
+import com.baidu.tieba.j55;
+import com.baidu.tieba.ly4;
+import com.baidu.tieba.my4;
+import com.baidu.tieba.rm7;
+import com.baidu.tieba.sm7;
+import com.baidu.tieba.tm7;
+import com.baidu.tieba.tn5;
+import com.baidu.tieba.um7;
+import com.baidu.tieba.vm7;
 import com.baidu.tieba.wallet.CurrencyHelper;
 import com.baidu.tieba.wallet.CurrencySwitchUtil;
-import com.baidu.tieba.wk7;
-import com.baidu.tieba.wx4;
-import com.baidu.tieba.xk7;
-import com.baidu.tieba.yk7;
-import com.baidu.tieba.zk7;
+import com.baidu.tieba.xm7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -68,23 +68,23 @@ import java.util.List;
 public class GiftTabView implements ViewPager.OnPageChangeListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public zk7 A;
+    public um7 A;
     public GiftPagerAdapter B;
-    public t45 C;
-    public ArrayList<yk7> D;
-    public ArrayList<wk7> E;
-    public ArrayList<al7> F;
+    public j55 C;
+    public ArrayList<tm7> D;
+    public ArrayList<rm7> E;
+    public ArrayList<vm7> F;
     public int G;
     public String H;
     public int I;
-    public wx4 J;
+    public my4 J;
     public o K;
     public n L;
     public int M;
     public int N;
     public int O;
     public int P;
-    public vx4 Q;
+    public ly4 Q;
     public SparseIntArray R;
     public SparseBooleanArray S;
     public int T;
@@ -430,7 +430,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             Interceptable interceptable = $ic;
             if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.a.K != null) {
                 this.a.S.append(this.a.P, true);
-                this.a.K.a(((yk7) this.a.D.get(this.a.P)).a());
+                this.a.K.a(((tm7) this.a.D.get(this.a.P)).a());
             }
         }
     }
@@ -538,14 +538,14 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                 giftTabView.N = giftTabView.M;
                 this.a.O = i;
                 ii.z(this.a.a.getPageContext().getPageActivity(), this.a.g);
-                xk7 xk7Var = (xk7) adapterView.getAdapter();
-                if (xk7Var != null) {
-                    vx4 item = xk7Var.getItem(i);
+                sm7 sm7Var = (sm7) adapterView.getAdapter();
+                if (sm7Var != null) {
+                    ly4 item = sm7Var.getItem(i);
                     if (item != null) {
                         this.a.Q = item;
                     }
-                    xk7Var.d(i);
-                    xk7Var.notifyDataSetChanged();
+                    sm7Var.d(i);
+                    sm7Var.notifyDataSetChanged();
                 }
                 this.a.M();
                 this.a.y(true);
@@ -598,10 +598,10 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                 } else {
                     this.a.g.setCursorVisible(true);
                     this.a.g.setFocusable(true);
-                    al7 al7Var = (al7) this.a.F.get(i);
-                    if (al7Var != null) {
+                    vm7 vm7Var = (vm7) this.a.F.get(i);
+                    if (vm7Var != null) {
                         EditText editText = this.a.g;
-                        editText.setText("" + al7Var.b());
+                        editText.setText("" + vm7Var.b());
                     }
                 }
                 this.a.x.setVisibility(8);
@@ -748,7 +748,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         this.c0 = false;
         this.a = giftTabActivity;
         this.W = onClickListener;
-        View inflate = LayoutInflater.from(giftTabActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a2, (ViewGroup) null);
+        View inflate = LayoutInflater.from(giftTabActivity.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a6, (ViewGroup) null);
         this.b = inflate;
         this.a.setContentView(inflate);
         J();
@@ -768,8 +768,8 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048590, this, i2) == null) {
             this.G = i2;
-            vx4 vx4Var = this.Q;
-            if (vx4Var != null && vx4Var.f == 5) {
+            ly4 ly4Var = this.Q;
+            if (ly4Var != null && ly4Var.f == 5) {
                 M();
             }
         }
@@ -819,20 +819,20 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         return invokeV.intValue;
     }
 
-    public vx4 C() {
+    public ly4 C() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return this.Q;
         }
-        return (vx4) invokeV.objValue;
+        return (ly4) invokeV.objValue;
     }
 
     public void G() {
-        t45 t45Var;
+        j55 j55Var;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (t45Var = this.C) != null) {
-            t45Var.h(false);
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && (j55Var = this.C) != null) {
+            j55Var.h(false);
         }
     }
 
@@ -840,7 +840,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
             if (this.C == null) {
-                this.C = new t45(this.a.getPageContext());
+                this.C = new j55(this.a.getPageContext());
             }
             this.C.h(true);
         }
@@ -850,7 +850,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         InterceptResult invokeZ;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeZ = interceptable.invokeZ(1048579, this, z)) == null) {
-            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a0, (ViewGroup) null);
+            View inflate = LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a4, (ViewGroup) null);
             TextView textView = (TextView) inflate.findViewById(R.id.net_refresh_button);
             int skinType = TbadkCoreApplication.getInst().getSkinType();
             SkinManager.setImageResource((TbImageView) inflate.findViewById(R.id.net_refresh_image), R.drawable.new_pic_emotion_08);
@@ -875,8 +875,8 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             if (i2 >= 0 && i2 < childCount) {
                 for (int i3 = 0; i3 < childCount; i3++) {
                     LinearLayout linearLayout = (LinearLayout) this.t.getChildAt(i3);
-                    TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09232f);
-                    View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f09230b);
+                    TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092347);
+                    View findViewById = linearLayout.findViewById(R.id.obfuscated_res_0x7f092323);
                     if (i3 != i2) {
                         SkinManager.setViewTextColor(textView, R.color.gift_tab_textcolor_normal, 1);
                         SkinManager.setBackgroundColor(findViewById, R.color.common_color_10022);
@@ -897,7 +897,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
     }
 
     public final void x(int i2) {
-        ArrayList<yk7> arrayList;
+        ArrayList<tm7> arrayList;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048603, this, i2) == null) {
             int childCount = this.t.getChildCount();
@@ -910,13 +910,13 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         }
     }
 
-    public final GridView E(List<vx4> list, int i2) {
+    public final GridView E(List<ly4> list, int i2) {
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, list, i2)) == null) {
-            xk7 xk7Var = new xk7(this.a.getPageContext().getPageActivity());
-            xk7Var.c(list);
-            xk7Var.d(i2);
+            sm7 sm7Var = new sm7(this.a.getPageContext().getPageActivity());
+            sm7Var.c(list);
+            sm7Var.d(i2);
             TableLineGridView tableLineGridView = new TableLineGridView(this.a.getPageContext().getPageActivity());
             tableLineGridView.setColumnCount(4);
             tableLineGridView.setRowCount(2);
@@ -924,16 +924,16 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             tableLineGridView.setVerticalScrollBarEnabled(false);
             tableLineGridView.setNumColumns(4);
             tableLineGridView.setSelector(R.color.common_color_10022);
-            tableLineGridView.setAdapter((ListAdapter) xk7Var);
+            tableLineGridView.setAdapter((ListAdapter) sm7Var);
             tableLineGridView.setOnItemClickListener(new j(this, null));
             return tableLineGridView;
         }
         return (GridView) invokeLI.objValue;
     }
 
-    public final void H(ArrayList<yk7> arrayList, boolean z) {
+    public final void H(ArrayList<tm7> arrayList, boolean z) {
         int i2;
-        List<vx4> subList;
+        List<ly4> subList;
         Interceptable interceptable = $ic;
         if ((interceptable != null && interceptable.invokeLZ(1048583, this, arrayList, z) != null) || arrayList == null) {
             return;
@@ -942,7 +942,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         this.z.clear();
         this.q.setAdapter(null);
         for (int i3 = 0; i3 < arrayList.size(); i3++) {
-            List<vx4> b2 = arrayList.get(i3).b();
+            List<ly4> b2 = arrayList.get(i3).b();
             if (b2 != null) {
                 i2 = b2.size();
             } else {
@@ -950,7 +950,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             }
             int i4 = 1;
             if (i2 <= 0) {
-                List<vx4> arrayList2 = new ArrayList<>();
+                List<ly4> arrayList2 = new ArrayList<>();
                 if (!this.S.get(i3)) {
                     this.z.add(E(arrayList2, -1));
                 } else {
@@ -989,21 +989,21 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         U();
     }
 
-    public final void I(List<al7> list) {
+    public final void I(List<vm7> list) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, list) == null) {
             ArrayList arrayList = new ArrayList();
             if (list != null && list.size() > 0) {
-                for (al7 al7Var : list) {
-                    if (al7Var.b() <= 0) {
-                        arrayList.add(al7Var);
+                for (vm7 vm7Var : list) {
+                    if (vm7Var.b() <= 0) {
+                        arrayList.add(vm7Var);
                     }
                 }
                 list.removeAll(arrayList);
             }
-            zk7 zk7Var = new zk7(this.a.getPageContext().getPageActivity());
-            this.A = zk7Var;
-            this.y.setAdapter((ListAdapter) zk7Var);
+            um7 um7Var = new um7(this.a.getPageContext().getPageActivity());
+            this.A = um7Var;
+            this.y.setAdapter((ListAdapter) um7Var);
             this.A.b(list);
         }
     }
@@ -1013,7 +1013,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         if (interceptable == null || interceptable.invokeZ(1048597, this, z) == null) {
             z();
             G();
-            ArrayList<yk7> arrayList = this.D;
+            ArrayList<tm7> arrayList = this.D;
             if (arrayList != null && arrayList.size() > 0) {
                 this.m.setEnabled(true);
                 this.v.setVisibility(8);
@@ -1043,14 +1043,14 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             }
             GridView gridView = (GridView) this.z.get(i2);
             if (gridView.getAdapter() != null) {
-                xk7 xk7Var = (xk7) gridView.getAdapter();
-                if (xk7Var.b() >= 0 && i2 != this.N) {
-                    xk7Var.d(-1);
-                    xk7Var.notifyDataSetChanged();
+                sm7 sm7Var = (sm7) gridView.getAdapter();
+                if (sm7Var.b() >= 0 && i2 != this.N) {
+                    sm7Var.d(-1);
+                    sm7Var.notifyDataSetChanged();
                 }
-                if (xk7Var.b() < 0 && i2 == this.N) {
-                    xk7Var.d(this.O);
-                    xk7Var.notifyDataSetChanged();
+                if (sm7Var.b() < 0 && i2 == this.N) {
+                    sm7Var.d(this.O);
+                    sm7Var.notifyDataSetChanged();
                 }
             }
         }
@@ -1059,17 +1059,17 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
     public final void J() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.c = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dcf);
-            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f0909a0);
+            this.c = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dd7);
+            View findViewById = this.b.findViewById(R.id.obfuscated_res_0x7f0909a3);
             this.d = findViewById;
             findViewById.setOnClickListener(new c(this));
-            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f090dc0);
+            View findViewById2 = this.b.findViewById(R.id.obfuscated_res_0x7f090dc8);
             this.f = findViewById2;
             findViewById2.setOnClickListener(this.Z);
-            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f090dc6);
-            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090dbf);
+            this.e = this.b.findViewById(R.id.obfuscated_res_0x7f090dce);
+            EditText editText = (EditText) this.b.findViewById(R.id.obfuscated_res_0x7f090dc7);
             this.g = editText;
-            r25 d2 = r25.d(editText);
+            g35 d2 = g35.d(editText);
             d2.m(R.dimen.tbds4);
             d2.o(R.string.J_X04);
             d2.l(R.color.CAM_X0108);
@@ -1078,39 +1078,39 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             this.g.addTextChangedListener(new l(this, null));
             this.g.setOnClickListener(new d(this));
             this.g.setOnFocusChangeListener(new e(this));
-            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091db3);
-            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091daf);
-            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091db1);
-            this.k = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091db2);
+            this.h = this.b.findViewById(R.id.obfuscated_res_0x7f091dc3);
+            this.i = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091dbf);
+            this.j = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f091dc1);
+            this.k = (ImageView) this.b.findViewById(R.id.obfuscated_res_0x7f091dc2);
             this.h.setOnClickListener(this.Y);
-            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc1);
-            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dbe);
+            this.l = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc9);
+            TextView textView = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc6);
             this.m = textView;
             textView.setEnabled(false);
             this.m.setOnClickListener(this.W);
-            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dc3);
+            TextView textView2 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dcb);
             this.n = textView2;
             textView2.setOnClickListener(this.Z);
-            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090dae);
+            TextView textView3 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f090db6);
             this.o = textView3;
             textView3.setOnClickListener(this.W);
-            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f092333);
+            TextView textView4 = (TextView) this.b.findViewById(R.id.obfuscated_res_0x7f09234b);
             this.p = textView4;
             textView4.setOnClickListener(this.Z);
-            this.u = this.b.findViewById(R.id.obfuscated_res_0x7f090dc9);
-            BaseViewPager baseViewPager = (BaseViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f090dda);
+            this.u = this.b.findViewById(R.id.obfuscated_res_0x7f090dd1);
+            BaseViewPager baseViewPager = (BaseViewPager) this.b.findViewById(R.id.obfuscated_res_0x7f090de2);
             this.q = baseViewPager;
             baseViewPager.setOnPageChangeListener(this);
-            this.r = (IndicatorView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd5);
-            this.t = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dd6);
-            this.s = (HorizontalScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd7);
-            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f090dcc);
+            this.r = (IndicatorView) this.b.findViewById(R.id.obfuscated_res_0x7f090ddd);
+            this.t = (LinearLayout) this.b.findViewById(R.id.obfuscated_res_0x7f090dde);
+            this.s = (HorizontalScrollView) this.b.findViewById(R.id.obfuscated_res_0x7f090ddf);
+            View findViewById3 = this.b.findViewById(R.id.obfuscated_res_0x7f090dd4);
             this.x = findViewById3;
             findViewById3.setOnClickListener(new f(this));
-            ListView listView = (ListView) this.b.findViewById(R.id.obfuscated_res_0x7f090dcd);
+            ListView listView = (ListView) this.b.findViewById(R.id.obfuscated_res_0x7f090dd5);
             this.y = listView;
             listView.setOnItemClickListener(new k(this, null));
-            this.w = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0921de);
+            this.w = (FrameLayout) this.b.findViewById(R.id.obfuscated_res_0x7f0921f3);
             View D = D(false);
             this.v = D;
             D.setVisibility(8);
@@ -1121,11 +1121,11 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
     public void K(int i2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(1048586, this, i2) == null) {
-            an5.a(this.a.getPageContext(), this.e);
+            tn5.a(this.a.getPageContext(), this.e);
             SkinManager.setBackgroundResource(this.y, R.drawable.chx_box_im_gift);
-            zk7 zk7Var = this.A;
-            if (zk7Var != null) {
-                zk7Var.notifyDataSetChanged();
+            um7 um7Var = this.A;
+            if (um7Var != null) {
+                um7Var.notifyDataSetChanged();
             }
             this.r.setSelector(SkinManager.getDrawable(R.drawable.point_live_s));
             this.r.setDrawable(SkinManager.getDrawable(R.drawable.point_live_n));
@@ -1134,21 +1134,22 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
 
     public void L(DisplayMetrics displayMetrics) {
         LinearLayout linearLayout;
+        int childCount;
         int i2;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(1048587, this, displayMetrics) == null) && (linearLayout = this.t) != null && displayMetrics != null) {
-            int childCount = linearLayout.getChildCount();
-            if (childCount >= 5) {
-                i2 = displayMetrics.widthPixels / 5;
-            } else {
-                i2 = displayMetrics.widthPixels / childCount;
-            }
-            for (int i3 = 0; i3 < childCount; i3++) {
-                View childAt = this.t.getChildAt(i3);
-                ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
-                layoutParams.width = i2;
-                childAt.setLayoutParams(layoutParams);
-            }
+        if ((interceptable != null && interceptable.invokeL(1048587, this, displayMetrics) != null) || (linearLayout = this.t) == null || displayMetrics == null || (childCount = linearLayout.getChildCount()) <= 0) {
+            return;
+        }
+        if (childCount >= 5) {
+            i2 = displayMetrics.widthPixels / 5;
+        } else {
+            i2 = displayMetrics.widthPixels / childCount;
+        }
+        for (int i3 = 0; i3 < childCount; i3++) {
+            View childAt = this.t.getChildAt(i3);
+            ViewGroup.LayoutParams layoutParams = childAt.getLayoutParams();
+            layoutParams.width = i2;
+            childAt.setLayoutParams(layoutParams);
         }
     }
 
@@ -1172,16 +1173,16 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048588, this) == null) {
             if (this.a.p == 1) {
-                this.b.findViewById(R.id.obfuscated_res_0x7f090848).setVisibility(8);
+                this.b.findViewById(R.id.obfuscated_res_0x7f09084b).setVisibility(8);
                 return;
             }
-            vx4 vx4Var = this.Q;
-            if (vx4Var == null) {
+            ly4 ly4Var = this.Q;
+            if (ly4Var == null) {
                 return;
             }
-            int i2 = vx4Var.f;
+            int i2 = ly4Var.f;
             String str4 = "";
-            if (StringUtils.isNull(vx4Var.e)) {
+            if (StringUtils.isNull(ly4Var.e)) {
                 str = "";
             } else {
                 str = "\"" + this.Q.e + "\" ";
@@ -1191,29 +1192,29 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                     if (i2 != 3) {
                         if (i2 != 4 && i2 == 5) {
                             if (this.G > 0) {
-                                String format2 = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0bb6), Integer.valueOf(this.G));
+                                String format2 = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0bcb), Integer.valueOf(this.G));
                                 this.g.setText("" + this.G);
                                 str4 = format2;
                                 str2 = "" + this.G;
                             } else {
                                 this.g.setText("0");
                                 this.m.setEnabled(false);
-                                str4 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08df);
+                                str4 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f08f0);
                             }
                         }
                         str3 = null;
                         str2 = null;
                     } else {
                         if (CurrencySwitchUtil.isYyIsConvert(this.Q.s)) {
-                            string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0df6);
-                            string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f052c);
-                            vx4 vx4Var2 = this.Q;
-                            formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(vx4Var2.s, vx4Var2.b());
-                            vx4 vx4Var3 = this.Q;
-                            formatOverBaiwanNum2 = CurrencyHelper.getFormatOverBaiwanNum(vx4Var3.s, vx4Var3.a());
+                            string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0d);
+                            string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0539);
+                            ly4 ly4Var2 = this.Q;
+                            formatOverBaiwanNum = CurrencyHelper.getFormatOverBaiwanNum(ly4Var2.s, ly4Var2.b());
+                            ly4 ly4Var3 = this.Q;
+                            formatOverBaiwanNum2 = CurrencyHelper.getFormatOverBaiwanNum(ly4Var3.s, ly4Var3.a());
                         } else {
-                            string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0df5);
-                            string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f052b);
+                            string = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0e0c);
+                            string2 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0538);
                             formatOverBaiwanNum = StringHelper.formatOverBaiwanNum(this.Q.b());
                             formatOverBaiwanNum2 = StringHelper.formatOverBaiwanNum(this.Q.a());
                         }
@@ -1231,7 +1232,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                         SpannableString spannableString = new SpannableString(str);
                         spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, spannableString.length(), 33);
                         spannableStringBuilder.append((CharSequence) spannableString);
-                        spannableStringBuilder.append((CharSequence) cl7.c(str4, str2, str3));
+                        spannableStringBuilder.append((CharSequence) xm7.c(str4, str2, str3));
                         this.n.setText(spannableStringBuilder);
                         if (i2 != 1) {
                             if (j2 > 0 && j2 <= 3600000) {
@@ -1251,18 +1252,18 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                     }
                 } else {
                     str2 = "" + this.Q.k;
-                    str4 = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0a95), Integer.valueOf(this.Q.k));
+                    str4 = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0aaa), Integer.valueOf(this.Q.k));
                 }
                 str3 = null;
             } else {
                 long currentTimeMillis = System.currentTimeMillis() / 1000;
-                vx4 vx4Var4 = this.Q;
-                if (currentTimeMillis > vx4Var4.h) {
-                    long j3 = vx4Var4.i;
+                ly4 ly4Var4 = this.Q;
+                if (currentTimeMillis > ly4Var4.h) {
+                    long j3 = ly4Var4.i;
                     if (currentTimeMillis < j3) {
                         j2 = (j3 - currentTimeMillis) * 1000;
                         timeSpace = StringHelper.getTimeSpace(j2);
-                        format = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f081e), timeSpace);
+                        format = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f082d), timeSpace);
                         str2 = timeSpace;
                         str4 = format;
                         str3 = null;
@@ -1273,18 +1274,18 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                         SpannableString spannableString2 = new SpannableString(str);
                         spannableString2.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, spannableString2.length(), 33);
                         spannableStringBuilder2.append((CharSequence) spannableString2);
-                        spannableStringBuilder2.append((CharSequence) cl7.c(str4, str2, str3));
+                        spannableStringBuilder2.append((CharSequence) xm7.c(str4, str2, str3));
                         this.n.setText(spannableStringBuilder2);
                         if (i2 != 1) {
                         }
                     }
                 }
-                vx4 vx4Var5 = this.Q;
-                long j4 = vx4Var5.h;
+                ly4 ly4Var5 = this.Q;
+                long j4 = ly4Var5.h;
                 if (currentTimeMillis < j4) {
                     j2 = (j4 - currentTimeMillis) * 1000;
                     timeSpace = StringHelper.getTimeSpace(j2);
-                    format = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0821), timeSpace);
+                    format = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0830), timeSpace);
                     str2 = timeSpace;
                     str4 = format;
                     str3 = null;
@@ -1295,12 +1296,12 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                     SpannableString spannableString22 = new SpannableString(str);
                     spannableString22.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, spannableString22.length(), 33);
                     spannableStringBuilder22.append((CharSequence) spannableString22);
-                    spannableStringBuilder22.append((CharSequence) cl7.c(str4, str2, str3));
+                    spannableStringBuilder22.append((CharSequence) xm7.c(str4, str2, str3));
                     this.n.setText(spannableStringBuilder22);
                     if (i2 != 1) {
                     }
                 } else {
-                    str4 = currentTimeMillis > vx4Var5.i ? this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f081f) : null;
+                    str4 = currentTimeMillis > ly4Var5.i ? this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f082e) : null;
                     str3 = null;
                     str2 = null;
                 }
@@ -1313,14 +1314,14 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             SpannableString spannableString222 = new SpannableString(str);
             spannableString222.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, spannableString222.length(), 33);
             spannableStringBuilder222.append((CharSequence) spannableString222);
-            spannableStringBuilder222.append((CharSequence) cl7.c(str4, str2, str3));
+            spannableStringBuilder222.append((CharSequence) xm7.c(str4, str2, str3));
             this.n.setText(spannableStringBuilder222);
             if (i2 != 1) {
             }
         }
     }
 
-    public void R(boolean z, ArrayList<yk7> arrayList, ArrayList<wk7> arrayList2, ArrayList<al7> arrayList3) {
+    public void R(boolean z, ArrayList<tm7> arrayList, ArrayList<rm7> arrayList2, ArrayList<vm7> arrayList3) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeCommon(1048593, this, new Object[]{Boolean.valueOf(z), arrayList, arrayList2, arrayList3}) == null) {
             this.D = arrayList;
@@ -1336,32 +1337,32 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         Code decompiled incorrectly, please refer to instructions dump.
     */
     public final void T() {
-        vx4 vx4Var;
+        ly4 ly4Var;
         int i2;
         String str;
         long j2;
         String str2;
         String str3;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (vx4Var = this.Q) != null && (i2 = vx4Var.f) == 1) {
-            if (!StringUtils.isNull(vx4Var.e)) {
+        if ((interceptable == null || interceptable.invokeV(1048595, this) == null) && (ly4Var = this.Q) != null && (i2 = ly4Var.f) == 1) {
+            if (!StringUtils.isNull(ly4Var.e)) {
                 str = "\"" + this.Q.e + "\" ";
             } else {
                 str = "";
             }
             long currentTimeMillis = System.currentTimeMillis() / 1000;
-            vx4 vx4Var2 = this.Q;
-            if (currentTimeMillis > vx4Var2.h) {
-                long j3 = vx4Var2.i;
+            ly4 ly4Var2 = this.Q;
+            if (currentTimeMillis > ly4Var2.h) {
+                long j3 = ly4Var2.i;
                 if (currentTimeMillis < j3) {
                     j2 = (j3 - currentTimeMillis) * 1000;
                     str2 = StringHelper.getTimeSpace(j2);
-                    str3 = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f081e), str2);
+                    str3 = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f082d), str2);
                     SpannableStringBuilder spannableStringBuilder = new SpannableStringBuilder();
                     SpannableString spannableString = new SpannableString(str);
                     spannableString.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, spannableString.length(), 33);
                     spannableStringBuilder.append((CharSequence) spannableString);
-                    spannableStringBuilder.append((CharSequence) cl7.c(str3, str2, null));
+                    spannableStringBuilder.append((CharSequence) xm7.c(str3, str2, null));
                     this.n.setText(spannableStringBuilder);
                     if (i2 != 1) {
                         if (j2 > 0 && j2 <= 3600000) {
@@ -1380,14 +1381,14 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                     return;
                 }
             }
-            vx4 vx4Var3 = this.Q;
-            long j4 = vx4Var3.h;
+            ly4 ly4Var3 = this.Q;
+            long j4 = ly4Var3.h;
             if (currentTimeMillis < j4) {
                 j2 = (j4 - currentTimeMillis) * 1000;
                 str2 = StringHelper.getTimeSpace(j2);
-                str3 = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0821), str2);
-            } else if (currentTimeMillis > vx4Var3.i) {
-                str3 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f081f);
+                str3 = String.format(this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f0830), str2);
+            } else if (currentTimeMillis > ly4Var3.i) {
+                str3 = this.a.getPageContext().getString(R.string.obfuscated_res_0x7f0f082e);
                 j2 = 0;
                 str2 = null;
             } else {
@@ -1399,7 +1400,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             SpannableString spannableString2 = new SpannableString(str);
             spannableString2.setSpan(new ForegroundColorSpan(SkinManager.getColor(R.color.CAM_X0109)), 0, spannableString2.length(), 33);
             spannableStringBuilder2.append((CharSequence) spannableString2);
-            spannableStringBuilder2.append((CharSequence) cl7.c(str3, str2, null));
+            spannableStringBuilder2.append((CharSequence) xm7.c(str3, str2, null));
             this.n.setText(spannableStringBuilder2);
             if (i2 != 1) {
             }
@@ -1430,7 +1431,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
     }
 
     @SuppressLint({"ResourceAsColor"})
-    public final void v(ArrayList<wk7> arrayList) {
+    public final void v(ArrayList<rm7> arrayList) {
         int i2;
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048601, this, arrayList) == null) && arrayList != null && arrayList.size() > 0) {
@@ -1444,11 +1445,11 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             }
             LinearLayout.LayoutParams layoutParams = new LinearLayout.LayoutParams(i2, -1);
             for (int i3 = 0; i3 < size; i3++) {
-                wk7 wk7Var = arrayList.get(i3);
-                if (!TextUtils.isEmpty(wk7Var.b()) && wk7Var.c() != null && wk7Var.c().size() > 0) {
-                    LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a3, (ViewGroup) null);
-                    TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f09232f);
-                    textView.setText(wk7Var.b());
+                rm7 rm7Var = arrayList.get(i3);
+                if (!TextUtils.isEmpty(rm7Var.b()) && rm7Var.c() != null && rm7Var.c().size() > 0) {
+                    LinearLayout linearLayout = (LinearLayout) LayoutInflater.from(this.a.getPageContext().getPageActivity()).inflate(R.layout.obfuscated_res_0x7f0d03a7, (ViewGroup) null);
+                    TextView textView = (TextView) linearLayout.findViewById(R.id.obfuscated_res_0x7f092347);
+                    textView.setText(rm7Var.b());
                     linearLayout.setOnClickListener(new m(this, i3));
                     textView.setSingleLine();
                     textView.setEllipsize(TextUtils.TruncateAt.END);
@@ -1475,26 +1476,26 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
             }
             int e2 = gg.e(this.g.getText().toString(), 0);
             this.X = e2;
-            vx4 vx4Var = this.Q;
-            int i2 = vx4Var.f;
-            int i3 = vx4Var.s;
+            ly4 ly4Var = this.Q;
+            int i2 = ly4Var.f;
+            int i3 = ly4Var.s;
             long j3 = 0;
             if (i2 != 3) {
                 if (i2 != 5) {
-                    if (vx4Var.b() >= 0) {
+                    if (ly4Var.b() >= 0) {
                         a2 = this.Q.b();
                         j2 = a2 * e2;
                         if (!z) {
                             return (float) j2;
                         }
-                        this.l.setText(cl7.b(j2, true, i3));
+                        this.l.setText(xm7.b(j2, true, i3));
                         if (e2 <= 0) {
                             SkinManager.setBackgroundResource(this.m, R.drawable.btn_gift_give_d);
                             this.m.setEnabled(false);
                         } else if (i2 == 1) {
                             long currentTimeMillis = System.currentTimeMillis() / 1000;
-                            vx4 vx4Var2 = this.Q;
-                            if (currentTimeMillis >= vx4Var2.h && currentTimeMillis <= vx4Var2.i) {
+                            ly4 ly4Var2 = this.Q;
+                            if (currentTimeMillis >= ly4Var2.h && currentTimeMillis <= ly4Var2.i) {
                                 SkinManager.setBackgroundResource(this.m, R.drawable.orange_btn_selector);
                                 this.m.setEnabled(true);
                             } else {
@@ -1509,7 +1510,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                         if (i4 >= 0) {
                             j3 = i4;
                         }
-                        this.i.setText(cl7.a(j3 * e2, this.I, i3));
+                        this.i.setText(xm7.a(j3 * e2, this.I, i3));
                         return (float) j2;
                     }
                     a2 = 0;
@@ -1522,7 +1523,7 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
                     }
                 }
             } else {
-                if (vx4Var.a() >= 0) {
+                if (ly4Var.a() >= 0) {
                     a2 = this.Q.a();
                     j2 = a2 * e2;
                     if (!z) {
@@ -1543,17 +1544,17 @@ public class GiftTabView implements ViewPager.OnPageChangeListener {
         if ((interceptable == null || interceptable.invokeV(1048605, this) == null) && ListUtils.getCount(this.E) != 0 && ListUtils.getCount(this.D) != 0) {
             ArrayList arrayList = new ArrayList();
             ArrayList arrayList2 = new ArrayList();
-            Iterator<wk7> it = this.E.iterator();
+            Iterator<rm7> it = this.E.iterator();
             while (it.hasNext()) {
-                wk7 next = it.next();
+                rm7 next = it.next();
                 if (next != null && (TextUtils.isEmpty(next.b()) || ListUtils.getCount(next.c()) == 0)) {
                     arrayList.add(next);
-                    Iterator<yk7> it2 = this.D.iterator();
+                    Iterator<tm7> it2 = this.D.iterator();
                     while (true) {
                         if (!it2.hasNext()) {
                             break;
                         }
-                        yk7 next2 = it2.next();
+                        tm7 next2 = it2.next();
                         if (next2 != null && next2.a() == next.a()) {
                             arrayList2.add(next2);
                             break;

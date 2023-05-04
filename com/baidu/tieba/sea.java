@@ -1,242 +1,94 @@
 package com.baidu.tieba;
 
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.IOException;
-import java.util.Arrays;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import com.baidu.ubc.service.IPCService;
+@Singleton
+@Service
 /* loaded from: classes6.dex */
-public class sea implements oea {
+public class sea implements efa {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public yfa a;
-    public ExecutorService b;
-    public gga c;
-    public boolean d;
-    public int e;
-    public int f;
-    public String g;
+    public gfa a;
+    public IPCService b;
+    public hfa c;
 
-    /* loaded from: classes6.dex */
-    public class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ byte[] a;
-        public final /* synthetic */ int b;
-        public final /* synthetic */ int c;
-        public final /* synthetic */ sea d;
-
-        public a(sea seaVar, byte[] bArr, int i, int i2) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {seaVar, bArr, Integer.valueOf(i), Integer.valueOf(i2)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i3 = newInitContext.flag;
-                if ((i3 & 1) != 0) {
-                    int i4 = i3 & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.d = seaVar;
-            this.a = bArr;
-            this.b = i;
-            this.c = i2;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.d.a.c(this.a, this.b, this.c);
-                } catch (Exception e) {
-                    if (this.d.c == null || this.d.d) {
-                        return;
-                    }
-                    this.d.c.onExceptionThrown(vha.g(e));
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class b implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sea a;
-
-        public b(sea seaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {seaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = seaVar;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                try {
-                    this.a.a.a();
-                } catch (Exception e) {
-                    e.printStackTrace();
-                    if (this.a.c == null || this.a.d) {
-                        return;
-                    }
-                    this.a.c.onFinishedWriting(false);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes6.dex */
-    public class c extends gga {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ sea a;
-
-        public c(sea seaVar) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {seaVar};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = seaVar;
-        }
-
-        @Override // com.baidu.tieba.gga
-        public void onFinishedWriting(boolean z) {
-            Interceptable interceptable = $ic;
-            if (!(interceptable == null || interceptable.invokeZ(1048576, this, z) == null) || this.a.c == null || this.a.d) {
-                return;
-            }
-            this.a.c.onFinishedWriting(z);
-        }
-    }
-
-    public sea(String str, int i, int i2) throws IOException {
+    public sea() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, Integer.valueOf(i), Integer.valueOf(i2)};
             interceptable.invokeUnInit(65536, newInitContext);
-            int i3 = newInitContext.flag;
-            if ((i3 & 1) != 0) {
-                int i4 = i3 & 2;
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        this.e = i;
-        this.f = i2;
-        this.b = Executors.newSingleThreadExecutor();
-        this.d = false;
-    }
-
-    public void b() throws Exception {
-        Interceptable interceptable = $ic;
-        if (!(interceptable == null || interceptable.invokeV(1048576, this) == null) || this.b.isShutdown()) {
-            return;
-        }
-        this.b.submit(new b(this));
-        this.b.shutdown();
-    }
-
-    public void c(int i, int i2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeII(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i, i2) == null) {
-            this.e = i;
-            this.f = i2;
-            try {
-                ega egaVar = new ega(i, i2);
-                this.a = egaVar;
-                egaVar.b(this.g);
-                this.a.d(new c(this));
-            } catch (Exception e) {
-                e.printStackTrace();
-                gga ggaVar = this.c;
-                if (ggaVar != null) {
-                    ggaVar.onExceptionThrown(vha.g(e));
-                }
             }
         }
     }
 
-    @Override // com.baidu.tieba.oea
-    public void close() throws IOException {
+    @Override // com.baidu.tieba.efa
+    public bfa a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public void d(gga ggaVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, ggaVar) == null) {
-            this.c = ggaVar;
-        }
-    }
-
-    public void e(String str) throws IOException {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
-            this.g = str;
-        }
-    }
-
-    public void g() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.d = true;
-            try {
-                this.b.shutdownNow();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a == null) {
+                this.a = new gfa();
             }
+            return this.a;
         }
+        return (bfa) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.oea
-    public int write(byte[] bArr, int i, int i2) throws IOException {
-        InterceptResult invokeLII;
+    @Override // com.baidu.tieba.efa
+    public dfa b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLII = interceptable.invokeLII(1048582, this, bArr, i, i2)) == null) {
-            byte[] copyOf = Arrays.copyOf(bArr, bArr.length);
-            if (!this.b.isShutdown()) {
-                this.b.submit(new a(this, copyOf, i, i2));
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.b == null) {
+                this.b = new IPCService();
             }
-            return i2 - i;
+            return this.b;
         }
-        return invokeLII.intValue;
+        return (dfa) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.efa
+    public dea c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return zea.b();
+        }
+        return (dea) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.efa
+    public hea d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return zea.c();
+        }
+        return (hea) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.efa
+    public cfa e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            if (this.c == null) {
+                this.c = new hfa();
+            }
+            return this.c;
+        }
+        return (cfa) invokeV.objValue;
     }
 }

@@ -1,30 +1,41 @@
 package com.baidu.tieba;
 
-import android.text.SpannableStringBuilder;
-import android.widget.EditText;
-import androidx.core.view.InputDeviceCompat;
+import android.view.View;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.ListUtils;
-import com.baidu.tieba.tbadkCore.writeModel.PostWriteCallBackData;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.pb.pb.adapter.PbRecomChildTitleAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class ix8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public n1a a;
-    public n1a b;
-    public EditText c;
-    public EditText d;
-    public PostWriteCallBackData e;
+    public BdUniqueId a;
+    public z29 b;
+    public TbPageContext<?> c;
+    public List<vm> d;
+    public on e;
+    public jx8 f;
+    public kx8 g;
+    public lx8 h;
+    public mx8 i;
+    public nx8 j;
+    public ox8 k;
+    public PbRecomChildTitleAdapter l;
+    public wy8 m;
 
-    public ix8() {
+    public ix8(z29 z29Var, BdUniqueId bdUniqueId, on onVar) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {z29Var, bdUniqueId, onVar};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -34,180 +45,91 @@ public class ix8 {
                 return;
             }
         }
-        n1a n1aVar = new n1a();
-        this.a = n1aVar;
-        n1aVar.j(R.color.CAM_X0101);
-        this.a.h(R.color.cp_cont_h_alpha85);
-        n1a n1aVar2 = new n1a();
-        this.b = n1aVar2;
-        n1aVar2.j(R.color.CAM_X0101);
-        this.b.h(R.color.cp_cont_h_alpha85);
+        this.d = new ArrayList();
+        this.e = onVar;
+        this.a = bdUniqueId;
+        this.b = z29Var;
+        this.c = z29Var.getPageContext();
+        c();
+        f(onVar);
+        onVar.addAdapters(this.d);
     }
 
-    public void a(boolean z) {
-        EditText editText;
+    public List<vm> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048576, this, z) == null) && (editText = this.c) != null && editText.getText() != null) {
-            int selectionEnd = this.c.getSelectionEnd();
-            SpannableStringBuilder f = this.a.f(this.c.getText());
-            if (f != null) {
-                boolean z2 = true;
-                this.a.l(true);
-                this.c.setText(f);
-                if (z && this.a.b() >= 0) {
-                    this.c.requestFocus();
-                    this.c.setSelection(this.a.b());
-                } else {
-                    this.c.setSelection(selectionEnd);
-                }
-                n1a n1aVar = this.a;
-                if (n1aVar.b() < 0) {
-                    z2 = false;
-                }
-                n1aVar.k(z2);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.d;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public View b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            PbRecomChildTitleAdapter pbRecomChildTitleAdapter = this.l;
+            if (pbRecomChildTitleAdapter != null && pbRecomChildTitleAdapter.u() != null) {
+                return this.l.u().itemView;
             }
+            return null;
         }
-    }
-
-    public void b(boolean z) {
-        EditText editText;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (editText = this.d) != null && editText.getText() != null) {
-            int selectionEnd = this.d.getSelectionEnd();
-            SpannableStringBuilder f = this.b.f(this.d.getText());
-            if (f != null) {
-                boolean z2 = true;
-                this.b.l(true);
-                this.d.setText(f);
-                if (z && this.b.b() >= 0) {
-                    this.d.requestFocus();
-                    this.d.setSelection(this.b.b());
-                } else {
-                    this.d.setSelection(selectionEnd);
-                }
-                n1a n1aVar = this.b;
-                if (n1aVar.b() < 0) {
-                    z2 = false;
-                }
-                n1aVar.k(z2);
-            }
-        }
-    }
-
-    public void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            this.a.n(null);
-            this.a.i(null);
-            this.a.k(false);
-        }
+        return (View) invokeV.objValue;
     }
 
     public void d() {
+        on onVar;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
-            this.b.n(null);
-            this.b.i(null);
-            this.b.k(false);
+        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (onVar = this.e) != null && onVar.getListAdapter() != null) {
+            this.e.getListAdapter().notifyDataSetChanged();
         }
     }
 
-    public n1a e() {
-        InterceptResult invokeV;
+    public void e() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.a;
-        }
-        return (n1a) invokeV.objValue;
-    }
-
-    public EditText f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
-            return this.d;
-        }
-        return (EditText) invokeV.objValue;
-    }
-
-    public n1a g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (n1a) invokeV.objValue;
-    }
-
-    public PostWriteCallBackData h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.e;
-        }
-        return (PostWriteCallBackData) invokeV.objValue;
-    }
-
-    public void i() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            this.a.g();
-            this.b.g();
-            if (this.a.d()) {
-                a(false);
-            }
-            if (this.b.d()) {
-                b(false);
-            }
+        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
+            d();
         }
     }
 
-    public void j() {
+    public final void c() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048585, this) == null) {
-            this.c = null;
-            this.d = null;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            this.h = new lx8(this.c, yi6.E0);
+            this.g = new kx8(this.c, yi6.F0);
+            this.f = new jx8(this.c, yi6.G0);
+            this.i = new mx8(this.c, yi6.D0);
+            this.j = new nx8(this.c, yi6.J0);
+            this.k = new ox8(this.c, zi6.U);
+            this.l = new PbRecomChildTitleAdapter(this.b, ij6.b);
+            this.m = new wy8(this.b, xv8.c, this.a);
+            this.d.add(this.h);
+            this.d.add(this.g);
+            this.d.add(this.f);
+            this.d.add(this.i);
+            this.d.add(this.j);
+            this.d.add(this.k);
+            this.d.add(this.l);
+            this.d.add(this.m);
         }
     }
 
-    public void k(PostWriteCallBackData postWriteCallBackData) {
+    public final void f(on onVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048586, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
-            return;
-        }
-        this.a.i(postWriteCallBackData.getSensitiveWords());
-        this.a.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.a.a())) {
-            return;
-        }
-        a(true);
-        this.e = postWriteCallBackData;
-    }
-
-    public void l(PostWriteCallBackData postWriteCallBackData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048587, this, postWriteCallBackData) != null) || postWriteCallBackData == null) {
-            return;
-        }
-        this.b.i(postWriteCallBackData.getSensitiveWords());
-        this.b.n(postWriteCallBackData.getErrorString());
-        if (ListUtils.isEmpty(this.b.a())) {
-            return;
-        }
-        b(true);
-    }
-
-    public void m(EditText editText) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048588, this, editText) == null) {
-            this.c = editText;
+        if (interceptable == null || interceptable.invokeL(1048581, this, onVar) == null) {
+            this.h.z(onVar);
+            this.g.z(onVar);
+            this.f.z(onVar);
+            this.i.z(onVar);
+            this.j.z(onVar);
+            this.k.C(onVar);
         }
     }
 
-    public void n(EditText editText) {
+    public void g(List<in> list) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048589, this, editText) == null) {
-            this.d = editText;
+        if (interceptable == null || interceptable.invokeL(1048582, this, list) == null) {
+            this.e.setData(list);
         }
     }
 }

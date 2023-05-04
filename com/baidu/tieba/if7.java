@@ -1,14 +1,9 @@
 package com.baidu.tieba;
 
-import android.view.View;
-import android.widget.ImageView;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.UtilHelper;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
-import com.baidu.tbadk.core.view.commonBtn.TBSpecificationButtonConfig;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -16,186 +11,105 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.Collections;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+import tbclient.ThreadInfo;
 /* loaded from: classes4.dex */
-public class if7 extends ff7 {
+public class if7 extends ax4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public TBSpecificationBtn d;
-    public TBSpecificationBtn e;
-    public ImageView f;
+    public List<ThreadData> a;
 
-    /* loaded from: classes4.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
+    @Override // com.baidu.tieba.ax4
+    public yy4 getNegFeedBackData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
+        }
+        return (yy4) invokeV.objValue;
+    }
 
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-720311950, "Lcom/baidu/tieba/if7$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-720311950, "Lcom/baidu/tieba/if7$a;");
-                    return;
-                }
+    @Override // com.baidu.tieba.ax4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
+        }
+        return (ThreadData) invokeV.objValue;
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947851663, "Lcom/baidu/tieba/if7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.LIKE_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LogicField.SIGN_BTN.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
-            }
-            try {
-                a[LogicField.SPEED_ICON.ordinal()] = 3;
-            } catch (NoSuchFieldError unused3) {
-            }
-            try {
-                a[LogicField.SERVICE_AREA.ordinal()] = 4;
-            } catch (NoSuchFieldError unused4) {
-            }
-            try {
-                a[LogicField.TOP_AREA.ordinal()] = 5;
-            } catch (NoSuchFieldError unused5) {
-            }
-            try {
-                a[LogicField.ROUND_CORNER_STYLE.ordinal()] = 6;
-            } catch (NoSuchFieldError unused6) {
-            }
-            try {
-                a[LogicField.TOP_DIVIDER.ordinal()] = 7;
-            } catch (NoSuchFieldError unused7) {
-            }
-            try {
-                a[LogicField.BANNER_AND_BOTTOM_VIEW.ordinal()] = 8;
-            } catch (NoSuchFieldError unused8) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947851663, "Lcom/baidu/tieba/if7;");
+                return;
             }
         }
+        b = BdUniqueId.gen();
     }
 
     public if7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.ff7
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048580, this) == null) {
-            n();
-            o();
-            this.f = (ImageView) this.c.findViewById(R.id.obfuscated_res_0x7f0920ed);
-        }
-    }
-
-    public final void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
-            this.c.findViewById(R.id.obfuscated_res_0x7f090c62).setVisibility(8);
-            this.c.findViewById(R.id.obfuscated_res_0x7f092884).setVisibility(8);
-        }
-    }
-
-    @Override // com.baidu.tieba.ff7, com.baidu.tieba.hf7
-    @Nullable
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            int i = a.a[logicField.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    if (i != 3) {
-                        return (T) super.a(logicField);
-                    }
-                    return (T) this.f;
-                }
-                return (T) Collections.singletonList(this.e);
-            }
-            return (T) Collections.singletonList(this.d);
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.ff7, com.baidu.tieba.hf7
-    public int l(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, logicField)) == null) {
-            switch (a.a[logicField.ordinal()]) {
-                case 4:
-                case 5:
-                case 6:
-                case 7:
-                    return 0;
-                case 8:
-                    return 8;
-                default:
-                    return super.l(logicField);
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    @Override // com.baidu.tieba.nf7
-    public void g(boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) {
-            if (z) {
-                this.d.setVisibility(8);
-                this.e.setVisibility(0);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
-            this.d.setVisibility(0);
-            this.e.setVisibility(8);
         }
+        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    @Override // com.baidu.tieba.nf7
-    public void h(View.OnClickListener onClickListener) {
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, onClickListener) == null) {
-            this.d.setOnClickListener(onClickListener);
-            this.e.setOnClickListener(onClickListener);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return b;
         }
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void o() {
+    public List<ThreadData> c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048582, this) == null) {
-            TBSpecificationBtn tBSpecificationBtn = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0925ab);
-            this.d = tBSpecificationBtn;
-            tBSpecificationBtn.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f02b9));
-            this.d.setTextSize(R.dimen.T_X08);
-            o55 o55Var = new o55();
-            o55Var.r(R.color.CAM_X0901, R.color.CAM_X0105);
-            this.d.setConfig(o55Var);
-            TBSpecificationBtn tBSpecificationBtn2 = (TBSpecificationBtn) this.c.findViewById(R.id.obfuscated_res_0x7f0925f4);
-            this.e = tBSpecificationBtn2;
-            tBSpecificationBtn2.setTextSize(R.dimen.T_X08);
-            o55 o55Var2 = new o55();
-            o55Var2.w(R.color.CAM_X0105);
-            o55Var2.g(UtilHelper.getDimenPixelSize(R.dimen.tbds39));
-            o55Var2.i(R.drawable.obfuscated_res_0x7f0809b0, 0, TBSpecificationButtonConfig.IconType.WEBP);
-            this.e.setConfig(o55Var2);
-            this.e.setText(this.b.getResources().getString(R.string.obfuscated_res_0x7f0f125f));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.a.size() > 10) {
+                ArrayList arrayList = new ArrayList();
+                Iterator<ThreadData> it = this.a.iterator();
+                while (it.hasNext() && arrayList.size() < 10) {
+                    arrayList.add(it.next());
+                }
+                return arrayList;
+            }
+            return this.a;
+        }
+        return (List) invokeV.objValue;
+    }
+
+    public void d(List<ThreadInfo> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, list) == null) {
+            this.a = new ArrayList();
+            for (ThreadInfo threadInfo : list) {
+                ThreadData threadData = new ThreadData();
+                threadData.parserProtobuf(threadInfo);
+                this.a.add(threadData);
+            }
         }
     }
 }

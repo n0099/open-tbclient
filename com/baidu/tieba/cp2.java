@@ -1,110 +1,200 @@
 package com.baidu.tieba;
 
+import android.text.TextUtils;
+import android.util.Log;
 import androidx.annotation.NonNull;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.iq2;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.plugin.ZeusPlugin;
-import com.baidu.webkit.sdk.plugin.ZeusPluginFactory;
 /* loaded from: classes4.dex */
-public class cp2 implements ZeusPluginFactory {
+public final class cp2 extends sl2<iq2> {
     public static /* synthetic */ Interceptable $ic;
+    public static final boolean i;
     public transient /* synthetic */ FieldHolder $fh;
-    public String a;
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public String name() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "inline_video" : (String) invokeV.objValue;
-    }
+    public final iq2.a h;
 
     /* loaded from: classes4.dex */
-    public static class a implements Runnable {
+    public class a implements iq2.a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ cp2 a;
 
-        public a() {
+        public a(cp2 cp2Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {cp2Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = cp2Var;
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048576, this, i) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onStateChange", Integer.valueOf(i));
+            }
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void b(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onInfo", Integer.valueOf(i));
+            }
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void d(@NonNull String str) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, str) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onNetStatus", str);
+            }
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void onError(int i) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeI(1048583, this, i) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onError", Integer.valueOf(i));
+            }
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void onRelease(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048585, this, str) == null) {
+                if (cp2.i) {
+                    Log.i("InlineVideoController", "onRelease: " + str);
+                }
+                oy1.e().q(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void c(String str) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str) == null) {
+                if (this.a.b != null) {
+                    this.a.b.onCallback(this.a, "onPaused", null);
+                }
+                if (!TextUtils.isEmpty(str)) {
+                    oy1.e().l(str, false);
                 }
             }
         }
 
-        @Override // java.lang.Runnable
-        public void run() {
+        @Override // com.baidu.tieba.iq2.a
+        public void e(String str) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                long currentTimeMillis = System.currentTimeMillis();
-                gq2 b = cr2.D().b(null, null);
-                b.m0();
-                b.T();
-                b.C();
-                my1.e().t(b);
-                v42.i("【InlineFactory】", "pre-create video cost time ：" + (System.currentTimeMillis() - currentTimeMillis));
+            if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+                if (this.a.b != null) {
+                    this.a.b.onCallback(this.a, "onPlayed", null);
+                }
+                oy1.e().l(str, true);
+                oy1.e().k(str);
+            }
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void f() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onVideoSizeChanged", null);
+            }
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void onEnded() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onEnded", null);
+            }
+        }
+
+        @Override // com.baidu.tieba.iq2.a
+        public void onPrepared() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) && this.a.b != null) {
+                this.a.b.onCallback(this.a, "onPrepared", null);
             }
         }
     }
 
-    public cp2(@NonNull String str) {
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947682372, "Lcom/baidu/tieba/cp2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947682372, "Lcom/baidu/tieba/cp2;");
+                return;
+            }
+        }
+        i = ho1.a;
+    }
+
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public cp2(@NonNull iq2 iq2Var) {
+        super(iq2Var);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {str};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
+            Object[] objArr = {iq2Var};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                super((ul2) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.a = str;
-    }
-
-    public static void a() {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeV(65537, null) != null) || cr2.D() == null) {
-            return;
-        }
-        my1.e().c();
-        pk3.k(new a(), "PreCreateVideo");
-    }
-
-    @Override // com.baidu.webkit.sdk.plugin.ZeusPluginFactory
-    public ZeusPlugin create(ZeusPluginFactory.Invoker invoker) {
-        InterceptResult invokeL;
-        gq2 b;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, invoker)) == null) {
-            if (cr2.D() == null) {
-                return null;
-            }
-            if (my1.e().f()) {
-                v42.i("【InlineFactory】", "handleAppOnLaunch use cache inline video. ");
-                b = my1.e().d();
-                my1.e().s();
-                b.N(invoker);
-            } else {
-                v42.i("【InlineFactory】", "handleAppOnLaunch create cache inline video. ");
-                b = cr2.D().b(invoker, this.a);
-                b.H();
-            }
-            v42.i("【InlineFactory】", "Factory 「Hash:" + hashCode() + "」 is creating inline video「Hash:" + b.hashCode() + "」");
-            return new ap2(b);
-        }
-        return (ZeusPlugin) invokeL.objValue;
+        a aVar = new a(this);
+        this.h = aVar;
+        iq2Var.g0(aVar);
+        this.a.a(new fp2());
+        this.a.a(new gp2());
+        this.a.a(new hp2());
+        this.a.a(new kp2());
+        this.a.a(new jp2());
+        this.a.a(new ip2());
+        this.a.a(new lp2());
+        this.a.a(new mp2());
+        this.a.a(new np2());
+        this.a.a(new op2());
+        this.a.a(new qp2());
+        this.a.a(new rp2());
+        this.a.a(new sp2());
+        this.a.a(new tp2());
+        this.a.a(new vp2());
+        this.a.a(new wp2());
+        this.a.a(new xp2());
+        this.a.a(new zp2());
+        this.a.a(new aq2());
+        this.a.a(new up2());
+        this.a.a(new pp2());
+        this.a.a(new yp2());
     }
 }

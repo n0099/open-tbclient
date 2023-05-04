@@ -17,11 +17,11 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import com.baidu.nadcore.download.consts.AdDownloadStatus;
 import com.baidu.tieba.R;
-import com.baidu.tieba.b41;
-import com.baidu.tieba.rk0;
-import com.baidu.tieba.yj0;
+import com.baidu.tieba.ak0;
+import com.baidu.tieba.d41;
+import com.baidu.tieba.tk0;
 /* loaded from: classes2.dex */
-public class AdDownloadViewLP extends View implements rk0<AdDownloadViewLP> {
+public class AdDownloadViewLP extends View implements tk0<AdDownloadViewLP> {
     public final Paint a;
     public int b;
     public int c;
@@ -46,7 +46,7 @@ public class AdDownloadViewLP extends View implements rk0<AdDownloadViewLP> {
     }
 
     /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.rk0
+    @Override // com.baidu.tieba.tk0
     @NonNull
     public AdDownloadViewLP getRealView() {
         return this;
@@ -193,13 +193,13 @@ public class AdDownloadViewLP extends View implements rk0<AdDownloadViewLP> {
         canvas.drawRoundRect(rectF, f, f, this.a);
     }
 
-    @Override // com.baidu.tieba.rk0
-    public void update(String str, @NonNull yj0 yj0Var) {
+    @Override // com.baidu.tieba.tk0
+    public void update(String str, @NonNull ak0 ak0Var) {
         this.l = str;
-        if (yj0Var.c == AdDownloadStatus.DOWNLOADING) {
+        if (ak0Var.c == AdDownloadStatus.DOWNLOADING) {
             this.l = "已下载 : " + this.l;
         }
-        setProgress((int) yj0Var.i);
+        setProgress((int) ak0Var.i);
         postInvalidate();
     }
 
@@ -217,14 +217,14 @@ public class AdDownloadViewLP extends View implements rk0<AdDownloadViewLP> {
         i();
     }
 
-    @Override // com.baidu.tieba.rk0
+    @Override // com.baidu.tieba.tk0
     public void b(@NonNull ViewGroup viewGroup) {
         if (!(viewGroup instanceof RelativeLayout)) {
             return;
         }
         RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(-1, -2);
-        layoutParams.width = (int) (b41.c.e(getContext()) * b41.c.h(R.dimen.nad_default_round_width_size));
-        layoutParams.height = (int) (b41.c.c(getContext()) * b41.c.h(R.dimen.nad_default_round_height_size));
+        layoutParams.width = (int) (d41.c.e(getContext()) * d41.c.h(R.dimen.nad_default_round_width_size));
+        layoutParams.height = (int) (d41.c.c(getContext()) * d41.c.h(R.dimen.nad_default_round_height_size));
         layoutParams.addRule(13, -1);
         viewGroup.addView(this, layoutParams);
         viewGroup.setVisibility(0);

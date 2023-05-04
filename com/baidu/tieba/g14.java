@@ -1,53 +1,44 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import com.baidu.searchbox.v8engine.JSRuntime;
-import com.baidu.searchbox.v8engine.event.EventTargetImpl;
-import com.baidu.searchbox.v8engine.event.JSEvent;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g14 extends EventTargetImpl {
+public class g14 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public g14(ff2 ff2Var) {
-        super(ff2Var);
+    public static JSONObject a(boolean z) {
+        InterceptResult invokeZ;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {ff2Var};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((JSRuntime) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || (invokeZ = interceptable.invokeZ(65536, null, z)) == null) {
+            JSONObject jSONObject = new JSONObject();
+            try {
+                jSONObject.put("isEnded", z);
+            } catch (Exception e) {
+                e.printStackTrace();
             }
+            return jSONObject;
         }
-        i14.o().w(this);
+        return (JSONObject) invokeZ.objValue;
     }
 
-    public void x(int i, String str) throws JSONException {
+    public static JSONObject b(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeIL(1048576, this, i, str) == null) {
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
             JSONObject jSONObject = new JSONObject();
-            jSONObject.put("state", i);
-            jSONObject.put("msg", str);
-            JSEvent jSEvent = new JSEvent("antiaddiction");
-            jSEvent.data = jSONObject;
-            if (fo1.a) {
-                Log.d("AntiAddictionApi", "result: " + jSONObject.toString());
+            try {
+                jSONObject.put(StatConstants.KEY_EXT_ERR_CODE, str);
+                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, com.baidu.pass.biometrics.face.liveness.b.a.g0);
+                jSONObject.put("errDes", kx3.a(str));
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            dispatchEvent(jSEvent);
+            return jSONObject;
         }
+        return (JSONObject) invokeL.objValue;
     }
 }

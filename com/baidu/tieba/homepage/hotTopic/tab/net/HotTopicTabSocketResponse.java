@@ -3,9 +3,9 @@ package com.baidu.tieba.homepage.hotTopic.tab.net;
 import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.gr7;
 import com.baidu.tieba.in;
-import com.baidu.tieba.lp7;
-import com.baidu.tieba.uo7;
+import com.baidu.tieba.pq7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -15,7 +15,7 @@ import com.squareup.wire.Wire;
 import java.util.List;
 import tbclient.HotThreadList.HotThreadListResIdl;
 /* loaded from: classes4.dex */
-public class HotTopicTabSocketResponse extends SocketResponsedMessage implements lp7 {
+public class HotTopicTabSocketResponse extends SocketResponsedMessage implements gr7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public HotThreadListResIdl mData;
@@ -39,7 +39,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         }
     }
 
-    @Override // com.baidu.tieba.lp7
+    @Override // com.baidu.tieba.gr7
     public List<in> getDataList() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -49,7 +49,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
         return (List) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.lp7
+    @Override // com.baidu.tieba.gr7
     public HotThreadListResIdl getResData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -78,7 +78,7 @@ public class HotTopicTabSocketResponse extends SocketResponsedMessage implements
             if (hotThreadListResIdl.data == null) {
                 return hotThreadListResIdl;
             }
-            this.mHotTopicDataList = uo7.c(hotThreadListResIdl);
+            this.mHotTopicDataList = pq7.c(hotThreadListResIdl);
             return hotThreadListResIdl;
         }
         return invokeIL.objValue;

@@ -110,8 +110,8 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
 
         /* JADX DEBUG: Method merged with bridge method */
         /* JADX WARN: Removed duplicated region for block: B:132:? A[RETURN, SYNTHETIC] */
-        /* JADX WARN: Removed duplicated region for block: B:92:0x0313  */
-        /* JADX WARN: Removed duplicated region for block: B:96:0x0382 A[Catch: Exception -> 0x0394, TRY_LEAVE, TryCatch #8 {Exception -> 0x0394, blocks: (B:94:0x037c, B:96:0x0382), top: B:127:0x037c }] */
+        /* JADX WARN: Removed duplicated region for block: B:92:0x0350  */
+        /* JADX WARN: Removed duplicated region for block: B:96:0x03bf A[Catch: Exception -> 0x03d1, TRY_LEAVE, TryCatch #9 {Exception -> 0x03d1, blocks: (B:94:0x03b9, B:96:0x03bf), top: B:129:0x03b9 }] */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
         /*
@@ -129,14 +129,13 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
             HttpResponsedMessage httpResponsedMessage;
             long j3;
             long j4;
-            long j5;
-            long j6;
             HttpResponsedMessage httpResponsedMessage2;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, httpMessageArr)) == null) {
                 if (MessageManager.getInstance().getController().g(this.a, this.b) == null) {
                     return null;
                 }
+                NetLog.getInstance().c(dh.a, "HttpClient开始请求：cmd:" + this.a.getCmd() + " url:" + this.b.getUrl() + " ResponseClass:" + this.b.getResponsedClass());
                 List<Map.Entry<String, Object>> encodeInBackGround = this.a.encodeInBackGround();
                 long currentTimeMillis = System.currentTimeMillis();
                 this.c.b().s(this.b.getUrl());
@@ -182,20 +181,20 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                 long f = this.d.f();
                 long h = this.d.h();
                 long e2 = this.d.e();
-                long j7 = currentTimeMillis - startTime;
-                long j8 = g - currentTimeMillis;
-                long j9 = i - g;
-                int j10 = this.d.j();
-                long j11 = h - i;
-                long j12 = f - i;
-                long j13 = h - f;
-                long j14 = e2 - h;
+                long j5 = currentTimeMillis - startTime;
+                long j6 = g - currentTimeMillis;
+                long j7 = i - g;
+                int j8 = this.d.j();
+                long j9 = h - i;
+                long j10 = f - i;
+                long j11 = h - f;
+                long j12 = e2 - h;
                 if (e2 <= 0) {
-                    j2 = j13;
+                    j2 = j11;
                     j = 0;
                 } else {
-                    j = j14;
-                    j2 = j13;
+                    j = j12;
+                    j2 = j11;
                 }
                 Map<String, List<String>> map = this.c.c().h;
                 if (map == null || map.isEmpty()) {
@@ -205,8 +204,8 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                     str2 = "";
                     str3 = String.valueOf(map.get("tracecode"));
                 }
-                long j15 = j12;
-                NetLog.getInstance().c(dh.a, "tracecode:" + str3 + " success:" + this.b.getUrl());
+                long j13 = j10;
+                NetLog.getInstance().c(dh.a, "底层网络库返回：tracecode:" + str3 + " success:" + this.b.getUrl());
                 try {
                     try {
                         newInstance = this.b.getResponsedClass().getConstructor(new Class[0]).newInstance(new Object[0]);
@@ -215,7 +214,7 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                             BdLog.detailException("responsedMessage create error reason = " + e3.toString(), e3);
                         }
                         ErrorHttpResponsedMessage errorHttpResponsedMessage = new ErrorHttpResponsedMessage(this.a.getCmd(), this.a);
-                        dh.a(str5, cmd, this.b.getUrl(), false, true, j8, 0L, 0L, 0L, 0L, 0);
+                        dh.a(str5, cmd, this.b.getUrl(), false, true, j6, 0L, 0L, 0L, 0L, 0);
                         return errorHttpResponsedMessage;
                     }
                 } catch (Exception unused) {
@@ -240,90 +239,90 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                     try {
                         httpResponsedMessage3.decodeInBackGround(this.a.getCmd(), this.c.c().i);
                         long currentTimeMillis2 = System.currentTimeMillis();
-                        j5 = currentTimeMillis2 - currentTimeMillis;
-                        j6 = currentTimeMillis2 - e2;
-                        httpResponsedMessage3.performanceData.a = j7;
-                        httpResponsedMessage3.performanceData.l = j9;
-                        httpResponsedMessage3.performanceData.k = j10;
-                        httpResponsedMessage3.performanceData.b = j8;
-                        j4 = j11;
+                        long j14 = currentTimeMillis2 - currentTimeMillis;
+                        long j15 = currentTimeMillis2 - e2;
+                        httpResponsedMessage3.performanceData.a = j5;
+                        httpResponsedMessage3.performanceData.l = j7;
+                        httpResponsedMessage3.performanceData.k = j8;
+                        httpResponsedMessage3.performanceData.b = j6;
+                        j4 = j9;
                         try {
                             httpResponsedMessage3.performanceData.c = j4;
                         } catch (Exception e4) {
                             e = e4;
                         }
                         try {
-                            httpResponsedMessage3.performanceData.d = j15;
-                            j15 = j15;
+                            httpResponsedMessage3.performanceData.d = j13;
+                            j13 = j13;
                             j3 = j2;
                             try {
                                 httpResponsedMessage3.performanceData.e = j3;
                                 try {
                                     httpResponsedMessage3.performanceData.f = j;
                                     httpResponsedMessage = httpResponsedMessage3;
-                                } catch (Exception e5) {
-                                    e = e5;
+                                    try {
+                                        httpResponsedMessage.performanceData.g = j15;
+                                        httpResponsedMessage.setCostTime(j14);
+                                        httpResponsedMessage.beforeDispatchInBackGround(this.a.getCmd(), this.c.c().i);
+                                    } catch (Exception e5) {
+                                        e = e5;
+                                        NetLog.getInstance().c(dh.a, " 解码失败 : " + e.getMessage());
+                                        httpResponsedMessage.setError(-1003);
+                                        httpResponsedMessage.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05f9));
+                                        BdLog.detailException(e);
+                                        if (this.a.getExtra() instanceof NetMessage) {
+                                        }
+                                        String url = this.b.getUrl();
+                                        boolean isSuccess = httpResponsedMessage.isSuccess();
+                                        gb gbVar = httpResponsedMessage.performanceData;
+                                        httpResponsedMessage2 = httpResponsedMessage;
+                                        dh.a(str5, cmd, url, isSuccess, true, j6, j4, gbVar.g, j13, j3, gbVar.i);
+                                        httpResponsedMessage2.logStatInBackground(this.a.getCmd(), this.c);
+                                        httpResponsedMessage2.setStartTime(System.currentTimeMillis());
+                                        publishProgress(httpResponsedMessage2);
+                                        if (httpResponsedMessage2.isSuccess()) {
+                                        }
+                                    }
+                                } catch (Exception e6) {
+                                    e = e6;
                                     httpResponsedMessage = httpResponsedMessage3;
                                 }
-                            } catch (Exception e6) {
-                                e = e6;
+                            } catch (Exception e7) {
+                                e = e7;
                                 httpResponsedMessage = httpResponsedMessage3;
                             }
-                        } catch (Exception e7) {
-                            e = e7;
-                            j15 = j15;
+                        } catch (Exception e8) {
+                            e = e8;
+                            j13 = j13;
                             httpResponsedMessage = httpResponsedMessage3;
                             j3 = j2;
                             NetLog.getInstance().c(dh.a, " 解码失败 : " + e.getMessage());
                             httpResponsedMessage.setError(-1003);
-                            httpResponsedMessage.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05ec));
+                            httpResponsedMessage.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05f9));
                             BdLog.detailException(e);
                             if (this.a.getExtra() instanceof NetMessage) {
                             }
-                            String url = this.b.getUrl();
-                            boolean isSuccess = httpResponsedMessage.isSuccess();
-                            gb gbVar = httpResponsedMessage.performanceData;
+                            String url2 = this.b.getUrl();
+                            boolean isSuccess2 = httpResponsedMessage.isSuccess();
+                            gb gbVar2 = httpResponsedMessage.performanceData;
                             httpResponsedMessage2 = httpResponsedMessage;
-                            dh.a(str5, cmd, url, isSuccess, true, j8, j4, gbVar.g, j15, j3, gbVar.i);
+                            dh.a(str5, cmd, url2, isSuccess2, true, j6, j4, gbVar2.g, j13, j3, gbVar2.i);
                             httpResponsedMessage2.logStatInBackground(this.a.getCmd(), this.c);
                             httpResponsedMessage2.setStartTime(System.currentTimeMillis());
                             publishProgress(httpResponsedMessage2);
                             if (httpResponsedMessage2.isSuccess()) {
                             }
                         }
-                    } catch (Exception e8) {
-                        e = e8;
-                        httpResponsedMessage = httpResponsedMessage3;
-                        j3 = j2;
-                        j4 = j11;
-                    }
-                    try {
-                        httpResponsedMessage.performanceData.g = j6;
-                        httpResponsedMessage.setCostTime(j5);
-                        httpResponsedMessage.beforeDispatchInBackGround(this.a.getCmd(), this.c.c().i);
                     } catch (Exception e9) {
                         e = e9;
-                        NetLog.getInstance().c(dh.a, " 解码失败 : " + e.getMessage());
-                        httpResponsedMessage.setError(-1003);
-                        httpResponsedMessage.setErrorString(BdBaseApplication.getInst().getContext().getString(R.string.obfuscated_res_0x7f0f05ec));
-                        BdLog.detailException(e);
-                        if (this.a.getExtra() instanceof NetMessage) {
-                        }
-                        String url2 = this.b.getUrl();
-                        boolean isSuccess2 = httpResponsedMessage.isSuccess();
-                        gb gbVar2 = httpResponsedMessage.performanceData;
-                        httpResponsedMessage2 = httpResponsedMessage;
-                        dh.a(str5, cmd, url2, isSuccess2, true, j8, j4, gbVar2.g, j15, j3, gbVar2.i);
-                        httpResponsedMessage2.logStatInBackground(this.a.getCmd(), this.c);
-                        httpResponsedMessage2.setStartTime(System.currentTimeMillis());
-                        publishProgress(httpResponsedMessage2);
-                        if (httpResponsedMessage2.isSuccess()) {
-                        }
+                        httpResponsedMessage = httpResponsedMessage3;
+                        j3 = j2;
+                        j4 = j9;
                     }
                 } else {
                     httpResponsedMessage = httpResponsedMessage3;
                     j3 = j2;
-                    j4 = j11;
+                    j4 = j9;
                 }
                 if (this.a.getExtra() instanceof NetMessage) {
                     NetMessage netMessage = (NetMessage) this.a.getExtra();
@@ -334,7 +333,7 @@ public class HttpClient extends u9<HttpMessage, HttpMessageTask> {
                 boolean isSuccess22 = httpResponsedMessage.isSuccess();
                 gb gbVar22 = httpResponsedMessage.performanceData;
                 httpResponsedMessage2 = httpResponsedMessage;
-                dh.a(str5, cmd, url22, isSuccess22, true, j8, j4, gbVar22.g, j15, j3, gbVar22.i);
+                dh.a(str5, cmd, url22, isSuccess22, true, j6, j4, gbVar22.g, j13, j3, gbVar22.i);
                 httpResponsedMessage2.logStatInBackground(this.a.getCmd(), this.c);
                 httpResponsedMessage2.setStartTime(System.currentTimeMillis());
                 publishProgress(httpResponsedMessage2);

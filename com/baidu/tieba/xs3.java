@@ -1,27 +1,50 @@
 package com.baidu.tieba;
 
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.huawei.hms.framework.network.grs.local.model.CountryCodeBean;
+import java.lang.reflect.Method;
 /* loaded from: classes7.dex */
 public class xs3 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile ws3 a;
+    public static Method a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static synchronized ws3 a() {
-        InterceptResult invokeV;
-        ws3 ws3Var;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            synchronized (xs3.class) {
-                if (a == null) {
-                    a = new ws3();
-                }
-                ws3Var = a;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948310897, "Lcom/baidu/tieba/xs3;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            return ws3Var;
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948310897, "Lcom/baidu/tieba/xs3;");
+                return;
+            }
         }
-        return (ws3) invokeV.objValue;
+        try {
+            a = bc4.i(bc4.b(CountryCodeBean.ANDRIOD_SYSTEMPROP, true), "get", String.class);
+        } catch (Throwable unused) {
+        }
+    }
+
+    public static String a(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            Method method = a;
+            if (method != null) {
+                try {
+                    return (String) method.invoke(null, str);
+                } catch (Throwable unused) {
+                }
+            }
+            return null;
+        }
+        return (String) invokeL.objValue;
     }
 }

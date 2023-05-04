@@ -1,67 +1,134 @@
 package com.baidu.tieba;
 
-import android.content.Context;
 import android.view.View;
+import com.baidu.adp.widget.ListView.BdTypeListView;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.TbPageContext;
-import com.baidu.tieba.frs.itemtab.card.CardItemHotVideoLayout;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.frs.entelechy.adapter.FrsUserRecommendAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameCompetitionAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameRecommendGameAdapter;
+import com.baidu.tieba.frs.gamerecommend.adapter.GameSpecialTopicAdapter;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes4.dex */
-public class gd7 extends qw<kw4> {
+public class gd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CardItemHotVideoLayout f;
+    public TbPageContext a;
+    public BdTypeListView b;
+    public List<vm> c;
+    public String d;
+    public String e;
+    public ji6 f;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public gd7(Context context) {
-        super(context);
+    /* loaded from: classes4.dex */
+    public class a extends ji6 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ gd7 b;
+
+        public a(gd7 gd7Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {gd7Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = gd7Var;
+        }
+
+        @Override // com.baidu.tieba.ji6
+        public void a(View view2, BaseCardInfo baseCardInfo) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048576, this, view2, baseCardInfo) == null) {
+                super.a(view2, baseCardInfo);
+                this.b.b();
+            }
+        }
+    }
+
+    public gd7(TbPageContext<?> tbPageContext, BdTypeListView bdTypeListView, String str, String str2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
+            Object[] objArr = {tbPageContext, bdTypeListView, str, str2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Context) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.f = new CardItemHotVideoLayout(context);
+        this.f = new a(this);
+        this.a = tbPageContext;
+        this.b = bdTypeListView;
+        this.d = str;
+        this.e = str2;
+        this.c = new ArrayList();
+        a();
     }
 
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.tieba.ix
-    /* renamed from: s */
-    public void a(kw4 kw4Var) {
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, kw4Var) == null) {
-            this.f.setData((nd7) kw4Var);
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            hd7 hd7Var = new hd7(this.a, this.d, this.e);
+            hd7Var.z(this.f);
+            this.c.add(hd7Var);
+            id7 id7Var = new id7(this.a, this.d);
+            id7Var.z(this.f);
+            this.c.add(id7Var);
+            this.c.add(new ld7(this.a, this.d));
+            this.c.add(new kd7(this.a, this.d));
+            List<vm> list = this.c;
+            TbPageContext tbPageContext = this.a;
+            list.add(new GameSpecialTopicAdapter(tbPageContext, op6.b, tbPageContext.getUniqueId(), this.d));
+            jd7 jd7Var = new jd7(this.a, this.d);
+            jd7Var.x(this.f);
+            this.c.add(jd7Var);
+            List<vm> list2 = this.c;
+            TbPageContext tbPageContext2 = this.a;
+            list2.add(new GameCompetitionAdapter(tbPageContext2, jp6.b, tbPageContext2.getUniqueId(), this.d));
+            List<vm> list3 = this.c;
+            TbPageContext tbPageContext3 = this.a;
+            list3.add(new GameRecommendGameAdapter(tbPageContext3, mp6.b, tbPageContext3.getUniqueId(), this.d));
+            TbPageContext tbPageContext4 = this.a;
+            FrsUserRecommendAdapter frsUserRecommendAdapter = new FrsUserRecommendAdapter(tbPageContext4, c77.e, tbPageContext4.getUniqueId());
+            frsUserRecommendAdapter.K();
+            frsUserRecommendAdapter.J(this.d);
+            this.c.add(frsUserRecommendAdapter);
+            this.b.addAdapters(this.c);
         }
     }
 
-    @Override // com.baidu.tieba.qw
-    public View k() {
-        InterceptResult invokeV;
+    public void b() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.f;
+        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && (this.b.getAdapter2() instanceof zm)) {
+            this.b.getAdapter2().notifyDataSetChanged();
         }
-        return (View) invokeV.objValue;
     }
 
-    @Override // com.baidu.tieba.jx
-    public void onChangeSkinType(TbPageContext tbPageContext, int i) {
+    public void c(List<in> list) {
+        BdTypeListView bdTypeListView;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, tbPageContext, i) == null) {
-            this.f.onChangeSkinType(tbPageContext, i);
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) != null) || (bdTypeListView = this.b) == null) {
+            return;
         }
+        bdTypeListView.setData(list);
     }
 }

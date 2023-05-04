@@ -1,17 +1,9 @@
 package com.baidu.tieba;
 /* loaded from: classes4.dex */
 public interface fs0 {
-    void mute(boolean z);
+    int b();
 
-    void pause();
+    boolean isPause();
 
-    void resume();
-
-    void setLooping(boolean z);
-
-    void setVideoScalingMode(int i);
-
-    void start();
-
-    void stop();
+    boolean isPlaying();
 }

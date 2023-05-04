@@ -2,7 +2,7 @@ package com.google.android.material.appbar;
 
 import android.view.View;
 import androidx.core.view.ViewCompat;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class ViewOffsetHelper {
     public int layoutLeft;
     public int layoutTop;

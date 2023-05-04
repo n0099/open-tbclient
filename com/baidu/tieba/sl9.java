@@ -1,23 +1,30 @@
 package com.baidu.tieba;
 
+import com.baidu.adp.widget.ListView.BdTypeRecyclerView;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ActBtn;
+import java.util.LinkedList;
+import java.util.List;
 /* loaded from: classes6.dex */
 public class sl9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public int a;
+    public TbPageContext<?> a;
+    public BdTypeRecyclerView b;
+    public tl9 c;
+    public qn d;
+    public List<vm> e;
 
-    public sl9(ActBtn actBtn) {
+    public sl9(TbPageContext tbPageContext, BdTypeRecyclerView bdTypeRecyclerView) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {actBtn};
+            Object[] objArr = {tbPageContext, bdTypeRecyclerView};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -27,21 +34,36 @@ public class sl9 {
                 return;
             }
         }
-        this.a = 0;
-        if (actBtn == null) {
-            return;
-        }
-        this.a = actBtn.type.intValue();
-        String str = actBtn.url;
-        String str2 = actBtn.text;
+        this.e = new LinkedList();
+        this.a = tbPageContext;
+        this.b = bdTypeRecyclerView;
+        a();
     }
 
-    public int getType() {
-        InterceptResult invokeV;
+    public final void a() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a;
+        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+            tl9 tl9Var = new tl9(this.a);
+            this.c = tl9Var;
+            this.e.add(tl9Var);
+            qn qnVar = new qn(this.a);
+            this.d = qnVar;
+            this.e.add(qnVar);
+            this.b.addAdapters(this.e);
         }
-        return invokeV.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
+            this.b.getAdapter().notifyDataSetChanged();
+        }
+    }
+
+    public void c(List<in> list) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, list) == null) {
+            this.b.setData(list);
+        }
     }
 }

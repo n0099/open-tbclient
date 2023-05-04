@@ -1,11 +1,48 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
 import android.content.Context;
+import android.os.Bundle;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
 public interface ur1 {
-    boolean a(Context context, String str);
 
-    boolean b(Context context, String str);
+    /* loaded from: classes6.dex */
+    public interface a {
+        void onFinish();
+    }
 
-    boolean c(Context context, String str);
+    /* loaded from: classes6.dex */
+    public interface b {
+        void a(boolean z);
+
+        void b(Exception exc);
+    }
+
+    /* loaded from: classes6.dex */
+    public interface c {
+        void a(boolean z);
+
+        void b();
+    }
+
+    void a(a aVar);
+
+    void b(Activity activity, Bundle bundle, jo1 jo1Var);
+
+    void c(lo1 lo1Var);
+
+    String d(@NonNull Context context);
+
+    boolean e(Context context);
+
+    String f(@NonNull Context context);
+
+    void g(c cVar);
+
+    String h(Context context);
+
+    String i(@NonNull Context context);
+
+    void j(jo1 jo1Var);
 }

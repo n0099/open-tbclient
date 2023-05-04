@@ -1,165 +1,138 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
 import android.util.Log;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.statistics.NetworkStatRecord;
-import com.baidu.tieba.eh4;
+import com.baidu.swan.bdtls.impl.model.Bdtls$Alert;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.google.android.exoplayer2.util.MimeTypes;
-import java.io.IOException;
-import okhttp3.Response;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class yq3 extends ch4<String> {
+public class yq3 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final eh4.a a;
 
-    public yq3(eh4.a aVar) {
+    public static void a(String str) {
+        int i;
+        int i2;
+        int i3;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {aVar};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+            if (tq3.a) {
+                Log.d("BDTLS", "bdtls success");
             }
-        }
-        this.a = aVar;
-    }
-
-    public final boolean a() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a != null) {
-                return true;
-            }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.eh4.a
-    public void onStart() {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048581, this) == null) && a()) {
-            this.a.onStart();
-        }
-    }
-
-    @Override // com.baidu.tieba.eh4.a
-    public void b(String str, String str2, JSONObject jSONObject) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, str2, jSONObject) == null) && a()) {
-            this.a.b(str, str2, jSONObject);
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: c */
-    public void onSuccess(String str, int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, str, i) == null) {
-            if (rq3.a) {
-                Log.d("BDTLS", "BdtlsPmsRequest onSuccess=" + str);
-            }
-            if (this.a == null) {
-                return;
-            }
-            xq3 l = xq3.l();
-            if (TextUtils.equals(str, "recovery")) {
-                if (l.m().b()) {
-                    l.m().a();
-                    l.d.i(true);
-                    lr3 lr3Var = l.d;
-                    if (lr3Var instanceof jr3) {
-                        ((jr3) lr3Var).j();
-                        return;
-                    }
+            ir3 m = zq3.l().m();
+            if (m == null) {
+                if (tq3.a) {
+                    Log.d("BDTLS", "bdtls ubc data is null");
                     return;
                 }
-                this.a.onFail(new Exception("Exceeded the limit of continuous downgrade"));
                 return;
             }
-            l.m().k();
-            lr3 lr3Var2 = l.d;
-            if (lr3Var2 instanceof jr3) {
-                jr3 jr3Var = (jr3) lr3Var2;
-                if (l.k()) {
-                    if (l.d.b == 1) {
-                        wq3.a(MimeTypes.BASE_TYPE_APPLICATION);
-                        this.a.c(str, i);
-                        jr3Var.h = 0;
-                        return;
-                    }
-                    int i2 = jr3Var.h;
-                    jr3Var.h = i2 + 1;
-                    if (i2 < 3) {
-                        jr3Var.j();
-                        return;
-                    }
-                    eh4.a aVar = this.a;
-                    aVar.onFail(new IOException("request fail : " + str));
-                    jr3Var.h = 0;
-                    return;
-                }
-                this.a.c(str, i);
-                jr3Var.h = 0;
-            }
-        }
-    }
-
-    /* JADX DEBUG: Method merged with bridge method */
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    /* renamed from: d */
-    public String parseResponse(Response response, int i, NetworkStatRecord networkStatRecord) throws Exception {
-        InterceptResult invokeLIL;
-        String string;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(1048579, this, response, i, networkStatRecord)) == null) {
-            if (response != null && response.body() != null) {
-                xq3 l = xq3.l();
-                if (TextUtils.equals(response.headers().get("Bdtls"), "recovery")) {
-                    l.m().s(0);
-                    return "recovery";
-                }
-                if (l.k()) {
-                    string = l.d.g(response.body().bytes());
-                    if (rq3.a) {
-                        Log.d("BDTLS", "BdtlsPmsRequest parseResponse=" + string);
-                    }
+            try {
+                int i4 = -1;
+                if (m.d() != null) {
+                    i = m.d().intValue();
                 } else {
-                    string = response.body().string();
+                    i = -1;
                 }
-                b(String.valueOf(response.request().url()), string, networkStatRecord.toUBCJson());
-                return string;
+                if (m.f() != null) {
+                    i2 = m.f().intValue();
+                } else {
+                    i2 = -1;
+                }
+                if (m.e() != null) {
+                    i3 = m.e().intValue();
+                } else {
+                    i3 = -1;
+                }
+                if (m.g() != null) {
+                    i4 = m.g().intValue();
+                }
+                if (tq3.a) {
+                    Log.d("BDTLS", "bdtls ubc get data");
+                }
+                af3 af3Var = new af3();
+                af3Var.b = str;
+                af3Var.a("dh_group_id", Integer.valueOf(i));
+                af3Var.a("dh_secret", Integer.valueOf(i2));
+                af3Var.a("dh_pub_c", Integer.valueOf(i3));
+                af3Var.a("dh_pub_s", Integer.valueOf(i4));
+                if (tq3.a) {
+                    Log.d("BDTLS", "bdtls ubc create event");
+                }
+                qe3.d(af3Var);
+            } catch (Exception e) {
+                if (tq3.a) {
+                    Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                    e.printStackTrace();
+                }
             }
-            return "";
         }
-        return (String) invokeLIL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.callback.StatResponseCallback
-    public void onFail(Exception exc) {
+    public static void b(ir3 ir3Var, Bdtls$Alert bdtls$Alert) {
+        String str;
+        int i;
+        int i2;
+        int i3;
+        String str2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048580, this, exc) == null) {
-            if (rq3.a) {
-                Log.d("BDTLS", "BdtlsPmsRequest onFail = " + exc.getMessage());
+        if (interceptable == null || interceptable.invokeLL(65537, null, ir3Var, bdtls$Alert) == null) {
+            if (tq3.a) {
+                Log.d("BDTLS", "bdtls ubc");
             }
-            if (a()) {
-                this.a.onFail(exc);
+            if (ir3Var != null && bdtls$Alert != null) {
+                try {
+                    if (bdtls$Alert.getLevel() == 1) {
+                        str = "warning";
+                    } else {
+                        str = "fatal_error";
+                    }
+                    int i4 = -1;
+                    if (ir3Var.d() != null) {
+                        i = ir3Var.d().intValue();
+                    } else {
+                        i = -1;
+                    }
+                    if (ir3Var.f() != null) {
+                        i2 = ir3Var.f().intValue();
+                    } else {
+                        i2 = -1;
+                    }
+                    if (ir3Var.e() != null) {
+                        i3 = ir3Var.e().intValue();
+                    } else {
+                        i3 = -1;
+                    }
+                    if (ir3Var.g() != null) {
+                        i4 = ir3Var.g().intValue();
+                    }
+                    if (bdtls$Alert.getDescription() != null) {
+                        str2 = new String(bdtls$Alert.getDescription().toByteArray());
+                    } else {
+                        str2 = "";
+                    }
+                    if (tq3.a) {
+                        Log.d("BDTLS", "bdtls ubc get data");
+                    }
+                    af3 af3Var = new af3();
+                    af3Var.b = "alert";
+                    af3Var.e = str;
+                    af3Var.a("dh_group_id", Integer.valueOf(i));
+                    af3Var.a("dh_secret", Integer.valueOf(i2));
+                    af3Var.a("dh_pub_c", Integer.valueOf(i3));
+                    af3Var.a("dh_pub_s", Integer.valueOf(i4));
+                    af3Var.a("alert_msg", str2);
+                    if (tq3.a) {
+                        Log.d("BDTLS", "bdtls ubc create event");
+                    }
+                    qe3.d(af3Var);
+                } catch (Exception e) {
+                    if (tq3.a) {
+                        Log.d("BDTLS", "bdtls ubc exception=" + e.getMessage());
+                        e.printStackTrace();
+                    }
+                }
+            } else if (tq3.a) {
+                Log.d("BDTLS", "bdtls ubc data is null");
             }
         }
     }

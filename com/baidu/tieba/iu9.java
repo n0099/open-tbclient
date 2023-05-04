@@ -1,93 +1,49 @@
 package com.baidu.tieba;
 
-import android.app.Application;
-import android.os.Build;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.searchbox.account.contants.AccountConstants;
-import com.baidu.tbadk.core.util.FileHelper;
+import com.baidu.adp.framework.listener.CustomMessageListener;
+import com.baidu.adp.framework.message.CustomResponsedMessage;
+import com.baidu.tbadk.TbSingleton;
+import com.baidu.tieba.tblauncher.MainTabActivity;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.File;
-import kotlin.jvm.internal.Intrinsics;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class iu9 {
+public class iu9 extends CustomMessageListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public final MainTabActivity a;
+    public final rs9 b;
 
-    public static final void a() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public iu9(MainTabActivity mainTabActivity, gs9 gs9Var) {
+        super(2921532);
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65536, null) == null) {
-            yt9.b();
-        }
-    }
-
-    public static final void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65537, null) == null) {
-            if (Build.VERSION.SDK_INT >= 24) {
-                d().deleteSharedPreferences(AccountConstants.LOGOUT_TYPE_NATIVE_SRC_SETTINGS);
-            } else {
-                q45.m().d();
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {mainTabActivity, gs9Var};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super(((Integer) newInitContext.callArgs[0]).intValue());
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = mainTabActivity;
+        this.b = mainTabActivity.e;
     }
 
-    public static final Application d() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.adp.framework.listener.MessageListener
+    public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
+        rs9 rs9Var;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            return ju9.a();
+        if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && !TbSingleton.getInstance().isNewUserRedPackageShowed() && this.a.D && TbSingleton.getInstance().hasPerformedFirstLoginTest() && (rs9Var = this.b) != null && rs9Var.c() != null) {
+            this.b.c().d();
         }
-        return (Application) invokeV.objValue;
-    }
-
-    public static final String e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null)) == null) {
-            return wt9.a();
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final String f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
-            String cacheDir = FileHelper.getCacheDir();
-            Intrinsics.checkNotNullExpressionValue(cacheDir, "getCacheDir()");
-            return cacheDir;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static final int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65543, null)) == null) {
-            return eu9.a();
-        }
-        return invokeV.intValue;
-    }
-
-    public static final boolean c(File file) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, file)) == null) {
-            return FileHelper.deleteFileOrDir(file);
-        }
-        return invokeL.booleanValue;
-    }
-
-    public static final File g(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            File GetFileByAbsolutePath = FileHelper.GetFileByAbsolutePath(str);
-            Intrinsics.checkNotNullExpressionValue(GetFileByAbsolutePath, "GetFileByAbsolutePath(filePath)");
-            return GetFileByAbsolutePath;
-        }
-        return (File) invokeL.objValue;
     }
 }

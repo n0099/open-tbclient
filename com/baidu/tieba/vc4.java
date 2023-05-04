@@ -4,89 +4,113 @@ import android.graphics.Bitmap;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Path;
 import android.graphics.PorterDuff;
 import android.graphics.RectF;
+import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import com.baidu.mapapi.map.BitmapDescriptor;
-import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.MarkerOptions;
-import com.baidu.mapapi.map.OverlayOptions;
-import com.baidu.mapapi.model.LatLng;
 import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.tieba.pu2;
+import com.baidu.tieba.ru2;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes6.dex */
 public class vc4 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static OverlayOptions a(fd4 fd4Var, ed4 ed4Var) {
+    /* loaded from: classes6.dex */
+    public static class a implements View.OnClickListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ hd4 a;
+        public final /* synthetic */ ru2 b;
+
+        public a(hd4 hd4Var, ru2 ru2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {hd4Var, ru2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = hd4Var;
+            this.b = ru2Var;
+        }
+
+        @Override // android.view.View.OnClickListener
+        public void onClick(View view2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
+                cd4.a(this.a, this.b);
+            }
+        }
+    }
+
+    public static View a(hd4 hd4Var, ru2 ru2Var) {
         InterceptResult invokeLL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, fd4Var, ed4Var)) == null) {
-            v42.i("map", "createLabel start");
-            if (ed4Var == null) {
-                return null;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, hd4Var, ru2Var)) == null) {
+            x42.i("map", "creatCallout start");
+            Paint paint = new Paint();
+            paint.setAntiAlias(true);
+            paint.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint.setColor(ru2Var.i.b);
+            paint.setTextSize(ru2Var.i.c);
+            ru2.b bVar = ru2Var.i;
+            float f = bVar.e;
+            float f2 = bVar.f;
+            Paint paint2 = new Paint();
+            paint2.setAntiAlias(true);
+            paint2.setStyle(Paint.Style.FILL_AND_STROKE);
+            paint2.setColor(ru2Var.i.h);
+            String str = ru2Var.i.a;
+            int g = ol3.g(6.0f);
+            float f3 = f * 2.0f;
+            float measureText = paint.measureText(str) + f3;
+            float f4 = paint.getFontMetrics().bottom - paint.getFontMetrics().top;
+            float f5 = g + f4 + f3;
+            if (f5 > 0.0f && measureText > 0.0f) {
+                Bitmap createBitmap = Bitmap.createBitmap((int) measureText, (int) f5, Bitmap.Config.ARGB_8888);
+                createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
+                Canvas canvas = new Canvas(createBitmap);
+                canvas.drawColor(0, PorterDuff.Mode.CLEAR);
+                RectF rectF = new RectF();
+                rectF.left = 0.0f;
+                rectF.top = 0.0f;
+                float f6 = f4 + f3;
+                rectF.bottom = f6;
+                rectF.right = measureText;
+                canvas.drawRoundRect(rectF, f2, f2, paint2);
+                Path path = new Path();
+                float f7 = measureText / 2.0f;
+                float f8 = g / 2;
+                path.moveTo(f7 - f8, f6);
+                path.lineTo(f7, f5);
+                path.lineTo(f7 + f8, f6);
+                path.close();
+                canvas.drawPath(path, paint2);
+                canvas.drawText(str, f, (-paint.getFontMetrics().top) + f, paint);
+                ImageView imageView = new ImageView(AppRuntime.getAppContext());
+                imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
+                imageView.setImageBitmap(createBitmap);
+                imageView.setOnClickListener(new a(hd4Var, ru2Var));
+                x42.i("map", "creatCallout end");
+                return imageView;
             }
-            pu2 pu2Var = ed4Var.a;
-            if (pu2Var != null && pu2Var.j != null && pu2Var.b != null) {
-                Paint paint = new Paint();
-                paint.setAntiAlias(true);
-                paint.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint.setColor(pu2Var.j.b);
-                paint.setTextSize(pu2Var.j.c);
-                pu2.c cVar = pu2Var.j;
-                float f = cVar.e;
-                float f2 = cVar.j;
-                Paint paint2 = new Paint();
-                paint2.setAntiAlias(true);
-                paint2.setStyle(Paint.Style.FILL_AND_STROKE);
-                paint2.setColor(pu2Var.j.d);
-                String str = pu2Var.j.a;
-                float f3 = f * 2.0f;
-                float measureText = paint.measureText(str) + f3;
-                float f4 = (paint.getFontMetrics().bottom - paint.getFontMetrics().top) + f3;
-                if (f4 > 0.0f && measureText > 0.0f) {
-                    float f5 = pu2Var.j.h;
-                    Bitmap createBitmap = Bitmap.createBitmap((int) (measureText + f5 + 0.5d), (int) (f4 + f5 + 0.5d), Bitmap.Config.ARGB_8888);
-                    createBitmap.eraseColor(Color.argb(0, 0, 0, 0));
-                    Canvas canvas = new Canvas(createBitmap);
-                    canvas.drawColor(0, PorterDuff.Mode.CLEAR);
-                    RectF rectF = new RectF();
-                    float f6 = f5 / 2.0f;
-                    rectF.left = f6;
-                    rectF.top = f6;
-                    rectF.bottom = f4 + f6;
-                    rectF.right = measureText + f6;
-                    canvas.drawRoundRect(rectF, f2, f2, paint2);
-                    if (f5 > 0.0f) {
-                        paint2.setStyle(Paint.Style.STROKE);
-                        paint2.setColor(pu2Var.j.i);
-                        paint2.setStrokeWidth(f5);
-                        canvas.drawRoundRect(rectF, f2, f2, paint2);
-                    }
-                    canvas.drawText(str, f + f6, (-paint.getFontMetrics().top) + f + f6, paint);
-                    ImageView imageView = new ImageView(AppRuntime.getAppContext());
-                    imageView.setLayoutParams(new ViewGroup.LayoutParams(createBitmap.getWidth(), createBitmap.getHeight()));
-                    pu2.c cVar2 = pu2Var.j;
-                    imageView.setPadding((int) cVar2.f, (int) cVar2.g, 0, 0);
-                    imageView.setImageBitmap(createBitmap);
-                    BitmapDescriptor fromView = BitmapDescriptorFactory.fromView(imageView);
-                    MarkerOptions markerOptions = new MarkerOptions();
-                    ou2 ou2Var = pu2Var.b;
-                    MarkerOptions zIndex = markerOptions.position(new LatLng(ou2Var.a, ou2Var.b)).icon(fromView).anchor(0.0f, 0.0f).zIndex(66);
-                    v42.i("map", "createLabel end");
-                    return zIndex;
-                }
-                v42.c("map", "label heigth or width is 0");
-                return null;
-            }
-            v42.c("map", "marker data error");
-            return null;
+            x42.o("map", "callout height or wodth is 0");
+            return new ImageView(AppRuntime.getAppContext());
         }
-        return (OverlayOptions) invokeLL.objValue;
+        return (View) invokeLL.objValue;
     }
 }

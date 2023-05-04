@@ -5,7 +5,7 @@ import android.os.IInterface;
 import android.os.Parcel;
 import android.os.RemoteException;
 import com.google.android.gms.dynamic.IObjectWrapper;
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public final class zzr extends com.google.android.gms.internal.common.zza implements IInterface {
     public zzr(IBinder iBinder) {
         super(iBinder, "com.google.android.gms.dynamite.IDynamiteLoaderV2");

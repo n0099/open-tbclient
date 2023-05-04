@@ -1,11 +1,13 @@
 package com.baidu.tieba;
 /* loaded from: classes3.dex */
 public interface bd0 {
-    void a(long j);
+    void onError(int i);
 
-    void onRecorderComplete(boolean z, String str);
+    void onPause();
 
-    void onRecorderError(int i);
+    void onResume();
 
-    void onRecorderStart(boolean z);
+    void onStart();
+
+    void w(int i, String str);
 }

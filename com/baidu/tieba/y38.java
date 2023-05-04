@@ -1,15 +1,16 @@
 package com.baidu.tieba;
 
-import androidx.annotation.NonNull;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg;
-import com.baidu.tieba.immessagecenter.chatgroup.grouppage.repo.entity.ChatRoomDetail;
+import androidx.annotation.Nullable;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
-public interface y38 {
-    void c(@NonNull w38 w38Var);
+public class y38 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    void e(@NonNull BaseMsg baseMsg, @NonNull ChatRoomDetail chatRoomDetail);
-
-    void h();
-
-    void onDestroy();
+    public static void a(@Nullable String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65536, null, str) == null) {
+        }
+    }
 }

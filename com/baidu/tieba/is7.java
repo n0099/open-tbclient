@@ -1,101 +1,50 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.BdUniqueId;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.NetMessage;
-import com.baidu.adp.lib.util.StringUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.data.BaijiahaoData;
-import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
-import com.baidu.tbadk.task.TbHttpMessageTask;
-import com.baidu.tieba.homepage.personalize.data.RealTimeHttpResponse;
-import com.baidu.tieba.homepage.personalize.data.RealTimeRequest;
-import com.baidu.tieba.homepage.personalize.data.RealTimeSocketResponse;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes5.dex */
 public class is7 {
     public static /* synthetic */ Interceptable $ic;
+    public static volatile List<Long> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public BdUniqueId a;
 
-    public is7() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947864156, "Lcom/baidu/tieba/is7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947864156, "Lcom/baidu/tieba/is7;");
                 return;
             }
         }
-        this.a = null;
+        a = new ArrayList();
     }
 
-    public final void b() {
+    public static void a(long j) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_REPORT_HOME_PIC_CLICK, il9.a(TbConfig.HOME_REALTIME_ADDRESS, 309277));
-            tbHttpMessageTask.setIsNeedAddCommenParam(true);
-            tbHttpMessageTask.setResponsedClass(RealTimeHttpResponse.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
-    public final void c() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-            gn5 gn5Var = new gn5(309277);
-            gn5Var.setResponsedClass(RealTimeSocketResponse.class);
-            gn5Var.g(true);
-            MessageManager.getInstance().registerTask(gn5Var);
-        }
-    }
-
-    public void a(BdUniqueId bdUniqueId) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, bdUniqueId) == null) {
-            this.a = bdUniqueId;
-            b();
-            c();
-        }
-    }
-
-    public final void d(NetMessage netMessage) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048579, this, netMessage) != null) || netMessage == null) {
-            return;
-        }
-        if (netMessage.getTag() == null) {
-            netMessage.setTag(this.a);
-        }
-        MessageManager.getInstance().sendMessage(netMessage);
-    }
-
-    public void e(long j, String str, String str2, int i, String str3, int i2, String str4, BaijiahaoData baijiahaoData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeCommon(1048580, this, new Object[]{Long.valueOf(j), str, str2, Integer.valueOf(i), str3, Integer.valueOf(i2), str4, baijiahaoData}) == null) && !StringUtils.isNull(str) && !StringUtils.isNull(str2) && !StringUtils.isNull(str3)) {
-            RealTimeRequest realTimeRequest = new RealTimeRequest();
-            realTimeRequest.setTid(j);
-            realTimeRequest.setWeight(str);
-            realTimeRequest.setSource(str2);
-            realTimeRequest.setLocation(i);
-            realTimeRequest.setAbtest_tag(str3);
-            realTimeRequest.setType(i2);
-            realTimeRequest.setPage(str4);
-            if (baijiahaoData != null && i2 != gg.e("2", 0)) {
-                realTimeRequest.setOriUgcNid(baijiahaoData.oriUgcNid);
-                realTimeRequest.setOriUgcTid(baijiahaoData.oriUgcTid);
-                realTimeRequest.setOriUgcType(Integer.toString(baijiahaoData.oriUgcType));
-                realTimeRequest.setOriUgcVid(baijiahaoData.oriUgcVid);
+        if (interceptable == null || interceptable.invokeJ(65537, null, j) == null) {
+            if (a.size() > 300) {
+                a.remove(0);
             }
-            d(realTimeRequest);
+            a.add(Long.valueOf(j));
         }
+    }
+
+    public static boolean b(long j) {
+        InterceptResult invokeJ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(65538, null, j)) == null) {
+            return a.contains(Long.valueOf(j));
+        }
+        return invokeJ.booleanValue;
     }
 }

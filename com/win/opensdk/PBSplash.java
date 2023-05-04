@@ -138,12 +138,12 @@ public class PBSplash implements A {
         Interceptable interceptable = $ic;
         if ((interceptable == null || interceptable.invokeL(1048576, this, view2) == null) && this.t > 0.0f && i > 0) {
             try {
-                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09289e);
+                RelativeLayout relativeLayout = (RelativeLayout) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928ba);
                 relativeLayout.removeAllViews();
                 if (this.s != null) {
                     relativeLayout.addView(this.s);
                 }
-                View findViewById = view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928a1);
+                View findViewById = view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928bd);
                 float a = M.a(this.a, this.t);
                 float c = M.c(this.a) / 2.0f;
                 if (a < c) {
@@ -171,11 +171,11 @@ public class PBSplash implements A {
             } else {
                 j = 0;
             }
-            CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928a0);
+            CircleProgressbar circleProgressbar = (CircleProgressbar) view2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928bc);
             this.d = circleProgressbar;
             circleProgressbar.setOutLineColor(0);
-            this.d.setInCircleColor(Color.parseColor(this.a.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16dc)));
-            this.d.setProgressColor(Color.parseColor(this.a.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16db)));
+            this.d.setInCircleColor(Color.parseColor(this.a.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16f5)));
+            this.d.setProgressColor(Color.parseColor(this.a.getString(com.baidu.tieba.R.string.obfuscated_res_0x7f0f16f4)));
             this.d.setProgressLineWidth(this.h);
             this.d.setProgressType(s2.b);
             CircleProgressbar circleProgressbar2 = this.d;
@@ -260,8 +260,8 @@ public class PBSplash implements A {
                 }
             } else if (this.b.b().equals("image")) {
                 viewGroup.removeAllViews();
-                View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09a1, viewGroup);
-                ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f09289d);
+                View inflate = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09ad, viewGroup);
+                ImageView imageView = (ImageView) inflate.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928b9);
                 a(inflate);
                 imageView.setVisibility(0);
                 b(inflate);
@@ -270,9 +270,9 @@ public class PBSplash implements A {
                 this.b.a(viewGroup, null);
             } else {
                 viewGroup.removeAllViews();
-                View inflate2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09a1, viewGroup);
+                View inflate2 = LayoutInflater.from(this.a).inflate(com.baidu.tieba.R.layout.obfuscated_res_0x7f0d09ad, viewGroup);
                 a(inflate2);
-                GifImageView gifImageView = (GifImageView) inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f092895);
+                GifImageView gifImageView = (GifImageView) inflate2.findViewById(com.baidu.tieba.R.id.obfuscated_res_0x7f0928b1);
                 gifImageView.setVisibility(0);
                 byte[] bArr = this.m;
                 if (bArr != null) {

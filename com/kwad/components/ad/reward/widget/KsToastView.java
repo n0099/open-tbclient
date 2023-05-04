@@ -52,8 +52,8 @@ public class KsToastView extends LinearLayout {
     }
 
     private void init(Context context) {
-        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0472, this);
-        this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f09137a);
+        LinearLayout.inflate(context, R.layout.obfuscated_res_0x7f0d0478, this);
+        this.wC = (TextView) findViewById(R.id.obfuscated_res_0x7f091388);
     }
 
     /* JADX INFO: Access modifiers changed from: private */

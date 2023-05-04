@@ -1,174 +1,37 @@
 package com.baidu.tieba;
 
-import android.media.MediaPlayer;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.adp.framework.MessageManager;
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
+import android.content.Context;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.card.ThreadCardViewHolder;
 import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tbadk.core.atomData.CloudMusicActivityConfig;
-import com.baidu.tbadk.data.TbMusicData;
-import com.baidu.tieba.at6;
-import com.baidu.tieba.c1a;
-import com.baidu.tieba.external.music.data.MusicData;
-import com.baidu.tieba.external.music.model.SelectMusicModel;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tbadk.core.util.ThreadCardUtils;
+import com.baidu.tieba.card.data.BaseCardInfo;
+import com.baidu.tieba.gy;
+import com.baidu.tieba.ry;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
 /* loaded from: classes7.dex */
-public class zs6 implements xs6 {
+public class zs6 extends vm<f05, ThreadCardViewHolder<ThreadData>> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public SelectMusicModel a;
-    public MediaPlayer b;
-    public int c;
-    public TbMusicData d;
-    public String e;
-    public boolean f;
-    public TbPageContext g;
-    public boolean h;
-    public nn8 i;
+    public BdUniqueId a;
+    public TbPageContext<?> b;
+    public on c;
 
     /* loaded from: classes7.dex */
-    public class a implements at6.b {
+    public class a implements sn {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c1a.a a;
-        public final /* synthetic */ MusicData b;
-        public final /* synthetic */ zs6 c;
 
-        public a(zs6 zs6Var, c1a.a aVar, MusicData musicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zs6Var, aVar, musicData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = zs6Var;
-            this.a = aVar;
-            this.b = musicData;
-        }
-
-        @Override // com.baidu.tieba.at6.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048576, this, str) != null) || this.a.d != this.c.c) {
-                return;
-            }
-            this.c.h = false;
-            this.a.b.setVisibility(4);
-            this.a.a.setDrawBorder(true);
-            this.a.a.invalidate();
-            ii.Q(TbadkCoreApplication.getInst(), str);
-            if (this.c.i != null) {
-                this.c.i.b(3, str);
-            }
-        }
-
-        @Override // com.baidu.tieba.at6.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.a.d == this.c.c) {
-                this.c.h = false;
-                this.a.a.setDrawBorder(true);
-                this.a.a.invalidate();
-                this.a.b.setVisibility(4);
-            }
-        }
-
-        @Override // com.baidu.tieba.at6.b
-        public void c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) && this.a.d == this.c.c) {
-                this.c.h = false;
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                this.c.o(str, this.b);
-                this.a.b.setVisibility(4);
-                this.a.a.setDrawBorder(true);
-                this.a.a.invalidate();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements at6.b {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ MusicData a;
-        public final /* synthetic */ zs6 b;
-
-        @Override // com.baidu.tieba.at6.b
-        public void b() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            }
-        }
-
-        public b(zs6 zs6Var, MusicData musicData) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zs6Var, musicData};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.b = zs6Var;
-            this.a = musicData;
-        }
-
-        @Override // com.baidu.tieba.at6.b
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                ii.Q(TbadkCoreApplication.getInst(), str);
-                if (this.b.i != null) {
-                    this.b.i.b(3, str);
-                }
-            }
-        }
-
-        @Override // com.baidu.tieba.at6.b
-        public void c(String str, String str2) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2) == null) {
-                if (!TextUtils.isEmpty(str2)) {
-                    str = str2;
-                }
-                this.b.o(str, this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c implements MediaPlayer.OnPreparedListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zs6 a;
-
-        public c(zs6 zs6Var) {
+        public a(zs6 zs6Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -180,312 +43,86 @@ public class zs6 implements xs6 {
                     int i2 = i & 2;
                     newInitContext.thisArg = this;
                     interceptable.invokeInitBody(65536, newInitContext);
-                    return;
                 }
             }
-            this.a = zs6Var;
         }
 
-        @Override // android.media.MediaPlayer.OnPreparedListener
-        public void onPrepared(MediaPlayer mediaPlayer) {
+        @Override // com.baidu.tieba.sn
+        public void b(View view2, in inVar, BdUniqueId bdUniqueId, ViewGroup viewGroup, int i, long j) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, mediaPlayer) == null) {
-                this.a.b.setLooping(true);
-                this.a.b.start();
+            if ((interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{view2, inVar, bdUniqueId, viewGroup, Integer.valueOf(i), Long.valueOf(j)}) == null) && (inVar instanceof yi6) && (view2.getTag() instanceof ThreadCardViewHolder)) {
+                ThreadCardUtils.jumpToPB((ax4) ((yi6) inVar), view2.getContext(), 2, false);
+                ((ThreadCardViewHolder) view2.getTag()).a().p(new ry.a(1));
             }
         }
     }
 
-    /* loaded from: classes7.dex */
-    public class d implements MediaPlayer.OnErrorListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ zs6 a;
-
-        public d(zs6 zs6Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {zs6Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = zs6Var;
-        }
-
-        @Override // android.media.MediaPlayer.OnErrorListener
-        public boolean onError(MediaPlayer mediaPlayer, int i, int i2) {
-            InterceptResult invokeLII;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLII = interceptable.invokeLII(1048576, this, mediaPlayer, i, i2)) == null) {
-                if (this.a.i != null) {
-                    nn8 nn8Var = this.a.i;
-                    nn8Var.b(4, "what-->" + i + "  extra-->" + i2);
-                    return false;
-                }
-                return false;
-            }
-            return invokeLII.booleanValue;
-        }
-    }
-
-    public zs6(TbPageContext tbPageContext, ys6 ys6Var) {
-        rn8 rn8Var;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public zs6(TbPageContext<?> tbPageContext, BdUniqueId bdUniqueId, BdUniqueId bdUniqueId2, String str) {
+        super(tbPageContext.getPageActivity(), bdUniqueId);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {tbPageContext, ys6Var};
+            Object[] objArr = {tbPageContext, bdUniqueId, bdUniqueId2, str};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        CustomResponsedMessage runTask = MessageManager.getInstance().runTask(2921309, rn8.class);
-        if (runTask != null) {
-            rn8Var = (rn8) runTask.getData();
-        } else {
-            rn8Var = null;
-        }
-        if (rn8Var != null) {
-            this.i = rn8Var.get();
-        }
-        this.g = tbPageContext;
-        this.a = new SelectMusicModel(tbPageContext, ys6Var);
-        n();
+        this.b = tbPageContext;
+        this.a = bdUniqueId2;
     }
 
-    @Override // com.baidu.tieba.xs6
-    public void d(MusicData musicData, Object obj) {
+    public void u(on onVar) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048579, this, musicData, obj) != null) || musicData == null) {
-            return;
+        if (interceptable == null || interceptable.invokeL(1048580, this, onVar) == null) {
+            this.c = onVar;
         }
-        int i = musicData.editMusicType;
-        if (i != 0) {
-            if (i != 1) {
-                if (i == 2) {
-                    CloudMusicActivityConfig cloudMusicActivityConfig = new CloudMusicActivityConfig(this.g.getPageActivity(), 25032);
-                    cloudMusicActivityConfig.setCurrentMusicData(this.d);
-                    MessageManager.getInstance().sendMessage(new CustomMessage(2002001, cloudMusicActivityConfig));
-                    return;
-                }
-                return;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public ThreadCardViewHolder<ThreadData> onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            gy.b bVar = new gy.b(this.b.getPageActivity(), false);
+            bVar.h(new vx(this.b.getPageActivity()));
+            gy k = bVar.k(BaseCardInfo.SupportType.EXTEND, viewGroup, this.c);
+            k.s(2);
+            ThreadCardViewHolder<ThreadData> threadCardViewHolder = new ThreadCardViewHolder<>(k);
+            threadCardViewHolder.i(this.a);
+            setOnAdapterItemClickListener(new a(this));
+            return threadCardViewHolder;
+        }
+        return (ThreadCardViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f05 f05Var, ThreadCardViewHolder<ThreadData> threadCardViewHolder) {
+        InterceptResult invokeCommon;
+        ThreadData threadData;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f05Var, threadCardViewHolder})) == null) {
+            if (f05Var != null && threadCardViewHolder != null && threadCardViewHolder.getView() != null && (threadData = f05Var.t) != null) {
+                threadData.statFloor = getPositionByType(i) + 1;
+                threadCardViewHolder.a().r(i);
+                threadCardViewHolder.e(f05Var.t);
+                threadCardViewHolder.a().onChangeSkinType(this.b, TbadkCoreApplication.getInst().getSkinType());
+                return threadCardViewHolder.getView();
             }
-            b();
-            return;
+            return null;
         }
-        p(obj, musicData);
-    }
-
-    public final void o(String str, MusicData musicData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048585, this, str, musicData) != null) || this.f) {
-            return;
-        }
-        if (this.b == null) {
-            MediaPlayer mediaPlayer = new MediaPlayer();
-            this.b = mediaPlayer;
-            mediaPlayer.setAudioStreamType(3);
-        }
-        try {
-            this.e = str;
-            this.b.reset();
-            this.b.setDataSource(str);
-            this.b.prepare();
-            this.b.setOnPreparedListener(new c(this));
-            this.b.setOnErrorListener(new d(this));
-        } catch (Exception e) {
-            e.printStackTrace();
-            q(str, musicData);
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void f(TbMusicData tbMusicData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048581, this, tbMusicData) == null) {
-            this.d = tbMusicData;
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void g(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048582, this, str, str2) == null) {
-            this.f = false;
-            this.e = str;
-            o(str, null);
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void a(float f) {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeF(1048576, this, f) == null) && (mediaPlayer = this.b) != null && mediaPlayer.getDuration() > 0) {
-            if (f < 0.0f) {
-                f = 0.0f;
-            }
-            if (f > this.b.getDuration()) {
-                f %= this.b.getDuration();
-            }
-            this.b.seekTo((int) (f * 1000.0f));
-            this.b.start();
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void b() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null) {
-                if (mediaPlayer.isPlaying()) {
-                    this.b.stop();
-                }
-                this.b.release();
-                this.b = null;
-            }
-            this.e = null;
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            return this.e;
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void e() {
-        SelectMusicModel selectMusicModel;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048580, this) == null) && (selectMusicModel = this.a) != null) {
-            selectMusicModel.cancelLoadData();
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public boolean h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return this.h;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public boolean n() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            this.a.R();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void onPause() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048586, this) == null) {
-            this.f = true;
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                this.b.pause();
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void onResume() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048587, this) == null) {
-            this.f = false;
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null) {
-                mediaPlayer.start();
-                this.b.seekTo(0);
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void pause() {
-        MediaPlayer mediaPlayer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048589, this) == null) && (mediaPlayer = this.b) != null && mediaPlayer.isPlaying()) {
-            this.b.pause();
-        }
-    }
-
-    @Override // com.baidu.tieba.xs6
-    public void reset() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            b();
-        }
-    }
-
-    public final void p(Object obj, MusicData musicData) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048588, this, obj, musicData) == null) && musicData != null && !TextUtils.isEmpty(musicData.resource)) {
-            MediaPlayer mediaPlayer = this.b;
-            if (mediaPlayer != null && mediaPlayer.isPlaying()) {
-                this.b.stop();
-            }
-            this.h = false;
-            String str = musicData.id;
-            String g = at6.h().g(musicData.resource);
-            if (obj != null && (obj instanceof c1a.a)) {
-                this.c = ((c1a.a) obj).d;
-            }
-            if (TextUtils.isEmpty(g)) {
-                if (obj instanceof c1a.a) {
-                    c1a.a aVar = (c1a.a) obj;
-                    aVar.b.setVisibility(0);
-                    aVar.a.setDrawBorder(false);
-                    aVar.a.invalidate();
-                    this.h = true;
-                    at6.h().f(musicData.id, musicData.resource, new a(this, aVar, musicData));
-                    return;
-                }
-                at6.h().f(musicData.id, musicData.resource, new b(this, musicData));
-                return;
-            }
-            o(g, musicData);
-        }
-    }
-
-    public final void q(String str, MusicData musicData) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048590, this, str, musicData) == null) {
-            this.e = null;
-            b();
-            if (str.startsWith("/")) {
-                File file = new File(str);
-                if (file.exists()) {
-                    file.delete();
-                }
-                at6.h().e();
-            }
-            p(null, musicData);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

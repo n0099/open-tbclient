@@ -14,7 +14,6 @@ import com.baidu.ar.ihttp.HttpFactory;
 import com.baidu.ar.ihttp.IHttpRequest;
 import com.baidu.ar.ihttp.IHttpResponse;
 import com.baidu.mobstat.Config;
-import com.xiaomi.mipush.sdk.Constants;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.Arrays;
@@ -173,7 +172,7 @@ public class b implements k {
         StringBuilder sb = new StringBuilder();
         String gx = com.baidu.ar.h.c.gx();
         a(sb, "app_id", TextUtils.isEmpty(this.js) ? DuMixARConfig.getAipAppId() : this.js);
-        a(sb, Constants.PHONE_BRAND, Build.BRAND);
+        a(sb, "brand", Build.BRAND);
         a(sb, Config.DEVICE_PART, Build.DEVICE);
         a(sb, "dumix_type", gx);
         a(sb, "fr", "-1");

@@ -2,20 +2,32 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.InputStream;
-import java.io.OutputStream;
-import java.net.Socket;
+import java.util.ArrayList;
+import java.util.List;
 /* loaded from: classes3.dex */
 public class b80 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Boolean a;
-    public Boolean b;
-    public Socket c;
-    public InputStream d;
-    public OutputStream e;
+    public byte[] a;
+    public long b;
+    public long c;
+    public int d;
+    public String e;
+    public boolean f;
+    public byte[] g;
+    public long h;
+    public long i;
+    public long j;
+    public int k;
+    public boolean l;
+    public boolean m;
+    public boolean n;
+    public long o;
+    public boolean p;
+    public List<w70> q;
 
     public b80() {
         Interceptable interceptable = $ic;
@@ -30,11 +42,34 @@ public class b80 {
                 return;
             }
         }
-        Boolean bool = Boolean.FALSE;
-        this.a = bool;
-        this.b = bool;
-        this.c = null;
-        this.d = null;
-        this.e = null;
+        this.a = new byte[0];
+        this.b = -1L;
+        this.c = 5000L;
+        this.d = -1;
+        this.e = "";
+        this.f = false;
+        this.g = new byte[0];
+        this.h = 60000L;
+        this.i = -1L;
+        this.j = -1L;
+        this.k = -1;
+        this.l = false;
+        this.m = false;
+        this.n = false;
+        this.o = -1L;
+        this.p = false;
+        this.q = new ArrayList();
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.n) {
+                return "Request correlationId :" + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", connectState :" + this.k + ", isNotify :" + this.f + ", bodySize :" + this.a.length;
+            }
+            return "Response correlationId " + this.o + ", serviceId :" + this.i + ", methodId :" + this.j + ", errorCode :" + this.d + ", errorMsg :" + this.e + ", intervalMs :" + this.h + ", isNotify :" + this.f + ", bodySize :" + this.g.length;
+        }
+        return (String) invokeV.objValue;
     }
 }

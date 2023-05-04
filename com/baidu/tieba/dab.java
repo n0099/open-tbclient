@@ -1,65 +1,45 @@
 package com.baidu.tieba;
 
+import com.baidu.tieba.j5b;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.yy.mobile.framework.revenuesdk.baseapi.log.RLog;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.PaysSettingInfo;
-import com.yy.mobile.framework.revenuesdk.payapi.bean.SplitMinAmountInfo;
-import java.util.List;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class dab {
+public abstract class dab<T, R> extends j5b<R> implements k5b<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static int a(List<SplitMinAmountInfo> list) {
-        InterceptResult invokeL;
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public dab(j5b.a<R> aVar) {
+        super(aVar);
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, list)) == null) {
-            RLog.info("PaySplitOrderUtils", "getSplitMinAmount splitMinAmountInfoList:" + list);
-            for (SplitMinAmountInfo splitMinAmountInfo : list) {
-                if (splitMinAmountInfo.splitType == 1) {
-                    return splitMinAmountInfo.minAmount;
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {aVar};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                super((j5b.a) newInitContext.callArgs[0]);
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
-            return 0;
         }
-        return invokeL.intValue;
     }
 
-    public static boolean b(int i) {
-        InterceptResult invokeI;
+    public final cab<T, R> E() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65537, null, i)) == null) {
-            PaysSettingInfo d = h9b.d();
-            if (d == null) {
-                RLog.error("PaySplitOrderUtils", "maybeShowSplitOrderDialog error settingInfo null", new Object[0]);
-                return false;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (getClass() == cab.class) {
+                return (cab) this;
             }
-            return c(d.splitMinAmountInfoList, i);
+            return new cab<>(this);
         }
-        return invokeI.booleanValue;
-    }
-
-    public static boolean c(List<SplitMinAmountInfo> list, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65538, null, list, i)) == null) {
-            if (list != null && !list.isEmpty()) {
-                int a = a(list);
-                if (a <= 0) {
-                    RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog false splitMinAmount:" + a);
-                    return false;
-                }
-                RLog.info("PaySplitOrderUtils", "maybeShowSplitOrderDialog inputAmount:" + i + " splitMinAmount:" + a);
-                if (i < a) {
-                    return false;
-                }
-                return true;
-            }
-            RLog.warn("PaySplitOrderUtils", "maybeShowSplitOrderDialog error splitMinAmountInfoList null");
-            return false;
-        }
-        return invokeLI.booleanValue;
+        return (cab) invokeV.objValue;
     }
 }

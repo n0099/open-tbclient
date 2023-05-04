@@ -1,42 +1,70 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.content.DialogInterface;
-import android.net.Uri;
+import android.app.Activity;
+import android.app.Application;
+import android.graphics.Rect;
+import android.os.Bundle;
 import android.view.View;
-import android.widget.CheckBox;
-import android.widget.TextView;
+import android.view.ViewTreeObserver;
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.view.ViewCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.ub1;
+import com.baidu.tieba.d41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import java.lang.ref.WeakReference;
 /* loaded from: classes5.dex */
-public class ma1 {
+public class ma1 implements ViewTreeObserver.OnGlobalLayoutListener {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public CheckBox a;
-    public TextView b;
-    public String c;
-    public Context d;
-    public ub1 e;
-    public ha1 f;
+    public boolean a;
+    public int b;
+    public WeakReference<View> c;
 
     /* loaded from: classes5.dex */
-    public class a implements DialogInterface.OnClickListener {
+    public class a implements Application.ActivityLifecycleCallbacks {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ma1 a;
+        public final /* synthetic */ Application a;
+        public final /* synthetic */ ma1 b;
 
-        public a(ma1 ma1Var) {
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityPaused(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivitySaveInstanceState(@NonNull Activity activity, @NonNull Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048580, this, activity, bundle) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048581, this, activity) == null) {
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048582, this, activity) == null) {
+            }
+        }
+
+        public a(ma1 ma1Var, Application application) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {ma1Var};
+                Object[] objArr = {ma1Var, application};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -46,59 +74,46 @@ public class ma1 {
                     return;
                 }
             }
-            this.a = ma1Var;
+            this.b = ma1Var;
+            this.a = application;
         }
 
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityCreated(@NonNull Activity activity, @Nullable Bundle bundle) {
+            View view2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                dialogInterface.dismiss();
-                this.a.d(true);
+            if ((interceptable != null && interceptable.invokeLL(1048576, this, activity, bundle) != null) || (view2 = (View) this.b.c.get()) == null || activity != view2.getContext()) {
+                return;
+            }
+            this.b.a = false;
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityDestroyed(@NonNull Activity activity) {
+            View view2;
+            Application application;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext() && (application = this.a) != null) {
+                application.unregisterActivityLifecycleCallbacks(this);
+            }
+        }
+
+        @Override // android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityResumed(@NonNull Activity activity) {
+            View view2;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048579, this, activity) == null) && (view2 = (View) this.b.c.get()) != null && activity == view2.getContext()) {
+                this.b.a = true;
             }
         }
     }
 
-    /* loaded from: classes5.dex */
-    public class b implements DialogInterface.OnClickListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ma1 a;
-
-        public b(ma1 ma1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ma1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ma1Var;
-        }
-
-        @Override // android.content.DialogInterface.OnClickListener
-        public void onClick(DialogInterface dialogInterface, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(1048576, this, dialogInterface, i) == null) {
-                dialogInterface.dismiss();
-                this.a.d(false);
-            }
-        }
-    }
-
-    public ma1(Context context, String str, @NonNull ha1 ha1Var) {
+    public ma1(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context, str, ha1Var};
+            Object[] objArr = {view2};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -108,66 +123,51 @@ public class ma1 {
                 return;
             }
         }
-        this.d = context;
-        this.f = ha1Var;
-        this.c = str;
-        b();
+        this.a = false;
+        this.b = -1;
+        this.c = new WeakReference<>(view2);
+        c();
     }
 
-    public final void b() {
+    public final void c() {
+        Application application;
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            View inflate = View.inflate(this.d, R.layout.nad_light_browser_geolocation_dialog, null);
-            this.a = (CheckBox) inflate.findViewById(R.id.obfuscated_res_0x7f091d64);
-            TextView textView = (TextView) inflate.findViewById(R.id.message_text);
-            this.b = textView;
-            textView.setTextColor(this.d.getResources().getColor(R.color.nad_box_dialog_message_text_color));
-            this.b.setText(c());
-            ub1.a aVar = new ub1.a(this.d);
-            aVar.q(R.string.nad_geolocation_permissions_prompt_title);
-            aVar.s(inflate);
-            aVar.l(R.string.nad_geolocation_permissions_prompt_dont_share, new b(this));
-            aVar.o(R.string.nad_geolocation_permissions_prompt_share, new a(this));
-            this.e = aVar.a();
-        }
-    }
-
-    public final String c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            Uri parse = Uri.parse(this.c);
-            String str = this.c;
-            if ("http".equals(parse.getScheme())) {
-                str = this.c.substring(7);
+            if (q91.b() instanceof Application) {
+                application = (Application) q91.b();
+            } else {
+                application = (Application) q91.b().getApplicationContext();
             }
-            return String.format(this.d.getResources().getString(R.string.nad_geolocation_permissions_prompt_message), str);
+            application.registerActivityLifecycleCallbacks(new a(this, application));
         }
-        return (String) invokeV.objValue;
     }
 
-    public final void d(boolean z) {
-        int i;
+    @Override // android.view.ViewTreeObserver.OnGlobalLayoutListener
+    public void onGlobalLayout() {
+        View view2;
+        int measuredHeight;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) {
-            boolean isChecked = this.a.isChecked();
-            if (isChecked) {
-                if (z) {
-                    i = R.string.nad_geolocation_permissions_prompt_toast_allowed;
-                } else {
-                    i = R.string.nad_geolocation_permissions_prompt_toast_disallowed;
-                }
-                f31.a().a(this.d.getApplicationContext(), i);
+        if ((interceptable != null && interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) != null) || (view2 = this.c.get()) == null) {
+            return;
+        }
+        if (this.b >= ((int) (d41.c.f(view2.getContext()) * 0.85f)) && !this.a) {
+            return;
+        }
+        if (ViewCompat.isAttachedToWindow(view2)) {
+            Rect rect = new Rect();
+            view2.getWindowVisibleDisplayFrame(rect);
+            int i = rect.top;
+            if (i == 0) {
+                i = d41.c.g();
             }
-            this.f.a(this.c, z, isChecked);
+            measuredHeight = rect.bottom - i;
+        } else {
+            measuredHeight = view2.getMeasuredHeight();
         }
-    }
-
-    public void e() {
-        ub1 ub1Var;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048579, this) == null) && (ub1Var = this.e) != null) {
-            t31.b(ub1Var);
+        if (this.b != measuredHeight && measuredHeight > 0) {
+            this.b = measuredHeight;
+            view2.getLayoutParams().height = measuredHeight;
+            view2.requestLayout();
         }
     }
 }

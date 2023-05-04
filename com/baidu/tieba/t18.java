@@ -1,77 +1,90 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
+import android.app.Activity;
+import android.content.Context;
+import androidx.annotation.Nullable;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.im.chat.officialBar.RequestLocalHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.ResponseHistoryMessage;
-import com.baidu.tieba.im.chat.officialBar.ResponseLocalHistoryMessage;
+import com.baidu.tbadk.core.dialog.TBAlertBuilder;
+import com.baidu.tbadk.core.dialog.TBAlertConfig;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TbadkCoreStatisticKey;
+import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import java.util.Date;
-import java.util.LinkedList;
-import protobuf.QueryHistoryMsg.MsgInfo;
-import protobuf.QueryHistoryMsg.QueryHistoryMsgResIdl;
+import tbclient.Anti;
 /* loaded from: classes6.dex */
-public class t18 implements CustomMessageTask.CustomRunnable<String> {
+public class t18 {
     public static /* synthetic */ Interceptable $ic;
+    public static boolean a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public t18() {
+    public static boolean a(@Nullable Context context) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, context)) == null) {
+            if (c()) {
+                if (!uq5.a()) {
+                    d(context);
+                    return true;
+                }
+                return true;
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public static void b(boolean z, Anti anti) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeZL(65537, null, z, anti) == null) && z && anti != null) {
+            if (anti.user_chat_block.intValue() == 1) {
+                e();
+            } else {
+                f();
             }
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<String> customMessage) {
-        InterceptResult invokeL;
+    public static boolean c() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            if (customMessage != null && (customMessage instanceof RequestLocalHistoryMessage)) {
-                c05.d();
-                me<byte[]> b = c05.b("tb.im_official_history");
-                String currentAccount = TbadkCoreApplication.getCurrentAccount();
-                byte[] bArr = b.get(currentAccount + "@" + ((RequestLocalHistoryMessage) customMessage).getData());
-                if (bArr == null) {
-                    return null;
-                }
-                LinkedList linkedList = new LinkedList();
-                try {
-                    QueryHistoryMsgResIdl queryHistoryMsgResIdl = (QueryHistoryMsgResIdl) new Wire(new Class[0]).parseFrom(bArr, QueryHistoryMsgResIdl.class);
-                    if (queryHistoryMsgResIdl.data.res != null) {
-                        for (MsgInfo msgInfo : queryHistoryMsgResIdl.data.res) {
-                            ResponseHistoryMessage.a aVar = new ResponseHistoryMessage.a();
-                            if (msgInfo != null) {
-                                Date date = new Date();
-                                date.setTime(msgInfo.sendTime.longValue() * 1000);
-                                hi.getDateStringMouth(date);
-                                msgInfo.type.intValue();
-                                String str = msgInfo.content;
-                                msgInfo.id.intValue();
-                                linkedList.add(aVar);
-                            }
-                        }
-                    }
-                    return new ResponseLocalHistoryMessage(linkedList);
-                } catch (Exception unused) {
-                }
-            }
-            return null;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return a;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return invokeV.booleanValue;
+    }
+
+    public static void e() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) && !c()) {
+            a = true;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921720, Boolean.TRUE));
+        }
+    }
+
+    public static void f() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(65541, null) == null) && c()) {
+            a = false;
+            MessageManager.getInstance().dispatchResponsedMessage(new CustomResponsedMessage(2921720, Boolean.FALSE));
+        }
+    }
+
+    public static void d(@Nullable Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65539, null, context) == null) && (context instanceof Activity)) {
+            TiebaStatic.log(new StatisticItem(TbadkCoreStatisticKey.KEY_IM_MESSAGE_BLOCK_DIALOG_SHOW).addParam("uid", TbadkCoreApplication.getCurrentAccount()));
+            TBAlertBuilder tBAlertBuilder = new TBAlertBuilder((Activity) context);
+            tBAlertBuilder.w(R.string.chat_block_dialog_title);
+            tBAlertBuilder.m(R.string.chat_block_dialog_desc);
+            tBAlertBuilder.u(new TBAlertConfig.a((int) R.string.chat_block_dialog_btn, TBAlertConfig.OperateBtnStyle.MAIN));
+            tBAlertBuilder.j(false);
+            tBAlertBuilder.i();
+            tBAlertBuilder.z();
+        }
     }
 }

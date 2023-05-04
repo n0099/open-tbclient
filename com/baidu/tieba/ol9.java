@@ -2,24 +2,22 @@ package com.baidu.tieba;
 
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import tbclient.ActHot;
-import tbclient.ActPost;
-import tbclient.LinkInfo;
+import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public class ol9 {
+public final class ol9 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public ArrayList<ml9> a;
-    public ArrayList<nl9> b;
+    public em6 a;
 
-    public ol9() {
+    public ol9(em6 spriteAnimData) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {spriteAnimData};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -29,30 +27,16 @@ public class ol9 {
                 return;
             }
         }
-        this.a = new ArrayList<>();
-        this.b = new ArrayList<>();
+        Intrinsics.checkNotNullParameter(spriteAnimData, "spriteAnimData");
+        this.a = spriteAnimData;
     }
 
-    public void a(ActPost actPost) {
+    public final em6 a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, actPost) != null) || actPost == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        String str = actPost.list_head;
-        for (ActHot actHot : actPost.act_hot) {
-            if (actHot != null) {
-                ml9 ml9Var = new ml9();
-                ml9Var.a(actHot);
-                this.a.add(ml9Var);
-            }
-        }
-        List<LinkInfo> list = actPost.link_info;
-        for (LinkInfo linkInfo : list) {
-            if (list != null) {
-                nl9 nl9Var = new nl9();
-                nl9Var.a(linkInfo);
-                this.b.add(nl9Var);
-            }
-        }
+        return (em6) invokeV.objValue;
     }
 }

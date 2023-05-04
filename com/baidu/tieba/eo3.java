@@ -1,16 +1,53 @@
 package com.baidu.tieba;
 
 import android.os.Bundle;
-import com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.searchbox.common.runtime.AppRuntime;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes4.dex */
-public class eo3 extends ProviderDelegation {
+public class eo3 extends x33 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+
+    /* loaded from: classes4.dex */
+    public class a implements qm3<Bundle> {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ eo3 a;
+
+        public a(eo3 eo3Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {eo3Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = eo3Var;
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.tieba.qm3
+        /* renamed from: b */
+        public void a(Bundle bundle) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, bundle) == null) {
+                this.a.d.putBundle("key_result_stokent", bundle);
+                this.a.c();
+            }
+        }
+    }
 
     public eo3() {
         Interceptable interceptable = $ic;
@@ -26,17 +63,16 @@ public class eo3 extends ProviderDelegation {
         }
     }
 
-    @Override // com.baidu.searchbox.process.ipc.delegate.provider.ProviderDelegation
-    public Bundle execCall(Bundle bundle) {
-        InterceptResult invokeL;
+    @Override // com.baidu.tieba.x33
+    public void b(@NonNull Bundle bundle) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, bundle)) == null) {
-            Bundle bundle2 = new Bundle();
-            wo3 A = wn3.A(getAgent().getContext());
-            bundle2.putString("NICK_NAME", A.a);
-            bundle2.putString("AVATAR_URL", A.b);
-            return bundle2;
+        if (interceptable == null || interceptable.invokeL(1048576, this, bundle) == null) {
+            String[] stringArray = bundle.getStringArray("key_param_tpl_list");
+            if (stringArray != null && stringArray.length >= 1) {
+                yn3.u(AppRuntime.getAppContext(), new a(this), stringArray);
+            } else {
+                c();
+            }
         }
-        return (Bundle) invokeL.objValue;
     }
 }

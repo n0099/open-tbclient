@@ -1,5 +1,6 @@
 package com.baidu.tbadk.coreExtra.messageCenter;
 
+import android.text.TextUtils;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.message.CustomMessage;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
@@ -9,9 +10,11 @@ import com.baidu.tbadk.core.atomData.SimpleVideoPlayActivityConfig;
 import com.baidu.tbadk.core.util.PermissionUtil;
 import com.baidu.tbadk.core.util.httpNet.ComplianceParmasHelper;
 import com.baidu.tbadk.core.util.httpNet.HttpRequest;
-import com.baidu.tieba.m95;
+import com.baidu.tieba.da5;
+import com.baidu.tieba.ec9;
+import com.baidu.tieba.fc9;
+import com.baidu.tieba.ha5;
 import com.baidu.tieba.play.SimpleVideoPlayActivity;
-import com.baidu.tieba.q95;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -26,7 +29,7 @@ public class TbadkStatic {
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class a implements CustomMessageTask.CustomRunnable<m95> {
+    public static class a implements CustomMessageTask.CustomRunnable<da5> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
@@ -46,11 +49,11 @@ public class TbadkStatic {
 
         /* JADX DEBUG: Method arguments types fixed to match base method, original types: [com.baidu.adp.framework.message.CustomMessage] */
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-        public CustomResponsedMessage<m95> run(CustomMessage<m95> customMessage) {
+        public CustomResponsedMessage<da5> run(CustomMessage<da5> customMessage) {
             InterceptResult invokeL;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                return new CustomResponsedMessage<>(2156675, new q95());
+                return new CustomResponsedMessage<>(2156675, new ha5());
             }
             return (CustomResponsedMessage) invokeL.objValue;
         }
@@ -81,11 +84,16 @@ public class TbadkStatic {
             boolean z;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-                if (customMessage != null && customMessage.getData() != null && ComplianceParmasHelper.isNeedChange(customMessage.getData().toString())) {
-                    z = true;
-                } else {
-                    z = false;
+                if (customMessage != null && customMessage.getData() != null) {
+                    String obj = customMessage.getData().toString();
+                    if ("isKeepOriginalLogic".equals(obj)) {
+                        z = fc9.b();
+                    } else if (ComplianceParmasHelper.isNeedChange(obj)) {
+                        z = true;
+                    }
+                    return new CustomResponsedMessage<>(2000985, Boolean.valueOf(z));
                 }
+                z = false;
                 return new CustomResponsedMessage<>(2000985, Boolean.valueOf(z));
             }
             return (CustomResponsedMessage) invokeL.objValue;
@@ -114,13 +122,117 @@ public class TbadkStatic {
         @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
         public CustomResponsedMessage<Boolean> run(CustomMessage customMessage) {
             InterceptResult invokeL;
+            boolean z;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null) {
+                    String obj = customMessage.getData().toString();
+                    if ("isKeepOriginalLogic".equals(obj)) {
+                        z = ec9.b();
+                    } else if (ComplianceParmasHelper.isNeedChange(obj)) {
+                        z = true;
+                    }
+                    return new CustomResponsedMessage<>(2000983, Boolean.valueOf(z));
+                }
+                z = false;
+                return new CustomResponsedMessage<>(2000983, Boolean.valueOf(z));
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class d implements CustomMessageTask.CustomRunnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public d() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<Boolean> run(CustomMessage customMessage) {
+            InterceptResult invokeL;
             HashMap hashMap;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
                 if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof HashMap) && (hashMap = (HashMap) customMessage.getData()) != null) {
-                    hashMap.put(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
-                    hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
-                    hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
+                    if (hashMap.containsKey("isKeepOriginalLogic")) {
+                        hashMap.remove("isKeepOriginalLogic");
+                        hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.ANDROID_ID), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getAndroidId()));
+                        hashMap.put(ComplianceParmasHelper.getRenameKey(HttpRequest.PHONE_IMEI), ComplianceParmasHelper.getBase64Value(TbadkCoreApplication.getInst().getImei()));
+                    } else {
+                        hashMap.put(HttpRequest.NEED_DECRYPT, fc9.c());
+                        String g = fc9.g(HttpRequest.ANDROID_ID);
+                        if (!TextUtils.isEmpty(g)) {
+                            hashMap.put(g, fc9.d());
+                        }
+                        String g2 = fc9.g(HttpRequest.PHONE_IMEI);
+                        if (!TextUtils.isEmpty(g2)) {
+                            hashMap.put(g2, fc9.f());
+                        }
+                        String g3 = fc9.g("oaid");
+                        if (!TextUtils.isEmpty(g3)) {
+                            hashMap.put(g3, fc9.i());
+                        }
+                        String g4 = fc9.g("model");
+                        if (!TextUtils.isEmpty(g4)) {
+                            hashMap.put(g4, fc9.h());
+                        }
+                    }
+                }
+                return null;
+            }
+            return (CustomResponsedMessage) invokeL.objValue;
+        }
+    }
+
+    /* loaded from: classes3.dex */
+    public static class e implements CustomMessageTask.CustomRunnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        public e() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
+        public CustomResponsedMessage<Boolean> run(CustomMessage customMessage) {
+            InterceptResult invokeL;
+            HashMap hashMap;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
+                if (customMessage != null && customMessage.getData() != null && (customMessage.getData() instanceof HashMap) && (hashMap = (HashMap) customMessage.getData()) != null) {
+                    if (hashMap.containsKey("isKeepOriginalLogic")) {
+                        hashMap.remove("isKeepOriginalLogic");
+                        hashMap.put(ComplianceParmasHelper.getRenameKey("mac"), ComplianceParmasHelper.getBase64Value(PermissionUtil.getLocalMacAddress(TbadkCoreApplication.getInst())));
+                    } else {
+                        hashMap.put("need_cam_decrypt", ec9.c());
+                        String d = ec9.d("mac");
+                        if (!TextUtils.isEmpty(d)) {
+                            hashMap.put(d, ec9.e());
+                        }
+                    }
                 }
                 return null;
             }
@@ -147,9 +259,15 @@ public class TbadkStatic {
         CustomMessageTask customMessageTask2 = new CustomMessageTask(2000985, new b());
         customMessageTask2.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask2);
-        CustomMessageTask customMessageTask3 = new CustomMessageTask(2000984, new c());
+        CustomMessageTask customMessageTask3 = new CustomMessageTask(2000983, new c());
         customMessageTask3.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
         MessageManager.getInstance().registerTask(customMessageTask3);
+        CustomMessageTask customMessageTask4 = new CustomMessageTask(2000984, new d());
+        customMessageTask4.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask4);
+        CustomMessageTask customMessageTask5 = new CustomMessageTask(2000982, new e());
+        customMessageTask5.setType(CustomMessageTask.TASK_TYPE.SYNCHRONIZED);
+        MessageManager.getInstance().registerTask(customMessageTask5);
         TbadkCoreApplication.getInst().RegisterIntent(SimpleVideoPlayActivityConfig.class, SimpleVideoPlayActivity.class);
     }
 

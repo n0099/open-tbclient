@@ -24,8 +24,8 @@ import com.baidu.tbadk.coreExtra.floatCardView.AlaLiveTipView;
 import com.baidu.tbadk.widget.ContinuousAnimationView;
 import com.baidu.tbadk.widget.tab.NewPagerSlidingTabBaseStrip;
 import com.baidu.tieba.R;
+import com.baidu.tieba.g35;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.r25;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
@@ -392,9 +392,9 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, context) == null) {
             this.g = (int) (getResources().getDisplayMetrics().density * 86.0f * 0.6f);
-            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d093f, (ViewGroup) this, true);
-            this.a = findViewById(R.id.obfuscated_res_0x7f091e1f);
-            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f0921e9);
+            LayoutInflater.from(context).inflate(R.layout.obfuscated_res_0x7f0d094b, (ViewGroup) this, true);
+            this.a = findViewById(R.id.obfuscated_res_0x7f091e32);
+            NewPagerSlidingTabBaseStrip newPagerSlidingTabBaseStrip = (NewPagerSlidingTabBaseStrip) findViewById(R.id.obfuscated_res_0x7f092201);
             this.b = newPagerSlidingTabBaseStrip;
             newPagerSlidingTabBaseStrip.setTextViewShadowStringArrayId(R.array.S_O_X001);
             this.b.setDefaultSelectorColorResourceId(R.color.CAM_X0101);
@@ -409,24 +409,24 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
             this.b.setExpandedTabLayoutParams(new LinearLayout.LayoutParams(ii.g(context, R.dimen.tbds166), -1));
             this.b.E();
             this.b.setOnTabItemClickListener(new b(this));
-            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e6);
+            TextView textView = (TextView) findViewById(R.id.obfuscated_res_0x7f0902e5);
             this.c = textView;
-            r25 d2 = r25.d(textView);
+            g35 d2 = g35.d(textView);
             d2.w(R.color.CAM_X0101);
             d2.B(R.dimen.T_X10);
             d2.C(R.string.F_X01);
             d2.o(R.string.J_X01);
             d2.f(R.color.CAM_X0301);
-            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c75);
+            TextView textView2 = (TextView) findViewById(R.id.obfuscated_res_0x7f091c85);
             this.d = textView2;
-            r25 d3 = r25.d(textView2);
+            g35 d3 = g35.d(textView2);
             d3.w(R.color.CAM_X0101);
             d3.B(R.dimen.T_X07);
             d3.C(R.string.F_X02);
-            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c73);
+            View findViewById = findViewById(R.id.obfuscated_res_0x7f091c83);
             this.e = findViewById;
             ((RelativeLayout.LayoutParams) findViewById.getLayoutParams()).setMargins(0, -ii.g(context, R.dimen.tbds20), 0, 0);
-            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091c74);
+            ContinuousAnimationView continuousAnimationView = (ContinuousAnimationView) findViewById(R.id.obfuscated_res_0x7f091c84);
             this.f = continuousAnimationView;
             SkinManager.setLottieAnimation(continuousAnimationView, R.raw.lottie_common_pull_refresh);
             if (this.f.isAnimating()) {
@@ -466,7 +466,7 @@ public class VideoChannelHeaderLayout extends RelativeLayout {
         if (interceptable == null || interceptable.invokeCommon(InputDeviceCompat.SOURCE_TOUCHPAD, this, new Object[]{Integer.valueOf(i), Integer.valueOf(i2), Boolean.valueOf(z)}) == null) {
             if (z) {
                 if (!BdNetTypeUtil.isNetWorkAvailable()) {
-                    ii.N(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0d1b));
+                    ii.N(getContext(), getResources().getString(R.string.obfuscated_res_0x7f0f0d30));
                     return;
                 }
                 d dVar = this.i;

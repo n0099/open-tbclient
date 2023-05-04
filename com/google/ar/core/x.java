@@ -2,15 +2,15 @@ package com.google.ar.core;
 
 import android.os.Bundle;
 import android.util.Log;
-import com.baidu.tieba.ata;
-import com.baidu.tieba.eta;
-import com.baidu.tieba.zsa;
+import com.baidu.tieba.axa;
+import com.baidu.tieba.vwa;
+import com.baidu.tieba.wwa;
 import com.google.ar.core.exceptions.FatalException;
 import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes8.dex */
 public final class x extends com.google.a.b.a.a.a.e {
     public final /* synthetic */ AtomicBoolean a;
-    public final /* synthetic */ eta b;
+    public final /* synthetic */ axa b;
 
     @Override // com.google.a.b.a.a.a.d
     public final void a() {
@@ -20,8 +20,8 @@ public final class x extends com.google.a.b.a.a.a.e {
     public final void b(Bundle bundle) {
     }
 
-    public x(eta etaVar, AtomicBoolean atomicBoolean) {
-        this.b = etaVar;
+    public x(axa axaVar, AtomicBoolean atomicBoolean) {
+        this.b = axaVar;
         this.a = atomicBoolean;
     }
 
@@ -40,13 +40,13 @@ public final class x extends com.google.a.b.a.a.a.e {
             sb.append(i);
             sb.append(", launching fullscreen.");
             Log.w("ARCore-InstallService", sb.toString());
-            eta etaVar = this.b;
-            zsa zsaVar = etaVar.c;
-            zsa.n(etaVar.a, etaVar.b);
+            axa axaVar = this.b;
+            vwa vwaVar = axaVar.c;
+            vwa.n(axaVar.a, axaVar.b);
         } else if (bundle.containsKey("resolution.intent")) {
-            eta etaVar2 = this.b;
-            zsa zsaVar2 = etaVar2.c;
-            zsa.b(etaVar2.a, bundle, etaVar2.b);
+            axa axaVar2 = this.b;
+            vwa vwaVar2 = axaVar2.c;
+            vwa.b(axaVar2.a, bundle, axaVar2.b);
         } else if (i2 != 10) {
             switch (i2) {
                 case 1:
@@ -64,11 +64,11 @@ public final class x extends com.google.a.b.a.a.a.e {
                     this.b.b.a(p.CANCELLED);
                     return;
                 default:
-                    ata ataVar = this.b.b;
+                    wwa wwaVar = this.b.b;
                     StringBuilder sb2 = new StringBuilder(38);
                     sb2.append("Unexpected install status: ");
                     sb2.append(i2);
-                    ataVar.b(new FatalException(sb2.toString()));
+                    wwaVar.b(new FatalException(sb2.toString()));
                     return;
             }
         } else {

@@ -1,99 +1,104 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.net.ConnectivityManager;
-import android.net.NetworkInfo;
-import android.text.TextUtils;
+import android.util.Log;
+import androidx.core.view.InputDeviceCompat;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 /* loaded from: classes7.dex */
 public class yg1 {
-    public static /* synthetic */ Interceptable $ic;
+    public static /* synthetic */ Interceptable $ic = null;
+    public static String a = null;
+    public static String b = null;
+    public static int c = 0;
+    public static boolean d = true;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static NetworkInfo a() {
-        InterceptResult invokeV;
-        ConnectivityManager connectivityManager;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            Context a = ah1.a();
-            if (a == null || (connectivityManager = (ConnectivityManager) a.getSystemService("connectivity")) == null) {
-                return null;
-            }
-            return connectivityManager.getActiveNetworkInfo();
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948329094, "Lcom/baidu/tieba/yg1;")) == null) {
+            return;
         }
-        return (NetworkInfo) invokeV.objValue;
+        Interceptable interceptable = invokeClinit.interceptor;
+        if (interceptable != null) {
+            $ic = interceptable;
+        }
+        if ((invokeClinit.flags & 1) != 0) {
+            classClinitInterceptable.invokePostClinit(1948329094, "Lcom/baidu/tieba/yg1;");
+        }
     }
 
-    public static boolean d() {
-        InterceptResult invokeV;
+    public static String a(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65539, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                return true;
-            }
-            return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
+            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + b + ":" + c + PreferencesUtil.RIGHT_MOUNT + str;
         }
-        return invokeV.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static String b(int i, String str) {
-        InterceptResult invokeIL;
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeIL = interceptable.invokeIL(65537, null, i, str)) == null) {
-            switch (i) {
-                case 1:
-                case 2:
-                case 4:
-                case 7:
-                case 11:
-                case 16:
-                    return "1";
-                case 3:
-                case 5:
-                case 6:
-                case 8:
-                case 9:
-                case 10:
-                case 12:
-                case 14:
-                case 15:
-                case 17:
-                    return "2";
-                case 13:
-                case 18:
-                case 19:
-                    break;
-                default:
-                    if (TextUtils.isEmpty(str) || !str.equalsIgnoreCase("LTE_CA")) {
-                        return "unknown";
-                    }
-                    break;
-            }
-            return "3";
+        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !d) {
+            return;
         }
-        return (String) invokeIL.objValue;
+        Log.d("CashierSdk", str);
     }
 
-    public static String c() {
-        InterceptResult invokeV;
+    public static void d(Object... objArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            NetworkInfo a = a();
-            if (a != null && a.isConnected()) {
-                if (a.getType() == 1) {
-                    return "4";
+        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) != null) || !d) {
+            return;
+        }
+        e(new Throwable().getStackTrace());
+        Log.e("CashierSdk", f(objArr));
+    }
+
+    public static void e(StackTraceElement[] stackTraceElementArr) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
+            a = stackTraceElementArr[1].getFileName();
+            b = stackTraceElementArr[1].getMethodName();
+            c = stackTraceElementArr[1].getLineNumber();
+        }
+    }
+
+    public static void g(String str) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !d) {
+            return;
+        }
+        Log.i("CashierSdk", str);
+    }
+
+    public static void c(String str, Throwable th) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65539, null, str, th) != null) || !d) {
+            return;
+        }
+        e(new Throwable().getStackTrace());
+        Log.e("CashierSdk", f(str), th);
+    }
+
+    public static String f(Object... objArr) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
+            if (objArr == null) {
+                return "";
+            }
+            StringBuilder sb = new StringBuilder();
+            for (Object obj : objArr) {
+                if (obj != null) {
+                    sb.append(obj.toString());
                 }
-                if (a.getType() == 0) {
-                    return b(a.getSubtype(), a.getSubtypeName());
-                }
-                return "unknown";
             }
-            return "0";
+            return a(sb.toString());
         }
-        return (String) invokeV.objValue;
+        return (String) invokeL.objValue;
     }
 }

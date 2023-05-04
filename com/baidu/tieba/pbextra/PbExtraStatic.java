@@ -3,9 +3,9 @@ package com.baidu.tieba.pbextra;
 import com.baidu.adp.framework.MessageManager;
 import com.baidu.adp.framework.listener.CustomMessageListener;
 import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.tieba.am9;
-import com.baidu.tieba.pl9;
-import com.baidu.tieba.v09;
+import com.baidu.tieba.ep9;
+import com.baidu.tieba.o39;
+import com.baidu.tieba.pp9;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -47,8 +47,8 @@ public class PbExtraStatic {
         @Override // com.baidu.adp.framework.listener.MessageListener
         public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof pl9)) {
-                ((pl9) customResponsedMessage.getData()).a().add(new v09(null, am9.W0));
+            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && customResponsedMessage.getCmd() == 2004015 && (customResponsedMessage.getData() instanceof ep9)) {
+                ((ep9) customResponsedMessage.getData()).a().add(new o39(null, pp9.X0));
             }
         }
     }
@@ -67,7 +67,7 @@ public class PbExtraStatic {
             }
         }
         MessageManager.getInstance().registerListener(new a(2004015));
-        am9.Z0 = true;
+        pp9.a1 = true;
     }
 
     public PbExtraStatic() {

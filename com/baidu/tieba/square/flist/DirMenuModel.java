@@ -10,10 +10,10 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ForumListActivityConfig;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.c05;
-import com.baidu.tieba.gj9;
-import com.baidu.tieba.hj9;
+import com.baidu.tieba.fm9;
+import com.baidu.tieba.gm9;
 import com.baidu.tieba.me;
+import com.baidu.tieba.t05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -39,15 +39,15 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(boolean z, int i, hj9 hj9Var, String str, boolean z2);
+        void a(boolean z, int i, gm9 gm9Var, String str, boolean z2);
     }
 
     /* loaded from: classes6.dex */
-    public class b extends BdAsyncTask<Object, Integer, gj9> {
+    public class b extends BdAsyncTask<Object, Integer, fm9> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
-        public gj9 b;
+        public fm9 b;
         public final /* synthetic */ DirMenuModel c;
 
         public b(DirMenuModel dirMenuModel) {
@@ -67,7 +67,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
             }
             this.c = dirMenuModel;
             this.a = null;
-            this.b = new gj9();
+            this.b = new fm9();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -90,14 +90,14 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: b */
-        public gj9 doInBackground(Object... objArr) {
+        public fm9 doInBackground(Object... objArr) {
             InterceptResult invokeL;
             String str;
             String postNetData;
             Interceptable interceptable = $ic;
             if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, objArr)) == null) {
-                c05.d();
-                me<String> e = c05.e("tb.my_posts");
+                t05.d();
+                me<String> e = t05.e("tb.my_posts");
                 if (e != null) {
                     str = e.get(TbadkCoreApplication.getCurrentAccount() + "_" + this.c.c + "_dir");
                 } else {
@@ -134,19 +134,19 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
                 }
                 return this.b;
             }
-            return (gj9) invokeL.objValue;
+            return (fm9) invokeL.objValue;
         }
 
         /* JADX DEBUG: Method merged with bridge method */
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
         /* renamed from: c */
-        public void onPostExecute(gj9 gj9Var) {
+        public void onPostExecute(fm9 fm9Var) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, gj9Var) == null) {
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, fm9Var) == null) {
                 if (!this.c.f) {
-                    this.c.b.a(false, -1, null, gj9Var.b(), this.c.g);
-                } else if (gj9Var.h() != null) {
-                    this.c.b.a(true, gj9Var.a(), gj9Var.h(), gj9Var.b(), this.c.g);
+                    this.c.b.a(false, -1, null, fm9Var.b(), this.c.g);
+                } else if (fm9Var.h() != null) {
+                    this.c.b.a(true, fm9Var.a(), fm9Var.h(), fm9Var.b(), this.c.g);
                 }
             }
         }
@@ -190,9 +190,9 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
         this.e = str3;
     }
 
-    public void Y(c cVar) {
+    public void d0(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, cVar) == null) {
             this.b = cVar;
         }
     }
@@ -201,7 +201,7 @@ public class DirMenuModel extends BdBaseModel<ForumListActivity> {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
             b bVar = this.a;
             if (bVar != null) {
                 bVar.cancel();

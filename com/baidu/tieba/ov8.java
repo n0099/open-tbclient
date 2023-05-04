@@ -1,49 +1,82 @@
 package com.baidu.tieba;
 
-import com.baidu.tbadk.TbConfig;
-import com.baidu.tbadk.core.util.NetWork;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+import tbclient.SendCardInfo;
 /* loaded from: classes5.dex */
-public class ov8 extends Thread {
+public class ov8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final String a;
-    public final String b;
-    public final String c;
+    public long a;
+    public String b;
+    public String c;
+    public String d;
+    public int e;
+    public String f;
 
-    public ov8(String str, String str2, String str3) {
+    public ov8() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {str, str2, str3};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
-                return;
             }
         }
-        this.a = str;
-        this.b = str2;
-        this.c = str3;
     }
 
-    @Override // java.lang.Thread, java.lang.Runnable
-    public void run() {
+    public boolean a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            super.run();
-            NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + "c/s/clientcall");
-            netWork.addPostData("tid", this.a);
-            netWork.addPostData("phonenum", this.b);
-            netWork.addPostData("optype", this.c);
-            netWork.postNetData();
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            if (this.e == 3) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public boolean b() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (this.e == 1) {
+                return true;
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public void c(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, jSONObject) == null) && jSONObject != null) {
+            this.b = jSONObject.optString("card_logo");
+            this.c = jSONObject.optString("card_name");
+            this.d = jSONObject.optString("card_pro");
+            this.e = jSONObject.optInt("card_get_status");
+            this.a = jSONObject.optLong("packet_id");
+            this.f = jSONObject.optString("card_num");
+        }
+    }
+
+    public void d(SendCardInfo sendCardInfo) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048579, this, sendCardInfo) == null) && sendCardInfo != null) {
+            this.b = sendCardInfo.card_logo;
+            this.c = sendCardInfo.card_name;
+            this.d = sendCardInfo.card_pro;
+            this.e = sendCardInfo.card_get_status.intValue();
+            this.a = sendCardInfo.packet_id.longValue();
         }
     }
 }

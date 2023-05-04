@@ -1,106 +1,197 @@
 package com.baidu.tieba;
 
+import android.app.Activity;
+import android.app.Application;
+import android.content.Context;
+import android.util.Log;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
 import com.baidu.searchbox.process.ipc.util.ProcessUtils;
+import com.baidu.swan.apps.lifecycle.process.LifecycleProcessType;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.List;
+import java.util.concurrent.atomic.AtomicBoolean;
 /* loaded from: classes7.dex */
 public class zt2 {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile zt2 b;
+    public static final boolean c;
+    public static final zt2 d;
     public transient /* synthetic */ FieldHolder $fh;
-    public final mg3 a;
+    public final AtomicBoolean a;
+    public final List<wt2> b;
 
-    public zt2() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    /* loaded from: classes7.dex */
+    public static /* synthetic */ class a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+    }
+
+    /* loaded from: classes7.dex */
+    public class b extends ft2 {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public final /* synthetic */ zt2 b;
+
+        public b(zt2 zt2Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {zt2Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = zt2Var;
+            this.a = 0;
+        }
+
+        @Override // com.baidu.tieba.ft2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStarted(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, activity) == null) {
+                int i = this.a + 1;
+                this.a = i;
+                if (i == 1) {
+                    this.b.d(activity);
+                }
+            }
+        }
+
+        @Override // com.baidu.tieba.ft2, android.app.Application.ActivityLifecycleCallbacks
+        public void onActivityStopped(@NonNull Activity activity) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, activity) == null) {
+                int i = this.a - 1;
+                this.a = i;
+                if (i == 0) {
+                    this.b.e(activity);
+                }
+            }
+        }
+
+        public /* synthetic */ b(zt2 zt2Var, a aVar) {
+            this(zt2Var);
+        }
+    }
+
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948371409, "Lcom/baidu/tieba/zt2;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1948371409, "Lcom/baidu/tieba/zt2;");
                 return;
             }
         }
-        this.a = new mg3("swan_local_ab_data");
-        if (ProcessUtils.isMainProcess()) {
-            this.a.clear();
-        }
-        c();
+        c = ho1.a;
+        d = new zt2();
     }
 
-    public static zt2 b() {
+    public static zt2 a() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            if (b == null) {
-                synchronized (zt2.class) {
-                    if (b == null) {
-                        b = new zt2();
-                    }
-                }
-            }
-            return b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return d;
         }
         return (zt2) invokeV.objValue;
     }
 
-    public String a() {
+    public final boolean c() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            return this.a.getString(Config.SID, "");
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            if (LifecycleProcessType.getCurrent() == LifecycleProcessType.MAIN) {
+                return true;
+            }
+            return false;
         }
-        return (String) invokeV.objValue;
+        return invokeV.booleanValue;
     }
 
-    public final void c() {
-        String substring;
-        Object e;
+    public zt2() {
+        List<wt2> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && ProcessUtils.isMainProcess()) {
-            List<au2> c = new yt2().c();
-            for (au2 au2Var : c) {
-                bu2 b2 = au2Var.b();
-                cu2 c2 = au2Var.c();
-                if (b2 == null) {
-                    e = c2.d();
-                } else {
-                    e = b2.e();
-                }
-                if (e instanceof Boolean) {
-                    this.a.writeBool(c2.e(), ((Boolean) e).booleanValue());
-                } else if (e instanceof Double) {
-                    this.a.writeDouble(c2.e(), ((Double) e).doubleValue());
-                } else if (e instanceof Integer) {
-                    this.a.writeInt(c2.e(), ((Integer) e).intValue());
-                } else if (e instanceof Long) {
-                    this.a.writeLong(c2.e(), ((Long) e).longValue());
-                } else if (e instanceof String) {
-                    this.a.writeString(c2.e(), (String) e);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
+            }
+        }
+        this.a = new AtomicBoolean(false);
+        hj1<wt2> hj1Var = new yt2().a;
+        if (hj1Var == null) {
+            list = null;
+        } else {
+            list = hj1Var.getList();
+        }
+        this.b = list;
+    }
+
+    public void b(Context context) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(1048576, this, context) == null) && !this.a.getAndSet(true) && c()) {
+            Context applicationContext = context.getApplicationContext();
+            if (applicationContext instanceof Application) {
+                ((Application) applicationContext).registerActivityLifecycleCallbacks(new b(this, null));
+            }
+        }
+    }
+
+    public void d(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to foreground");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (wt2 wt2Var : this.b) {
+                    if (current == wt2Var.b()) {
+                        wt2Var.a(true, activity);
+                    }
                 }
             }
-            StringBuilder sb = new StringBuilder();
-            for (au2 au2Var2 : c) {
-                bu2 b3 = au2Var2.b();
-                if (b3 != null) {
-                    sb.append(b3.d());
-                    sb.append("-");
+        }
+    }
+
+    public void e(Activity activity) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048579, this, activity) == null) {
+            if (c) {
+                String curProcessName = ProcessUtils.getCurProcessName();
+                Log.d("ProcessLifecycleDispatcher", curProcessName + " to background");
+            }
+            if (this.b != null) {
+                LifecycleProcessType current = LifecycleProcessType.getCurrent();
+                for (wt2 wt2Var : this.b) {
+                    if (current == wt2Var.b()) {
+                        wt2Var.a(false, activity);
+                    }
                 }
             }
-            if (sb.length() == 0) {
-                substring = "";
-            } else {
-                substring = sb.substring(0, sb.length() - 1);
-            }
-            this.a.writeString(Config.SID, substring);
         }
     }
 }

@@ -1,25 +1,17 @@
 package com.baidu.tieba;
 
-import android.util.SparseArray;
-import android.view.View;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes3.dex */
-public abstract class bp5 implements gp5 {
+public abstract class bp5<T> implements dp5<T> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public boolean a;
-
-    public void d() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
-        }
-    }
-
-    public abstract View getView();
+    public int a;
+    public String b;
 
     public bp5() {
         Interceptable interceptable = $ic;
@@ -34,26 +26,41 @@ public abstract class bp5 implements gp5 {
                 return;
             }
         }
-        this.a = false;
-        new SparseArray();
+        this.a = -1;
+        this.b = "";
     }
 
-    public void b(View view2) {
+    @Override // com.baidu.tieba.dp5
+    public int getErrorCode() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
-            c(view2, false);
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return this.a;
+        }
+        return invokeV.intValue;
+    }
+
+    @Override // com.baidu.tieba.dp5
+    public String getErrorMsg() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return this.b;
+        }
+        return (String) invokeV.objValue;
+    }
+
+    public void b(int i) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+            this.a = i;
         }
     }
 
-    public void c(View view2, boolean z) {
+    public void c(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, view2, z) == null) && view2 != null && getView() != null) {
-            View view3 = getView();
-            if (view3.getParent() != null) {
-                return;
-            }
-            ng5.a(view2, this.a).a(view2, view3, z);
-            d();
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            this.b = str;
         }
     }
 }

@@ -1,18 +1,9 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.ImageView;
-import androidx.annotation.CallSuper;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.view.InputDeviceCompat;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tbadk.core.util.SkinManager;
-import com.baidu.tbadk.core.view.NavigationBar;
-import com.baidu.tieba.frs.FrsFragment;
-import com.baidu.tieba.frs.shrinkhead.LogicField;
+import com.baidu.tbadk.core.data.ThreadData;
+import com.baidu.tieba.card.data.BaseCardInfo;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -20,196 +11,89 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import tbclient.ThemeElement;
+import tbclient.RecentUpdate;
 /* loaded from: classes5.dex */
-public abstract class jf7 implements lf7 {
+public class jf7 extends ax4 {
     public static /* synthetic */ Interceptable $ic;
+    public static final BdUniqueId b;
     public transient /* synthetic */ FieldHolder $fh;
-    public FrsFragment a;
-    public Context b;
-    public View c;
-    public View.OnClickListener d;
-    public NavigationBar e;
-    public View f;
-    public ImageView g;
-    public boolean h;
+    public RecentUpdate a;
 
-    @Override // com.baidu.tieba.lf7
-    @CallSuper
-    public void b(@NonNull ThemeElement themeElement) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, themeElement) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.lf7
-    public void d(int i, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), Boolean.valueOf(z)}) == null) {
-        }
-    }
-
-    @Override // com.baidu.tieba.lf7
-    public int g() {
+    @Override // com.baidu.tieba.ax4
+    public yy4 getNegFeedBackData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return 0;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+            return null;
         }
-        return invokeV.intValue;
+        return (yy4) invokeV.objValue;
     }
 
-    public void j(boolean z) {
+    @Override // com.baidu.tieba.ax4
+    public ThreadData getThreadData() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048585, this, z) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            return null;
         }
+        return (ThreadData) invokeV.objValue;
     }
 
-    public abstract void k();
-
-    @Override // com.baidu.tieba.lf7
-    public void onChangeSkinType(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(1048587, this, i) == null) {
-        }
-    }
-
-    /* loaded from: classes5.dex */
-    public static /* synthetic */ class a {
-        public static /* synthetic */ Interceptable $ic;
-        public static final /* synthetic */ int[] a;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-691682799, "Lcom/baidu/tieba/jf7$a;")) != null) {
-                Interceptable interceptable = invokeClinit.interceptor;
-                if (interceptable != null) {
-                    $ic = interceptable;
-                }
-                if ((invokeClinit.flags & 1) != 0) {
-                    classClinitInterceptable.invokePostClinit(-691682799, "Lcom/baidu/tieba/jf7$a;");
-                    return;
-                }
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947881454, "Lcom/baidu/tieba/jf7;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
             }
-            int[] iArr = new int[LogicField.values().length];
-            a = iArr;
-            try {
-                iArr[LogicField.BACK_BTN.ordinal()] = 1;
-            } catch (NoSuchFieldError unused) {
-            }
-            try {
-                a[LogicField.BACK_IV.ordinal()] = 2;
-            } catch (NoSuchFieldError unused2) {
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947881454, "Lcom/baidu/tieba/jf7;");
+                return;
             }
         }
+        b = BdUniqueId.gen();
     }
 
     public jf7() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
+            interceptable.invokeUnInit(65537, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+                interceptable.invokeInitBody(65537, newInitContext);
                 return;
             }
         }
-        this.h = true;
-        fk9.b();
+        setSupportType(BaseCardInfo.SupportType.FULL);
     }
 
-    @Override // com.baidu.tieba.lf7
-    @NonNull
-    public NavigationBar e() {
+    public RecentUpdate c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
+        }
+        return (RecentUpdate) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.card.data.BaseCardInfo, com.baidu.tieba.in
+    public BdUniqueId getType() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            wq5.b(this.e);
-            return this.e;
+            return b;
         }
-        return (NavigationBar) invokeV.objValue;
+        return (BdUniqueId) invokeV.objValue;
     }
 
-    public final void i() {
+    public void d(RecentUpdate recentUpdate) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this) == null) {
-            View addSystemImageButton = this.e.addSystemImageButton(NavigationBar.ControlAlign.HORIZONTAL_LEFT, NavigationBar.ControlType.BACK_BUTTON);
-            this.f = addSystemImageButton;
-            addSystemImageButton.setOnClickListener(this.d);
-            this.g = (ImageView) this.f.findViewById(R.id.widget_navi_back_button);
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, recentUpdate) == null) {
+            this.a = recentUpdate;
         }
-    }
-
-    @Override // com.baidu.tieba.lf7
-    @Nullable
-    public <T> T a(@NonNull LogicField logicField) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, logicField)) == null) {
-            int i = a.a[logicField.ordinal()];
-            if (i != 1) {
-                if (i != 2) {
-                    return null;
-                }
-                return (T) this.g;
-            }
-            return (T) this.f;
-        }
-        return (T) invokeL.objValue;
-    }
-
-    @Override // com.baidu.tieba.lf7
-    @CallSuper
-    public void c(float f) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(Constants.METHOD_SEND_USER_MSG, this, f) == null) {
-            if (f < 0.5f) {
-                if (!this.h) {
-                    j(true);
-                    this.h = true;
-                }
-            } else if (this.h) {
-                j(false);
-                this.h = false;
-            }
-        }
-    }
-
-    @Override // com.baidu.tieba.lf7
-    @CallSuper
-    public void f(boolean z) {
-        int i;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
-            FrameLayout contentLayout = this.e.getContentLayout();
-            if (z) {
-                i = R.color.CAM_X0201;
-            } else {
-                i = R.color.black_alpha0;
-            }
-            SkinManager.setBackgroundColor(contentLayout, i);
-        }
-    }
-
-    @Override // com.baidu.tieba.lf7
-    public void h(@NonNull FrsFragment frsFragment, @NonNull View view2, @NonNull View.OnClickListener onClickListener) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLLL(1048583, this, frsFragment, view2, onClickListener) != null) || this.c != null) {
-            return;
-        }
-        this.a = frsFragment;
-        this.b = view2.getContext();
-        this.c = view2;
-        this.d = onClickListener;
-        NavigationBar navigationBar = (NavigationBar) view2.findViewById(R.id.view_navigation_bar);
-        this.e = navigationBar;
-        navigationBar.getBarBgView().setAlpha(1.0f);
-        i();
-        k();
     }
 }

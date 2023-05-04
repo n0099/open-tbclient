@@ -10,7 +10,7 @@ public class b34 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     @V8JavascriptField
-    public int state;
+    public int progress;
 
     public b34() {
         Interceptable interceptable = $ic;

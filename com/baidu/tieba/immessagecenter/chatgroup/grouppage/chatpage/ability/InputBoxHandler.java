@@ -7,7 +7,7 @@ import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tbadk.core.util.TbEnum;
 import com.baidu.tbadk.data.AtSelectData;
 import com.baidu.tbadk.util.DataExt;
-import com.baidu.tieba.d58;
+import com.baidu.tieba.c78;
 import com.baidu.tieba.hi;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.ChatPage;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.AbilityItem;
@@ -15,7 +15,7 @@ import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.BaseMsg
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.chatpage.base.CommonMsgField;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.GroupInputViewController;
 import com.baidu.tieba.immessagecenter.chatgroup.grouppage.inputtool.robotfloor.data.UserReplyInfoData;
-import com.baidu.tieba.y58;
+import com.baidu.tieba.z78;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -26,14 +26,14 @@ import com.google.gson.annotations.SerializedName;
 import java.io.Serializable;
 import kotlin.Metadata;
 import kotlin.jvm.internal.Intrinsics;
-@Metadata(d1 = {"\u00002\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001\u000fB\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0005\u001a\u00020\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bJ\u001a\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\b\u0010\u0007\u001a\u0004\u0018\u00010\bH\u0016J\b\u0010\r\u001a\u00020\u000eH\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0010"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/InputBoxHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "buildReplayMessageData", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/inputtool/robotfloor/data/UserReplyInfoData;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "provideType", "", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-/* loaded from: classes4.dex */
-public final class InputBoxHandler extends d58 {
+@Metadata(d1 = {"\u00008\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0002\b\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0002\n\u0000\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\u0000\n\u0000\n\u0002\u0010\u000e\n\u0002\b\u0002\u0018\u00002\u00020\u0001:\u0001\u0011B\r\u0012\u0006\u0010\u0002\u001a\u00020\u0003¢\u0006\u0002\u0010\u0004J\u0010\u0010\u0005\u001a\u00020\u00062\b\u0010\u0007\u001a\u0004\u0018\u00010\bJ$\u0010\t\u001a\u00020\n2\u0006\u0010\u000b\u001a\u00020\f2\b\u0010\u0007\u001a\u0004\u0018\u00010\b2\b\u0010\r\u001a\u0004\u0018\u00010\u000eH\u0016J\b\u0010\u000f\u001a\u00020\u0010H\u0016R\u000e\u0010\u0002\u001a\u00020\u0003X\u0082\u0004¢\u0006\u0002\n\u0000¨\u0006\u0012"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/InputBoxHandler;", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseAbilityHandler;", "chatPage", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;", "(Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ChatPage;)V", "buildReplayMessageData", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/inputtool/robotfloor/data/UserReplyInfoData;", "oriMsg", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/BaseMsg;", "doHandle", "", "abilityItem", "Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/base/AbilityItem;", "payload", "", "provideType", "", "Conf", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
+/* loaded from: classes5.dex */
+public final class InputBoxHandler extends c78 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public final ChatPage b;
 
-    @Override // com.baidu.tieba.d58
+    @Override // com.baidu.tieba.c78
     public String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -41,7 +41,7 @@ public final class InputBoxHandler extends d58 {
     }
 
     @Metadata(d1 = {"\u0000(\n\u0002\u0018\u0002\n\u0002\u0018\u0002\n\u0000\n\u0002\u0010\b\n\u0002\b\u0002\n\u0002\u0010\u000e\n\u0002\b\t\n\u0002\u0010\u000b\n\u0000\n\u0002\u0010\u0000\n\u0002\b\u0003\b\u0082\b\u0018\u00002\u00020\u0001B\u001d\u0012\u0006\u0010\u0002\u001a\u00020\u0003\u0012\u0006\u0010\u0004\u001a\u00020\u0003\u0012\u0006\u0010\u0005\u001a\u00020\u0006¢\u0006\u0002\u0010\u0007J\t\u0010\u000b\u001a\u00020\u0003HÆ\u0003J\t\u0010\f\u001a\u00020\u0003HÆ\u0003J\t\u0010\r\u001a\u00020\u0006HÆ\u0003J'\u0010\u000e\u001a\u00020\u00002\b\b\u0002\u0010\u0002\u001a\u00020\u00032\b\b\u0002\u0010\u0004\u001a\u00020\u00032\b\b\u0002\u0010\u0005\u001a\u00020\u0006HÆ\u0001J\u0013\u0010\u000f\u001a\u00020\u00102\b\u0010\u0011\u001a\u0004\u0018\u00010\u0012HÖ\u0003J\t\u0010\u0013\u001a\u00020\u0003HÖ\u0001J\t\u0010\u0014\u001a\u00020\u0006HÖ\u0001R\u0016\u0010\u0005\u001a\u00020\u00068\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\b\u0010\tR\u0016\u0010\u0002\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0002\u0010\nR\u0016\u0010\u0004\u001a\u00020\u00038\u0006X\u0087\u0004¢\u0006\b\n\u0000\u001a\u0004\b\u0004\u0010\n¨\u0006\u0015"}, d2 = {"Lcom/baidu/tieba/immessagecenter/chatgroup/grouppage/chatpage/ability/InputBoxHandler$Conf;", "Ljava/io/Serializable;", "isAt", "", "isReply", "inputText", "", "(IILjava/lang/String;)V", "getInputText", "()Ljava/lang/String;", "()I", "component1", "component2", "component3", "copy", "equals", "", ImageViewerConfig.FROM_OTHER, "", TTDownloadField.TT_HASHCODE, "toString", "imMessageCenter_release"}, k = 1, mv = {1, 6, 0}, xi = 48)
-    /* loaded from: classes4.dex */
+    /* loaded from: classes5.dex */
     public static final class Conf implements Serializable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
@@ -192,55 +192,53 @@ public final class InputBoxHandler extends d58 {
         this.b = chatPage;
     }
 
-    @Override // com.baidu.tieba.d58
-    public void b(AbilityItem abilityItem, BaseMsg baseMsg) {
+    @Override // com.baidu.tieba.c78
+    public void b(AbilityItem abilityItem, BaseMsg baseMsg, Object obj) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048576, this, abilityItem, baseMsg) == null) {
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, abilityItem, baseMsg, obj) == null) {
             Intrinsics.checkNotNullParameter(abilityItem, "abilityItem");
-            GroupInputViewController j2 = this.b.t0().j2();
-            if (j2 == null || this.b.L0()) {
+            GroupInputViewController k2 = this.b.E0().k2();
+            if (k2 == null || this.b.W0()) {
                 return;
             }
-            Object entity = DataExt.toEntity(abilityItem.getConfMap(), Conf.class);
-            Intrinsics.checkNotNullExpressionValue(entity, "toEntity(abilityItem.confMap, Conf::class.java)");
-            Conf conf = (Conf) entity;
-            j2.c1("");
-            y58 l0 = j2.l0();
-            if (l0 != null) {
-                l0.B();
+            Conf conf = (Conf) DataExt.toEntity(abilityItem.getConfMap(), Conf.class);
+            k2.p1("");
+            z78 v0 = k2.v0();
+            if (v0 != null) {
+                v0.E();
             }
             if (baseMsg != null) {
                 if (conf.isReply() == 1) {
-                    j2.P0(e(baseMsg), baseMsg);
+                    k2.c1(f(baseMsg), baseMsg);
                 } else {
-                    j2.c0();
+                    k2.j0();
                 }
                 if (conf.isAt() == 1) {
                     AtSelectData atSelectData = new AtSelectData(baseMsg.getCommonMsgField().getPortrait(), baseMsg.getCommonMsgField().getUserName(), String.valueOf(baseMsg.getCommonMsgField().getUserId()), baseMsg.getCommonMsgField().isRobot());
                     if (conf.isReply() != 1 && hi.isEmpty(conf.getInputText())) {
-                        y58 l02 = j2.l0();
-                        if (l02 != null) {
-                            l02.j(atSelectData, baseMsg.getCommonMsgField().isRobot());
+                        z78 v02 = k2.v0();
+                        if (v02 != null) {
+                            v02.j(atSelectData, baseMsg.getCommonMsgField().isRobot());
                         }
                     } else {
-                        y58 l03 = j2.l0();
-                        if (l03 != null) {
-                            l03.j(atSelectData, false);
+                        z78 v03 = k2.v0();
+                        if (v03 != null) {
+                            v03.j(atSelectData, false);
                         }
                     }
                 }
             }
             if (!hi.isEmpty(conf.getInputText())) {
-                j2.b1(conf.getInputText());
+                k2.o1(conf.getInputText());
             }
-            y58 l04 = j2.l0();
-            if (l04 != null) {
-                l04.z();
+            z78 v04 = k2.v0();
+            if (v04 != null) {
+                v04.A();
             }
         }
     }
 
-    public final UserReplyInfoData e(BaseMsg baseMsg) {
+    public final UserReplyInfoData f(BaseMsg baseMsg) {
         InterceptResult invokeL;
         CharSequence charSequence;
         CharSequence charSequence2;

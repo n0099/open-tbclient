@@ -5,12 +5,12 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.atomData.ImageViewerConfig;
 import com.baidu.tieba.R;
-import com.baidu.tieba.hu9;
+import com.baidu.tieba.cy9;
 import com.baidu.tieba.ii;
 import com.baidu.tieba.in;
-import com.baidu.tieba.xk6;
-import com.baidu.tieba.yk6;
-import com.baidu.tieba.zk6;
+import com.baidu.tieba.pm6;
+import com.baidu.tieba.qm6;
+import com.baidu.tieba.rm6;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -181,7 +181,7 @@ public final class PbFirstFloorRecommendData implements in {
         return (BdUniqueId) invokeV.objValue;
     }
 
-    public final xk6 c() {
+    public final pm6 c() {
         InterceptResult invokeV;
         String str;
         String str2;
@@ -194,7 +194,7 @@ public final class PbFirstFloorRecommendData implements in {
             if (str3 == null) {
                 str3 = "";
             }
-            yk6 yk6Var = new yk6(g, g2, str3);
+            qm6 qm6Var = new qm6(g, g2, str3);
             String str5 = this.a.title;
             if (str5 == null) {
                 str = "";
@@ -205,79 +205,79 @@ public final class PbFirstFloorRecommendData implements in {
             if (list == null) {
                 list = CollectionsKt__CollectionsKt.emptyList();
             }
-            zk6 zk6Var = new zk6(str, list, false, 4, null);
+            rm6 rm6Var = new rm6(str, list, false, 4, null);
             ThemeColorInfo themeColorInfo = this.a.chapter_bg_color;
             if (themeColorInfo == null) {
                 themeColorInfo = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo, "novelRecomCard.chapter_b…or ?: emptyThemeColorInfo");
-            String c2 = hu9.c(themeColorInfo);
+            String c2 = cy9.c(themeColorInfo);
             int g3 = ii.g(TbadkCoreApplication.getInst(), R.dimen.tbds25);
             ThemeColorInfo themeColorInfo2 = this.a.chapter_new_labels;
             if (themeColorInfo2 == null) {
                 themeColorInfo2 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo2, "novelRecomCard.chapter_n…ls ?: emptyThemeColorInfo");
-            yk6 a2 = hu9.a(themeColorInfo2);
+            qm6 a2 = cy9.a(themeColorInfo2);
             ThemeColorInfo themeColorInfo3 = this.a.chapter_name_color;
             if (themeColorInfo3 == null) {
                 themeColorInfo3 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo3, "novelRecomCard.chapter_n…or ?: emptyThemeColorInfo");
-            String c3 = hu9.c(themeColorInfo3);
+            String c3 = cy9.c(themeColorInfo3);
             String str6 = this.a.chapter_name;
             if (str6 == null) {
                 str2 = "";
             } else {
                 str2 = str6;
             }
-            xk6 xk6Var = new xk6(R.color.CAM_X0204, yk6Var, zk6Var, c2, g3, a2, c3, str2);
+            pm6 pm6Var = new pm6(R.color.CAM_X0204, qm6Var, rm6Var, c2, g3, a2, c3, str2);
             String str7 = this.a.author;
             if (str7 == null) {
                 str7 = "";
             }
-            xk6Var.F(str7);
+            pm6Var.F(str7);
             String str8 = this.a._abstract;
             if (str8 == null) {
                 str8 = "";
             }
-            xk6Var.g(str8);
+            pm6Var.g(str8);
             String str9 = this.a.button_name;
             if (str9 == null) {
                 str9 = "";
             }
-            xk6Var.D(str9);
+            pm6Var.D(str9);
             ThemeColorInfo themeColorInfo4 = this.a.bottom_left_icon;
             if (themeColorInfo4 == null) {
                 themeColorInfo4 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo4, "novelRecomCard.bottom_le…on ?: emptyThemeColorInfo");
-            xk6Var.a(hu9.a(themeColorInfo4));
+            pm6Var.a(cy9.a(themeColorInfo4));
             String str10 = this.a.bottom_title;
             if (str10 == null) {
                 str10 = "";
             }
-            xk6Var.b(str10);
+            pm6Var.b(str10);
             ThemeColorInfo themeColorInfo5 = this.a.bottom_right_icon;
             if (themeColorInfo5 == null) {
                 themeColorInfo5 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo5, "novelRecomCard.bottom_ri…on ?: emptyThemeColorInfo");
-            xk6Var.e(hu9.a(themeColorInfo5));
+            pm6Var.e(cy9.a(themeColorInfo5));
             String str11 = this.a.bottom_guide;
             if (str11 != null) {
                 str4 = str11;
             }
-            xk6Var.d(str4);
+            pm6Var.d(str4);
             ThemeColorInfo themeColorInfo6 = this.a.bottom_right_icon_2;
             if (themeColorInfo6 == null) {
                 themeColorInfo6 = c.c();
             }
             Intrinsics.checkNotNullExpressionValue(themeColorInfo6, "novelRecomCard.bottom_ri…_2 ?: emptyThemeColorInfo");
-            xk6Var.c(hu9.a(themeColorInfo6));
-            return xk6Var;
+            pm6Var.c(cy9.a(themeColorInfo6));
+            return pm6Var;
         }
-        return (xk6) invokeV.objValue;
+        return (pm6) invokeV.objValue;
     }
 
     public final void f(String str) {

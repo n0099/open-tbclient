@@ -1,142 +1,179 @@
 package com.baidu.tieba;
 
-import android.os.Bundle;
+import android.annotation.SuppressLint;
+import android.content.ContentValues;
+import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.text.TextUtils;
 import android.util.Log;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.http.cookie.CookieManager;
-import com.baidu.searchbox.process.ipc.util.ProcessUtils;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.pass.ecommerce.StatKey;
+import com.baidu.searchbox.dns.transmit.model.DnsModel;
+import com.baidu.searchbox.performance.speed.task.LaunchTaskConstants;
+import com.baidu.searchbox.unitedscheme.CallbackHandler;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeBaseDispatcher;
+import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
+import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 import java.util.ArrayList;
-import java.util.List;
+import org.json.JSONObject;
 /* loaded from: classes4.dex */
-public class g62 extends xc3 {
+public class g62 extends u93 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean b;
     public transient /* synthetic */ FieldHolder $fh;
-    public CookieManager a;
+    public String c;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947745798, "Lcom/baidu/tieba/g62;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947745798, "Lcom/baidu/tieba/g62;");
-                return;
-            }
-        }
-        b = fo1.a;
-    }
-
-    public g62() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public g62(u83 u83Var) {
+        super(u83Var, "/swanAPI/setPhoneContact");
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            newInitContext.initArgs = r2;
+            Object[] objArr = {u83Var};
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((UnitedSchemeBaseDispatcher) objArr2[0], (String) objArr2[1]);
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = null;
-        this.a = new h62();
     }
 
-    public final Bundle a(String str, String str2, int i) {
-        InterceptResult invokeLLI;
+    @SuppressLint({"BDOfflineUrl"})
+    private void insert(Context context, f62 f62Var, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLI = interceptable.invokeLLI(1048576, this, str, str2, i)) == null) {
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", i);
-            bundle.putString("param1", str);
-            bundle.putString("param2", str2);
-            return bundle;
+        if (interceptable == null || interceptable.invokeLLL(65537, this, context, f62Var, callbackHandler) == null) {
+            Intent intent = new Intent("android.intent.action.INSERT", Uri.withAppendedPath(Uri.parse("content://com.android.contacts"), "contacts"));
+            intent.putExtra("name", f62Var.d());
+            intent.putExtra("email", f62Var.r);
+            intent.putParcelableArrayListExtra("data", k(f62Var));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            l(context, intent, callbackHandler);
         }
-        return (Bundle) invokeLLI.objValue;
     }
 
-    @Override // com.baidu.tieba.xc3, com.baidu.searchbox.http.cookie.CookieManager
-    public String getCookie(String str) {
+    public final void j(Context context, f62 f62Var, CallbackHandler callbackHandler) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, f62Var, callbackHandler) == null) {
+            Intent intent = new Intent("android.intent.action.INSERT_OR_EDIT");
+            intent.setType("vnd.android.cursor.item/contact");
+            intent.putExtra("name", f62Var.d());
+            intent.putExtra("email", f62Var.r);
+            intent.putParcelableArrayListExtra("data", k(f62Var));
+            intent.setFlags(LaunchTaskConstants.OTHER_PROCESS);
+            l(context, intent, callbackHandler);
+        }
+    }
+
+    @Override // com.baidu.tieba.u93
+    public boolean d(Context context, UnitedSchemeEntity unitedSchemeEntity, CallbackHandler callbackHandler, x73 x73Var) {
+        InterceptResult invokeLLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLLL = interceptable.invokeLLLL(1048576, this, context, unitedSchemeEntity, callbackHandler, x73Var)) == null) {
+            if (context != null && callbackHandler != null && x73Var != null) {
+                if (x73Var.n0()) {
+                    if (u93.b) {
+                        Log.d("SetPhoneContactAction", "SetPhoneContactAction does not supported when app is invisible.");
+                    }
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001, "this operation does not supported when app is invisible.");
+                    return false;
+                }
+                JSONObject optParamsAsJo = UnitedSchemeUtility.optParamsAsJo(unitedSchemeEntity);
+                if (optParamsAsJo == null) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(202);
+                    return false;
+                }
+                if (u93.b) {
+                    Log.d("SetPhoneContactAction", "handle params:" + optParamsAsJo);
+                }
+                String optString = optParamsAsJo.optString("action");
+                if (TextUtils.isEmpty(optString)) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                f62 a = f62.a(optParamsAsJo);
+                if (!a.t()) {
+                    unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                    return false;
+                }
+                this.c = optParamsAsJo.optString("cb");
+                char c = 65535;
+                int hashCode = optString.hashCode();
+                if (hashCode != -1183792455) {
+                    if (hashCode == 3108362 && optString.equals(StatKey.EDITADDR_TAG_STAGE_EDIT)) {
+                        c = 1;
+                    }
+                } else if (optString.equals("insert")) {
+                    c = 0;
+                }
+                if (c != 0) {
+                    if (c != 1) {
+                        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(201);
+                        return false;
+                    }
+                    UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                    j(context, a, callbackHandler);
+                    return true;
+                }
+                UnitedSchemeUtility.callCallback(callbackHandler, unitedSchemeEntity, UnitedSchemeUtility.wrapCallbackParams(0));
+                insert(context, a, callbackHandler);
+                return true;
+            }
+            unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(1001);
+            return false;
+        }
+        return invokeLLLL.booleanValue;
+    }
+
+    public final ArrayList<ContentValues> k(f62 f62Var) {
         InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.getCookie(str);
-            }
-            k43 c = i43.c(f62.class, a(str, "", 4));
-            if (!c.a()) {
-                return "";
-            }
-            String string = c.a.getString("result");
-            if (b) {
-                Log.d("DelegationCookieManager", "getCookie cookie : " + string);
-            }
-            return string;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, f62Var)) == null) {
+            ArrayList<ContentValues> arrayList = new ArrayList<>(16);
+            arrayList.add(f62Var.j());
+            arrayList.add(f62Var.h());
+            arrayList.add(f62Var.s());
+            arrayList.add(f62Var.i());
+            arrayList.add(f62Var.g());
+            arrayList.add(f62Var.r());
+            arrayList.add(f62Var.k());
+            arrayList.add(f62Var.o());
+            arrayList.add(f62Var.n());
+            arrayList.add(f62Var.m());
+            arrayList.add(f62Var.l());
+            arrayList.add(f62Var.b());
+            arrayList.add(f62Var.p());
+            arrayList.add(f62Var.e());
+            return arrayList;
         }
-        return (String) invokeL.objValue;
+        return (ArrayList) invokeL.objValue;
     }
 
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldAcceptCookie(String str, String str2) {
-        InterceptResult invokeLL;
+    public final void l(Context context, Intent intent, CallbackHandler callbackHandler) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldAcceptCookie(str, str2);
-            }
-            k43 c = i43.c(f62.class, a(str, str2, 1));
-            if (!c.a()) {
-                return false;
-            }
-            return c.a.getBoolean("result");
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public boolean shouldSendCookie(String str, String str2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, str2)) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                return this.a.shouldSendCookie(str, str2);
-            }
-            k43 c = i43.c(f62.class, a(str, str2, 2));
-            if (!c.a()) {
-                return false;
-            }
-            return c.a.getBoolean("result");
-        }
-        return invokeLL.booleanValue;
-    }
-
-    @Override // com.baidu.searchbox.http.cookie.CookieManager
-    public void storeCookie(String str, List<String> list) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(1048580, this, str, list) == null) {
-            if (ProcessUtils.isMainProcess()) {
-                this.a.storeCookie(str, list);
-                return;
-            }
-            Bundle bundle = new Bundle();
-            bundle.putInt("type", 3);
-            bundle.putString("param1", str);
-            bundle.putStringArrayList("param2", (ArrayList) list);
-            i43.c(f62.class, bundle);
-            if (b) {
-                Log.d("DelegationCookieManager", "set cookies for " + str);
+        if (interceptable == null || interceptable.invokeLLL(1048579, this, context, intent, callbackHandler) == null) {
+            try {
+                context.startActivity(intent);
+                if (!TextUtils.isEmpty(this.c)) {
+                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(0, DnsModel.MSG_OK).toString());
+                }
+            } catch (Exception e) {
+                if (u93.b) {
+                    Log.d("SetPhoneContactAction", "startContactActivity:" + e.toString());
+                }
+                if (!TextUtils.isEmpty(this.c)) {
+                    callbackHandler.handleSchemeDispatchCallback(this.c, UnitedSchemeUtility.wrapCallbackParams(201, "fail startactivity exception").toString());
+                }
             }
         }
     }

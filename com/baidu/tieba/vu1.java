@@ -1,69 +1,47 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import android.util.Base64;
-import androidx.annotation.Nullable;
+import android.animation.Animator;
+import android.animation.AnimatorListenerAdapter;
+import android.animation.ValueAnimator;
+import android.content.Context;
+import android.view.animation.AccelerateDecelerateInterpolator;
+import android.widget.LinearLayout;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.mobstat.Config;
-import com.baidu.searchbox.common.runtime.AppRuntime;
-import com.baidu.searchbox.http.callback.ResponseCallback;
-import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
-import com.baidu.searchbox.unitedscheme.UnitedSchemeEntity;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.swan.apps.adlanding.customer.WebViewContainer;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.io.File;
-import java.io.IOException;
-import java.net.URI;
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.Iterator;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
-import okhttp3.HttpUrl;
-import okhttp3.MultipartBody;
-import okhttp3.Request;
-import okhttp3.RequestBody;
-import okhttp3.Response;
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes6.dex */
 public class vu1 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
     public transient /* synthetic */ FieldHolder $fh;
+    public WebViewContainer a;
+    public Context b;
+    public boolean c;
+    public double d;
+    public ValueAnimator e;
+    public float f;
+    public pw2 g;
+    public int h;
+    public boolean i;
+    public WebViewContainer.b j;
+    public WebViewContainer.c k;
 
     /* loaded from: classes6.dex */
-    public static class a extends ResponseCallback {
+    public class a implements WebViewContainer.b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ om3 a;
+        public final /* synthetic */ vu1 a;
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public a(om3 om3Var) {
+        public a(vu1 vu1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {om3Var};
+                Object[] objArr = {vu1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -73,48 +51,30 @@ public class vu1 {
                     return;
                 }
             }
-            this.a = om3Var;
+            this.a = vu1Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.b
+        public void a() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.a(null);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                this.a.j(false);
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                vu1.i(response, this.a);
-                return response;
-            }
-            return invokeLI.objValue;
         }
     }
 
     /* loaded from: classes6.dex */
-    public static class b extends ResponseCallback {
+    public class b implements WebViewContainer.c {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ om3 a;
+        public final /* synthetic */ vu1 a;
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onSuccess(Object obj, int i) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, obj, i) == null) {
-            }
-        }
-
-        public b(om3 om3Var) {
+        public b(vu1 vu1Var) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {om3Var};
+                Object[] objArr = {vu1Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -124,406 +84,312 @@ public class vu1 {
                     return;
                 }
             }
-            this.a = om3Var;
+            this.a = vu1Var;
         }
 
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public void onFail(Exception exc) {
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.c
+        public void a(boolean z) {
+            double d;
+            boolean z2;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, exc) == null) {
-                this.a.a(null);
+            if ((interceptable != null && interceptable.invokeZ(1048576, this, z) != null) || this.a.a == null) {
+                return;
             }
-        }
-
-        @Override // com.baidu.searchbox.http.callback.ResponseCallback
-        public Object parseResponse(Response response, int i) throws Exception {
-            InterceptResult invokeLI;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLI = interceptable.invokeLI(Constants.METHOD_SEND_USER_MSG, this, response, i)) == null) {
-                vu1.g(response, this.a);
-                return response;
+            if (z) {
+                d = 1.0d - this.a.d;
+            } else {
+                d = this.a.d;
             }
-            return invokeLI.objValue;
+            if ((this.a.a.getTopMargin() * 1.0d) / (this.a.h * 1.0d) >= d) {
+                z2 = true;
+            } else {
+                z2 = false;
+            }
+            this.a.j(z2);
         }
     }
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948253175, "Lcom/baidu/tieba/vu1;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
+    /* loaded from: classes6.dex */
+    public class c implements WebViewContainer.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ vu1 a;
+
+        public c(vu1 vu1Var) {
+            Interceptable interceptable = $ic;
             if (interceptable != null) {
-                $ic = interceptable;
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu1Var};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
             }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948253175, "Lcom/baidu/tieba/vu1;");
+            this.a = vu1Var;
+        }
+
+        @Override // com.baidu.swan.apps.adlanding.customer.WebViewContainer.a
+        public boolean a(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048576, this, z)) == null) {
+                if (z && this.a.a.getTopMargin() <= this.a.h) {
+                    this.a.j(false);
+                    return true;
+                } else if (!z && this.a.a.getTopMargin() >= this.a.a.getMinTopMargin()) {
+                    this.a.j(true);
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+            return invokeZ.booleanValue;
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class d implements ValueAnimator.AnimatorUpdateListener {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public float a;
+        public int b;
+        public int c;
+        public int d;
+        public float e;
+        public int f;
+        public final /* synthetic */ boolean g;
+        public final /* synthetic */ vu1 h;
+
+        public d(vu1 vu1Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu1Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.h = vu1Var;
+            this.g = z;
+            this.a = 0.0f;
+            this.b = this.h.h - this.h.a.getTopMargin();
+            int topMargin = this.h.a.getTopMargin() - this.h.a.getMinTopMargin();
+            this.c = topMargin;
+            topMargin = this.g ? this.b : topMargin;
+            this.d = topMargin;
+            this.e = topMargin * this.h.f;
+            this.f = this.h.a.getTopMargin();
+        }
+
+        @Override // android.animation.ValueAnimator.AnimatorUpdateListener
+        public void onAnimationUpdate(ValueAnimator valueAnimator) {
+            float f;
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, valueAnimator) == null) && this.h.a != null && valueAnimator != null) {
+                float floatValue = ((Float) valueAnimator.getAnimatedValue()).floatValue();
+                if (this.h.c) {
+                    f = this.d;
+                } else {
+                    f = this.e;
+                }
+                int i = (int) (f * (floatValue - this.a));
+                if (this.g) {
+                    i = 0 - i;
+                }
+                this.f -= i;
+                this.h.a.scrollBy(0, i);
+                this.h.a.setTopMargin(this.f);
+                this.a = floatValue;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class e extends AnimatorListenerAdapter {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ boolean a;
+        public final /* synthetic */ vu1 b;
+
+        public e(vu1 vu1Var, boolean z) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {vu1Var, Boolean.valueOf(z)};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.b = vu1Var;
+            this.a = z;
+        }
+
+        @Override // android.animation.AnimatorListenerAdapter, android.animation.Animator.AnimatorListener
+        public void onAnimationEnd(Animator animator) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(1048576, this, animator) == null) && this.b.a != null) {
+                this.b.i(this.a);
+            }
+        }
+    }
+
+    public vu1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        a = fo1.a;
+        this.c = true;
+        this.d = 0.25d;
+        this.i = true;
+        this.j = new a(this);
+        this.k = new b(this);
+        this.b = context;
     }
 
-    @Nullable
-    public static Request c(v73 v73Var, JSONObject jSONObject, UnitedSchemeEntity unitedSchemeEntity) {
-        InterceptResult invokeLLL;
+    public final void j(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, v73Var, jSONObject, unitedSchemeEntity)) == null) {
-            if (jSONObject == null) {
-                q(unitedSchemeEntity, 202, "illegal entity");
-                return null;
-            }
-            JSONObject optJSONObject = jSONObject.optJSONObject("stringMap");
-            JSONObject optJSONObject2 = jSONObject.optJSONObject("fileMap");
-            String optString = jSONObject.optString("service");
-            String optString2 = jSONObject.optString("api");
-            if (v73Var != null && optJSONObject != null && !TextUtils.isEmpty(optString) && !TextUtils.isEmpty(optString2)) {
-                MultipartBody.Builder type = new MultipartBody.Builder().setType(MultipartBody.FORM);
-                Iterator<String> keys = optJSONObject.keys();
-                while (keys.hasNext()) {
-                    String next = keys.next();
-                    type.addFormDataPart(next, optJSONObject.optString(next));
-                }
-                if (optJSONObject2 != null) {
-                    Iterator<String> keys2 = optJSONObject2.keys();
-                    while (keys2.hasNext()) {
-                        String next2 = keys2.next();
-                        String M = df3.M(optJSONObject2.optString(next2), v73.g0());
-                        if (!TextUtils.isEmpty(M)) {
-                            File file = new File(M);
-                            if (!file.exists()) {
-                                q(unitedSchemeEntity, 1001, "upload file not exist");
-                                return null;
-                            } else if (file.length() > Config.FULL_TRACE_LOG_LIMIT) {
-                                q(unitedSchemeEntity, 1001, "upload file too large");
-                                return null;
-                            } else {
-                                type.addFormDataPart(next2, file.getName(), new cv1(file));
-                            }
-                        }
-                    }
-                }
-                String O = v73Var.O();
-                long a2 = cr2.l().a(AppRuntime.getAppContext());
-                String r = r(optJSONObject, O, a2, cr2.h0().f(AppRuntime.getAppContext()));
-                if (r == null) {
-                    q(unitedSchemeEntity, 1001, "sign error");
-                    return null;
-                }
-                HttpUrl parse = HttpUrl.parse(cr2.m().processUrl(cr2.o().O() + "/" + optString + optString2));
-                if (parse == null) {
-                    q(unitedSchemeEntity, 1001, "request url error");
-                    return null;
-                }
-                HttpUrl.Builder newBuilder = parse.newBuilder();
-                newBuilder.addQueryParameter("ai_sign", r);
-                newBuilder.addQueryParameter("api_key", O);
-                newBuilder.addQueryParameter("timestamp", String.valueOf(a2));
-                newBuilder.addQueryParameter("host_app", gf4.b().c());
-                newBuilder.addQueryParameter("host_app_ver", gf4.b().h());
-                newBuilder.addQueryParameter("sdk_ver", gf4.b().b());
-                newBuilder.addQueryParameter("host_os", wn4.f());
-                newBuilder.addQueryParameter("host_os_ver", wn4.g());
-                Request.Builder post = new Request.Builder().url(newBuilder.build()).post(type.build());
-                String d = cr2.h0().d(AppRuntime.getAppContext());
-                String str = "BDUSS=" + d;
-                if (!TextUtils.isEmpty(d)) {
-                    post.addHeader("Cookie", str);
-                }
-                return post.build();
-            }
-            q(unitedSchemeEntity, 202, "illegal request");
-            return null;
-        }
-        return (Request) invokeLLL.objValue;
-    }
-
-    public static void d(String str, om3<String> om3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, str, om3Var) == null) {
-            if (!TextUtils.isEmpty(str) && str.startsWith("cloud")) {
-                URI create = URI.create(str);
-                String host = create.getHost();
-                if (TextUtils.isEmpty(create.toString()) && TextUtils.isEmpty(host)) {
-                    om3Var.a(null);
-                    return;
-                }
-                Request c = c(v73.M(), h(str), null);
-                if (v73.M() == null) {
-                    om3Var.a(null);
-                    return;
-                } else {
-                    p(c.url().toString(), c.body(), new a(om3Var));
-                    return;
-                }
-            }
-            om3Var.a(null);
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_SEND_USER_MSG, this, z) == null) && this.h > 0 && this.a != null && this.g != null) {
+            n(z);
         }
     }
 
-    public static void g(Response response, om3<String> om3Var) {
-        String header;
+    public void o(int i) {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(65543, null, response, om3Var) == null) && (header = response.header("Content-Type", "")) != null && header.contains("application/json")) {
-            JSONObject jSONObject = new JSONObject();
-            if (response.body() != null) {
-                try {
-                    jSONObject = new JSONObject(response.body().string());
-                } catch (IOException e) {
-                    if (a) {
-                        e.printStackTrace();
-                    }
-                    om3Var.a(null);
-                } catch (JSONException e2) {
-                    if (a) {
-                        e2.printStackTrace();
-                    }
-                    om3Var.a(null);
-                }
-            }
-            JSONArray optJSONArray = jSONObject.optJSONArray("fileList");
-            if (optJSONArray == null) {
-                om3Var.a(null);
-            } else {
-                om3Var.a(optJSONArray.toString());
-            }
+        if (interceptable == null || interceptable.invokeI(1048583, this, i) == null) {
+            this.h = i;
         }
     }
 
-    public static void e(JSONArray jSONArray, om3<String> om3Var) {
+    public void p(pw2 pw2Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, jSONArray, om3Var) == null) {
-            if (jSONArray != null && jSONArray.length() > 0) {
-                Request c = c(v73.M(), f(jSONArray.toString()), null);
-                if (v73.M() == null) {
-                    om3Var.a(null);
-                    return;
-                } else {
-                    p(c.url().toString(), c.body(), new b(om3Var));
-                    return;
-                }
-            }
-            om3Var.a(null);
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, pw2Var) == null) {
+            this.g = pw2Var;
         }
     }
 
-    public static void i(Response response, om3<String> om3Var) {
+    public final void h() {
+        ValueAnimator valueAnimator;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65545, null, response, om3Var) == null) {
-            try {
-                String header = response.header("Content-Type", "");
-                if (header != null && header.contains("application/json")) {
-                    JSONObject jSONObject = new JSONObject();
-                    if (response.body() != null) {
-                        jSONObject = new JSONObject(response.body().string());
-                    }
-                    String optString = jSONObject.optString("DownloadUrl");
-                    if (!TextUtils.isEmpty(optString)) {
-                        om3Var.a(optString);
-                    } else {
-                        om3Var.a(null);
-                    }
-                }
-            } catch (Exception unused) {
-                om3Var.a(null);
-            }
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && (valueAnimator = this.e) != null) {
+            valueAnimator.cancel();
         }
     }
 
-    public static JSONObject l(String str, String str2) {
-        InterceptResult invokeLL;
+    public boolean l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65548, null, str, str2)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            JSONObject jSONObject2 = new JSONObject();
-            try {
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject2.put("fileID", str2);
-                    jSONObject.put("api", "/v1/workspace/storage/request-download");
-                }
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("api", "/v1/workspace/storage/batch-download");
-                    jSONObject2.put("fileList", str);
-                }
-                jSONObject.put("service", "cloud");
-                jSONObject.put("stringMap", jSONObject2);
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-            }
-            return jSONObject;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.i;
         }
-        return (JSONObject) invokeLL.objValue;
+        return invokeV.booleanValue;
     }
 
-    public static JSONObject f(String str) {
-        InterceptResult invokeL;
+    public final boolean m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            return l(str, null);
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject h(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            return l(null, str);
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static int j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65546, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return 1001;
-            }
-            try {
-                return Integer.parseInt(str);
-            } catch (NumberFormatException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
-                return 1001;
-            }
-        }
-        return invokeL.intValue;
-    }
-
-    public static String k(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "请求失败";
-            }
-            return str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static boolean o(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
-            if (j(str) != 0) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+            ValueAnimator valueAnimator = this.e;
+            if (valueAnimator != null && valueAnimator.isRunning()) {
                 return true;
             }
             return false;
         }
-        return invokeL.booleanValue;
+        return invokeV.booleanValue;
     }
 
-    public static JSONObject m(Response response) {
-        InterceptResult invokeL;
-        String str;
+    public final void i(boolean z) {
+        WebViewContainer webViewContainer;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, response)) == null) {
-            try {
-                if (response.body() != null) {
-                    str = response.body().string();
-                } else {
-                    str = null;
+        if ((interceptable == null || interceptable.invokeZ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, z) == null) && (webViewContainer = this.a) != null && this.g != null) {
+            if (z) {
+                if (this.c) {
+                    webViewContainer.scrollBy(0, -(this.h - webViewContainer.getTopMargin()));
+                    this.a.setTopMargin(this.h);
                 }
-                return new JSONObject(str);
-            } catch (IOException e) {
-                if (a) {
-                    e.printStackTrace();
+                if (!this.g.n() && !this.g.m()) {
+                    this.g.s();
                 }
-                return null;
-            } catch (JSONException e2) {
-                if (a) {
-                    e2.printStackTrace();
-                }
-                return null;
+                this.i = true;
+                return;
             }
-        }
-        return (JSONObject) invokeL.objValue;
-    }
-
-    public static JSONObject n(String str, String str2, String str3) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65550, null, str, str2, str3)) == null) {
-            JSONObject jSONObject = new JSONObject();
-            try {
-                jSONObject.put(StatConstants.KEY_EXT_ERR_MSG, str3);
-                jSONObject.put(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, 200);
-                if (!TextUtils.isEmpty(str)) {
-                    jSONObject.put("fileID", str);
-                }
-                if (!TextUtils.isEmpty(str2)) {
-                    jSONObject.put("tempFilePath", str2);
-                }
-            } catch (JSONException e) {
-                if (a) {
-                    e.printStackTrace();
-                }
+            if (this.c) {
+                webViewContainer.scrollBy(0, webViewContainer.getTopMargin() - this.a.getMinTopMargin());
+                WebViewContainer webViewContainer2 = this.a;
+                webViewContainer2.setTopMargin(webViewContainer2.getMinTopMargin());
             }
-            return jSONObject;
-        }
-        return (JSONObject) invokeLLL.objValue;
-    }
-
-    public static void p(String str, RequestBody requestBody, ResponseCallback responseCallback) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLL(65552, null, str, requestBody, responseCallback) == null) {
-            ye4 ye4Var = new ye4(str, requestBody, responseCallback);
-            ye4Var.f = true;
-            ye4Var.g = true;
-            ye4Var.h = true;
-            ze4.g().e(ye4Var);
+            if (this.g.n()) {
+                this.g.p();
+            }
+            this.i = false;
         }
     }
 
-    public static void q(UnitedSchemeEntity unitedSchemeEntity, int i, String str) {
+    public final void n(boolean z) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLIL(65553, null, unitedSchemeEntity, i, str) != null) || unitedSchemeEntity == null) {
+        if ((interceptable != null && interceptable.invokeZ(1048582, this, z) != null) || this.a == null || m()) {
             return;
         }
-        unitedSchemeEntity.result = UnitedSchemeUtility.wrapCallbackParams(i, str);
+        h();
+        ValueAnimator ofFloat = ValueAnimator.ofFloat(0.0f, 1.0f);
+        this.e = ofFloat;
+        ofFloat.setDuration(100L);
+        this.e.setInterpolator(new AccelerateDecelerateInterpolator());
+        if (this.a.getYVelocity() >= 0.0f) {
+            this.f = this.a.getYVelocity() / 4000.0f;
+        } else {
+            this.f = (-this.a.getYVelocity()) / 4000.0f;
+        }
+        this.f = Math.min(this.f, 1.0f);
+        this.e.addUpdateListener(new d(this, z));
+        this.e.addListener(new e(this, z));
+        this.e.start();
     }
 
-    public static String r(JSONObject jSONObject, String str, long j, String str2) {
-        InterceptResult invokeCommon;
+    public WebViewContainer k() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65554, null, new Object[]{jSONObject, str, Long.valueOf(j), str2})) == null) {
-            try {
-                Iterator<String> keys = jSONObject.keys();
-                ArrayList<String> arrayList = new ArrayList();
-                while (keys.hasNext()) {
-                    arrayList.add(keys.next());
-                }
-                Collections.sort(arrayList);
-                StringBuilder sb = new StringBuilder();
-                for (String str3 : arrayList) {
-                    String optString = jSONObject.optString(str3);
-                    sb.append(URLEncoder.encode(str3));
-                    sb.append("=");
-                    sb.append(URLEncoder.encode(optString));
-                    sb.append("&");
-                }
-                String sb2 = sb.toString();
-                if (sb2.endsWith("&")) {
-                    sb2 = sb2.substring(0, sb2.length() - 1);
-                }
-                String d = bo4.d(sb2.getBytes(), false);
-                byte[] copyOf = Arrays.copyOf(Base64.decode(bo4.d(str.getBytes(), false), 0), 24);
-                byte[] copyOf2 = Arrays.copyOf(Base64.decode(bo4.d(String.format("%s%d", str2, Long.valueOf(j)).getBytes(), false).getBytes(), 0), 16);
-                Cipher cipher = Cipher.getInstance("AES/CBC/NoPadding");
-                cipher.init(1, new SecretKeySpec(copyOf, "AES"), new IvParameterSpec(copyOf2));
-                String str4 = new String(Base64.encode(cipher.doFinal(d.getBytes()), 0), StandardCharsets.UTF_8);
-                if (str4.endsWith("\n")) {
-                    return str4.substring(0, str4.length() - 1);
-                }
-                return str4;
-            } catch (Exception unused) {
-                return null;
-            }
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            WebViewContainer webViewContainer = new WebViewContainer(this.b);
+            this.a = webViewContainer;
+            webViewContainer.setLayoutParams(new LinearLayout.LayoutParams(-1, -1));
+            this.a.setClipChildren(false);
+            this.a.setLayerType(2, null);
+            this.a.setTopLimit(this.h);
+            this.a.setTopMargin(this.h);
+            this.a.setAutoScroll2TopListener(this.j);
+            this.a.setOnUpListener(this.k);
+            this.a.setMinFlingVelocity(1000);
+            this.a.setUpYVelocityRatio(3.5f);
+            this.a.setInterceptFlingListener(new c(this));
+            return this.a;
         }
-        return (String) invokeCommon.objValue;
+        return (WebViewContainer) invokeV.objValue;
     }
 }

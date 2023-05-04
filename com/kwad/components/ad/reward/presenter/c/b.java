@@ -107,8 +107,8 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
         this.tp = ig();
         this.nM.a(this.mt);
         hVar.c(this.tp);
-        hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0606a() { // from class: com.kwad.components.ad.reward.presenter.c.b.1
-            @Override // com.kwad.components.core.webview.b.a.InterfaceC0606a
+        hVar.c(new com.kwad.components.core.webview.b.a(new a.InterfaceC0609a() { // from class: com.kwad.components.ad.reward.presenter.c.b.1
+            @Override // com.kwad.components.core.webview.b.a.InterfaceC0609a
             public final void ii() {
                 com.kwad.components.ad.reward.model.b.P(b.this.nM.mContext);
             }
@@ -163,12 +163,12 @@ public final class b extends a implements com.kwad.components.ad.reward.presente
     @Override // com.kwad.sdk.mvp.Presenter
     public final void onCreate() {
         super.onCreate();
-        this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09124f);
-        this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091251);
-        this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091289);
-        this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09124e);
-        this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09128f);
-        this.tm = findViewById(R.id.obfuscated_res_0x7f0911f5);
+        this.to = (FrameLayout) findViewById(R.id.obfuscated_res_0x7f09125d);
+        this.tj = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09125f);
+        this.tl = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f091297);
+        this.tk = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09125c);
+        this.tn = (ViewGroup) findViewById(R.id.obfuscated_res_0x7f09129d);
+        this.tm = findViewById(R.id.obfuscated_res_0x7f091203);
     }
 
     @Override // com.kwad.components.ad.reward.presenter.c.a, com.kwad.sdk.mvp.Presenter

@@ -1,110 +1,71 @@
 package com.baidu.tieba;
 
 import android.content.Context;
-import android.text.TextUtils;
+import android.view.View;
+import android.view.ViewGroup;
+import com.baidu.adp.BdUniqueId;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke;
-import com.baidu.pyramid.runtime.service.ServiceManager;
-import com.baidu.searchbox.live.interfaces.service.AccountManagerService;
-import com.baidu.searchbox.live.interfaces.service.AppInfoService;
-import com.baidu.searchbox.live.interfaces.service.RouterService;
-import com.baidu.searchbox.live.interfaces.service.ToastService;
-import com.baidu.tbadk.core.TbadkCoreApplication;
+import com.baidu.tbadk.TbPageContext;
+import com.baidu.tieba.ala.alasquare.live_tab.my_concern.view.LiveTabConcernEmptyViewHolder;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class o56 implements ILiveFeedPageInvoke {
+public class o56 extends vm<f76, LiveTabConcernEmptyViewHolder> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public AccountManagerService a;
-    public AppInfoService b;
-    public ToastService c;
-    public RouterService d;
+    public TbPageContext a;
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getIID() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) ? "" : (String) invokeV.objValue;
-    }
-
-    public o56() {
+    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
+    public o56(TbPageContext tbPageContext) {
+        super(tbPageContext.getPageActivity(), f76.b);
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {tbPageContext};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
+                Object[] objArr2 = newInitContext.callArgs;
+                super((Context) objArr2[0], (BdUniqueId) objArr2[1]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = (AccountManagerService) ServiceManager.getService(AccountManagerService.Companion.getSERVICE_REFERENCE());
-        this.b = (AppInfoService) ServiceManager.getService(AppInfoService.Companion.getSERVICE_REFERENCE());
-        this.c = (ToastService) ServiceManager.getService(ToastService.Companion.getSERVICE_REFERENCE());
-        this.d = (RouterService) ServiceManager.getService(RouterService.Companion.getSERVICE_REFERENCE());
+        this.a = tbPageContext;
     }
 
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getCuid() {
-        InterceptResult invokeV;
-        AppInfoService appInfoService;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: s */
+    public LiveTabConcernEmptyViewHolder onCreateViewHolder(ViewGroup viewGroup) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-            if (this.a != null && (appInfoService = this.b) != null) {
-                return this.a.getSocialEncryption(appInfoService.getCuid(), "baiduuid_");
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, viewGroup)) == null) {
+            return new LiveTabConcernEmptyViewHolder(new a66(this.a, viewGroup));
+        }
+        return (LiveTabConcernEmptyViewHolder) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.vm
+    /* renamed from: t */
+    public View onFillViewHolder(int i, View view2, ViewGroup viewGroup, f76 f76Var, LiveTabConcernEmptyViewHolder liveTabConcernEmptyViewHolder) {
+        InterceptResult invokeCommon;
+        a66 a66Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(1048579, this, new Object[]{Integer.valueOf(i), view2, viewGroup, f76Var, liveTabConcernEmptyViewHolder})) == null) {
+            if (liveTabConcernEmptyViewHolder != null && (a66Var = liveTabConcernEmptyViewHolder.a) != null) {
+                a66Var.i(f76Var);
+                return liveTabConcernEmptyViewHolder.getView();
             }
-            return "";
+            return null;
         }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getUIMode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (TbadkCoreApplication.getInst().getSkinType() == 4) {
-                return "dark";
-            }
-            return "day";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public String getUK() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
-            AccountManagerService accountManagerService = this.a;
-            if (accountManagerService != null) {
-                return accountManagerService.getAccount().getUk();
-            }
-            return "";
-        }
-        return (String) invokeV.objValue;
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public void invokeScheme(Context context, String str) {
-        RouterService routerService;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048580, this, context, str) == null) && context != null && !TextUtils.isEmpty(str) && (routerService = this.d) != null) {
-            routerService.invokeScheme(context, str);
-        }
-    }
-
-    @Override // com.baidu.live.feedpage.interfaces.ILiveFeedPageInvoke
-    public void showToast(Context context, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeLL(1048581, this, context, str) == null) && this.c != null && context != null && !TextUtils.isEmpty(str)) {
-            this.c.showNormal(context, str, 0);
-        }
+        return (View) invokeCommon.objValue;
     }
 }

@@ -8,31 +8,23 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import rx.exceptions.OnErrorNotImplementedException;
+import java.util.concurrent.TimeUnit;
+import rx.internal.schedulers.SchedulerWhen;
 /* loaded from: classes5.dex */
-public final class m5b {
+public abstract class m5b {
     public static /* synthetic */ Interceptable $ic;
-    public static final o1b<Object> a;
     public transient /* synthetic */ FieldHolder $fh;
 
+    public abstract a createWorker();
+
     /* loaded from: classes5.dex */
-    public static class a implements o1b<Object> {
+    public static abstract class a implements q5b {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        @Override // com.baidu.tieba.o1b
-        public final void onCompleted() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            }
-        }
+        public abstract q5b b(w5b w5bVar);
 
-        @Override // com.baidu.tieba.o1b
-        public final void onNext(Object obj) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, obj) == null) {
-            }
-        }
+        public abstract q5b c(w5b w5bVar, long j, TimeUnit timeUnit);
 
         public a() {
             Interceptable interceptable = $ic;
@@ -48,12 +40,13 @@ public final class m5b {
             }
         }
 
-        @Override // com.baidu.tieba.o1b
-        public final void onError(Throwable th) {
+        public long a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, th) == null) {
-                throw new OnErrorNotImplementedException(th);
+            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+                return System.currentTimeMillis();
             }
+            return invokeV.longValue;
         }
     }
 
@@ -70,15 +63,38 @@ public final class m5b {
                 return;
             }
         }
-        a = new a();
+        TimeUnit.MINUTES.toNanos(Long.getLong("rx.scheduler.drift-tolerance", 15L).longValue());
     }
 
-    public static <T> o1b<T> a() {
+    public m5b() {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+            }
+        }
+    }
+
+    public long now() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
-            return (o1b<T>) a;
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
+            return System.currentTimeMillis();
         }
-        return (o1b) invokeV.objValue;
+        return invokeV.longValue;
+    }
+
+    public <S extends m5b & q5b> S when(b6b<j5b<j5b<h5b>>, h5b> b6bVar) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, b6bVar)) == null) {
+            return new SchedulerWhen(b6bVar, this);
+        }
+        return (S) ((m5b) invokeL.objValue);
     }
 }

@@ -1,38 +1,48 @@
 package com.baidu.tieba;
 
-import android.graphics.Bitmap;
-import android.media.MediaPlayer;
-import android.view.View;
+import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InterceptResult;
+import com.baidu.titan.sdk.runtime.Interceptable;
+import java.security.MessageDigest;
 /* loaded from: classes6.dex */
-public interface so4 {
+public class so4 {
+    public static /* synthetic */ Interceptable $ic;
+    public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes6.dex */
-    public interface a {
-        void a(b bVar);
-
-        void b(b bVar, int i, int i2);
-
-        void c(b bVar, int i, int i2, int i3);
+    public static String a(byte[] bArr, String str, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65536, null, bArr, str, z)) == null) {
+            StringBuilder sb = new StringBuilder();
+            for (byte b : bArr) {
+                String hexString = Integer.toHexString(b & 255);
+                if (z) {
+                    hexString = hexString.toUpperCase();
+                }
+                if (hexString.length() == 1) {
+                    sb.append("0");
+                }
+                sb.append(hexString);
+                sb.append(str);
+            }
+            return sb.toString();
+        }
+        return (String) invokeLLZ.objValue;
     }
 
-    /* loaded from: classes6.dex */
-    public interface b {
-        void a(MediaPlayer mediaPlayer);
-
-        so4 b();
+    public static String b(byte[] bArr, boolean z) {
+        InterceptResult invokeLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLZ = interceptable.invokeLZ(65537, null, bArr, z)) == null) {
+            try {
+                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
+                messageDigest.reset();
+                messageDigest.update(bArr);
+                bArr = messageDigest.digest();
+            } catch (Exception unused) {
+            }
+            return a(bArr, "", z);
+        }
+        return (String) invokeLZ.objValue;
     }
-
-    void a(a aVar);
-
-    void b(a aVar);
-
-    Bitmap getBitmap();
-
-    View getView();
-
-    void release();
-
-    void setAspectRatio(int i);
-
-    void setVideoSize(int i, int i2);
 }

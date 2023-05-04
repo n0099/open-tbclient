@@ -6,7 +6,7 @@ import com.google.android.gms.common.internal.Preconditions;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ThreadFactory;
 @KeepForSdk
-/* loaded from: classes7.dex */
+/* loaded from: classes8.dex */
 public class NamedThreadFactory implements ThreadFactory {
     public final String zza;
     public final ThreadFactory zzb = Executors.defaultThreadFactory();

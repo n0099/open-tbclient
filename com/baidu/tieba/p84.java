@@ -1,138 +1,91 @@
 package com.baidu.tieba;
 
-import androidx.core.view.InputDeviceCompat;
-import androidx.media2.session.SessionCommand;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.pyramid.annotation.Service;
+import com.baidu.pyramid.annotation.Singleton;
 import com.baidu.searchbox.unitedscheme.CallbackHandler;
-import com.baidu.searchbox.unitedscheme.utils.UnitedSchemeUtility;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.google.android.exoplayer2.extractor.ogg.DefaultOggSeeker;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import org.json.JSONObject;
+@Singleton
+@Service
 /* loaded from: classes5.dex */
-public class p84 {
+public class p84 implements ip1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static void a(CallbackHandler callbackHandler, String str) {
+    public p84() {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65536, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        w84 w84Var = new w84();
-        w84Var.a = str;
-        m84.c().a(new l84(50000, w84Var));
-    }
-
-    public static void b(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65537, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        w84 w84Var = new w84();
-        w84Var.a = str;
-        m84.c().a(new l84(90000, w84Var));
-    }
-
-    public static void e(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(InputDeviceCompat.SOURCE_TRACKBALL, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        w84 w84Var = new w84();
-        w84Var.a = str;
-        m84.c().a(new l84(60000, w84Var));
-    }
-
-    public static void g(CallbackHandler callbackHandler, String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65542, null, callbackHandler, str) != null) || !UnitedSchemeUtility.isInvokedFromSwanGame(callbackHandler)) {
-            return;
-        }
-        w84 w84Var = new w84();
-        w84Var.a = str;
-        m84.c().a(new l84(SessionCommand.COMMAND_CODE_SESSION_FAST_FORWARD, w84Var));
-    }
-
-    public static void i(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            u84 u84Var = new u84();
-            u84Var.b = str;
-            u84Var.a = str2;
-            m84.c().a(new l84(30000, u84Var));
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void c(String str, int i, String str2, boolean z) {
+    @Override // com.baidu.tieba.ip1
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65538, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            t84 t84Var = new t84();
-            t84Var.b = str;
-            t84Var.c = i;
-            t84Var.d = z ? 1 : 0;
-            t84Var.a = str2;
-            m84.c().a(new l84(DefaultOggSeeker.MATCH_BYTE_RANGE, t84Var));
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return o84.c().d();
+        }
+        return (JSONObject) invokeV.objValue;
+    }
+
+    @Override // com.baidu.tieba.ip1
+    public void b(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str) == null) {
+            r84.d(str);
         }
     }
 
-    public static void h(String str, int i, String str2, boolean z) {
+    @Override // com.baidu.tieba.ip1
+    public void e(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65543, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            t84 t84Var = new t84();
-            t84Var.b = str;
-            t84Var.c = i;
-            t84Var.d = z ? 1 : 0;
-            t84Var.a = str2;
-            m84.c().a(new l84(70000, t84Var));
+        if (interceptable == null || interceptable.invokeL(1048580, this, str) == null) {
+            r84.f(str);
         }
     }
 
-    public static void k(String str, int i, String str2, boolean z) {
+    @Override // com.baidu.tieba.ip1
+    public void c(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(65546, null, new Object[]{str, Integer.valueOf(i), str2, Boolean.valueOf(z)}) == null) {
-            t84 t84Var = new t84();
-            t84Var.b = str;
-            t84Var.c = i;
-            t84Var.d = z ? 1 : 0;
-            t84Var.a = str2;
-            m84.c().a(new l84(110000, t84Var));
+        if (interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, callbackHandler, str) == null) {
+            r84.e(callbackHandler, str);
         }
     }
 
-    public static void d(String str) {
+    @Override // com.baidu.tieba.ip1
+    public void d(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65539, null, str) == null) {
-            w84 w84Var = new w84();
-            w84Var.a = str;
-            m84.c().a(new l84(20000, w84Var));
+        if (interceptable == null || interceptable.invokeLL(1048579, this, callbackHandler, str) == null) {
+            r84.a(callbackHandler, str);
         }
     }
 
-    public static void f(String str) {
+    @Override // com.baidu.tieba.ip1
+    public void f(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, str) == null) {
-            w84 w84Var = new w84();
-            w84Var.a = str;
-            m84.c().a(new l84(10000, w84Var));
+        if (interceptable == null || interceptable.invokeLL(1048581, this, callbackHandler, str) == null) {
+            r84.g(callbackHandler, str);
         }
     }
 
-    public static void l(String str) {
+    @Override // com.baidu.tieba.ip1
+    public void g(CallbackHandler callbackHandler, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, str) == null) {
-            w84 w84Var = new w84();
-            w84Var.a = str;
-            m84.c().a(new l84(120000, w84Var));
-        }
-    }
-
-    public static void j(String str, int i, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLIL(65545, null, str, i, str2) == null) {
-            v84 v84Var = new v84();
-            v84Var.b = str;
-            v84Var.c = i;
-            v84Var.a = str2;
-            m84.c().a(new l84(80000, v84Var));
+        if (interceptable == null || interceptable.invokeLL(1048582, this, callbackHandler, str) == null) {
+            r84.b(callbackHandler, str);
         }
     }
 }

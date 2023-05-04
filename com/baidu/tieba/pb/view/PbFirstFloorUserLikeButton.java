@@ -9,31 +9,31 @@ import com.baidu.tbadk.core.TbadkCoreApplication;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tbadk.core.view.commonBtn.TBSpecificationBtn;
 import com.baidu.tieba.R;
-import com.baidu.tieba.o55;
-import com.baidu.tieba.q65;
+import com.baidu.tieba.e65;
+import com.baidu.tieba.g75;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements q65 {
+public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements g75 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public String o;
     public String p;
-    public o55 q;
-    public o55 r;
+    public e65 q;
+    public e65 r;
     public View.OnClickListener s;
     public boolean t;
 
-    @Override // com.baidu.tieba.q65
+    @Override // com.baidu.tieba.g75
     public void a(View view2) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048576, this, view2) == null) {
         }
     }
 
-    @Override // com.baidu.tieba.q65
+    @Override // com.baidu.tieba.g75
     public void c(int i) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i) == null) {
@@ -105,7 +105,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements q6
         init();
     }
 
-    @Override // com.baidu.tieba.q65
+    @Override // com.baidu.tieba.g75
     public void b(boolean z, int i, boolean z2) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -118,7 +118,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements q6
         }
     }
 
-    @Override // com.baidu.tieba.q65
+    @Override // com.baidu.tieba.g75
     public void d(boolean z, int i) {
         View.OnClickListener onClickListener;
         Interceptable interceptable = $ic;
@@ -130,7 +130,7 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements q6
         }
     }
 
-    @Override // com.baidu.tieba.q65
+    @Override // com.baidu.tieba.g75
     public void e(View.OnClickListener onClickListener) {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeL(1048580, this, onClickListener) == null) {
@@ -171,15 +171,15 @@ public class PbFirstFloorUserLikeButton extends TBSpecificationBtn implements q6
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048581, this) == null) {
             this.o = TbadkCoreApplication.getInst().getString(R.string.relate_forum_is_followed);
-            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b9);
+            this.p = TbadkCoreApplication.getInst().getString(R.string.obfuscated_res_0x7f0f02b7);
             setTextSize(R.dimen.T_X08);
             setText(this.p);
-            o55 o55Var = new o55();
-            this.q = o55Var;
-            o55Var.t(R.color.CAM_X0304);
-            o55 o55Var2 = new o55();
-            this.r = o55Var2;
-            o55Var2.v(R.color.CAM_X0109);
+            e65 e65Var = new e65();
+            this.q = e65Var;
+            e65Var.t(R.color.CAM_X0304);
+            e65 e65Var2 = new e65();
+            this.r = e65Var2;
+            e65Var2.v(R.color.CAM_X0109);
             setConfig(this.q);
         }
     }

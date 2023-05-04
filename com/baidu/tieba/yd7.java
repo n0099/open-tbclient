@@ -1,71 +1,35 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.listener.CustomMessageListener;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
 import com.baidu.adp.lib.util.StringUtils;
+import com.baidu.tbadk.TbPageContext;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.frs.FrsFragment;
+import com.baidu.tbadk.core.data.AntiData;
+import com.baidu.tbadk.core.data.BlockPopInfoData;
+import com.baidu.tbadk.core.dialog.BdToast;
+import com.baidu.tbadk.core.util.StringHelper;
+import com.baidu.tbadk.core.util.UrlManager;
+import com.baidu.tbadk.core.util.ViewHelper;
 import com.baidu.tieba.tbadkCore.FrsViewData;
+import com.baidu.tieba.u05;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
+import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes7.dex */
-public class yd7 extends ge7 {
+public class yd7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final CustomMessageListener h;
-    public final z8 i;
-    public final z8 j;
 
     /* loaded from: classes7.dex */
-    public class a extends CustomMessageListener {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yd7 a;
-
-        /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-        public a(yd7 yd7Var, int i) {
-            super(i);
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yd7Var, Integer.valueOf(i)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i2 = newInitContext.flag;
-                if ((i2 & 1) != 0) {
-                    int i3 = i2 & 2;
-                    super(((Integer) newInitContext.callArgs[0]).intValue());
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yd7Var;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.adp.framework.listener.MessageListener
-        public void onMessage(CustomResponsedMessage<?> customResponsedMessage) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, customResponsedMessage) == null) && customResponsedMessage != null && (customResponsedMessage.getData() instanceof al9)) {
-                this.a.b((al9) customResponsedMessage.getData());
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b extends z8 {
+    public static class a implements u05.e {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
 
-        public b(yd7 yd7Var) {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yd7Var};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -76,121 +40,121 @@ public class yd7 extends ge7 {
             }
         }
 
-        @Override // com.baidu.tieba.z8
-        public void c(Object obj) {
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048576, this, obj) == null) && (obj instanceof Boolean)) {
-                ((Boolean) obj).booleanValue();
-            }
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class c extends z8 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ yd7 a;
-
-        public c(yd7 yd7Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {yd7Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = yd7Var;
-        }
-
-        @Override // com.baidu.tieba.z8
-        public void c(Object obj) {
-            boolean z;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, obj) == null) {
-                if (obj instanceof Boolean) {
-                    z = ((Boolean) obj).booleanValue();
-                } else {
-                    z = false;
-                }
-                if (!z) {
-                    this.a.b.refresh();
-                }
-            }
-        }
-    }
-
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public yd7(FrsFragment frsFragment) {
-        super(frsFragment);
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {frsFragment};
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((FrsFragment) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+            if ((interceptable != null && interceptable.invokeL(1048576, this, u05Var) != null) || u05Var == null) {
                 return;
             }
+            u05Var.dismiss();
         }
-        this.h = new a(this, 2001266);
-        this.i = new b(this);
-        this.j = new c(this);
-        frsFragment.registerListener(this.h);
     }
 
-    public final void b(al9 al9Var) {
-        boolean z;
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048576, this, al9Var) != null) || al9Var == null) {
-            return;
+    /* loaded from: classes7.dex */
+    public static class b implements u05.e {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ TbPageContext a;
+        public final /* synthetic */ BlockPopInfoData b;
+
+        public b(TbPageContext tbPageContext, BlockPopInfoData blockPopInfoData) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {tbPageContext, blockPopInfoData};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.a = tbPageContext;
+            this.b = blockPopInfoData;
         }
-        FrsViewData a1 = this.b.a1();
-        if (this.e != null && this.d != null && this.a != null && a1 != null && a1.getForum() != null && al9Var.g() != null) {
-            if (al9Var.n() == 1) {
-                z = true;
+
+        @Override // com.baidu.tieba.u05.e
+        public void onClick(u05 u05Var) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeL(1048576, this, u05Var) == null) {
+                UrlManager.getInstance().dealOneLink(this.a, new String[]{this.b.ahead_url});
+                if (u05Var == null) {
+                    return;
+                }
+                u05Var.dismiss();
+            }
+        }
+    }
+
+    public static boolean a(TbPageContext<?> tbPageContext, FrsViewData frsViewData) {
+        InterceptResult invokeLL;
+        String fixedText;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(65536, null, tbPageContext, frsViewData)) == null) {
+            if (tbPageContext != null && frsViewData != null) {
+                if (!ViewHelper.checkUpIsLogin(tbPageContext.getPageActivity())) {
+                    return true;
+                }
+                AntiData anti = frsViewData.getAnti();
+                if (anti != null) {
+                    if (b(tbPageContext, anti.getBlock_stat(), anti.mFrsForbidenDialogInfo)) {
+                        return true;
+                    }
+                    if (anti.getIfpost() == 0 && !StringUtils.isNull(anti.getForbid_info())) {
+                        String forbid_info = anti.getForbid_info();
+                        if (StringHelper.getRealSize(forbid_info) > 14) {
+                            forbid_info = StringHelper.getFixedText(forbid_info, 7, false) + "\n" + forbid_info.substring(fixedText.length());
+                        }
+                        BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), forbid_info);
+                        b2.g(BdToast.ToastIcon.FAILURE);
+                        b2.e(1.25f);
+                        b2.o();
+                    }
+                }
+            }
+            return false;
+        }
+        return invokeLL.booleanValue;
+    }
+
+    public static boolean b(TbPageContext<?> tbPageContext, int i, BlockPopInfoData blockPopInfoData) {
+        InterceptResult invokeLIL;
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLIL = interceptable.invokeLIL(65537, null, tbPageContext, i, blockPopInfoData)) == null) {
+            if (blockPopInfoData == null || blockPopInfoData.can_post.intValue() == 1 || !TbadkCoreApplication.isLogin()) {
+                return false;
+            }
+            if (StringUtils.isNull(blockPopInfoData.block_info)) {
+                str = tbPageContext.getResources().getString(R.string.obfuscated_res_0x7f0f0747);
             } else {
-                z = false;
+                str = blockPopInfoData.block_info;
             }
-            if (al9Var.g().equals(a1.getForum().getId())) {
-                a1.getForum().setLike(al9Var.n());
-                if (!StringUtils.isNULL(al9Var.h())) {
-                    a1.getForum().setLevelName(al9Var.h());
-                }
-                if (al9Var.m() >= 0) {
-                    a1.getForum().setUser_level(al9Var.m());
-                }
-                if (z) {
-                    this.d.A0(a1, false);
-                    TbadkCoreApplication.getInst().addLikeForum(this.b.v());
-                    return;
-                }
-                gk9.i().n(this.b.v(), false);
-                a1.getForum().setLike(0);
-                this.d.D0();
-                TbadkCoreApplication.getInst().delLikeForum(this.b.v());
-                return;
+            if (i != 1 && i != 2) {
+                BdToast b2 = BdToast.b(tbPageContext.getPageActivity(), str);
+                b2.g(BdToast.ToastIcon.FAILURE);
+                b2.e(1.25f);
+                b2.o();
+                return false;
             }
-            if (al9Var.n() == 1) {
-                a1.deleteLikeFeedForum(al9Var.g());
-                this.d.m0(a1);
-                this.c.d(a1, this.e.l0());
+            u05 u05Var = new u05(tbPageContext.getPageActivity());
+            u05Var.setMessage(StringHelper.getFixedText(str, 50, true));
+            if (StringUtils.isNull(blockPopInfoData.ok_info)) {
+                str2 = tbPageContext.getResources().getString(R.string.group_create_private_isee);
+            } else {
+                str2 = blockPopInfoData.ok_info;
             }
-            if (a1.getForum().getBannerListData() != null) {
-                a1.getForum().getBannerListData().setFeedForumLiked(al9Var.g(), al9Var.n());
+            u05Var.setNegativeButton(StringHelper.getFixedText(str2, 4, true), new a());
+            if (!StringUtils.isNull(blockPopInfoData.ahead_info) && !StringUtils.isNull(blockPopInfoData.ahead_url)) {
+                u05Var.setPositiveButton(StringHelper.getFixedText(blockPopInfoData.ahead_info, 4, true), new b(tbPageContext, blockPopInfoData));
             }
-            this.a.Q0();
+            u05Var.create(tbPageContext).show();
+            return true;
         }
+        return invokeLIL.booleanValue;
     }
 }

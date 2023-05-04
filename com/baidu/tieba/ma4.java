@@ -1,11 +1,14 @@
 package com.baidu.tieba;
 
+import android.net.Uri;
 import android.text.TextUtils;
 import android.util.Log;
 import androidx.annotation.NonNull;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.searchbox.v8engine.JsObject;
+import com.baidu.cyberplayer.sdk.videodownload.CyberVideoDownloader;
+import com.baidu.searchbox.common.runtime.AppRuntime;
+import com.baidu.searchbox.http.callback.StringResponseCallback;
+import com.baidu.searchbox.retrieve.inter.constants.StatConstants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -13,31 +16,108 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.CookieManager;
-import com.yy.hiidostatis.defs.obj.ParamableElem;
-import java.util.HashMap;
-import java.util.Locale;
-import java.util.Map;
-import okhttp3.internal.publicsuffix.PublicSuffixDatabase;
+import java.io.File;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class ma4 {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
+    public static String b;
+    public static String c;
+    public static String d;
+    public static String e;
+    public static String f;
+    public static String g;
+    public static String h;
+    public static String i;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a implements om3<vc3> {
+    public static class a extends StringResponseCallback {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ c02 a;
-        public final /* synthetic */ String b;
 
-        public a(c02 c02Var, String str) {
+        public a() {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                }
+            }
+        }
+
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(String str, int i) {
+            JSONObject optJSONObject;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLI(1048576, this, str, i) == null) {
+                if (200 == i && !TextUtils.isEmpty(str)) {
+                    try {
+                        if (ma4.a) {
+                            Log.d("SwanGameRevisitUtils", "回访引导配置信息 = " + str);
+                        }
+                        JSONObject jSONObject = new JSONObject(str);
+                        if (jSONObject.optInt("errno") == 0 && (optJSONObject = jSONObject.optJSONObject("data")) != null && optJSONObject.length() != 0) {
+                            JSONArray optJSONArray = optJSONObject.optJSONArray(ma4.i);
+                            if (optJSONArray != null) {
+                                lg3.a().putString(ma4.i, optJSONArray.toString());
+                            }
+                            String optString = optJSONObject.optString("version");
+                            if (TextUtils.isEmpty(optString)) {
+                                return;
+                            }
+                            JSONObject c = ma4.c();
+                            if (c != null) {
+                                if (TextUtils.equals(c.optString("version"), ma4.p(optString))) {
+                                    ma4.k(c);
+                                    return;
+                                }
+                                ma4.i(optJSONObject, c);
+                                ma4.j(optJSONObject, c);
+                                ma4.r(optJSONObject);
+                                return;
+                            }
+                            ma4.r(optJSONObject);
+                        }
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+                } else if (ma4.a) {
+                    Log.e("SwanGameRevisitUtils", "回访引导配置信息下发异常");
+                }
+            }
+        }
+
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) && ma4.a) {
+                Log.e("SwanGameRevisitUtils", "请求配置信息失败，err = " + exc.getMessage());
+            }
+        }
+    }
+
+    /* loaded from: classes5.dex */
+    public static class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ JSONObject a;
+
+        public b(JSONObject jSONObject) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {c02Var, str};
+                Object[] objArr = {jSONObject};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -47,21 +127,20 @@ public class ma4 {
                     return;
                 }
             }
-            this.a = c02Var;
-            this.b = str;
+            this.a = jSONObject;
         }
 
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.om3
-        /* renamed from: b */
-        public void a(vc3 vc3Var) {
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, vc3Var) == null) {
-                if (vc3Var == null || vc3Var.d || vc3Var.j != 1) {
-                    ma4.c(this.a, "system deny");
-                } else {
-                    ma4.e(this.a, this.b);
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                try {
+                    this.a.put("version", ma4.p(this.a.optString("version")));
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
+                lg3.a().putString("swan_game_guide_toast", this.a.toString());
+                ma4.k(this.a);
             }
         }
     }
@@ -79,66 +158,189 @@ public class ma4 {
                 return;
             }
         }
-        a = fo1.a;
+        a = ho1.a;
+        b = "bbaspg_guide_";
+        c = "custom_guide_list";
+        d = "appid";
+        e = "shown_count";
+        f = "image_index";
+        g = "last_time";
+        h = "reset";
+        i = "duration_permission_list";
     }
 
-    public static void c(c02 c02Var, String str) {
+    public static JSONObject n() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65539, null, c02Var, str) == null) {
-            e24 e24Var = new e24();
-            e24Var.errMsg = str;
-            ha4.call(c02Var, false, e24Var);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65550, null)) == null) {
+            String string = lg3.a().getString("swan_game_guide_toast", "");
+            if (TextUtils.isEmpty(string)) {
+                return null;
+            }
+            try {
+                return new JSONObject(string);
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+                return null;
+            }
         }
+        return (JSONObject) invokeV.objValue;
     }
 
-    public static void d(JsObject jsObject) {
-        c02 F;
+    public static /* synthetic */ JSONObject c() {
+        return n();
+    }
+
+    public static String l() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, jsObject) != null) || (F = c02.F(jsObject)) == null) {
-            return;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
+            return n44.d() + File.separator + "guide_res";
         }
-        v73 b0 = v73.b0();
-        if (b0 == null) {
-            c(F, "internal error");
-            return;
-        }
-        String C = F.C("domain", PublicSuffixDatabase.BAIDU_TLD_PLUS_ONE);
-        if (a) {
-            Log.i("SwanGameUuapApi", "getUUAPInfo-domain: " + C);
-        }
-        b0.e0().e("mapp_uuap_info", new a(F, C));
+        return (String) invokeV.objValue;
     }
 
     @NonNull
-    public static Map<String, String> f(@NonNull String str) {
+    public static String o(@NonNull String str) {
         InterceptResult invokeL;
-        String[] split;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, str)) == null) {
-            HashMap hashMap = new HashMap();
-            for (String str2 : str.split(ParamableElem.DIVIDE_PARAM)) {
-                if (str2 != null && str2.contains("=")) {
-                    int indexOf = str2.indexOf("=");
-                    hashMap.put(str2.substring(0, indexOf).trim().toUpperCase(Locale.US), str2.substring(indexOf + 1));
-                }
-            }
-            return hashMap;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65551, null, str)) == null) {
+            return l() + File.separator + str;
         }
-        return (Map) invokeL.objValue;
+        return (String) invokeL.objValue;
     }
 
-    public static void e(c02 c02Var, String str) {
+    public static String p(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65541, null, c02Var, str) == null) {
-            na4 na4Var = new na4();
-            String cookie = CookieManager.getInstance().getCookie(str);
-            if (!TextUtils.isEmpty(cookie)) {
-                Map<String, String> f = f(cookie);
-                na4Var.uuap_p_token = f.get("UUAP_P_TOKEN");
-                na4Var.uuap_p_token_offline = f.get("UUAP_P_TOKEN_OFFLINE");
-                na4Var.uuap_s_token = f.get("UUAP_S_TOKEN");
-            }
-            ha4.call(c02Var, true, na4Var);
+        if (interceptable == null || (invokeL = interceptable.invokeL(65552, null, str)) == null) {
+            return rl3.D() + "-" + str;
         }
+        return (String) invokeL.objValue;
+    }
+
+    public static void i(JSONObject jSONObject, JSONObject jSONObject2) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65545, null, jSONObject, jSONObject2) == null) && jSONObject != null && jSONObject2 != null) {
+            try {
+                String optString = jSONObject.optString(b + h, "0");
+                jSONObject2.optString(b + h, "-1");
+                if (TextUtils.equals(optString, "1")) {
+                    jSONObject.put(b + e, 0);
+                    jSONObject.put(b + g, 0);
+                    jSONObject.put(b + f, 0);
+                } else {
+                    jSONObject.put(b + e, jSONObject2.optInt(b + e, 0));
+                    jSONObject.put(b + g, jSONObject2.optLong(b + g, 0L));
+                }
+            } catch (JSONException e2) {
+                if (a) {
+                    e2.printStackTrace();
+                }
+            }
+        }
+    }
+
+    public static void j(JSONObject jSONObject, JSONObject jSONObject2) {
+        JSONArray optJSONArray;
+        JSONArray optJSONArray2;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65546, null, jSONObject, jSONObject2) == null) && jSONObject != null && jSONObject2 != null && (optJSONArray = jSONObject2.optJSONArray(c)) != null && optJSONArray.length() > 0 && (optJSONArray2 = jSONObject.optJSONArray(c)) != null && optJSONArray2.length() > 0) {
+            int length = optJSONArray2.length();
+            for (int i2 = 0; i2 < length; i2++) {
+                JSONObject optJSONObject = optJSONArray2.optJSONObject(i2);
+                String optString = optJSONObject.optString(d, "");
+                String optString2 = optJSONObject.optString(h, "0");
+                int length2 = optJSONArray.length();
+                int i3 = 0;
+                while (true) {
+                    if (i3 < length2) {
+                        JSONObject optJSONObject2 = optJSONArray2.optJSONObject(i3);
+                        String optString3 = optJSONObject2.optString(d, "-1");
+                        String optString4 = optJSONObject2.optString(h, "0");
+                        if (TextUtils.equals(optString3, optString)) {
+                            try {
+                                if (!TextUtils.equals(optString4, optString2)) {
+                                    optJSONObject.put(e, "0");
+                                    optJSONObject.put(g, "0");
+                                    optJSONObject.put(f, "0");
+                                } else {
+                                    optJSONObject.put(e, jSONObject2.optString(e, "0"));
+                                    optJSONObject.put(g, jSONObject2.optString(g, "0"));
+                                    optJSONObject.put(f, jSONObject2.optString(f, "0"));
+                                }
+                            } catch (JSONException e2) {
+                                if (a) {
+                                    e2.printStackTrace();
+                                }
+                            }
+                        } else {
+                            i3++;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    public static void k(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(65547, null, jSONObject) == null) && jSONObject != null) {
+            if (!TextUtils.isEmpty(jSONObject.optString(b + StatConstants.VALUE_TYPE_ZIP))) {
+                String optString = jSONObject.optString(b + StatConstants.VALUE_TYPE_ZIP);
+                String m = m(optString);
+                if (TextUtils.isEmpty(m)) {
+                    return;
+                }
+                File file = new File(o(m));
+                if (file.exists() && file.isDirectory() && file.length() > 0) {
+                    if (a) {
+                        Log.d("SwanGameRevisitUtils", optString + " 资源文件夹已存在");
+                        return;
+                    }
+                    return;
+                }
+                bo4.L(file);
+                o44.f().b(AppRuntime.getAppContext(), optString, m, l());
+            }
+        }
+    }
+
+    public static String m(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65549, null, str)) == null) {
+            if (TextUtils.isEmpty(str)) {
+                return null;
+            }
+            String lastPathSegment = Uri.parse(str).getLastPathSegment();
+            if (TextUtils.isEmpty(lastPathSegment) || !lastPathSegment.contains(".zip")) {
+                return null;
+            }
+            return lastPathSegment.replace(".zip", "");
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public static void r(JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(65554, null, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        if (a) {
+            Log.d("SwanGameRevisitUtils", "回访引导配置信息存入 = " + jSONObject);
+        }
+        rk3.k(new b(jSONObject), "swanGameGuideUpdateRunnable");
+    }
+
+    public static void q() {
+        x73 M;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(65553, null) != null) || (M = x73.M()) == null) {
+            return;
+        }
+        M.i0().getRequest().url(o44.b().t()).cookieManager(er2.q().a()).requestFrom(16).requestFrom(CyberVideoDownloader.DMDownloadError.Sys05).build().executeAsync(new a());
     }
 }

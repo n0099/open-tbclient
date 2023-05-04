@@ -14,8 +14,8 @@ import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tieba.R;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.pc7;
-import com.baidu.tieba.qc7;
+import com.baidu.tieba.ke7;
+import com.baidu.tieba.le7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -25,7 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 import tbclient.FrsPage.LiveFuseForumData;
 /* loaded from: classes4.dex */
-public class HeaderComponentMultiView extends FrameLayout implements qc7 {
+public class HeaderComponentMultiView extends FrameLayout implements le7 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public View a;
@@ -33,7 +33,7 @@ public class HeaderComponentMultiView extends FrameLayout implements qc7 {
     public List<LiveFuseForumData> c;
     public HeaderComponentMultiAdapter d;
 
-    @Override // com.baidu.tieba.qc7
+    @Override // com.baidu.tieba.le7
     public View getView() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
@@ -108,19 +108,19 @@ public class HeaderComponentMultiView extends FrameLayout implements qc7 {
         c();
     }
 
-    @Override // com.baidu.tieba.qc7
-    public void a(List<LiveFuseForumData> list, pc7 pc7Var) {
+    @Override // com.baidu.tieba.le7
+    public void a(List<LiveFuseForumData> list, ke7 ke7Var) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, pc7Var) != null) || ListUtils.isEmpty(list)) {
+        if ((interceptable != null && interceptable.invokeLL(1048576, this, list, ke7Var) != null) || ListUtils.isEmpty(list)) {
             return;
         }
-        this.d.m(pc7Var);
+        this.d.m(ke7Var);
         this.c.clear();
         this.c.addAll(list);
         this.d.notifyDataSetChanged();
     }
 
-    @Override // com.baidu.tieba.qc7
+    @Override // com.baidu.tieba.le7
     public void b() {
         HeaderComponentMultiAdapter headerComponentMultiAdapter;
         Interceptable interceptable = $ic;
@@ -133,10 +133,10 @@ public class HeaderComponentMultiView extends FrameLayout implements qc7 {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
             int l = ii.l(getContext());
-            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d0338, (ViewGroup) null);
+            View inflate = LayoutInflater.from(getContext()).inflate(R.layout.obfuscated_res_0x7f0d033b, (ViewGroup) null);
             this.a = inflate;
             addView(inflate);
-            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090750);
+            RecyclerView recyclerView = (RecyclerView) this.a.findViewById(R.id.obfuscated_res_0x7f090753);
             this.b = recyclerView;
             recyclerView.getLayoutParams().width = l;
             this.b.setLayoutManager(new LinearLayoutManager(getContext(), 0, false));

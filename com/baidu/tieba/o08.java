@@ -1,21 +1,24 @@
 package com.baidu.tieba;
 
-import com.baidu.adp.framework.message.CustomMessage;
-import com.baidu.adp.framework.message.CustomResponsedMessage;
-import com.baidu.adp.framework.task.CustomMessageTask;
-import com.baidu.adp.lib.util.BdLog;
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.squareup.wire.Wire;
-import tbclient.Bigvip.BigvipResIdl;
-import tbclient.Bigvip.UserInfoBigVip;
+import java.util.ArrayList;
+import java.util.List;
+import org.json.JSONArray;
+import org.json.JSONObject;
 /* loaded from: classes5.dex */
-public class o08 implements CustomMessageTask.CustomRunnable<Object> {
+public class o08 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public List<p08> a;
+    public List<p08> b;
 
     public o08() {
         Interceptable interceptable = $ic;
@@ -31,32 +34,51 @@ public class o08 implements CustomMessageTask.CustomRunnable<Object> {
         }
     }
 
-    @Override // com.baidu.adp.framework.task.CustomMessageTask.CustomRunnable
-    public CustomResponsedMessage<?> run(CustomMessage<Object> customMessage) {
-        InterceptResult invokeL;
+    @NonNull
+    public List<p08> a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, customMessage)) == null) {
-            UserInfoBigVip userInfoBigVip = null;
-            if (customMessage != null && (customMessage.getData() instanceof Long)) {
-                long longValue = ((Long) customMessage.getData()).longValue();
-                c05.d();
-                me<byte[]> b = c05.b("tb.im_recommend_detail");
-                if (b == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
-                }
-                byte[] bArr = b.get(longValue + "");
-                if (bArr == null) {
-                    return new CustomResponsedMessage<>(2001306, null);
-                }
-                try {
-                    userInfoBigVip = ((BigvipResIdl) new Wire(new Class[0]).parseFrom(bArr, BigvipResIdl.class)).data.user_info;
-                } catch (Exception e) {
-                    BdLog.e(e);
-                }
-                return new CustomResponsedMessage<>(2001306, userInfoBigVip);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            ArrayList arrayList = new ArrayList();
+            if (!ListUtils.isEmpty(this.a)) {
+                arrayList.addAll(this.a);
             }
-            return new CustomResponsedMessage<>(2001306, null);
+            if (!ListUtils.isEmpty(this.b)) {
+                arrayList.addAll(this.b);
+            }
+            return arrayList;
         }
-        return (CustomResponsedMessage) invokeL.objValue;
+        return (List) invokeV.objValue;
+    }
+
+    public void b(@Nullable JSONObject jSONObject) {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, jSONObject) != null) || jSONObject == null) {
+            return;
+        }
+        this.a = c(jSONObject, "tieba_memes");
+        this.b = c(jSONObject, "outer_memes");
+    }
+
+    @Nullable
+    public final List<p08> c(@NonNull JSONObject jSONObject, @NonNull String str) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, jSONObject, str)) == null) {
+            JSONArray optJSONArray = jSONObject.optJSONArray(str);
+            if (optJSONArray != null && optJSONArray.length() > 0) {
+                ArrayList arrayList = new ArrayList();
+                for (int i = 0; i < optJSONArray.length(); i++) {
+                    p08 p08Var = new p08();
+                    p08Var.a(optJSONArray.optJSONObject(i));
+                    if (p08Var.isValid()) {
+                        arrayList.add(p08Var);
+                    }
+                }
+                return arrayList;
+            }
+            return null;
+        }
+        return (List) invokeLL.objValue;
     }
 }

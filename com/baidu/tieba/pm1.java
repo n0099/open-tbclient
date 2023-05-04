@@ -1,89 +1,119 @@
 package com.baidu.tieba;
 
+import android.content.Context;
+import android.text.TextUtils;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.security.SecureRandom;
-import javax.crypto.Cipher;
-import javax.crypto.spec.IvParameterSpec;
-import javax.crypto.spec.SecretKeySpec;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
 /* loaded from: classes5.dex */
-public final class pm1 {
+public class pm1 {
     public static /* synthetic */ Interceptable $ic;
+    public static String b;
     public transient /* synthetic */ FieldHolder $fh;
+    public String a;
 
-    public static byte[] a() {
+    public pm1(Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {context};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
+            }
+        }
+        this.a = rl1.a;
+    }
+
+    public static synchronized pm1 a(Context context) {
+        InterceptResult invokeL;
+        pm1 pm1Var;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, context)) == null) {
+            synchronized (pm1.class) {
+                pm1Var = new pm1(context);
+            }
+            return pm1Var;
+        }
+        return (pm1) invokeL.objValue;
+    }
+
+    public String b(String str, String str2) {
+        InterceptResult invokeLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, str2)) == null) {
+            String str3 = pl1.b;
+            String str4 = pl1.c;
+            String str5 = "";
+            if (TextUtils.isEmpty(str3) || TextUtils.isEmpty(str4)) {
+                return "";
+            }
+            long currentTimeMillis = System.currentTimeMillis() / 1000;
+            StringBuilder sb = new StringBuilder();
+            try {
+                str5 = c(str3, str4, currentTimeMillis);
+            } catch (Throwable th) {
+                gn1.d(th);
+            }
+            sb.append(e());
+            sb.append(str);
+            sb.append("/");
+            sb.append("100");
+            sb.append("/");
+            sb.append(str3);
+            sb.append("/");
+            sb.append(currentTimeMillis);
+            sb.append("/");
+            sb.append(str5);
+            sb.append("?skey=");
+            sb.append(str2);
+            return sb.toString();
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String c(String str, String str2, long j) {
+        InterceptResult invokeCommon;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{str, str2, Long.valueOf(j)})) == null) {
+            try {
+                return ln1.b(str + j + str2);
+            } catch (Throwable th) {
+                gn1.d(th);
+                return "";
+            }
+        }
+        return (String) invokeCommon.objValue;
+    }
+
+    public final void d() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            try {
+                b = new String(en1.b(this.a));
+            } catch (Throwable th) {
+                gn1.d(th);
+            }
+        }
+    }
+
+    public final String e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65536, null)) == null) {
-            char[] cArr = new char[32];
-            try {
-                char[] charArray = "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
-                for (int i = 0; i < 32; i++) {
-                    int nextInt = new SecureRandom().nextInt(62);
-                    if (nextInt >= 0 && nextInt < charArray.length) {
-                        cArr[i] = charArray[nextInt];
-                    }
-                }
-            } catch (Throwable th) {
-                en1.d(th);
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            if (TextUtils.isEmpty(b)) {
+                d();
             }
-            return new String(cArr).getBytes();
+            return b;
         }
-        return (byte[]) invokeV.objValue;
-    }
-
-    public static byte[] b(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65537, null, bArr, bArr2)) == null) {
-            if (bArr != null) {
-                try {
-                    if (bArr.length == 32 && bArr2 != null && bArr2.length != 0) {
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                        byte[] bArr3 = new byte[16];
-                        System.arraycopy(bArr, 8, bArr3, 0, 16);
-                        cipher.init(2, secretKeySpec, new IvParameterSpec(bArr3));
-                        byte[] bArr4 = new byte[bArr2.length - 16];
-                        System.arraycopy(bArr2, 0, bArr4, 0, bArr2.length - 16);
-                        return cipher.doFinal(bArr4);
-                    }
-                } catch (Throwable th) {
-                    en1.d(th);
-                    return null;
-                }
-            }
-            return bArr2;
-        }
-        return (byte[]) invokeLL.objValue;
-    }
-
-    public static om1 c(byte[] bArr, byte[] bArr2) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, bArr, bArr2)) == null) {
-            if (bArr2 != null) {
-                try {
-                    if (bArr2.length != 0) {
-                        SecretKeySpec secretKeySpec = new SecretKeySpec(bArr, "AES");
-                        Cipher cipher = Cipher.getInstance(com.kuaishou.weapon.p0.b.c);
-                        byte[] bArr3 = new byte[16];
-                        System.arraycopy(bArr, 8, bArr3, 0, 16);
-                        cipher.init(1, secretKeySpec, new IvParameterSpec(bArr3));
-                        byte[] doFinal = cipher.doFinal(bArr2);
-                        byte[] e = jn1.e(bArr2);
-                        byte[] bArr4 = new byte[doFinal.length + e.length];
-                        System.arraycopy(doFinal, 0, bArr4, 0, doFinal.length);
-                        System.arraycopy(e, 0, bArr4, doFinal.length, e.length);
-                        return new om1(bArr, bArr4);
-                    }
-                } catch (Throwable th) {
-                    en1.d(th);
-                }
-            }
-            return null;
-        }
-        return (om1) invokeLL.objValue;
+        return (String) invokeV.objValue;
     }
 }

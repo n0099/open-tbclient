@@ -1,50 +1,58 @@
 package com.baidu.tieba;
 
-import com.baidu.android.imsdk.internal.Constants;
+import android.util.ArrayMap;
+import com.baidu.adp.lib.util.BdNetTypeUtil;
+import com.baidu.searchbox.launch.stats.SpeedStatsManager;
+import com.baidu.tbadk.core.util.StatisticItem;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.switchs.BdNetSwitch;
+import com.baidu.tbadk.switchs.PBCacheBlockSwitch;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.ArrayList;
-import java.util.List;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Map;
 /* loaded from: classes5.dex */
-public abstract class ki9 {
+public class ki9 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Map<String, Long> a;
     public transient /* synthetic */ FieldHolder $fh;
-    public final List<hi9> a;
 
-    public ki9() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947914190, "Lcom/baidu/tieba/ki9;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947914190, "Lcom/baidu/tieba/ki9;");
                 return;
             }
         }
-        this.a = new ArrayList();
+        a = new ArrayMap();
     }
 
-    public final List<hi9> b() {
-        InterceptResult invokeV;
+    public static void a(String str, boolean z) {
+        Long remove;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
-            return this.a;
+        if ((interceptable != null && interceptable.invokeLZ(65537, null, str, z) != null) || (remove = a.remove(str)) == null) {
+            return;
         }
-        return (List) invokeV.objValue;
+        StatisticItem addParam = new StatisticItem("shoubai_http_net_test").addParam("obj_name", str).addParam("obj_type", BdNetTypeUtil.getNetType());
+        StatisticItem addParam2 = addParam.addParam("obj_source", BdNetSwitch.getIsOn() + " " + PBCacheBlockSwitch.getIsOn());
+        StringBuilder sb = new StringBuilder();
+        sb.append(z);
+        sb.append("");
+        TiebaStatic.log(addParam2.addParam("obj_param1", sb.toString()).addParam(TiebaStatic.Params.OBJ_PARAM2, SpeedStatsManager.getInstance().getDurationWithoutAD(remove.longValue(), System.currentTimeMillis())));
     }
 
-    public final void a(hi9 action) {
+    public static void b(String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048576, this, action) == null) {
-            Intrinsics.checkNotNullParameter(action, "action");
-            this.a.add(action);
+        if (interceptable == null || interceptable.invokeL(65538, null, str) == null) {
+            a.put(str, Long.valueOf(System.currentTimeMillis()));
         }
     }
 }

@@ -11,10 +11,10 @@ import com.baidu.tbadk.baseEditMark.MarkData;
 import com.baidu.tbadk.core.BaseFragmentActivity;
 import com.baidu.tbadk.core.util.NetWork;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.at4;
-import com.baidu.tieba.f45;
-import com.baidu.tieba.fo8;
-import com.baidu.tieba.ho8;
+import com.baidu.tieba.ct4;
+import com.baidu.tieba.oq8;
+import com.baidu.tieba.qq8;
+import com.baidu.tieba.u45;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -27,7 +27,7 @@ public class MarkModel extends BdBaseModel {
     public boolean a;
     public MarkData b;
     public a c;
-    public at4.a d;
+    public ct4.a d;
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean loadData() {
@@ -45,7 +45,7 @@ public class MarkModel extends BdBaseModel {
         public transient /* synthetic */ FieldHolder $fh;
         public NetWork a;
         public boolean b;
-        public ho8 c;
+        public qq8 c;
         public final /* synthetic */ MarkModel d;
 
         @Override // com.baidu.adp.lib.asyncTask.BdAsyncTask
@@ -75,7 +75,7 @@ public class MarkModel extends BdBaseModel {
             this.b = true;
             this.c = null;
             this.b = z;
-            this.c = new ho8();
+            this.c = new qq8();
         }
 
         /* JADX DEBUG: Method merged with bridge method */
@@ -88,9 +88,9 @@ public class MarkModel extends BdBaseModel {
                 boolean z = false;
                 if (this.b) {
                     this.a = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_ADDSTORE);
-                    fo8 fo8Var = new fo8();
-                    fo8Var.j(this.d.b);
-                    this.a.addPostData("data", fo8Var.E(0, 1));
+                    oq8 oq8Var = new oq8();
+                    oq8Var.j(this.d.b);
+                    this.a.addPostData("data", oq8Var.E(0, 1));
                 } else {
                     NetWork netWork = new NetWork(TbConfig.SERVER_ADDRESS + TbConfig.MARK_DELSTORE);
                     this.a = netWork;
@@ -118,7 +118,7 @@ public class MarkModel extends BdBaseModel {
             if (interceptable == null || interceptable.invokeL(1048579, this, bool) == null) {
                 try {
                     if (this.c != null) {
-                        f45.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
+                        u45.a("collection", 0L, 0, "add_collection_thread", this.c.a(), this.c.b(), new Object[0]);
                     }
                     if (bool.booleanValue()) {
                         if (this.d.d != null) {
@@ -128,7 +128,7 @@ public class MarkModel extends BdBaseModel {
                         if (this.a != null && !this.a.getNetContext().getResponse().isRequestSuccess()) {
                             this.d.d.a(false, this.b, this.a.getErrorString());
                         } else {
-                            at4.a aVar = this.d.d;
+                            ct4.a aVar = this.d.d;
                             boolean z = this.b;
                             if (this.c != null) {
                                 str = this.c.b();
@@ -209,28 +209,28 @@ public class MarkModel extends BdBaseModel {
         this.b = new MarkData();
     }
 
-    public void Y(boolean z) {
+    public void d0(boolean z) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048581, this, z) == null) {
+        if (interceptable == null || interceptable.invokeZ(1048582, this, z) == null) {
             this.a = z;
         }
     }
 
-    public void Z(MarkData markData) {
+    public void e0(MarkData markData) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048582, this, markData) == null) {
+        if (interceptable == null || interceptable.invokeL(1048583, this, markData) == null) {
             this.b = markData;
         }
     }
 
-    public void a0(at4.a aVar) {
+    public void f0(ct4.a aVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048583, this, aVar) == null) {
+        if (interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, aVar) == null) {
             this.d = aVar;
         }
     }
 
-    public void T() {
+    public void Y() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
             a aVar = this.c;
@@ -244,7 +244,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public void U() {
+    public void Z() {
         Interceptable interceptable = $ic;
         if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
             a aVar = this.c;
@@ -258,7 +258,7 @@ public class MarkModel extends BdBaseModel {
         }
     }
 
-    public boolean V() {
+    public boolean a0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
@@ -267,7 +267,7 @@ public class MarkModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public MarkData W() {
+    public MarkData b0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
@@ -276,7 +276,7 @@ public class MarkModel extends BdBaseModel {
         return (MarkData) invokeV.objValue;
     }
 
-    public String X() {
+    public String c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
@@ -293,7 +293,7 @@ public class MarkModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
             a aVar = this.c;
             if (aVar != null) {
                 aVar.cancel();

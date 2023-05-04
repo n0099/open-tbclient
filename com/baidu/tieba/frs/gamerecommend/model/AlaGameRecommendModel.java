@@ -13,8 +13,8 @@ import com.baidu.tbadk.core.util.ListUtils;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.frs.gamerecommend.message.AlaGameRecommendReponseMessage;
 import com.baidu.tieba.in;
-import com.baidu.tieba.wb7;
-import com.baidu.tieba.yb7;
+import com.baidu.tieba.md7;
+import com.baidu.tieba.od7;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -33,7 +33,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public BdUniqueId e;
     public HttpMessageListener f;
     public b g;
-    public yb7 h;
+    public od7 h;
 
     /* loaded from: classes4.dex */
     public interface b {
@@ -46,7 +46,7 @@ public class AlaGameRecommendModel extends BdBaseModel {
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -86,13 +86,13 @@ public class AlaGameRecommendModel extends BdBaseModel {
             if ((interceptable == null || interceptable.invokeL(1048576, this, httpResponsedMessage) == null) && httpResponsedMessage != null && httpResponsedMessage.getCmd() == 1003401 && (httpResponsedMessage instanceof AlaGameRecommendReponseMessage) && httpResponsedMessage.getOrginalMessage().getTag() == this.a.e) {
                 AlaGameRecommendReponseMessage alaGameRecommendReponseMessage = (AlaGameRecommendReponseMessage) httpResponsedMessage;
                 if (!alaGameRecommendReponseMessage.hasError() && alaGameRecommendReponseMessage.getError() == 0) {
-                    wb7 data = alaGameRecommendReponseMessage.getData();
+                    md7 data = alaGameRecommendReponseMessage.getData();
                     if (data == null) {
                         return;
                     }
                     this.a.c = data.a;
                     if (this.a.d) {
-                        AlaGameRecommendModel.X(this.a);
+                        AlaGameRecommendModel.c0(this.a);
                     }
                     this.a.h.c(this.a.b, data);
                     if (this.a.g != null) {
@@ -124,35 +124,35 @@ public class AlaGameRecommendModel extends BdBaseModel {
         this.a = str;
         this.g = bVar;
         this.e = BdUniqueId.gen();
-        this.h = new yb7();
-        Z();
+        this.h = new od7();
+        e0();
         registerListener();
     }
 
-    public static /* synthetic */ int X(AlaGameRecommendModel alaGameRecommendModel) {
+    public static /* synthetic */ int c0(AlaGameRecommendModel alaGameRecommendModel) {
         int i = alaGameRecommendModel.b;
         alaGameRecommendModel.b = i + 1;
         return i;
     }
 
-    public final void Z() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO, TbConfig.SERVER_ADDRESS + "c/f/game/gameForumRecomTab");
-            tbHttpMessageTask.setResponsedClass(AlaGameRecommendReponseMessage.class);
-            MessageManager.getInstance().registerTask(tbHttpMessageTask);
-        }
-    }
-
     public void b() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) && this.c && !this.d) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && !this.d) {
             this.d = true;
             HttpMessage httpMessage = new HttpMessage(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO);
             httpMessage.addParam("forum_id", this.a);
             httpMessage.addParam("recom_pn", this.b + 1);
             httpMessage.setTag(this.e);
             MessageManager.getInstance().sendMessage(httpMessage);
+        }
+    }
+
+    public final void e0() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
+            TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_GET_GAME_RECOMMEND_TAB_INFO, TbConfig.SERVER_ADDRESS + "c/f/game/gameForumRecomTab");
+            tbHttpMessageTask.setResponsedClass(AlaGameRecommendReponseMessage.class);
+            MessageManager.getInstance().registerTask(tbHttpMessageTask);
         }
     }
 
@@ -173,10 +173,10 @@ public class AlaGameRecommendModel extends BdBaseModel {
         return invokeV.booleanValue;
     }
 
-    public boolean d() {
+    public boolean e() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
             return !ListUtils.isEmpty(this.h.a());
         }
         return invokeV.booleanValue;

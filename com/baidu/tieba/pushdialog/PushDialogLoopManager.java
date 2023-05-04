@@ -32,11 +32,11 @@ import com.baidu.tbadk.core.util.StatisticItem;
 import com.baidu.tbadk.core.util.TiebaStatic;
 import com.baidu.tbadk.core.util.UtilHelper;
 import com.baidu.tieba.bb;
-import com.baidu.tieba.id9;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.hg9;
 import com.baidu.tieba.pushdialog.data.PullTidHttpRespMessage;
 import com.baidu.tieba.pushdialog.data.PullTidReqNetMessage;
 import com.baidu.tieba.pushdialog.data.PullTidSocketResponseMessage;
-import com.baidu.tieba.q45;
 import com.baidu.tieba.screenlocknotify.ScreenLockActivity;
 import com.baidu.tieba.w8;
 import com.baidu.tieba.za;
@@ -169,7 +169,7 @@ public class PushDialogLoopManager {
                     return;
                 }
                 this.a.b = str;
-                if (id9.j().d.c()) {
+                if (hg9.j().d.c()) {
                     this.a.c = true;
                 } else {
                     this.a.p(str);
@@ -308,7 +308,7 @@ public class PushDialogLoopManager {
         MessageManager.getInstance().registerListener(new b(this, CmdConfigHttp.CMD_GET_PUSH_DIALOG_TID, 309618));
         MessageManager.getInstance().registerListener(new c(this, 1003));
         MessageManager.getInstance().registerListener(new d(this, 2001371));
-        this.b = q45.m().s("key_push_dialog_last_show_tid", "0");
+        this.b = f55.m().s("key_push_dialog_last_show_tid", "0");
         TbadkCoreApplication.getInst().registerReceiver(new e(null), new IntentFilter("android.intent.action.SCREEN_OFF"));
         this.f = (AlarmManager) TbadkCoreApplication.getInst().getApp().getSystemService(NotificationCompat.CATEGORY_ALARM);
         try {
@@ -365,7 +365,7 @@ public class PushDialogLoopManager {
 
     public final void j() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && id9.j().g() && !this.d) {
+        if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && this.c && hg9.j().g() && !this.d) {
             if (Build.VERSION.SDK_INT >= 21 && this.e) {
                 try {
                     ((JobScheduler) TbadkCoreApplication.getInst().getSystemService("jobscheduler")).schedule(new JobInfo.Builder(29467, new ComponentName(TbadkCoreApplication.getInst(), PushDialogJobService.class)).setMinimumLatency(TbSingleton.getInstance().getPushDialogShowTime()).setOverrideDeadline(TbSingleton.getInstance().getPushDialogShowTime()).setRequiredNetworkType(1).setRequiresCharging(false).setRequiresDeviceIdle(false).build());
@@ -400,7 +400,7 @@ public class PushDialogLoopManager {
 
     public final void p(String str) {
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || id9.j().d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
+        if ((interceptable != null && interceptable.invokeL(1048582, this, str) != null) || hg9.j().d.c() || TbSingleton.getInstance().getLastResumeTime() > UtilHelper.getTodayZeroTime()) {
             return;
         }
         Activity b2 = w8.f().b();
@@ -408,7 +408,7 @@ public class PushDialogLoopManager {
             b2.finish();
         }
         MessageManager.getInstance().sendMessage(new CustomMessage(2002001, new PushDialogActivityConfig(TbadkCoreApplication.getInst(), 0L, str)));
-        q45.m().B("key_push_dialog_last_show_tid", str);
+        f55.m().B("key_push_dialog_last_show_tid", str);
         this.c = false;
     }
 }

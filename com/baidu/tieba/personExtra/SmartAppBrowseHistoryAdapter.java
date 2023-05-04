@@ -58,11 +58,11 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
                 }
             }
             this.a = view2;
-            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f09119a);
+            HeadImageView headImageView = (HeadImageView) view2.findViewById(R.id.obfuscated_res_0x7f0911a8);
             this.b = headImageView;
             headImageView.setIsRound(true);
             this.b.setPlaceHolder(1);
-            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f0925f8);
+            this.c = (TextView) view2.findViewById(R.id.obfuscated_res_0x7f092611);
         }
 
         public void a(SmartApp smartApp) {
@@ -195,7 +195,7 @@ public class SmartAppBrowseHistoryAdapter extends RecyclerView.Adapter<HistoryRe
         InterceptResult invokeLI;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, viewGroup, i)) == null) {
-            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d083d, viewGroup, false));
+            return new HistoryRecordViewHolder(LayoutInflater.from(this.a).inflate(R.layout.obfuscated_res_0x7f0d0849, viewGroup, false));
         }
         return (HistoryRecordViewHolder) invokeLI.objValue;
     }

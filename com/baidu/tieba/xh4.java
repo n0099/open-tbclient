@@ -1,392 +1,115 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.StatFs;
-import android.text.TextUtils;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.activity.BaseActivity;
-import com.baidu.searchbox.pms.constants.ErrorConstant;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.File;
-import java.util.Objects;
-import java.util.concurrent.atomic.AtomicBoolean;
-import org.json.JSONException;
-import org.json.JSONObject;
 /* loaded from: classes7.dex */
-public class xh4<T> implements Runnable {
+public class xh4 {
     public static /* synthetic */ Interceptable $ic;
-    public static final xk4 g;
+    public static xh4 b;
     public transient /* synthetic */ FieldHolder $fh;
-    public wh4 a;
-    public T b;
-    public File c;
-    public AtomicBoolean d;
-    public uh4<T> e;
-    public boolean f;
+    public nh4 a;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1948300357, "Lcom/baidu/tieba/xh4;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1948300357, "Lcom/baidu/tieba/xh4;");
-                return;
-            }
-        }
-        g = xk4.e();
-    }
-
-    public mf4<T> e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
-            return this.e;
-        }
-        return (mf4) invokeV.objValue;
-    }
-
-    public T f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
-            return this.b;
-        }
-        return (T) invokeV.objValue;
-    }
-
-    public int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
-            return new jh4().a(this.e.k()).intValue();
-        }
-        return invokeV.intValue;
-    }
-
-    public int h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
-            uh4<T> uh4Var = this.e;
-            if (uh4Var != null) {
-                return uh4Var.g();
-            }
-            return 0;
-        }
-        return invokeV.intValue;
-    }
-
-    public int hashCode() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048585, this)) == null) {
-            return Objects.hash(this.a.b);
-        }
-        return invokeV.intValue;
-    }
-
-    public int i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048586, this)) == null) {
-            return this.a.b.e;
-        }
-        return invokeV.intValue;
-    }
-
-    public boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048588, this)) == null) {
-            return this.f;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public void l() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048589, this) == null) {
-            this.e.a(this.b);
-        }
-    }
-
-    public void m() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048590, this) == null) {
-            b(3);
-            this.e.e(this.b, this.a.a);
-        }
-    }
-
-    public void n() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048591, this) == null) {
-            b(10);
-            this.e.i(this.b);
-        }
-    }
-
-    public void o() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048592, this) == null) {
-            this.f = true;
-            s(true);
-        }
-    }
-
-    public void p() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048593, this) == null) {
-            b(1);
-            this.e.c(this.b);
-        }
-    }
-
-    public void q() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048594, this) == null) {
-            b(2);
-            this.e.j(this.b);
-        }
-    }
-
-    public xh4(wh4 wh4Var, T t, uh4<T> uh4Var) {
+    public xh4() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {wh4Var, t, uh4Var};
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.d = new AtomicBoolean(false);
-        this.a = wh4Var;
-        this.b = t;
-        this.e = uh4Var;
+        this.a = new nh4();
     }
 
-    public final void a(int i, tg4 tg4Var) {
+    public static xh4 b() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeIL(1048576, this, i, tg4Var) != null) || tg4Var == null) {
-            return;
-        }
-        JSONObject jSONObject = new JSONObject();
-        if (i == 2200) {
-            i = 0;
-        } else {
-            try {
-                jSONObject.put("response", tg4Var.toString());
-            } catch (JSONException e) {
-                g.g("PMSDownloadTask", "#addStatistic json put data出错", e);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+            xh4 xh4Var = b;
+            if (xh4Var != null) {
+                return xh4Var;
             }
+            synchronized (xh4.class) {
+                if (b == null) {
+                    b = new xh4();
+                }
+            }
+            return b;
         }
-        if (tg4Var instanceof ug4) {
-            jSONObject.put(BaseActivity.EXTRA_PARAM_THIRD_VERIFY_APP_ID, tg4Var.g);
-        }
-        vk4.a(tg4Var.h, "pkg_download", null, i, jSONObject);
+        return (xh4) invokeV.objValue;
     }
 
-    public boolean b(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
-            tg4 tg4Var = this.a.b;
-            if (tg4Var.e == i) {
-                return false;
-            }
-            tg4Var.e = i;
-            if (i != 2 && i != 3 && i != 10) {
-                s(false);
-            } else {
-                s(true);
-            }
-            return true;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public boolean d(xh4<T> xh4Var) {
+    public jh4 a(zh4 zh4Var) {
         InterceptResult invokeL;
-        wh4 wh4Var;
-        tg4 tg4Var;
-        wh4 wh4Var2;
-        tg4 tg4Var2;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, xh4Var)) == null) {
-            if (xh4Var == null || (wh4Var = xh4Var.a) == null || (tg4Var = wh4Var.b) == null || (wh4Var2 = this.a) == null || (tg4Var2 = wh4Var2.b) == null || !tg4Var2.equals(tg4Var)) {
-                return false;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, zh4Var)) == null) {
+            if (zh4Var == null) {
+                return null;
             }
-            return true;
+            return new ei4(zh4Var, false);
+        }
+        return (jh4) invokeL.objValue;
+    }
+
+    public synchronized boolean c(String str) {
+        InterceptResult invokeL;
+        boolean e;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
+            synchronized (this) {
+                e = this.a.e(str);
+            }
+            return e;
         }
         return invokeL.booleanValue;
     }
 
-    public boolean equals(Object obj) {
+    public synchronized boolean d(String str) {
         InterceptResult invokeL;
+        boolean f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
-            if (super.equals(obj)) {
-                return true;
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
+            synchronized (this) {
+                f = this.a.f(str);
             }
-            if (obj == null || !(obj instanceof xh4)) {
-                return false;
-            }
-            return d((xh4) obj);
+            return f;
         }
         return invokeL.booleanValue;
     }
 
-    public void r(boolean z) {
+    public synchronized void e(vh4 vh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeZ(1048595, this, z) == null) {
-            if (z) {
-                this.a.b.b = 0L;
-            }
-            b(0);
-            s(false);
-            this.f = false;
-        }
-    }
-
-    public void s(boolean z) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeZ(1048597, this, z) == null) && this.d.get() != z) {
-            this.d.set(z);
-        }
-    }
-
-    public boolean c() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-            if (!TextUtils.isEmpty(this.a.b.a)) {
-                g.i("PMSDownloadTask", "#checkAndCreateFile mParam.pmsPackage.filePath 为空");
-                return true;
-            }
-            File c = bl4.c(this.e.d(this.b), this.a.b.l);
-            this.c = c;
-            if (c == null) {
-                String absolutePath = ne4.b().getAppContext().getCacheDir().getAbsolutePath();
-                xk4 xk4Var = g;
-                xk4Var.i("PMSDownloadTask", "#checkAndCreateFile mLocalFile=null cacheDir=" + absolutePath);
-                this.c = bl4.c(absolutePath, this.a.b.l);
-            }
-            File file = this.c;
-            if (file == null) {
-                g.i("PMSDownloadTask", "#checkAndCreateFile generateFilePath=null");
-                this.e.e(this.b, new pg4(2203, ErrorConstant.ErrorMsg.DOWNLOAD_ERROR_PATH));
-                return false;
-            }
-            this.a.b.a = file.getAbsolutePath();
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @SuppressLint({"ObsoleteSdkInt"})
-    public boolean j(long j) {
-        InterceptResult invokeJ;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048587, this, j)) == null) {
-            String d = this.e.d(this.b);
-            if (d == null) {
-                return false;
-            }
-            try {
-                StatFs statFs = new StatFs(d);
-                if (Build.VERSION.SDK_INT >= 18) {
-                    if (statFs.getBlockSizeLong() * statFs.getAvailableBlocksLong() <= j) {
-                        return false;
-                    }
-                    return true;
-                } else if (statFs.getBlockSize() * statFs.getAvailableBlocks() <= j) {
-                    return false;
-                } else {
-                    return true;
-                }
-            } catch (Throwable th) {
-                g.g("PMSDownloadTask", "#hasSpaceToWrite 异常或者磁盘空间不足", th);
-                return false;
-            }
-        }
-        return invokeJ.booleanValue;
-    }
-
-    @Override // java.lang.Runnable
-    public void run() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048596, this) == null) {
-            String tg4Var = this.a.b.toString();
-            g.i("PMSDownloadTask", "#run 开始下包 pkg=" + tg4Var);
-            bi4 bi4Var = new bi4(this, h());
-            while (true) {
-                pg4 pg4Var = this.a.a;
-                if (pg4Var != null && pg4Var.a == 2200) {
-                    return;
-                }
-                if (this.d.get()) {
-                    g.i("PMSDownloadTask", "#run 已经取消下包 pkg=" + tg4Var);
-                    q();
-                    return;
-                }
-                bi4Var.b();
-                pg4 pg4Var2 = this.a.a;
-                if (pg4Var2 != null) {
-                    if (pg4Var2.a != 2200) {
-                        if (this.d.get()) {
-                            g.i("PMSDownloadTask", "#run 运行中取消下包 pkg=" + tg4Var);
-                            q();
-                            return;
-                        }
-                        this.e.b++;
-                        g.i("PMSDownloadTask", "#run 下载出错 pkg=" + tg4Var + " retryCount=" + this.e.b);
-                        if (this.e.b < 3) {
-                            try {
-                                if (!this.d.get()) {
-                                    Thread.sleep(this.e.b * 1000);
-                                }
-                            } catch (InterruptedException unused) {
-                            }
-                        } else {
-                            m();
-                            wh4 wh4Var = this.a;
-                            a(wh4Var.a.a, wh4Var.b);
-                            return;
-                        }
-                    } else {
-                        g.i("PMSDownloadTask", "#run 下包成功 pkg=" + tg4Var);
-                        n();
-                        return;
-                    }
-                }
+        if (interceptable == null || interceptable.invokeL(1048579, this, vh4Var) == null) {
+            synchronized (this) {
+                this.a.c(vh4Var);
             }
         }
     }
 
-    public String toString() {
-        InterceptResult invokeV;
+    public synchronized <T> void f(zh4<T> zh4Var) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048598, this)) == null) {
-            return "downloadUrl:" + this.a.b.n + ",versionName:" + this.a.b.j + ",versionCode:" + this.a.b.i + "md5:" + this.a.b.l + "bundleId:" + this.a.b.g;
+        if (interceptable == null || interceptable.invokeL(1048580, this, zh4Var) == null) {
+            synchronized (this) {
+                zh4Var.s(false);
+                this.a.h(zh4Var);
+            }
         }
-        return (String) invokeV.objValue;
+    }
+
+    public synchronized void g(vh4 vh4Var) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048581, this, vh4Var) == null) {
+            synchronized (this) {
+                this.a.i(vh4Var);
+            }
+        }
     }
 }

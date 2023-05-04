@@ -1,16 +1,12 @@
 package com.baidu.tieba;
 
+import android.annotation.SuppressLint;
 import android.text.TextUtils;
 import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sapi2.views.SmsLoginView;
-import com.baidu.swan.apps.core.prefetch.PrefetchEvent;
-import com.baidu.swan.apps.favordata.SwanFavorItemData;
-import com.baidu.swan.apps.network.SwanAppNetworkUtils;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
 import com.baidu.swan.apps.performance.HybridUbcFlow;
 import com.baidu.swan.apps.performance.UbcFlowEvent;
-import com.baidu.tbadk.core.util.schemeaction.deeplink.DeepLinkCode;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
@@ -18,222 +14,45 @@ import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import com.baidu.webkit.sdk.WebChromeClient;
-import com.huawei.hms.support.hianalytics.HiAnalyticsConstant;
-import java.io.File;
-import java.util.HashSet;
-import java.util.Timer;
-import java.util.TimerTask;
-import org.json.JSONException;
-import org.json.JSONObject;
+import java.util.Iterator;
+import java.util.Locale;
 /* loaded from: classes3.dex */
-public final class a13 {
+public class a13 implements qm3<HybridUbcFlow> {
     public static /* synthetic */ Interceptable $ic;
     public static final boolean a;
-    public static Timer b;
-    public static String c;
-    @Deprecated
-    public static volatile u03 d;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes3.dex */
-    public static class b implements Runnable {
+    public static class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ss2 a;
-        public final /* synthetic */ String b;
-        public final /* synthetic */ boolean c;
+        public volatile long a;
 
+        /* renamed from: com.baidu.tieba.a13$a$a  reason: collision with other inner class name */
         /* loaded from: classes3.dex */
-        public class a implements pm3<k83> {
+        public static class C0206a {
             public static /* synthetic */ Interceptable $ic;
+            public static a a;
             public transient /* synthetic */ FieldHolder $fh;
-            public final /* synthetic */ String a;
 
-            public a(b bVar, String str) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {bVar, str};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
+            static {
+                InterceptResult invokeClinit;
+                ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+                if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-1695220564, "Lcom/baidu/tieba/a13$a$a;")) != null) {
+                    Interceptable interceptable = invokeClinit.interceptor;
+                    if (interceptable != null) {
+                        $ic = interceptable;
+                    }
+                    if ((invokeClinit.flags & 1) != 0) {
+                        classClinitInterceptable.invokePostClinit(-1695220564, "Lcom/baidu/tieba/a13$a$a;");
                         return;
                     }
                 }
-                this.a = str;
-            }
-
-            /* JADX DEBUG: Method merged with bridge method */
-            @Override // com.baidu.tieba.pm3
-            /* renamed from: a */
-            public k83 create() {
-                InterceptResult invokeV;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                    return it2.U().f(this.a);
-                }
-                return (k83) invokeV.objValue;
+                a = new a();
             }
         }
 
-        public b(ss2 ss2Var, String str, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ss2Var, str, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ss2Var;
-            this.b = str;
-            this.c = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            String T;
-            String str;
-            String str2;
-            String str3;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                HybridUbcFlow p = a13.p("startup");
-                if (TextUtils.isEmpty(this.a.T())) {
-                    T = "NA";
-                } else {
-                    T = this.a.T();
-                }
-                if (this.a.G() == 1) {
-                    p.I(HybridUbcFlow.SubmitStrategy.NA_ONLY);
-                }
-                String str4 = "swan";
-                p.E("from", "swan");
-                p.E("source", T);
-                p.D("appid", this.a.H());
-                p.D("swan", ah3.i(this.a.j0(), this.a.G()));
-                p.D("mobile", lk3.c());
-                long l = this.a.l("box_cold_launch", -1L);
-                if (l < 0) {
-                    l = v03.c();
-                }
-                if (l > 0) {
-                    p.D("box_cold_launch", String.valueOf(l));
-                }
-                p.D("net", SwanAppNetworkUtils.f().type);
-                p.D("appversion", this.a.v1());
-                p.D("thirdversion", this.a.w1());
-                String str5 = "1";
-                if (fx1.i()) {
-                    str = "1";
-                } else {
-                    str = "0";
-                }
-                p.D("useNaRequest", str);
-                if (this.a.G() == 1) {
-                    str4 = SwanFavorItemData.SCHEME_AUTHORITY_SWAN_GAME;
-                }
-                p.E("from", str4);
-                p.D("scheme", this.a.W());
-                HashSet hashSet = new HashSet();
-                hashSet.add(WebChromeClient.KEY_ARG_CALLBACK);
-                hashSet.add("upgrade");
-                String i = nl3.i(this.b, hashSet);
-                if (!TextUtils.isEmpty(i) && i.startsWith(File.separator)) {
-                    i = i.substring(1);
-                }
-                if (TextUtils.isEmpty(i)) {
-                    str2 = "";
-                } else {
-                    str2 = i;
-                }
-                p.D("path", str2);
-                if (a13.a) {
-                    StringBuilder sb = new StringBuilder();
-                    sb.append("PerformanceUbc path: ");
-                    if (TextUtils.isEmpty(i)) {
-                        i = "";
-                    }
-                    sb.append(i);
-                    Log.v("SwanAppPerformanceUBC", sb.toString());
-                }
-                p.D("view_mode", ((k83) mm3.b(new a(this, nl3.f(this.b)))).r);
-                if (this.c) {
-                    p.E("value", "arrive_success");
-                }
-                p.D("launchid", this.a.V());
-                p.D("isPreDownloading", this.a.s0().getString("aiapp_extra_pkg_downloading", "0"));
-                if (this.a.c("launch_by_reload")) {
-                    str3 = "1";
-                } else {
-                    str3 = "0";
-                }
-                p.D("isReloadApp", str3);
-                p.D("preAppReadyState", String.valueOf(ke2.a(this.a)));
-                if (this.a.G() == 0) {
-                    if (!ay2.g().h(this.a.f0())) {
-                        str5 = "0";
-                    }
-                    p.D("is_opti", str5);
-                    p.A();
-                }
-                v42.k("SwanAppPerformanceUBC", "recordFromLaunchInfoForStartup" + this.a);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ ss2 a;
-        public final /* synthetic */ boolean b;
-
-        public a(ss2 ss2Var, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {ss2Var, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = ss2Var;
-            this.b = z;
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a13.i(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c extends TimerTask {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public c() {
+        public a() {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
@@ -247,121 +66,13 @@ public final class a13 {
             }
         }
 
-        @Override // java.util.TimerTask, java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                a13.m();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d extends xe3 {
-        public static /* synthetic */ Interceptable $ic = null;
-        public static int n = 35;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final String k;
-        public JSONObject l;
-        public boolean m;
-
-        static {
-            InterceptResult invokeClinit;
-            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-            if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(-998410842, "Lcom/baidu/tieba/a13$d;")) == null) {
-                return;
-            }
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(-998410842, "Lcom/baidu/tieba/a13$d;");
-            }
-        }
-
-        public d(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {str};
-                interceptable.invokeUnInit(65537, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65537, newInitContext);
-                    return;
-                }
-            }
-            this.m = true;
-            this.k = str;
-        }
-
-        @Override // com.baidu.tieba.xe3
-        public JSONObject f() {
+        public static a a() {
             InterceptResult invokeV;
-            String str;
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                if (TextUtils.isEmpty(this.c)) {
-                    str = "NA";
-                } else {
-                    str = this.c;
-                }
-                this.c = str;
-                if (this.h == null) {
-                    this.h = new JSONObject();
-                }
-                try {
-                    if (this.l != null) {
-                        if (this.m) {
-                            String z = pl3.z(n);
-                            if (!TextUtils.isEmpty(z)) {
-                                this.l.put("stacktrace", z);
-                            }
-                        }
-                        this.h.put("info", this.l);
-                    }
-                } catch (JSONException e) {
-                    if (xe3.j) {
-                        e.printStackTrace();
-                    }
-                }
-                return super.f();
+            if (interceptable == null || (invokeV = interceptable.invokeV(65537, null)) == null) {
+                return C0206a.a;
             }
-            return (JSONObject) invokeV.objValue;
-        }
-
-        public d g(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str)) == null) {
-                this.a = str;
-                return this;
-            }
-            return (d) invokeL.objValue;
-        }
-
-        public d h(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, str)) == null) {
-                this.c = str;
-                return this;
-            }
-            return (d) invokeL.objValue;
-        }
-
-        public d i(String str) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, str)) == null) {
-                this.b = str;
-                return this;
-            }
-            return (d) invokeL.objValue;
+            return (a) invokeV.objValue;
         }
     }
 
@@ -378,314 +89,229 @@ public final class a13 {
                 return;
             }
         }
-        a = fo1.a;
+        a = ho1.a;
     }
 
-    public static void n() {
+    public a13() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(65550, null) == null) {
-            Timer timer = new Timer();
-            b = timer;
-            timer.schedule(new c(), 15000L);
-        }
-    }
-
-    @Deprecated
-    public static synchronized HybridUbcFlow o() {
-        InterceptResult invokeV;
-        HybridUbcFlow p;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            synchronized (a13.class) {
-                p = p("startup");
-            }
-            return p;
-        }
-        return (HybridUbcFlow) invokeV.objValue;
-    }
-
-    public static void t() {
-        Timer timer;
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeV(65557, null) == null) && (timer = b) != null) {
-            timer.cancel();
-            b = null;
-        }
-    }
-
-    public static synchronized HybridUbcFlow e(String str, String str2) {
-        InterceptResult invokeLL;
-        HybridUbcFlow c2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65541, null, str, str2)) == null) {
-            synchronized (a13.class) {
-                c2 = f().c(str, str2);
-            }
-            return c2;
-        }
-        return (HybridUbcFlow) invokeLL.objValue;
-    }
-
-    public static synchronized void h(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65544, null, str, str2) == null) {
-            synchronized (a13.class) {
-                HybridUbcFlow b2 = f().b(str);
-                if (b2 != null) {
-                    f().e(str2).z(b2);
-                    r(str);
-                }
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
             }
         }
     }
 
-    public static void i(ss2 ss2Var, boolean z) {
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.qm3
+    /* renamed from: b */
+    public void a(HybridUbcFlow hybridUbcFlow) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65545, null, ss2Var, z) == null) {
-            v42.k("SwanAppPerformanceUBC", "recordForStartup");
-            if (ss2Var == null || ss2Var.P() == null) {
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hybridUbcFlow) == null) {
+            c(hybridUbcFlow);
+        }
+    }
+
+    @SuppressLint({"SwanDebugLog", "LogConditional"})
+    public void c(HybridUbcFlow hybridUbcFlow) {
+        String str;
+        String str2;
+        boolean z;
+        boolean z2;
+        String str3;
+        String str4;
+        String str5;
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, hybridUbcFlow) == null) && hybridUbcFlow != null && !hybridUbcFlow.f.isEmpty()) {
+            long f = hybridUbcFlow.f("slave_first_rendered", "master_dispatch_start");
+            tj3.g.update((sj3<Long>) Long.valueOf(f));
+            String str6 = "naStart";
+            tj3.b.update((sj3<Long>) Long.valueOf(hybridUbcFlow.f("slave_first_rendered", "naStart")));
+            String str7 = "aps_start_download";
+            String str8 = "aps_end_req";
+            tj3.c.update((sj3<Long>) Long.valueOf(hybridUbcFlow.f("aps_end_download", "aps_start_download", "aps_end_req", "aps_start_req", "naStart")));
+            long f2 = hybridUbcFlow.f("na_first_meaningful_paint", "naStart");
+            long j = 1;
+            if (f2 < 1) {
+                f2 = hybridUbcFlow.f("na_first_paint", "naStart");
+            }
+            if (f2 >= 1) {
+                j = f2;
+            }
+            a.a().a = j;
+            x73 b0 = x73.b0();
+            if (b0 == null) {
                 return;
             }
-            pk3.j(new b(ss2Var, c(ss2Var), z), "recordFromLaunchInfo");
-        }
-    }
-
-    public static void j(ss2 ss2Var, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65546, null, ss2Var, z) == null) {
-            u73.M().post(new a(ss2Var, z));
-        }
-    }
-
-    public static synchronized HybridUbcFlow q(String str, String str2) {
-        InterceptResult invokeLL;
-        HybridUbcFlow f;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65554, null, str, str2)) == null) {
-            synchronized (a13.class) {
-                f = f().f(str, str2);
+            if (!a && !w33.d("aiapps_startup_reporter", false)) {
+                return;
             }
-            return f;
-        }
-        return (HybridUbcFlow) invokeLL.objValue;
-    }
-
-    public static synchronized void s(String str, String str2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65556, null, str, str2) == null) {
-            synchronized (a13.class) {
-                f().h(str, str2);
+            int i = w33.u().getInt("aiapps_startup_reporter_resolution", 100);
+            String Z = b0.Z();
+            if (TextUtils.isEmpty(Z)) {
+                Z = "";
             }
-        }
-    }
-
-    public static String c(ss2 ss2Var) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, ss2Var)) == null) {
-            String e0 = ss2Var.e0();
-            if (TextUtils.isEmpty(e0)) {
-                if (TextUtils.isEmpty(c)) {
-                    c = gb3.c();
-                    if (a) {
-                        Log.v("SwanAppPerformanceUBC", "chechPath- 冷启场景 path 为空，取首页 path: " + c);
-                    }
-                } else if (a) {
-                    Log.v("SwanAppPerformanceUBC", "chechPath- 热启场景 path 为空，使用上次调起 path: " + c);
-                }
+            if (TextUtils.isEmpty(b0.b)) {
+                str = "";
             } else {
-                c = e0;
-                if (a) {
-                    Log.v("SwanAppPerformanceUBC", "chechPath- 冷/热启场景 path 不为空，直接使用调起 path: " + c);
-                }
+                str = b0.b;
             }
-            return c;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    /* JADX WARN: Can't fix incorrect switch cases order, some code will duplicate */
-    public static void l(String str) {
-        char c2;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65548, null, str) == null) {
-            switch (str.hashCode()) {
-                case -952207494:
-                    if (str.equals("independent")) {
-                        c2 = 2;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -533350585:
-                    if (str.equals("subNormal")) {
-                        c2 = 1;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case -285446714:
-                    if (str.equals("dynamicLib")) {
-                        c2 = 3;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                case 3343801:
-                    if (str.equals("main")) {
-                        c2 = 0;
-                        break;
-                    }
-                    c2 = 65535;
-                    break;
-                default:
-                    c2 = 65535;
-                    break;
+            Log.i("StartupReporter", "\n\n  小程序启动性能报告: " + Z + " appID: " + str + " speedLog\n");
+            StringBuilder sb = new StringBuilder();
+            for (int i2 = 0; i2 < i; i2++) {
+                sb.append("&");
             }
-            if (c2 != 0) {
-                if (c2 != 1) {
-                    if (c2 != 2) {
-                        if (c2 != 3) {
-                            str2 = "-1";
-                        } else {
-                            str2 = "3";
-                        }
+            boolean z3 = true;
+            Log.i("StartupReporter", String.format(" Cost [%s] Delta Src  Total Action", sb.toString()));
+            long g = hybridUbcFlow.f.get(0).g();
+            Iterator<UbcFlowEvent> it = hybridUbcFlow.f.iterator();
+            long j2 = 0;
+            while (it.hasNext()) {
+                UbcFlowEvent next = it.next();
+                if (!next.b() || w33.d("aiapps_startup_reporter_local_report", z3)) {
+                    String[] strArr = new String[2];
+                    Iterator<UbcFlowEvent> it2 = it;
+                    strArr[0] = next.a;
+                    strArr[z3 ? 1 : 0] = str6;
+                    long f3 = hybridUbcFlow.f(strArr);
+                    if (f3 < 0) {
+                        z = true;
                     } else {
-                        str2 = "1";
+                        z = false;
                     }
-                } else {
-                    str2 = "2";
+                    if (f3 > j) {
+                        z2 = true;
+                    } else {
+                        z2 = false;
+                    }
+                    if (z) {
+                        f3 = 0;
+                    }
+                    if (z2) {
+                        f3 = j;
+                    }
+                    long j3 = f3 - j2;
+                    if (j3 < 0) {
+                        str3 = str6;
+                        j3 = 0;
+                    } else {
+                        str3 = str6;
+                    }
+                    long j4 = i;
+                    String str9 = str7;
+                    String str10 = str8;
+                    int round = Math.round((float) ((f3 * j4) / j));
+                    if (round > i) {
+                        round = i;
+                    }
+                    int round2 = Math.round((float) ((j4 * j3) / j));
+                    if (round2 > i) {
+                        round2 = i;
+                    }
+                    StringBuilder sb2 = new StringBuilder();
+                    long j5 = j;
+                    sb2.append(String.format(Locale.getDefault(), " %5d ", Long.valueOf(f3)));
+                    if (z) {
+                        str4 = "<";
+                    } else {
+                        str4 = PreferencesUtil.LEFT_MOUNT;
+                    }
+                    sb2.append(str4);
+                    for (int i3 = 0; i3 < i; i3++) {
+                        if (i3 > round) {
+                            sb2.append(".");
+                        } else if (i3 > round2) {
+                            sb2.append("=");
+                        } else {
+                            sb2.append("#");
+                        }
+                    }
+                    if (z2) {
+                        str5 = ">";
+                    } else {
+                        str5 = PreferencesUtil.RIGHT_MOUNT;
+                    }
+                    sb2.append(str5);
+                    sb2.append(String.format(Locale.getDefault(), "%5d", Long.valueOf(j3)));
+                    sb2.append(String.format("  %s", next.f()));
+                    sb2.append(String.format(Locale.getDefault(), " %6d ", Long.valueOf(next.g() - g)));
+                    sb2.append(next.a);
+                    if (next.b()) {
+                        sb2.append("(LocalRecord)");
+                    }
+                    Log.i("StartupReporter", sb2.toString());
+                    it = it2;
+                    j2 = f3;
+                    str6 = str3;
+                    j = j5;
+                    str7 = str9;
+                    str8 = str10;
+                    z3 = true;
                 }
+            }
+            String str11 = str6;
+            String str12 = str7;
+            String str13 = str8;
+            long j6 = j;
+            Log.i("StartupReporter", "Total  ： " + hybridUbcFlow.f.size());
+            StringBuilder sb3 = new StringBuilder();
+            sb3.append("\n========APS下载完成:" + hybridUbcFlow.f("aps_end_download", str11));
+            sb3.append("\n========解压包时长:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start", "aps_end_download"));
+            sb3.append("\n========第一次setData的调用:" + hybridUbcFlow.f("slave_first_loaded", "slave_js_parsed"));
+            sb3.append("\n========master第一次和slave通信:" + hybridUbcFlow.f("slave_first_loaded", "master_first_init_data"));
+            sb3.append("\n========slave第一次收到数据:" + hybridUbcFlow.f("slave_first_recieve_data", "master_first_init_data"));
+            sb3.append("\n========slave第一次渲染完成:" + hybridUbcFlow.f("slave_first_rendered", "slave_first_recieve_data"));
+            sb3.append("\n========第一次动画时长:" + hybridUbcFlow.f("first_anim_end", "first_anim_start"));
+            sb3.append("\n========第二次动画时长:" + hybridUbcFlow.f("second_anim_end", "second_anim_start"));
+            sb3.append("\n\n核心指标--------");
+            sb3.append("\n========aps接口时长:" + hybridUbcFlow.f(str13, "aps_start_req", str11));
+            sb3.append("\n========aps纯下载时长:" + hybridUbcFlow.f("aps_end_download", str12, str13, "aps_start_req", str11));
+            sb3.append("\n========");
+            sb3.append("\n========准备启动时长:" + hybridUbcFlow.f("na_launch_activity", str11));
+            sb3.append("\n========准备查库时长:" + hybridUbcFlow.f("na_query_db", str11));
+            sb3.append("\n========Activity调起时长:" + hybridUbcFlow.f("frame_start_create", "na_launch_activity"));
+            sb3.append("\n========");
+            sb3.append("\n========预加载等待时长:" + hybridUbcFlow.f("na_pre_load_ok", "na_pre_load_check"));
+            sb3.append("\n========主线程阻塞时长:" + hybridUbcFlow.f("na_post_to_main_end", "na_post_to_main_start"));
+            sb3.append("\n========本地小程序包加载及渲染总时长:" + hybridUbcFlow.f("slave_first_rendered", "first_anim_start"));
+            sb3.append("\n\n启动线性跟踪分段指标简报--------");
+            sb3.append("\n========取包（网络开销，从小程序入口，到APS及前置接口等网络交互完成）:" + hybridUbcFlow.f("first_anim_start", str11));
+            sb3.append("\n========安装（IO开销，从下载完成，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", "first_anim_start"));
+            sb3.append("\n========下载-安装（IO开销，从下载开始，到小程序包解压安装作业完成）:" + hybridUbcFlow.f("package_end_unzip", str12));
+            sb3.append("\n========小程序框架启动总时长（NA开销，从开始，到 NA 准备完成）:" + hybridUbcFlow.f("master_dispatch_start", str11));
+            sb3.append("\n========AppReady派发时长:" + hybridUbcFlow.f("fe_master_dispatch_start", "master_dispatch_start"));
+            sb3.append("\n========小程序业务渲染总时长（H5开销，从 NA 准备完成，到页面渲染）:" + f);
+            int optInt = hybridUbcFlow.m().optInt("type", -1);
+            String h = hybridUbcFlow.h("preload_scene");
+            String h2 = hybridUbcFlow.h("app_package_version");
+            String str14 = "-1";
+            if (TextUtils.isEmpty(h)) {
+                h = "-1";
+            }
+            String h3 = hybridUbcFlow.h("package_type");
+            if (!TextUtils.isEmpty(h3)) {
+                str14 = h3;
+            }
+            String h4 = hybridUbcFlow.h("preload");
+            sb3.append("\n\n小程序启动总时长：========> " + j6 + " LaunchDiff=" + hybridUbcFlow.f(str11, "user_action"));
+            if (!hybridUbcFlow.d.contains("package_start_unzip")) {
+                str2 = "(热启动)";
             } else {
-                str2 = "0";
+                str2 = "(冷启动)";
             }
-            p("startup").D("package_type", str2);
-        }
-    }
-
-    public static synchronized HybridUbcFlow d(String str) {
-        InterceptResult invokeL;
-        HybridUbcFlow b2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str)) == null) {
-            synchronized (a13.class) {
-                b2 = f().b(str);
+            sb3.append(str2);
+            sb3.append("  relaunchType:" + optInt);
+            sb3.append("  preloadType:" + h);
+            sb3.append(" packageType:" + str14);
+            sb3.append(" preload:" + h4);
+            if (!TextUtils.isEmpty(h2)) {
+                sb3.append(" packageVersion:" + h2);
             }
-            return b2;
-        }
-        return (HybridUbcFlow) invokeL.objValue;
-    }
-
-    public static synchronized HybridUbcFlow p(String str) {
-        InterceptResult invokeL;
-        HybridUbcFlow e;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65553, null, str)) == null) {
-            synchronized (a13.class) {
-                e = f().e(str);
-            }
-            return e;
-        }
-        return (HybridUbcFlow) invokeL.objValue;
-    }
-
-    public static synchronized void r(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65555, null, str) == null) {
-            synchronized (a13.class) {
-                f().g(str);
-            }
-        }
-    }
-
-    public static u03 f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65542, null)) == null) {
-            if (d == null) {
-                synchronized (u03.class) {
-                    if (d == null) {
-                        d = new u03();
-                        g(d);
-                    }
-                }
-            }
-            return d;
-        }
-        return (u03) invokeV.objValue;
-    }
-
-    public static void g(u03 u03Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65543, null, u03Var) == null) {
-            u03Var.d("preload", new z13());
-            u03Var.d("startup", new b23());
-            u03Var.d("route", new a23());
-            u03Var.d("video", new d23());
-            u03Var.d(DeepLinkCode.OpenAppSource.OPEN_SOURCE_WEB, new c23());
-            u03Var.d(PrefetchEvent.MODULE, new vc2());
-        }
-    }
-
-    public static synchronized void k(oj3 oj3Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65547, null, oj3Var) == null) {
-            synchronized (a13.class) {
-                HybridUbcFlow m = m();
-                if (m != null) {
-                    m.E("value", SmsLoginView.f.l);
-                    if (oj3Var != null) {
-                        m.D(HiAnalyticsConstant.HaKey.BI_KEY_RESULT, String.valueOf(oj3Var.a()));
-                        m.D("launchid", u73.K().q().W().V());
-                    }
-                    m.n();
-                }
-            }
-        }
-    }
-
-    public static synchronized HybridUbcFlow m() {
-        InterceptResult invokeV;
-        d72 o;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            synchronized (a13.class) {
-                t();
-                aq2.a();
-                HybridUbcFlow d2 = d("startup");
-                bu1 bu1Var = null;
-                if (d2 == null) {
-                    return null;
-                }
-                d2.F(new UbcFlowEvent("performanceEnd"));
-                if (!d2.s()) {
-                    d2.A();
-                }
-                e72 V = it2.U().V();
-                if (V != null && (o = V.o()) != null) {
-                    bu1Var = o.r3();
-                }
-                d2.C(bu1Var);
-                if (!d2.x()) {
-                    d2.T();
-                }
-                if (!d2.w()) {
-                    d2.S();
-                }
-                return d2;
-            }
-        }
-        return (HybridUbcFlow) invokeV.objValue;
-    }
-
-    public static void onEvent(d dVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, dVar) == null) {
-            if (a) {
-                Log.i("SwanAppPerformanceUBC", "onEvent " + dVar);
-            }
-            ce3.k(dVar.k, dVar.f());
+            Log.i("StartupReporter", "Report ： " + sb3.toString());
         }
     }
 }

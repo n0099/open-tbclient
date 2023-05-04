@@ -1,82 +1,330 @@
 package com.baidu.tieba;
 
-import android.graphics.Canvas;
-import android.graphics.Paint;
-import android.graphics.Rect;
-import android.graphics.drawable.Drawable;
-import android.text.style.ImageSpan;
+import android.content.Context;
+import android.os.Handler;
+import android.os.Looper;
+import android.telephony.TelephonyManager;
+import android.text.TextUtils;
+import androidx.annotation.NonNull;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
+import com.baidu.tieba.n41;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.concurrent.TimeUnit;
 /* loaded from: classes6.dex */
-public final class sc1 extends ImageSpan {
+public class sc1 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
+    public long a;
+    public long b;
+    public long c;
+    public long d;
+    public long e;
+    public Runnable f;
+    public final Handler g;
+    public final boolean h;
+    public final int i;
+    public boolean j;
+    public boolean k;
+    public n41.b l;
+    public boolean m;
+    public String n;
+    public String o;
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public sc1(Drawable _drawable) {
-        super(_drawable);
+    /* loaded from: classes6.dex */
+    public class a implements n41.a {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public int a;
+        public int b;
+        public final /* synthetic */ TelephonyManager c;
+        public final /* synthetic */ Context d;
+        public final /* synthetic */ sc1 e;
+
+        public a(sc1 sc1Var, TelephonyManager telephonyManager, Context context) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sc1Var, telephonyManager, context};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.e = sc1Var;
+            this.c = telephonyManager;
+            this.d = context;
+            this.a = 0;
+            this.b = 0;
+        }
+
+        @Override // com.baidu.tieba.n41.a
+        public void a(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(1048576, this, i) == null) {
+                if (i != 0) {
+                    if (i != 1) {
+                        if (i == 2) {
+                            lj0.a("NadPSLogger", "监听到通话状态：OFFHOOK");
+                            b(i);
+                            if (this.a == 0) {
+                                this.e.b = System.currentTimeMillis();
+                                return;
+                            }
+                            return;
+                        }
+                        return;
+                    }
+                    lj0.a("NadPSLogger", "监听到通话状态：RINGING");
+                    b(i);
+                    this.e.k = true;
+                    return;
+                }
+                lj0.a("NadPSLogger", "监听到通话状态：IDLE");
+                b(i);
+                if (this.a == 2) {
+                    this.e.c = System.currentTimeMillis();
+                    sc1 sc1Var = this.e;
+                    sc1Var.k(this.c, sc1Var.l, this.d);
+                }
+            }
+        }
+
+        public final void b(int i) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i) == null) {
+                this.a = this.b;
+                this.b = i;
+            }
+        }
+    }
+
+    /* loaded from: classes6.dex */
+    public class b implements Runnable {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public final /* synthetic */ Context a;
+        public final /* synthetic */ TelephonyManager b;
+        public final /* synthetic */ n41.b c;
+        public final /* synthetic */ sc1 d;
+
+        public b(sc1 sc1Var, Context context, TelephonyManager telephonyManager, n41.b bVar) {
+            Interceptable interceptable = $ic;
+            if (interceptable != null) {
+                InitContext newInitContext = TitanRuntime.newInitContext();
+                newInitContext.initArgs = r2;
+                Object[] objArr = {sc1Var, context, telephonyManager, bVar};
+                interceptable.invokeUnInit(65536, newInitContext);
+                int i = newInitContext.flag;
+                if ((i & 1) != 0) {
+                    int i2 = i & 2;
+                    newInitContext.thisArg = this;
+                    interceptable.invokeInitBody(65536, newInitContext);
+                    return;
+                }
+            }
+            this.d = sc1Var;
+            this.a = context;
+            this.b = telephonyManager;
+            this.c = bVar;
+        }
+
+        @Override // java.lang.Runnable
+        public void run() {
+            Interceptable interceptable = $ic;
+            if ((interceptable == null || interceptable.invokeV(1048576, this) == null) && n41.a(this.a)) {
+                if (this.b.getCallState() == 0) {
+                    if (this.d.m) {
+                        this.d.m = !n41.c(this.a, this.b, this.c);
+                    }
+                    this.d.e = System.currentTimeMillis();
+                    this.d.o();
+                    return;
+                }
+                this.d.l(this.a, this.b, this.c);
+            }
+        }
+    }
+
+    public sc1() {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {_drawable};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
-                super((Drawable) newInitContext.callArgs[0]);
                 newInitContext.thisArg = this;
                 interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        Intrinsics.checkNotNullParameter(_drawable, "_drawable");
+        this.a = 0L;
+        this.b = 0L;
+        this.c = 0L;
+        this.d = 0L;
+        this.e = 0L;
+        this.g = new Handler(Looper.getMainLooper());
+        this.h = fm0.b().a().a("psl_switch", 1) == 1;
+        this.i = fm0.b().a().a("psl_time", 20);
+        this.j = false;
+        this.k = false;
+        this.m = false;
     }
 
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public void draw(Canvas canvas, CharSequence charSequence, int i, int i2, float f, int i3, int i4, int i5, Paint paint) {
+    public final int m(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048576, this, new Object[]{canvas, charSequence, Integer.valueOf(i), Integer.valueOf(i2), Float.valueOf(f), Integer.valueOf(i3), Integer.valueOf(i4), Integer.valueOf(i5), paint}) == null) {
-            Intrinsics.checkNotNullParameter(canvas, "canvas");
-            Intrinsics.checkNotNullParameter(paint, "paint");
-            Drawable drawable = getDrawable();
-            canvas.save();
-            Intrinsics.checkNotNullExpressionValue(drawable, "drawable");
-            canvas.translate(f, (((i5 - i3) - drawable.getBounds().bottom) / 2) + i3);
-            drawable.draw(canvas);
-            canvas.restore();
-        }
-    }
-
-    @Override // android.text.style.DynamicDrawableSpan, android.text.style.ReplacementSpan
-    public int getSize(Paint paint, CharSequence charSequence, int i, int i2, Paint.FontMetricsInt fontMetricsInt) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, new Object[]{paint, charSequence, Integer.valueOf(i), Integer.valueOf(i2), fontMetricsInt})) == null) {
-            Intrinsics.checkNotNullParameter(paint, "paint");
-            Drawable drawable = getDrawable();
-            Intrinsics.checkNotNullExpressionValue(drawable, "drawable");
-            Rect bounds = drawable.getBounds();
-            Intrinsics.checkNotNullExpressionValue(bounds, "drawable.bounds");
-            if (fontMetricsInt != null) {
-                Paint.FontMetricsInt fontMetricsInt2 = paint.getFontMetricsInt();
-                int i3 = fontMetricsInt2.bottom - fontMetricsInt2.top;
-                int i4 = (bounds.bottom - bounds.top) / 2;
-                int i5 = i3 / 4;
-                int i6 = i4 - i5;
-                int i7 = -(i4 + i5);
-                fontMetricsInt.ascent = i7;
-                fontMetricsInt.top = i7;
-                fontMetricsInt.bottom = i6;
-                fontMetricsInt.descent = i6;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_SEND_USER_MSG, this, j)) == null) {
+            if (j <= 0) {
+                return 0;
             }
-            return bounds.right;
+            return (int) TimeUnit.MILLISECONDS.toSeconds(j);
         }
-        return invokeCommon.intValue;
+        return invokeJ.intValue;
+    }
+
+    public final void k(@NonNull TelephonyManager telephonyManager, @NonNull n41.b bVar, @NonNull Context context) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048576, this, telephonyManager, bVar, context) == null) {
+            long j = this.b;
+            if (j != 0) {
+                long j2 = this.c;
+                if (j2 != 0 && j2 > j) {
+                    this.g.removeCallbacks(this.f);
+                    if (this.m) {
+                        this.m = !n41.c(context, telephonyManager, bVar);
+                    }
+                    this.e = System.currentTimeMillis();
+                    o();
+                    return;
+                }
+            }
+            l(context, telephonyManager, bVar);
+        }
+    }
+
+    public final void l(@NonNull Context context, @NonNull TelephonyManager telephonyManager, @NonNull n41.b bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, context, telephonyManager, bVar) == null) {
+            Runnable runnable = this.f;
+            if (runnable != null) {
+                this.g.removeCallbacks(runnable);
+            } else {
+                this.f = new b(this, context, telephonyManager, bVar);
+            }
+            if (!this.m) {
+                this.m = n41.b(context, telephonyManager, bVar);
+            }
+            this.g.postDelayed(this.f, TimeUnit.SECONDS.toMillis(this.i));
+        }
+    }
+
+    public final boolean n() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
+            long j = this.c;
+            if (j != 0) {
+                long j2 = this.b;
+                if (j2 != 0 && j > j2) {
+                    return true;
+                }
+            }
+            return false;
+        }
+        return invokeV.booleanValue;
+    }
+
+    public final void o() {
+        String str;
+        String str2;
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeV(1048580, this) != null) || this.j) {
+            return;
+        }
+        this.j = true;
+        if (TextUtils.isEmpty(this.n)) {
+            return;
+        }
+        String str3 = "1";
+        if (n()) {
+            str = "1";
+        } else {
+            str = "0";
+        }
+        String str4 = "-1";
+        if (!n()) {
+            str2 = "-1";
+        } else {
+            str2 = "" + m(this.c - this.b);
+        }
+        StringBuilder sb = new StringBuilder();
+        sb.append(PreferencesUtil.LEFT_MOUNT);
+        sb.append(this.i);
+        sb.append(",");
+        sb.append(m(this.e - this.d));
+        sb.append(",");
+        if (n()) {
+            str4 = "" + m(this.b - this.a);
+        }
+        sb.append(str4);
+        sb.append(",");
+        if (!this.k) {
+            str3 = "0";
+        }
+        sb.append(str3);
+        sb.append(PreferencesUtil.RIGHT_MOUNT);
+        String sb2 = sb.toString();
+        ClogBuilder m = new ClogBuilder().y(ClogBuilder.LogType.PHONE_STATE_LISTEN).p(this.n).k(str).l(str2).m(sb2);
+        if (!TextUtils.isEmpty(this.o)) {
+            m.n(this.o);
+        } else {
+            m.n("");
+        }
+        o11.b(m);
+        lj0.a("NadPSLogger", "==========结束监听并打点==========");
+        lj0.a("NadPSLogger", "log_type：" + ClogBuilder.LogType.PHONE_STATE_LISTEN.type);
+        lj0.a("NadPSLogger", "da_ext1 是否监听到主动呼出：" + str);
+        lj0.a("NadPSLogger", "da_ext2 主动呼出时长：" + str2);
+        lj0.a("NadPSLogger", "da_ext3 云控监听时长，实际监听时长，拨号前停留时长，期间有无呼入：" + sb2);
+    }
+
+    @Deprecated
+    public void p(@NonNull Context context, String str, String str2) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLLL(1048581, this, context, str, str2) == null) {
+            Context applicationContext = context.getApplicationContext();
+            if (!this.h || !n41.a(applicationContext)) {
+                return;
+            }
+            this.b = 0L;
+            this.c = 0L;
+            this.d = 0L;
+            this.e = 0L;
+            this.a = 0L;
+            this.a = System.currentTimeMillis();
+            this.j = false;
+            this.k = false;
+            this.n = str;
+            this.o = str2;
+            TelephonyManager telephonyManager = (TelephonyManager) applicationContext.getSystemService("phone");
+            n41.b bVar = new n41.b();
+            this.l = bVar;
+            bVar.b(new a(this, telephonyManager, applicationContext));
+            l(applicationContext, telephonyManager, this.l);
+            this.d = System.currentTimeMillis();
+            lj0.a("NadPSLogger", "==========开始监听==========");
+        }
     }
 }

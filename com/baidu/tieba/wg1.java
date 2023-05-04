@@ -1,104 +1,118 @@
 package com.baidu.tieba;
 
-import android.util.Log;
-import androidx.core.view.InputDeviceCompat;
-import com.baidu.pass.main.facesdk.utils.PreferencesUtil;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import android.text.TextUtils;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
+import java.io.BufferedReader;
+import java.io.Closeable;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 /* loaded from: classes6.dex */
 public class wg1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static String a = null;
-    public static String b = null;
-    public static int c = 0;
-    public static boolean d = true;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948269512, "Lcom/baidu/tieba/wg1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948269512, "Lcom/baidu/tieba/wg1;");
-        }
-    }
-
-    public static String a(String str) {
-        InterceptResult invokeL;
+    public static void a(Closeable... closeableArr) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            return Thread.currentThread().getName() + PreferencesUtil.LEFT_MOUNT + a + ":" + b + ":" + c + PreferencesUtil.RIGHT_MOUNT + str;
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static void b(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65538, null, str) != null) || !d) {
-            return;
-        }
-        Log.d("CashierSdk", str);
-    }
-
-    public static void d(Object... objArr) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, objArr) != null) || !d) {
-            return;
-        }
-        e(new Throwable().getStackTrace());
-        Log.e("CashierSdk", f(objArr));
-    }
-
-    public static void e(StackTraceElement[] stackTraceElementArr) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65541, null, stackTraceElementArr) == null) {
-            a = stackTraceElementArr[1].getFileName();
-            b = stackTraceElementArr[1].getMethodName();
-            c = stackTraceElementArr[1].getLineNumber();
-        }
-    }
-
-    public static void g(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65543, null, str) != null) || !d) {
-            return;
-        }
-        Log.i("CashierSdk", str);
-    }
-
-    public static void c(String str, Throwable th) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65539, null, str, th) != null) || !d) {
-            return;
-        }
-        e(new Throwable().getStackTrace());
-        Log.e("CashierSdk", f(str), th);
-    }
-
-    public static String f(Object... objArr) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65542, null, objArr)) == null) {
-            if (objArr == null) {
-                return "";
-            }
-            StringBuilder sb = new StringBuilder();
-            for (Object obj : objArr) {
-                if (obj != null) {
-                    sb.append(obj.toString());
+        if ((interceptable == null || interceptable.invokeL(65536, null, closeableArr) == null) && closeableArr != null) {
+            for (Closeable closeable : closeableArr) {
+                if (closeable != null) {
+                    try {
+                        closeable.close();
+                    } catch (IOException unused) {
+                    }
                 }
             }
-            return a(sb.toString());
         }
-        return (String) invokeL.objValue;
+    }
+
+    public static String b(File file) {
+        InterceptResult invokeL;
+        FileInputStream fileInputStream;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, file)) == null) {
+            FileInputStream fileInputStream2 = null;
+            if (file == null) {
+                return null;
+            }
+            try {
+                fileInputStream = new FileInputStream(file);
+                try {
+                    String c = c(fileInputStream);
+                    a(fileInputStream);
+                    return c;
+                } catch (Exception unused) {
+                    a(fileInputStream);
+                    return null;
+                } catch (Throwable th) {
+                    th = th;
+                    fileInputStream2 = fileInputStream;
+                    a(fileInputStream2);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+                fileInputStream = null;
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static String c(InputStream inputStream) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, inputStream)) == null) {
+            if (inputStream == null) {
+                return null;
+            }
+            BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(inputStream));
+            StringBuilder sb = new StringBuilder();
+            while (true) {
+                String readLine = bufferedReader.readLine();
+                if (readLine != null) {
+                    sb.append(readLine);
+                } else {
+                    return sb.toString();
+                }
+            }
+        } else {
+            return (String) invokeL.objValue;
+        }
+    }
+
+    public static void d(String str, File file) {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeLL(65539, null, str, file) == null) && !TextUtils.isEmpty(str) && file != null) {
+            FileOutputStream fileOutputStream = null;
+            try {
+                if (!file.getParentFile().exists()) {
+                    file.getParentFile().mkdirs();
+                }
+                FileOutputStream fileOutputStream2 = new FileOutputStream(file);
+                try {
+                    fileOutputStream2.write(str.getBytes());
+                    fileOutputStream2.flush();
+                    a(fileOutputStream2);
+                } catch (Exception unused) {
+                    fileOutputStream = fileOutputStream2;
+                    a(fileOutputStream);
+                } catch (Throwable th) {
+                    th = th;
+                    fileOutputStream = fileOutputStream2;
+                    a(fileOutputStream);
+                    throw th;
+                }
+            } catch (Exception unused2) {
+            } catch (Throwable th2) {
+                th = th2;
+            }
+        }
     }
 }

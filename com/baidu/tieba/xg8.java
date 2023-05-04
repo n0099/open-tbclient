@@ -1,74 +1,82 @@
 package com.baidu.tieba;
 
 import android.text.TextUtils;
-import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.cyberplayer.sdk.statistics.DpStatConstants;
+import com.baidu.nadcore.stats.request.ClogBuilder;
+import com.baidu.tbadk.core.data.AdvertAppInfo;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
-import kotlin.jvm.internal.Intrinsics;
+import java.util.Iterator;
 /* loaded from: classes7.dex */
-public final class xg8 extends wg8<String> {
+public class xg8 {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
 
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948299520, "Lcom/baidu/tieba/xg8;")) == null) {
-            return;
+    public static wg8 a(AdvertAppInfo advertAppInfo) {
+        InterceptResult invokeL;
+        AdvertAppInfo.ILegoAdvert iLegoAdvert;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, advertAppInfo)) == null) {
+            if (advertAppInfo == null || (iLegoAdvert = advertAppInfo.h) == null || !(iLegoAdvert instanceof wg8)) {
+                return null;
+            }
+            return (wg8) iLegoAdvert;
         }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948299520, "Lcom/baidu/tieba/xg8;");
-        }
+        return (wg8) invokeL.objValue;
     }
 
-    /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
-    public xg8(String key) {
-        super(key);
+    public static void b(wg8 wg8Var) {
         Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            newInitContext.initArgs = r2;
-            Object[] objArr = {key};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                super((String) newInitContext.callArgs[0]);
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
-                return;
+        if ((interceptable == null || interceptable.invokeL(65537, null, wg8Var) == null) && wg8Var != null && wg8Var.getParallelCharge() != null) {
+            p11.b(wg8Var.getParallelCharge().b);
+            Iterator<String> it = wg8Var.getParallelCharge().c.iterator();
+            while (it.hasNext()) {
+                p11.b(it.next());
             }
         }
-        Intrinsics.checkNotNullParameter(key, "key");
-        e(c() + "_match_last_text");
     }
 
-    public final boolean f(String text) {
-        InterceptResult invokeL;
+    public static void c(AdvertAppInfo advertAppInfo) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048576, this, text)) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            return !TextUtils.equals(text, a(""));
+        if ((interceptable == null || interceptable.invokeL(65538, null, advertAppInfo) == null) && d(a(advertAppInfo))) {
+            ClogBuilder clogBuilder = new ClogBuilder();
+            clogBuilder.y(ClogBuilder.LogType.EXCEPTION).k("1").l(DpStatConstants.FILECACHE_CLOSE_TYPE_OPT_DISABLE).p(advertAppInfo.g);
+            AdvertAppInfo.ILegoAdvert iLegoAdvert = advertAppInfo.h;
+            if (iLegoAdvert != null) {
+                clogBuilder.m(String.valueOf(iLegoAdvert.getGoodsStyle()));
+            }
+            o11.b(clogBuilder);
+        }
+    }
+
+    public static boolean d(wg8 wg8Var) {
+        InterceptResult invokeL;
+        boolean z;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, wg8Var)) == null) {
+            if (wg8Var == null || wg8Var.getParallelCharge() == null) {
+                return false;
+            }
+            String str = wg8Var.getParallelCharge().a;
+            p11.b(str);
+            if (!TextUtils.isEmpty(str)) {
+                z = true;
+            } else {
+                z = false;
+            }
+            Iterator<String> it = wg8Var.getParallelCharge().d.iterator();
+            while (it.hasNext()) {
+                String next = it.next();
+                if (!z && TextUtils.isEmpty(next)) {
+                    z = false;
+                } else {
+                    z = true;
+                }
+                p11.b(next);
+            }
+            return z;
         }
         return invokeL.booleanValue;
-    }
-
-    public final void update(String text) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, text) == null) {
-            Intrinsics.checkNotNullParameter(text, "text");
-            if (f(text)) {
-                d(text);
-            }
-        }
     }
 }

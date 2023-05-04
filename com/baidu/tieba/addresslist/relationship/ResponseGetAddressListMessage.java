@@ -4,8 +4,8 @@ import androidx.annotation.Nullable;
 import com.baidu.adp.framework.message.SocketResponsedMessage;
 import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.tbadk.core.TbadkCoreApplication;
-import com.baidu.tieba.l06;
-import com.baidu.tieba.q45;
+import com.baidu.tieba.f55;
+import com.baidu.tieba.m16;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -18,7 +18,7 @@ import tbclient.GetAddressList.GetAddressListResIdl;
 public class ResponseGetAddressListMessage extends SocketResponsedMessage {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public l06 mAddressListData;
+    public m16 mAddressListData;
 
     /* JADX WARN: 'super' call moved to the top of the method (can break code semantics) */
     public ResponseGetAddressListMessage() {
@@ -38,13 +38,13 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
         }
     }
 
-    public l06 getAddressListData() {
+    public m16 getAddressListData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return this.mAddressListData;
         }
-        return (l06) invokeV.objValue;
+        return (m16) invokeV.objValue;
     }
 
     @Override // com.baidu.adp.framework.message.SocketResponsedMessage
@@ -56,10 +56,10 @@ public class ResponseGetAddressListMessage extends SocketResponsedMessage {
             GetAddressListResIdl getAddressListResIdl = (GetAddressListResIdl) new Wire(new Class[0]).parseFrom(bArr, GetAddressListResIdl.class);
             if (getAddressListResIdl != null) {
                 if (getAddressListResIdl.data != null) {
-                    l06 l06Var = new l06();
-                    this.mAddressListData = l06Var;
-                    if (l06Var.c(getAddressListResIdl.data)) {
-                        q45 m = q45.m();
+                    m16 m16Var = new m16();
+                    this.mAddressListData = m16Var;
+                    if (m16Var.c(getAddressListResIdl.data)) {
+                        f55 m = f55.m();
                         m.w("get_addresslist_switch" + TbadkCoreApplication.getCurrentAccount(), true);
                     }
                 }

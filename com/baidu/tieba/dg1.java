@@ -1,64 +1,65 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.huawei.hms.common.internal.TransactionIdCreater;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
+import java.io.Closeable;
+import java.io.File;
+import java.io.IOException;
+import java.nio.charset.Charset;
 /* loaded from: classes4.dex */
-public class dg1 {
+public final class dg1 {
     public static /* synthetic */ Interceptable $ic;
+    public static final Charset a;
     public transient /* synthetic */ FieldHolder $fh;
 
-    public static String a(byte[] bArr) {
-        InterceptResult invokeL;
+    static {
+        InterceptResult invokeClinit;
+        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947703483, "Lcom/baidu/tieba/dg1;")) != null) {
+            Interceptable interceptable = invokeClinit.interceptor;
+            if (interceptable != null) {
+                $ic = interceptable;
+            }
+            if ((invokeClinit.flags & 1) != 0) {
+                classClinitInterceptable.invokePostClinit(1947703483, "Lcom/baidu/tieba/dg1;");
+                return;
+            }
+        }
+        a = Charset.forName("US-ASCII");
+        Charset.forName("UTF-8");
+    }
+
+    public static void a(Closeable closeable) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65536, null, bArr)) == null) {
-            StringBuilder sb = new StringBuilder();
-            for (byte b : bArr) {
-                String hexString = Integer.toHexString(b & 255);
-                if (hexString.length() == 1) {
-                    sb.append(TransactionIdCreater.FILL_BYTE);
+        if ((interceptable == null || interceptable.invokeL(65537, null, closeable) == null) && closeable != null) {
+            try {
+                closeable.close();
+            } catch (RuntimeException e) {
+                throw e;
+            } catch (Exception unused) {
+            }
+        }
+    }
+
+    public static void b(File file) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(65538, null, file) == null) {
+            File[] listFiles = file.listFiles();
+            if (listFiles != null) {
+                for (File file2 : listFiles) {
+                    if (file2.isDirectory()) {
+                        b(file2);
+                    }
+                    if (!file2.delete()) {
+                        throw new IOException("failed to delete file: " + file2);
+                    }
                 }
-                sb.append(hexString);
+                return;
             }
-            return sb.toString();
+            throw new IOException("not a readable directory: " + file);
         }
-        return (String) invokeL.objValue;
-    }
-
-    public static String b(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65537, null, str)) == null) {
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(str.getBytes());
-                return a(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                return String.valueOf(str.hashCode());
-            }
-        }
-        return (String) invokeL.objValue;
-    }
-
-    public static String c(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            if (TextUtils.isEmpty(str)) {
-                return "";
-            }
-            try {
-                MessageDigest messageDigest = MessageDigest.getInstance("MD5");
-                messageDigest.update(str.getBytes());
-                return a(messageDigest.digest());
-            } catch (NoSuchAlgorithmException unused) {
-                return "";
-            }
-        }
-        return (String) invokeL.objValue;
     }
 }

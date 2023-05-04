@@ -1,55 +1,45 @@
 package com.baidu.tieba;
 
-import android.annotation.SuppressLint;
-import android.os.Build;
-import android.os.Handler;
-import android.os.Looper;
-import android.os.MessageQueue;
+import android.text.TextUtils;
+import androidx.annotation.Nullable;
+import androidx.core.util.Pair;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.tieba.le6;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
+import com.baidu.searchbox.http.HttpManager;
+import com.baidu.searchbox.http.callback.ResponseCallback;
+import com.baidu.searchbox.http.cookie.CookieManager;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.lang.reflect.Field;
+import java.util.Map;
+import okhttp3.Response;
 /* loaded from: classes5.dex */
-public class le6 {
+public class le6 implements he6<Pair<String, Map<String, String>>, Response> {
     public static /* synthetic */ Interceptable $ic;
-    public static volatile a a;
     public transient /* synthetic */ FieldHolder $fh;
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1947940044, "Lcom/baidu/tieba/le6;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1947940044, "Lcom/baidu/tieba/le6;");
-        }
-    }
+    public final HttpManager a;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a extends ResponseCallback<Response> {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public final Handler a;
-        public final Looper b;
-        public MessageQueue c;
+        public final /* synthetic */ y5b a;
 
-        public a(Looper looper) {
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: parseResponse  reason: avoid collision after fix types in other method */
+        public Response parseResponse2(Response response, int i) throws Exception {
+            InterceptResult invokeLI;
+            Interceptable interceptable = $ic;
+            return (interceptable == null || (invokeLI = interceptable.invokeLI(1048580, this, response, i)) == null) ? response : (Response) invokeLI.objValue;
+        }
+
+        public a(le6 le6Var, y5b y5bVar) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {looper};
+                Object[] objArr = {le6Var, y5bVar};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -59,92 +49,32 @@ public class le6 {
                     return;
                 }
             }
-            this.b = looper;
-            this.a = new Handler(looper);
+            this.a = y5bVar;
         }
 
-        public static /* synthetic */ boolean b(Runnable runnable) {
-            runnable.run();
-            return false;
-        }
-
-        public boolean c(Runnable runnable) {
-            InterceptResult invokeL;
+        /* JADX DEBUG: Method merged with bridge method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        /* renamed from: a */
+        public void onSuccess(Response response, int i) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, runnable)) == null) {
-                if (a() == null) {
-                    return false;
-                }
-                return this.a.post(runnable);
-            }
-            return invokeL.booleanValue;
-        }
-
-        public void e(Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeL(1048579, this, runnable) == null) && a() != null) {
-                this.a.removeCallbacks(runnable);
+            if (interceptable == null || interceptable.invokeLI(1048576, this, response, i) == null) {
+                this.a.call(response, null);
             }
         }
 
-        public void f(final Runnable runnable) {
-            Interceptable interceptable = $ic;
-            if ((interceptable != null && interceptable.invokeL(1048580, this, runnable) != null) || a() == null) {
-                return;
-            }
-            this.c.addIdleHandler(new MessageQueue.IdleHandler() { // from class: com.baidu.tieba.he6
-                public static /* synthetic */ Interceptable $ic;
-                public transient /* synthetic */ FieldHolder $fh;
-
-                @Override // android.os.MessageQueue.IdleHandler
-                public final boolean queueIdle() {
-                    InterceptResult invokeV;
-                    Interceptable interceptable2 = $ic;
-                    return (interceptable2 == null || (invokeV = interceptable2.invokeV(1048576, this)) == null) ? le6.a.b(runnable) : invokeV.booleanValue;
-                }
-            });
+        /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public /* bridge */ /* synthetic */ Response parseResponse(Response response, int i) throws Exception {
+            parseResponse2(response, i);
+            return response;
         }
 
-        @SuppressLint({"DiscouragedPrivateApi"})
-        public final synchronized MessageQueue a() {
-            InterceptResult invokeV;
+        @Override // com.baidu.searchbox.http.callback.ResponseCallback
+        public void onFail(Exception exc) {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                synchronized (this) {
-                    if (this.c != null) {
-                        return this.c;
-                    }
-                    if (Build.VERSION.SDK_INT >= 23) {
-                        MessageQueue queue = this.b.getQueue();
-                        this.c = queue;
-                        return queue;
-                    }
-                    try {
-                        Field declaredField = Looper.class.getDeclaredField("mQueue");
-                        declaredField.setAccessible(true);
-                        Object obj = declaredField.get(this.b);
-                        if (obj instanceof MessageQueue) {
-                            this.c = (MessageQueue) obj;
-                        }
-                    } catch (Exception e) {
-                        e.printStackTrace();
-                    }
-                    return this.c;
-                }
+            if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, exc) == null) {
+                this.a.call(null, exc);
             }
-            return (MessageQueue) invokeV.objValue;
-        }
-
-        public boolean d(Runnable runnable, long j) {
-            InterceptResult invokeLJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeLJ = interceptable.invokeLJ(Constants.METHOD_SEND_USER_MSG, this, runnable, j)) == null) {
-                if (a() == null) {
-                    return false;
-                }
-                return this.a.postDelayed(runnable, j);
-            }
-            return invokeLJ.booleanValue;
         }
     }
 
@@ -152,29 +82,45 @@ public class le6 {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65537, newInitContext);
+            interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
                 int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
+                return;
             }
         }
+        this.a = HttpManager.getDefault(mf6.getContext());
     }
 
-    public static a a() {
-        InterceptResult invokeV;
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.he6
+    @Nullable
+    /* renamed from: c */
+    public Response a(Pair<String, Map<String, String>> pair) throws Exception {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
-            if (a == null) {
-                synchronized (le6.class) {
-                    if (a == null) {
-                        a = new a(Looper.getMainLooper());
-                    }
-                }
+        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, pair)) == null) {
+            if (pair != null && !TextUtils.isEmpty(pair.first)) {
+                return this.a.getRequest().url(pair.first).tag(this).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).followRedirects(false).followSslRedirects(false).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeSync();
             }
-            return a;
+            return null;
         }
-        return (a) invokeV.objValue;
+        return (Response) invokeL.objValue;
+    }
+
+    /* JADX DEBUG: Method merged with bridge method */
+    @Override // com.baidu.tieba.he6
+    /* renamed from: d */
+    public void b(Pair<String, Map<String, String>> pair, y5b<Response, Exception> y5bVar) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(1048579, this, pair, y5bVar) == null) {
+            if (pair != null && !TextUtils.isEmpty(pair.first)) {
+                this.a.getRequest().url(pair.first).tag(this).followRedirects(false).followSslRedirects(false).addHeaders(pair.second).connectionTimeout(10000).readTimeout(10000).cookieManager(CookieManager.WEBKIT_COOKIES).build().executeAsync(new a(this, y5bVar));
+            } else {
+                y5bVar.call(null, new IllegalArgumentException("url is null !"));
+            }
+        }
     }
 }

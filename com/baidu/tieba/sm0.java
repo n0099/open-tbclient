@@ -1,39 +1,10 @@
 package com.baidu.tieba;
 
-import com.baidu.pyramid.annotation.Inject;
-import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
-import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import android.app.Application;
+import androidx.annotation.NonNull;
 /* loaded from: classes6.dex */
-public class sm0 {
-    public static /* synthetic */ Interceptable $ic;
-    public transient /* synthetic */ FieldHolder $fh;
-    @Inject(force = false)
-    public fj1<qm0> a;
+public interface sm0 {
+    void a(@NonNull Application application);
 
-    public void a() {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-            dj1 b = dj1.b();
-            this.a = b;
-            b.a(new rm0());
-        }
-    }
-
-    public sm0() {
-        Interceptable interceptable = $ic;
-        if (interceptable != null) {
-            InitContext newInitContext = TitanRuntime.newInitContext();
-            interceptable.invokeUnInit(65536, newInitContext);
-            int i = newInitContext.flag;
-            if ((i & 1) != 0) {
-                int i2 = i & 2;
-                newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65536, newInitContext);
-                return;
-            }
-        }
-        a();
-    }
+    void b();
 }

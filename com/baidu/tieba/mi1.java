@@ -1,87 +1,59 @@
 package com.baidu.tieba;
 
+import android.os.Build;
 import android.text.TextUtils;
+import android.util.Log;
+import android.webkit.WebSettings;
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.core.view.InputDeviceCompat;
+import com.baidu.android.imsdk.chatmessage.request.IMAudioTransRequest;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.bdtask.model.response.TaskResponseData;
+import com.baidu.mobstat.Config;
+import com.baidu.nad.jni.NADNativeHelper;
 import com.baidu.prologue.business.data.BaseVM;
-import com.baidu.searchbox.launch.utils.SpeedStatsUtils;
+import com.baidu.tbadk.browser.SearchJsBridge;
+import com.baidu.tbadk.core.atomData.AbsMsgImageActivityConfig;
+import com.baidu.tbadk.core.util.TiebaStatic;
+import com.baidu.tbadk.core.util.httpNet.HttpRequest;
+import com.baidu.tbadk.util.AdExtParam;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
+import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.sticker.StickerDataChangeType;
+import com.qq.e.comm.constants.Constants;
+import java.net.URI;
+import java.net.URISyntaxException;
+import java.net.URLEncoder;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 /* loaded from: classes5.dex */
 public class mi1 {
     public static /* synthetic */ Interceptable $ic;
-    public static a a;
-    public static float b;
-    public static float c;
-    public static int d;
-    public static int e;
-    public static float f;
     public transient /* synthetic */ FieldHolder $fh;
 
     /* loaded from: classes5.dex */
-    public static class a {
+    public class a implements Runnable {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
-        public long a;
-        public ArrayList<C0339a> b;
+        public final /* synthetic */ String a;
+        public final /* synthetic */ mi1 b;
 
-        /* renamed from: com.baidu.tieba.mi1$a$a  reason: collision with other inner class name */
-        /* loaded from: classes5.dex */
-        public static class C0339a {
-            public static /* synthetic */ Interceptable $ic;
-            public transient /* synthetic */ FieldHolder $fh;
-            public long a;
-            public long b;
-
-            public C0339a(long j, long j2) {
-                Interceptable interceptable = $ic;
-                if (interceptable != null) {
-                    InitContext newInitContext = TitanRuntime.newInitContext();
-                    newInitContext.initArgs = r2;
-                    Object[] objArr = {Long.valueOf(j), Long.valueOf(j2)};
-                    interceptable.invokeUnInit(65536, newInitContext);
-                    int i = newInitContext.flag;
-                    if ((i & 1) != 0) {
-                        int i2 = i & 2;
-                        newInitContext.thisArg = this;
-                        interceptable.invokeInitBody(65536, newInitContext);
-                        return;
-                    }
-                }
-                this.a = j;
-                this.b = j2;
-            }
-
-            public boolean a(long j) {
-                InterceptResult invokeJ;
-                Interceptable interceptable = $ic;
-                if (interceptable == null || (invokeJ = interceptable.invokeJ(1048576, this, j)) == null) {
-                    if (j >= this.a && j <= this.b) {
-                        return true;
-                    }
-                    return false;
-                }
-                return invokeJ.booleanValue;
-            }
-        }
-
-        public a(JSONObject jSONObject) {
+        public a(mi1 mi1Var, String str) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {jSONObject};
+                Object[] objArr = {mi1Var, str};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -91,532 +63,559 @@ public class mi1 {
                     return;
                 }
             }
-            this.b = new ArrayList<>();
-            this.a = jSONObject.optLong("expires", 0L);
-            JSONArray optJSONArray = jSONObject.optJSONArray("schedule");
-            if (optJSONArray != null && optJSONArray.length() > 0) {
-                for (int i3 = 0; i3 < optJSONArray.length(); i3++) {
-                    JSONObject optJSONObject = optJSONArray.optJSONObject(i3);
-                    if (optJSONObject != null) {
-                        this.b.add(new C0339a(optJSONObject.optLong("start", 0L), optJSONObject.optLong("end", 0L)));
-                    }
-                }
-            }
+            this.b = mi1Var;
+            this.a = str;
         }
 
-        @Nullable
-        public static a c(@Nullable JSONObject jSONObject) {
-            InterceptResult invokeL;
+        @Override // java.lang.Runnable
+        public void run() {
             Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, jSONObject)) == null) {
-                if (jSONObject == null) {
-                    return null;
-                }
+            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
+                long currentTimeMillis = System.currentTimeMillis();
+                String f = this.b.f(this.a, currentTimeMillis);
+                String f2 = this.b.f(this.a, 86400000 + currentTimeMillis);
+                String f3 = this.b.f(this.a, 172800000 + currentTimeMillis);
+                JSONObject jSONObject = new JSONObject();
                 try {
-                    return new a(jSONObject);
-                } catch (Exception unused) {
-                    return null;
-                }
-            }
-            return (a) invokeL.objValue;
-        }
-
-        public final boolean g(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(1048579, this, j)) == null) {
-                if (this.a > j) {
-                    return true;
-                }
-                return false;
-            }
-            return invokeJ.booleanValue;
-        }
-
-        public final boolean d() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
-                return e(System.currentTimeMillis() / 1000);
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final boolean f() {
-            InterceptResult invokeV;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) {
-                return g(System.currentTimeMillis() / 1000);
-            }
-            return invokeV.booleanValue;
-        }
-
-        public final boolean e(long j) {
-            InterceptResult invokeJ;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeJ = interceptable.invokeJ(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, j)) == null) {
-                if (w01.l(this.b) == 0) {
-                    return false;
-                }
-                Iterator<C0339a> it = this.b.iterator();
-                while (it.hasNext()) {
-                    C0339a next = it.next();
-                    if (next != null && next.a(j)) {
-                        return true;
-                    }
-                }
-                return false;
-            }
-            return invokeJ.booleanValue;
-        }
-    }
-
-    public static void A(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65536, null, i) == null) {
-            j11.a().b("splash_sp_name").g("hot_splash_max_count", i);
-        }
-    }
-
-    public static void B(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65537, null, i) == null) {
-            j11.a().b("splash_sp_name").g("hot_switch", i);
-        }
-    }
-
-    public static void C(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65538, null, f2) == null) {
-            j11.a().b("splash_sp_name").f("hot_background_time", f2);
-        }
-    }
-
-    public static void D(float f2) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeF(65539, null, f2) == null) {
-            j11.a().b("splash_sp_name").f("hot_update_split_time", f2);
-        }
-    }
-
-    public static void E(String str) {
-        Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, str) == null) && !TextUtils.isEmpty(str)) {
-            j11.a().b("splash_sp_name").j("inner_monitor_host", str, false);
-        }
-    }
-
-    public static void F(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65541, null, i) == null) {
-            j11.a().b("splash_sp_name").g("md5_check_switch", i);
-        }
-    }
-
-    public static void G(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65542, null, i) == null) {
-            j11.a().b("splash_sp_name").g("monitor_log_switch", i);
-        }
-    }
-
-    public static void H(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65543, null, i) == null) {
-            j11.a().b("splash_sp_name").g("query_host_opt", i);
-        }
-    }
-
-    public static void I(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65544, null, i) == null) {
-            j11.a().b("splash_sp_name").g("query_time_out_advance", i);
-        }
-    }
-
-    public static void J(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65545, null, i) == null) {
-            j11.a().b("splash_sp_name").g("request_count", i);
-        }
-    }
-
-    public static void K(String str) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65546, null, str) == null) {
-            String str2 = "";
-            if (!TextUtils.isEmpty(str)) {
-                try {
-                    str2 = new JSONObject(str).optString("server_block_reason", "");
+                    jSONObject.put(AbsMsgImageActivityConfig.CURRENT_URL, f);
+                    jSONObject.put("tomorrow_url", f2);
+                    jSONObject.put("after_tomorrow_url", f3);
+                    jSONObject.put("cache_time", currentTimeMillis);
                 } catch (JSONException unused) {
                 }
+                l11.a().b("splash_sp_name").j("splash_query_cache_url", jSONObject.toString(), false);
             }
-            j11.a().b("splash_sp_name").i("server_block_reason", str2);
         }
     }
 
-    public static void v(int i) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65571, null, i) == null) {
-            j11.a().b("splash_sp_name").g("open_bes_switch", i);
+    /* loaded from: classes5.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public static final mi1 a;
+        public transient /* synthetic */ FieldHolder $fh;
+
+        static {
+            InterceptResult invokeClinit;
+            ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
+            if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(-603203498, "Lcom/baidu/tieba/mi1$b;")) != null) {
+                Interceptable interceptable = invokeClinit.interceptor;
+                if (interceptable != null) {
+                    $ic = interceptable;
+                }
+                if ((invokeClinit.flags & 1) != 0) {
+                    classClinitInterceptable.invokePostClinit(-603203498, "Lcom/baidu/tieba/mi1$b;");
+                    return;
+                }
+            }
+            a = new mi1(null);
         }
     }
 
-    public static void w(String str) {
+    public mi1() {
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeL(65572, null, str) == null) && !TextUtils.isEmpty(str)) {
-            a = a.c(x01.c(str));
-            j11.a().b("splash_sp_name").j("cpt_config", str, false);
+        if (interceptable != null) {
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65536, newInitContext);
+            }
         }
     }
 
-    public static void x(int i) {
+    public static mi1 m() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeI(65573, null, i) == null) {
-            j11.a().b("splash_sp_name").g("crash_opt", i);
+        if (interceptable == null || (invokeV = interceptable.invokeV(65538, null)) == null) {
+            return b.a;
+        }
+        return (mi1) invokeV.objValue;
+    }
+
+    public void g() {
+        Interceptable interceptable = $ic;
+        if ((interceptable == null || interceptable.invokeV(1048582, this) == null) && oi1.u()) {
+            h("query");
         }
     }
 
-    public static void y(JSONObject jSONObject) {
+    public /* synthetic */ mi1(a aVar) {
+        this();
+    }
+
+    public String e(String str) {
+        InterceptResult invokeL;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65574, null, jSONObject) == null) {
-            C((float) jSONObject.optDouble("hot_background_time", 5.0d));
-            A(jSONObject.optInt("hot_splash_max_count", 3));
-            B(jSONObject.optInt("hot_switch", 1));
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048580, this, str)) == null) {
+            return f(str, System.currentTimeMillis());
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public void h(String str) {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeL(1048583, this, str) == null) {
+            p21.d(new a(this, str), "cache splash request url");
         }
     }
 
-    public static void L(String str) {
+    public final void a(JSONObject jSONObject) {
+        JSONObject optJSONObject;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65547, null, str) != null) || TextUtils.isEmpty(str)) {
+        if ((interceptable != null && interceptable.invokeL(1048576, this, jSONObject) != null) || bi1.a().d() == null || !bi1.a().d().has("client_ext") || (optJSONObject = bi1.a().d().optJSONObject("client_ext")) == null) {
             return;
         }
-        try {
-            JSONObject jSONObject = new JSONObject(str);
-            JSONObject optJSONObject = jSONObject.optJSONObject("freq");
-            if (optJSONObject != null) {
-                y(optJSONObject);
+        Iterator<String> keys = optJSONObject.keys();
+        while (keys.hasNext()) {
+            String next = keys.next();
+            try {
+                jSONObject.put(next, optJSONObject.opt(next));
+            } catch (JSONException e) {
+                e.printStackTrace();
             }
-            I(jSONObject.optInt("query_time_out_advance", 100));
-            D((float) jSONObject.optDouble("hot_update_split_time", 5.0d));
-            v(jSONObject.optInt("open_bes_switch", 0));
-            F(jSONObject.optInt("md5_check_switch", 0));
-            J(jSONObject.optInt("request_count", 10));
-            G(jSONObject.optInt("monitor_log_switch", 1));
-            E(jSONObject.optString("inner_monitor_host", "https://sp0.baidu.com"));
-            x(jSONObject.optInt("crash_opt", 1));
-            w(jSONObject.optString("cpt_config", ""));
-            H(jSONObject.optInt("query_host_opt", 0));
-            z(jSONObject);
-        } catch (JSONException unused) {
         }
     }
 
-    public static void z(JSONObject jSONObject) {
+    public final String j(long j) {
+        InterceptResult invokeJ;
         Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeL(65575, null, jSONObject) != null) || jSONObject == null) {
-            return;
-        }
-        if (jSONObject.has("gesture_lottie_sensitivity")) {
-            b = (float) jSONObject.optDouble("gesture_lottie_sensitivity", 0.0d);
-        }
-        if (jSONObject.has("hot_shake_sensitivity")) {
-            c = (float) jSONObject.optDouble("hot_shake_sensitivity", 0.0d);
-        }
-        if (jSONObject.has("shake_update_interval")) {
-            d = jSONObject.optInt("shake_update_interval", 67);
-        }
-        if (jSONObject.has("shake_direction_count")) {
-            e = jSONObject.optInt("shake_direction_count", 2);
-        }
-        if (jSONObject.has("shake_action_delay_time")) {
-            f = (float) jSONObject.optDouble("shake_action_delay_time", -1.0d);
-        }
-    }
-
-    public static boolean M() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65548, null)) == null) {
-            JSONObject d2 = zh1.a().d();
-            if (d2 == null) {
-                return false;
+        if (interceptable == null || (invokeJ = interceptable.invokeJ(1048585, this, j)) == null) {
+            int a2 = c41.a(j, System.currentTimeMillis());
+            if (a2 >= 2) {
+                return l11.a().b("splash_sp_name").getString("after_tomorrow_reason", "");
             }
-            return d2.optBoolean("is_block_shake_gesture", false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean N() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65549, null)) == null) {
-            if (j11.a().b("splash_sp_name").getInt("query_host_opt", 0) != 1) {
-                return false;
+            if (a2 == 1) {
+                return l11.a().b("splash_sp_name").getString("tomorrow_reason", "");
             }
-            return true;
+            return l11.a().b("splash_sp_name").getString("current_reason", "");
         }
-        return invokeV.booleanValue;
+        return (String) invokeJ.objValue;
     }
 
-    public static boolean b() {
-        InterceptResult invokeV;
+    public final void b(HashMap<String, String> hashMap) {
+        String p;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65551, null)) == null) {
-            return c(false);
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static int d() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65553, null)) == null) {
-            JSONObject d2 = zh1.a().d();
-            if (d2 != null && d2.has("cpc_show_times")) {
-                return d2.optInt("cpc_show_times");
+        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, hashMap) == null) {
+            ti0 a2 = li0.a();
+            if (TextUtils.isEmpty(a2.p())) {
+                p = a2.w();
+            } else {
+                p = a2.p();
             }
-            return Integer.MAX_VALUE;
-        }
-        return invokeV.intValue;
-    }
-
-    @Nullable
-    public static a e() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65554, null)) == null) {
-            if (a == null) {
-                a = f();
+            hashMap.put("ver", p);
+            hashMap.put("sv", "1.0");
+            hashMap.put("uid", a2.t());
+            hashMap.put(TiebaStatic.Params.BDID, a2.o());
+            hashMap.put("cuid", a2.g());
+            String e = dj0.c().e(false);
+            if (!TextUtils.isEmpty(e)) {
+                hashMap.put(SearchJsBridge.COOKIE_MOD, e);
             }
-            return a;
-        }
-        return (a) invokeV.objValue;
-    }
-
-    public static int g() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65556, null)) == null) {
-            return j11.a().b("splash_sp_name").getInt("hot_splash_max_count", 3);
-        }
-        return invokeV.intValue;
-    }
-
-    public static float h() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65557, null)) == null) {
-            return j11.a().b("splash_sp_name").getFloat("hot_background_time", 5.0f);
-        }
-        return invokeV.floatValue;
-    }
-
-    public static float i() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65558, null)) == null) {
-            return j11.a().b("splash_sp_name").getFloat("hot_update_split_time", 5.0f);
-        }
-        return invokeV.floatValue;
-    }
-
-    public static String j() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65559, null)) == null) {
-            return j11.a().b("splash_sp_name").getString("inner_monitor_host", "https://sp0.baidu.com");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean k() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65560, null)) == null) {
-            if (j11.a().b("splash_sp_name").getInt("monitor_log_switch", 1) == 1) {
-                return true;
+            String h = dj0.c().h(false);
+            if (!TextUtils.isEmpty(h)) {
+                hashMap.put("ov", h);
             }
-            return false;
-        }
-        return invokeV.booleanValue;
-    }
-
-    @NonNull
-    public static String l() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65561, null)) == null) {
-            if (t()) {
-                return n();
+            String b2 = dj0.c().b(false);
+            if (!TextUtils.isEmpty(b2)) {
+                hashMap.put("imei", b2);
             }
-            return zh1.a().e();
+            hashMap.put("ua", a2.q());
+            hashMap.put("fmt", "json");
+            hashMap.put("apna", a2.packageName());
+            hashMap.put("eid", a2.i());
+            hashMap.put("st", "1");
+            hashMap.put("ot", "2");
+            hashMap.put("nt", String.valueOf(new ir0().c()));
+            hashMap.put(Config.EXCEPTION_CRASH_TYPE, "2");
+            hashMap.put("is_https", "1");
+            String a3 = dj0.c().a(false);
+            if (!TextUtils.isEmpty(a3)) {
+                hashMap.put(HttpRequest.ANDROID_ID, a3);
+            }
+            hashMap.put("from", bi1.a().from());
+            hashMap.put("cfrom", bi1.a().a());
+            hashMap.put("User-Agent", li0.e());
         }
-        return (String) invokeV.objValue;
     }
 
-    public static int m() {
-        InterceptResult invokeV;
+    /* JADX WARN: Can't wrap try/catch for region: R(19:4|5|6|(1:8)|9|(3:46|47|(15:49|(6:52|(2:54|(4:56|(1:58)|59|(1:61))(2:62|(1:64)))|65|(2:67|68)(1:70)|69|50)|71|12|(2:14|(4:(1:17)|18|19|20)(1:44))(1:45)|21|(1:23)(1:38)|24|(1:26)|27|(1:29)|30|31|32|34))|11|12|(0)(0)|21|(0)(0)|24|(0)|27|(0)|30|31|32|34) */
+    /* JADX WARN: Removed duplicated region for block: B:36:0x00fb A[Catch: JSONException -> 0x027e, TryCatch #3 {JSONException -> 0x027e, blocks: (B:11:0x005b, B:13:0x0061, B:14:0x0066, B:16:0x006c, B:18:0x0086, B:20:0x00a3, B:22:0x00a9, B:23:0x00ae, B:25:0x00b4, B:26:0x00ba, B:28:0x00c0, B:29:0x00c1, B:31:0x00d2, B:34:0x00dd, B:36:0x00fb, B:40:0x012c), top: B:72:0x005b }] */
+    /* JADX WARN: Removed duplicated region for block: B:44:0x0143  */
+    /* JADX WARN: Removed duplicated region for block: B:47:0x01aa A[Catch: JSONException -> 0x0282, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:49:0x01b3 A[Catch: all -> 0x01bc, TRY_ENTER, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:54:0x01d7 A[Catch: JSONException -> 0x0282, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /* JADX WARN: Removed duplicated region for block: B:57:0x0212 A[Catch: JSONException -> 0x0282, TRY_LEAVE, TryCatch #4 {JSONException -> 0x0282, blocks: (B:5:0x000c, B:8:0x0024, B:9:0x002f, B:42:0x0136, B:45:0x0147, B:47:0x01aa, B:52:0x01c4, B:54:0x01d7, B:55:0x01dc, B:57:0x0212, B:58:0x0222, B:59:0x023c, B:43:0x013a, B:49:0x01b3), top: B:74:0x000c }] */
+    /*
+        Code decompiled incorrectly, please refer to instructions dump.
+    */
+    public final void c(@NonNull HashMap<String, String> hashMap, String str, String str2, long j) {
+        int i;
+        mi1 mi1Var;
+        String defaultUserAgent;
+        String a2;
+        String f;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65562, null)) == null) {
-            return j11.a().b("splash_sp_name").getInt("query_time_out_advance", 100);
+        if (interceptable == null || interceptable.invokeCommon(Constants.METHOD_SEND_USER_MSG, this, new Object[]{hashMap, str, str2, Long.valueOf(j)}) == null) {
+            long j2 = j;
+            try {
+                JSONArray jSONArray = new JSONArray();
+                JSONObject jSONObject = new JSONObject();
+                if (g8.f().h()) {
+                    jSONObject.put("k", "cmd");
+                    jSONObject.put("v", str2);
+                    jSONArray.put(jSONObject);
+                }
+                JSONObject jSONObject2 = new JSONObject();
+                jSONObject2.put("k", AdExtParam.KEY_NAD_CORE_VERSION);
+                jSONObject2.put("v", "5.11.0.5");
+                jSONArray.put(jSONObject2);
+                JSONObject jSONObject3 = new JSONObject();
+                List<pi1> s = ni1.s();
+                ArrayList arrayList = new ArrayList();
+                ArrayList arrayList2 = new ArrayList();
+                JSONArray jSONArray2 = new JSONArray();
+                if (s != null) {
+                    try {
+                        if (s.size() > 0) {
+                            Iterator<pi1> it = s.iterator();
+                            i = 0;
+                            while (it.hasNext()) {
+                                pi1 next = it.next();
+                                JSONObject jSONObject4 = new JSONObject();
+                                Iterator<pi1> it2 = it;
+                                jSONObject4.put("k", next.c);
+                                if (!TextUtils.isEmpty(next.c)) {
+                                    int h = ni1.h(next, false, 0, j2);
+                                    Log.e("RequestUrlManager", "onAdSuccess: " + h);
+                                    if (h == 0) {
+                                        if (next.m()) {
+                                            y01.b(arrayList2, next.c);
+                                        }
+                                        if (next.k()) {
+                                            y01.b(arrayList, next.c);
+                                        }
+                                    } else if (next.m()) {
+                                        i |= h;
+                                    }
+                                }
+                                jSONObject4.put("r", String.valueOf(next.x));
+                                if (next.m()) {
+                                    jSONArray2.put(jSONObject4);
+                                }
+                                j2 = j;
+                                it = it2;
+                            }
+                            jSONObject3.put("d", jSONArray2);
+                            jSONObject3.put("s", ri1.d());
+                            jSONArray.put(new JSONObject());
+                            if (!TextUtils.equals(str2, "query")) {
+                                JSONObject jSONObject5 = new JSONObject();
+                                jSONObject5.put("k", "ukey");
+                                jSONObject5.put("v", TextUtils.join(",", arrayList));
+                                jSONArray.put(jSONObject5);
+                                JSONObject jSONObject6 = new JSONObject();
+                                jSONObject6.put("k", "xz_ukey");
+                                jSONObject6.put("v", TextUtils.join(",", arrayList2));
+                                jSONArray.put(jSONObject6);
+                                if (arrayList2.isEmpty()) {
+                                    if (i == 0) {
+                                        i = 1;
+                                    }
+                                    String valueOf = String.valueOf(i);
+                                    BaseVM.d = valueOf;
+                                    mi1Var = this;
+                                    mi1Var.n(j, valueOf);
+                                } else {
+                                    mi1Var = this;
+                                    BaseVM.d = "";
+                                }
+                            } else {
+                                mi1Var = this;
+                            }
+                            JSONObject jSONObject7 = new JSONObject();
+                            jSONObject7.put("k", "logid");
+                            jSONObject7.put("v", String.valueOf(j));
+                            jSONArray.put(jSONObject7);
+                            JSONObject jSONObject8 = new JSONObject();
+                            jSONObject8.put("k", "uid");
+                            jSONObject8.put("v", li0.a().t());
+                            jSONArray.put(jSONObject8);
+                            JSONObject jSONObject9 = new JSONObject();
+                            jSONObject9.put("k", "ext_info");
+                            JSONObject jSONObject10 = new JSONObject();
+                            jSONObject10.put("ipdx", vm0.a().a());
+                            jSONObject10.put("update_mark", NADNativeHelper.b());
+                            jSONObject10.put("boot_mark", NADNativeHelper.a());
+                            mi1Var.a(jSONObject10);
+                            if (Build.VERSION.SDK_INT >= 19) {
+                                defaultUserAgent = ni0.c().a();
+                            } else {
+                                defaultUserAgent = WebSettings.getDefaultUserAgent(li0.b());
+                            }
+                            jSONObject10.put("sys_ua", defaultUserAgent);
+                            a2 = b41.b().a();
+                            if (!TextUtils.isEmpty(a2)) {
+                                jSONObject10.put("custom_ua", a2);
+                            }
+                            jSONObject10.put(Constants.KEYS.AD_INFO, jSONObject3);
+                            jSONObject9.put("v", jSONObject10.toString());
+                            jSONArray.put(jSONObject9);
+                            JSONObject jSONObject11 = new JSONObject();
+                            jSONObject11.put("k", AdExtParam.KEY_IADEX);
+                            jSONObject11.put("v", li0.d().m());
+                            jSONArray.put(jSONObject11);
+                            f = dj0.c().f(false);
+                            if (!TextUtils.isEmpty(f)) {
+                                JSONObject jSONObject12 = new JSONObject();
+                                jSONObject12.put("k", "oaid_v");
+                                jSONObject12.put("v", f);
+                                jSONArray.put(jSONObject12);
+                            }
+                            JSONObject jSONObject13 = new JSONObject();
+                            jSONObject13.put("k", "encoded_ua_new");
+                            jSONObject13.put("v", URLEncoder.encode(li0.e(), IMAudioTransRequest.CHARSET));
+                            jSONArray.put(jSONObject13);
+                            JSONObject jSONObject14 = new JSONObject();
+                            jSONObject14.put("k", "boot_type");
+                            jSONObject14.put("v", "__boot_type__");
+                            jSONArray.put(jSONObject14);
+                            JSONObject jSONObject15 = new JSONObject();
+                            jSONObject15.put("k", "hot_background_time");
+                            jSONObject15.put("v", "__hot_background_time__");
+                            jSONArray.put(jSONObject15);
+                            JSONObject jSONObject16 = new JSONObject();
+                            jSONObject16.put("k", "is_block_shake_gesture");
+                            jSONObject16.put("v", "__is_block_shake_gesture__");
+                            jSONArray.put(jSONObject16);
+                            hashMap.put("ext", jSONArray.toString());
+                        }
+                    } catch (JSONException e) {
+                        e = e;
+                        e.printStackTrace();
+                        return;
+                    }
+                }
+                i = 0;
+                jSONObject3.put("d", jSONArray2);
+                jSONObject3.put("s", ri1.d());
+                jSONArray.put(new JSONObject());
+                if (!TextUtils.equals(str2, "query")) {
+                }
+                JSONObject jSONObject72 = new JSONObject();
+                jSONObject72.put("k", "logid");
+                jSONObject72.put("v", String.valueOf(j));
+                jSONArray.put(jSONObject72);
+                JSONObject jSONObject82 = new JSONObject();
+                jSONObject82.put("k", "uid");
+                jSONObject82.put("v", li0.a().t());
+                jSONArray.put(jSONObject82);
+                JSONObject jSONObject92 = new JSONObject();
+                jSONObject92.put("k", "ext_info");
+                JSONObject jSONObject102 = new JSONObject();
+                jSONObject102.put("ipdx", vm0.a().a());
+                jSONObject102.put("update_mark", NADNativeHelper.b());
+                jSONObject102.put("boot_mark", NADNativeHelper.a());
+                mi1Var.a(jSONObject102);
+                if (Build.VERSION.SDK_INT >= 19) {
+                }
+                jSONObject102.put("sys_ua", defaultUserAgent);
+                a2 = b41.b().a();
+                if (!TextUtils.isEmpty(a2)) {
+                }
+                jSONObject102.put(Constants.KEYS.AD_INFO, jSONObject3);
+                jSONObject92.put("v", jSONObject102.toString());
+                jSONArray.put(jSONObject92);
+                JSONObject jSONObject112 = new JSONObject();
+                jSONObject112.put("k", AdExtParam.KEY_IADEX);
+                jSONObject112.put("v", li0.d().m());
+                jSONArray.put(jSONObject112);
+                f = dj0.c().f(false);
+                if (!TextUtils.isEmpty(f)) {
+                }
+                JSONObject jSONObject132 = new JSONObject();
+                jSONObject132.put("k", "encoded_ua_new");
+                jSONObject132.put("v", URLEncoder.encode(li0.e(), IMAudioTransRequest.CHARSET));
+                jSONArray.put(jSONObject132);
+                JSONObject jSONObject142 = new JSONObject();
+                jSONObject142.put("k", "boot_type");
+                jSONObject142.put("v", "__boot_type__");
+                jSONArray.put(jSONObject142);
+                JSONObject jSONObject152 = new JSONObject();
+                jSONObject152.put("k", "hot_background_time");
+                jSONObject152.put("v", "__hot_background_time__");
+                jSONArray.put(jSONObject152);
+                JSONObject jSONObject162 = new JSONObject();
+                jSONObject162.put("k", "is_block_shake_gesture");
+                jSONObject162.put("v", "__is_block_shake_gesture__");
+                jSONArray.put(jSONObject162);
+                hashMap.put("ext", jSONArray.toString());
+            } catch (JSONException e2) {
+                e = e2;
+            }
         }
-        return invokeV.intValue;
     }
 
-    @NonNull
-    public static String n() {
-        InterceptResult invokeV;
+    public final String d(String str, Map<String, String> map) {
+        InterceptResult invokeLL;
+        String query;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65563, null)) == null) {
-            JSONObject d2 = zh1.a().d();
-            if (d2 == null || !d2.has("query_unite_pid")) {
+        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, map)) == null) {
+            if (map != null && map.size() != 0) {
+                URI create = URI.create(str);
+                if (TextUtils.isEmpty(create.getQuery())) {
+                    query = "";
+                } else {
+                    query = create.getQuery();
+                }
+                StringBuilder sb = new StringBuilder(query);
+                if (sb.length() > 0) {
+                    sb.append('&');
+                }
+                for (Map.Entry<String, String> entry : map.entrySet()) {
+                    sb.append(entry.getKey());
+                    sb.append("=");
+                    sb.append(entry.getValue());
+                    sb.append('&');
+                }
+                if (sb.length() > 0) {
+                    sb.deleteCharAt(sb.length() - 1);
+                }
+                try {
+                    return new URI(create.getScheme(), create.getAuthority(), create.getPath(), sb.toString(), create.getFragment()).toString();
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+            }
+            return str;
+        }
+        return (String) invokeLL.objValue;
+    }
+
+    public String f(String str, long j) {
+        InterceptResult invokeLJ;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLJ = interceptable.invokeLJ(1048581, this, str, j)) == null) {
+            String a2 = xh1.a();
+            StringBuilder sb = new StringBuilder();
+            sb.append(a2);
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                str2 = "?action=update";
+            } else {
+                str2 = "?action=query";
+            }
+            sb.append(str2);
+            String sb2 = sb.toString();
+            String i = i(str);
+            HashMap<String, String> hashMap = new HashMap<>();
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                str3 = String.valueOf(oi1.o());
+            } else {
+                str3 = "1";
+            }
+            hashMap.put("ac", str3);
+            hashMap.put("pid", i);
+            hashMap.put("product_id ", li0.a().s());
+            b(hashMap);
+            c(hashMap, i, str, j);
+            return d(sb2, hashMap);
+        }
+        return (String) invokeLJ.objValue;
+    }
+
+    public final String i(String str) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str)) == null) {
+            if (TextUtils.equals(str, StickerDataChangeType.UPDATE)) {
+                String optString = bi1.a().d().optString("na_cpc_update_pid");
+                if (TextUtils.isEmpty(optString)) {
+                    return bi1.a().e();
+                }
+                return optString;
+            }
+            return oi1.l();
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String k(String str) {
+        InterceptResult invokeL;
+        String str2;
+        String str3;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+            if (TextUtils.equals(str, "query")) {
+                str2 = l(str);
+                Log.d("RequestUrlManager", " getQueryUrl from cache url ： " + str2);
+            } else {
+                str2 = "";
+            }
+            if (TextUtils.isEmpty(str2)) {
+                str2 = e(str);
+                Log.d("RequestUrlManager", " getQueryUrl NOCache url ： " + str2);
+            }
+            String replace = str2.replace("__boot_type__", String.valueOf(hi1.b())).replace("__hot_background_time__", String.valueOf((System.currentTimeMillis() - hi1.a()) / 1000));
+            if (oi1.M()) {
+                str3 = "1";
+            } else {
+                str3 = "0";
+            }
+            return replace.replace("__is_block_shake_gesture__", str3);
+        }
+        return (String) invokeL.objValue;
+    }
+
+    public String l(String str) {
+        InterceptResult invokeL;
+        String optString;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048587, this, str)) == null) {
+            String string = l11.a().b("splash_sp_name").getString("splash_query_cache_url", "");
+            if (TextUtils.isEmpty(string)) {
                 return "";
             }
-            return d2.optString("query_unite_pid", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static int o() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65564, null)) == null) {
-            return j11.a().b("splash_sp_name").getInt("request_count", 10);
-        }
-        return invokeV.intValue;
-    }
-
-    public static String p() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65565, null)) == null) {
-            return j11.a().b("splash_sp_name").getString("server_block_reason", "");
-        }
-        return (String) invokeV.objValue;
-    }
-
-    public static boolean q() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65566, null)) == null) {
-            if (dm0.b().a().a("nad_hot_background_time_opt", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean r() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65567, null)) == null) {
-            if (!TextUtils.equals(SpeedStatsUtils.UBC_VALUE_SPLASH, "sdk") && dm0.b().a().a("cmd_uniform_enable", 0) == 0) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean s() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65568, null)) == null) {
-            JSONObject d2 = zh1.a().d();
-            if (d2 == null || d2.optInt("nad_splash_query_download_opt", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean t() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65569, null)) == null) {
-            if (dm0.b().a().a("query_uniform_enable", 0) != 1 || TextUtils.isEmpty(n())) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean u() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65570, null)) == null) {
-            if (dm0.b().a().a("query_url_cache_opt", 0) != 1) {
-                return false;
-            }
-            return true;
-        }
-        return invokeV.booleanValue;
-    }
-
-    public static boolean a(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65550, null, i)) == null) {
-            JSONObject d2 = zh1.a().d();
-            if (d2 == null || !d2.has("cpc_show_scene")) {
-                return true;
-            }
-            int optInt = d2.optInt("cpc_show_scene", 0);
-            if (optInt != 1) {
-                if (optInt != 2 || i == 1) {
-                    return true;
+            try {
+                JSONObject jSONObject = new JSONObject(string);
+                long optLong = jSONObject.optLong("cache_time");
+                int a2 = c41.a(optLong, System.currentTimeMillis());
+                if (a2 >= 2) {
+                    optString = jSONObject.optString("after_tomorrow_url");
+                } else if (a2 == 1) {
+                    optString = jSONObject.optString("tomorrow_url");
+                } else {
+                    optString = jSONObject.optString(AbsMsgImageActivityConfig.CURRENT_URL);
                 }
-                return false;
-            } else if (i == 0) {
-                return true;
-            } else {
-                return false;
+                String str2 = optString;
+                if (!TextUtils.isEmpty(str2)) {
+                    BaseVM.d = j(optLong);
+                    if (wf0.a) {
+                        return str2 + "&cache_time=" + (optLong / 1000);
+                    }
+                    return str2;
+                }
+                return str2;
+            } catch (JSONException unused) {
+                return "";
             }
         }
-        return invokeI.booleanValue;
+        return (String) invokeL.objValue;
     }
 
-    public static boolean c(boolean z) {
-        InterceptResult invokeZ;
-        int i;
+    public final void n(long j, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeZ = interceptable.invokeZ(65552, null, z)) == null) {
-            a e2 = e();
-            if (e2 == null) {
-                i = 13001;
-            } else if (!e2.f()) {
-                i = TaskResponseData.ERROR_NO_TASK_OFFLINE_02;
-            } else if (e2.d()) {
-                i = 13003;
+        if (interceptable == null || interceptable.invokeJL(1048588, this, j, str) == null) {
+            int a2 = c41.a(System.currentTimeMillis(), j);
+            if (a2 >= 2) {
+                l11.a().b("splash_sp_name").i("after_tomorrow_reason", str);
+            } else if (a2 == 1) {
+                l11.a().b("splash_sp_name").i("tomorrow_reason", str);
             } else {
-                i = 0;
+                l11.a().b("splash_sp_name").i("current_reason", str);
             }
-            if (i != 0 && z) {
-                BaseVM.k(i);
-            }
-            if (i != 0) {
-                return false;
-            }
-            return true;
         }
-        return invokeZ.booleanValue;
-    }
-
-    @Nullable
-    public static a f() {
-        InterceptResult invokeV;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65555, null)) == null) {
-            String string = j11.a().b("splash_sp_name").getString("cpt_config", "");
-            if (!TextUtils.isEmpty(string)) {
-                return a.c(x01.c(string));
-            }
-            return null;
-        }
-        return (a) invokeV.objValue;
     }
 }

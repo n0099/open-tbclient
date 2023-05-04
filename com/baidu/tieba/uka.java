@@ -1,25 +1,28 @@
 package com.baidu.tieba;
 
-import android.text.TextUtils;
-import com.baidu.searchbox.config.AppConfig;
+import android.media.AudioRecord;
+import androidx.annotation.NonNull;
+import com.baidu.android.imsdk.internal.Constants;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
 import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
+import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import java.io.BufferedInputStream;
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import com.baidu.titan.sdk.runtime.TitanRuntime;
+import com.baidu.ugc.editvideo.record.RecordConstants;
+import java.nio.ByteBuffer;
 /* loaded from: classes6.dex */
 public class uka {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
+    public static final int[] b;
+    public static int c;
+    public static int d;
+    public static int e;
+    public static uka f;
+    public static byte[] g;
     public transient /* synthetic */ FieldHolder $fh;
+    public AudioRecord a;
 
     static {
         InterceptResult invokeClinit;
@@ -34,291 +37,145 @@ public class uka {
                 return;
             }
         }
-        a = AppConfig.isDebug();
+        b = new int[]{1, 0, 5, 7, 6};
+        c = RecordConstants.MOVIE_ENCODE_SAMPLE_RATE;
+        d = 2048;
+        e = 24;
+        g = new byte[0];
     }
 
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:25:0x0049 */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:27:0x004b */
-    /* JADX DEBUG: Failed to insert an additional move for type inference into block B:79:0x00b4 */
-    /* JADX WARN: Code restructure failed: missing block: B:59:0x008a, code lost:
-        if (com.baidu.tieba.uka.a == false) goto L49;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:60:0x008c, code lost:
-        r5.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:76:0x00b0, code lost:
-        if (com.baidu.tieba.uka.a == false) goto L49;
-     */
-    /* JADX WARN: Multi-variable type inference failed */
-    /* JADX WARN: Removed duplicated region for block: B:102:0x00b7 A[EXC_TOP_SPLITTER, SYNTHETIC] */
-    /* JADX WARN: Removed duplicated region for block: B:85:0x00bf A[Catch: IOException -> 0x00bb, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
-    /* JADX WARN: Removed duplicated region for block: B:87:0x00c4 A[Catch: IOException -> 0x00bb, TRY_LEAVE, TryCatch #12 {IOException -> 0x00bb, blocks: (B:81:0x00b7, B:85:0x00bf, B:87:0x00c4), top: B:102:0x00b7 }] */
-    /* JADX WARN: Type inference failed for: r2v0, types: [com.baidu.titan.sdk.runtime.Interceptable] */
-    /* JADX WARN: Type inference failed for: r2v10 */
-    /* JADX WARN: Type inference failed for: r2v2 */
-    /* JADX WARN: Type inference failed for: r2v3 */
-    /* JADX WARN: Type inference failed for: r2v4 */
-    /* JADX WARN: Type inference failed for: r2v5 */
-    /* JADX WARN: Type inference failed for: r2v6, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v7, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v8, types: [java.io.FileInputStream] */
-    /* JADX WARN: Type inference failed for: r2v9, types: [java.io.FileInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r3v0 */
-    /* JADX WARN: Type inference failed for: r3v12 */
-    /* JADX WARN: Type inference failed for: r3v2 */
-    /* JADX WARN: Type inference failed for: r3v5 */
-    /* JADX WARN: Type inference failed for: r3v6, types: [java.io.BufferedReader] */
-    /* JADX WARN: Type inference failed for: r3v9 */
-    /* JADX WARN: Type inference failed for: r5v0, types: [java.lang.Object, java.io.File] */
-    /* JADX WARN: Type inference failed for: r5v11, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r5v14 */
-    /* JADX WARN: Type inference failed for: r5v15 */
-    /* JADX WARN: Type inference failed for: r5v16, types: [java.io.BufferedInputStream, java.io.InputStream] */
-    /* JADX WARN: Type inference failed for: r5v2 */
-    /* JADX WARN: Type inference failed for: r5v3 */
-    /* JADX WARN: Type inference failed for: r5v5 */
-    /* JADX WARN: Type inference failed for: r5v6, types: [java.io.BufferedInputStream] */
-    /* JADX WARN: Type inference failed for: r5v8, types: [java.io.BufferedInputStream] */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static String a(File file) {
-        ?? r2;
-        ?? r3;
-        BufferedReader bufferedReader;
+    public uka(int i) {
+        int[] iArr;
         Interceptable interceptable = $ic;
         if (interceptable != null) {
-            r2 = interceptable;
-            r3 = 65537;
-            InterceptResult invokeL = r2.invokeL(65537, null, file);
-            if (invokeL != null) {
-                return (String) invokeL.objValue;
+            InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {Integer.valueOf(i)};
+            interceptable.invokeUnInit(65537, newInitContext);
+            int i2 = newInitContext.flag;
+            if ((i2 & 1) != 0) {
+                int i3 = i2 & 2;
+                newInitContext.thisArg = this;
+                interceptable.invokeInitBody(65537, newInitContext);
+                return;
             }
         }
-        if (file == 0 || !file.exists()) {
-            return null;
-        }
-        StringBuilder sb = new StringBuilder();
-        try {
+        int minBufferSize = AudioRecord.getMinBufferSize(c, 16, 2);
+        int i4 = d;
+        int i5 = e * i4;
+        i5 = i5 < minBufferSize ? ((minBufferSize / i4) + 1) * i4 * 2 : i5;
+        if (i != -100) {
             try {
-                r2 = new FileInputStream((File) file);
-            } catch (Throwable th) {
-                th = th;
-            }
-        } catch (FileNotFoundException e) {
-            e = e;
-            file = 0;
-            r2 = 0;
-            bufferedReader = null;
-        } catch (IOException e2) {
-            e = e2;
-            file = 0;
-            r2 = 0;
-            bufferedReader = null;
-        } catch (Throwable th2) {
-            th = th2;
-            r2 = 0;
-            r3 = 0;
-        }
-        try {
-            file = new BufferedInputStream(r2);
-            try {
-                bufferedReader = new BufferedReader(new InputStreamReader(file));
-                while (true) {
-                    try {
-                        String readLine = bufferedReader.readLine();
-                        if (readLine == null) {
-                            break;
-                        }
-                        sb.append(readLine);
-                    } catch (FileNotFoundException e3) {
-                        e = e3;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e4) {
-                                e = e4;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (r2 != 0) {
-                            r2.close();
-                        }
-                        return null;
-                    } catch (IOException e5) {
-                        e = e5;
-                        if (a) {
-                            e.printStackTrace();
-                        }
-                        if (bufferedReader != null) {
-                            try {
-                                bufferedReader.close();
-                            } catch (IOException e6) {
-                                e = e6;
-                            }
-                        }
-                        if (file != 0) {
-                            file.close();
-                        }
-                        if (r2 != 0) {
-                            r2.close();
-                        }
-                        return null;
-                    }
+                AudioRecord audioRecord = new AudioRecord(i, c, 16, 2, i5);
+                this.a = audioRecord;
+                if (audioRecord.getState() != 1) {
+                    this.a = null;
                 }
-                String sb2 = sb.toString();
+            } catch (Exception unused) {
+                this.a = null;
+            }
+            if (this.a != null) {
+                hla.d("audio_source:(if) ---> " + i);
+            }
+        }
+        if (this.a == null) {
+            for (int i6 : b) {
                 try {
-                    bufferedReader.close();
-                    file.close();
-                    r2.close();
-                } catch (IOException e7) {
-                    if (a) {
-                        e7.printStackTrace();
+                    AudioRecord audioRecord2 = new AudioRecord(i6, c, 16, 2, i5);
+                    this.a = audioRecord2;
+                    if (audioRecord2.getState() != 1) {
+                        this.a = null;
                     }
+                } catch (Exception unused2) {
+                    this.a = null;
                 }
-                return sb2;
-            } catch (FileNotFoundException e8) {
-                e = e8;
-                bufferedReader = null;
-            } catch (IOException e9) {
-                e = e9;
-                bufferedReader = null;
-            } catch (Throwable th3) {
-                r3 = 0;
-                th = th3;
-                if (r3 != 0) {
-                    try {
-                        r3.close();
-                    } catch (IOException e10) {
-                        if (a) {
-                            e10.printStackTrace();
-                        }
-                        throw th;
-                    }
+                if (this.a != null) {
+                    hla.d("audio_source:(for) ---> " + i6);
+                    return;
                 }
-                if (file != 0) {
-                    file.close();
-                }
-                if (r2 != 0) {
-                    r2.close();
-                }
-                throw th;
             }
-        } catch (FileNotFoundException e11) {
-            e = e11;
-            file = 0;
-            bufferedReader = null;
-        } catch (IOException e12) {
-            e = e12;
-            file = 0;
-            bufferedReader = null;
-        } catch (Throwable th4) {
-            th = th4;
-            r3 = 0;
-            r2 = r2;
-            th = th;
-            file = r3;
-            if (r3 != 0) {
-            }
-            if (file != 0) {
-            }
-            if (r2 != 0) {
-            }
-            throw th;
         }
     }
 
-    /* JADX WARN: Code restructure failed: missing block: B:38:0x004d, code lost:
-        if (com.baidu.tieba.uka.a == false) goto L32;
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:39:0x004f, code lost:
-        r4.printStackTrace();
-     */
-    /* JADX WARN: Code restructure failed: missing block: B:49:0x0064, code lost:
-        if (com.baidu.tieba.uka.a == false) goto L32;
-     */
-    /*
-        Code decompiled incorrectly, please refer to instructions dump.
-    */
-    public static boolean b(String str, File file) {
-        InterceptResult invokeLL;
-        FileOutputStream fileOutputStream;
+    public int a(@NonNull ByteBuffer byteBuffer, int i) {
+        InterceptResult invokeLI;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(65538, null, str, file)) == null) {
-            if (TextUtils.isEmpty(str) || !file.exists()) {
-                return false;
+        if (interceptable == null || (invokeLI = interceptable.invokeLI(1048576, this, byteBuffer, i)) == null) {
+            AudioRecord audioRecord = this.a;
+            if (audioRecord == null) {
+                return 0;
             }
-            FileOutputStream fileOutputStream2 = null;
-            try {
-                try {
-                    fileOutputStream = new FileOutputStream(file);
-                } catch (Throwable th) {
-                    th = th;
-                }
-            } catch (FileNotFoundException e) {
-                e = e;
-            } catch (IOException e2) {
-                e = e2;
-            }
-            try {
-                fileOutputStream.write(str.getBytes());
-                fileOutputStream.flush();
-                try {
-                    fileOutputStream.close();
-                } catch (IOException e3) {
-                    if (a) {
-                        e3.printStackTrace();
-                    }
-                }
-                return true;
-            } catch (FileNotFoundException e4) {
-                e = e4;
-                fileOutputStream2 = fileOutputStream;
-                if (a) {
-                    e.printStackTrace();
-                }
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e5) {
-                        e = e5;
-                    }
-                }
-                return false;
-            } catch (IOException e6) {
-                e = e6;
-                fileOutputStream2 = fileOutputStream;
-                if (a) {
-                    e.printStackTrace();
-                }
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e7) {
-                        e = e7;
-                    }
-                }
-                return false;
-            } catch (Throwable th2) {
-                th = th2;
-                fileOutputStream2 = fileOutputStream;
-                if (fileOutputStream2 != null) {
-                    try {
-                        fileOutputStream2.close();
-                    } catch (IOException e8) {
-                        if (a) {
-                            e8.printStackTrace();
-                        }
-                    }
-                }
-                throw th;
+            return audioRecord.read(byteBuffer, i);
+        }
+        return invokeLI.intValue;
+    }
+
+    public void b() {
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) || this.a == null) {
+            return;
+        }
+        synchronized (g) {
+            g();
+            if (f == this) {
+                f = null;
             }
         }
-        return invokeLL.booleanValue;
+    }
+
+    public void c() {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            synchronized (g) {
+                if (f == this) {
+                    return;
+                }
+                if (f != null) {
+                    f.g();
+                    f = null;
+                }
+                f();
+                f = this;
+            }
+        }
+    }
+
+    public AudioRecord d() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) ? this.a : (AudioRecord) invokeV.objValue;
+    }
+
+    public int e() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            AudioRecord audioRecord = this.a;
+            if (audioRecord != null) {
+                return audioRecord.getRecordingState();
+            }
+            return -1;
+        }
+        return invokeV.intValue;
+    }
+
+    public final void f() {
+        AudioRecord audioRecord;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048581, this) == null) || (audioRecord = this.a) == null) {
+            return;
+        }
+        audioRecord.startRecording();
+    }
+
+    public final void g() {
+        AudioRecord audioRecord;
+        Interceptable interceptable = $ic;
+        if (!(interceptable == null || interceptable.invokeV(1048582, this) == null) || (audioRecord = this.a) == null) {
+            return;
+        }
+        this.a = null;
+        audioRecord.stop();
+        audioRecord.release();
     }
 }

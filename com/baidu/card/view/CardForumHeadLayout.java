@@ -29,8 +29,8 @@ import com.baidu.tbadk.core.util.WebPManager;
 import com.baidu.tbadk.core.view.BarImageView;
 import com.baidu.tbadk.core.view.SingleLineEllipsizeTextView;
 import com.baidu.tieba.R;
+import com.baidu.tieba.b05;
 import com.baidu.tieba.ii;
-import com.baidu.tieba.lz4;
 import com.baidu.tieba.view.TbLayerImageView;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
@@ -343,7 +343,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
                     }
                     textView2.setText(str2);
                     h();
-                    lz4 forumData = threadData.getForumData();
+                    b05 forumData = threadData.getForumData();
                     this.b.setPlaceHolder(1);
                     this.b.setVisibility(0);
                     this.b.N(forumData.a(), 10, false);
@@ -433,7 +433,7 @@ public class CardForumHeadLayout extends RelativeLayout implements View.OnClickL
             this.d.setText(String.format(getContext().getString(R.string.chosen_pb_original_bar), this.k));
             this.b.N(str2, 10, false);
             this.f.setText(String.format(getContext().getString(R.string.forum_thread_number), StringHelper.numberUniformFormatExtra(i)));
-            this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0451), StringHelper.numberUniformFormatExtra(i2)));
+            this.e.setText(String.format(getContext().getString(R.string.obfuscated_res_0x7f0f0459), StringHelper.numberUniformFormatExtra(i2)));
             HomeGroupUbsUIHelper.handleHeadSegmentTitleView(this.d);
             if (ListUtils.isEmpty(list)) {
                 this.c.setVisibility(8);

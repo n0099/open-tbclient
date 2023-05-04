@@ -1,464 +1,181 @@
 package com.baidu.tieba;
 
-import android.app.Activity;
+import android.annotation.SuppressLint;
 import android.content.Context;
-import android.util.Log;
-import android.webkit.ValueCallback;
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+import android.os.Build;
 import androidx.core.view.InputDeviceCompat;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
-import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
-import com.baidu.titan.sdk.runtime.TitanRuntime;
+import dalvik.system.DexFile;
+import dalvik.system.PathClassLoader;
+import java.io.File;
+import java.lang.reflect.Array;
+import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
+import java.lang.reflect.InvocationTargetException;
+import java.lang.reflect.Method;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.LinkedList;
-import java.util.Map;
-import java.util.TreeMap;
+import java.util.List;
+@SuppressLint({"BDSoLoader", "UnsafeDynamicallyLoadedCode"})
 /* loaded from: classes3.dex */
-public final class ae2 {
+public class ae2 {
     public static /* synthetic */ Interceptable $ic;
-    public static final boolean a;
-    public static LinkedList<e> b;
-    public static Map<String, bu1> c;
     public transient /* synthetic */ FieldHolder $fh;
 
-    /* loaded from: classes3.dex */
-    public interface f {
-        void onReady();
-    }
-
-    /* loaded from: classes3.dex */
-    public static class a implements Runnable {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-
-        public a() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        @Override // java.lang.Runnable
-        public void run() {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeV(1048576, this) == null) {
-                if (ae2.a) {
-                    Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next start.");
-                }
-                ae2.n(it2.U().getActivity());
-                if (ae2.a) {
-                    Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next end.");
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class b extends j62 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ boolean b;
-
-        public b(e eVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = z;
-        }
-
-        @Override // com.baidu.tieba.j62
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (ae2.a) {
-                    Log.d("SwanAppSlavePool", "onPageFinished slaveId: " + this.a.a.a() + " url: " + str);
-                }
-                if (!u33.D() || !pe2.U().q0()) {
-                    ae2.l(this.a, this.b);
-                } else {
-                    ae2.m(this.a, this.b);
-                }
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class c implements ValueCallback<String> {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ e a;
-        public final /* synthetic */ boolean b;
-
-        public c(e eVar, boolean z) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {eVar, Boolean.valueOf(z)};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = eVar;
-            this.b = z;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // android.webkit.ValueCallback
-        /* renamed from: a */
-        public void onReceiveValue(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                if (ae2.a) {
-                    Log.d("SwanAppSlavePool", "slave onReceiveValue: " + str);
-                }
-                ae2.l(this.a, this.b);
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class d extends j62 {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ bu1 a;
-
-        public d(bu1 bu1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {bu1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.a = bu1Var;
-        }
-
-        @Override // com.baidu.tieba.j62
-        public void a(String str) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeL(1048576, this, str) == null) {
-                this.a.destroy();
-            }
-        }
-    }
-
-    /* loaded from: classes3.dex */
-    public static class e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public bu1 a;
-        public boolean b;
-        public final ArrayList<f> c;
-        public long d;
-        public long e;
-        public boolean f;
-
-        public e() {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                    return;
-                }
-            }
-            this.c = new ArrayList<>();
-            this.f = true;
-        }
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable != null && (invokeClinit = classClinitInterceptable.invokeClinit(1947612219, "Lcom/baidu/tieba/ae2;")) != null) {
-            Interceptable interceptable = invokeClinit.interceptor;
-            if (interceptable != null) {
-                $ic = interceptable;
-            }
-            if ((invokeClinit.flags & 1) != 0) {
-                classClinitInterceptable.invokePostClinit(1947612219, "Lcom/baidu/tieba/ae2;");
-                return;
-            }
-        }
-        a = fo1.a;
-        b = new LinkedList<>();
-        c = new TreeMap();
-    }
-
-    public static void d() {
+    public static void a(Context context, String str) throws Exception {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(InputDeviceCompat.SOURCE_TRACKBALL, null) == null) {
-            b.clear();
-            c.clear();
+        if (interceptable == null || interceptable.invokeLL(65536, null, context, str) == null) {
+            Object e = e((PathClassLoader) context.getClassLoader());
+            Field declaredField = e.getClass().getDeclaredField("nativeLibraryDirectories");
+            declaredField.setAccessible(true);
+            File[] fileArr = (File[]) declaredField.get(e);
+            Object newInstance = Array.newInstance(File.class, fileArr.length + 1);
+            Array.set(newInstance, 0, new File(str));
+            for (int i = 1; i < fileArr.length + 1; i++) {
+                Array.set(newInstance, i, fileArr[i - 1]);
+            }
+            declaredField.set(e, newInstance);
         }
     }
 
-    public static boolean i() {
+    public static void c(Context context, String str) throws NoSuchFieldException, IllegalAccessException {
+        Interceptable interceptable = $ic;
+        if (interceptable == null || interceptable.invokeLL(65538, null, context, str) == null) {
+            PathClassLoader pathClassLoader = (PathClassLoader) context.getClassLoader();
+            Field declaredField = pathClassLoader.getClass().getDeclaredField("mLibPaths");
+            declaredField.setAccessible(true);
+            String[] strArr = (String[]) declaredField.get(pathClassLoader);
+            Object newInstance = Array.newInstance(String.class, strArr.length + 1);
+            Array.set(newInstance, 0, str);
+            for (int i = 1; i < strArr.length + 1; i++) {
+                Array.set(newInstance, i, strArr[i - 1]);
+            }
+            declaredField.set(pathClassLoader, newInstance);
+        }
+    }
+
+    @SuppressLint({"ObsoleteSdkInt"})
+    public static void b(Context context, String str) throws IllegalAccessException, NoSuchFieldException, ClassNotFoundException, NoSuchMethodException, InvocationTargetException {
+        Interceptable interceptable = $ic;
+        if ((interceptable != null && interceptable.invokeLL(65537, null, context, str) != null) || Build.VERSION.SDK_INT < 21) {
+            return;
+        }
+        Object e = e((PathClassLoader) context.getClassLoader());
+        Field declaredField = e.getClass().getDeclaredField("systemNativeLibraryDirectories");
+        declaredField.setAccessible(true);
+        List list = (List) declaredField.get(e);
+        list.add(new File(str));
+        declaredField.set(e, list);
+        Field declaredField2 = e.getClass().getDeclaredField("nativeLibraryDirectories");
+        declaredField2.setAccessible(true);
+        ArrayList arrayList = (ArrayList) declaredField2.get(e);
+        arrayList.add(new File(str));
+        declaredField2.set(e, arrayList);
+        Class<?> cls = Class.forName("dalvik.system.DexPathList$Element");
+        Constructor<?> constructor = cls.getConstructor(File.class, Boolean.TYPE, File.class, DexFile.class);
+        Field declaredField3 = e.getClass().getDeclaredField("nativeLibraryPathElements");
+        declaredField3.setAccessible(true);
+        Object[] objArr = (Object[]) declaredField3.get(e);
+        Object newInstance = Array.newInstance(cls, objArr.length + 1);
+        if (constructor != null) {
+            try {
+                Array.set(newInstance, 0, constructor.newInstance(new File(str), Boolean.TRUE, null, null));
+                for (int i = 1; i < objArr.length + 1; i++) {
+                    Array.set(newInstance, i, objArr[i - 1]);
+                }
+                declaredField3.set(e, newInstance);
+            } catch (IllegalArgumentException unused) {
+                Method declaredMethod = e.getClass().getDeclaredMethod("makePathElements", List.class);
+                declaredMethod.setAccessible(true);
+                Object invoke = declaredMethod.invoke(null, arrayList);
+                Field declaredField4 = e.getClass().getDeclaredField("nativeLibraryPathElements");
+                declaredField4.setAccessible(true);
+                declaredField4.set(e, invoke);
+            } catch (InstantiationException e2) {
+                e2.printStackTrace();
+            } catch (InvocationTargetException e3) {
+                e3.printStackTrace();
+            }
+        }
+    }
+
+    public static Object d(Object obj, Class cls, String str) throws NoSuchFieldException, IllegalAccessException {
+        InterceptResult invokeLLL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(65539, null, obj, cls, str)) == null) {
+            Field declaredField = cls.getDeclaredField(str);
+            declaredField.setAccessible(true);
+            return declaredField.get(obj);
+        }
+        return invokeLLL.objValue;
+    }
+
+    public static Object e(Object obj) throws ClassNotFoundException, NoSuchFieldException, IllegalAccessException {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(InputDeviceCompat.SOURCE_TRACKBALL, null, obj)) == null) {
+            return d(obj, Class.forName("dalvik.system.BaseDexClassLoader"), "pathList");
+        }
+        return invokeL.objValue;
+    }
+
+    public static boolean f() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(65545, null)) == null) {
-            v73 b0 = v73.b0();
-            if (b0 != null && b0.Q() != null) {
-                return b0.Q().u;
+        if (interceptable == null || (invokeV = interceptable.invokeV(65541, null)) == null) {
+            try {
+                Class.forName("dalvik.system.BaseDexClassLoader");
+                return true;
+            } catch (ClassNotFoundException unused) {
+                return false;
             }
-            return false;
         }
         return invokeV.booleanValue;
     }
 
-    public static void m(@NonNull e eVar, boolean z) {
+    public static void g(Context context, String str) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65549, null, eVar, z) == null) {
-            g52.k().o(eVar.a, new c(eVar, z));
-        }
-    }
-
-    public static void o(@NonNull String str, bu1 bu1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLL(65551, null, str, bu1Var) == null) {
-            Map<String, bu1> map = c;
-            if (str == null) {
-                str = "";
-            }
-            map.put(str, bu1Var);
-        }
-    }
-
-    public static void q(e eVar, f fVar) {
-        Interceptable interceptable = $ic;
-        if ((interceptable != null && interceptable.invokeLL(65553, null, eVar, fVar) != null) || fVar == null) {
-            return;
-        }
-        if (eVar.b) {
-            fVar.onReady();
-            return;
-        }
-        eVar.c.add(fVar);
-        eVar.f = false;
-    }
-
-    public static e e(Context context, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65541, null, new Object[]{context, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (!fe2.d()) {
-                i = 0;
-            }
-            e eVar = new e();
-            eVar.d = System.currentTimeMillis();
-            eVar.b = false;
-            eVar.a = pe2.U().K0(context, i, new b(eVar, z));
-            return eVar;
-        }
-        return (e) invokeCommon.objValue;
-    }
-
-    public static e f(@Nullable Activity activity, int i) {
-        InterceptResult invokeLI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLI = interceptable.invokeLI(65542, null, activity, i)) == null) {
-            if (a) {
-                Log.d("SwanAppSlavePool", "getPreloadSlaveManager: " + i);
-                Log.d("SwanAppSlavePool", Log.getStackTraceString(new Exception()));
-            }
-            return g(activity, i, false);
-        }
-        return (e) invokeLI.objValue;
-    }
-
-    public static e g(@Nullable Activity activity, int i, boolean z) {
-        InterceptResult invokeCommon;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeCommon = interceptable.invokeCommon(65543, null, new Object[]{activity, Integer.valueOf(i), Boolean.valueOf(z)})) == null) {
-            if (a) {
-                Log.d("SwanAppSlavePool", "getPreloadSlaveManager");
-            }
-            if (!fe2.d()) {
-                i = 0;
-            }
-            e eVar = null;
-            Iterator<e> it = b.iterator();
-            while (true) {
-                if (!it.hasNext()) {
-                    break;
-                }
-                e next = it.next();
-                if (next.a.Q() == i) {
-                    eVar = next;
-                    break;
+        if (interceptable == null || interceptable.invokeLL(65542, null, context, str) == null) {
+            if (f()) {
+                try {
+                    try {
+                        a(context, str);
+                        return;
+                    } catch (Exception unused) {
+                        b(context, str);
+                        return;
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    return;
                 }
             }
-            if (eVar == null) {
-                return e(k(activity), i, false);
+            try {
+                c(context, str);
+            } catch (Exception unused2) {
             }
-            b.remove(eVar);
-            bu1 bu1Var = eVar.a;
-            if (bu1Var != null && activity != null) {
-                bu1Var.attachActivity(activity);
-            }
-            if (a) {
-                Log.d("SwanAppSlavePool", "getPreloadSlaveManager prepare next.");
-            }
+        }
+    }
+
+    public static boolean h(String str, String str2, boolean z) {
+        InterceptResult invokeLLZ;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeLLZ = interceptable.invokeLLZ(65543, null, str, str2, z)) == null) {
             if (!z) {
-                int g = w13.g();
-                if (g <= 0) {
-                    g = 600;
-                }
-                pl3.b0(new a(), g);
-            }
-            return eVar;
-        }
-        return (e) invokeCommon.objValue;
-    }
-
-    public static bu1 h(@NonNull String str) {
-        InterceptResult invokeL;
-        String str2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65544, null, str)) == null) {
-            Map<String, bu1> map = c;
-            if (str != null) {
-                str2 = str;
-            } else {
-                str2 = "";
-            }
-            bu1 bu1Var = map.get(str2);
-            if (bu1Var != null) {
-                c.remove(str);
-            }
-            return bu1Var;
-        }
-        return (bu1) invokeL.objValue;
-    }
-
-    public static Context k(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65547, null, context)) == null) {
-            if (context == null) {
-                return cr2.c();
-            }
-            if ((context instanceof Activity) && ((Activity) context).isFinishing()) {
-                return cr2.c();
-            }
-            return context;
-        }
-        return (Context) invokeL.objValue;
-    }
-
-    public static boolean j(int i) {
-        InterceptResult invokeI;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeI = interceptable.invokeI(65546, null, i)) == null) {
-            for (int i2 = 0; i2 < b.size(); i2++) {
-                if (b.get(i2).a.Q() == i) {
+                try {
+                    System.loadLibrary(str);
                     return true;
+                } catch (Throwable unused) {
                 }
             }
-            return false;
-        }
-        return invokeI.booleanValue;
-    }
-
-    public static void n(Context context) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65550, null, context) == null) {
-            if (!j(0)) {
-                b.add(e(k(context), 0, true));
-            }
-            if (!j(1) && fe2.d() && i()) {
-                b.add(e(k(context), 1, true));
+            try {
+                System.load(str2 + File.separator + "lib" + str + ".so");
+                return true;
+            } catch (Throwable unused2) {
+                return false;
             }
         }
-    }
-
-    public static void l(@NonNull e eVar, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLZ(65548, null, eVar, z) == null) {
-            if (z && eVar.f) {
-                ge2.j(eVar.a);
-            }
-            eVar.e = System.currentTimeMillis();
-            eVar.b = true;
-            if (eVar.c.isEmpty()) {
-                return;
-            }
-            Iterator<f> it = eVar.c.iterator();
-            while (it.hasNext()) {
-                f next = it.next();
-                if (next != null) {
-                    next.onReady();
-                }
-            }
-            eVar.c.clear();
-        }
-    }
-
-    public static void p(@NonNull bu1<?> bu1Var) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(65552, null, bu1Var) == null) {
-            if (bu1Var.Q() == 1 && !i()) {
-                if (pe2.U().l0()) {
-                    bu1Var.destroy();
-                    return;
-                } else {
-                    pe2.U().K(new d(bu1Var));
-                    return;
-                }
-            }
-            e eVar = new e();
-            eVar.d = System.currentTimeMillis();
-            eVar.b = false;
-            eVar.a = bu1Var;
-            b.add(eVar);
-            if (u33.D() && pe2.U().q0()) {
-                m(eVar, true);
-            } else {
-                l(eVar, true);
-            }
-        }
+        return invokeLLZ.booleanValue;
     }
 }

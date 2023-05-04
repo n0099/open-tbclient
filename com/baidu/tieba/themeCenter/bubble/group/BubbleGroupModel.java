@@ -12,12 +12,12 @@ import com.baidu.tbadk.core.frameworkData.CmdConfigHttp;
 import com.baidu.tbadk.core.frameworkData.IntentConfig;
 import com.baidu.tbadk.task.TbHttpMessageTask;
 import com.baidu.tieba.a9;
-import com.baidu.tieba.es9;
-import com.baidu.tieba.il9;
-import com.baidu.tieba.qs9;
+import com.baidu.tieba.lw9;
 import com.baidu.tieba.themeCenter.background.DressItemData;
 import com.baidu.tieba.themeCenter.bubble.all.BubbleSetResponseMessage;
+import com.baidu.tieba.xo9;
 import com.baidu.tieba.za;
+import com.baidu.tieba.zv9;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
@@ -29,8 +29,8 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
     public BubbleGroupActivity a;
-    public qs9 b;
-    public List<es9> c;
+    public lw9 b;
+    public List<zv9> c;
     public c d;
     public boolean e;
     public za f;
@@ -38,14 +38,14 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
 
     /* loaded from: classes6.dex */
     public interface c {
-        void a(int i, String str, qs9 qs9Var, List<es9> list);
+        void a(int i, String str, lw9 lw9Var, List<zv9> list);
     }
 
     @Override // com.baidu.adp.base.BdBaseModel
     public boolean cancelLoadData() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048581, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this)) == null) {
             return false;
         }
         return invokeV.booleanValue;
@@ -148,7 +148,7 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
                     this.a.a.showToast(bubbleSetResponseMessage.getErrorString());
                     return;
                 }
-                this.a.b0(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
+                this.a.g0(((Integer) ((HttpMessage) httpResponsedMessage.getmOrginalMessage()).getExtra()).intValue());
                 this.a.d.a(httpResponsedMessage.getError(), httpResponsedMessage.getErrorString(), this.a.b, this.a.c);
             }
         }
@@ -176,20 +176,20 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         this.g = new b(this, CmdConfigHttp.CMD_BUBBLE_SET);
         this.a = bubbleGroupActivity;
         this.e = bubbleGroupActivity.getIntent().getBooleanExtra(IntentConfig.MEMBER_BUY_SHOW, false);
-        Y();
+        d0();
         registerListener(this.f);
-        Z();
+        e0();
         registerListener(this.g);
     }
 
-    public void a0(c cVar) {
+    public void f0(c cVar) {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(1048579, this, cVar) == null) {
+        if (interceptable == null || interceptable.invokeL(1048580, this, cVar) == null) {
             this.d = cVar;
         }
     }
 
-    public boolean X() {
+    public boolean c0() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
         if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
@@ -198,11 +198,11 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void Y() {
+    public final void d0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this) == null) {
-            il9.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
-            il9.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
+        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+            xo9.h(309030, BubbleGroupSocketResponseMessage.class, false, false);
+            xo9.c(309030, CmdConfigHttp.CMD_BUBBLE_CATEGORY, TbConfig.BUBBLE_GROUP_PAGE, BubbleGroupHttpResponseMessage.class, false, false, true, false);
         }
     }
 
@@ -217,9 +217,9 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         return invokeV.booleanValue;
     }
 
-    public final void Z() {
+    public final void e0() {
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this) == null) {
+        if (interceptable == null || interceptable.invokeV(1048579, this) == null) {
             MessageManager messageManager = MessageManager.getInstance();
             TbHttpMessageTask tbHttpMessageTask = new TbHttpMessageTask(CmdConfigHttp.CMD_BUBBLE_SET, TbConfig.SERVER_ADDRESS + TbConfig.BUBBLE_SET);
             tbHttpMessageTask.setResponsedClass(BubbleSetResponseMessage.class);
@@ -227,13 +227,13 @@ public class BubbleGroupModel extends BdBaseModel<BubbleGroupActivity> {
         }
     }
 
-    public final void b0(int i) {
-        List<es9> list;
+    public final void g0(int i) {
+        List<zv9> list;
         Interceptable interceptable = $ic;
-        if ((interceptable == null || interceptable.invokeI(1048580, this, i) == null) && (list = this.c) != null && list.size() > 0) {
-            for (es9 es9Var : this.c) {
-                if (es9Var != null && es9Var.a() != null) {
-                    for (DressItemData dressItemData : es9Var.a()) {
+        if ((interceptable == null || interceptable.invokeI(1048581, this, i) == null) && (list = this.c) != null && list.size() > 0) {
+            for (zv9 zv9Var : this.c) {
+                if (zv9Var != null && zv9Var.a() != null) {
+                    for (DressItemData dressItemData : zv9Var.a()) {
                         if (dressItemData != null) {
                             if (dressItemData.getPropsId() == i) {
                                 dressItemData.setInUse(true);

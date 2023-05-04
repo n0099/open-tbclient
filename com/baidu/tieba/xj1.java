@@ -1,150 +1,39 @@
 package com.baidu.tieba;
 
-import android.content.Context;
-import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
-import android.util.LruCache;
+import android.text.TextUtils;
 import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
-import com.baidu.sdk.container.filedownloader.MaterialLoader;
-import com.baidu.tieba.ak1;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptable;
-import com.baidu.titan.sdk.runtime.ClassClinitInterceptorStorage;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.io.ByteArrayInputStream;
-import java.io.File;
-import java.util.Map;
-import java.util.concurrent.ConcurrentHashMap;
-import java.util.regex.Pattern;
+import org.json.JSONException;
+import org.json.JSONObject;
 /* loaded from: classes7.dex */
 public class xj1 {
-    public static /* synthetic */ Interceptable $ic = null;
-    public static volatile xj1 g = null;
-    public static int h = 30000000;
-    public static int i = 50000000;
+    public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public final LruCache<String, zj1<?>> a;
-    public final ak1 b;
-    public final ak1 c;
-    public final Map<String, ak1> d;
-    public final String e;
-    public final String f;
+    public JSONObject a;
 
     /* loaded from: classes7.dex */
-    public interface c {
-        void a();
-
-        void b();
-    }
-
-    /* loaded from: classes7.dex */
-    public interface d<T> {
-        <D> T a(D d);
-
-        T b(byte[] bArr);
-    }
-
-    static {
-        InterceptResult invokeClinit;
-        ClassClinitInterceptable classClinitInterceptable = ClassClinitInterceptorStorage.$ic;
-        if (classClinitInterceptable == null || (invokeClinit = classClinitInterceptable.invokeClinit(1948302186, "Lcom/baidu/tieba/xj1;")) == null) {
-            return;
-        }
-        Interceptable interceptable = invokeClinit.interceptor;
-        if (interceptable != null) {
-            $ic = interceptable;
-        }
-        if ((invokeClinit.flags & 1) != 0) {
-            classClinitInterceptable.invokePostClinit(1948302186, "Lcom/baidu/tieba/xj1;");
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class a implements d<Bitmap> {
+    public static /* synthetic */ class a {
         public static /* synthetic */ Interceptable $ic;
         public transient /* synthetic */ FieldHolder $fh;
+    }
 
-        public a(xj1 xj1Var) {
+    /* loaded from: classes7.dex */
+    public static class b {
+        public static /* synthetic */ Interceptable $ic;
+        public transient /* synthetic */ FieldHolder $fh;
+        public JSONObject a;
+
+        public b(String str, String str2) {
             Interceptable interceptable = $ic;
             if (interceptable != null) {
                 InitContext newInitContext = TitanRuntime.newInitContext();
                 newInitContext.initArgs = r2;
-                Object[] objArr = {xj1Var};
-                interceptable.invokeUnInit(65536, newInitContext);
-                int i = newInitContext.flag;
-                if ((i & 1) != 0) {
-                    int i2 = i & 2;
-                    newInitContext.thisArg = this;
-                    interceptable.invokeInitBody(65536, newInitContext);
-                }
-            }
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        /* JADX DEBUG: Throwable added to exception handler: 'OutOfMemoryError', keep only Throwable */
-        @Override // com.baidu.tieba.xj1.d
-        /* renamed from: c */
-        public Bitmap b(byte[] bArr) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_SEND_USER_MSG, this, bArr)) == null) {
-                if (bArr == null) {
-                    return null;
-                }
-                try {
-                    BitmapFactory.Options options = new BitmapFactory.Options();
-                    options.inPreferredConfig = Bitmap.Config.ARGB_8888;
-                    options.inPurgeable = true;
-                    options.inInputShareable = true;
-                    return BitmapFactory.decodeStream(new ByteArrayInputStream(bArr), null, options);
-                } catch (Throwable unused) {
-                    return null;
-                }
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-
-        /* JADX DEBUG: Method merged with bridge method */
-        @Override // com.baidu.tieba.xj1.d
-        /* renamed from: d */
-        public <D> Bitmap a(D d) {
-            InterceptResult invokeL;
-            Interceptable interceptable = $ic;
-            if (interceptable == null || (invokeL = interceptable.invokeL(1048579, this, d)) == null) {
-                if (d instanceof Bitmap) {
-                    return (Bitmap) d;
-                }
-                return null;
-            }
-            return (Bitmap) invokeL.objValue;
-        }
-    }
-
-    /* loaded from: classes7.dex */
-    public class b implements ak1.e {
-        public static /* synthetic */ Interceptable $ic;
-        public transient /* synthetic */ FieldHolder $fh;
-        public final /* synthetic */ String a;
-        public final /* synthetic */ c b;
-        public final /* synthetic */ ak1 c;
-
-        @Override // com.baidu.tieba.ak1.e
-        public void a(String str, zj1<File> zj1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable == null || interceptable.invokeLL(1048576, this, str, zj1Var) == null) {
-            }
-        }
-
-        public b(xj1 xj1Var, String str, c cVar, ak1 ak1Var) {
-            Interceptable interceptable = $ic;
-            if (interceptable != null) {
-                InitContext newInitContext = TitanRuntime.newInitContext();
-                newInitContext.initArgs = r2;
-                Object[] objArr = {xj1Var, str, cVar, ak1Var};
+                Object[] objArr = {str, str2};
                 interceptable.invokeUnInit(65536, newInitContext);
                 int i = newInitContext.flag;
                 if ((i & 1) != 0) {
@@ -154,247 +43,469 @@ public class xj1 {
                     return;
                 }
             }
-            this.a = str;
-            this.b = cVar;
-            this.c = ak1Var;
+            this.a = new JSONObject();
+            H("material_type", str);
+            H("material_url", str2);
         }
 
-        @Override // com.baidu.tieba.ak1.e
-        public void b(String str, zj1<File> zj1Var) {
+        public b A(int i) {
+            InterceptResult invokeI;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, str, zj1Var) == null) && this.a.equals(str)) {
-                this.b.a();
-                this.c.q(this);
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048576, this, i)) == null) {
+                try {
+                    this.a.put("skip_btn_height", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b B(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, i)) == null) {
+                try {
+                    this.a.put("skip_btn_type", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b C(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(Constants.METHOD_SEND_USER_MSG, this, i)) == null) {
+                try {
+                    this.a.put("skip_btn_width", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b D(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048579, this, i)) == null) {
+                try {
+                    this.a.put("skipTime", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b E(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048580, this, i)) == null) {
+                try {
+                    this.a.put("small_logo_height", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b F(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048581, this, i)) == null) {
+                try {
+                    this.a.put("small_logo_width", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b G(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, jSONObject)) == null) {
+                try {
+                    this.a.put("style", jSONObject);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b b(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048585, this, i)) == null) {
+                try {
+                    this.a.put("ad_click_opt", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b c(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048586, this, str)) == null) {
+                try {
+                    this.a.put("ad_label", str);
+                    if (TextUtils.isEmpty(str)) {
+                        this.a.put("hide_ad_logo", false);
+                    }
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b d(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048587, this, i)) == null) {
+                try {
+                    this.a.put("ad_label_height", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b e(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048588, this, i)) == null) {
+                try {
+                    this.a.put("ad_label_width", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b f(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048589, this, i)) == null) {
+                try {
+                    this.a.put("bottom_logo_height", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b g(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048590, this, i)) == null) {
+                try {
+                    this.a.put("close_type", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b h(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048591, this, i)) == null) {
+                try {
+                    this.a.put("bitmapDisplayMode", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b i(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048592, this, z)) == null) {
+                try {
+                    this.a.put("full_screen", z);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b j(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048593, this, i)) == null) {
+                try {
+                    this.a.put("gesture_lottie_direction", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b k(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048594, this, str)) == null) {
+                H("gesture_lottie_url", str);
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b l(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048595, this, f)) == null) {
+                try {
+                    this.a.put("gesture_lottie_sensitivity", f);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeF.objValue;
+        }
+
+        public b m(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048596, this, i)) == null) {
+                try {
+                    this.a.put("gesture_lottie_type", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b n(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048597, this, i)) == null) {
+                try {
+                    this.a.put("host_big_logo_res_id", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b o(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048598, this, i)) == null) {
+                try {
+                    this.a.put("host_small_logo_res_id", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b p(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048599, this, z)) == null) {
+                try {
+                    this.a.put("show_host_small_logo", z);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b q(JSONObject jSONObject) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048600, this, jSONObject)) == null) {
+                try {
+                    this.a.put("inner_style", jSONObject);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b r(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048601, this, str)) == null) {
+                H("lottie_url", str);
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b s(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048602, this, str)) == null) {
+                try {
+                    this.a.put("mantleActionText", str);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b t(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048603, this, i)) == null) {
+                try {
+                    this.a.put("mantleBottomMargin", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b u(String str) {
+            InterceptResult invokeL;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeL = interceptable.invokeL(1048604, this, str)) == null) {
+                H("prod", str);
+                return this;
+            }
+            return (b) invokeL.objValue;
+        }
+
+        public b v(float f) {
+            InterceptResult invokeF;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeF = interceptable.invokeF(1048605, this, f)) == null) {
+                try {
+                    this.a.put("shake_action_delay_time", f);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeF.objValue;
+        }
+
+        public b w(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048606, this, i)) == null) {
+                try {
+                    this.a.put("shake_direction_count", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b x(int i) {
+            InterceptResult invokeI;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeI = interceptable.invokeI(1048607, this, i)) == null) {
+                try {
+                    this.a.put("shake_update_interval", i);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeI.objValue;
+        }
+
+        public b y(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048608, this, z)) == null) {
+                try {
+                    this.a.put("lottie_show", z);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public b z(boolean z) {
+            InterceptResult invokeZ;
+            Interceptable interceptable = $ic;
+            if (interceptable == null || (invokeZ = interceptable.invokeZ(1048609, this, z)) == null) {
+                try {
+                    this.a.put("show_wifi_view", z);
+                } catch (JSONException unused) {
+                }
+                return this;
+            }
+            return (b) invokeZ.objValue;
+        }
+
+        public final void H(String str, String str2) {
+            Interceptable interceptable = $ic;
+            if (interceptable == null || interceptable.invokeLL(1048583, this, str, str2) == null) {
+                try {
+                    this.a.put(str, str2);
+                } catch (Throwable unused) {
+                }
             }
         }
 
-        @Override // com.baidu.tieba.ak1.e
-        public void c(String str, zj1<File> zj1Var) {
+        public xj1 a() {
+            InterceptResult invokeV;
             Interceptable interceptable = $ic;
-            if ((interceptable == null || interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, zj1Var) == null) && this.a.equals(str)) {
-                this.b.b();
-                this.c.q(this);
+            if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+                return new xj1(this.a, null);
             }
+            return (xj1) invokeV.objValue;
         }
     }
 
-    public xj1(Context context) {
+    public xj1(JSONObject jSONObject) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
             newInitContext.initArgs = r2;
-            Object[] objArr = {context};
-            interceptable.invokeUnInit(65537, newInitContext);
-            int i2 = newInitContext.flag;
-            if ((i2 & 1) != 0) {
-                int i3 = i2 & 2;
+            Object[] objArr = {jSONObject};
+            interceptable.invokeUnInit(65536, newInitContext);
+            int i = newInitContext.flag;
+            if ((i & 1) != 0) {
+                int i2 = i & 2;
                 newInitContext.thisArg = this;
-                interceptable.invokeInitBody(65537, newInitContext);
+                interceptable.invokeInitBody(65536, newInitContext);
                 return;
             }
         }
-        this.a = new LruCache<>(6);
-        String d2 = r41.d(context);
-        this.e = d2 + "img_download/";
-        this.f = d2 + "video_download/";
-        this.b = ak1.o(this.e, h);
-        this.c = ak1.o(this.f, i);
-        this.d = new ConcurrentHashMap();
+        this.a = jSONObject;
     }
 
-    public static String a(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65538, null, str)) == null) {
-            return Pattern.compile("[^a-zA-Z0-9]").matcher(str).replaceAll("").trim();
-        }
-        return (String) invokeL.objValue;
+    public /* synthetic */ xj1(JSONObject jSONObject, a aVar) {
+        this(jSONObject);
     }
 
-    public final ak1 c(MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeL;
+    public JSONObject a() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, materialCacheType)) == null) {
-            if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
-                return this.c;
-            }
-            return this.b;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+            return this.a;
         }
-        return (ak1) invokeL.objValue;
-    }
-
-    public final zj1<?> i(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048582, this, str)) == null) {
-            return this.a.get(str);
-        }
-        return (zj1) invokeL.objValue;
-    }
-
-    public Bitmap j(String str) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(1048583, this, str)) == null) {
-            return (Bitmap) k(str, MaterialLoader.MaterialCacheType.PICTURE, new a(this));
-        }
-        return (Bitmap) invokeL.objValue;
-    }
-
-    public static xj1 e(Context context) {
-        InterceptResult invokeL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeL = interceptable.invokeL(65539, null, context)) == null) {
-            if (g == null) {
-                synchronized (xj1.class) {
-                    if (g == null && context != null) {
-                        g = new xj1(context.getApplicationContext());
-                    }
-                }
-            }
-            return g;
-        }
-        return (xj1) invokeL.objValue;
-    }
-
-    public final String b(String str, ak1 ak1Var) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048576, this, str, ak1Var)) == null) {
-            String a2 = a(str);
-            return ak1Var.k() + a2;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public zj1<?> g(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
-        zj1<?> i2;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048580, this, str, materialCacheType)) == null) {
-            if (materialCacheType == MaterialLoader.MaterialCacheType.PICTURE && (i2 = i(str)) != null) {
-                return i2;
-            }
-            return h(str, materialCacheType);
-        }
-        return (zj1) invokeLL.objValue;
-    }
-
-    public final zj1<File> h(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048581, this, str, materialCacheType)) == null) {
-            return c(materialCacheType).j(str);
-        }
-        return (zj1) invokeLL.objValue;
-    }
-
-    public String d(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(Constants.METHOD_SEND_USER_MSG, this, str, materialCacheType)) == null) {
-            String a2 = a(str);
-            if (f(str, materialCacheType)) {
-                return c(materialCacheType).k() + a2;
-            }
-            return null;
-        }
-        return (String) invokeLL.objValue;
-    }
-
-    public boolean f(String str, MaterialLoader.MaterialCacheType materialCacheType) {
-        InterceptResult invokeLL;
-        boolean z;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLL = interceptable.invokeLL(1048579, this, str, materialCacheType)) == null) {
-            if (g(a(str), materialCacheType) != null) {
-                z = true;
-            } else {
-                z = false;
-            }
-            ak1 c2 = c(materialCacheType);
-            if (!z && !c2.e) {
-                return new File(b(str, c2)).exists();
-            }
-            return z;
-        }
-        return invokeLL.booleanValue;
-    }
-
-    public final <T> T k(String str, MaterialLoader.MaterialCacheType materialCacheType, d<T> dVar) {
-        InterceptResult invokeLLL;
-        Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeLLL = interceptable.invokeLLL(InputDeviceCompat.SOURCE_TOUCHPAD, this, str, materialCacheType, dVar)) == null) {
-            zj1<?> g2 = g(a(str), materialCacheType);
-            if (g2 != null) {
-                if (File.class.equals(g2.c())) {
-                    return dVar.b(g2.b());
-                }
-                if (Byte.TYPE.equals(g2.c())) {
-                    return null;
-                }
-                return dVar.a(g2.a());
-            }
-            if (!c(materialCacheType).e) {
-                File file = new File(b(str, c(materialCacheType)));
-                if (file.exists()) {
-                    return dVar.b(new zj1(file).b());
-                }
-            }
-            return null;
-        }
-        return (T) invokeLLL.objValue;
-    }
-
-    public void l(String str, Bitmap bitmap, boolean z) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeLLZ(1048585, this, str, bitmap, z) == null) {
-            m(str, new zj1<>(bitmap), this.b, z, null);
-        }
-    }
-
-    public final void m(String str, zj1<?> zj1Var, ak1 ak1Var, boolean z, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048586, this, new Object[]{str, zj1Var, ak1Var, Boolean.valueOf(z), cVar}) == null) {
-            try {
-                String a2 = a(str);
-                if (z) {
-                    this.a.put(a2, zj1Var);
-                }
-                File file = new File(ak1Var.k() + a2);
-                if (cVar != null) {
-                    ak1Var.f(new b(this, a2, cVar, ak1Var));
-                }
-                ak1Var.u(zj1Var.b(), new zj1<>(file));
-            } catch (Throwable unused) {
-            }
-        }
-    }
-
-    public void n(String str, byte[] bArr, MaterialLoader.MaterialCacheType materialCacheType, boolean z, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048587, this, new Object[]{str, bArr, materialCacheType, Boolean.valueOf(z), cVar}) == null) {
-            zj1<?> zj1Var = new zj1<>(bArr);
-            ak1 ak1Var = this.b;
-            if (materialCacheType == MaterialLoader.MaterialCacheType.VIDEO) {
-                ak1Var = this.c;
-            }
-            m(str, zj1Var, ak1Var, z, cVar);
-        }
-    }
-
-    public void o(String str, byte[] bArr, String str2, int i2, boolean z, c cVar) {
-        Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeCommon(1048588, this, new Object[]{str, bArr, str2, Integer.valueOf(i2), Boolean.valueOf(z), cVar}) == null) {
-            zj1<?> zj1Var = new zj1<>(bArr);
-            ak1 ak1Var = this.d.get(str2);
-            if (ak1Var == null) {
-                ak1Var = ak1.o(str2, i2);
-                this.d.put(str2, ak1Var);
-            } else if (ak1Var.l() != i2) {
-                ak1Var.trimToSize(i2);
-            }
-            m(str, zj1Var, ak1Var, z, cVar);
-        }
+        return (JSONObject) invokeV.objValue;
     }
 }

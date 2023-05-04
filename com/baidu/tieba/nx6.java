@@ -1,24 +1,84 @@
 package com.baidu.tieba;
 
+import android.view.View;
+import androidx.core.view.InputDeviceCompat;
 import com.baidu.android.imsdk.internal.Constants;
+import com.baidu.tieba.feed.helper.CommonOnClickKt;
 import com.baidu.titan.sdk.runtime.FieldHolder;
 import com.baidu.titan.sdk.runtime.InitContext;
 import com.baidu.titan.sdk.runtime.InterceptResult;
 import com.baidu.titan.sdk.runtime.Interceptable;
 import com.baidu.titan.sdk.runtime.TitanRuntime;
-import java.util.HashMap;
-import java.util.Map;
+import kotlin.Unit;
+import kotlin.jvm.JvmOverloads;
+import kotlin.jvm.functions.Function2;
+import kotlin.jvm.internal.DefaultConstructorMarker;
 import kotlin.jvm.internal.Intrinsics;
 /* loaded from: classes5.dex */
-public final class nx6 {
+public final class nx6 implements s17<nx6> {
     public static /* synthetic */ Interceptable $ic;
     public transient /* synthetic */ FieldHolder $fh;
-    public Map<String, String> a;
+    public final String a;
+    public final String b;
+    public final Function2<View, String, Unit> c;
+    public final lz6 d;
 
-    public nx6() {
+    @Override // com.baidu.tieba.s17
+    public String a() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) ? "feed_entrybar" : (String) invokeV.objValue;
+    }
+
+    public nx6 c() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        return (interceptable == null || (invokeV = interceptable.invokeV(Constants.METHOD_SEND_USER_MSG, this)) == null) ? this : (nx6) invokeV.objValue;
+    }
+
+    public boolean equals(Object obj) {
+        InterceptResult invokeL;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeL = interceptable.invokeL(1048581, this, obj)) == null) {
+            if (this == obj) {
+                return true;
+            }
+            if (obj instanceof nx6) {
+                nx6 nx6Var = (nx6) obj;
+                return Intrinsics.areEqual(this.a, nx6Var.a) && Intrinsics.areEqual(this.b, nx6Var.b) && Intrinsics.areEqual(this.c, nx6Var.c) && Intrinsics.areEqual(this.d, nx6Var.d);
+            }
+            return false;
+        }
+        return invokeL.booleanValue;
+    }
+
+    public int hashCode() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048583, this)) == null) {
+            int hashCode = ((((this.a.hashCode() * 31) + this.b.hashCode()) * 31) + this.c.hashCode()) * 31;
+            lz6 lz6Var = this.d;
+            return hashCode + (lz6Var == null ? 0 : lz6Var.hashCode());
+        }
+        return invokeV.intValue;
+    }
+
+    public String toString() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(InputDeviceCompat.SOURCE_TOUCHPAD, this)) == null) {
+            return "CardForumEnterUiState(forumName=" + this.a + ", jumpSchema=" + this.b + ", onClick=" + this.c + ", statData=" + this.d + ')';
+        }
+        return (String) invokeV.objValue;
+    }
+
+    @JvmOverloads
+    public nx6(String forumName, String jumpSchema, Function2<? super View, ? super String, Unit> onClick, lz6 lz6Var) {
         Interceptable interceptable = $ic;
         if (interceptable != null) {
             InitContext newInitContext = TitanRuntime.newInitContext();
+            newInitContext.initArgs = r2;
+            Object[] objArr = {forumName, jumpSchema, onClick, lz6Var};
             interceptable.invokeUnInit(65536, newInitContext);
             int i = newInitContext.flag;
             if ((i & 1) != 0) {
@@ -28,23 +88,50 @@ public final class nx6 {
                 return;
             }
         }
-        this.a = new HashMap();
+        Intrinsics.checkNotNullParameter(forumName, "forumName");
+        Intrinsics.checkNotNullParameter(jumpSchema, "jumpSchema");
+        Intrinsics.checkNotNullParameter(onClick, "onClick");
+        this.a = forumName;
+        this.b = jumpSchema;
+        this.c = onClick;
+        this.d = lz6Var;
     }
 
-    public final Map<String, String> a() {
+    public /* synthetic */ nx6(String str, String str2, Function2 function2, lz6 lz6Var, int i, DefaultConstructorMarker defaultConstructorMarker) {
+        this(str, str2, (i & 4) != 0 ? CommonOnClickKt.b() : function2, (i & 8) != 0 ? null : lz6Var);
+    }
+
+    /* JADX DEBUG: Return type fixed from 'java.lang.Object' to match base method */
+    @Override // com.baidu.tieba.s17
+    public /* bridge */ /* synthetic */ nx6 b() {
+        c();
+        return this;
+    }
+
+    public final String d() {
         InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || (invokeV = interceptable.invokeV(1048576, this)) == null) {
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048579, this)) == null) {
             return this.a;
         }
-        return (Map) invokeV.objValue;
+        return (String) invokeV.objValue;
     }
 
-    public final void b(Map<String, String> map) {
+    public final String e() {
+        InterceptResult invokeV;
         Interceptable interceptable = $ic;
-        if (interceptable == null || interceptable.invokeL(Constants.METHOD_GET_CONTACTER_INFO_FOR_SESSION, this, map) == null) {
-            Intrinsics.checkNotNullParameter(map, "<set-?>");
-            this.a = map;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048580, this)) == null) {
+            return this.b;
         }
+        return (String) invokeV.objValue;
+    }
+
+    public final Function2<View, String, Unit> f() {
+        InterceptResult invokeV;
+        Interceptable interceptable = $ic;
+        if (interceptable == null || (invokeV = interceptable.invokeV(1048582, this)) == null) {
+            return this.c;
+        }
+        return (Function2) invokeV.objValue;
     }
 }
